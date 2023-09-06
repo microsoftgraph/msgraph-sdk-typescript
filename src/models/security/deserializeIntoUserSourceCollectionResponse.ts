@@ -1,9 +1,9 @@
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
-import {createUserSourceFromDiscriminatorValue} from './createUserSourceFromDiscriminatorValue';
-import {serializeUserSource} from './serializeUserSource';
-import type {UserSource} from './userSource';
-import type {UserSourceCollectionResponse} from './userSourceCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../deserializeIntoBaseCollectionPaginationCountResponse';
+import { createUserSourceFromDiscriminatorValue } from './createUserSourceFromDiscriminatorValue';
+import { serializeUserSource } from './serializeUserSource';
+import { type UserSource } from './userSource';
+import { type UserSourceCollectionResponse } from './userSourceCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserSourceCollectionResponse(userSourceCollectionResponse: UserSourceCollectionResponse | undefined = {} as UserSourceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

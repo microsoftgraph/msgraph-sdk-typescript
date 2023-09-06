@@ -1,11 +1,11 @@
-import type {ChatInfo} from '../../../models/chatInfo';
-import {createChatInfoFromDiscriminatorValue} from '../../../models/createChatInfoFromDiscriminatorValue';
-import {createMeetingParticipantsFromDiscriminatorValue} from '../../../models/createMeetingParticipantsFromDiscriminatorValue';
-import type {MeetingParticipants} from '../../../models/meetingParticipants';
-import {serializeChatInfo} from '../../../models/serializeChatInfo';
-import {serializeMeetingParticipants} from '../../../models/serializeMeetingParticipants';
-import type {CreateOrGetPostRequestBody} from './createOrGetPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ChatInfo } from '../../../models/chatInfo';
+import { createChatInfoFromDiscriminatorValue } from '../../../models/createChatInfoFromDiscriminatorValue';
+import { createMeetingParticipantsFromDiscriminatorValue } from '../../../models/createMeetingParticipantsFromDiscriminatorValue';
+import { type MeetingParticipants } from '../../../models/meetingParticipants';
+import { serializeChatInfo } from '../../../models/serializeChatInfo';
+import { serializeMeetingParticipants } from '../../../models/serializeMeetingParticipants';
+import { type CreateOrGetPostRequestBody } from './createOrGetPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequestBody: CreateOrGetPostRequestBody | undefined = {} as CreateOrGetPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,8 +1,8 @@
-import {deserializeIntoCallOptions} from './deserializeIntoCallOptions';
-import {deserializeIntoIncomingCallOptions} from './deserializeIntoIncomingCallOptions';
-import {deserializeIntoOutgoingCallOptions} from './deserializeIntoOutgoingCallOptions';
-import {CallOptions, IncomingCallOptions, OutgoingCallOptions} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCallOptions } from './deserializeIntoCallOptions';
+import { deserializeIntoIncomingCallOptions } from './deserializeIntoIncomingCallOptions';
+import { deserializeIntoOutgoingCallOptions } from './deserializeIntoOutgoingCallOptions';
+import { type CallOptions, type IncomingCallOptions, type OutgoingCallOptions } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCallOptionsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

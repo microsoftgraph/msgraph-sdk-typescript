@@ -1,5 +1,5 @@
-import {ProvisioningStatusErrorCategory} from './provisioningStatusErrorCategory';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ProvisioningStatusErrorCategory } from './provisioningStatusErrorCategory';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ProvisioningErrorInfo extends AdditionalDataHolder, Parsable {
     /**

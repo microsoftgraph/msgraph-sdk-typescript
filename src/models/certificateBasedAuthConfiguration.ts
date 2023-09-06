@@ -1,6 +1,6 @@
-import type {CertificateAuthority} from './certificateAuthority';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type CertificateAuthority } from './certificateAuthority';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CertificateBasedAuthConfiguration extends Entity, Parsable {
     /**

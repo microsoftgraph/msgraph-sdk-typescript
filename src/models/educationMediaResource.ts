@@ -1,5 +1,5 @@
-import type {EducationResource} from './educationResource';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type EducationResource } from './educationResource';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EducationMediaResource extends EducationResource, Parsable {
     /**

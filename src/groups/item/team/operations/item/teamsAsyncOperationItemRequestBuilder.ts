@@ -1,16 +1,15 @@
-import {createTeamsAsyncOperationFromDiscriminatorValue} from '../../../../../models/createTeamsAsyncOperationFromDiscriminatorValue';
-import {deserializeIntoTeamsAsyncOperation} from '../../../../../models/deserializeIntoTeamsAsyncOperation';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeTeamsAsyncOperation} from '../../../../../models/serializeTeamsAsyncOperation';
-import type {TeamsAsyncOperation} from '../../../../../models/teamsAsyncOperation';
-import {TeamsAsyncOperationItemRequestBuilderDeleteRequestConfiguration} from './teamsAsyncOperationItemRequestBuilderDeleteRequestConfiguration';
-import {TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration} from './teamsAsyncOperationItemRequestBuilderGetRequestConfiguration';
-import {TeamsAsyncOperationItemRequestBuilderPatchRequestConfiguration} from './teamsAsyncOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTeamsAsyncOperationFromDiscriminatorValue } from '../../../../../models/createTeamsAsyncOperationFromDiscriminatorValue';
+import { deserializeIntoTeamsAsyncOperation } from '../../../../../models/deserializeIntoTeamsAsyncOperation';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeTeamsAsyncOperation } from '../../../../../models/serializeTeamsAsyncOperation';
+import { type TeamsAsyncOperation } from '../../../../../models/teamsAsyncOperation';
+import { type TeamsAsyncOperationItemRequestBuilderDeleteRequestConfiguration } from './teamsAsyncOperationItemRequestBuilderDeleteRequestConfiguration';
+import { type TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration } from './teamsAsyncOperationItemRequestBuilderGetRequestConfiguration';
+import { type TeamsAsyncOperationItemRequestBuilderPatchRequestConfiguration } from './teamsAsyncOperationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.team entity.

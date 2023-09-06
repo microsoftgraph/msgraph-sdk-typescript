@@ -1,5 +1,5 @@
-import {CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters} from './certificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters } from './certificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CertificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,6 +1,6 @@
-import type {DelegatedAdminAccessContainer} from './delegatedAdminAccessContainer';
-import {DelegatedAdminAccessContainerType} from './delegatedAdminAccessContainerType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DelegatedAdminAccessContainer } from './delegatedAdminAccessContainer';
+import { DelegatedAdminAccessContainerType } from './delegatedAdminAccessContainerType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDelegatedAdminAccessContainer(writer: SerializationWriter, delegatedAdminAccessContainer: DelegatedAdminAccessContainer | undefined = {} as DelegatedAdminAccessContainer) : void {
         writer.writeStringValue("accessContainerId", delegatedAdminAccessContainer.accessContainerId);

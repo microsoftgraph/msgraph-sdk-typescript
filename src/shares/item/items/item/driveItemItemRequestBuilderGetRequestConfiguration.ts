@@ -1,5 +1,5 @@
-import {DriveItemItemRequestBuilderGetQueryParameters} from './driveItemItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DriveItemItemRequestBuilderGetQueryParameters } from './driveItemItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DriveItemItemRequestBuilderGetRequestConfiguration {
     /**

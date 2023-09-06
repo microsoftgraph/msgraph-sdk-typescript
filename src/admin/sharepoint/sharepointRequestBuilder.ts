@@ -1,17 +1,16 @@
-import {createSharepointFromDiscriminatorValue} from '../../models/createSharepointFromDiscriminatorValue';
-import {deserializeIntoSharepoint} from '../../models/deserializeIntoSharepoint';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeSharepoint} from '../../models/serializeSharepoint';
-import type {Sharepoint} from '../../models/sharepoint';
-import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
-import {SharepointRequestBuilderDeleteRequestConfiguration} from './sharepointRequestBuilderDeleteRequestConfiguration';
-import {SharepointRequestBuilderGetRequestConfiguration} from './sharepointRequestBuilderGetRequestConfiguration';
-import {SharepointRequestBuilderPatchRequestConfiguration} from './sharepointRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSharepointFromDiscriminatorValue } from '../../models/createSharepointFromDiscriminatorValue';
+import { deserializeIntoSharepoint } from '../../models/deserializeIntoSharepoint';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeSharepoint } from '../../models/serializeSharepoint';
+import { type Sharepoint } from '../../models/sharepoint';
+import { SettingsRequestBuilder } from './settings/settingsRequestBuilder';
+import { type SharepointRequestBuilderDeleteRequestConfiguration } from './sharepointRequestBuilderDeleteRequestConfiguration';
+import { type SharepointRequestBuilderGetRequestConfiguration } from './sharepointRequestBuilderGetRequestConfiguration';
+import { type SharepointRequestBuilderPatchRequestConfiguration } from './sharepointRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharepoint property of the microsoft.graph.admin entity.

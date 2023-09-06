@@ -1,19 +1,18 @@
-import {AgreementFileVersionCollectionResponse} from '../../../../../../../../models/';
-import type {AgreementFileVersion} from '../../../../../../../../models/agreementFileVersion';
-import {createAgreementFileVersionCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createAgreementFileVersionCollectionResponseFromDiscriminatorValue';
-import {createAgreementFileVersionFromDiscriminatorValue} from '../../../../../../../../models/createAgreementFileVersionFromDiscriminatorValue';
-import {deserializeIntoAgreementFileVersion} from '../../../../../../../../models/deserializeIntoAgreementFileVersion';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAgreementFileVersion} from '../../../../../../../../models/serializeAgreementFileVersion';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AgreementFileVersionItemRequestBuilder} from './item/agreementFileVersionItemRequestBuilder';
-import {VersionsRequestBuilderGetRequestConfiguration} from './versionsRequestBuilderGetRequestConfiguration';
-import {VersionsRequestBuilderPostRequestConfiguration} from './versionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AgreementFileVersionCollectionResponse } from '../../../../../../../../models/';
+import { type AgreementFileVersion } from '../../../../../../../../models/agreementFileVersion';
+import { createAgreementFileVersionCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createAgreementFileVersionCollectionResponseFromDiscriminatorValue';
+import { createAgreementFileVersionFromDiscriminatorValue } from '../../../../../../../../models/createAgreementFileVersionFromDiscriminatorValue';
+import { deserializeIntoAgreementFileVersion } from '../../../../../../../../models/deserializeIntoAgreementFileVersion';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAgreementFileVersion } from '../../../../../../../../models/serializeAgreementFileVersion';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AgreementFileVersionItemRequestBuilder } from './item/agreementFileVersionItemRequestBuilder';
+import { type VersionsRequestBuilderGetRequestConfiguration } from './versionsRequestBuilderGetRequestConfiguration';
+import { type VersionsRequestBuilderPostRequestConfiguration } from './versionsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity.

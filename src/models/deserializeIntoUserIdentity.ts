@@ -1,6 +1,6 @@
-import {deserializeIntoIdentity} from './deserializeIntoIdentity';
-import type {UserIdentity} from './userIdentity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIdentity } from './deserializeIntoIdentity';
+import { type UserIdentity } from './userIdentity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserIdentity(userIdentity: UserIdentity | undefined = {} as UserIdentity) : Record<string, (node: ParseNode) => void> {
     return {

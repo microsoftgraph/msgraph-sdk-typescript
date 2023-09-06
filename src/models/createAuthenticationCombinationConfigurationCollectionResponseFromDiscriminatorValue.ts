@@ -1,6 +1,6 @@
-import {deserializeIntoAuthenticationCombinationConfigurationCollectionResponse} from './deserializeIntoAuthenticationCombinationConfigurationCollectionResponse';
-import {AuthenticationCombinationConfigurationCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAuthenticationCombinationConfigurationCollectionResponse } from './deserializeIntoAuthenticationCombinationConfigurationCollectionResponse';
+import { type AuthenticationCombinationConfigurationCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAuthenticationCombinationConfigurationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

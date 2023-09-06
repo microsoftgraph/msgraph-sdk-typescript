@@ -1,6 +1,6 @@
-import type {AttributeRuleMembers} from './attributeRuleMembers';
-import {serializeSubjectSet} from './serializeSubjectSet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttributeRuleMembers } from './attributeRuleMembers';
+import { serializeSubjectSet } from './serializeSubjectSet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAttributeRuleMembers(writer: SerializationWriter, attributeRuleMembers: AttributeRuleMembers | undefined = {} as AttributeRuleMembers) : void {
         serializeSubjectSet(writer, attributeRuleMembers)

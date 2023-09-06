@@ -1,5 +1,5 @@
-import {ExchangeIdFormat} from '../../../models/exchangeIdFormat';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ExchangeIdFormat } from '../../../models/exchangeIdFormat';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TranslateExchangeIdsPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

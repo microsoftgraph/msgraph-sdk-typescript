@@ -1,9 +1,9 @@
-import {deserializeIntoDeviceEnrollmentConfiguration} from './deserializeIntoDeviceEnrollmentConfiguration';
-import {deserializeIntoDeviceEnrollmentLimitConfiguration} from './deserializeIntoDeviceEnrollmentLimitConfiguration';
-import {deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration} from './deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration';
-import {deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration} from './deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration';
-import {DeviceEnrollmentConfiguration, DeviceEnrollmentLimitConfiguration, DeviceEnrollmentPlatformRestrictionsConfiguration, DeviceEnrollmentWindowsHelloForBusinessConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceEnrollmentConfiguration } from './deserializeIntoDeviceEnrollmentConfiguration';
+import { deserializeIntoDeviceEnrollmentLimitConfiguration } from './deserializeIntoDeviceEnrollmentLimitConfiguration';
+import { deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration } from './deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration';
+import { deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration } from './deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration';
+import { type DeviceEnrollmentConfiguration, type DeviceEnrollmentLimitConfiguration, type DeviceEnrollmentPlatformRestrictionsConfiguration, type DeviceEnrollmentWindowsHelloForBusinessConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeviceEnrollmentConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,9 +1,9 @@
-import {deserializeIntoJoinMeetingIdMeetingInfo} from './deserializeIntoJoinMeetingIdMeetingInfo';
-import {deserializeIntoMeetingInfo} from './deserializeIntoMeetingInfo';
-import {deserializeIntoOrganizerMeetingInfo} from './deserializeIntoOrganizerMeetingInfo';
-import {deserializeIntoTokenMeetingInfo} from './deserializeIntoTokenMeetingInfo';
-import {JoinMeetingIdMeetingInfo, MeetingInfo, OrganizerMeetingInfo, TokenMeetingInfo} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoJoinMeetingIdMeetingInfo } from './deserializeIntoJoinMeetingIdMeetingInfo';
+import { deserializeIntoMeetingInfo } from './deserializeIntoMeetingInfo';
+import { deserializeIntoOrganizerMeetingInfo } from './deserializeIntoOrganizerMeetingInfo';
+import { deserializeIntoTokenMeetingInfo } from './deserializeIntoTokenMeetingInfo';
+import { type JoinMeetingIdMeetingInfo, type MeetingInfo, type OrganizerMeetingInfo, type TokenMeetingInfo } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMeetingInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

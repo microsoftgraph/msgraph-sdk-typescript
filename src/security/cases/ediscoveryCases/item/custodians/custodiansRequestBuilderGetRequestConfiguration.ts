@@ -1,5 +1,5 @@
-import {CustodiansRequestBuilderGetQueryParameters} from './custodiansRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CustodiansRequestBuilderGetQueryParameters } from './custodiansRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CustodiansRequestBuilderGetRequestConfiguration {
     /**

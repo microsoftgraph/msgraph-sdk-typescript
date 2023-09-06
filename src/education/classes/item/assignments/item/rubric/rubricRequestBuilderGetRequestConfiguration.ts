@@ -1,5 +1,5 @@
-import {RubricRequestBuilderGetQueryParameters} from './rubricRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RubricRequestBuilderGetQueryParameters } from './rubricRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RubricRequestBuilderGetRequestConfiguration {
     /**

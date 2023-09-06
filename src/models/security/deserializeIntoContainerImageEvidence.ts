@@ -1,11 +1,11 @@
-import type {ContainerImageEvidence} from './containerImageEvidence';
-import type {ContainerRegistryEvidence} from './containerRegistryEvidence';
-import {createContainerImageEvidenceFromDiscriminatorValue} from './createContainerImageEvidenceFromDiscriminatorValue';
-import {createContainerRegistryEvidenceFromDiscriminatorValue} from './createContainerRegistryEvidenceFromDiscriminatorValue';
-import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {serializeContainerImageEvidence} from './serializeContainerImageEvidence';
-import {serializeContainerRegistryEvidence} from './serializeContainerRegistryEvidence';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ContainerImageEvidence } from './containerImageEvidence';
+import { type ContainerRegistryEvidence } from './containerRegistryEvidence';
+import { createContainerImageEvidenceFromDiscriminatorValue } from './createContainerImageEvidenceFromDiscriminatorValue';
+import { createContainerRegistryEvidenceFromDiscriminatorValue } from './createContainerRegistryEvidenceFromDiscriminatorValue';
+import { deserializeIntoAlertEvidence } from './deserializeIntoAlertEvidence';
+import { serializeContainerImageEvidence } from './serializeContainerImageEvidence';
+import { serializeContainerRegistryEvidence } from './serializeContainerRegistryEvidence';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContainerImageEvidence(containerImageEvidence: ContainerImageEvidence | undefined = {} as ContainerImageEvidence) : Record<string, (node: ParseNode) => void> {
     return {

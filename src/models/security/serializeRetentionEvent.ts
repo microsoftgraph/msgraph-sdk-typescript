@@ -1,16 +1,16 @@
-import type {IdentitySet} from '../identitySet';
-import {serializeEntity} from '../serializeEntity';
-import {serializeIdentitySet} from '../serializeIdentitySet';
-import type {EventPropagationResult} from './eventPropagationResult';
-import type {EventQuery} from './eventQuery';
-import type {RetentionEvent} from './retentionEvent';
-import type {RetentionEventStatus} from './retentionEventStatus';
-import type {RetentionEventType} from './retentionEventType';
-import {serializeEventPropagationResult} from './serializeEventPropagationResult';
-import {serializeEventQuery} from './serializeEventQuery';
-import {serializeRetentionEventStatus} from './serializeRetentionEventStatus';
-import {serializeRetentionEventType} from './serializeRetentionEventType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from '../identitySet';
+import { serializeEntity } from '../serializeEntity';
+import { serializeIdentitySet } from '../serializeIdentitySet';
+import { type EventPropagationResult } from './eventPropagationResult';
+import { type EventQuery } from './eventQuery';
+import { type RetentionEvent } from './retentionEvent';
+import { type RetentionEventStatus } from './retentionEventStatus';
+import { type RetentionEventType } from './retentionEventType';
+import { serializeEventPropagationResult } from './serializeEventPropagationResult';
+import { serializeEventQuery } from './serializeEventQuery';
+import { serializeRetentionEventStatus } from './serializeRetentionEventStatus';
+import { serializeRetentionEventType } from './serializeRetentionEventType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRetentionEvent(writer: SerializationWriter, retentionEvent: RetentionEvent | undefined = {} as RetentionEvent) : void {
         serializeEntity(writer, retentionEvent)

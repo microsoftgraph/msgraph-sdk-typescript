@@ -1,5 +1,5 @@
-import {AuthenticationCombinationConfigurationItemRequestBuilderGetQueryParameters} from './authenticationCombinationConfigurationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationCombinationConfigurationItemRequestBuilderGetQueryParameters } from './authenticationCombinationConfigurationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration {
     /**

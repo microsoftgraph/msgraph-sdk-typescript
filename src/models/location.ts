@@ -1,8 +1,8 @@
-import {LocationType} from './locationType';
-import {LocationUniqueIdType} from './locationUniqueIdType';
-import type {OutlookGeoCoordinates} from './outlookGeoCoordinates';
-import type {PhysicalAddress} from './physicalAddress';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { LocationType } from './locationType';
+import { LocationUniqueIdType } from './locationUniqueIdType';
+import { type OutlookGeoCoordinates } from './outlookGeoCoordinates';
+import { type PhysicalAddress } from './physicalAddress';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Location extends AdditionalDataHolder, Parsable {
     /**

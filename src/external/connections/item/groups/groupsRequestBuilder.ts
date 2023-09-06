@@ -1,19 +1,18 @@
-import {ExternalGroupCollectionResponse} from '../../../../models/externalConnectors/';
-import {createExternalGroupCollectionResponseFromDiscriminatorValue} from '../../../../models/externalConnectors/createExternalGroupCollectionResponseFromDiscriminatorValue';
-import {createExternalGroupFromDiscriminatorValue} from '../../../../models/externalConnectors/createExternalGroupFromDiscriminatorValue';
-import {deserializeIntoExternalGroup} from '../../../../models/externalConnectors/deserializeIntoExternalGroup';
-import type {ExternalGroup} from '../../../../models/externalConnectors/externalGroup';
-import {serializeExternalGroup} from '../../../../models/externalConnectors/serializeExternalGroup';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GroupsRequestBuilderGetRequestConfiguration} from './groupsRequestBuilderGetRequestConfiguration';
-import {GroupsRequestBuilderPostRequestConfiguration} from './groupsRequestBuilderPostRequestConfiguration';
-import {ExternalGroupItemRequestBuilder} from './item/externalGroupItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExternalGroupCollectionResponse } from '../../../../models/externalConnectors/';
+import { createExternalGroupCollectionResponseFromDiscriminatorValue } from '../../../../models/externalConnectors/createExternalGroupCollectionResponseFromDiscriminatorValue';
+import { createExternalGroupFromDiscriminatorValue } from '../../../../models/externalConnectors/createExternalGroupFromDiscriminatorValue';
+import { deserializeIntoExternalGroup } from '../../../../models/externalConnectors/deserializeIntoExternalGroup';
+import { type ExternalGroup } from '../../../../models/externalConnectors/externalGroup';
+import { serializeExternalGroup } from '../../../../models/externalConnectors/serializeExternalGroup';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type GroupsRequestBuilderGetRequestConfiguration } from './groupsRequestBuilderGetRequestConfiguration';
+import { type GroupsRequestBuilderPostRequestConfiguration } from './groupsRequestBuilderPostRequestConfiguration';
+import { ExternalGroupItemRequestBuilder } from './item/externalGroupItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.

@@ -1,11 +1,11 @@
-import type {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
-import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import type {AccessReviewStageSettings} from './accessReviewStageSettings';
-import {createAccessReviewRecommendationInsightSettingFromDiscriminatorValue} from './createAccessReviewRecommendationInsightSettingFromDiscriminatorValue';
-import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
-import {serializeAccessReviewRecommendationInsightSetting} from './serializeAccessReviewRecommendationInsightSetting';
-import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessReviewRecommendationInsightSetting } from './accessReviewRecommendationInsightSetting';
+import { type AccessReviewReviewerScope } from './accessReviewReviewerScope';
+import { type AccessReviewStageSettings } from './accessReviewStageSettings';
+import { createAccessReviewRecommendationInsightSettingFromDiscriminatorValue } from './createAccessReviewRecommendationInsightSettingFromDiscriminatorValue';
+import { createAccessReviewReviewerScopeFromDiscriminatorValue } from './createAccessReviewReviewerScopeFromDiscriminatorValue';
+import { serializeAccessReviewRecommendationInsightSetting } from './serializeAccessReviewRecommendationInsightSetting';
+import { serializeAccessReviewReviewerScope } from './serializeAccessReviewReviewerScope';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewStageSettings(accessReviewStageSettings: AccessReviewStageSettings | undefined = {} as AccessReviewStageSettings) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
-import {deserializeIntoAppRole} from './deserializeIntoAppRole';
-import {AppRole} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAppRole } from './deserializeIntoAppRole';
+import { type AppRole } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAppRoleFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

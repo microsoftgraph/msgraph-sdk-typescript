@@ -1,9 +1,9 @@
-import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import type {AdminConsentRequestPolicy} from './adminConsentRequestPolicy';
-import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessReviewReviewerScope } from './accessReviewReviewerScope';
+import { type AdminConsentRequestPolicy } from './adminConsentRequestPolicy';
+import { createAccessReviewReviewerScopeFromDiscriminatorValue } from './createAccessReviewReviewerScopeFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeAccessReviewReviewerScope } from './serializeAccessReviewReviewerScope';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAdminConsentRequestPolicy(adminConsentRequestPolicy: AdminConsentRequestPolicy | undefined = {} as AdminConsentRequestPolicy) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,12 +1,12 @@
-import {createTeamsAppFromDiscriminatorValue} from './createTeamsAppFromDiscriminatorValue';
-import {createTeamsTabConfigurationFromDiscriminatorValue} from './createTeamsTabConfigurationFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeTeamsApp} from './serializeTeamsApp';
-import {serializeTeamsTabConfiguration} from './serializeTeamsTabConfiguration';
-import type {TeamsApp} from './teamsApp';
-import type {TeamsTab} from './teamsTab';
-import type {TeamsTabConfiguration} from './teamsTabConfiguration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTeamsAppFromDiscriminatorValue } from './createTeamsAppFromDiscriminatorValue';
+import { createTeamsTabConfigurationFromDiscriminatorValue } from './createTeamsTabConfigurationFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeTeamsApp } from './serializeTeamsApp';
+import { serializeTeamsTabConfiguration } from './serializeTeamsTabConfiguration';
+import { type TeamsApp } from './teamsApp';
+import { type TeamsTab } from './teamsTab';
+import { type TeamsTabConfiguration } from './teamsTabConfiguration';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsTab(teamsTab: TeamsTab | undefined = {} as TeamsTab) : Record<string, (node: ParseNode) => void> {
     return {

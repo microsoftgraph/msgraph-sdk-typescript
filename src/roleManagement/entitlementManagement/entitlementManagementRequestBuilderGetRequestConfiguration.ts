@@ -1,5 +1,5 @@
-import {EntitlementManagementRequestBuilderGetQueryParameters} from './entitlementManagementRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EntitlementManagementRequestBuilderGetQueryParameters } from './entitlementManagementRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EntitlementManagementRequestBuilderGetRequestConfiguration {
     /**

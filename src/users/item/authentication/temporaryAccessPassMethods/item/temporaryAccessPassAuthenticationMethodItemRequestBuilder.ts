@@ -1,13 +1,12 @@
-import {TemporaryAccessPassAuthenticationMethod} from '../../../../../models/';
-import {createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue} from '../../../../../models/createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {TemporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration} from './temporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import {TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './temporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TemporaryAccessPassAuthenticationMethod } from '../../../../../models/';
+import { createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type TemporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './temporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
+import { type TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './temporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.

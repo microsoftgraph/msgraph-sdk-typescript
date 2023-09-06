@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {createHostTrackerFromDiscriminatorValue} from '../../../../models/security/createHostTrackerFromDiscriminatorValue';
-import {deserializeIntoHostTracker} from '../../../../models/security/deserializeIntoHostTracker';
-import type {HostTracker} from '../../../../models/security/hostTracker';
-import {serializeHostTracker} from '../../../../models/security/serializeHostTracker';
-import {HostRequestBuilder} from './host/hostRequestBuilder';
-import {HostTrackerItemRequestBuilderDeleteRequestConfiguration} from './hostTrackerItemRequestBuilderDeleteRequestConfiguration';
-import {HostTrackerItemRequestBuilderGetRequestConfiguration} from './hostTrackerItemRequestBuilderGetRequestConfiguration';
-import {HostTrackerItemRequestBuilderPatchRequestConfiguration} from './hostTrackerItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createHostTrackerFromDiscriminatorValue } from '../../../../models/security/createHostTrackerFromDiscriminatorValue';
+import { deserializeIntoHostTracker } from '../../../../models/security/deserializeIntoHostTracker';
+import { type HostTracker } from '../../../../models/security/hostTracker';
+import { serializeHostTracker } from '../../../../models/security/serializeHostTracker';
+import { HostRequestBuilder } from './host/hostRequestBuilder';
+import { type HostTrackerItemRequestBuilderDeleteRequestConfiguration } from './hostTrackerItemRequestBuilderDeleteRequestConfiguration';
+import { type HostTrackerItemRequestBuilderGetRequestConfiguration } from './hostTrackerItemRequestBuilderGetRequestConfiguration';
+import { type HostTrackerItemRequestBuilderPatchRequestConfiguration } from './hostTrackerItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.

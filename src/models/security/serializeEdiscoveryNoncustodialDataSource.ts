@@ -1,10 +1,10 @@
-import type {DataSource} from './dataSource';
-import type {EdiscoveryIndexOperation} from './ediscoveryIndexOperation';
-import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
-import {serializeDataSource} from './serializeDataSource';
-import {serializeDataSourceContainer} from './serializeDataSourceContainer';
-import {serializeEdiscoveryIndexOperation} from './serializeEdiscoveryIndexOperation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DataSource } from './dataSource';
+import { type EdiscoveryIndexOperation } from './ediscoveryIndexOperation';
+import { type EdiscoveryNoncustodialDataSource } from './ediscoveryNoncustodialDataSource';
+import { serializeDataSource } from './serializeDataSource';
+import { serializeDataSourceContainer } from './serializeDataSourceContainer';
+import { serializeEdiscoveryIndexOperation } from './serializeEdiscoveryIndexOperation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoveryNoncustodialDataSource(writer: SerializationWriter, ediscoveryNoncustodialDataSource: EdiscoveryNoncustodialDataSource | undefined = {} as EdiscoveryNoncustodialDataSource) : void {
         serializeDataSourceContainer(writer, ediscoveryNoncustodialDataSource)

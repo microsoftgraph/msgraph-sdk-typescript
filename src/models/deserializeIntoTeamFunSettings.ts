@@ -1,6 +1,6 @@
-import {GiphyRatingType} from './giphyRatingType';
-import type {TeamFunSettings} from './teamFunSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { GiphyRatingType } from './giphyRatingType';
+import { type TeamFunSettings } from './teamFunSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamFunSettings(teamFunSettings: TeamFunSettings | undefined = {} as TeamFunSettings) : Record<string, (node: ParseNode) => void> {
     return {

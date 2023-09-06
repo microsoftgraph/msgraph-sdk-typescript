@@ -1,5 +1,5 @@
-import {GraphAppRoleAssignmentRequestBuilderGetQueryParameters} from './graphAppRoleAssignmentRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GraphAppRoleAssignmentRequestBuilderGetQueryParameters } from './graphAppRoleAssignmentRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GraphAppRoleAssignmentRequestBuilderGetRequestConfiguration {
     /**

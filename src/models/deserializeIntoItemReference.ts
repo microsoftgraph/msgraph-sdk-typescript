@@ -1,8 +1,8 @@
-import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
-import type {ItemReference} from './itemReference';
-import {serializeSharepointIds} from './serializeSharepointIds';
-import type {SharepointIds} from './sharepointIds';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSharepointIdsFromDiscriminatorValue } from './createSharepointIdsFromDiscriminatorValue';
+import { type ItemReference } from './itemReference';
+import { serializeSharepointIds } from './serializeSharepointIds';
+import { type SharepointIds } from './sharepointIds';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoItemReference(itemReference: ItemReference | undefined = {} as ItemReference) : Record<string, (node: ParseNode) => void> {
     return {

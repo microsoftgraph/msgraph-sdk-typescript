@@ -1,5 +1,5 @@
-import {ScheduledActionConfigurationsRequestBuilderGetQueryParameters} from './scheduledActionConfigurationsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ScheduledActionConfigurationsRequestBuilderGetQueryParameters } from './scheduledActionConfigurationsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ScheduledActionConfigurationsRequestBuilderGetRequestConfiguration {
     /**

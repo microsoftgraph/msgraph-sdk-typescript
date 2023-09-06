@@ -1,17 +1,16 @@
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {createQueryResponseFromDiscriminatorValue} from './createQueryResponseFromDiscriminatorValue';
-import {deserializeIntoQueryPostRequestBody} from './deserializeIntoQueryPostRequestBody';
-import {deserializeIntoQueryResponse} from './deserializeIntoQueryResponse';
-import type {QueryPostRequestBody} from './queryPostRequestBody';
-import {QueryRequestBuilderPostRequestConfiguration} from './queryRequestBuilderPostRequestConfiguration';
-import type {QueryResponse} from './queryResponse';
-import {serializeQueryPostRequestBody} from './serializeQueryPostRequestBody';
-import {serializeQueryResponse} from './serializeQueryResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createQueryResponseFromDiscriminatorValue } from './createQueryResponseFromDiscriminatorValue';
+import { deserializeIntoQueryPostRequestBody } from './deserializeIntoQueryPostRequestBody';
+import { deserializeIntoQueryResponse } from './deserializeIntoQueryResponse';
+import { type QueryPostRequestBody } from './queryPostRequestBody';
+import { type QueryRequestBuilderPostRequestConfiguration } from './queryRequestBuilderPostRequestConfiguration';
+import { type QueryResponse } from './queryResponse';
+import { serializeQueryPostRequestBody } from './serializeQueryPostRequestBody';
+import { serializeQueryResponse } from './serializeQueryResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the query method.

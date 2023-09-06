@@ -1,16 +1,15 @@
-import {createOAuth2PermissionGrantFromDiscriminatorValue} from '../../models/createOAuth2PermissionGrantFromDiscriminatorValue';
-import {deserializeIntoOAuth2PermissionGrant} from '../../models/deserializeIntoOAuth2PermissionGrant';
-import type {OAuth2PermissionGrant} from '../../models/oAuth2PermissionGrant';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeOAuth2PermissionGrant} from '../../models/serializeOAuth2PermissionGrant';
-import {OAuth2PermissionGrantItemRequestBuilderDeleteRequestConfiguration} from './oAuth2PermissionGrantItemRequestBuilderDeleteRequestConfiguration';
-import {OAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration} from './oAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration';
-import {OAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration} from './oAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOAuth2PermissionGrantFromDiscriminatorValue } from '../../models/createOAuth2PermissionGrantFromDiscriminatorValue';
+import { deserializeIntoOAuth2PermissionGrant } from '../../models/deserializeIntoOAuth2PermissionGrant';
+import { type OAuth2PermissionGrant } from '../../models/oAuth2PermissionGrant';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeOAuth2PermissionGrant } from '../../models/serializeOAuth2PermissionGrant';
+import { type OAuth2PermissionGrantItemRequestBuilderDeleteRequestConfiguration } from './oAuth2PermissionGrantItemRequestBuilderDeleteRequestConfiguration';
+import { type OAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration } from './oAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration';
+import { type OAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration } from './oAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of oAuth2PermissionGrant entities.

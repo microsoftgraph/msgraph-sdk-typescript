@@ -1,9 +1,9 @@
-import type {AttackSimulationSimulationUserCoverage} from '../../../models/attackSimulationSimulationUserCoverage';
-import {createAttackSimulationSimulationUserCoverageFromDiscriminatorValue} from '../../../models/createAttackSimulationSimulationUserCoverageFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeAttackSimulationSimulationUserCoverage} from '../../../models/serializeAttackSimulationSimulationUserCoverage';
-import type {GetAttackSimulationSimulationUserCoverageResponse} from './getAttackSimulationSimulationUserCoverageResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttackSimulationSimulationUserCoverage } from '../../../models/attackSimulationSimulationUserCoverage';
+import { createAttackSimulationSimulationUserCoverageFromDiscriminatorValue } from '../../../models/createAttackSimulationSimulationUserCoverageFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeAttackSimulationSimulationUserCoverage } from '../../../models/serializeAttackSimulationSimulationUserCoverage';
+import { type GetAttackSimulationSimulationUserCoverageResponse } from './getAttackSimulationSimulationUserCoverageResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetAttackSimulationSimulationUserCoverageResponse(getAttackSimulationSimulationUserCoverageResponse: GetAttackSimulationSimulationUserCoverageResponse | undefined = {} as GetAttackSimulationSimulationUserCoverageResponse) : Record<string, (node: ParseNode) => void> {
     return {

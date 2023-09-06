@@ -1,5 +1,5 @@
-import {LastSharedMethodRequestBuilderGetQueryParameters} from './lastSharedMethodRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LastSharedMethodRequestBuilderGetQueryParameters } from './lastSharedMethodRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LastSharedMethodRequestBuilderGetRequestConfiguration {
     /**

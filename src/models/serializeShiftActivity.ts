@@ -1,6 +1,6 @@
-import {ScheduleEntityTheme} from './scheduleEntityTheme';
-import type {ShiftActivity} from './shiftActivity';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ScheduleEntityTheme } from './scheduleEntityTheme';
+import { type ShiftActivity } from './shiftActivity';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeShiftActivity(writer: SerializationWriter, shiftActivity: ShiftActivity | undefined = {} as ShiftActivity) : void {
         writer.writeStringValue("code", shiftActivity.code);

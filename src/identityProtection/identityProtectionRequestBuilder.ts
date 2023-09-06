@@ -1,19 +1,18 @@
-import {createIdentityProtectionRootFromDiscriminatorValue} from '../models/createIdentityProtectionRootFromDiscriminatorValue';
-import {deserializeIntoIdentityProtectionRoot} from '../models/deserializeIntoIdentityProtectionRoot';
-import type {IdentityProtectionRoot} from '../models/identityProtectionRoot';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeIdentityProtectionRoot} from '../models/serializeIdentityProtectionRoot';
-import {IdentityProtectionRequestBuilderGetRequestConfiguration} from './identityProtectionRequestBuilderGetRequestConfiguration';
-import {IdentityProtectionRequestBuilderPatchRequestConfiguration} from './identityProtectionRequestBuilderPatchRequestConfiguration';
-import {RiskDetectionsRequestBuilder} from './riskDetections/riskDetectionsRequestBuilder';
-import {RiskyServicePrincipalsRequestBuilder} from './riskyServicePrincipals/riskyServicePrincipalsRequestBuilder';
-import {RiskyUsersRequestBuilder} from './riskyUsers/riskyUsersRequestBuilder';
-import {ServicePrincipalRiskDetectionsRequestBuilder} from './servicePrincipalRiskDetections/servicePrincipalRiskDetectionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createIdentityProtectionRootFromDiscriminatorValue } from '../models/createIdentityProtectionRootFromDiscriminatorValue';
+import { deserializeIntoIdentityProtectionRoot } from '../models/deserializeIntoIdentityProtectionRoot';
+import { type IdentityProtectionRoot } from '../models/identityProtectionRoot';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeIdentityProtectionRoot } from '../models/serializeIdentityProtectionRoot';
+import { type IdentityProtectionRequestBuilderGetRequestConfiguration } from './identityProtectionRequestBuilderGetRequestConfiguration';
+import { type IdentityProtectionRequestBuilderPatchRequestConfiguration } from './identityProtectionRequestBuilderPatchRequestConfiguration';
+import { RiskDetectionsRequestBuilder } from './riskDetections/riskDetectionsRequestBuilder';
+import { RiskyServicePrincipalsRequestBuilder } from './riskyServicePrincipals/riskyServicePrincipalsRequestBuilder';
+import { RiskyUsersRequestBuilder } from './riskyUsers/riskyUsersRequestBuilder';
+import { ServicePrincipalRiskDetectionsRequestBuilder } from './servicePrincipalRiskDetections/servicePrincipalRiskDetectionsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityProtectionRoot singleton.

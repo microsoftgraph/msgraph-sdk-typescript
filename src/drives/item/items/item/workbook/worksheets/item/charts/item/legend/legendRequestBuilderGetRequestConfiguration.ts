@@ -1,5 +1,5 @@
-import {LegendRequestBuilderGetQueryParameters} from './legendRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LegendRequestBuilderGetQueryParameters } from './legendRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LegendRequestBuilderGetRequestConfiguration {
     /**

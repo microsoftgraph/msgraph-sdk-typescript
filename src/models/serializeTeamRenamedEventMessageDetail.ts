@@ -1,8 +1,8 @@
-import type {IdentitySet} from './identitySet';
-import {serializeEventMessageDetail} from './serializeEventMessageDetail';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {TeamRenamedEventMessageDetail} from './teamRenamedEventMessageDetail';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from './identitySet';
+import { serializeEventMessageDetail } from './serializeEventMessageDetail';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type TeamRenamedEventMessageDetail } from './teamRenamedEventMessageDetail';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTeamRenamedEventMessageDetail(writer: SerializationWriter, teamRenamedEventMessageDetail: TeamRenamedEventMessageDetail | undefined = {} as TeamRenamedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, teamRenamedEventMessageDetail)

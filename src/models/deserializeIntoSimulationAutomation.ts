@@ -1,13 +1,13 @@
-import {createEmailIdentityFromDiscriminatorValue} from './createEmailIdentityFromDiscriminatorValue';
-import {createSimulationAutomationRunFromDiscriminatorValue} from './createSimulationAutomationRunFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {EmailIdentity} from './emailIdentity';
-import {serializeEmailIdentity} from './serializeEmailIdentity';
-import {serializeSimulationAutomationRun} from './serializeSimulationAutomationRun';
-import type {SimulationAutomation} from './simulationAutomation';
-import type {SimulationAutomationRun} from './simulationAutomationRun';
-import {SimulationAutomationStatus} from './simulationAutomationStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createEmailIdentityFromDiscriminatorValue } from './createEmailIdentityFromDiscriminatorValue';
+import { createSimulationAutomationRunFromDiscriminatorValue } from './createSimulationAutomationRunFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type EmailIdentity } from './emailIdentity';
+import { serializeEmailIdentity } from './serializeEmailIdentity';
+import { serializeSimulationAutomationRun } from './serializeSimulationAutomationRun';
+import { type SimulationAutomation } from './simulationAutomation';
+import { type SimulationAutomationRun } from './simulationAutomationRun';
+import { SimulationAutomationStatus } from './simulationAutomationStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSimulationAutomation(simulationAutomation: SimulationAutomation | undefined = {} as SimulationAutomation) : Record<string, (node: ParseNode) => void> {
     return {

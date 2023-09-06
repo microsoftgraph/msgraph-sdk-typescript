@@ -1,5 +1,5 @@
-import {PasswordMethodsRequestBuilderGetQueryParameters} from './passwordMethodsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PasswordMethodsRequestBuilderGetQueryParameters } from './passwordMethodsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PasswordMethodsRequestBuilderGetRequestConfiguration {
     /**

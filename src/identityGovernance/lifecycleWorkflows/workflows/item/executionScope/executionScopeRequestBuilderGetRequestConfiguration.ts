@@ -1,5 +1,5 @@
-import {ExecutionScopeRequestBuilderGetQueryParameters} from './executionScopeRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExecutionScopeRequestBuilderGetQueryParameters } from './executionScopeRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ExecutionScopeRequestBuilderGetRequestConfiguration {
     /**

@@ -1,5 +1,5 @@
-import {BucketTaskBoardFormatRequestBuilderGetQueryParameters} from './bucketTaskBoardFormatRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BucketTaskBoardFormatRequestBuilderGetQueryParameters } from './bucketTaskBoardFormatRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BucketTaskBoardFormatRequestBuilderGetRequestConfiguration {
     /**

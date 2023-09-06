@@ -1,17 +1,16 @@
-import {createIdentityApiConnectorFromDiscriminatorValue} from '../../../../models/createIdentityApiConnectorFromDiscriminatorValue';
-import {deserializeIntoIdentityApiConnector} from '../../../../models/deserializeIntoIdentityApiConnector';
-import type {IdentityApiConnector} from '../../../../models/identityApiConnector';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeIdentityApiConnector} from '../../../../models/serializeIdentityApiConnector';
-import {deserializeIntoUploadClientCertificatePostRequestBody} from './deserializeIntoUploadClientCertificatePostRequestBody';
-import {serializeUploadClientCertificatePostRequestBody} from './serializeUploadClientCertificatePostRequestBody';
-import type {UploadClientCertificatePostRequestBody} from './uploadClientCertificatePostRequestBody';
-import {UploadClientCertificateRequestBuilderPostRequestConfiguration} from './uploadClientCertificateRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createIdentityApiConnectorFromDiscriminatorValue } from '../../../../models/createIdentityApiConnectorFromDiscriminatorValue';
+import { deserializeIntoIdentityApiConnector } from '../../../../models/deserializeIntoIdentityApiConnector';
+import { type IdentityApiConnector } from '../../../../models/identityApiConnector';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeIdentityApiConnector } from '../../../../models/serializeIdentityApiConnector';
+import { deserializeIntoUploadClientCertificatePostRequestBody } from './deserializeIntoUploadClientCertificatePostRequestBody';
+import { serializeUploadClientCertificatePostRequestBody } from './serializeUploadClientCertificatePostRequestBody';
+import { type UploadClientCertificatePostRequestBody } from './uploadClientCertificatePostRequestBody';
+import { type UploadClientCertificateRequestBuilderPostRequestConfiguration } from './uploadClientCertificateRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the uploadClientCertificate method.

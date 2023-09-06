@@ -1,6 +1,6 @@
-import {deserializeIntoAccessPackageResourceRole} from './deserializeIntoAccessPackageResourceRole';
-import {AccessPackageResourceRole} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessPackageResourceRole } from './deserializeIntoAccessPackageResourceRole';
+import { type AccessPackageResourceRole } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAccessPackageResourceRoleFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

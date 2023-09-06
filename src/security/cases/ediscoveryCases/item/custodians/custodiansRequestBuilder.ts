@@ -1,21 +1,20 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {EdiscoveryCustodianCollectionResponse} from '../../../../../models/security/';
-import {createEdiscoveryCustodianCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryCustodianCollectionResponseFromDiscriminatorValue';
-import {createEdiscoveryCustodianFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryCustodianFromDiscriminatorValue';
-import {deserializeIntoEdiscoveryCustodian} from '../../../../../models/security/deserializeIntoEdiscoveryCustodian';
-import type {EdiscoveryCustodian} from '../../../../../models/security/ediscoveryCustodian';
-import {serializeEdiscoveryCustodian} from '../../../../../models/security/serializeEdiscoveryCustodian';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CustodiansRequestBuilderGetRequestConfiguration} from './custodiansRequestBuilderGetRequestConfiguration';
-import {CustodiansRequestBuilderPostRequestConfiguration} from './custodiansRequestBuilderPostRequestConfiguration';
-import {EdiscoveryCustodianItemRequestBuilder} from './item/ediscoveryCustodianItemRequestBuilder';
-import {MicrosoftGraphSecurityApplyHoldRequestBuilder} from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
-import {MicrosoftGraphSecurityRemoveHoldRequestBuilder} from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type EdiscoveryCustodianCollectionResponse } from '../../../../../models/security/';
+import { createEdiscoveryCustodianCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createEdiscoveryCustodianCollectionResponseFromDiscriminatorValue';
+import { createEdiscoveryCustodianFromDiscriminatorValue } from '../../../../../models/security/createEdiscoveryCustodianFromDiscriminatorValue';
+import { deserializeIntoEdiscoveryCustodian } from '../../../../../models/security/deserializeIntoEdiscoveryCustodian';
+import { type EdiscoveryCustodian } from '../../../../../models/security/ediscoveryCustodian';
+import { serializeEdiscoveryCustodian } from '../../../../../models/security/serializeEdiscoveryCustodian';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type CustodiansRequestBuilderGetRequestConfiguration } from './custodiansRequestBuilderGetRequestConfiguration';
+import { type CustodiansRequestBuilderPostRequestConfiguration } from './custodiansRequestBuilderPostRequestConfiguration';
+import { EdiscoveryCustodianItemRequestBuilder } from './item/ediscoveryCustodianItemRequestBuilder';
+import { MicrosoftGraphSecurityApplyHoldRequestBuilder } from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
+import { MicrosoftGraphSecurityRemoveHoldRequestBuilder } from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.

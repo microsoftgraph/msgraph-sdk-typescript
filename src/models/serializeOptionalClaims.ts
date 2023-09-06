@@ -1,7 +1,7 @@
-import type {OptionalClaim} from './optionalClaim';
-import type {OptionalClaims} from './optionalClaims';
-import {serializeOptionalClaim} from './serializeOptionalClaim';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type OptionalClaim } from './optionalClaim';
+import { type OptionalClaims } from './optionalClaims';
+import { serializeOptionalClaim } from './serializeOptionalClaim';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOptionalClaims(writer: SerializationWriter, optionalClaims: OptionalClaims | undefined = {} as OptionalClaims) : void {
         writer.writeCollectionOfObjectValues<OptionalClaim>("accessToken", optionalClaims.accessToken, serializeOptionalClaim);

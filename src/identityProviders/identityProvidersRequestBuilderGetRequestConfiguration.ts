@@ -1,5 +1,5 @@
-import {IdentityProvidersRequestBuilderGetQueryParameters} from './identityProvidersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentityProvidersRequestBuilderGetQueryParameters } from './identityProvidersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IdentityProvidersRequestBuilderGetRequestConfiguration {
     /**

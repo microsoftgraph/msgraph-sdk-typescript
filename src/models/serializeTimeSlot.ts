@@ -1,7 +1,7 @@
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import type {TimeSlot} from './timeSlot';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { serializeDateTimeTimeZone } from './serializeDateTimeTimeZone';
+import { type TimeSlot } from './timeSlot';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTimeSlot(writer: SerializationWriter, timeSlot: TimeSlot | undefined = {} as TimeSlot) : void {
         writer.writeObjectValue<DateTimeTimeZone>("end", timeSlot.end, serializeDateTimeTimeZone);

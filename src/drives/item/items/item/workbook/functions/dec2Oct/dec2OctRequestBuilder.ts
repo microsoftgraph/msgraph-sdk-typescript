@@ -1,17 +1,16 @@
-import {createWorkbookFunctionResultFromDiscriminatorValue} from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
-import {deserializeIntoWorkbookFunctionResult} from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import type {Dec2OctPostRequestBody} from './dec2OctPostRequestBody';
-import {Dec2OctRequestBuilderPostRequestConfiguration} from './dec2OctRequestBuilderPostRequestConfiguration';
-import {deserializeIntoDec2OctPostRequestBody} from './deserializeIntoDec2OctPostRequestBody';
-import {serializeDec2OctPostRequestBody} from './serializeDec2OctPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookFunctionResultFromDiscriminatorValue } from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
+import { deserializeIntoWorkbookFunctionResult } from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookFunctionResult } from '../../../../../../../models/serializeWorkbookFunctionResult';
+import { type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
+import { type Dec2OctPostRequestBody } from './dec2OctPostRequestBody';
+import { type Dec2OctRequestBuilderPostRequestConfiguration } from './dec2OctRequestBuilderPostRequestConfiguration';
+import { deserializeIntoDec2OctPostRequestBody } from './deserializeIntoDec2OctPostRequestBody';
+import { serializeDec2OctPostRequestBody } from './serializeDec2OctPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the dec2Oct method.

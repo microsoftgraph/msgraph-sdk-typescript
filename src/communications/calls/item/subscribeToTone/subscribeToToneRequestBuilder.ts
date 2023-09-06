@@ -1,17 +1,16 @@
-import {createSubscribeToToneOperationFromDiscriminatorValue} from '../../../../models/createSubscribeToToneOperationFromDiscriminatorValue';
-import {deserializeIntoSubscribeToToneOperation} from '../../../../models/deserializeIntoSubscribeToToneOperation';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeSubscribeToToneOperation} from '../../../../models/serializeSubscribeToToneOperation';
-import type {SubscribeToToneOperation} from '../../../../models/subscribeToToneOperation';
-import {deserializeIntoSubscribeToTonePostRequestBody} from './deserializeIntoSubscribeToTonePostRequestBody';
-import {serializeSubscribeToTonePostRequestBody} from './serializeSubscribeToTonePostRequestBody';
-import type {SubscribeToTonePostRequestBody} from './subscribeToTonePostRequestBody';
-import {SubscribeToToneRequestBuilderPostRequestConfiguration} from './subscribeToToneRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSubscribeToToneOperationFromDiscriminatorValue } from '../../../../models/createSubscribeToToneOperationFromDiscriminatorValue';
+import { deserializeIntoSubscribeToToneOperation } from '../../../../models/deserializeIntoSubscribeToToneOperation';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeSubscribeToToneOperation } from '../../../../models/serializeSubscribeToToneOperation';
+import { type SubscribeToToneOperation } from '../../../../models/subscribeToToneOperation';
+import { deserializeIntoSubscribeToTonePostRequestBody } from './deserializeIntoSubscribeToTonePostRequestBody';
+import { serializeSubscribeToTonePostRequestBody } from './serializeSubscribeToTonePostRequestBody';
+import { type SubscribeToTonePostRequestBody } from './subscribeToTonePostRequestBody';
+import { type SubscribeToToneRequestBuilderPostRequestConfiguration } from './subscribeToToneRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the subscribeToTone method.

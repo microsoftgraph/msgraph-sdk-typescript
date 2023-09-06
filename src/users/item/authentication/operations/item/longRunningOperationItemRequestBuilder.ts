@@ -1,16 +1,15 @@
-import {createLongRunningOperationFromDiscriminatorValue} from '../../../../../models/createLongRunningOperationFromDiscriminatorValue';
-import {deserializeIntoLongRunningOperation} from '../../../../../models/deserializeIntoLongRunningOperation';
-import type {LongRunningOperation} from '../../../../../models/longRunningOperation';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeLongRunningOperation} from '../../../../../models/serializeLongRunningOperation';
-import {LongRunningOperationItemRequestBuilderDeleteRequestConfiguration} from './longRunningOperationItemRequestBuilderDeleteRequestConfiguration';
-import {LongRunningOperationItemRequestBuilderGetRequestConfiguration} from './longRunningOperationItemRequestBuilderGetRequestConfiguration';
-import {LongRunningOperationItemRequestBuilderPatchRequestConfiguration} from './longRunningOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createLongRunningOperationFromDiscriminatorValue } from '../../../../../models/createLongRunningOperationFromDiscriminatorValue';
+import { deserializeIntoLongRunningOperation } from '../../../../../models/deserializeIntoLongRunningOperation';
+import { type LongRunningOperation } from '../../../../../models/longRunningOperation';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeLongRunningOperation } from '../../../../../models/serializeLongRunningOperation';
+import { type LongRunningOperationItemRequestBuilderDeleteRequestConfiguration } from './longRunningOperationItemRequestBuilderDeleteRequestConfiguration';
+import { type LongRunningOperationItemRequestBuilderGetRequestConfiguration } from './longRunningOperationItemRequestBuilderGetRequestConfiguration';
+import { type LongRunningOperationItemRequestBuilderPatchRequestConfiguration } from './longRunningOperationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.authentication entity.

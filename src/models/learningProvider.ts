@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import type {LearningContent} from './learningContent';
-import type {LearningCourseActivity} from './learningCourseActivity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type LearningContent } from './learningContent';
+import { type LearningCourseActivity } from './learningCourseActivity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface LearningProvider extends Entity, Parsable {
     /**

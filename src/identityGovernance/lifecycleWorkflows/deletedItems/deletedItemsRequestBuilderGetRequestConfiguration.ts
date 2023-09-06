@@ -1,5 +1,5 @@
-import {DeletedItemsRequestBuilderGetQueryParameters} from './deletedItemsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeletedItemsRequestBuilderGetQueryParameters } from './deletedItemsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeletedItemsRequestBuilderGetRequestConfiguration {
     /**

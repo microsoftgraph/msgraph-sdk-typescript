@@ -1,5 +1,5 @@
-import {AuthenticationContextClassReferenceItemRequestBuilderGetQueryParameters} from './authenticationContextClassReferenceItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationContextClassReferenceItemRequestBuilderGetQueryParameters } from './authenticationContextClassReferenceItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration {
     /**

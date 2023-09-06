@@ -1,10 +1,10 @@
-import {deserializeIntoCalendarSharingMessage} from './deserializeIntoCalendarSharingMessage';
-import {deserializeIntoEventMessage} from './deserializeIntoEventMessage';
-import {deserializeIntoEventMessageRequest} from './deserializeIntoEventMessageRequest';
-import {deserializeIntoEventMessageResponse} from './deserializeIntoEventMessageResponse';
-import {deserializeIntoMessage} from './deserializeIntoMessage';
-import {CalendarSharingMessage, EventMessage, EventMessageRequest, EventMessageResponse, Message} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCalendarSharingMessage } from './deserializeIntoCalendarSharingMessage';
+import { deserializeIntoEventMessage } from './deserializeIntoEventMessage';
+import { deserializeIntoEventMessageRequest } from './deserializeIntoEventMessageRequest';
+import { deserializeIntoEventMessageResponse } from './deserializeIntoEventMessageResponse';
+import { deserializeIntoMessage } from './deserializeIntoMessage';
+import { type CalendarSharingMessage, type EventMessage, type EventMessageRequest, type EventMessageResponse, type Message } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

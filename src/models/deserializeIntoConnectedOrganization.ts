@@ -1,13 +1,13 @@
-import type {ConnectedOrganization} from './connectedOrganization';
-import {ConnectedOrganizationState} from './connectedOrganizationState';
-import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
-import {createIdentitySourceFromDiscriminatorValue} from './createIdentitySourceFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DirectoryObject} from './directoryObject';
-import type {IdentitySource} from './identitySource';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeIdentitySource} from './serializeIdentitySource';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConnectedOrganization } from './connectedOrganization';
+import { ConnectedOrganizationState } from './connectedOrganizationState';
+import { createDirectoryObjectFromDiscriminatorValue } from './createDirectoryObjectFromDiscriminatorValue';
+import { createIdentitySourceFromDiscriminatorValue } from './createIdentitySourceFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DirectoryObject } from './directoryObject';
+import { type IdentitySource } from './identitySource';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeIdentitySource } from './serializeIdentitySource';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConnectedOrganization(connectedOrganization: ConnectedOrganization | undefined = {} as ConnectedOrganization) : Record<string, (node: ParseNode) => void> {
     return {

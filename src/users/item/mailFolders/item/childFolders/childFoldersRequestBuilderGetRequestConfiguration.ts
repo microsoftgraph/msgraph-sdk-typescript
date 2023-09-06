@@ -1,5 +1,5 @@
-import {ChildFoldersRequestBuilderGetQueryParameters} from './childFoldersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ChildFoldersRequestBuilderGetQueryParameters } from './childFoldersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ChildFoldersRequestBuilderGetRequestConfiguration {
     /**

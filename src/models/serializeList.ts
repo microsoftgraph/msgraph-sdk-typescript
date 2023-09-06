@@ -1,24 +1,24 @@
-import type {ColumnDefinition} from './columnDefinition';
-import type {ContentType} from './contentType';
-import type {Drive} from './drive';
-import type {List} from './list';
-import type {ListInfo} from './listInfo';
-import type {ListItem} from './listItem';
-import type {RichLongRunningOperation} from './richLongRunningOperation';
-import {serializeBaseItem} from './serializeBaseItem';
-import {serializeColumnDefinition} from './serializeColumnDefinition';
-import {serializeContentType} from './serializeContentType';
-import {serializeDrive} from './serializeDrive';
-import {serializeListInfo} from './serializeListInfo';
-import {serializeListItem} from './serializeListItem';
-import {serializeRichLongRunningOperation} from './serializeRichLongRunningOperation';
-import {serializeSharepointIds} from './serializeSharepointIds';
-import {serializeSubscription} from './serializeSubscription';
-import {serializeSystemFacet} from './serializeSystemFacet';
-import type {SharepointIds} from './sharepointIds';
-import type {Subscription} from './subscription';
-import type {SystemFacet} from './systemFacet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ColumnDefinition } from './columnDefinition';
+import { type ContentType } from './contentType';
+import { type Drive } from './drive';
+import { type List } from './list';
+import { type ListInfo } from './listInfo';
+import { type ListItem } from './listItem';
+import { type RichLongRunningOperation } from './richLongRunningOperation';
+import { serializeBaseItem } from './serializeBaseItem';
+import { serializeColumnDefinition } from './serializeColumnDefinition';
+import { serializeContentType } from './serializeContentType';
+import { serializeDrive } from './serializeDrive';
+import { serializeListInfo } from './serializeListInfo';
+import { serializeListItem } from './serializeListItem';
+import { serializeRichLongRunningOperation } from './serializeRichLongRunningOperation';
+import { serializeSharepointIds } from './serializeSharepointIds';
+import { serializeSubscription } from './serializeSubscription';
+import { serializeSystemFacet } from './serializeSystemFacet';
+import { type SharepointIds } from './sharepointIds';
+import { type Subscription } from './subscription';
+import { type SystemFacet } from './systemFacet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeList(writer: SerializationWriter, list: List | undefined = {} as List) : void {
         serializeBaseItem(writer, list)

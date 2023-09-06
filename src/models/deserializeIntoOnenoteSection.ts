@@ -1,18 +1,18 @@
-import {createNotebookFromDiscriminatorValue} from './createNotebookFromDiscriminatorValue';
-import {createOnenotePageFromDiscriminatorValue} from './createOnenotePageFromDiscriminatorValue';
-import {createSectionGroupFromDiscriminatorValue} from './createSectionGroupFromDiscriminatorValue';
-import {createSectionLinksFromDiscriminatorValue} from './createSectionLinksFromDiscriminatorValue';
-import {deserializeIntoOnenoteEntityHierarchyModel} from './deserializeIntoOnenoteEntityHierarchyModel';
-import type {Notebook} from './notebook';
-import type {OnenotePage} from './onenotePage';
-import type {OnenoteSection} from './onenoteSection';
-import type {SectionGroup} from './sectionGroup';
-import type {SectionLinks} from './sectionLinks';
-import {serializeNotebook} from './serializeNotebook';
-import {serializeOnenotePage} from './serializeOnenotePage';
-import {serializeSectionGroup} from './serializeSectionGroup';
-import {serializeSectionLinks} from './serializeSectionLinks';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createNotebookFromDiscriminatorValue } from './createNotebookFromDiscriminatorValue';
+import { createOnenotePageFromDiscriminatorValue } from './createOnenotePageFromDiscriminatorValue';
+import { createSectionGroupFromDiscriminatorValue } from './createSectionGroupFromDiscriminatorValue';
+import { createSectionLinksFromDiscriminatorValue } from './createSectionLinksFromDiscriminatorValue';
+import { deserializeIntoOnenoteEntityHierarchyModel } from './deserializeIntoOnenoteEntityHierarchyModel';
+import { type Notebook } from './notebook';
+import { type OnenotePage } from './onenotePage';
+import { type OnenoteSection } from './onenoteSection';
+import { type SectionGroup } from './sectionGroup';
+import { type SectionLinks } from './sectionLinks';
+import { serializeNotebook } from './serializeNotebook';
+import { serializeOnenotePage } from './serializeOnenotePage';
+import { serializeSectionGroup } from './serializeSectionGroup';
+import { serializeSectionLinks } from './serializeSectionLinks';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnenoteSection(onenoteSection: OnenoteSection | undefined = {} as OnenoteSection) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
-import {ManagedAppOperationItemRequestBuilderGetQueryParameters} from './managedAppOperationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedAppOperationItemRequestBuilderGetQueryParameters } from './managedAppOperationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppOperationItemRequestBuilderGetRequestConfiguration {
     /**

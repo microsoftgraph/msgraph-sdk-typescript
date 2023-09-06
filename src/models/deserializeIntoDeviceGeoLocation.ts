@@ -1,5 +1,5 @@
-import type {DeviceGeoLocation} from './deviceGeoLocation';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceGeoLocation } from './deviceGeoLocation';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceGeoLocation(deviceGeoLocation: DeviceGeoLocation | undefined = {} as DeviceGeoLocation) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,19 +1,18 @@
-import {createWorkbookTableSortFromDiscriminatorValue} from '../../../../../../../../../../models/createWorkbookTableSortFromDiscriminatorValue';
-import {deserializeIntoWorkbookTableSort} from '../../../../../../../../../../models/deserializeIntoWorkbookTableSort';
-import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookTableSort} from '../../../../../../../../../../models/serializeWorkbookTableSort';
-import type {WorkbookTableSort} from '../../../../../../../../../../models/workbookTableSort';
-import {ApplyRequestBuilder} from './apply/applyRequestBuilder';
-import {ClearRequestBuilder} from './clear/clearRequestBuilder';
-import {ReapplyRequestBuilder} from './reapply/reapplyRequestBuilder';
-import {SortRequestBuilderDeleteRequestConfiguration} from './sortRequestBuilderDeleteRequestConfiguration';
-import {SortRequestBuilderGetRequestConfiguration} from './sortRequestBuilderGetRequestConfiguration';
-import {SortRequestBuilderPatchRequestConfiguration} from './sortRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookTableSortFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookTableSortFromDiscriminatorValue';
+import { deserializeIntoWorkbookTableSort } from '../../../../../../../../../../models/deserializeIntoWorkbookTableSort';
+import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookTableSort } from '../../../../../../../../../../models/serializeWorkbookTableSort';
+import { type WorkbookTableSort } from '../../../../../../../../../../models/workbookTableSort';
+import { ApplyRequestBuilder } from './apply/applyRequestBuilder';
+import { ClearRequestBuilder } from './clear/clearRequestBuilder';
+import { ReapplyRequestBuilder } from './reapply/reapplyRequestBuilder';
+import { type SortRequestBuilderDeleteRequestConfiguration } from './sortRequestBuilderDeleteRequestConfiguration';
+import { type SortRequestBuilderGetRequestConfiguration } from './sortRequestBuilderGetRequestConfiguration';
+import { type SortRequestBuilderPatchRequestConfiguration } from './sortRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sort property of the microsoft.graph.workbookTable entity.

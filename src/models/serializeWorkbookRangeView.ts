@@ -1,8 +1,8 @@
-import type {Json} from './json';
-import {serializeEntity} from './serializeEntity';
-import {serializeJson} from './serializeJson';
-import type {WorkbookRangeView} from './workbookRangeView';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from './json';
+import { serializeEntity } from './serializeEntity';
+import { serializeJson } from './serializeJson';
+import { type WorkbookRangeView } from './workbookRangeView';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookRangeView(writer: SerializationWriter, workbookRangeView: WorkbookRangeView | undefined = {} as WorkbookRangeView) : void {
         serializeEntity(writer, workbookRangeView)

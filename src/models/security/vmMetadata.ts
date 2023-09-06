@@ -1,5 +1,5 @@
-import {VmCloudProvider} from './vmCloudProvider';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { VmCloudProvider } from './vmCloudProvider';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface VmMetadata extends AdditionalDataHolder, Parsable {
     /**

@@ -1,8 +1,8 @@
-import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {Gamma_InvPostRequestBody} from './gamma_InvPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createJsonFromDiscriminatorValue } from '../../../../../../../models/createJsonFromDiscriminatorValue';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type Gamma_InvPostRequestBody } from './gamma_InvPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGamma_InvPostRequestBody(gamma_InvPostRequestBody: Gamma_InvPostRequestBody | undefined = {} as Gamma_InvPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

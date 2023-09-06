@@ -1,5 +1,5 @@
-import {DelegatedAdminCustomerItemRequestBuilderGetQueryParameters} from './delegatedAdminCustomerItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DelegatedAdminCustomerItemRequestBuilderGetQueryParameters } from './delegatedAdminCustomerItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminCustomerItemRequestBuilderGetRequestConfiguration {
     /**

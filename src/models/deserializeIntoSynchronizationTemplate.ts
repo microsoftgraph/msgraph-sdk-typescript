@@ -1,13 +1,13 @@
-import {createSynchronizationMetadataEntryFromDiscriminatorValue} from './createSynchronizationMetadataEntryFromDiscriminatorValue';
-import {createSynchronizationSchemaFromDiscriminatorValue} from './createSynchronizationSchemaFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeSynchronizationMetadataEntry} from './serializeSynchronizationMetadataEntry';
-import {serializeSynchronizationSchema} from './serializeSynchronizationSchema';
-import type {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
-import type {SynchronizationSchema} from './synchronizationSchema';
-import type {SynchronizationTemplate} from './synchronizationTemplate';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { createSynchronizationMetadataEntryFromDiscriminatorValue } from './createSynchronizationMetadataEntryFromDiscriminatorValue';
+import { createSynchronizationSchemaFromDiscriminatorValue } from './createSynchronizationSchemaFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeSynchronizationMetadataEntry } from './serializeSynchronizationMetadataEntry';
+import { serializeSynchronizationSchema } from './serializeSynchronizationSchema';
+import { type SynchronizationMetadataEntry } from './synchronizationMetadataEntry';
+import { type SynchronizationSchema } from './synchronizationSchema';
+import { type SynchronizationTemplate } from './synchronizationTemplate';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function deserializeIntoSynchronizationTemplate(synchronizationTemplate: SynchronizationTemplate | undefined = {} as SynchronizationTemplate) : Record<string, (node: ParseNode) => void> {
     return {

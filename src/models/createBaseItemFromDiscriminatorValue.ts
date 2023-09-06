@@ -1,12 +1,12 @@
-import {deserializeIntoBaseItem} from './deserializeIntoBaseItem';
-import {deserializeIntoDrive} from './deserializeIntoDrive';
-import {deserializeIntoDriveItem} from './deserializeIntoDriveItem';
-import {deserializeIntoList} from './deserializeIntoList';
-import {deserializeIntoListItem} from './deserializeIntoListItem';
-import {deserializeIntoSharedDriveItem} from './deserializeIntoSharedDriveItem';
-import {deserializeIntoSite} from './deserializeIntoSite';
-import {BaseItem, Drive, DriveItem, List, ListItem, SharedDriveItem, Site} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseItem } from './deserializeIntoBaseItem';
+import { deserializeIntoDrive } from './deserializeIntoDrive';
+import { deserializeIntoDriveItem } from './deserializeIntoDriveItem';
+import { deserializeIntoList } from './deserializeIntoList';
+import { deserializeIntoListItem } from './deserializeIntoListItem';
+import { deserializeIntoSharedDriveItem } from './deserializeIntoSharedDriveItem';
+import { deserializeIntoSite } from './deserializeIntoSite';
+import { type BaseItem, type Drive, type DriveItem, type List, type ListItem, type SharedDriveItem, type Site } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createBaseItemFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

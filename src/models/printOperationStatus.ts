@@ -1,5 +1,5 @@
-import {PrintOperationProcessingState} from './printOperationProcessingState';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { PrintOperationProcessingState } from './printOperationProcessingState';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PrintOperationStatus extends AdditionalDataHolder, Parsable {
     /**

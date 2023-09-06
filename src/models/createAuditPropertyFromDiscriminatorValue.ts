@@ -1,6 +1,6 @@
-import {deserializeIntoAuditProperty} from './deserializeIntoAuditProperty';
-import {AuditProperty} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAuditProperty } from './deserializeIntoAuditProperty';
+import { type AuditProperty } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAuditPropertyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

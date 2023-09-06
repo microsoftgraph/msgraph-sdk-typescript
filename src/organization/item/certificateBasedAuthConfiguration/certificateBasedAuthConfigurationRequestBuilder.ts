@@ -1,19 +1,18 @@
-import {CertificateBasedAuthConfigurationCollectionResponse} from '../../../models/';
-import type {CertificateBasedAuthConfiguration} from '../../../models/certificateBasedAuthConfiguration';
-import {createCertificateBasedAuthConfigurationCollectionResponseFromDiscriminatorValue} from '../../../models/createCertificateBasedAuthConfigurationCollectionResponseFromDiscriminatorValue';
-import {createCertificateBasedAuthConfigurationFromDiscriminatorValue} from '../../../models/createCertificateBasedAuthConfigurationFromDiscriminatorValue';
-import {deserializeIntoCertificateBasedAuthConfiguration} from '../../../models/deserializeIntoCertificateBasedAuthConfiguration';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeCertificateBasedAuthConfiguration} from '../../../models/serializeCertificateBasedAuthConfiguration';
-import {CertificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration} from './certificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration';
-import {CertificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration} from './certificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CertificateBasedAuthConfigurationItemRequestBuilder} from './item/certificateBasedAuthConfigurationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CertificateBasedAuthConfigurationCollectionResponse } from '../../../models/';
+import { type CertificateBasedAuthConfiguration } from '../../../models/certificateBasedAuthConfiguration';
+import { createCertificateBasedAuthConfigurationCollectionResponseFromDiscriminatorValue } from '../../../models/createCertificateBasedAuthConfigurationCollectionResponseFromDiscriminatorValue';
+import { createCertificateBasedAuthConfigurationFromDiscriminatorValue } from '../../../models/createCertificateBasedAuthConfigurationFromDiscriminatorValue';
+import { deserializeIntoCertificateBasedAuthConfiguration } from '../../../models/deserializeIntoCertificateBasedAuthConfiguration';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeCertificateBasedAuthConfiguration } from '../../../models/serializeCertificateBasedAuthConfiguration';
+import { type CertificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration } from './certificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration';
+import { type CertificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration } from './certificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { CertificateBasedAuthConfigurationItemRequestBuilder } from './item/certificateBasedAuthConfigurationItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the certificateBasedAuthConfiguration property of the microsoft.graph.organization entity.

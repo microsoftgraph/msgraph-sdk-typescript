@@ -1,5 +1,5 @@
-import {DataPolicyOperationsRequestBuilderGetQueryParameters} from './dataPolicyOperationsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DataPolicyOperationsRequestBuilderGetQueryParameters } from './dataPolicyOperationsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DataPolicyOperationsRequestBuilderGetRequestConfiguration {
     /**

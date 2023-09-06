@@ -1,16 +1,15 @@
-import {createOutlookCategoryFromDiscriminatorValue} from '../../../../models/createOutlookCategoryFromDiscriminatorValue';
-import {deserializeIntoOutlookCategory} from '../../../../models/deserializeIntoOutlookCategory';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {OutlookCategory} from '../../../../models/outlookCategory';
-import {serializeOutlookCategory} from '../../../../models/serializeOutlookCategory';
-import {OutlookCategoryItemRequestBuilderDeleteRequestConfiguration} from './outlookCategoryItemRequestBuilderDeleteRequestConfiguration';
-import {OutlookCategoryItemRequestBuilderGetRequestConfiguration} from './outlookCategoryItemRequestBuilderGetRequestConfiguration';
-import {OutlookCategoryItemRequestBuilderPatchRequestConfiguration} from './outlookCategoryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOutlookCategoryFromDiscriminatorValue } from '../../../../models/createOutlookCategoryFromDiscriminatorValue';
+import { deserializeIntoOutlookCategory } from '../../../../models/deserializeIntoOutlookCategory';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type OutlookCategory } from '../../../../models/outlookCategory';
+import { serializeOutlookCategory } from '../../../../models/serializeOutlookCategory';
+import { type OutlookCategoryItemRequestBuilderDeleteRequestConfiguration } from './outlookCategoryItemRequestBuilderDeleteRequestConfiguration';
+import { type OutlookCategoryItemRequestBuilderGetRequestConfiguration } from './outlookCategoryItemRequestBuilderGetRequestConfiguration';
+import { type OutlookCategoryItemRequestBuilderPatchRequestConfiguration } from './outlookCategoryItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
@@ -56,7 +55,7 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OutlookCategory>(requestInfo, createOutlookCategoryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the writable property, color, of the specified outlookCategory object. You cannot modify the displayName property once you have created the category.
+     * Update the writable property, color, of the specified outlookCategory object. You cannot modify the displayName propertyonce you have created the category.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OutlookCategory
@@ -107,7 +106,7 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the writable property, color, of the specified outlookCategory object. You cannot modify the displayName property once you have created the category.
+     * Update the writable property, color, of the specified outlookCategory object. You cannot modify the displayName propertyonce you have created the category.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

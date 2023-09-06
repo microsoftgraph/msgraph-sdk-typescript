@@ -1,8 +1,8 @@
-import type {AadUserConversationMember} from './aadUserConversationMember';
-import {serializeConversationMember} from './serializeConversationMember';
-import {serializeUser} from './serializeUser';
-import type {User} from './user';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AadUserConversationMember } from './aadUserConversationMember';
+import { serializeConversationMember } from './serializeConversationMember';
+import { serializeUser } from './serializeUser';
+import { type User } from './user';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAadUserConversationMember(writer: SerializationWriter, aadUserConversationMember: AadUserConversationMember | undefined = {} as AadUserConversationMember) : void {
         serializeConversationMember(writer, aadUserConversationMember)

@@ -1,20 +1,19 @@
-import {WorkbookWorksheetCollectionResponse} from '../../../../../../models/';
-import {createWorkbookWorksheetCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createWorkbookWorksheetCollectionResponseFromDiscriminatorValue';
-import {createWorkbookWorksheetFromDiscriminatorValue} from '../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
-import {deserializeIntoWorkbookWorksheet} from '../../../../../../models/deserializeIntoWorkbookWorksheet';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookWorksheet} from '../../../../../../models/serializeWorkbookWorksheet';
-import type {WorkbookWorksheet} from '../../../../../../models/workbookWorksheet';
-import {AddRequestBuilder} from './add/addRequestBuilder';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WorkbookWorksheetItemRequestBuilder} from './item/workbookWorksheetItemRequestBuilder';
-import {WorksheetsRequestBuilderGetRequestConfiguration} from './worksheetsRequestBuilderGetRequestConfiguration';
-import {WorksheetsRequestBuilderPostRequestConfiguration} from './worksheetsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookWorksheetCollectionResponse } from '../../../../../../models/';
+import { createWorkbookWorksheetCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createWorkbookWorksheetCollectionResponseFromDiscriminatorValue';
+import { createWorkbookWorksheetFromDiscriminatorValue } from '../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
+import { deserializeIntoWorkbookWorksheet } from '../../../../../../models/deserializeIntoWorkbookWorksheet';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookWorksheet } from '../../../../../../models/serializeWorkbookWorksheet';
+import { type WorkbookWorksheet } from '../../../../../../models/workbookWorksheet';
+import { AddRequestBuilder } from './add/addRequestBuilder';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WorkbookWorksheetItemRequestBuilder } from './item/workbookWorksheetItemRequestBuilder';
+import { type WorksheetsRequestBuilderGetRequestConfiguration } from './worksheetsRequestBuilderGetRequestConfiguration';
+import { type WorksheetsRequestBuilderPostRequestConfiguration } from './worksheetsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
@@ -55,7 +54,7 @@ export class WorksheetsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of worksheet objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheetCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/worksheet-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-worksheets?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorksheetsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookWorksheetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

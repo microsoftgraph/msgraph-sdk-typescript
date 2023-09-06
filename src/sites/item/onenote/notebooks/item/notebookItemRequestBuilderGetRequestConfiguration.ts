@@ -1,5 +1,5 @@
-import {NotebookItemRequestBuilderGetQueryParameters} from './notebookItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type NotebookItemRequestBuilderGetQueryParameters } from './notebookItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface NotebookItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,21 +1,20 @@
-import {AuditEventCollectionResponse} from '../../models/';
-import type {AuditEvent} from '../../models/auditEvent';
-import {createAuditEventCollectionResponseFromDiscriminatorValue} from '../../models/createAuditEventCollectionResponseFromDiscriminatorValue';
-import {createAuditEventFromDiscriminatorValue} from '../../models/createAuditEventFromDiscriminatorValue';
-import {deserializeIntoAuditEvent} from '../../models/deserializeIntoAuditEvent';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeAuditEvent} from '../../models/serializeAuditEvent';
-import {AuditEventsRequestBuilderGetRequestConfiguration} from './auditEventsRequestBuilderGetRequestConfiguration';
-import {AuditEventsRequestBuilderPostRequestConfiguration} from './auditEventsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetAuditActivityTypesWithCategoryRequestBuilder} from './getAuditActivityTypesWithCategory/getAuditActivityTypesWithCategoryRequestBuilder';
-import {GetAuditCategoriesRequestBuilder} from './getAuditCategories/getAuditCategoriesRequestBuilder';
-import {AuditEventItemRequestBuilder} from './item/auditEventItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuditEventCollectionResponse } from '../../models/';
+import { type AuditEvent } from '../../models/auditEvent';
+import { createAuditEventCollectionResponseFromDiscriminatorValue } from '../../models/createAuditEventCollectionResponseFromDiscriminatorValue';
+import { createAuditEventFromDiscriminatorValue } from '../../models/createAuditEventFromDiscriminatorValue';
+import { deserializeIntoAuditEvent } from '../../models/deserializeIntoAuditEvent';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeAuditEvent } from '../../models/serializeAuditEvent';
+import { type AuditEventsRequestBuilderGetRequestConfiguration } from './auditEventsRequestBuilderGetRequestConfiguration';
+import { type AuditEventsRequestBuilderPostRequestConfiguration } from './auditEventsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { GetAuditActivityTypesWithCategoryRequestBuilder } from './getAuditActivityTypesWithCategory/getAuditActivityTypesWithCategoryRequestBuilder';
+import { GetAuditCategoriesRequestBuilder } from './getAuditCategories/getAuditCategoriesRequestBuilder';
+import { AuditEventItemRequestBuilder } from './item/auditEventItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.

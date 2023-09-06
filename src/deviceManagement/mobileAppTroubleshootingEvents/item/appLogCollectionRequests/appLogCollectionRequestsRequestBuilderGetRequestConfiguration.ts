@@ -1,5 +1,5 @@
-import {AppLogCollectionRequestsRequestBuilderGetQueryParameters} from './appLogCollectionRequestsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppLogCollectionRequestsRequestBuilderGetQueryParameters } from './appLogCollectionRequestsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AppLogCollectionRequestsRequestBuilderGetRequestConfiguration {
     /**

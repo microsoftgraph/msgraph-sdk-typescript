@@ -1,6 +1,6 @@
-import {deserializeIntoPinnedChatMessageInfo} from './deserializeIntoPinnedChatMessageInfo';
-import {PinnedChatMessageInfo} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPinnedChatMessageInfo } from './deserializeIntoPinnedChatMessageInfo';
+import { type PinnedChatMessageInfo } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPinnedChatMessageInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

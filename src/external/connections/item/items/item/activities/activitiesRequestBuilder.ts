@@ -1,19 +1,18 @@
-import {ExternalActivityCollectionResponse} from '../../../../../../models/externalConnectors/';
-import {createExternalActivityCollectionResponseFromDiscriminatorValue} from '../../../../../../models/externalConnectors/createExternalActivityCollectionResponseFromDiscriminatorValue';
-import {createExternalActivityFromDiscriminatorValue} from '../../../../../../models/externalConnectors/createExternalActivityFromDiscriminatorValue';
-import {deserializeIntoExternalActivity} from '../../../../../../models/externalConnectors/deserializeIntoExternalActivity';
-import type {ExternalActivity} from '../../../../../../models/externalConnectors/externalActivity';
-import {serializeExternalActivity} from '../../../../../../models/externalConnectors/serializeExternalActivity';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {ActivitiesRequestBuilderGetRequestConfiguration} from './activitiesRequestBuilderGetRequestConfiguration';
-import {ActivitiesRequestBuilderPostRequestConfiguration} from './activitiesRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ExternalActivityItemRequestBuilder} from './item/externalActivityItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExternalActivityCollectionResponse } from '../../../../../../models/externalConnectors/';
+import { createExternalActivityCollectionResponseFromDiscriminatorValue } from '../../../../../../models/externalConnectors/createExternalActivityCollectionResponseFromDiscriminatorValue';
+import { createExternalActivityFromDiscriminatorValue } from '../../../../../../models/externalConnectors/createExternalActivityFromDiscriminatorValue';
+import { deserializeIntoExternalActivity } from '../../../../../../models/externalConnectors/deserializeIntoExternalActivity';
+import { type ExternalActivity } from '../../../../../../models/externalConnectors/externalActivity';
+import { serializeExternalActivity } from '../../../../../../models/externalConnectors/serializeExternalActivity';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type ActivitiesRequestBuilderGetRequestConfiguration } from './activitiesRequestBuilderGetRequestConfiguration';
+import { type ActivitiesRequestBuilderPostRequestConfiguration } from './activitiesRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ExternalActivityItemRequestBuilder } from './item/externalActivityItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.

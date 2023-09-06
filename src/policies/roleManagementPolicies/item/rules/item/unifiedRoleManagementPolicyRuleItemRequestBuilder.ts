@@ -1,16 +1,15 @@
-import {createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue} from '../../../../../models/createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue';
-import {deserializeIntoUnifiedRoleManagementPolicyRule} from '../../../../../models/deserializeIntoUnifiedRoleManagementPolicyRule';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeUnifiedRoleManagementPolicyRule} from '../../../../../models/serializeUnifiedRoleManagementPolicyRule';
-import type {UnifiedRoleManagementPolicyRule} from '../../../../../models/unifiedRoleManagementPolicyRule';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleManagementPolicyRuleItemRequestBuilderDeleteRequestConfiguration';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration} from './unifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue } from '../../../../../models/createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue';
+import { deserializeIntoUnifiedRoleManagementPolicyRule } from '../../../../../models/deserializeIntoUnifiedRoleManagementPolicyRule';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeUnifiedRoleManagementPolicyRule } from '../../../../../models/serializeUnifiedRoleManagementPolicyRule';
+import { type UnifiedRoleManagementPolicyRule } from '../../../../../models/unifiedRoleManagementPolicyRule';
+import { type UnifiedRoleManagementPolicyRuleItemRequestBuilderDeleteRequestConfiguration } from './unifiedRoleManagementPolicyRuleItemRequestBuilderDeleteRequestConfiguration';
+import { type UnifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration } from './unifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration';
+import { type UnifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration } from './unifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rules property of the microsoft.graph.unifiedRoleManagementPolicy entity.

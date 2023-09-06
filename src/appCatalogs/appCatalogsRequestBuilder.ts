@@ -1,16 +1,15 @@
-import type {AppCatalogs} from '../models/appCatalogs';
-import {createAppCatalogsFromDiscriminatorValue} from '../models/createAppCatalogsFromDiscriminatorValue';
-import {deserializeIntoAppCatalogs} from '../models/deserializeIntoAppCatalogs';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeAppCatalogs} from '../models/serializeAppCatalogs';
-import {AppCatalogsRequestBuilderGetRequestConfiguration} from './appCatalogsRequestBuilderGetRequestConfiguration';
-import {AppCatalogsRequestBuilderPatchRequestConfiguration} from './appCatalogsRequestBuilderPatchRequestConfiguration';
-import {TeamsAppsRequestBuilder} from './teamsApps/teamsAppsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppCatalogs } from '../models/appCatalogs';
+import { createAppCatalogsFromDiscriminatorValue } from '../models/createAppCatalogsFromDiscriminatorValue';
+import { deserializeIntoAppCatalogs } from '../models/deserializeIntoAppCatalogs';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeAppCatalogs } from '../models/serializeAppCatalogs';
+import { type AppCatalogsRequestBuilderGetRequestConfiguration } from './appCatalogsRequestBuilderGetRequestConfiguration';
+import { type AppCatalogsRequestBuilderPatchRequestConfiguration } from './appCatalogsRequestBuilderPatchRequestConfiguration';
+import { TeamsAppsRequestBuilder } from './teamsApps/teamsAppsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appCatalogs singleton.

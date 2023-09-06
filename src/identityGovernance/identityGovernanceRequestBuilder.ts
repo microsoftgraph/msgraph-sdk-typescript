@@ -1,20 +1,19 @@
-import {createIdentityGovernanceFromDiscriminatorValue} from '../models/createIdentityGovernanceFromDiscriminatorValue';
-import {deserializeIntoIdentityGovernance} from '../models/deserializeIntoIdentityGovernance';
-import type {IdentityGovernance} from '../models/identityGovernance';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeIdentityGovernance} from '../models/serializeIdentityGovernance';
-import {AccessReviewsRequestBuilder} from './accessReviews/accessReviewsRequestBuilder';
-import {AppConsentRequestBuilder} from './appConsent/appConsentRequestBuilder';
-import {EntitlementManagementRequestBuilder} from './entitlementManagement/entitlementManagementRequestBuilder';
-import {IdentityGovernanceRequestBuilderGetRequestConfiguration} from './identityGovernanceRequestBuilderGetRequestConfiguration';
-import {IdentityGovernanceRequestBuilderPatchRequestConfiguration} from './identityGovernanceRequestBuilderPatchRequestConfiguration';
-import {LifecycleWorkflowsRequestBuilder} from './lifecycleWorkflows/lifecycleWorkflowsRequestBuilder';
-import {TermsOfUseRequestBuilder} from './termsOfUse/termsOfUseRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createIdentityGovernanceFromDiscriminatorValue } from '../models/createIdentityGovernanceFromDiscriminatorValue';
+import { deserializeIntoIdentityGovernance } from '../models/deserializeIntoIdentityGovernance';
+import { type IdentityGovernance } from '../models/identityGovernance';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeIdentityGovernance } from '../models/serializeIdentityGovernance';
+import { AccessReviewsRequestBuilder } from './accessReviews/accessReviewsRequestBuilder';
+import { AppConsentRequestBuilder } from './appConsent/appConsentRequestBuilder';
+import { EntitlementManagementRequestBuilder } from './entitlementManagement/entitlementManagementRequestBuilder';
+import { type IdentityGovernanceRequestBuilderGetRequestConfiguration } from './identityGovernanceRequestBuilderGetRequestConfiguration';
+import { type IdentityGovernanceRequestBuilderPatchRequestConfiguration } from './identityGovernanceRequestBuilderPatchRequestConfiguration';
+import { LifecycleWorkflowsRequestBuilder } from './lifecycleWorkflows/lifecycleWorkflowsRequestBuilder';
+import { TermsOfUseRequestBuilder } from './termsOfUse/termsOfUseRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityGovernance singleton.

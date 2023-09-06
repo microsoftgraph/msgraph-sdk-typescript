@@ -1,8 +1,8 @@
-import {serializeEntity} from './serializeEntity';
-import {serializeUnifiedRolePermission} from './serializeUnifiedRolePermission';
-import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import type {UnifiedRolePermission} from './unifiedRolePermission';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { serializeUnifiedRolePermission } from './serializeUnifiedRolePermission';
+import { type UnifiedRoleDefinition } from './unifiedRoleDefinition';
+import { type UnifiedRolePermission } from './unifiedRolePermission';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleDefinition(writer: SerializationWriter, unifiedRoleDefinition: UnifiedRoleDefinition | undefined = {} as UnifiedRoleDefinition) : void {
         serializeEntity(writer, unifiedRoleDefinition)

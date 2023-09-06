@@ -1,5 +1,5 @@
-import {BookingAppointmentItemRequestBuilderGetQueryParameters} from './bookingAppointmentItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BookingAppointmentItemRequestBuilderGetQueryParameters } from './bookingAppointmentItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BookingAppointmentItemRequestBuilderGetRequestConfiguration {
     /**

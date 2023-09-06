@@ -1,9 +1,9 @@
-import {createFido2AuthenticationMethodFromDiscriminatorValue} from './createFido2AuthenticationMethodFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
-import type {Fido2AuthenticationMethodCollectionResponse} from './fido2AuthenticationMethodCollectionResponse';
-import {serializeFido2AuthenticationMethod} from './serializeFido2AuthenticationMethod';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createFido2AuthenticationMethodFromDiscriminatorValue } from './createFido2AuthenticationMethodFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type Fido2AuthenticationMethod } from './fido2AuthenticationMethod';
+import { type Fido2AuthenticationMethodCollectionResponse } from './fido2AuthenticationMethodCollectionResponse';
+import { serializeFido2AuthenticationMethod } from './serializeFido2AuthenticationMethod';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFido2AuthenticationMethodCollectionResponse(fido2AuthenticationMethodCollectionResponse: Fido2AuthenticationMethodCollectionResponse | undefined = {} as Fido2AuthenticationMethodCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

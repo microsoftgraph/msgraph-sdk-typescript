@@ -1,9 +1,9 @@
-import {deserializeIntoBaseItemVersion} from './deserializeIntoBaseItemVersion';
-import {deserializeIntoDocumentSetVersion} from './deserializeIntoDocumentSetVersion';
-import {deserializeIntoDriveItemVersion} from './deserializeIntoDriveItemVersion';
-import {deserializeIntoListItemVersion} from './deserializeIntoListItemVersion';
-import {BaseItemVersion, DocumentSetVersion, DriveItemVersion, ListItemVersion} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseItemVersion } from './deserializeIntoBaseItemVersion';
+import { deserializeIntoDocumentSetVersion } from './deserializeIntoDocumentSetVersion';
+import { deserializeIntoDriveItemVersion } from './deserializeIntoDriveItemVersion';
+import { deserializeIntoListItemVersion } from './deserializeIntoListItemVersion';
+import { type BaseItemVersion, type DocumentSetVersion, type DriveItemVersion, type ListItemVersion } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createBaseItemVersionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

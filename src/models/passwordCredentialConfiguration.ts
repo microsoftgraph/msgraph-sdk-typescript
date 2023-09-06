@@ -1,6 +1,5 @@
-import {AppCredentialRestrictionType} from './appCredentialRestrictionType';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { AppCredentialRestrictionType } from './appCredentialRestrictionType';
+import { Duration, type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PasswordCredentialConfiguration extends AdditionalDataHolder, Parsable {
     /**

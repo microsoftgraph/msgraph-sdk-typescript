@@ -1,5 +1,5 @@
-import {WorkforceIntegrationsRequestBuilderGetQueryParameters} from './workforceIntegrationsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkforceIntegrationsRequestBuilderGetQueryParameters } from './workforceIntegrationsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WorkforceIntegrationsRequestBuilderGetRequestConfiguration {
     /**

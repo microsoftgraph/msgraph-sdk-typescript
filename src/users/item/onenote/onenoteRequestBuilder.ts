@@ -1,22 +1,21 @@
-import {createOnenoteFromDiscriminatorValue} from '../../../models/createOnenoteFromDiscriminatorValue';
-import {deserializeIntoOnenote} from '../../../models/deserializeIntoOnenote';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {Onenote} from '../../../models/onenote';
-import {serializeOnenote} from '../../../models/serializeOnenote';
-import {NotebooksRequestBuilder} from './notebooks/notebooksRequestBuilder';
-import {OnenoteRequestBuilderDeleteRequestConfiguration} from './onenoteRequestBuilderDeleteRequestConfiguration';
-import {OnenoteRequestBuilderGetRequestConfiguration} from './onenoteRequestBuilderGetRequestConfiguration';
-import {OnenoteRequestBuilderPatchRequestConfiguration} from './onenoteRequestBuilderPatchRequestConfiguration';
-import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {PagesRequestBuilder} from './pages/pagesRequestBuilder';
-import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
-import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
-import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOnenoteFromDiscriminatorValue } from '../../../models/createOnenoteFromDiscriminatorValue';
+import { deserializeIntoOnenote } from '../../../models/deserializeIntoOnenote';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type Onenote } from '../../../models/onenote';
+import { serializeOnenote } from '../../../models/serializeOnenote';
+import { NotebooksRequestBuilder } from './notebooks/notebooksRequestBuilder';
+import { type OnenoteRequestBuilderDeleteRequestConfiguration } from './onenoteRequestBuilderDeleteRequestConfiguration';
+import { type OnenoteRequestBuilderGetRequestConfiguration } from './onenoteRequestBuilderGetRequestConfiguration';
+import { type OnenoteRequestBuilderPatchRequestConfiguration } from './onenoteRequestBuilderPatchRequestConfiguration';
+import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
+import { PagesRequestBuilder } from './pages/pagesRequestBuilder';
+import { ResourcesRequestBuilder } from './resources/resourcesRequestBuilder';
+import { SectionGroupsRequestBuilder } from './sectionGroups/sectionGroupsRequestBuilder';
+import { SectionsRequestBuilder } from './sections/sectionsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onenote property of the microsoft.graph.user entity.

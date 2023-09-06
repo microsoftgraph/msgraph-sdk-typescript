@@ -1,12 +1,12 @@
-import {createIosDeviceTypeFromDiscriminatorValue} from './createIosDeviceTypeFromDiscriminatorValue';
-import {createIosMinimumOperatingSystemFromDiscriminatorValue} from './createIosMinimumOperatingSystemFromDiscriminatorValue';
-import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
-import type {IosDeviceType} from './iosDeviceType';
-import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
-import type {IosStoreApp} from './iosStoreApp';
-import {serializeIosDeviceType} from './serializeIosDeviceType';
-import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperatingSystem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIosDeviceTypeFromDiscriminatorValue } from './createIosDeviceTypeFromDiscriminatorValue';
+import { createIosMinimumOperatingSystemFromDiscriminatorValue } from './createIosMinimumOperatingSystemFromDiscriminatorValue';
+import { deserializeIntoMobileApp } from './deserializeIntoMobileApp';
+import { type IosDeviceType } from './iosDeviceType';
+import { type IosMinimumOperatingSystem } from './iosMinimumOperatingSystem';
+import { type IosStoreApp } from './iosStoreApp';
+import { serializeIosDeviceType } from './serializeIosDeviceType';
+import { serializeIosMinimumOperatingSystem } from './serializeIosMinimumOperatingSystem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosStoreApp(iosStoreApp: IosStoreApp | undefined = {} as IosStoreApp) : Record<string, (node: ParseNode) => void> {
     return {

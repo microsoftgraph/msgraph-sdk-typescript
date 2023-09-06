@@ -1,5 +1,5 @@
-import type {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DeviceEnrollmentConfiguration } from './deviceEnrollmentConfiguration';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DeviceEnrollmentLimitConfiguration extends DeviceEnrollmentConfiguration, Parsable {
     /**

@@ -1,11 +1,11 @@
-import {createEducationItemBodyFromDiscriminatorValue} from './createEducationItemBodyFromDiscriminatorValue';
-import {createRubricCriterionFromDiscriminatorValue} from './createRubricCriterionFromDiscriminatorValue';
-import type {EducationItemBody} from './educationItemBody';
-import type {RubricCriterion} from './rubricCriterion';
-import type {RubricQuality} from './rubricQuality';
-import {serializeEducationItemBody} from './serializeEducationItemBody';
-import {serializeRubricCriterion} from './serializeRubricCriterion';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createEducationItemBodyFromDiscriminatorValue } from './createEducationItemBodyFromDiscriminatorValue';
+import { createRubricCriterionFromDiscriminatorValue } from './createRubricCriterionFromDiscriminatorValue';
+import { type EducationItemBody } from './educationItemBody';
+import { type RubricCriterion } from './rubricCriterion';
+import { type RubricQuality } from './rubricQuality';
+import { serializeEducationItemBody } from './serializeEducationItemBody';
+import { serializeRubricCriterion } from './serializeRubricCriterion';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRubricQuality(rubricQuality: RubricQuality | undefined = {} as RubricQuality) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,9 +1,9 @@
-import type {ApprovalStage} from './approvalStage';
-import type {ApprovalStageCollectionResponse} from './approvalStageCollectionResponse';
-import {createApprovalStageFromDiscriminatorValue} from './createApprovalStageFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeApprovalStage} from './serializeApprovalStage';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ApprovalStage } from './approvalStage';
+import { type ApprovalStageCollectionResponse } from './approvalStageCollectionResponse';
+import { createApprovalStageFromDiscriminatorValue } from './createApprovalStageFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeApprovalStage } from './serializeApprovalStage';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoApprovalStageCollectionResponse(approvalStageCollectionResponse: ApprovalStageCollectionResponse | undefined = {} as ApprovalStageCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

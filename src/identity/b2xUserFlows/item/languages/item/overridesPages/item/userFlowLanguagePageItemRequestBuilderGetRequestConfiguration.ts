@@ -1,5 +1,5 @@
-import {UserFlowLanguagePageItemRequestBuilderGetQueryParameters} from './userFlowLanguagePageItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserFlowLanguagePageItemRequestBuilderGetQueryParameters } from './userFlowLanguagePageItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserFlowLanguagePageItemRequestBuilderGetRequestConfiguration {
     /**

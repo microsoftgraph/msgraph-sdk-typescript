@@ -1,8 +1,8 @@
-import {createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue} from '../../../../../../models/createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue';
-import {serializeSynchronizationSecretKeyStringValuePair} from '../../../../../../models/serializeSynchronizationSecretKeyStringValuePair';
-import type {SynchronizationSecretKeyStringValuePair} from '../../../../../../models/synchronizationSecretKeyStringValuePair';
-import type {ValidateCredentialsPostRequestBody} from './validateCredentialsPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue } from '../../../../../../models/createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue';
+import { serializeSynchronizationSecretKeyStringValuePair } from '../../../../../../models/serializeSynchronizationSecretKeyStringValuePair';
+import { type SynchronizationSecretKeyStringValuePair } from '../../../../../../models/synchronizationSecretKeyStringValuePair';
+import { type ValidateCredentialsPostRequestBody } from './validateCredentialsPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoValidateCredentialsPostRequestBody(validateCredentialsPostRequestBody: ValidateCredentialsPostRequestBody | undefined = {} as ValidateCredentialsPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

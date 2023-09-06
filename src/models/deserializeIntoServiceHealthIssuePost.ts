@@ -1,9 +1,9 @@
-import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
-import type {ItemBody} from './itemBody';
-import {PostType} from './postType';
-import {serializeItemBody} from './serializeItemBody';
-import type {ServiceHealthIssuePost} from './serviceHealthIssuePost';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createItemBodyFromDiscriminatorValue } from './createItemBodyFromDiscriminatorValue';
+import { type ItemBody } from './itemBody';
+import { PostType } from './postType';
+import { serializeItemBody } from './serializeItemBody';
+import { type ServiceHealthIssuePost } from './serviceHealthIssuePost';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceHealthIssuePost(serviceHealthIssuePost: ServiceHealthIssuePost | undefined = {} as ServiceHealthIssuePost) : Record<string, (node: ParseNode) => void> {
     return {

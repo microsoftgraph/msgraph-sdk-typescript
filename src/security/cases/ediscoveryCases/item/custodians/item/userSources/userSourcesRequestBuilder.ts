@@ -1,19 +1,18 @@
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {UserSourceCollectionResponse} from '../../../../../../../models/security/';
-import {createUserSourceCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/security/createUserSourceCollectionResponseFromDiscriminatorValue';
-import {createUserSourceFromDiscriminatorValue} from '../../../../../../../models/security/createUserSourceFromDiscriminatorValue';
-import {deserializeIntoUserSource} from '../../../../../../../models/security/deserializeIntoUserSource';
-import {serializeUserSource} from '../../../../../../../models/security/serializeUserSource';
-import type {UserSource} from '../../../../../../../models/security/userSource';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserSourceItemRequestBuilder} from './item/userSourceItemRequestBuilder';
-import {UserSourcesRequestBuilderGetRequestConfiguration} from './userSourcesRequestBuilderGetRequestConfiguration';
-import {UserSourcesRequestBuilderPostRequestConfiguration} from './userSourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { type UserSourceCollectionResponse } from '../../../../../../../models/security/';
+import { createUserSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/createUserSourceCollectionResponseFromDiscriminatorValue';
+import { createUserSourceFromDiscriminatorValue } from '../../../../../../../models/security/createUserSourceFromDiscriminatorValue';
+import { deserializeIntoUserSource } from '../../../../../../../models/security/deserializeIntoUserSource';
+import { serializeUserSource } from '../../../../../../../models/security/serializeUserSource';
+import { type UserSource } from '../../../../../../../models/security/userSource';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserSourceItemRequestBuilder } from './item/userSourceItemRequestBuilder';
+import { type UserSourcesRequestBuilderGetRequestConfiguration } from './userSourcesRequestBuilderGetRequestConfiguration';
+import { type UserSourcesRequestBuilderPostRequestConfiguration } from './userSourcesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.

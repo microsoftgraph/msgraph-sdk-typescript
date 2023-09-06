@@ -1,19 +1,18 @@
-import {UserInstallStateSummaryCollectionResponse} from '../../../../models/';
-import {createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue} from '../../../../models/createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue';
-import {createUserInstallStateSummaryFromDiscriminatorValue} from '../../../../models/createUserInstallStateSummaryFromDiscriminatorValue';
-import {deserializeIntoUserInstallStateSummary} from '../../../../models/deserializeIntoUserInstallStateSummary';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeUserInstallStateSummary} from '../../../../models/serializeUserInstallStateSummary';
-import type {UserInstallStateSummary} from '../../../../models/userInstallStateSummary';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserInstallStateSummaryItemRequestBuilder} from './item/userInstallStateSummaryItemRequestBuilder';
-import {UserStateSummaryRequestBuilderGetRequestConfiguration} from './userStateSummaryRequestBuilderGetRequestConfiguration';
-import {UserStateSummaryRequestBuilderPostRequestConfiguration} from './userStateSummaryRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserInstallStateSummaryCollectionResponse } from '../../../../models/';
+import { createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue } from '../../../../models/createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue';
+import { createUserInstallStateSummaryFromDiscriminatorValue } from '../../../../models/createUserInstallStateSummaryFromDiscriminatorValue';
+import { deserializeIntoUserInstallStateSummary } from '../../../../models/deserializeIntoUserInstallStateSummary';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeUserInstallStateSummary } from '../../../../models/serializeUserInstallStateSummary';
+import { type UserInstallStateSummary } from '../../../../models/userInstallStateSummary';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserInstallStateSummaryItemRequestBuilder } from './item/userInstallStateSummaryItemRequestBuilder';
+import { type UserStateSummaryRequestBuilderGetRequestConfiguration } from './userStateSummaryRequestBuilderGetRequestConfiguration';
+import { type UserStateSummaryRequestBuilderPostRequestConfiguration } from './userStateSummaryRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.

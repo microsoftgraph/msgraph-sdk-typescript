@@ -1,6 +1,6 @@
-import {CloudAppSecuritySessionControlType} from './cloudAppSecuritySessionControlType';
-import type {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { CloudAppSecuritySessionControlType } from './cloudAppSecuritySessionControlType';
+import { type ConditionalAccessSessionControl } from './conditionalAccessSessionControl';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CloudAppSecuritySessionControl extends ConditionalAccessSessionControl, Parsable {
     /**

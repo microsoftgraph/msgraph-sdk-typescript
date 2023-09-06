@@ -1,5 +1,5 @@
-import {CasesRequestBuilderGetQueryParameters} from './casesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CasesRequestBuilderGetQueryParameters } from './casesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CasesRequestBuilderGetRequestConfiguration {
     /**

@@ -1,5 +1,5 @@
-import type {DriveItemUploadableProperties} from '../../../../../models/driveItemUploadableProperties';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type DriveItemUploadableProperties } from '../../../../../models/driveItemUploadableProperties';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CreateUploadSessionPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

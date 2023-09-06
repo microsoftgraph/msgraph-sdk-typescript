@@ -1,6 +1,6 @@
-import {deserializeIntoAgreementFileLocalizationCollectionResponse} from './deserializeIntoAgreementFileLocalizationCollectionResponse';
-import {AgreementFileLocalizationCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAgreementFileLocalizationCollectionResponse } from './deserializeIntoAgreementFileLocalizationCollectionResponse';
+import { type AgreementFileLocalizationCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAgreementFileLocalizationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

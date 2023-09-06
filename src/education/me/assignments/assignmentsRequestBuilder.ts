@@ -1,20 +1,19 @@
-import {EducationAssignmentCollectionResponse} from '../../../models/';
-import {createEducationAssignmentCollectionResponseFromDiscriminatorValue} from '../../../models/createEducationAssignmentCollectionResponseFromDiscriminatorValue';
-import {createEducationAssignmentFromDiscriminatorValue} from '../../../models/createEducationAssignmentFromDiscriminatorValue';
-import {deserializeIntoEducationAssignment} from '../../../models/deserializeIntoEducationAssignment';
-import type {EducationAssignment} from '../../../models/educationAssignment';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeEducationAssignment} from '../../../models/serializeEducationAssignment';
-import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsRequestBuilderGetRequestConfiguration';
-import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {EducationAssignmentItemRequestBuilder} from './item/educationAssignmentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type EducationAssignmentCollectionResponse } from '../../../models/';
+import { createEducationAssignmentCollectionResponseFromDiscriminatorValue } from '../../../models/createEducationAssignmentCollectionResponseFromDiscriminatorValue';
+import { createEducationAssignmentFromDiscriminatorValue } from '../../../models/createEducationAssignmentFromDiscriminatorValue';
+import { deserializeIntoEducationAssignment } from '../../../models/deserializeIntoEducationAssignment';
+import { type EducationAssignment } from '../../../models/educationAssignment';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeEducationAssignment } from '../../../models/serializeEducationAssignment';
+import { type AssignmentsRequestBuilderGetRequestConfiguration } from './assignmentsRequestBuilderGetRequestConfiguration';
+import { type AssignmentsRequestBuilderPostRequestConfiguration } from './assignmentsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { EducationAssignmentItemRequestBuilder } from './item/educationAssignmentItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.

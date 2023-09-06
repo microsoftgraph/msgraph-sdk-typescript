@@ -1,13 +1,13 @@
-import {createIdentityUserFlowAttributeFromDiscriminatorValue} from './createIdentityUserFlowAttributeFromDiscriminatorValue';
-import {createUserAttributeValuesItemFromDiscriminatorValue} from './createUserAttributeValuesItemFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
-import type {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAssignment';
-import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInputType';
-import {serializeIdentityUserFlowAttribute} from './serializeIdentityUserFlowAttribute';
-import {serializeUserAttributeValuesItem} from './serializeUserAttributeValuesItem';
-import type {UserAttributeValuesItem} from './userAttributeValuesItem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentityUserFlowAttributeFromDiscriminatorValue } from './createIdentityUserFlowAttributeFromDiscriminatorValue';
+import { createUserAttributeValuesItemFromDiscriminatorValue } from './createUserAttributeValuesItemFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IdentityUserFlowAttribute } from './identityUserFlowAttribute';
+import { type IdentityUserFlowAttributeAssignment } from './identityUserFlowAttributeAssignment';
+import { IdentityUserFlowAttributeInputType } from './identityUserFlowAttributeInputType';
+import { serializeIdentityUserFlowAttribute } from './serializeIdentityUserFlowAttribute';
+import { serializeUserAttributeValuesItem } from './serializeUserAttributeValuesItem';
+import { type UserAttributeValuesItem } from './userAttributeValuesItem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityUserFlowAttributeAssignment(identityUserFlowAttributeAssignment: IdentityUserFlowAttributeAssignment | undefined = {} as IdentityUserFlowAttributeAssignment) : Record<string, (node: ParseNode) => void> {
     return {

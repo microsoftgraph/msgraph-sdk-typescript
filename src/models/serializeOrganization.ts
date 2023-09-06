@@ -1,22 +1,22 @@
-import type {AssignedPlan} from './assignedPlan';
-import type {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
-import type {Extension} from './extension';
-import {MdmAuthority} from './mdmAuthority';
-import type {Organization} from './organization';
-import type {OrganizationalBranding} from './organizationalBranding';
-import {PartnerTenantType} from './partnerTenantType';
-import type {PrivacyProfile} from './privacyProfile';
-import type {ProvisionedPlan} from './provisionedPlan';
-import {serializeAssignedPlan} from './serializeAssignedPlan';
-import {serializeCertificateBasedAuthConfiguration} from './serializeCertificateBasedAuthConfiguration';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeExtension} from './serializeExtension';
-import {serializeOrganizationalBranding} from './serializeOrganizationalBranding';
-import {serializePrivacyProfile} from './serializePrivacyProfile';
-import {serializeProvisionedPlan} from './serializeProvisionedPlan';
-import {serializeVerifiedDomain} from './serializeVerifiedDomain';
-import type {VerifiedDomain} from './verifiedDomain';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AssignedPlan } from './assignedPlan';
+import { type CertificateBasedAuthConfiguration } from './certificateBasedAuthConfiguration';
+import { type Extension } from './extension';
+import { MdmAuthority } from './mdmAuthority';
+import { type Organization } from './organization';
+import { type OrganizationalBranding } from './organizationalBranding';
+import { PartnerTenantType } from './partnerTenantType';
+import { type PrivacyProfile } from './privacyProfile';
+import { type ProvisionedPlan } from './provisionedPlan';
+import { serializeAssignedPlan } from './serializeAssignedPlan';
+import { serializeCertificateBasedAuthConfiguration } from './serializeCertificateBasedAuthConfiguration';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeExtension } from './serializeExtension';
+import { serializeOrganizationalBranding } from './serializeOrganizationalBranding';
+import { serializePrivacyProfile } from './serializePrivacyProfile';
+import { serializeProvisionedPlan } from './serializeProvisionedPlan';
+import { serializeVerifiedDomain } from './serializeVerifiedDomain';
+import { type VerifiedDomain } from './verifiedDomain';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOrganization(writer: SerializationWriter, organization: Organization | undefined = {} as Organization) : void {
         serializeDirectoryObject(writer, organization)

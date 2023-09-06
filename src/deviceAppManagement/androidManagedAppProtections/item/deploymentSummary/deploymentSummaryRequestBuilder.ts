@@ -1,16 +1,15 @@
-import {createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue} from '../../../../models/createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
-import {deserializeIntoManagedAppPolicyDeploymentSummary} from '../../../../models/deserializeIntoManagedAppPolicyDeploymentSummary';
-import type {ManagedAppPolicyDeploymentSummary} from '../../../../models/managedAppPolicyDeploymentSummary';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeManagedAppPolicyDeploymentSummary} from '../../../../models/serializeManagedAppPolicyDeploymentSummary';
-import {DeploymentSummaryRequestBuilderDeleteRequestConfiguration} from './deploymentSummaryRequestBuilderDeleteRequestConfiguration';
-import {DeploymentSummaryRequestBuilderGetRequestConfiguration} from './deploymentSummaryRequestBuilderGetRequestConfiguration';
-import {DeploymentSummaryRequestBuilderPatchRequestConfiguration} from './deploymentSummaryRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue } from '../../../../models/createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
+import { deserializeIntoManagedAppPolicyDeploymentSummary } from '../../../../models/deserializeIntoManagedAppPolicyDeploymentSummary';
+import { type ManagedAppPolicyDeploymentSummary } from '../../../../models/managedAppPolicyDeploymentSummary';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeManagedAppPolicyDeploymentSummary } from '../../../../models/serializeManagedAppPolicyDeploymentSummary';
+import { type DeploymentSummaryRequestBuilderDeleteRequestConfiguration } from './deploymentSummaryRequestBuilderDeleteRequestConfiguration';
+import { type DeploymentSummaryRequestBuilderGetRequestConfiguration } from './deploymentSummaryRequestBuilderGetRequestConfiguration';
+import { type DeploymentSummaryRequestBuilderPatchRequestConfiguration } from './deploymentSummaryRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deploymentSummary property of the microsoft.graph.androidManagedAppProtection entity.

@@ -1,5 +1,5 @@
-import {CatalogsRequestBuilderGetQueryParameters} from './catalogsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CatalogsRequestBuilderGetQueryParameters } from './catalogsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CatalogsRequestBuilderGetRequestConfiguration {
     /**

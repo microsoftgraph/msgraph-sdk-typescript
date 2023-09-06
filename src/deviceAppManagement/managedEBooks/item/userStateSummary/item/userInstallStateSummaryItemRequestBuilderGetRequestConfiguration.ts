@@ -1,5 +1,5 @@
-import {UserInstallStateSummaryItemRequestBuilderGetQueryParameters} from './userInstallStateSummaryItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserInstallStateSummaryItemRequestBuilderGetQueryParameters } from './userInstallStateSummaryItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserInstallStateSummaryItemRequestBuilderGetRequestConfiguration {
     /**

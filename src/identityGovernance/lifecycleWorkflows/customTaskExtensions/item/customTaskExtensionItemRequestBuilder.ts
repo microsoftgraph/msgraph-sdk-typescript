@@ -1,18 +1,17 @@
-import {createCustomTaskExtensionFromDiscriminatorValue} from '../../../../models/identityGovernance/createCustomTaskExtensionFromDiscriminatorValue';
-import type {CustomTaskExtension} from '../../../../models/identityGovernance/customTaskExtension';
-import {deserializeIntoCustomTaskExtension} from '../../../../models/identityGovernance/deserializeIntoCustomTaskExtension';
-import {serializeCustomTaskExtension} from '../../../../models/identityGovernance/serializeCustomTaskExtension';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {CreatedByRequestBuilder} from './createdBy/createdByRequestBuilder';
-import {CustomTaskExtensionItemRequestBuilderDeleteRequestConfiguration} from './customTaskExtensionItemRequestBuilderDeleteRequestConfiguration';
-import {CustomTaskExtensionItemRequestBuilderGetRequestConfiguration} from './customTaskExtensionItemRequestBuilderGetRequestConfiguration';
-import {CustomTaskExtensionItemRequestBuilderPatchRequestConfiguration} from './customTaskExtensionItemRequestBuilderPatchRequestConfiguration';
-import {LastModifiedByRequestBuilder} from './lastModifiedBy/lastModifiedByRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createCustomTaskExtensionFromDiscriminatorValue } from '../../../../models/identityGovernance/createCustomTaskExtensionFromDiscriminatorValue';
+import { type CustomTaskExtension } from '../../../../models/identityGovernance/customTaskExtension';
+import { deserializeIntoCustomTaskExtension } from '../../../../models/identityGovernance/deserializeIntoCustomTaskExtension';
+import { serializeCustomTaskExtension } from '../../../../models/identityGovernance/serializeCustomTaskExtension';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { CreatedByRequestBuilder } from './createdBy/createdByRequestBuilder';
+import { type CustomTaskExtensionItemRequestBuilderDeleteRequestConfiguration } from './customTaskExtensionItemRequestBuilderDeleteRequestConfiguration';
+import { type CustomTaskExtensionItemRequestBuilderGetRequestConfiguration } from './customTaskExtensionItemRequestBuilderGetRequestConfiguration';
+import { type CustomTaskExtensionItemRequestBuilderPatchRequestConfiguration } from './customTaskExtensionItemRequestBuilderPatchRequestConfiguration';
+import { LastModifiedByRequestBuilder } from './lastModifiedBy/lastModifiedByRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.

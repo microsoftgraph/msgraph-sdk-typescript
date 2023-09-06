@@ -1,6 +1,6 @@
-import {deserializeIntoWeekdayPostRequestBody} from './deserializeIntoWeekdayPostRequestBody';
-import {WeekdayPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWeekdayPostRequestBody } from './deserializeIntoWeekdayPostRequestBody';
+import { type WeekdayPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWeekdayPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,5 +1,5 @@
-import type {MobileAppIdentifier} from './mobileAppIdentifier';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type MobileAppIdentifier } from './mobileAppIdentifier';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppPolicyDeploymentSummaryPerApp extends AdditionalDataHolder, Parsable {
     /**

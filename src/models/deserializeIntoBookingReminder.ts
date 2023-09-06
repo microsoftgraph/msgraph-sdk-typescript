@@ -1,7 +1,6 @@
-import type {BookingReminder} from './bookingReminder';
-import {BookingReminderRecipients} from './bookingReminderRecipients';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BookingReminder } from './bookingReminder';
+import { BookingReminderRecipients } from './bookingReminderRecipients';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingReminder(bookingReminder: BookingReminder | undefined = {} as BookingReminder) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,9 +1,9 @@
-import {createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue} from './createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeWindowsInformationProtectionAppLockerFile} from './serializeWindowsInformationProtectionAppLockerFile';
-import type {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
-import type {WindowsInformationProtectionAppLockerFileCollectionResponse} from './windowsInformationProtectionAppLockerFileCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue } from './createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeWindowsInformationProtectionAppLockerFile } from './serializeWindowsInformationProtectionAppLockerFile';
+import { type WindowsInformationProtectionAppLockerFile } from './windowsInformationProtectionAppLockerFile';
+import { type WindowsInformationProtectionAppLockerFileCollectionResponse } from './windowsInformationProtectionAppLockerFileCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsInformationProtectionAppLockerFileCollectionResponse(windowsInformationProtectionAppLockerFileCollectionResponse: WindowsInformationProtectionAppLockerFileCollectionResponse | undefined = {} as WindowsInformationProtectionAppLockerFileCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

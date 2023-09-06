@@ -1,5 +1,5 @@
-import {SoftwareOathMethodsRequestBuilderGetQueryParameters} from './softwareOathMethodsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SoftwareOathMethodsRequestBuilderGetQueryParameters } from './softwareOathMethodsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SoftwareOathMethodsRequestBuilderGetRequestConfiguration {
     /**

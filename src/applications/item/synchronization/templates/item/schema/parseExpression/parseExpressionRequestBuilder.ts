@@ -1,17 +1,16 @@
-import {createParseExpressionResponseFromDiscriminatorValue} from '../../../../../../../models/createParseExpressionResponseFromDiscriminatorValue';
-import {deserializeIntoParseExpressionResponse} from '../../../../../../../models/deserializeIntoParseExpressionResponse';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import type {ParseExpressionResponse} from '../../../../../../../models/parseExpressionResponse';
-import {serializeParseExpressionResponse} from '../../../../../../../models/serializeParseExpressionResponse';
-import {deserializeIntoParseExpressionPostRequestBody} from './deserializeIntoParseExpressionPostRequestBody';
-import type {ParseExpressionPostRequestBody} from './parseExpressionPostRequestBody';
-import {ParseExpressionRequestBuilderPostRequestConfiguration} from './parseExpressionRequestBuilderPostRequestConfiguration';
-import {serializeParseExpressionPostRequestBody} from './serializeParseExpressionPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createParseExpressionResponseFromDiscriminatorValue } from '../../../../../../../models/createParseExpressionResponseFromDiscriminatorValue';
+import { deserializeIntoParseExpressionResponse } from '../../../../../../../models/deserializeIntoParseExpressionResponse';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { type ParseExpressionResponse } from '../../../../../../../models/parseExpressionResponse';
+import { serializeParseExpressionResponse } from '../../../../../../../models/serializeParseExpressionResponse';
+import { deserializeIntoParseExpressionPostRequestBody } from './deserializeIntoParseExpressionPostRequestBody';
+import { type ParseExpressionPostRequestBody } from './parseExpressionPostRequestBody';
+import { type ParseExpressionRequestBuilderPostRequestConfiguration } from './parseExpressionRequestBuilderPostRequestConfiguration';
+import { serializeParseExpressionPostRequestBody } from './serializeParseExpressionPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the parseExpression method.

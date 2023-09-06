@@ -1,8 +1,8 @@
-import type {EducationCategory} from './educationCategory';
-import type {EducationCategoryCollectionResponse} from './educationCategoryCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeEducationCategory} from './serializeEducationCategory';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EducationCategory } from './educationCategory';
+import { type EducationCategoryCollectionResponse } from './educationCategoryCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeEducationCategory } from './serializeEducationCategory';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEducationCategoryCollectionResponse(writer: SerializationWriter, educationCategoryCollectionResponse: EducationCategoryCollectionResponse | undefined = {} as EducationCategoryCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, educationCategoryCollectionResponse)

@@ -1,10 +1,10 @@
-import type {Entity} from './entity';
-import type {PrintDocument} from './printDocument';
-import type {PrintJobConfiguration} from './printJobConfiguration';
-import type {PrintJobStatus} from './printJobStatus';
-import type {PrintTask} from './printTask';
-import type {UserIdentity} from './userIdentity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type PrintDocument } from './printDocument';
+import { type PrintJobConfiguration } from './printJobConfiguration';
+import { type PrintJobStatus } from './printJobStatus';
+import { type PrintTask } from './printTask';
+import { type UserIdentity } from './userIdentity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PrintJob extends Entity, Parsable {
     /**

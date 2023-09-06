@@ -1,19 +1,18 @@
-import {CustomExtensionStageSettingCollectionResponse} from '../../../../../../../models/';
-import {createCustomExtensionStageSettingCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createCustomExtensionStageSettingCollectionResponseFromDiscriminatorValue';
-import {createCustomExtensionStageSettingFromDiscriminatorValue} from '../../../../../../../models/createCustomExtensionStageSettingFromDiscriminatorValue';
-import type {CustomExtensionStageSetting} from '../../../../../../../models/customExtensionStageSetting';
-import {deserializeIntoCustomExtensionStageSetting} from '../../../../../../../models/deserializeIntoCustomExtensionStageSetting';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeCustomExtensionStageSetting} from '../../../../../../../models/serializeCustomExtensionStageSetting';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CustomExtensionStageSettingsRequestBuilderGetRequestConfiguration} from './customExtensionStageSettingsRequestBuilderGetRequestConfiguration';
-import {CustomExtensionStageSettingsRequestBuilderPostRequestConfiguration} from './customExtensionStageSettingsRequestBuilderPostRequestConfiguration';
-import {CustomExtensionStageSettingItemRequestBuilder} from './item/customExtensionStageSettingItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CustomExtensionStageSettingCollectionResponse } from '../../../../../../../models/';
+import { createCustomExtensionStageSettingCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createCustomExtensionStageSettingCollectionResponseFromDiscriminatorValue';
+import { createCustomExtensionStageSettingFromDiscriminatorValue } from '../../../../../../../models/createCustomExtensionStageSettingFromDiscriminatorValue';
+import { type CustomExtensionStageSetting } from '../../../../../../../models/customExtensionStageSetting';
+import { deserializeIntoCustomExtensionStageSetting } from '../../../../../../../models/deserializeIntoCustomExtensionStageSetting';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeCustomExtensionStageSetting } from '../../../../../../../models/serializeCustomExtensionStageSetting';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type CustomExtensionStageSettingsRequestBuilderGetRequestConfiguration } from './customExtensionStageSettingsRequestBuilderGetRequestConfiguration';
+import { type CustomExtensionStageSettingsRequestBuilderPostRequestConfiguration } from './customExtensionStageSettingsRequestBuilderPostRequestConfiguration';
+import { CustomExtensionStageSettingItemRequestBuilder } from './item/customExtensionStageSettingItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customExtensionStageSettings property of the microsoft.graph.accessPackageAssignmentPolicy entity.

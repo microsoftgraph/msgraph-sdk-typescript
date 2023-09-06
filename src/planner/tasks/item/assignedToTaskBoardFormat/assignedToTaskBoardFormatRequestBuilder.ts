@@ -1,16 +1,15 @@
-import {createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue} from '../../../../models/createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue';
-import {deserializeIntoPlannerAssignedToTaskBoardTaskFormat} from '../../../../models/deserializeIntoPlannerAssignedToTaskBoardTaskFormat';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {PlannerAssignedToTaskBoardTaskFormat} from '../../../../models/plannerAssignedToTaskBoardTaskFormat';
-import {serializePlannerAssignedToTaskBoardTaskFormat} from '../../../../models/serializePlannerAssignedToTaskBoardTaskFormat';
-import {AssignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
-import {AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderGetRequestConfiguration';
-import {AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue } from '../../../../models/createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue';
+import { deserializeIntoPlannerAssignedToTaskBoardTaskFormat } from '../../../../models/deserializeIntoPlannerAssignedToTaskBoardTaskFormat';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type PlannerAssignedToTaskBoardTaskFormat } from '../../../../models/plannerAssignedToTaskBoardTaskFormat';
+import { serializePlannerAssignedToTaskBoardTaskFormat } from '../../../../models/serializePlannerAssignedToTaskBoardTaskFormat';
+import { type AssignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration } from './assignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
+import { type AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration } from './assignedToTaskBoardFormatRequestBuilderGetRequestConfiguration';
+import { type AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration } from './assignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.

@@ -1,9 +1,9 @@
-import type {Message} from '../../../../../models/message';
-import type {Recipient} from '../../../../../models/recipient';
-import {serializeMessage} from '../../../../../models/serializeMessage';
-import {serializeRecipient} from '../../../../../models/serializeRecipient';
-import type {ForwardPostRequestBody} from './forwardPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Message } from '../../../../../models/message';
+import { type Recipient } from '../../../../../models/recipient';
+import { serializeMessage } from '../../../../../models/serializeMessage';
+import { serializeRecipient } from '../../../../../models/serializeRecipient';
+import { type ForwardPostRequestBody } from './forwardPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeForwardPostRequestBody(writer: SerializationWriter, forwardPostRequestBody: ForwardPostRequestBody | undefined = {} as ForwardPostRequestBody) : void {
         writer.writeStringValue("comment", forwardPostRequestBody.comment);

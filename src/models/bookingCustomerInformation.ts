@@ -1,7 +1,7 @@
-import type {BookingCustomerInformationBase} from './bookingCustomerInformationBase';
-import type {BookingQuestionAnswer} from './bookingQuestionAnswer';
-import type {Location} from './location';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BookingCustomerInformationBase } from './bookingCustomerInformationBase';
+import { type BookingQuestionAnswer } from './bookingQuestionAnswer';
+import { type Location } from './location';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BookingCustomerInformation extends BookingCustomerInformationBase, Parsable {
     /**

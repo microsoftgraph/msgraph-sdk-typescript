@@ -1,5 +1,5 @@
-import {SharedPCAccountDeletionPolicyType} from './sharedPCAccountDeletionPolicyType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { SharedPCAccountDeletionPolicyType } from './sharedPCAccountDeletionPolicyType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SharedPCAccountManagerPolicy extends AdditionalDataHolder, Parsable {
     /**

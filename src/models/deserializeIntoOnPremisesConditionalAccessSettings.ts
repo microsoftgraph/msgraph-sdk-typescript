@@ -1,7 +1,7 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {OnPremisesConditionalAccessSettings} from './onPremisesConditionalAccessSettings';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type OnPremisesConditionalAccessSettings } from './onPremisesConditionalAccessSettings';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function deserializeIntoOnPremisesConditionalAccessSettings(onPremisesConditionalAccessSettings: OnPremisesConditionalAccessSettings | undefined = {} as OnPremisesConditionalAccessSettings) : Record<string, (node: ParseNode) => void> {
     return {

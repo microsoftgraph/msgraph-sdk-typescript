@@ -1,19 +1,18 @@
-import {EducationOutcomeCollectionResponse} from '../../../../../../../models/';
-import {createEducationOutcomeCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createEducationOutcomeCollectionResponseFromDiscriminatorValue';
-import {createEducationOutcomeFromDiscriminatorValue} from '../../../../../../../models/createEducationOutcomeFromDiscriminatorValue';
-import {deserializeIntoEducationOutcome} from '../../../../../../../models/deserializeIntoEducationOutcome';
-import type {EducationOutcome} from '../../../../../../../models/educationOutcome';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeEducationOutcome} from '../../../../../../../models/serializeEducationOutcome';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EducationOutcomeItemRequestBuilder} from './item/educationOutcomeItemRequestBuilder';
-import {OutcomesRequestBuilderGetRequestConfiguration} from './outcomesRequestBuilderGetRequestConfiguration';
-import {OutcomesRequestBuilderPostRequestConfiguration} from './outcomesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type EducationOutcomeCollectionResponse } from '../../../../../../../models/';
+import { createEducationOutcomeCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createEducationOutcomeCollectionResponseFromDiscriminatorValue';
+import { createEducationOutcomeFromDiscriminatorValue } from '../../../../../../../models/createEducationOutcomeFromDiscriminatorValue';
+import { deserializeIntoEducationOutcome } from '../../../../../../../models/deserializeIntoEducationOutcome';
+import { type EducationOutcome } from '../../../../../../../models/educationOutcome';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeEducationOutcome } from '../../../../../../../models/serializeEducationOutcome';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { EducationOutcomeItemRequestBuilder } from './item/educationOutcomeItemRequestBuilder';
+import { type OutcomesRequestBuilderGetRequestConfiguration } from './outcomesRequestBuilderGetRequestConfiguration';
+import { type OutcomesRequestBuilderPostRequestConfiguration } from './outcomesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.

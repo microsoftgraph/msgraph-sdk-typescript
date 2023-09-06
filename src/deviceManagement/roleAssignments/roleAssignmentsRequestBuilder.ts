@@ -1,19 +1,18 @@
-import {DeviceAndAppManagementRoleAssignmentCollectionResponse} from '../../models/';
-import {createDeviceAndAppManagementRoleAssignmentCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceAndAppManagementRoleAssignmentCollectionResponseFromDiscriminatorValue';
-import {createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue} from '../../models/createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue';
-import {deserializeIntoDeviceAndAppManagementRoleAssignment} from '../../models/deserializeIntoDeviceAndAppManagementRoleAssignment';
-import type {DeviceAndAppManagementRoleAssignment} from '../../models/deviceAndAppManagementRoleAssignment';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeDeviceAndAppManagementRoleAssignment} from '../../models/serializeDeviceAndAppManagementRoleAssignment';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeviceAndAppManagementRoleAssignmentItemRequestBuilder} from './item/deviceAndAppManagementRoleAssignmentItemRequestBuilder';
-import {RoleAssignmentsRequestBuilderGetRequestConfiguration} from './roleAssignmentsRequestBuilderGetRequestConfiguration';
-import {RoleAssignmentsRequestBuilderPostRequestConfiguration} from './roleAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceAndAppManagementRoleAssignmentCollectionResponse } from '../../models/';
+import { createDeviceAndAppManagementRoleAssignmentCollectionResponseFromDiscriminatorValue } from '../../models/createDeviceAndAppManagementRoleAssignmentCollectionResponseFromDiscriminatorValue';
+import { createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue } from '../../models/createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue';
+import { deserializeIntoDeviceAndAppManagementRoleAssignment } from '../../models/deserializeIntoDeviceAndAppManagementRoleAssignment';
+import { type DeviceAndAppManagementRoleAssignment } from '../../models/deviceAndAppManagementRoleAssignment';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeDeviceAndAppManagementRoleAssignment } from '../../models/serializeDeviceAndAppManagementRoleAssignment';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeviceAndAppManagementRoleAssignmentItemRequestBuilder } from './item/deviceAndAppManagementRoleAssignmentItemRequestBuilder';
+import { type RoleAssignmentsRequestBuilderGetRequestConfiguration } from './roleAssignmentsRequestBuilderGetRequestConfiguration';
+import { type RoleAssignmentsRequestBuilderPostRequestConfiguration } from './roleAssignmentsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.

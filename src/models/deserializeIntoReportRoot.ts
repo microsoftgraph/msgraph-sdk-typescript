@@ -1,17 +1,17 @@
-import type {AuthenticationMethodsRoot} from './authenticationMethodsRoot';
-import {createAuthenticationMethodsRootFromDiscriminatorValue} from './createAuthenticationMethodsRootFromDiscriminatorValue';
-import {createPrintUsageByPrinterFromDiscriminatorValue} from './createPrintUsageByPrinterFromDiscriminatorValue';
-import {createPrintUsageByUserFromDiscriminatorValue} from './createPrintUsageByUserFromDiscriminatorValue';
-import {createSecurityReportsRootFromDiscriminatorValue} from './createSecurityReportsRootFromDiscriminatorValue';
-import type {PrintUsageByPrinter} from './printUsageByPrinter';
-import type {PrintUsageByUser} from './printUsageByUser';
-import type {ReportRoot} from './reportRoot';
-import type {SecurityReportsRoot} from './securityReportsRoot';
-import {serializeAuthenticationMethodsRoot} from './serializeAuthenticationMethodsRoot';
-import {serializePrintUsageByPrinter} from './serializePrintUsageByPrinter';
-import {serializePrintUsageByUser} from './serializePrintUsageByUser';
-import {serializeSecurityReportsRoot} from './serializeSecurityReportsRoot';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodsRoot } from './authenticationMethodsRoot';
+import { createAuthenticationMethodsRootFromDiscriminatorValue } from './createAuthenticationMethodsRootFromDiscriminatorValue';
+import { createPrintUsageByPrinterFromDiscriminatorValue } from './createPrintUsageByPrinterFromDiscriminatorValue';
+import { createPrintUsageByUserFromDiscriminatorValue } from './createPrintUsageByUserFromDiscriminatorValue';
+import { createSecurityReportsRootFromDiscriminatorValue } from './createSecurityReportsRootFromDiscriminatorValue';
+import { type PrintUsageByPrinter } from './printUsageByPrinter';
+import { type PrintUsageByUser } from './printUsageByUser';
+import { type ReportRoot } from './reportRoot';
+import { type SecurityReportsRoot } from './securityReportsRoot';
+import { serializeAuthenticationMethodsRoot } from './serializeAuthenticationMethodsRoot';
+import { serializePrintUsageByPrinter } from './serializePrintUsageByPrinter';
+import { serializePrintUsageByUser } from './serializePrintUsageByUser';
+import { serializeSecurityReportsRoot } from './serializeSecurityReportsRoot';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoReportRoot(reportRoot: ReportRoot | undefined = {} as ReportRoot) : Record<string, (node: ParseNode) => void> {
     return {

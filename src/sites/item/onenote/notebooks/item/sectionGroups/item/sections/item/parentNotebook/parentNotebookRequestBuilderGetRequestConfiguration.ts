@@ -1,5 +1,5 @@
-import {ParentNotebookRequestBuilderGetQueryParameters} from './parentNotebookRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ParentNotebookRequestBuilderGetQueryParameters } from './parentNotebookRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ParentNotebookRequestBuilderGetRequestConfiguration {
     /**

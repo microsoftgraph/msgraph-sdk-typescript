@@ -1,16 +1,15 @@
-import {createUnifiedRbacResourceActionFromDiscriminatorValue} from '../../../../../../models/createUnifiedRbacResourceActionFromDiscriminatorValue';
-import {deserializeIntoUnifiedRbacResourceAction} from '../../../../../../models/deserializeIntoUnifiedRbacResourceAction';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeUnifiedRbacResourceAction} from '../../../../../../models/serializeUnifiedRbacResourceAction';
-import type {UnifiedRbacResourceAction} from '../../../../../../models/unifiedRbacResourceAction';
-import {UnifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration} from './unifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration';
-import {UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration} from './unifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration';
-import {UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration} from './unifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUnifiedRbacResourceActionFromDiscriminatorValue } from '../../../../../../models/createUnifiedRbacResourceActionFromDiscriminatorValue';
+import { deserializeIntoUnifiedRbacResourceAction } from '../../../../../../models/deserializeIntoUnifiedRbacResourceAction';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeUnifiedRbacResourceAction } from '../../../../../../models/serializeUnifiedRbacResourceAction';
+import { type UnifiedRbacResourceAction } from '../../../../../../models/unifiedRbacResourceAction';
+import { type UnifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration } from './unifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration';
+import { type UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration } from './unifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration';
+import { type UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration } from './unifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.

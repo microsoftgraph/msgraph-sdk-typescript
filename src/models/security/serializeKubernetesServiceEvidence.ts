@@ -1,15 +1,15 @@
-import type {Dictionary} from './dictionary';
-import type {IpEvidence} from './ipEvidence';
-import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import type {KubernetesServiceEvidence} from './kubernetesServiceEvidence';
-import type {KubernetesServicePort} from './kubernetesServicePort';
-import {KubernetesServiceType} from './kubernetesServiceType';
-import {serializeAlertEvidence} from './serializeAlertEvidence';
-import {serializeDictionary} from './serializeDictionary';
-import {serializeIpEvidence} from './serializeIpEvidence';
-import {serializeKubernetesNamespaceEvidence} from './serializeKubernetesNamespaceEvidence';
-import {serializeKubernetesServicePort} from './serializeKubernetesServicePort';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Dictionary } from './dictionary';
+import { type IpEvidence } from './ipEvidence';
+import { type KubernetesNamespaceEvidence } from './kubernetesNamespaceEvidence';
+import { type KubernetesServiceEvidence } from './kubernetesServiceEvidence';
+import { type KubernetesServicePort } from './kubernetesServicePort';
+import { KubernetesServiceType } from './kubernetesServiceType';
+import { serializeAlertEvidence } from './serializeAlertEvidence';
+import { serializeDictionary } from './serializeDictionary';
+import { serializeIpEvidence } from './serializeIpEvidence';
+import { serializeKubernetesNamespaceEvidence } from './serializeKubernetesNamespaceEvidence';
+import { serializeKubernetesServicePort } from './serializeKubernetesServicePort';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeKubernetesServiceEvidence(writer: SerializationWriter, kubernetesServiceEvidence: KubernetesServiceEvidence | undefined = {} as KubernetesServiceEvidence) : void {
         serializeAlertEvidence(writer, kubernetesServiceEvidence)

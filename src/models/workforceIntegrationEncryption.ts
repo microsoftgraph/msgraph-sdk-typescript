@@ -1,5 +1,5 @@
-import {WorkforceIntegrationEncryptionProtocol} from './workforceIntegrationEncryptionProtocol';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { WorkforceIntegrationEncryptionProtocol } from './workforceIntegrationEncryptionProtocol';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkforceIntegrationEncryption extends AdditionalDataHolder, Parsable {
     /**

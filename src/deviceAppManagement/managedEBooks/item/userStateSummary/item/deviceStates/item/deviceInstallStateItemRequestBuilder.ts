@@ -1,16 +1,15 @@
-import {createDeviceInstallStateFromDiscriminatorValue} from '../../../../../../../models/createDeviceInstallStateFromDiscriminatorValue';
-import {deserializeIntoDeviceInstallState} from '../../../../../../../models/deserializeIntoDeviceInstallState';
-import type {DeviceInstallState} from '../../../../../../../models/deviceInstallState';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceInstallState} from '../../../../../../../models/serializeDeviceInstallState';
-import {DeviceInstallStateItemRequestBuilderDeleteRequestConfiguration} from './deviceInstallStateItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceInstallStateItemRequestBuilderGetRequestConfiguration} from './deviceInstallStateItemRequestBuilderGetRequestConfiguration';
-import {DeviceInstallStateItemRequestBuilderPatchRequestConfiguration} from './deviceInstallStateItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceInstallStateFromDiscriminatorValue } from '../../../../../../../models/createDeviceInstallStateFromDiscriminatorValue';
+import { deserializeIntoDeviceInstallState } from '../../../../../../../models/deserializeIntoDeviceInstallState';
+import { type DeviceInstallState } from '../../../../../../../models/deviceInstallState';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceInstallState } from '../../../../../../../models/serializeDeviceInstallState';
+import { type DeviceInstallStateItemRequestBuilderDeleteRequestConfiguration } from './deviceInstallStateItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceInstallStateItemRequestBuilderGetRequestConfiguration } from './deviceInstallStateItemRequestBuilderGetRequestConfiguration';
+import { type DeviceInstallStateItemRequestBuilderPatchRequestConfiguration } from './deviceInstallStateItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity.

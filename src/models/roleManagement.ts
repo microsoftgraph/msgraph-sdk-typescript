@@ -1,5 +1,5 @@
-import type {RbacApplication} from './rbacApplication';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type RbacApplication } from './rbacApplication';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RoleManagement extends AdditionalDataHolder, Parsable {
     /**

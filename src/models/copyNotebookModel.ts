@@ -1,7 +1,7 @@
-import type {IdentitySet} from './identitySet';
-import type {NotebookLinks} from './notebookLinks';
-import {OnenoteUserRole} from './onenoteUserRole';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from './identitySet';
+import { type NotebookLinks } from './notebookLinks';
+import { OnenoteUserRole } from './onenoteUserRole';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CopyNotebookModel extends AdditionalDataHolder, Parsable {
     /**

@@ -1,17 +1,16 @@
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {createHuntingQueryResultsFromDiscriminatorValue} from '../../models/security/createHuntingQueryResultsFromDiscriminatorValue';
-import {deserializeIntoHuntingQueryResults} from '../../models/security/deserializeIntoHuntingQueryResults';
-import type {HuntingQueryResults} from '../../models/security/huntingQueryResults';
-import {serializeHuntingQueryResults} from '../../models/security/serializeHuntingQueryResults';
-import {deserializeIntoRunHuntingQueryPostRequestBody} from './deserializeIntoRunHuntingQueryPostRequestBody';
-import {MicrosoftGraphSecurityRunHuntingQueryRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityRunHuntingQueryRequestBuilderPostRequestConfiguration';
-import type {RunHuntingQueryPostRequestBody} from './runHuntingQueryPostRequestBody';
-import {serializeRunHuntingQueryPostRequestBody} from './serializeRunHuntingQueryPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createHuntingQueryResultsFromDiscriminatorValue } from '../../models/security/createHuntingQueryResultsFromDiscriminatorValue';
+import { deserializeIntoHuntingQueryResults } from '../../models/security/deserializeIntoHuntingQueryResults';
+import { type HuntingQueryResults } from '../../models/security/huntingQueryResults';
+import { serializeHuntingQueryResults } from '../../models/security/serializeHuntingQueryResults';
+import { deserializeIntoRunHuntingQueryPostRequestBody } from './deserializeIntoRunHuntingQueryPostRequestBody';
+import { type MicrosoftGraphSecurityRunHuntingQueryRequestBuilderPostRequestConfiguration } from './microsoftGraphSecurityRunHuntingQueryRequestBuilderPostRequestConfiguration';
+import { type RunHuntingQueryPostRequestBody } from './runHuntingQueryPostRequestBody';
+import { serializeRunHuntingQueryPostRequestBody } from './serializeRunHuntingQueryPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the runHuntingQuery method.

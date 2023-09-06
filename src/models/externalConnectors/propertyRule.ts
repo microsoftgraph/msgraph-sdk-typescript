@@ -1,6 +1,6 @@
-import {BinaryOperator} from '../binaryOperator';
-import {RuleOperation} from './ruleOperation';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { BinaryOperator } from '../binaryOperator';
+import { RuleOperation } from './ruleOperation';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PropertyRule extends AdditionalDataHolder, Parsable {
     /**

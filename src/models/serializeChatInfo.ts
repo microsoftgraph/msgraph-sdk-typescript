@@ -1,5 +1,5 @@
-import type {ChatInfo} from './chatInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ChatInfo } from './chatInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeChatInfo(writer: SerializationWriter, chatInfo: ChatInfo | undefined = {} as ChatInfo) : void {
         writer.writeStringValue("messageId", chatInfo.messageId);

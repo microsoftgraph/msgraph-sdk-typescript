@@ -1,19 +1,18 @@
-import {ManagedAppStatusCollectionResponse} from '../../models/';
-import {createManagedAppStatusCollectionResponseFromDiscriminatorValue} from '../../models/createManagedAppStatusCollectionResponseFromDiscriminatorValue';
-import {createManagedAppStatusFromDiscriminatorValue} from '../../models/createManagedAppStatusFromDiscriminatorValue';
-import {deserializeIntoManagedAppStatus} from '../../models/deserializeIntoManagedAppStatus';
-import type {ManagedAppStatus} from '../../models/managedAppStatus';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeManagedAppStatus} from '../../models/serializeManagedAppStatus';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ManagedAppStatusItemRequestBuilder} from './item/managedAppStatusItemRequestBuilder';
-import {ManagedAppStatusesRequestBuilderGetRequestConfiguration} from './managedAppStatusesRequestBuilderGetRequestConfiguration';
-import {ManagedAppStatusesRequestBuilderPostRequestConfiguration} from './managedAppStatusesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedAppStatusCollectionResponse } from '../../models/';
+import { createManagedAppStatusCollectionResponseFromDiscriminatorValue } from '../../models/createManagedAppStatusCollectionResponseFromDiscriminatorValue';
+import { createManagedAppStatusFromDiscriminatorValue } from '../../models/createManagedAppStatusFromDiscriminatorValue';
+import { deserializeIntoManagedAppStatus } from '../../models/deserializeIntoManagedAppStatus';
+import { type ManagedAppStatus } from '../../models/managedAppStatus';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeManagedAppStatus } from '../../models/serializeManagedAppStatus';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ManagedAppStatusItemRequestBuilder } from './item/managedAppStatusItemRequestBuilder';
+import { type ManagedAppStatusesRequestBuilderGetRequestConfiguration } from './managedAppStatusesRequestBuilderGetRequestConfiguration';
+import { type ManagedAppStatusesRequestBuilderPostRequestConfiguration } from './managedAppStatusesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.

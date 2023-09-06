@@ -1,9 +1,9 @@
-import {createDirectoryObjectFromDiscriminatorValue} from '../../../models/createDirectoryObjectFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import type {DirectoryObject} from '../../../models/directoryObject';
-import {serializeDirectoryObject} from '../../../models/serializeDirectoryObject';
-import type {GetByIdsResponse} from './getByIdsResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDirectoryObjectFromDiscriminatorValue } from '../../../models/createDirectoryObjectFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { type DirectoryObject } from '../../../models/directoryObject';
+import { serializeDirectoryObject } from '../../../models/serializeDirectoryObject';
+import { type GetByIdsResponse } from './getByIdsResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetByIdsResponse(getByIdsResponse: GetByIdsResponse | undefined = {} as GetByIdsResponse) : Record<string, (node: ParseNode) => void> {
     return {

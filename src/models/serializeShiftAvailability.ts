@@ -1,9 +1,9 @@
-import type {PatternedRecurrence} from './patternedRecurrence';
-import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import {serializeTimeRange} from './serializeTimeRange';
-import type {ShiftAvailability} from './shiftAvailability';
-import type {TimeRange} from './timeRange';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PatternedRecurrence } from './patternedRecurrence';
+import { serializePatternedRecurrence } from './serializePatternedRecurrence';
+import { serializeTimeRange } from './serializeTimeRange';
+import { type ShiftAvailability } from './shiftAvailability';
+import { type TimeRange } from './timeRange';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeShiftAvailability(writer: SerializationWriter, shiftAvailability: ShiftAvailability | undefined = {} as ShiftAvailability) : void {
         writer.writeStringValue("@odata.type", shiftAvailability.odataType);

@@ -1,5 +1,5 @@
-import {RecordingStatus} from '../../../../models/recordingStatus';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { RecordingStatus } from '../../../../models/recordingStatus';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UpdateRecordingStatusPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

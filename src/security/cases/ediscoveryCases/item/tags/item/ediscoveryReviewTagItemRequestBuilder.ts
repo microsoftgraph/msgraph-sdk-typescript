@@ -1,18 +1,17 @@
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {createEdiscoveryReviewTagFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
-import {deserializeIntoEdiscoveryReviewTag} from '../../../../../../models/security/deserializeIntoEdiscoveryReviewTag';
-import type {EdiscoveryReviewTag} from '../../../../../../models/security/ediscoveryReviewTag';
-import {serializeEdiscoveryReviewTag} from '../../../../../../models/security/serializeEdiscoveryReviewTag';
-import {ChildTagsRequestBuilder} from './childTags/childTagsRequestBuilder';
-import {EdiscoveryReviewTagItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderDeleteRequestConfiguration';
-import {EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderGetRequestConfiguration';
-import {EdiscoveryReviewTagItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderPatchRequestConfiguration';
-import {ParentRequestBuilder} from './parent/parentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { createEdiscoveryReviewTagFromDiscriminatorValue } from '../../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
+import { deserializeIntoEdiscoveryReviewTag } from '../../../../../../models/security/deserializeIntoEdiscoveryReviewTag';
+import { type EdiscoveryReviewTag } from '../../../../../../models/security/ediscoveryReviewTag';
+import { serializeEdiscoveryReviewTag } from '../../../../../../models/security/serializeEdiscoveryReviewTag';
+import { ChildTagsRequestBuilder } from './childTags/childTagsRequestBuilder';
+import { type EdiscoveryReviewTagItemRequestBuilderDeleteRequestConfiguration } from './ediscoveryReviewTagItemRequestBuilderDeleteRequestConfiguration';
+import { type EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration } from './ediscoveryReviewTagItemRequestBuilderGetRequestConfiguration';
+import { type EdiscoveryReviewTagItemRequestBuilderPatchRequestConfiguration } from './ediscoveryReviewTagItemRequestBuilderPatchRequestConfiguration';
+import { ParentRequestBuilder } from './parent/parentRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.

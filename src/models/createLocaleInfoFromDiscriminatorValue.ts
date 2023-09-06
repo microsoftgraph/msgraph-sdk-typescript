@@ -1,6 +1,6 @@
-import {deserializeIntoLocaleInfo} from './deserializeIntoLocaleInfo';
-import {LocaleInfo} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoLocaleInfo } from './deserializeIntoLocaleInfo';
+import { type LocaleInfo } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createLocaleInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

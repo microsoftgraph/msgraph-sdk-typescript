@@ -1,5 +1,5 @@
-import {ContainerPortProtocol} from './containerPortProtocol';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ContainerPortProtocol } from './containerPortProtocol';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface KubernetesServicePort extends AdditionalDataHolder, Parsable {
     /**

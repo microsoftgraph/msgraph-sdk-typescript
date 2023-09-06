@@ -1,5 +1,5 @@
-import {InternalDomainFederationItemRequestBuilderGetQueryParameters} from './internalDomainFederationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type InternalDomainFederationItemRequestBuilderGetQueryParameters } from './internalDomainFederationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface InternalDomainFederationItemRequestBuilderGetRequestConfiguration {
     /**

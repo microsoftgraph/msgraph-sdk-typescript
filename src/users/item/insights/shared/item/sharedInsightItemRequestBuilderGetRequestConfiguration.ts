@@ -1,5 +1,5 @@
-import {SharedInsightItemRequestBuilderGetQueryParameters} from './sharedInsightItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SharedInsightItemRequestBuilderGetQueryParameters } from './sharedInsightItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SharedInsightItemRequestBuilderGetRequestConfiguration {
     /**

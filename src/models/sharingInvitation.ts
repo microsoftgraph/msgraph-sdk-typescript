@@ -1,5 +1,5 @@
-import type {IdentitySet} from './identitySet';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from './identitySet';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SharingInvitation extends AdditionalDataHolder, Parsable {
     /**

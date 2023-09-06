@@ -1,10 +1,10 @@
-import type {AppListItem} from './appListItem';
-import {AppListType} from './appListType';
-import {RequiredPasswordType} from './requiredPasswordType';
-import {serializeAppListItem} from './serializeAppListItem';
-import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import type {WindowsPhone81GeneralConfiguration} from './windowsPhone81GeneralConfiguration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppListItem } from './appListItem';
+import { AppListType } from './appListType';
+import { RequiredPasswordType } from './requiredPasswordType';
+import { serializeAppListItem } from './serializeAppListItem';
+import { serializeDeviceConfiguration } from './serializeDeviceConfiguration';
+import { type WindowsPhone81GeneralConfiguration } from './windowsPhone81GeneralConfiguration';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsPhone81GeneralConfiguration(writer: SerializationWriter, windowsPhone81GeneralConfiguration: WindowsPhone81GeneralConfiguration | undefined = {} as WindowsPhone81GeneralConfiguration) : void {
         serializeDeviceConfiguration(writer, windowsPhone81GeneralConfiguration)

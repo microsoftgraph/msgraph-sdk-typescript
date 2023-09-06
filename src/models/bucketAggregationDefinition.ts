@@ -1,6 +1,6 @@
-import type {BucketAggregationRange} from './bucketAggregationRange';
-import {BucketAggregationSortProperty} from './bucketAggregationSortProperty';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type BucketAggregationRange } from './bucketAggregationRange';
+import { BucketAggregationSortProperty } from './bucketAggregationSortProperty';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BucketAggregationDefinition extends AdditionalDataHolder, Parsable {
     /**

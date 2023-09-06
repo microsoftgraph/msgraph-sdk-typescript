@@ -1,16 +1,15 @@
-import {createWorkforceIntegrationFromDiscriminatorValue} from '../../../models/createWorkforceIntegrationFromDiscriminatorValue';
-import {deserializeIntoWorkforceIntegration} from '../../../models/deserializeIntoWorkforceIntegration';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeWorkforceIntegration} from '../../../models/serializeWorkforceIntegration';
-import type {WorkforceIntegration} from '../../../models/workforceIntegration';
-import {WorkforceIntegrationItemRequestBuilderDeleteRequestConfiguration} from './workforceIntegrationItemRequestBuilderDeleteRequestConfiguration';
-import {WorkforceIntegrationItemRequestBuilderGetRequestConfiguration} from './workforceIntegrationItemRequestBuilderGetRequestConfiguration';
-import {WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration} from './workforceIntegrationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkforceIntegrationFromDiscriminatorValue } from '../../../models/createWorkforceIntegrationFromDiscriminatorValue';
+import { deserializeIntoWorkforceIntegration } from '../../../models/deserializeIntoWorkforceIntegration';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeWorkforceIntegration } from '../../../models/serializeWorkforceIntegration';
+import { type WorkforceIntegration } from '../../../models/workforceIntegration';
+import { type WorkforceIntegrationItemRequestBuilderDeleteRequestConfiguration } from './workforceIntegrationItemRequestBuilderDeleteRequestConfiguration';
+import { type WorkforceIntegrationItemRequestBuilderGetRequestConfiguration } from './workforceIntegrationItemRequestBuilderGetRequestConfiguration';
+import { type WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration } from './workforceIntegrationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.

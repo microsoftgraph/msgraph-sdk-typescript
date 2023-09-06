@@ -1,17 +1,16 @@
-import {createWorkbookFunctionResultFromDiscriminatorValue} from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
-import {deserializeIntoWorkbookFunctionResult} from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {deserializeIntoGamma_DistPostRequestBody} from './deserializeIntoGamma_DistPostRequestBody';
-import type {Gamma_DistPostRequestBody} from './gamma_DistPostRequestBody';
-import {Gamma_DistRequestBuilderPostRequestConfiguration} from './gamma_DistRequestBuilderPostRequestConfiguration';
-import {serializeGamma_DistPostRequestBody} from './serializeGamma_DistPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookFunctionResultFromDiscriminatorValue } from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
+import { deserializeIntoWorkbookFunctionResult } from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookFunctionResult } from '../../../../../../../models/serializeWorkbookFunctionResult';
+import { type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
+import { deserializeIntoGamma_DistPostRequestBody } from './deserializeIntoGamma_DistPostRequestBody';
+import { type Gamma_DistPostRequestBody } from './gamma_DistPostRequestBody';
+import { type Gamma_DistRequestBuilderPostRequestConfiguration } from './gamma_DistRequestBuilderPostRequestConfiguration';
+import { serializeGamma_DistPostRequestBody } from './serializeGamma_DistPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the gamma_Dist method.

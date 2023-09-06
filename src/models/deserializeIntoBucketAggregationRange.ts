@@ -1,5 +1,5 @@
-import type {BucketAggregationRange} from './bucketAggregationRange';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BucketAggregationRange } from './bucketAggregationRange';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBucketAggregationRange(bucketAggregationRange: BucketAggregationRange | undefined = {} as BucketAggregationRange) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,8 +1,8 @@
-import {createExternalConnectionFromDiscriminatorValue} from './createExternalConnectionFromDiscriminatorValue';
-import type {External} from './external';
-import type {ExternalConnection} from './externalConnection';
-import {serializeExternalConnection} from './serializeExternalConnection';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createExternalConnectionFromDiscriminatorValue } from './createExternalConnectionFromDiscriminatorValue';
+import { type External } from './external';
+import { type ExternalConnection } from './externalConnection';
+import { serializeExternalConnection } from './serializeExternalConnection';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExternal(external: External | undefined = {} as External) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
-import {ContractItemRequestBuilderGetQueryParameters} from './contractItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ContractItemRequestBuilderGetQueryParameters } from './contractItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ContractItemRequestBuilderGetRequestConfiguration {
     /**

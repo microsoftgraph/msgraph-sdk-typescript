@@ -1,6 +1,6 @@
-import {RatingUnitedKingdomMoviesType} from './ratingUnitedKingdomMoviesType';
-import {RatingUnitedKingdomTelevisionType} from './ratingUnitedKingdomTelevisionType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { RatingUnitedKingdomMoviesType } from './ratingUnitedKingdomMoviesType';
+import { RatingUnitedKingdomTelevisionType } from './ratingUnitedKingdomTelevisionType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MediaContentRatingUnitedKingdom extends AdditionalDataHolder, Parsable {
     /**

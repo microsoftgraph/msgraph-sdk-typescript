@@ -1,6 +1,6 @@
-import {deserializeIntoLearningAssignment} from './deserializeIntoLearningAssignment';
-import {LearningAssignment} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoLearningAssignment } from './deserializeIntoLearningAssignment';
+import { type LearningAssignment } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createLearningAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

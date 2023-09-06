@@ -1,7 +1,7 @@
-import {ConnectionDirection} from './connectionDirection';
-import {ConnectionStatus} from './connectionStatus';
-import {SecurityNetworkProtocol} from './securityNetworkProtocol';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ConnectionDirection } from './connectionDirection';
+import { ConnectionStatus } from './connectionStatus';
+import { SecurityNetworkProtocol } from './securityNetworkProtocol';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface NetworkConnection extends AdditionalDataHolder, Parsable {
     /**

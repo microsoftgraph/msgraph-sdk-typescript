@@ -1,5 +1,5 @@
-import {UserRegistrationDetailsRequestBuilderGetQueryParameters} from './userRegistrationDetailsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserRegistrationDetailsRequestBuilderGetQueryParameters } from './userRegistrationDetailsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserRegistrationDetailsRequestBuilderGetRequestConfiguration {
     /**

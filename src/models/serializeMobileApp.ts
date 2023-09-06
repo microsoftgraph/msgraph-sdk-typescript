@@ -1,13 +1,13 @@
-import type {MimeContent} from './mimeContent';
-import type {MobileApp} from './mobileApp';
-import type {MobileAppAssignment} from './mobileAppAssignment';
-import type {MobileAppCategory} from './mobileAppCategory';
-import {MobileAppPublishingState} from './mobileAppPublishingState';
-import {serializeEntity} from './serializeEntity';
-import {serializeMimeContent} from './serializeMimeContent';
-import {serializeMobileAppAssignment} from './serializeMobileAppAssignment';
-import {serializeMobileAppCategory} from './serializeMobileAppCategory';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MimeContent } from './mimeContent';
+import { type MobileApp } from './mobileApp';
+import { type MobileAppAssignment } from './mobileAppAssignment';
+import { type MobileAppCategory } from './mobileAppCategory';
+import { MobileAppPublishingState } from './mobileAppPublishingState';
+import { serializeEntity } from './serializeEntity';
+import { serializeMimeContent } from './serializeMimeContent';
+import { serializeMobileAppAssignment } from './serializeMobileAppAssignment';
+import { serializeMobileAppCategory } from './serializeMobileAppCategory';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMobileApp(writer: SerializationWriter, mobileApp: MobileApp | undefined = {} as MobileApp) : void {
         serializeEntity(writer, mobileApp)

@@ -1,9 +1,9 @@
-import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
-import type {ConditionalAccessPolicyCollectionResponse} from './conditionalAccessPolicyCollectionResponse';
-import {createConditionalAccessPolicyFromDiscriminatorValue} from './createConditionalAccessPolicyFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeConditionalAccessPolicy} from './serializeConditionalAccessPolicy';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessPolicy } from './conditionalAccessPolicy';
+import { type ConditionalAccessPolicyCollectionResponse } from './conditionalAccessPolicyCollectionResponse';
+import { createConditionalAccessPolicyFromDiscriminatorValue } from './createConditionalAccessPolicyFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeConditionalAccessPolicy } from './serializeConditionalAccessPolicy';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessPolicyCollectionResponse(conditionalAccessPolicyCollectionResponse: ConditionalAccessPolicyCollectionResponse | undefined = {} as ConditionalAccessPolicyCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

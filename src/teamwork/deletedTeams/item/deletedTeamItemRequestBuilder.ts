@@ -1,17 +1,16 @@
-import {createDeletedTeamFromDiscriminatorValue} from '../../../models/createDeletedTeamFromDiscriminatorValue';
-import type {DeletedTeam} from '../../../models/deletedTeam';
-import {deserializeIntoDeletedTeam} from '../../../models/deserializeIntoDeletedTeam';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeDeletedTeam} from '../../../models/serializeDeletedTeam';
-import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
-import {DeletedTeamItemRequestBuilderDeleteRequestConfiguration} from './deletedTeamItemRequestBuilderDeleteRequestConfiguration';
-import {DeletedTeamItemRequestBuilderGetRequestConfiguration} from './deletedTeamItemRequestBuilderGetRequestConfiguration';
-import {DeletedTeamItemRequestBuilderPatchRequestConfiguration} from './deletedTeamItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeletedTeamFromDiscriminatorValue } from '../../../models/createDeletedTeamFromDiscriminatorValue';
+import { type DeletedTeam } from '../../../models/deletedTeam';
+import { deserializeIntoDeletedTeam } from '../../../models/deserializeIntoDeletedTeam';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeDeletedTeam } from '../../../models/serializeDeletedTeam';
+import { ChannelsRequestBuilder } from './channels/channelsRequestBuilder';
+import { type DeletedTeamItemRequestBuilderDeleteRequestConfiguration } from './deletedTeamItemRequestBuilderDeleteRequestConfiguration';
+import { type DeletedTeamItemRequestBuilderGetRequestConfiguration } from './deletedTeamItemRequestBuilderGetRequestConfiguration';
+import { type DeletedTeamItemRequestBuilderPatchRequestConfiguration } from './deletedTeamItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.

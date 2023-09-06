@@ -1,14 +1,13 @@
-import {Run} from '../../../../../../models/identityGovernance/';
-import {createRunFromDiscriminatorValue} from '../../../../../../models/identityGovernance/createRunFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {RunItemRequestBuilderGetRequestConfiguration} from './runItemRequestBuilderGetRequestConfiguration';
-import {TaskProcessingResultsRequestBuilder} from './taskProcessingResults/taskProcessingResultsRequestBuilder';
-import {UserProcessingResultsRequestBuilder} from './userProcessingResults/userProcessingResultsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Run } from '../../../../../../models/identityGovernance/';
+import { createRunFromDiscriminatorValue } from '../../../../../../models/identityGovernance/createRunFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type RunItemRequestBuilderGetRequestConfiguration } from './runItemRequestBuilderGetRequestConfiguration';
+import { TaskProcessingResultsRequestBuilder } from './taskProcessingResults/taskProcessingResultsRequestBuilder';
+import { UserProcessingResultsRequestBuilder } from './userProcessingResults/userProcessingResultsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.

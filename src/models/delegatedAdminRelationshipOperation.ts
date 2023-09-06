@@ -1,7 +1,7 @@
-import {DelegatedAdminRelationshipOperationType} from './delegatedAdminRelationshipOperationType';
-import type {Entity} from './entity';
-import {LongRunningOperationStatus} from './longRunningOperationStatus';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { DelegatedAdminRelationshipOperationType } from './delegatedAdminRelationshipOperationType';
+import { type Entity } from './entity';
+import { LongRunningOperationStatus } from './longRunningOperationStatus';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminRelationshipOperation extends Entity, Parsable {
     /**

@@ -1,9 +1,9 @@
-import {PrintEvent} from './printEvent';
-import type {PrintTaskDefinition} from './printTaskDefinition';
-import type {PrintTaskTrigger} from './printTaskTrigger';
-import {serializeEntity} from './serializeEntity';
-import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { PrintEvent } from './printEvent';
+import { type PrintTaskDefinition } from './printTaskDefinition';
+import { type PrintTaskTrigger } from './printTaskTrigger';
+import { serializeEntity } from './serializeEntity';
+import { serializePrintTaskDefinition } from './serializePrintTaskDefinition';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePrintTaskTrigger(writer: SerializationWriter, printTaskTrigger: PrintTaskTrigger | undefined = {} as PrintTaskTrigger) : void {
         serializeEntity(writer, printTaskTrigger)

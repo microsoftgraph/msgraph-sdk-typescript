@@ -1,19 +1,18 @@
-import {IdentityApiConnectorCollectionResponse} from '../../models/';
-import {createIdentityApiConnectorCollectionResponseFromDiscriminatorValue} from '../../models/createIdentityApiConnectorCollectionResponseFromDiscriminatorValue';
-import {createIdentityApiConnectorFromDiscriminatorValue} from '../../models/createIdentityApiConnectorFromDiscriminatorValue';
-import {deserializeIntoIdentityApiConnector} from '../../models/deserializeIntoIdentityApiConnector';
-import type {IdentityApiConnector} from '../../models/identityApiConnector';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeIdentityApiConnector} from '../../models/serializeIdentityApiConnector';
-import {ApiConnectorsRequestBuilderGetRequestConfiguration} from './apiConnectorsRequestBuilderGetRequestConfiguration';
-import {ApiConnectorsRequestBuilderPostRequestConfiguration} from './apiConnectorsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {IdentityApiConnectorItemRequestBuilder} from './item/identityApiConnectorItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentityApiConnectorCollectionResponse } from '../../models/';
+import { createIdentityApiConnectorCollectionResponseFromDiscriminatorValue } from '../../models/createIdentityApiConnectorCollectionResponseFromDiscriminatorValue';
+import { createIdentityApiConnectorFromDiscriminatorValue } from '../../models/createIdentityApiConnectorFromDiscriminatorValue';
+import { deserializeIntoIdentityApiConnector } from '../../models/deserializeIntoIdentityApiConnector';
+import { type IdentityApiConnector } from '../../models/identityApiConnector';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeIdentityApiConnector } from '../../models/serializeIdentityApiConnector';
+import { type ApiConnectorsRequestBuilderGetRequestConfiguration } from './apiConnectorsRequestBuilderGetRequestConfiguration';
+import { type ApiConnectorsRequestBuilderPostRequestConfiguration } from './apiConnectorsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { IdentityApiConnectorItemRequestBuilder } from './item/identityApiConnectorItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.

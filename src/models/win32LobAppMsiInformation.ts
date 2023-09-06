@@ -1,5 +1,5 @@
-import {Win32LobAppMsiPackageType} from './win32LobAppMsiPackageType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { Win32LobAppMsiPackageType } from './win32LobAppMsiPackageType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Win32LobAppMsiInformation extends AdditionalDataHolder, Parsable {
     /**

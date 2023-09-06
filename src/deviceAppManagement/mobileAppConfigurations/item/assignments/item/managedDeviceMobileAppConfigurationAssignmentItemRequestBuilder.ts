@@ -1,16 +1,15 @@
-import {createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue} from '../../../../../models/createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue';
-import {deserializeIntoManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/deserializeIntoManagedDeviceMobileAppConfigurationAssignment';
-import type {ManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/managedDeviceMobileAppConfigurationAssignment';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/serializeManagedDeviceMobileAppConfigurationAssignment';
-import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration} from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
-import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration} from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue } from '../../../../../models/createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue';
+import { deserializeIntoManagedDeviceMobileAppConfigurationAssignment } from '../../../../../models/deserializeIntoManagedDeviceMobileAppConfigurationAssignment';
+import { type ManagedDeviceMobileAppConfigurationAssignment } from '../../../../../models/managedDeviceMobileAppConfigurationAssignment';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeManagedDeviceMobileAppConfigurationAssignment } from '../../../../../models/serializeManagedDeviceMobileAppConfigurationAssignment';
+import { type ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration } from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration } from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration } from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.

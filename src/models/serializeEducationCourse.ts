@@ -1,5 +1,5 @@
-import type {EducationCourse} from './educationCourse';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EducationCourse } from './educationCourse';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEducationCourse(writer: SerializationWriter, educationCourse: EducationCourse | undefined = {} as EducationCourse) : void {
         writer.writeStringValue("courseNumber", educationCourse.courseNumber);

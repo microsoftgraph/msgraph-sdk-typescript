@@ -1,23 +1,22 @@
-import {createDelegatedAdminAccessAssignmentFromDiscriminatorValue} from './createDelegatedAdminAccessAssignmentFromDiscriminatorValue';
-import {createDelegatedAdminAccessDetailsFromDiscriminatorValue} from './createDelegatedAdminAccessDetailsFromDiscriminatorValue';
-import {createDelegatedAdminRelationshipCustomerParticipantFromDiscriminatorValue} from './createDelegatedAdminRelationshipCustomerParticipantFromDiscriminatorValue';
-import {createDelegatedAdminRelationshipOperationFromDiscriminatorValue} from './createDelegatedAdminRelationshipOperationFromDiscriminatorValue';
-import {createDelegatedAdminRelationshipRequestFromDiscriminatorValue} from './createDelegatedAdminRelationshipRequestFromDiscriminatorValue';
-import type {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
-import type {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
-import type {DelegatedAdminRelationship} from './delegatedAdminRelationship';
-import type {DelegatedAdminRelationshipCustomerParticipant} from './delegatedAdminRelationshipCustomerParticipant';
-import type {DelegatedAdminRelationshipOperation} from './delegatedAdminRelationshipOperation';
-import type {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
-import {DelegatedAdminRelationshipStatus} from './delegatedAdminRelationshipStatus';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeDelegatedAdminAccessAssignment} from './serializeDelegatedAdminAccessAssignment';
-import {serializeDelegatedAdminAccessDetails} from './serializeDelegatedAdminAccessDetails';
-import {serializeDelegatedAdminRelationshipCustomerParticipant} from './serializeDelegatedAdminRelationshipCustomerParticipant';
-import {serializeDelegatedAdminRelationshipOperation} from './serializeDelegatedAdminRelationshipOperation';
-import {serializeDelegatedAdminRelationshipRequest} from './serializeDelegatedAdminRelationshipRequest';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDelegatedAdminAccessAssignmentFromDiscriminatorValue } from './createDelegatedAdminAccessAssignmentFromDiscriminatorValue';
+import { createDelegatedAdminAccessDetailsFromDiscriminatorValue } from './createDelegatedAdminAccessDetailsFromDiscriminatorValue';
+import { createDelegatedAdminRelationshipCustomerParticipantFromDiscriminatorValue } from './createDelegatedAdminRelationshipCustomerParticipantFromDiscriminatorValue';
+import { createDelegatedAdminRelationshipOperationFromDiscriminatorValue } from './createDelegatedAdminRelationshipOperationFromDiscriminatorValue';
+import { createDelegatedAdminRelationshipRequestFromDiscriminatorValue } from './createDelegatedAdminRelationshipRequestFromDiscriminatorValue';
+import { type DelegatedAdminAccessAssignment } from './delegatedAdminAccessAssignment';
+import { type DelegatedAdminAccessDetails } from './delegatedAdminAccessDetails';
+import { type DelegatedAdminRelationship } from './delegatedAdminRelationship';
+import { type DelegatedAdminRelationshipCustomerParticipant } from './delegatedAdminRelationshipCustomerParticipant';
+import { type DelegatedAdminRelationshipOperation } from './delegatedAdminRelationshipOperation';
+import { type DelegatedAdminRelationshipRequest } from './delegatedAdminRelationshipRequest';
+import { DelegatedAdminRelationshipStatus } from './delegatedAdminRelationshipStatus';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeDelegatedAdminAccessAssignment } from './serializeDelegatedAdminAccessAssignment';
+import { serializeDelegatedAdminAccessDetails } from './serializeDelegatedAdminAccessDetails';
+import { serializeDelegatedAdminRelationshipCustomerParticipant } from './serializeDelegatedAdminRelationshipCustomerParticipant';
+import { serializeDelegatedAdminRelationshipOperation } from './serializeDelegatedAdminRelationshipOperation';
+import { serializeDelegatedAdminRelationshipRequest } from './serializeDelegatedAdminRelationshipRequest';
+import { Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDelegatedAdminRelationship(delegatedAdminRelationship: DelegatedAdminRelationship | undefined = {} as DelegatedAdminRelationship) : Record<string, (node: ParseNode) => void> {
     return {

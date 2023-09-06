@@ -1,17 +1,16 @@
-import {createInvitationFromDiscriminatorValue} from '../../models/createInvitationFromDiscriminatorValue';
-import {deserializeIntoInvitation} from '../../models/deserializeIntoInvitation';
-import type {Invitation} from '../../models/invitation';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeInvitation} from '../../models/serializeInvitation';
-import {InvitationItemRequestBuilderDeleteRequestConfiguration} from './invitationItemRequestBuilderDeleteRequestConfiguration';
-import {InvitationItemRequestBuilderGetRequestConfiguration} from './invitationItemRequestBuilderGetRequestConfiguration';
-import {InvitationItemRequestBuilderPatchRequestConfiguration} from './invitationItemRequestBuilderPatchRequestConfiguration';
-import {InvitedUserRequestBuilder} from './invitedUser/invitedUserRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createInvitationFromDiscriminatorValue } from '../../models/createInvitationFromDiscriminatorValue';
+import { deserializeIntoInvitation } from '../../models/deserializeIntoInvitation';
+import { type Invitation } from '../../models/invitation';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeInvitation } from '../../models/serializeInvitation';
+import { type InvitationItemRequestBuilderDeleteRequestConfiguration } from './invitationItemRequestBuilderDeleteRequestConfiguration';
+import { type InvitationItemRequestBuilderGetRequestConfiguration } from './invitationItemRequestBuilderGetRequestConfiguration';
+import { type InvitationItemRequestBuilderPatchRequestConfiguration } from './invitationItemRequestBuilderPatchRequestConfiguration';
+import { InvitedUserRequestBuilder } from './invitedUser/invitedUserRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of invitation entities.

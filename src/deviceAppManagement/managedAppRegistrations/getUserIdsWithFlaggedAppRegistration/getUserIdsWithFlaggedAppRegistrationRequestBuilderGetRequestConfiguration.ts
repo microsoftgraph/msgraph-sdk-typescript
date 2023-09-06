@@ -1,5 +1,5 @@
-import {GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParameters} from './getUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParameters } from './getUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration {
     /**

@@ -1,5 +1,5 @@
-import {TitleRequestBuilderGetQueryParameters} from './titleRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TitleRequestBuilderGetQueryParameters } from './titleRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TitleRequestBuilderGetRequestConfiguration {
     /**

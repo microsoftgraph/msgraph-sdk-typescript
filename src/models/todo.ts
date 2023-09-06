@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import type {TodoTaskList} from './todoTaskList';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type TodoTaskList } from './todoTaskList';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Todo extends Entity, Parsable {
     /**

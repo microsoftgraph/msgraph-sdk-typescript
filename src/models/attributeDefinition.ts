@@ -1,9 +1,9 @@
-import type {AttributeDefinitionMetadataEntry} from './attributeDefinitionMetadataEntry';
-import {AttributeType} from './attributeType';
-import {Mutability} from './mutability';
-import type {ReferencedObject} from './referencedObject';
-import type {StringKeyStringValuePair} from './stringKeyStringValuePair';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AttributeDefinitionMetadataEntry } from './attributeDefinitionMetadataEntry';
+import { AttributeType } from './attributeType';
+import { Mutability } from './mutability';
+import { type ReferencedObject } from './referencedObject';
+import { type StringKeyStringValuePair } from './stringKeyStringValuePair';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AttributeDefinition extends AdditionalDataHolder, Parsable {
     /**

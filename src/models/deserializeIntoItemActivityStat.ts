@@ -1,15 +1,15 @@
-import {createIncompleteDataFromDiscriminatorValue} from './createIncompleteDataFromDiscriminatorValue';
-import {createItemActionStatFromDiscriminatorValue} from './createItemActionStatFromDiscriminatorValue';
-import {createItemActivityFromDiscriminatorValue} from './createItemActivityFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IncompleteData} from './incompleteData';
-import type {ItemActionStat} from './itemActionStat';
-import type {ItemActivity} from './itemActivity';
-import type {ItemActivityStat} from './itemActivityStat';
-import {serializeIncompleteData} from './serializeIncompleteData';
-import {serializeItemActionStat} from './serializeItemActionStat';
-import {serializeItemActivity} from './serializeItemActivity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIncompleteDataFromDiscriminatorValue } from './createIncompleteDataFromDiscriminatorValue';
+import { createItemActionStatFromDiscriminatorValue } from './createItemActionStatFromDiscriminatorValue';
+import { createItemActivityFromDiscriminatorValue } from './createItemActivityFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IncompleteData } from './incompleteData';
+import { type ItemActionStat } from './itemActionStat';
+import { type ItemActivity } from './itemActivity';
+import { type ItemActivityStat } from './itemActivityStat';
+import { serializeIncompleteData } from './serializeIncompleteData';
+import { serializeItemActionStat } from './serializeItemActionStat';
+import { serializeItemActivity } from './serializeItemActivity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoItemActivityStat(itemActivityStat: ItemActivityStat | undefined = {} as ItemActivityStat) : Record<string, (node: ParseNode) => void> {
     return {

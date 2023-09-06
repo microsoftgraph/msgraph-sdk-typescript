@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import type {PrintOperationStatus} from './printOperationStatus';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type PrintOperationStatus } from './printOperationStatus';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PrintOperation extends Entity, Parsable {
     /**

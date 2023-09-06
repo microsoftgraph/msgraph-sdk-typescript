@@ -1,17 +1,17 @@
-import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
-import {createServiceAnnouncementAttachmentFromDiscriminatorValue} from './createServiceAnnouncementAttachmentFromDiscriminatorValue';
-import {createServiceUpdateMessageViewpointFromDiscriminatorValue} from './createServiceUpdateMessageViewpointFromDiscriminatorValue';
-import {deserializeIntoServiceAnnouncementBase} from './deserializeIntoServiceAnnouncementBase';
-import type {ItemBody} from './itemBody';
-import {serializeItemBody} from './serializeItemBody';
-import {serializeServiceAnnouncementAttachment} from './serializeServiceAnnouncementAttachment';
-import {serializeServiceUpdateMessageViewpoint} from './serializeServiceUpdateMessageViewpoint';
-import type {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
-import {ServiceUpdateCategory} from './serviceUpdateCategory';
-import type {ServiceUpdateMessage} from './serviceUpdateMessage';
-import type {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
-import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createItemBodyFromDiscriminatorValue } from './createItemBodyFromDiscriminatorValue';
+import { createServiceAnnouncementAttachmentFromDiscriminatorValue } from './createServiceAnnouncementAttachmentFromDiscriminatorValue';
+import { createServiceUpdateMessageViewpointFromDiscriminatorValue } from './createServiceUpdateMessageViewpointFromDiscriminatorValue';
+import { deserializeIntoServiceAnnouncementBase } from './deserializeIntoServiceAnnouncementBase';
+import { type ItemBody } from './itemBody';
+import { serializeItemBody } from './serializeItemBody';
+import { serializeServiceAnnouncementAttachment } from './serializeServiceAnnouncementAttachment';
+import { serializeServiceUpdateMessageViewpoint } from './serializeServiceUpdateMessageViewpoint';
+import { type ServiceAnnouncementAttachment } from './serviceAnnouncementAttachment';
+import { ServiceUpdateCategory } from './serviceUpdateCategory';
+import { type ServiceUpdateMessage } from './serviceUpdateMessage';
+import { type ServiceUpdateMessageViewpoint } from './serviceUpdateMessageViewpoint';
+import { ServiceUpdateSeverity } from './serviceUpdateSeverity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceUpdateMessage(serviceUpdateMessage: ServiceUpdateMessage | undefined = {} as ServiceUpdateMessage) : Record<string, (node: ParseNode) => void> {
     return {

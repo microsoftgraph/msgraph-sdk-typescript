@@ -1,5 +1,5 @@
-import {CustodianSourcesRequestBuilderGetQueryParameters} from './custodianSourcesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CustodianSourcesRequestBuilderGetQueryParameters } from './custodianSourcesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CustodianSourcesRequestBuilderGetRequestConfiguration {
     /**

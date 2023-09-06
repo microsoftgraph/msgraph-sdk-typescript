@@ -1,7 +1,7 @@
-import {CategoryColor} from './categoryColor';
-import type {OutlookCategory} from './outlookCategory';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { CategoryColor } from './categoryColor';
+import { type OutlookCategory } from './outlookCategory';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOutlookCategory(writer: SerializationWriter, outlookCategory: OutlookCategory | undefined = {} as OutlookCategory) : void {
         serializeEntity(writer, outlookCategory)

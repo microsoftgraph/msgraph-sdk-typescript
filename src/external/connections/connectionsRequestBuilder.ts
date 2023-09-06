@@ -1,19 +1,18 @@
-import {ExternalConnectionCollectionResponse} from '../../models/externalConnectors/';
-import {createExternalConnectionCollectionResponseFromDiscriminatorValue} from '../../models/externalConnectors/createExternalConnectionCollectionResponseFromDiscriminatorValue';
-import {createExternalConnectionFromDiscriminatorValue} from '../../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
-import {deserializeIntoExternalConnection} from '../../models/externalConnectors/deserializeIntoExternalConnection';
-import type {ExternalConnection} from '../../models/externalConnectors/externalConnection';
-import {serializeExternalConnection} from '../../models/externalConnectors/serializeExternalConnection';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {ConnectionsRequestBuilderGetRequestConfiguration} from './connectionsRequestBuilderGetRequestConfiguration';
-import {ConnectionsRequestBuilderPostRequestConfiguration} from './connectionsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ExternalConnectionItemRequestBuilder} from './item/externalConnectionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExternalConnectionCollectionResponse } from '../../models/externalConnectors/';
+import { createExternalConnectionCollectionResponseFromDiscriminatorValue } from '../../models/externalConnectors/createExternalConnectionCollectionResponseFromDiscriminatorValue';
+import { createExternalConnectionFromDiscriminatorValue } from '../../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
+import { deserializeIntoExternalConnection } from '../../models/externalConnectors/deserializeIntoExternalConnection';
+import { type ExternalConnection } from '../../models/externalConnectors/externalConnection';
+import { serializeExternalConnection } from '../../models/externalConnectors/serializeExternalConnection';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type ConnectionsRequestBuilderGetRequestConfiguration } from './connectionsRequestBuilderGetRequestConfiguration';
+import { type ConnectionsRequestBuilderPostRequestConfiguration } from './connectionsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ExternalConnectionItemRequestBuilder } from './item/externalConnectionItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.

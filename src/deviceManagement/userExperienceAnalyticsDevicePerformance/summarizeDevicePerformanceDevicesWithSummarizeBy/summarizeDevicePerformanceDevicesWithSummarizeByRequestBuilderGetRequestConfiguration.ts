@@ -1,5 +1,5 @@
-import {SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters} from './summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters } from './summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetRequestConfiguration {
     /**

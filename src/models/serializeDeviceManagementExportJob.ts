@@ -1,9 +1,9 @@
-import type {DeviceManagementExportJob} from './deviceManagementExportJob';
-import {DeviceManagementExportJobLocalizationType} from './deviceManagementExportJobLocalizationType';
-import {DeviceManagementReportFileFormat} from './deviceManagementReportFileFormat';
-import {DeviceManagementReportStatus} from './deviceManagementReportStatus';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceManagementExportJob } from './deviceManagementExportJob';
+import { DeviceManagementExportJobLocalizationType } from './deviceManagementExportJobLocalizationType';
+import { DeviceManagementReportFileFormat } from './deviceManagementReportFileFormat';
+import { DeviceManagementReportStatus } from './deviceManagementReportStatus';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceManagementExportJob(writer: SerializationWriter, deviceManagementExportJob: DeviceManagementExportJob | undefined = {} as DeviceManagementExportJob) : void {
         serializeEntity(writer, deviceManagementExportJob)

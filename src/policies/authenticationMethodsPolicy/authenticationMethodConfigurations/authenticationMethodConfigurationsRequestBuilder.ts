@@ -1,19 +1,18 @@
-import {AuthenticationMethodConfigurationCollectionResponse} from '../../../models/';
-import type {AuthenticationMethodConfiguration} from '../../../models/authenticationMethodConfiguration';
-import {createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue} from '../../../models/createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue';
-import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from '../../../models/createAuthenticationMethodConfigurationFromDiscriminatorValue';
-import {deserializeIntoAuthenticationMethodConfiguration} from '../../../models/deserializeIntoAuthenticationMethodConfiguration';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAuthenticationMethodConfiguration} from '../../../models/serializeAuthenticationMethodConfiguration';
-import {AuthenticationMethodConfigurationsRequestBuilderGetRequestConfiguration} from './authenticationMethodConfigurationsRequestBuilderGetRequestConfiguration';
-import {AuthenticationMethodConfigurationsRequestBuilderPostRequestConfiguration} from './authenticationMethodConfigurationsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AuthenticationMethodConfigurationItemRequestBuilder} from './item/authenticationMethodConfigurationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodConfigurationCollectionResponse } from '../../../models/';
+import { type AuthenticationMethodConfiguration } from '../../../models/authenticationMethodConfiguration';
+import { createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue } from '../../../models/createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue';
+import { createAuthenticationMethodConfigurationFromDiscriminatorValue } from '../../../models/createAuthenticationMethodConfigurationFromDiscriminatorValue';
+import { deserializeIntoAuthenticationMethodConfiguration } from '../../../models/deserializeIntoAuthenticationMethodConfiguration';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAuthenticationMethodConfiguration } from '../../../models/serializeAuthenticationMethodConfiguration';
+import { type AuthenticationMethodConfigurationsRequestBuilderGetRequestConfiguration } from './authenticationMethodConfigurationsRequestBuilderGetRequestConfiguration';
+import { type AuthenticationMethodConfigurationsRequestBuilderPostRequestConfiguration } from './authenticationMethodConfigurationsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AuthenticationMethodConfigurationItemRequestBuilder } from './item/authenticationMethodConfigurationItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodConfigurations property of the microsoft.graph.authenticationMethodsPolicy entity.

@@ -1,21 +1,21 @@
-import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromDiscriminatorValue';
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import type {IdentitySet} from '../identitySet';
-import {serializeIdentitySet} from '../serializeIdentitySet';
-import {createEventPropagationResultFromDiscriminatorValue} from './createEventPropagationResultFromDiscriminatorValue';
-import {createEventQueryFromDiscriminatorValue} from './createEventQueryFromDiscriminatorValue';
-import {createRetentionEventStatusFromDiscriminatorValue} from './createRetentionEventStatusFromDiscriminatorValue';
-import {createRetentionEventTypeFromDiscriminatorValue} from './createRetentionEventTypeFromDiscriminatorValue';
-import type {EventPropagationResult} from './eventPropagationResult';
-import type {EventQuery} from './eventQuery';
-import type {RetentionEvent} from './retentionEvent';
-import type {RetentionEventStatus} from './retentionEventStatus';
-import type {RetentionEventType} from './retentionEventType';
-import {serializeEventPropagationResult} from './serializeEventPropagationResult';
-import {serializeEventQuery} from './serializeEventQuery';
-import {serializeRetentionEventStatus} from './serializeRetentionEventStatus';
-import {serializeRetentionEventType} from './serializeRetentionEventType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentitySetFromDiscriminatorValue } from '../createIdentitySetFromDiscriminatorValue';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { type IdentitySet } from '../identitySet';
+import { serializeIdentitySet } from '../serializeIdentitySet';
+import { createEventPropagationResultFromDiscriminatorValue } from './createEventPropagationResultFromDiscriminatorValue';
+import { createEventQueryFromDiscriminatorValue } from './createEventQueryFromDiscriminatorValue';
+import { createRetentionEventStatusFromDiscriminatorValue } from './createRetentionEventStatusFromDiscriminatorValue';
+import { createRetentionEventTypeFromDiscriminatorValue } from './createRetentionEventTypeFromDiscriminatorValue';
+import { type EventPropagationResult } from './eventPropagationResult';
+import { type EventQuery } from './eventQuery';
+import { type RetentionEvent } from './retentionEvent';
+import { type RetentionEventStatus } from './retentionEventStatus';
+import { type RetentionEventType } from './retentionEventType';
+import { serializeEventPropagationResult } from './serializeEventPropagationResult';
+import { serializeEventQuery } from './serializeEventQuery';
+import { serializeRetentionEventStatus } from './serializeRetentionEventStatus';
+import { serializeRetentionEventType } from './serializeRetentionEventType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRetentionEvent(retentionEvent: RetentionEvent | undefined = {} as RetentionEvent) : Record<string, (node: ParseNode) => void> {
     return {

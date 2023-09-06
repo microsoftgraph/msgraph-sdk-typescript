@@ -1,5 +1,5 @@
-import type {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SecureScoreControlStateUpdate } from './secureScoreControlStateUpdate';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSecureScoreControlStateUpdate(writer: SerializationWriter, secureScoreControlStateUpdate: SecureScoreControlStateUpdate | undefined = {} as SecureScoreControlStateUpdate) : void {
         writer.writeStringValue("assignedTo", secureScoreControlStateUpdate.assignedTo);

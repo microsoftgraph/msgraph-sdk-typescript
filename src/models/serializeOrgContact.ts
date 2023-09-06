@@ -1,15 +1,15 @@
-import type {DirectoryObject} from './directoryObject';
-import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
-import type {OrgContact} from './orgContact';
-import type {Phone} from './phone';
-import type {PhysicalOfficeAddress} from './physicalOfficeAddress';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeOnPremisesProvisioningError} from './serializeOnPremisesProvisioningError';
-import {serializePhone} from './serializePhone';
-import {serializePhysicalOfficeAddress} from './serializePhysicalOfficeAddress';
-import {serializeServiceProvisioningError} from './serializeServiceProvisioningError';
-import type {ServiceProvisioningError} from './serviceProvisioningError';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DirectoryObject } from './directoryObject';
+import { type OnPremisesProvisioningError } from './onPremisesProvisioningError';
+import { type OrgContact } from './orgContact';
+import { type Phone } from './phone';
+import { type PhysicalOfficeAddress } from './physicalOfficeAddress';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeOnPremisesProvisioningError } from './serializeOnPremisesProvisioningError';
+import { serializePhone } from './serializePhone';
+import { serializePhysicalOfficeAddress } from './serializePhysicalOfficeAddress';
+import { serializeServiceProvisioningError } from './serializeServiceProvisioningError';
+import { type ServiceProvisioningError } from './serviceProvisioningError';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOrgContact(writer: SerializationWriter, orgContact: OrgContact | undefined = {} as OrgContact) : void {
         serializeDirectoryObject(writer, orgContact)

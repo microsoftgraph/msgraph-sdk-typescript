@@ -1,5 +1,5 @@
-import {HostReputationRuleSeverity} from './hostReputationRuleSeverity';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { HostReputationRuleSeverity } from './hostReputationRuleSeverity';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface HostReputationRule extends AdditionalDataHolder, Parsable {
     /**

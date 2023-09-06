@@ -1,5 +1,5 @@
-import type {AttachmentItem} from '../../../../../../../../../../../../models/attachmentItem';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AttachmentItem } from '../../../../../../../../../../../../models/attachmentItem';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CreateUploadSessionPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

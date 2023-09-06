@@ -1,19 +1,18 @@
-import {IosManagedAppProtectionCollectionResponse} from '../../models/';
-import {createIosManagedAppProtectionCollectionResponseFromDiscriminatorValue} from '../../models/createIosManagedAppProtectionCollectionResponseFromDiscriminatorValue';
-import {createIosManagedAppProtectionFromDiscriminatorValue} from '../../models/createIosManagedAppProtectionFromDiscriminatorValue';
-import {deserializeIntoIosManagedAppProtection} from '../../models/deserializeIntoIosManagedAppProtection';
-import type {IosManagedAppProtection} from '../../models/iosManagedAppProtection';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeIosManagedAppProtection} from '../../models/serializeIosManagedAppProtection';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {IosManagedAppProtectionsRequestBuilderGetRequestConfiguration} from './iosManagedAppProtectionsRequestBuilderGetRequestConfiguration';
-import {IosManagedAppProtectionsRequestBuilderPostRequestConfiguration} from './iosManagedAppProtectionsRequestBuilderPostRequestConfiguration';
-import {IosManagedAppProtectionItemRequestBuilder} from './item/iosManagedAppProtectionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type IosManagedAppProtectionCollectionResponse } from '../../models/';
+import { createIosManagedAppProtectionCollectionResponseFromDiscriminatorValue } from '../../models/createIosManagedAppProtectionCollectionResponseFromDiscriminatorValue';
+import { createIosManagedAppProtectionFromDiscriminatorValue } from '../../models/createIosManagedAppProtectionFromDiscriminatorValue';
+import { deserializeIntoIosManagedAppProtection } from '../../models/deserializeIntoIosManagedAppProtection';
+import { type IosManagedAppProtection } from '../../models/iosManagedAppProtection';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeIosManagedAppProtection } from '../../models/serializeIosManagedAppProtection';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type IosManagedAppProtectionsRequestBuilderGetRequestConfiguration } from './iosManagedAppProtectionsRequestBuilderGetRequestConfiguration';
+import { type IosManagedAppProtectionsRequestBuilderPostRequestConfiguration } from './iosManagedAppProtectionsRequestBuilderPostRequestConfiguration';
+import { IosManagedAppProtectionItemRequestBuilder } from './item/iosManagedAppProtectionItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.

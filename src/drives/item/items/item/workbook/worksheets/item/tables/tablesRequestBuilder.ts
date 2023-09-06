@@ -1,21 +1,20 @@
-import {WorkbookTableCollectionResponse} from '../../../../../../../../models/';
-import {createWorkbookTableCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookTableCollectionResponseFromDiscriminatorValue';
-import {createWorkbookTableFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookTableFromDiscriminatorValue';
-import {deserializeIntoWorkbookTable} from '../../../../../../../../models/deserializeIntoWorkbookTable';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookTable} from '../../../../../../../../models/serializeWorkbookTable';
-import type {WorkbookTable} from '../../../../../../../../models/workbookTable';
-import {AddRequestBuilder} from './add/addRequestBuilder';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WorkbookTableItemRequestBuilder} from './item/workbookTableItemRequestBuilder';
-import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import {TablesRequestBuilderGetRequestConfiguration} from './tablesRequestBuilderGetRequestConfiguration';
-import {TablesRequestBuilderPostRequestConfiguration} from './tablesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookTableCollectionResponse } from '../../../../../../../../models/';
+import { createWorkbookTableCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookTableCollectionResponseFromDiscriminatorValue';
+import { createWorkbookTableFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookTableFromDiscriminatorValue';
+import { deserializeIntoWorkbookTable } from '../../../../../../../../models/deserializeIntoWorkbookTable';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookTable } from '../../../../../../../../models/serializeWorkbookTable';
+import { type WorkbookTable } from '../../../../../../../../models/workbookTable';
+import { AddRequestBuilder } from './add/addRequestBuilder';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WorkbookTableItemRequestBuilder } from './item/workbookTableItemRequestBuilder';
+import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
+import { type TablesRequestBuilderGetRequestConfiguration } from './tablesRequestBuilderGetRequestConfiguration';
+import { type TablesRequestBuilderPostRequestConfiguration } from './tablesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.

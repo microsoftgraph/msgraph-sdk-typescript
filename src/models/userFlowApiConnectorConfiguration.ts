@@ -1,5 +1,5 @@
-import type {IdentityApiConnector} from './identityApiConnector';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type IdentityApiConnector } from './identityApiConnector';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserFlowApiConnectorConfiguration extends AdditionalDataHolder, Parsable {
     /**

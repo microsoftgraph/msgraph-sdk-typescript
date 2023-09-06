@@ -1,5 +1,5 @@
-import {UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters} from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters } from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,9 +1,9 @@
-import type {Entity} from '../entity';
-import type {FormattedContent} from './formattedContent';
-import type {IntelligenceProfileCountryOrRegionOfOrigin} from './intelligenceProfileCountryOrRegionOfOrigin';
-import type {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
-import {IntelligenceProfileKind} from './intelligenceProfileKind';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { type FormattedContent } from './formattedContent';
+import { type IntelligenceProfileCountryOrRegionOfOrigin } from './intelligenceProfileCountryOrRegionOfOrigin';
+import { type IntelligenceProfileIndicator } from './intelligenceProfileIndicator';
+import { IntelligenceProfileKind } from './intelligenceProfileKind';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IntelligenceProfile extends Entity, Parsable {
     /**

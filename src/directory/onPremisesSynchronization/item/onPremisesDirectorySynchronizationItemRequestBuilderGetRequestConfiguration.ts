@@ -1,5 +1,5 @@
-import {OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters} from './onPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters } from './onPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OnPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,5 +1,5 @@
-import {ExternalConnectionItemRequestBuilderGetQueryParameters} from './externalConnectionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExternalConnectionItemRequestBuilderGetQueryParameters } from './externalConnectionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ExternalConnectionItemRequestBuilderGetRequestConfiguration {
     /**

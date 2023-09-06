@@ -1,7 +1,7 @@
-import {deserializeIntoB2xIdentityUserFlow} from './deserializeIntoB2xIdentityUserFlow';
-import {deserializeIntoIdentityUserFlow} from './deserializeIntoIdentityUserFlow';
-import {B2xIdentityUserFlow, IdentityUserFlow} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoB2xIdentityUserFlow } from './deserializeIntoB2xIdentityUserFlow';
+import { deserializeIntoIdentityUserFlow } from './deserializeIntoIdentityUserFlow';
+import { type B2xIdentityUserFlow, type IdentityUserFlow } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIdentityUserFlowFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

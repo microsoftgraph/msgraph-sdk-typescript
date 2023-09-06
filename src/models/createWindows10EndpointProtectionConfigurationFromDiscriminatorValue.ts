@@ -1,6 +1,6 @@
-import {deserializeIntoWindows10EndpointProtectionConfiguration} from './deserializeIntoWindows10EndpointProtectionConfiguration';
-import {Windows10EndpointProtectionConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWindows10EndpointProtectionConfiguration } from './deserializeIntoWindows10EndpointProtectionConfiguration';
+import { type Windows10EndpointProtectionConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWindows10EndpointProtectionConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

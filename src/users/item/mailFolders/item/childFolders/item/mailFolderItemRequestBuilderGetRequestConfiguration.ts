@@ -1,5 +1,5 @@
-import {MailFolderItemRequestBuilderGetQueryParameters} from './mailFolderItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type MailFolderItemRequestBuilderGetQueryParameters } from './mailFolderItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MailFolderItemRequestBuilderGetRequestConfiguration {
     /**

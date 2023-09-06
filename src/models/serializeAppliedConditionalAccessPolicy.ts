@@ -1,6 +1,6 @@
-import type {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
-import {AppliedConditionalAccessPolicyResult} from './appliedConditionalAccessPolicyResult';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppliedConditionalAccessPolicy } from './appliedConditionalAccessPolicy';
+import { AppliedConditionalAccessPolicyResult } from './appliedConditionalAccessPolicyResult';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAppliedConditionalAccessPolicy(writer: SerializationWriter, appliedConditionalAccessPolicy: AppliedConditionalAccessPolicy | undefined = {} as AppliedConditionalAccessPolicy) : void {
         writer.writeStringValue("displayName", appliedConditionalAccessPolicy.displayName);

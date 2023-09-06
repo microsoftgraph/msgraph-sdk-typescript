@@ -1,16 +1,15 @@
-import {createEnrollmentConfigurationAssignmentFromDiscriminatorValue} from '../../../../../models/createEnrollmentConfigurationAssignmentFromDiscriminatorValue';
-import {deserializeIntoEnrollmentConfigurationAssignment} from '../../../../../models/deserializeIntoEnrollmentConfigurationAssignment';
-import type {EnrollmentConfigurationAssignment} from '../../../../../models/enrollmentConfigurationAssignment';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeEnrollmentConfigurationAssignment} from '../../../../../models/serializeEnrollmentConfigurationAssignment';
-import {EnrollmentConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './enrollmentConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {EnrollmentConfigurationAssignmentItemRequestBuilderGetRequestConfiguration} from './enrollmentConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
-import {EnrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration} from './enrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEnrollmentConfigurationAssignmentFromDiscriminatorValue } from '../../../../../models/createEnrollmentConfigurationAssignmentFromDiscriminatorValue';
+import { deserializeIntoEnrollmentConfigurationAssignment } from '../../../../../models/deserializeIntoEnrollmentConfigurationAssignment';
+import { type EnrollmentConfigurationAssignment } from '../../../../../models/enrollmentConfigurationAssignment';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeEnrollmentConfigurationAssignment } from '../../../../../models/serializeEnrollmentConfigurationAssignment';
+import { type EnrollmentConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration } from './enrollmentConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type EnrollmentConfigurationAssignmentItemRequestBuilderGetRequestConfiguration } from './enrollmentConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type EnrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration } from './enrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceEnrollmentConfiguration entity.

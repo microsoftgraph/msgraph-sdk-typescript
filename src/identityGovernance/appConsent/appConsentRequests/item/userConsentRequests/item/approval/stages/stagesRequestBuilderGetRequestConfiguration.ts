@@ -1,5 +1,5 @@
-import {StagesRequestBuilderGetQueryParameters} from './stagesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type StagesRequestBuilderGetQueryParameters } from './stagesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface StagesRequestBuilderGetRequestConfiguration {
     /**

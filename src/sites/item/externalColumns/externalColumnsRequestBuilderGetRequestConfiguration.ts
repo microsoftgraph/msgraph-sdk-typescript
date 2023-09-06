@@ -1,5 +1,5 @@
-import {ExternalColumnsRequestBuilderGetQueryParameters} from './externalColumnsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExternalColumnsRequestBuilderGetQueryParameters } from './externalColumnsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ExternalColumnsRequestBuilderGetRequestConfiguration {
     /**

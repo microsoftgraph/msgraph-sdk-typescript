@@ -1,5 +1,5 @@
-import {CalendarItemRequestBuilderGetQueryParameters} from './calendarItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CalendarItemRequestBuilderGetQueryParameters } from './calendarItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CalendarItemRequestBuilderGetRequestConfiguration {
     /**

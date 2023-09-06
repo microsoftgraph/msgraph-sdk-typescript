@@ -1,5 +1,5 @@
-import {FollowedSitesRequestBuilderGetQueryParameters} from './followedSitesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type FollowedSitesRequestBuilderGetQueryParameters } from './followedSitesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface FollowedSitesRequestBuilderGetRequestConfiguration {
     /**

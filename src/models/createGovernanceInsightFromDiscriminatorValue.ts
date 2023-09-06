@@ -1,8 +1,8 @@
-import {deserializeIntoGovernanceInsight} from './deserializeIntoGovernanceInsight';
-import {deserializeIntoMembershipOutlierInsight} from './deserializeIntoMembershipOutlierInsight';
-import {deserializeIntoUserSignInInsight} from './deserializeIntoUserSignInInsight';
-import {GovernanceInsight, MembershipOutlierInsight, UserSignInInsight} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoGovernanceInsight } from './deserializeIntoGovernanceInsight';
+import { deserializeIntoMembershipOutlierInsight } from './deserializeIntoMembershipOutlierInsight';
+import { deserializeIntoUserSignInInsight } from './deserializeIntoUserSignInInsight';
+import { type GovernanceInsight, type MembershipOutlierInsight, type UserSignInInsight } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createGovernanceInsightFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

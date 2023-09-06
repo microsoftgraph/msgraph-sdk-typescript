@@ -1,10 +1,10 @@
-import {AdvancedConfigState} from './advancedConfigState';
-import type {AuthenticationMethodsRegistrationCampaign} from './authenticationMethodsRegistrationCampaign';
-import type {AuthenticationMethodsRegistrationCampaignIncludeTarget} from './authenticationMethodsRegistrationCampaignIncludeTarget';
-import type {ExcludeTarget} from './excludeTarget';
-import {serializeAuthenticationMethodsRegistrationCampaignIncludeTarget} from './serializeAuthenticationMethodsRegistrationCampaignIncludeTarget';
-import {serializeExcludeTarget} from './serializeExcludeTarget';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AdvancedConfigState } from './advancedConfigState';
+import { type AuthenticationMethodsRegistrationCampaign } from './authenticationMethodsRegistrationCampaign';
+import { type AuthenticationMethodsRegistrationCampaignIncludeTarget } from './authenticationMethodsRegistrationCampaignIncludeTarget';
+import { type ExcludeTarget } from './excludeTarget';
+import { serializeAuthenticationMethodsRegistrationCampaignIncludeTarget } from './serializeAuthenticationMethodsRegistrationCampaignIncludeTarget';
+import { serializeExcludeTarget } from './serializeExcludeTarget';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationMethodsRegistrationCampaign(writer: SerializationWriter, authenticationMethodsRegistrationCampaign: AuthenticationMethodsRegistrationCampaign | undefined = {} as AuthenticationMethodsRegistrationCampaign) : void {
         writer.writeCollectionOfObjectValues<ExcludeTarget>("excludeTargets", authenticationMethodsRegistrationCampaign.excludeTargets, serializeExcludeTarget);

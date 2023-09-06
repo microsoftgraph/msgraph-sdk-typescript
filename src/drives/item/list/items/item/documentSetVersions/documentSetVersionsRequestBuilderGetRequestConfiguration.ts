@@ -1,5 +1,5 @@
-import {DocumentSetVersionsRequestBuilderGetQueryParameters} from './documentSetVersionsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DocumentSetVersionsRequestBuilderGetQueryParameters } from './documentSetVersionsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DocumentSetVersionsRequestBuilderGetRequestConfiguration {
     /**

@@ -1,6 +1,6 @@
-import type {TeamsAppResourceSpecificPermission} from './teamsAppResourceSpecificPermission';
-import {TeamsAppResourceSpecificPermissionType} from './teamsAppResourceSpecificPermissionType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type TeamsAppResourceSpecificPermission } from './teamsAppResourceSpecificPermission';
+import { TeamsAppResourceSpecificPermissionType } from './teamsAppResourceSpecificPermissionType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsAppResourceSpecificPermission(writer: SerializationWriter, teamsAppResourceSpecificPermission: TeamsAppResourceSpecificPermission | undefined = {} as TeamsAppResourceSpecificPermission) : void {
         writer.writeStringValue("@odata.type", teamsAppResourceSpecificPermission.odataType);

@@ -1,9 +1,9 @@
-import type {AccessPackageResourceRequest} from './accessPackageResourceRequest';
-import type {AccessPackageResourceRequestCollectionResponse} from './accessPackageResourceRequestCollectionResponse';
-import {createAccessPackageResourceRequestFromDiscriminatorValue} from './createAccessPackageResourceRequestFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeAccessPackageResourceRequest} from './serializeAccessPackageResourceRequest';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResourceRequest } from './accessPackageResourceRequest';
+import { type AccessPackageResourceRequestCollectionResponse } from './accessPackageResourceRequestCollectionResponse';
+import { createAccessPackageResourceRequestFromDiscriminatorValue } from './createAccessPackageResourceRequestFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeAccessPackageResourceRequest } from './serializeAccessPackageResourceRequest';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageResourceRequestCollectionResponse(accessPackageResourceRequestCollectionResponse: AccessPackageResourceRequestCollectionResponse | undefined = {} as AccessPackageResourceRequestCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
-import type {ServiceProvisioningError} from './serviceProvisioningError';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ServiceProvisioningError } from './serviceProvisioningError';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ServiceProvisioningXmlError extends Parsable, ServiceProvisioningError {
     /**

@@ -1,5 +1,5 @@
-import {DelegatedAdminAccessAssignmentItemRequestBuilderGetQueryParameters} from './delegatedAdminAccessAssignmentItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DelegatedAdminAccessAssignmentItemRequestBuilderGetQueryParameters } from './delegatedAdminAccessAssignmentItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration {
     /**

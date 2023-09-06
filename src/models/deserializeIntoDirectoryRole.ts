@@ -1,12 +1,12 @@
-import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
-import {createScopedRoleMembershipFromDiscriminatorValue} from './createScopedRoleMembershipFromDiscriminatorValue';
-import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import type {DirectoryObject} from './directoryObject';
-import type {DirectoryRole} from './directoryRole';
-import type {ScopedRoleMembership} from './scopedRoleMembership';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeScopedRoleMembership} from './serializeScopedRoleMembership';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDirectoryObjectFromDiscriminatorValue } from './createDirectoryObjectFromDiscriminatorValue';
+import { createScopedRoleMembershipFromDiscriminatorValue } from './createScopedRoleMembershipFromDiscriminatorValue';
+import { deserializeIntoDirectoryObject } from './deserializeIntoDirectoryObject';
+import { type DirectoryObject } from './directoryObject';
+import { type DirectoryRole } from './directoryRole';
+import { type ScopedRoleMembership } from './scopedRoleMembership';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeScopedRoleMembership } from './serializeScopedRoleMembership';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDirectoryRole(directoryRole: DirectoryRole | undefined = {} as DirectoryRole) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
-import {deserializeIntoWindowsInformationProtectionAppLearningSummary} from './deserializeIntoWindowsInformationProtectionAppLearningSummary';
-import {WindowsInformationProtectionAppLearningSummary} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWindowsInformationProtectionAppLearningSummary } from './deserializeIntoWindowsInformationProtectionAppLearningSummary';
+import { type WindowsInformationProtectionAppLearningSummary } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

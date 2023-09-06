@@ -1,8 +1,8 @@
-import type {AccessPackageResourceEnvironment} from './accessPackageResourceEnvironment';
-import type {AccessPackageResourceRole} from './accessPackageResourceRole';
-import type {AccessPackageResourceScope} from './accessPackageResourceScope';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResourceEnvironment } from './accessPackageResourceEnvironment';
+import { type AccessPackageResourceRole } from './accessPackageResourceRole';
+import { type AccessPackageResourceScope } from './accessPackageResourceScope';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageResource extends Entity, Parsable {
     /**

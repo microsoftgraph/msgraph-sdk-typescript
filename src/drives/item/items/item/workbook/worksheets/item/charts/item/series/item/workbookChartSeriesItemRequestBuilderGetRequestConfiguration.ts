@@ -1,5 +1,5 @@
-import {WorkbookChartSeriesItemRequestBuilderGetQueryParameters} from './workbookChartSeriesItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookChartSeriesItemRequestBuilderGetQueryParameters } from './workbookChartSeriesItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,20 +1,19 @@
-import {ConversationMemberCollectionResponse} from '../../../../models/';
-import type {ConversationMember} from '../../../../models/conversationMember';
-import {createConversationMemberCollectionResponseFromDiscriminatorValue} from '../../../../models/createConversationMemberCollectionResponseFromDiscriminatorValue';
-import {createConversationMemberFromDiscriminatorValue} from '../../../../models/createConversationMemberFromDiscriminatorValue';
-import {deserializeIntoConversationMember} from '../../../../models/deserializeIntoConversationMember';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeConversationMember} from '../../../../models/serializeConversationMember';
-import {AddRequestBuilder} from './add/addRequestBuilder';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ConversationMemberItemRequestBuilder} from './item/conversationMemberItemRequestBuilder';
-import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuilderGetRequestConfiguration';
-import {MembersRequestBuilderPostRequestConfiguration} from './membersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConversationMemberCollectionResponse } from '../../../../models/';
+import { type ConversationMember } from '../../../../models/conversationMember';
+import { createConversationMemberCollectionResponseFromDiscriminatorValue } from '../../../../models/createConversationMemberCollectionResponseFromDiscriminatorValue';
+import { createConversationMemberFromDiscriminatorValue } from '../../../../models/createConversationMemberFromDiscriminatorValue';
+import { deserializeIntoConversationMember } from '../../../../models/deserializeIntoConversationMember';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeConversationMember } from '../../../../models/serializeConversationMember';
+import { AddRequestBuilder } from './add/addRequestBuilder';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ConversationMemberItemRequestBuilder } from './item/conversationMemberItemRequestBuilder';
+import { type MembersRequestBuilderGetRequestConfiguration } from './membersRequestBuilderGetRequestConfiguration';
+import { type MembersRequestBuilderPostRequestConfiguration } from './membersRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.chat entity.

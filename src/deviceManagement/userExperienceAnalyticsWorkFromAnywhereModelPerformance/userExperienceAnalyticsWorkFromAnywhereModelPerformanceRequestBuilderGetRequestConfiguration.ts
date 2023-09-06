@@ -1,5 +1,5 @@
-import {UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters} from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters } from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetRequestConfiguration {
     /**

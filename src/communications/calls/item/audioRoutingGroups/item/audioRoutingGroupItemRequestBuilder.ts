@@ -1,16 +1,15 @@
-import type {AudioRoutingGroup} from '../../../../../models/audioRoutingGroup';
-import {createAudioRoutingGroupFromDiscriminatorValue} from '../../../../../models/createAudioRoutingGroupFromDiscriminatorValue';
-import {deserializeIntoAudioRoutingGroup} from '../../../../../models/deserializeIntoAudioRoutingGroup';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeAudioRoutingGroup} from '../../../../../models/serializeAudioRoutingGroup';
-import {AudioRoutingGroupItemRequestBuilderDeleteRequestConfiguration} from './audioRoutingGroupItemRequestBuilderDeleteRequestConfiguration';
-import {AudioRoutingGroupItemRequestBuilderGetRequestConfiguration} from './audioRoutingGroupItemRequestBuilderGetRequestConfiguration';
-import {AudioRoutingGroupItemRequestBuilderPatchRequestConfiguration} from './audioRoutingGroupItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AudioRoutingGroup } from '../../../../../models/audioRoutingGroup';
+import { createAudioRoutingGroupFromDiscriminatorValue } from '../../../../../models/createAudioRoutingGroupFromDiscriminatorValue';
+import { deserializeIntoAudioRoutingGroup } from '../../../../../models/deserializeIntoAudioRoutingGroup';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeAudioRoutingGroup } from '../../../../../models/serializeAudioRoutingGroup';
+import { type AudioRoutingGroupItemRequestBuilderDeleteRequestConfiguration } from './audioRoutingGroupItemRequestBuilderDeleteRequestConfiguration';
+import { type AudioRoutingGroupItemRequestBuilderGetRequestConfiguration } from './audioRoutingGroupItemRequestBuilderGetRequestConfiguration';
+import { type AudioRoutingGroupItemRequestBuilderPatchRequestConfiguration } from './audioRoutingGroupItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.

@@ -1,17 +1,16 @@
-import {createStringKeyStringValuePairFromDiscriminatorValue} from '../../../../../../models/createStringKeyStringValuePairFromDiscriminatorValue';
-import {deserializeIntoStringKeyStringValuePair} from '../../../../../../models/deserializeIntoStringKeyStringValuePair';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeStringKeyStringValuePair} from '../../../../../../models/serializeStringKeyStringValuePair';
-import type {StringKeyStringValuePair} from '../../../../../../models/stringKeyStringValuePair';
-import {deserializeIntoProvisionOnDemandPostRequestBody} from './deserializeIntoProvisionOnDemandPostRequestBody';
-import type {ProvisionOnDemandPostRequestBody} from './provisionOnDemandPostRequestBody';
-import {ProvisionOnDemandRequestBuilderPostRequestConfiguration} from './provisionOnDemandRequestBuilderPostRequestConfiguration';
-import {serializeProvisionOnDemandPostRequestBody} from './serializeProvisionOnDemandPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createStringKeyStringValuePairFromDiscriminatorValue } from '../../../../../../models/createStringKeyStringValuePairFromDiscriminatorValue';
+import { deserializeIntoStringKeyStringValuePair } from '../../../../../../models/deserializeIntoStringKeyStringValuePair';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeStringKeyStringValuePair } from '../../../../../../models/serializeStringKeyStringValuePair';
+import { type StringKeyStringValuePair } from '../../../../../../models/stringKeyStringValuePair';
+import { deserializeIntoProvisionOnDemandPostRequestBody } from './deserializeIntoProvisionOnDemandPostRequestBody';
+import { type ProvisionOnDemandPostRequestBody } from './provisionOnDemandPostRequestBody';
+import { type ProvisionOnDemandRequestBuilderPostRequestConfiguration } from './provisionOnDemandRequestBuilderPostRequestConfiguration';
+import { serializeProvisionOnDemandPostRequestBody } from './serializeProvisionOnDemandPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the provisionOnDemand method.

@@ -1,17 +1,16 @@
-import {SiteCollectionResponse} from '../../../models/';
-import {createSiteCollectionResponseFromDiscriminatorValue} from '../../../models/createSiteCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {AddRequestBuilder} from './add/addRequestBuilder';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetAllSitesRequestBuilder} from './getAllSites/getAllSitesRequestBuilder';
-import {SiteItemRequestBuilder} from './item/siteItemRequestBuilder';
-import {RemoveRequestBuilder} from './remove/removeRequestBuilder';
-import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SiteCollectionResponse } from '../../../models/';
+import { createSiteCollectionResponseFromDiscriminatorValue } from '../../../models/createSiteCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { AddRequestBuilder } from './add/addRequestBuilder';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { GetAllSitesRequestBuilder } from './getAllSites/getAllSitesRequestBuilder';
+import { SiteItemRequestBuilder } from './item/siteItemRequestBuilder';
+import { RemoveRequestBuilder } from './remove/removeRequestBuilder';
+import { type SitesRequestBuilderGetRequestConfiguration } from './sitesRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sites property of the microsoft.graph.group entity.

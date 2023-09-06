@@ -1,19 +1,18 @@
-import {ExtensionCollectionResponse} from '../../../../../../../../../models/';
-import {createExtensionCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../models/createExtensionCollectionResponseFromDiscriminatorValue';
-import {createExtensionFromDiscriminatorValue} from '../../../../../../../../../models/createExtensionFromDiscriminatorValue';
-import {deserializeIntoExtension} from '../../../../../../../../../models/deserializeIntoExtension';
-import type {Extension} from '../../../../../../../../../models/extension';
-import {ODataError} from '../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeExtension} from '../../../../../../../../../models/serializeExtension';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ExtensionsRequestBuilderGetRequestConfiguration} from './extensionsRequestBuilderGetRequestConfiguration';
-import {ExtensionsRequestBuilderPostRequestConfiguration} from './extensionsRequestBuilderPostRequestConfiguration';
-import {ExtensionItemRequestBuilder} from './item/extensionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExtensionCollectionResponse } from '../../../../../../../../../models/';
+import { createExtensionCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../models/createExtensionCollectionResponseFromDiscriminatorValue';
+import { createExtensionFromDiscriminatorValue } from '../../../../../../../../../models/createExtensionFromDiscriminatorValue';
+import { deserializeIntoExtension } from '../../../../../../../../../models/deserializeIntoExtension';
+import { type Extension } from '../../../../../../../../../models/extension';
+import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeExtension } from '../../../../../../../../../models/serializeExtension';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type ExtensionsRequestBuilderGetRequestConfiguration } from './extensionsRequestBuilderGetRequestConfiguration';
+import { type ExtensionsRequestBuilderPostRequestConfiguration } from './extensionsRequestBuilderPostRequestConfiguration';
+import { ExtensionItemRequestBuilder } from './item/extensionItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the extensions property of the microsoft.graph.post entity.

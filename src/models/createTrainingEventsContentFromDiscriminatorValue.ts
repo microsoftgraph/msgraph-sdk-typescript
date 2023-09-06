@@ -1,6 +1,6 @@
-import {deserializeIntoTrainingEventsContent} from './deserializeIntoTrainingEventsContent';
-import {TrainingEventsContent} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoTrainingEventsContent } from './deserializeIntoTrainingEventsContent';
+import { type TrainingEventsContent } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTrainingEventsContentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,6 +1,6 @@
-import {deserializeIntoMobileAppAssignmentSettings} from './deserializeIntoMobileAppAssignmentSettings';
-import type {IosStoreAppAssignmentSettings} from './iosStoreAppAssignmentSettings';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoMobileAppAssignmentSettings } from './deserializeIntoMobileAppAssignmentSettings';
+import { type IosStoreAppAssignmentSettings } from './iosStoreAppAssignmentSettings';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosStoreAppAssignmentSettings(iosStoreAppAssignmentSettings: IosStoreAppAssignmentSettings | undefined = {} as IosStoreAppAssignmentSettings) : Record<string, (node: ParseNode) => void> {
     return {

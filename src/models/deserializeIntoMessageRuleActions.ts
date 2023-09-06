@@ -1,9 +1,9 @@
-import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
-import {Importance} from './importance';
-import type {MessageRuleActions} from './messageRuleActions';
-import type {Recipient} from './recipient';
-import {serializeRecipient} from './serializeRecipient';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createRecipientFromDiscriminatorValue } from './createRecipientFromDiscriminatorValue';
+import { Importance } from './importance';
+import { type MessageRuleActions } from './messageRuleActions';
+import { type Recipient } from './recipient';
+import { serializeRecipient } from './serializeRecipient';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMessageRuleActions(messageRuleActions: MessageRuleActions | undefined = {} as MessageRuleActions) : Record<string, (node: ParseNode) => void> {
     return {

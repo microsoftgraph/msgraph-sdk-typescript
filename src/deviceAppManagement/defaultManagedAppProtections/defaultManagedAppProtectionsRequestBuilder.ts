@@ -1,19 +1,18 @@
-import {DefaultManagedAppProtectionCollectionResponse} from '../../models/';
-import {createDefaultManagedAppProtectionCollectionResponseFromDiscriminatorValue} from '../../models/createDefaultManagedAppProtectionCollectionResponseFromDiscriminatorValue';
-import {createDefaultManagedAppProtectionFromDiscriminatorValue} from '../../models/createDefaultManagedAppProtectionFromDiscriminatorValue';
-import type {DefaultManagedAppProtection} from '../../models/defaultManagedAppProtection';
-import {deserializeIntoDefaultManagedAppProtection} from '../../models/deserializeIntoDefaultManagedAppProtection';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeDefaultManagedAppProtection} from '../../models/serializeDefaultManagedAppProtection';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DefaultManagedAppProtectionsRequestBuilderGetRequestConfiguration} from './defaultManagedAppProtectionsRequestBuilderGetRequestConfiguration';
-import {DefaultManagedAppProtectionsRequestBuilderPostRequestConfiguration} from './defaultManagedAppProtectionsRequestBuilderPostRequestConfiguration';
-import {DefaultManagedAppProtectionItemRequestBuilder} from './item/defaultManagedAppProtectionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DefaultManagedAppProtectionCollectionResponse } from '../../models/';
+import { createDefaultManagedAppProtectionCollectionResponseFromDiscriminatorValue } from '../../models/createDefaultManagedAppProtectionCollectionResponseFromDiscriminatorValue';
+import { createDefaultManagedAppProtectionFromDiscriminatorValue } from '../../models/createDefaultManagedAppProtectionFromDiscriminatorValue';
+import { type DefaultManagedAppProtection } from '../../models/defaultManagedAppProtection';
+import { deserializeIntoDefaultManagedAppProtection } from '../../models/deserializeIntoDefaultManagedAppProtection';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeDefaultManagedAppProtection } from '../../models/serializeDefaultManagedAppProtection';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DefaultManagedAppProtectionsRequestBuilderGetRequestConfiguration } from './defaultManagedAppProtectionsRequestBuilderGetRequestConfiguration';
+import { type DefaultManagedAppProtectionsRequestBuilderPostRequestConfiguration } from './defaultManagedAppProtectionsRequestBuilderPostRequestConfiguration';
+import { DefaultManagedAppProtectionItemRequestBuilder } from './item/defaultManagedAppProtectionItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.

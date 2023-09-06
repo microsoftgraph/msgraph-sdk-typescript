@@ -1,16 +1,16 @@
-import type {MobileLobApp} from './mobileLobApp';
-import type {Win32LobAppInstallExperience} from './win32LobAppInstallExperience';
-import type {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
-import type {Win32LobAppReturnCode} from './win32LobAppReturnCode';
-import type {Win32LobAppRule} from './win32LobAppRule';
-import {WindowsArchitecture} from './windowsArchitecture';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type MobileLobApp } from './mobileLobApp';
+import { type Win32LobAppInstallExperience } from './win32LobAppInstallExperience';
+import { type Win32LobAppMsiInformation } from './win32LobAppMsiInformation';
+import { type Win32LobAppReturnCode } from './win32LobAppReturnCode';
+import { type Win32LobAppRule } from './win32LobAppRule';
+import { WindowsArchitecture } from './windowsArchitecture';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Win32LobApp extends MobileLobApp, Parsable {
     /**
      * Contains properties for Windows architecture.
      */
-    applicableArchitectures?: WindowsArchitecture | undefined;
+    applicableArchitectures?: WindowsArchitecture[] | undefined;
     /**
      * The command line to install this app
      */

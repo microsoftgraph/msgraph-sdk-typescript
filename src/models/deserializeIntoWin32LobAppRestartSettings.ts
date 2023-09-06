@@ -1,5 +1,5 @@
-import type {Win32LobAppRestartSettings} from './win32LobAppRestartSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Win32LobAppRestartSettings } from './win32LobAppRestartSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWin32LobAppRestartSettings(win32LobAppRestartSettings: Win32LobAppRestartSettings | undefined = {} as Win32LobAppRestartSettings) : Record<string, (node: ParseNode) => void> {
     return {

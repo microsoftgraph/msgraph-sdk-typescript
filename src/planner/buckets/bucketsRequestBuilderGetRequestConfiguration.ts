@@ -1,5 +1,5 @@
-import {BucketsRequestBuilderGetQueryParameters} from './bucketsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BucketsRequestBuilderGetQueryParameters } from './bucketsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BucketsRequestBuilderGetRequestConfiguration {
     /**

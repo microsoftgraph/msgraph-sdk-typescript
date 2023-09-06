@@ -1,19 +1,18 @@
-import {AssociatedTeamInfoCollectionResponse} from '../../../../models/';
-import type {AssociatedTeamInfo} from '../../../../models/associatedTeamInfo';
-import {createAssociatedTeamInfoCollectionResponseFromDiscriminatorValue} from '../../../../models/createAssociatedTeamInfoCollectionResponseFromDiscriminatorValue';
-import {createAssociatedTeamInfoFromDiscriminatorValue} from '../../../../models/createAssociatedTeamInfoFromDiscriminatorValue';
-import {deserializeIntoAssociatedTeamInfo} from '../../../../models/deserializeIntoAssociatedTeamInfo';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeAssociatedTeamInfo} from '../../../../models/serializeAssociatedTeamInfo';
-import {AssociatedTeamsRequestBuilderGetRequestConfiguration} from './associatedTeamsRequestBuilderGetRequestConfiguration';
-import {AssociatedTeamsRequestBuilderPostRequestConfiguration} from './associatedTeamsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AssociatedTeamInfoItemRequestBuilder} from './item/associatedTeamInfoItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AssociatedTeamInfoCollectionResponse } from '../../../../models/';
+import { type AssociatedTeamInfo } from '../../../../models/associatedTeamInfo';
+import { createAssociatedTeamInfoCollectionResponseFromDiscriminatorValue } from '../../../../models/createAssociatedTeamInfoCollectionResponseFromDiscriminatorValue';
+import { createAssociatedTeamInfoFromDiscriminatorValue } from '../../../../models/createAssociatedTeamInfoFromDiscriminatorValue';
+import { deserializeIntoAssociatedTeamInfo } from '../../../../models/deserializeIntoAssociatedTeamInfo';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeAssociatedTeamInfo } from '../../../../models/serializeAssociatedTeamInfo';
+import { type AssociatedTeamsRequestBuilderGetRequestConfiguration } from './associatedTeamsRequestBuilderGetRequestConfiguration';
+import { type AssociatedTeamsRequestBuilderPostRequestConfiguration } from './associatedTeamsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AssociatedTeamInfoItemRequestBuilder } from './item/associatedTeamInfoItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.

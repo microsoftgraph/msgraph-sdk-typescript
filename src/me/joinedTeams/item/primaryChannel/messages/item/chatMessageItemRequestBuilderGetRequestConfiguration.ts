@@ -1,5 +1,5 @@
-import {ChatMessageItemRequestBuilderGetQueryParameters} from './chatMessageItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ChatMessageItemRequestBuilderGetQueryParameters } from './chatMessageItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ChatMessageItemRequestBuilderGetRequestConfiguration {
     /**

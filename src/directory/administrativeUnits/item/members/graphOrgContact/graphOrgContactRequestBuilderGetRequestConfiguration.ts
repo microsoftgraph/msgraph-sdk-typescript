@@ -1,5 +1,5 @@
-import {GraphOrgContactRequestBuilderGetQueryParameters} from './graphOrgContactRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GraphOrgContactRequestBuilderGetQueryParameters } from './graphOrgContactRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GraphOrgContactRequestBuilderGetRequestConfiguration {
     /**

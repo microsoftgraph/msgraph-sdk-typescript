@@ -1,9 +1,9 @@
-import {createOnPremisesDirectorySynchronizationFromDiscriminatorValue} from './createOnPremisesDirectorySynchronizationFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchronization';
-import type {OnPremisesDirectorySynchronizationCollectionResponse} from './onPremisesDirectorySynchronizationCollectionResponse';
-import {serializeOnPremisesDirectorySynchronization} from './serializeOnPremisesDirectorySynchronization';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createOnPremisesDirectorySynchronizationFromDiscriminatorValue } from './createOnPremisesDirectorySynchronizationFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type OnPremisesDirectorySynchronization } from './onPremisesDirectorySynchronization';
+import { type OnPremisesDirectorySynchronizationCollectionResponse } from './onPremisesDirectorySynchronizationCollectionResponse';
+import { serializeOnPremisesDirectorySynchronization } from './serializeOnPremisesDirectorySynchronization';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnPremisesDirectorySynchronizationCollectionResponse(onPremisesDirectorySynchronizationCollectionResponse: OnPremisesDirectorySynchronizationCollectionResponse | undefined = {} as OnPremisesDirectorySynchronizationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

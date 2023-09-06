@@ -1,8 +1,8 @@
-import {createTeamworkUserIdentityFromDiscriminatorValue} from '../../../../../models/createTeamworkUserIdentityFromDiscriminatorValue';
-import {serializeTeamworkUserIdentity} from '../../../../../models/serializeTeamworkUserIdentity';
-import type {TeamworkUserIdentity} from '../../../../../models/teamworkUserIdentity';
-import type {MarkChatUnreadForUserPostRequestBody} from './markChatUnreadForUserPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTeamworkUserIdentityFromDiscriminatorValue } from '../../../../../models/createTeamworkUserIdentityFromDiscriminatorValue';
+import { serializeTeamworkUserIdentity } from '../../../../../models/serializeTeamworkUserIdentity';
+import { type TeamworkUserIdentity } from '../../../../../models/teamworkUserIdentity';
+import { type MarkChatUnreadForUserPostRequestBody } from './markChatUnreadForUserPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMarkChatUnreadForUserPostRequestBody(markChatUnreadForUserPostRequestBody: MarkChatUnreadForUserPostRequestBody | undefined = {} as MarkChatUnreadForUserPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

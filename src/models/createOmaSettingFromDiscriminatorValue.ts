@@ -1,13 +1,13 @@
-import {deserializeIntoOmaSetting} from './deserializeIntoOmaSetting';
-import {deserializeIntoOmaSettingBase64} from './deserializeIntoOmaSettingBase64';
-import {deserializeIntoOmaSettingBoolean} from './deserializeIntoOmaSettingBoolean';
-import {deserializeIntoOmaSettingDateTime} from './deserializeIntoOmaSettingDateTime';
-import {deserializeIntoOmaSettingFloatingPoint} from './deserializeIntoOmaSettingFloatingPoint';
-import {deserializeIntoOmaSettingInteger} from './deserializeIntoOmaSettingInteger';
-import {deserializeIntoOmaSettingString} from './deserializeIntoOmaSettingString';
-import {deserializeIntoOmaSettingStringXml} from './deserializeIntoOmaSettingStringXml';
-import {OmaSetting, OmaSettingBase64, OmaSettingBoolean, OmaSettingDateTime, OmaSettingFloatingPoint, OmaSettingInteger, OmaSettingString, OmaSettingStringXml} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoOmaSetting } from './deserializeIntoOmaSetting';
+import { deserializeIntoOmaSettingBase64 } from './deserializeIntoOmaSettingBase64';
+import { deserializeIntoOmaSettingBoolean } from './deserializeIntoOmaSettingBoolean';
+import { deserializeIntoOmaSettingDateTime } from './deserializeIntoOmaSettingDateTime';
+import { deserializeIntoOmaSettingFloatingPoint } from './deserializeIntoOmaSettingFloatingPoint';
+import { deserializeIntoOmaSettingInteger } from './deserializeIntoOmaSettingInteger';
+import { deserializeIntoOmaSettingString } from './deserializeIntoOmaSettingString';
+import { deserializeIntoOmaSettingStringXml } from './deserializeIntoOmaSettingStringXml';
+import { type OmaSetting, type OmaSettingBase64, type OmaSettingBoolean, type OmaSettingDateTime, type OmaSettingFloatingPoint, type OmaSettingInteger, type OmaSettingString, type OmaSettingStringXml } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createOmaSettingFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

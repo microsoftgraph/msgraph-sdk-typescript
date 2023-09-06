@@ -1,6 +1,6 @@
-import {deserializeIntoDeviceActionResult} from './deserializeIntoDeviceActionResult';
-import type {WindowsDefenderScanActionResult} from './windowsDefenderScanActionResult';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceActionResult } from './deserializeIntoDeviceActionResult';
+import { type WindowsDefenderScanActionResult } from './windowsDefenderScanActionResult';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsDefenderScanActionResult(windowsDefenderScanActionResult: WindowsDefenderScanActionResult | undefined = {} as WindowsDefenderScanActionResult) : Record<string, (node: ParseNode) => void> {
     return {

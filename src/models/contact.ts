@@ -1,11 +1,11 @@
-import type {EmailAddress} from './emailAddress';
-import type {Extension} from './extension';
-import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import type {OutlookItem} from './outlookItem';
-import type {PhysicalAddress} from './physicalAddress';
-import type {ProfilePhoto} from './profilePhoto';
-import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type EmailAddress } from './emailAddress';
+import { type Extension } from './extension';
+import { type MultiValueLegacyExtendedProperty } from './multiValueLegacyExtendedProperty';
+import { type OutlookItem } from './outlookItem';
+import { type PhysicalAddress } from './physicalAddress';
+import { type ProfilePhoto } from './profilePhoto';
+import { type SingleValueLegacyExtendedProperty } from './singleValueLegacyExtendedProperty';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Contact extends OutlookItem, Parsable {
     /**

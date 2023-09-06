@@ -1,19 +1,18 @@
-import {createUserTeamworkFromDiscriminatorValue} from '../../../models/createUserTeamworkFromDiscriminatorValue';
-import {deserializeIntoUserTeamwork} from '../../../models/deserializeIntoUserTeamwork';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeUserTeamwork} from '../../../models/serializeUserTeamwork';
-import type {UserTeamwork} from '../../../models/userTeamwork';
-import {AssociatedTeamsRequestBuilder} from './associatedTeams/associatedTeamsRequestBuilder';
-import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
-import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
-import {TeamworkRequestBuilderDeleteRequestConfiguration} from './teamworkRequestBuilderDeleteRequestConfiguration';
-import {TeamworkRequestBuilderGetRequestConfiguration} from './teamworkRequestBuilderGetRequestConfiguration';
-import {TeamworkRequestBuilderPatchRequestConfiguration} from './teamworkRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUserTeamworkFromDiscriminatorValue } from '../../../models/createUserTeamworkFromDiscriminatorValue';
+import { deserializeIntoUserTeamwork } from '../../../models/deserializeIntoUserTeamwork';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeUserTeamwork } from '../../../models/serializeUserTeamwork';
+import { type UserTeamwork } from '../../../models/userTeamwork';
+import { AssociatedTeamsRequestBuilder } from './associatedTeams/associatedTeamsRequestBuilder';
+import { InstalledAppsRequestBuilder } from './installedApps/installedAppsRequestBuilder';
+import { SendActivityNotificationRequestBuilder } from './sendActivityNotification/sendActivityNotificationRequestBuilder';
+import { type TeamworkRequestBuilderDeleteRequestConfiguration } from './teamworkRequestBuilderDeleteRequestConfiguration';
+import { type TeamworkRequestBuilderGetRequestConfiguration } from './teamworkRequestBuilderGetRequestConfiguration';
+import { type TeamworkRequestBuilderPatchRequestConfiguration } from './teamworkRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamwork property of the microsoft.graph.user entity.

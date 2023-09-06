@@ -1,7 +1,7 @@
-import type {Entity} from '../entity';
-import type {PublicError} from '../publicError';
-import {ConnectionOperationStatus} from './connectionOperationStatus';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { type PublicError } from '../publicError';
+import { ConnectionOperationStatus } from './connectionOperationStatus';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ConnectionOperation extends Entity, Parsable {
     /**

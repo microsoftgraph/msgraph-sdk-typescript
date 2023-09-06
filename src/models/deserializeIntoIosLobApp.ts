@@ -1,12 +1,12 @@
-import {createIosDeviceTypeFromDiscriminatorValue} from './createIosDeviceTypeFromDiscriminatorValue';
-import {createIosMinimumOperatingSystemFromDiscriminatorValue} from './createIosMinimumOperatingSystemFromDiscriminatorValue';
-import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
-import type {IosDeviceType} from './iosDeviceType';
-import type {IosLobApp} from './iosLobApp';
-import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
-import {serializeIosDeviceType} from './serializeIosDeviceType';
-import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperatingSystem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIosDeviceTypeFromDiscriminatorValue } from './createIosDeviceTypeFromDiscriminatorValue';
+import { createIosMinimumOperatingSystemFromDiscriminatorValue } from './createIosMinimumOperatingSystemFromDiscriminatorValue';
+import { deserializeIntoMobileLobApp } from './deserializeIntoMobileLobApp';
+import { type IosDeviceType } from './iosDeviceType';
+import { type IosLobApp } from './iosLobApp';
+import { type IosMinimumOperatingSystem } from './iosMinimumOperatingSystem';
+import { serializeIosDeviceType } from './serializeIosDeviceType';
+import { serializeIosMinimumOperatingSystem } from './serializeIosMinimumOperatingSystem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosLobApp(iosLobApp: IosLobApp | undefined = {} as IosLobApp) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,13 +1,13 @@
-import type {ApplicationEnforcedRestrictionsSessionControl} from './applicationEnforcedRestrictionsSessionControl';
-import type {CloudAppSecuritySessionControl} from './cloudAppSecuritySessionControl';
-import type {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
-import type {PersistentBrowserSessionControl} from './persistentBrowserSessionControl';
-import {serializeApplicationEnforcedRestrictionsSessionControl} from './serializeApplicationEnforcedRestrictionsSessionControl';
-import {serializeCloudAppSecuritySessionControl} from './serializeCloudAppSecuritySessionControl';
-import {serializePersistentBrowserSessionControl} from './serializePersistentBrowserSessionControl';
-import {serializeSignInFrequencySessionControl} from './serializeSignInFrequencySessionControl';
-import type {SignInFrequencySessionControl} from './signInFrequencySessionControl';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ApplicationEnforcedRestrictionsSessionControl } from './applicationEnforcedRestrictionsSessionControl';
+import { type CloudAppSecuritySessionControl } from './cloudAppSecuritySessionControl';
+import { type ConditionalAccessSessionControls } from './conditionalAccessSessionControls';
+import { type PersistentBrowserSessionControl } from './persistentBrowserSessionControl';
+import { serializeApplicationEnforcedRestrictionsSessionControl } from './serializeApplicationEnforcedRestrictionsSessionControl';
+import { serializeCloudAppSecuritySessionControl } from './serializeCloudAppSecuritySessionControl';
+import { serializePersistentBrowserSessionControl } from './serializePersistentBrowserSessionControl';
+import { serializeSignInFrequencySessionControl } from './serializeSignInFrequencySessionControl';
+import { type SignInFrequencySessionControl } from './signInFrequencySessionControl';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessSessionControls(writer: SerializationWriter, conditionalAccessSessionControls: ConditionalAccessSessionControls | undefined = {} as ConditionalAccessSessionControls) : void {
         writer.writeObjectValue<ApplicationEnforcedRestrictionsSessionControl>("applicationEnforcedRestrictions", conditionalAccessSessionControls.applicationEnforcedRestrictions, serializeApplicationEnforcedRestrictionsSessionControl);

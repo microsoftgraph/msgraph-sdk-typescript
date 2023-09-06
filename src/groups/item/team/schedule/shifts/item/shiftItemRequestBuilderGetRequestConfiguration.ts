@@ -1,5 +1,5 @@
-import {ShiftItemRequestBuilderGetQueryParameters} from './shiftItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ShiftItemRequestBuilderGetQueryParameters } from './shiftItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ShiftItemRequestBuilderGetRequestConfiguration {
     /**

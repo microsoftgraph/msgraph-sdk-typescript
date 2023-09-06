@@ -1,19 +1,18 @@
-import {createServiceAnnouncementFromDiscriminatorValue} from '../../models/createServiceAnnouncementFromDiscriminatorValue';
-import {deserializeIntoServiceAnnouncement} from '../../models/deserializeIntoServiceAnnouncement';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeServiceAnnouncement} from '../../models/serializeServiceAnnouncement';
-import type {ServiceAnnouncement} from '../../models/serviceAnnouncement';
-import {HealthOverviewsRequestBuilder} from './healthOverviews/healthOverviewsRequestBuilder';
-import {IssuesRequestBuilder} from './issues/issuesRequestBuilder';
-import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
-import {ServiceAnnouncementRequestBuilderDeleteRequestConfiguration} from './serviceAnnouncementRequestBuilderDeleteRequestConfiguration';
-import {ServiceAnnouncementRequestBuilderGetRequestConfiguration} from './serviceAnnouncementRequestBuilderGetRequestConfiguration';
-import {ServiceAnnouncementRequestBuilderPatchRequestConfiguration} from './serviceAnnouncementRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createServiceAnnouncementFromDiscriminatorValue } from '../../models/createServiceAnnouncementFromDiscriminatorValue';
+import { deserializeIntoServiceAnnouncement } from '../../models/deserializeIntoServiceAnnouncement';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeServiceAnnouncement } from '../../models/serializeServiceAnnouncement';
+import { type ServiceAnnouncement } from '../../models/serviceAnnouncement';
+import { HealthOverviewsRequestBuilder } from './healthOverviews/healthOverviewsRequestBuilder';
+import { IssuesRequestBuilder } from './issues/issuesRequestBuilder';
+import { MessagesRequestBuilder } from './messages/messagesRequestBuilder';
+import { type ServiceAnnouncementRequestBuilderDeleteRequestConfiguration } from './serviceAnnouncementRequestBuilderDeleteRequestConfiguration';
+import { type ServiceAnnouncementRequestBuilderGetRequestConfiguration } from './serviceAnnouncementRequestBuilderGetRequestConfiguration';
+import { type ServiceAnnouncementRequestBuilderPatchRequestConfiguration } from './serviceAnnouncementRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.

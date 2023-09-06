@@ -1,8 +1,8 @@
-import type {EducationRubric} from './educationRubric';
-import type {EducationRubricCollectionResponse} from './educationRubricCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeEducationRubric} from './serializeEducationRubric';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EducationRubric } from './educationRubric';
+import { type EducationRubricCollectionResponse } from './educationRubricCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeEducationRubric } from './serializeEducationRubric';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEducationRubricCollectionResponse(writer: SerializationWriter, educationRubricCollectionResponse: EducationRubricCollectionResponse | undefined = {} as EducationRubricCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, educationRubricCollectionResponse)

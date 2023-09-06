@@ -1,18 +1,17 @@
-import type {AccessReviewStage} from '../../../../../../../../models/accessReviewStage';
-import {createAccessReviewStageFromDiscriminatorValue} from '../../../../../../../../models/createAccessReviewStageFromDiscriminatorValue';
-import {deserializeIntoAccessReviewStage} from '../../../../../../../../models/deserializeIntoAccessReviewStage';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessReviewStage} from '../../../../../../../../models/serializeAccessReviewStage';
-import {AccessReviewStageItemRequestBuilderDeleteRequestConfiguration} from './accessReviewStageItemRequestBuilderDeleteRequestConfiguration';
-import {AccessReviewStageItemRequestBuilderGetRequestConfiguration} from './accessReviewStageItemRequestBuilderGetRequestConfiguration';
-import {AccessReviewStageItemRequestBuilderPatchRequestConfiguration} from './accessReviewStageItemRequestBuilderPatchRequestConfiguration';
-import {DecisionsRequestBuilder} from './decisions/decisionsRequestBuilder';
-import {StopRequestBuilder} from './stop/stopRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessReviewStage } from '../../../../../../../../models/accessReviewStage';
+import { createAccessReviewStageFromDiscriminatorValue } from '../../../../../../../../models/createAccessReviewStageFromDiscriminatorValue';
+import { deserializeIntoAccessReviewStage } from '../../../../../../../../models/deserializeIntoAccessReviewStage';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessReviewStage } from '../../../../../../../../models/serializeAccessReviewStage';
+import { type AccessReviewStageItemRequestBuilderDeleteRequestConfiguration } from './accessReviewStageItemRequestBuilderDeleteRequestConfiguration';
+import { type AccessReviewStageItemRequestBuilderGetRequestConfiguration } from './accessReviewStageItemRequestBuilderGetRequestConfiguration';
+import { type AccessReviewStageItemRequestBuilderPatchRequestConfiguration } from './accessReviewStageItemRequestBuilderPatchRequestConfiguration';
+import { DecisionsRequestBuilder } from './decisions/decisionsRequestBuilder';
+import { StopRequestBuilder } from './stop/stopRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.

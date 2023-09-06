@@ -1,5 +1,5 @@
-import {RoleDefinitionItemRequestBuilderGetQueryParameters} from './roleDefinitionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RoleDefinitionItemRequestBuilderGetQueryParameters } from './roleDefinitionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RoleDefinitionItemRequestBuilderGetRequestConfiguration {
     /**

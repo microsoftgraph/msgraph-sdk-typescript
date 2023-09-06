@@ -1,24 +1,24 @@
-import type {Attachment} from './attachment';
-import type {Extension} from './extension';
-import type {FollowupFlag} from './followupFlag';
-import {Importance} from './importance';
-import {InferenceClassificationType} from './inferenceClassificationType';
-import type {InternetMessageHeader} from './internetMessageHeader';
-import type {ItemBody} from './itemBody';
-import type {Message} from './message';
-import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import type {Recipient} from './recipient';
-import {serializeAttachment} from './serializeAttachment';
-import {serializeExtension} from './serializeExtension';
-import {serializeFollowupFlag} from './serializeFollowupFlag';
-import {serializeInternetMessageHeader} from './serializeInternetMessageHeader';
-import {serializeItemBody} from './serializeItemBody';
-import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLegacyExtendedProperty';
-import {serializeOutlookItem} from './serializeOutlookItem';
-import {serializeRecipient} from './serializeRecipient';
-import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
-import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Attachment } from './attachment';
+import { type Extension } from './extension';
+import { type FollowupFlag } from './followupFlag';
+import { Importance } from './importance';
+import { InferenceClassificationType } from './inferenceClassificationType';
+import { type InternetMessageHeader } from './internetMessageHeader';
+import { type ItemBody } from './itemBody';
+import { type Message } from './message';
+import { type MultiValueLegacyExtendedProperty } from './multiValueLegacyExtendedProperty';
+import { type Recipient } from './recipient';
+import { serializeAttachment } from './serializeAttachment';
+import { serializeExtension } from './serializeExtension';
+import { serializeFollowupFlag } from './serializeFollowupFlag';
+import { serializeInternetMessageHeader } from './serializeInternetMessageHeader';
+import { serializeItemBody } from './serializeItemBody';
+import { serializeMultiValueLegacyExtendedProperty } from './serializeMultiValueLegacyExtendedProperty';
+import { serializeOutlookItem } from './serializeOutlookItem';
+import { serializeRecipient } from './serializeRecipient';
+import { serializeSingleValueLegacyExtendedProperty } from './serializeSingleValueLegacyExtendedProperty';
+import { type SingleValueLegacyExtendedProperty } from './singleValueLegacyExtendedProperty';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMessage(writer: SerializationWriter, message: Message | undefined = {} as Message) : void {
         serializeOutlookItem(writer, message)

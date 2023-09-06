@@ -1,20 +1,19 @@
-import {ChatMessageCollectionResponse} from '../../../../../../../models/';
-import type {ChatMessage} from '../../../../../../../models/chatMessage';
-import {createChatMessageCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createChatMessageCollectionResponseFromDiscriminatorValue';
-import {createChatMessageFromDiscriminatorValue} from '../../../../../../../models/createChatMessageFromDiscriminatorValue';
-import {deserializeIntoChatMessage} from '../../../../../../../models/deserializeIntoChatMessage';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeChatMessage} from '../../../../../../../models/serializeChatMessage';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {ChatMessageItemRequestBuilder} from './item/chatMessageItemRequestBuilder';
-import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
-import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ChatMessageCollectionResponse } from '../../../../../../../models/';
+import { type ChatMessage } from '../../../../../../../models/chatMessage';
+import { createChatMessageCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createChatMessageCollectionResponseFromDiscriminatorValue';
+import { createChatMessageFromDiscriminatorValue } from '../../../../../../../models/createChatMessageFromDiscriminatorValue';
+import { deserializeIntoChatMessage } from '../../../../../../../models/deserializeIntoChatMessage';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeChatMessage } from '../../../../../../../models/serializeChatMessage';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { ChatMessageItemRequestBuilder } from './item/chatMessageItemRequestBuilder';
+import { type MessagesRequestBuilderGetRequestConfiguration } from './messagesRequestBuilderGetRequestConfiguration';
+import { type MessagesRequestBuilderPostRequestConfiguration } from './messagesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.channel entity.

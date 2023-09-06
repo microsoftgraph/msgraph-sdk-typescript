@@ -1,5 +1,5 @@
-import {BitlockerRecoveryKeyItemRequestBuilderGetQueryParameters} from './bitlockerRecoveryKeyItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BitlockerRecoveryKeyItemRequestBuilderGetQueryParameters } from './bitlockerRecoveryKeyItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BitlockerRecoveryKeyItemRequestBuilderGetRequestConfiguration {
     /**

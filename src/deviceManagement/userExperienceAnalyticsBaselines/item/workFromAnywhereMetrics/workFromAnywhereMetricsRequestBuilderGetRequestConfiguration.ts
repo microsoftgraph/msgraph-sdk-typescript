@@ -1,5 +1,5 @@
-import {WorkFromAnywhereMetricsRequestBuilderGetQueryParameters} from './workFromAnywhereMetricsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkFromAnywhereMetricsRequestBuilderGetQueryParameters } from './workFromAnywhereMetricsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WorkFromAnywhereMetricsRequestBuilderGetRequestConfiguration {
     /**

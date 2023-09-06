@@ -1,5 +1,5 @@
-import type {AppListItem} from './appListItem';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AppListItem } from './appListItem';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IosNetworkUsageRule extends AdditionalDataHolder, Parsable {
     /**

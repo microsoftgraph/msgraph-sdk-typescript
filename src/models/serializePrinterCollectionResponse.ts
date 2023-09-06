@@ -1,8 +1,8 @@
-import type {Printer} from './printer';
-import type {PrinterCollectionResponse} from './printerCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializePrinter} from './serializePrinter';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Printer } from './printer';
+import { type PrinterCollectionResponse } from './printerCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializePrinter } from './serializePrinter';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePrinterCollectionResponse(writer: SerializationWriter, printerCollectionResponse: PrinterCollectionResponse | undefined = {} as PrinterCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, printerCollectionResponse)

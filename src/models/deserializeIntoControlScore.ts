@@ -1,5 +1,5 @@
-import type {ControlScore} from './controlScore';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ControlScore } from './controlScore';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoControlScore(controlScore: ControlScore | undefined = {} as ControlScore) : Record<string, (node: ParseNode) => void> {
     return {

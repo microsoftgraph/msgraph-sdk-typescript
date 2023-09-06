@@ -1,5 +1,5 @@
-import type {WindowsInformationProtectionDataRecoveryCertificate} from './windowsInformationProtectionDataRecoveryCertificate';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type WindowsInformationProtectionDataRecoveryCertificate } from './windowsInformationProtectionDataRecoveryCertificate';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsInformationProtectionDataRecoveryCertificate(writer: SerializationWriter, windowsInformationProtectionDataRecoveryCertificate: WindowsInformationProtectionDataRecoveryCertificate | undefined = {} as WindowsInformationProtectionDataRecoveryCertificate) : void {
         writer.writeStringValue("certificate", windowsInformationProtectionDataRecoveryCertificate.certificate);

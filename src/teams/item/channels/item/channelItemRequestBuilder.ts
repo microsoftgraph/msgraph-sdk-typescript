@@ -1,25 +1,24 @@
-import type {Channel} from '../../../../models/channel';
-import {createChannelFromDiscriminatorValue} from '../../../../models/createChannelFromDiscriminatorValue';
-import {deserializeIntoChannel} from '../../../../models/deserializeIntoChannel';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeChannel} from '../../../../models/serializeChannel';
-import {ChannelItemRequestBuilderDeleteRequestConfiguration} from './channelItemRequestBuilderDeleteRequestConfiguration';
-import {ChannelItemRequestBuilderGetRequestConfiguration} from './channelItemRequestBuilderGetRequestConfiguration';
-import {ChannelItemRequestBuilderPatchRequestConfiguration} from './channelItemRequestBuilderPatchRequestConfiguration';
-import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
-import {DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder} from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder';
-import {FilesFolderRequestBuilder} from './filesFolder/filesFolderRequestBuilder';
-import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
-import {ProvisionEmailRequestBuilder} from './provisionEmail/provisionEmailRequestBuilder';
-import {RemoveEmailRequestBuilder} from './removeEmail/removeEmailRequestBuilder';
-import {SharedWithTeamsRequestBuilder} from './sharedWithTeams/sharedWithTeamsRequestBuilder';
-import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Channel } from '../../../../models/channel';
+import { createChannelFromDiscriminatorValue } from '../../../../models/createChannelFromDiscriminatorValue';
+import { deserializeIntoChannel } from '../../../../models/deserializeIntoChannel';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeChannel } from '../../../../models/serializeChannel';
+import { type ChannelItemRequestBuilderDeleteRequestConfiguration } from './channelItemRequestBuilderDeleteRequestConfiguration';
+import { type ChannelItemRequestBuilderGetRequestConfiguration } from './channelItemRequestBuilderGetRequestConfiguration';
+import { type ChannelItemRequestBuilderPatchRequestConfiguration } from './channelItemRequestBuilderPatchRequestConfiguration';
+import { CompleteMigrationRequestBuilder } from './completeMigration/completeMigrationRequestBuilder';
+import { DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder } from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder';
+import { FilesFolderRequestBuilder } from './filesFolder/filesFolderRequestBuilder';
+import { MembersRequestBuilder } from './members/membersRequestBuilder';
+import { MessagesRequestBuilder } from './messages/messagesRequestBuilder';
+import { ProvisionEmailRequestBuilder } from './provisionEmail/provisionEmailRequestBuilder';
+import { RemoveEmailRequestBuilder } from './removeEmail/removeEmailRequestBuilder';
+import { SharedWithTeamsRequestBuilder } from './sharedWithTeams/sharedWithTeamsRequestBuilder';
+import { TabsRequestBuilder } from './tabs/tabsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the channels property of the microsoft.graph.team entity.

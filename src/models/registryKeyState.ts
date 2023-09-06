@@ -1,7 +1,7 @@
-import {RegistryHive} from './registryHive';
-import {RegistryOperation} from './registryOperation';
-import {RegistryValueType} from './registryValueType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { RegistryHive } from './registryHive';
+import { RegistryOperation } from './registryOperation';
+import { RegistryValueType } from './registryValueType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RegistryKeyState extends AdditionalDataHolder, Parsable {
     /**

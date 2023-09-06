@@ -1,7 +1,7 @@
-import {deserializeIntoIosVppEBookAssignment} from './deserializeIntoIosVppEBookAssignment';
-import {deserializeIntoManagedEBookAssignment} from './deserializeIntoManagedEBookAssignment';
-import {IosVppEBookAssignment, ManagedEBookAssignment} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIosVppEBookAssignment } from './deserializeIntoIosVppEBookAssignment';
+import { deserializeIntoManagedEBookAssignment } from './deserializeIntoManagedEBookAssignment';
+import { type IosVppEBookAssignment, type ManagedEBookAssignment } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedEBookAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

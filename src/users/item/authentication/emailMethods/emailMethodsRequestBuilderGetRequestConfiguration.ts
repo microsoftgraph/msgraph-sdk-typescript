@@ -1,5 +1,5 @@
-import {EmailMethodsRequestBuilderGetQueryParameters} from './emailMethodsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EmailMethodsRequestBuilderGetQueryParameters } from './emailMethodsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EmailMethodsRequestBuilderGetRequestConfiguration {
     /**

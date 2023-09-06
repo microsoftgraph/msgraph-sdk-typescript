@@ -1,14 +1,13 @@
-import {ConversationMemberCollectionResponse} from '../../../../../../../models/';
-import {createConversationMemberCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createConversationMemberCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {AllowedMembersRequestBuilderGetRequestConfiguration} from './allowedMembersRequestBuilderGetRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ConversationMemberItemRequestBuilder} from './item/conversationMemberItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConversationMemberCollectionResponse } from '../../../../../../../models/';
+import { createConversationMemberCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createConversationMemberCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { type AllowedMembersRequestBuilderGetRequestConfiguration } from './allowedMembersRequestBuilderGetRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ConversationMemberItemRequestBuilder } from './item/conversationMemberItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.

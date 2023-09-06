@@ -1,5 +1,5 @@
-import {CommentsRequestBuilderGetQueryParameters} from './commentsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CommentsRequestBuilderGetQueryParameters } from './commentsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CommentsRequestBuilderGetRequestConfiguration {
     /**

@@ -1,16 +1,15 @@
-import {createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue} from '../../../../../models/createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue';
-import type {CrossTenantIdentitySyncPolicyPartner} from '../../../../../models/crossTenantIdentitySyncPolicyPartner';
-import {deserializeIntoCrossTenantIdentitySyncPolicyPartner} from '../../../../../models/deserializeIntoCrossTenantIdentitySyncPolicyPartner';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeCrossTenantIdentitySyncPolicyPartner} from '../../../../../models/serializeCrossTenantIdentitySyncPolicyPartner';
-import {IdentitySynchronizationRequestBuilderDeleteRequestConfiguration} from './identitySynchronizationRequestBuilderDeleteRequestConfiguration';
-import {IdentitySynchronizationRequestBuilderGetRequestConfiguration} from './identitySynchronizationRequestBuilderGetRequestConfiguration';
-import {IdentitySynchronizationRequestBuilderPatchRequestConfiguration} from './identitySynchronizationRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue } from '../../../../../models/createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue';
+import { type CrossTenantIdentitySyncPolicyPartner } from '../../../../../models/crossTenantIdentitySyncPolicyPartner';
+import { deserializeIntoCrossTenantIdentitySyncPolicyPartner } from '../../../../../models/deserializeIntoCrossTenantIdentitySyncPolicyPartner';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeCrossTenantIdentitySyncPolicyPartner } from '../../../../../models/serializeCrossTenantIdentitySyncPolicyPartner';
+import { type IdentitySynchronizationRequestBuilderDeleteRequestConfiguration } from './identitySynchronizationRequestBuilderDeleteRequestConfiguration';
+import { type IdentitySynchronizationRequestBuilderGetRequestConfiguration } from './identitySynchronizationRequestBuilderGetRequestConfiguration';
+import { type IdentitySynchronizationRequestBuilderPatchRequestConfiguration } from './identitySynchronizationRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identitySynchronization property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.

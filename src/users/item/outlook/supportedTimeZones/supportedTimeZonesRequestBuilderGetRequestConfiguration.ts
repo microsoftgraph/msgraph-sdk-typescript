@@ -1,5 +1,5 @@
-import {SupportedTimeZonesRequestBuilderGetQueryParameters} from './supportedTimeZonesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SupportedTimeZonesRequestBuilderGetQueryParameters } from './supportedTimeZonesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SupportedTimeZonesRequestBuilderGetRequestConfiguration {
     /**

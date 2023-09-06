@@ -1,18 +1,17 @@
-import type {AuditLogRoot} from '../models/auditLogRoot';
-import {createAuditLogRootFromDiscriminatorValue} from '../models/createAuditLogRootFromDiscriminatorValue';
-import {deserializeIntoAuditLogRoot} from '../models/deserializeIntoAuditLogRoot';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeAuditLogRoot} from '../models/serializeAuditLogRoot';
-import {AuditLogsRequestBuilderGetRequestConfiguration} from './auditLogsRequestBuilderGetRequestConfiguration';
-import {AuditLogsRequestBuilderPatchRequestConfiguration} from './auditLogsRequestBuilderPatchRequestConfiguration';
-import {DirectoryAuditsRequestBuilder} from './directoryAudits/directoryAuditsRequestBuilder';
-import {ProvisioningRequestBuilder} from './provisioning/provisioningRequestBuilder';
-import {SignInsRequestBuilder} from './signIns/signInsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuditLogRoot } from '../models/auditLogRoot';
+import { createAuditLogRootFromDiscriminatorValue } from '../models/createAuditLogRootFromDiscriminatorValue';
+import { deserializeIntoAuditLogRoot } from '../models/deserializeIntoAuditLogRoot';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeAuditLogRoot } from '../models/serializeAuditLogRoot';
+import { type AuditLogsRequestBuilderGetRequestConfiguration } from './auditLogsRequestBuilderGetRequestConfiguration';
+import { type AuditLogsRequestBuilderPatchRequestConfiguration } from './auditLogsRequestBuilderPatchRequestConfiguration';
+import { DirectoryAuditsRequestBuilder } from './directoryAudits/directoryAuditsRequestBuilder';
+import { ProvisioningRequestBuilder } from './provisioning/provisioningRequestBuilder';
+import { SignInsRequestBuilder } from './signIns/signInsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditLogRoot singleton.

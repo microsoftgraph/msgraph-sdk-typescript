@@ -1,5 +1,5 @@
-import {RunItemRequestBuilderGetQueryParameters} from './runItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RunItemRequestBuilderGetQueryParameters } from './runItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RunItemRequestBuilderGetRequestConfiguration {
     /**

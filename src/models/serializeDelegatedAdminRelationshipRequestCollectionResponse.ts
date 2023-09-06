@@ -1,8 +1,8 @@
-import type {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
-import type {DelegatedAdminRelationshipRequestCollectionResponse} from './delegatedAdminRelationshipRequestCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeDelegatedAdminRelationshipRequest} from './serializeDelegatedAdminRelationshipRequest';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DelegatedAdminRelationshipRequest } from './delegatedAdminRelationshipRequest';
+import { type DelegatedAdminRelationshipRequestCollectionResponse } from './delegatedAdminRelationshipRequestCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeDelegatedAdminRelationshipRequest } from './serializeDelegatedAdminRelationshipRequest';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDelegatedAdminRelationshipRequestCollectionResponse(writer: SerializationWriter, delegatedAdminRelationshipRequestCollectionResponse: DelegatedAdminRelationshipRequestCollectionResponse | undefined = {} as DelegatedAdminRelationshipRequestCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminRelationshipRequestCollectionResponse)

@@ -1,8 +1,7 @@
-import {AudioCodec} from './audioCodec';
-import {MediaStreamDirection} from './mediaStreamDirection';
-import {VideoCodec} from './videoCodec';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { AudioCodec } from './audioCodec';
+import { MediaStreamDirection } from './mediaStreamDirection';
+import { VideoCodec } from './videoCodec';
+import { Duration, type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MediaStream extends AdditionalDataHolder, Parsable {
     /**

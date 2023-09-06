@@ -1,6 +1,6 @@
-import type {EducationAssignmentPointsGrade} from './educationAssignmentPointsGrade';
-import type {EducationOutcome} from './educationOutcome';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type EducationAssignmentPointsGrade } from './educationAssignmentPointsGrade';
+import { type EducationOutcome } from './educationOutcome';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EducationPointsOutcome extends EducationOutcome, Parsable {
     /**

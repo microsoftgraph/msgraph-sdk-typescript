@@ -1,7 +1,7 @@
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {PdurationPostRequestBody} from './pdurationPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type PdurationPostRequestBody } from './pdurationPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePdurationPostRequestBody(writer: SerializationWriter, pdurationPostRequestBody: PdurationPostRequestBody | undefined = {} as PdurationPostRequestBody) : void {
         writer.writeObjectValue<Json>("fv", pdurationPostRequestBody.fv, serializeJson);

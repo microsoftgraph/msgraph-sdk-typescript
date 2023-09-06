@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import {PermissionType} from './permissionType';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { PermissionType } from './permissionType';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PermissionGrantConditionSet extends Entity, Parsable {
     /**

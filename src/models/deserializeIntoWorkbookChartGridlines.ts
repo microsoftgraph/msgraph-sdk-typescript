@@ -1,9 +1,9 @@
-import {createWorkbookChartGridlinesFormatFromDiscriminatorValue} from './createWorkbookChartGridlinesFormatFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeWorkbookChartGridlinesFormat} from './serializeWorkbookChartGridlinesFormat';
-import type {WorkbookChartGridlines} from './workbookChartGridlines';
-import type {WorkbookChartGridlinesFormat} from './workbookChartGridlinesFormat';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartGridlinesFormatFromDiscriminatorValue } from './createWorkbookChartGridlinesFormatFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeWorkbookChartGridlinesFormat } from './serializeWorkbookChartGridlinesFormat';
+import { type WorkbookChartGridlines } from './workbookChartGridlines';
+import { type WorkbookChartGridlinesFormat } from './workbookChartGridlinesFormat';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartGridlines(workbookChartGridlines: WorkbookChartGridlines | undefined = {} as WorkbookChartGridlines) : Record<string, (node: ParseNode) => void> {
     return {

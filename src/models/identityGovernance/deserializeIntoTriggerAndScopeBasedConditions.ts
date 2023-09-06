@@ -1,12 +1,12 @@
-import {createSubjectSetFromDiscriminatorValue} from '../createSubjectSetFromDiscriminatorValue';
-import {serializeSubjectSet} from '../serializeSubjectSet';
-import type {SubjectSet} from '../subjectSet';
-import {createWorkflowExecutionTriggerFromDiscriminatorValue} from './createWorkflowExecutionTriggerFromDiscriminatorValue';
-import {deserializeIntoWorkflowExecutionConditions} from './deserializeIntoWorkflowExecutionConditions';
-import {serializeWorkflowExecutionTrigger} from './serializeWorkflowExecutionTrigger';
-import type {TriggerAndScopeBasedConditions} from './triggerAndScopeBasedConditions';
-import type {WorkflowExecutionTrigger} from './workflowExecutionTrigger';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSubjectSetFromDiscriminatorValue } from '../createSubjectSetFromDiscriminatorValue';
+import { serializeSubjectSet } from '../serializeSubjectSet';
+import { type SubjectSet } from '../subjectSet';
+import { createWorkflowExecutionTriggerFromDiscriminatorValue } from './createWorkflowExecutionTriggerFromDiscriminatorValue';
+import { deserializeIntoWorkflowExecutionConditions } from './deserializeIntoWorkflowExecutionConditions';
+import { serializeWorkflowExecutionTrigger } from './serializeWorkflowExecutionTrigger';
+import { type TriggerAndScopeBasedConditions } from './triggerAndScopeBasedConditions';
+import { type WorkflowExecutionTrigger } from './workflowExecutionTrigger';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTriggerAndScopeBasedConditions(triggerAndScopeBasedConditions: TriggerAndScopeBasedConditions | undefined = {} as TriggerAndScopeBasedConditions) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,19 +1,18 @@
-import {TermsAndConditionsAcceptanceStatusCollectionResponse} from '../../../../models/';
-import {createTermsAndConditionsAcceptanceStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/createTermsAndConditionsAcceptanceStatusCollectionResponseFromDiscriminatorValue';
-import {createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue} from '../../../../models/createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue';
-import {deserializeIntoTermsAndConditionsAcceptanceStatus} from '../../../../models/deserializeIntoTermsAndConditionsAcceptanceStatus';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeTermsAndConditionsAcceptanceStatus} from '../../../../models/serializeTermsAndConditionsAcceptanceStatus';
-import type {TermsAndConditionsAcceptanceStatus} from '../../../../models/termsAndConditionsAcceptanceStatus';
-import {AcceptanceStatusesRequestBuilderGetRequestConfiguration} from './acceptanceStatusesRequestBuilderGetRequestConfiguration';
-import {AcceptanceStatusesRequestBuilderPostRequestConfiguration} from './acceptanceStatusesRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TermsAndConditionsAcceptanceStatusItemRequestBuilder} from './item/termsAndConditionsAcceptanceStatusItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TermsAndConditionsAcceptanceStatusCollectionResponse } from '../../../../models/';
+import { createTermsAndConditionsAcceptanceStatusCollectionResponseFromDiscriminatorValue } from '../../../../models/createTermsAndConditionsAcceptanceStatusCollectionResponseFromDiscriminatorValue';
+import { createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue } from '../../../../models/createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue';
+import { deserializeIntoTermsAndConditionsAcceptanceStatus } from '../../../../models/deserializeIntoTermsAndConditionsAcceptanceStatus';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeTermsAndConditionsAcceptanceStatus } from '../../../../models/serializeTermsAndConditionsAcceptanceStatus';
+import { type TermsAndConditionsAcceptanceStatus } from '../../../../models/termsAndConditionsAcceptanceStatus';
+import { type AcceptanceStatusesRequestBuilderGetRequestConfiguration } from './acceptanceStatusesRequestBuilderGetRequestConfiguration';
+import { type AcceptanceStatusesRequestBuilderPostRequestConfiguration } from './acceptanceStatusesRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { TermsAndConditionsAcceptanceStatusItemRequestBuilder } from './item/termsAndConditionsAcceptanceStatusItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.

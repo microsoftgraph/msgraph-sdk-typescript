@@ -1,19 +1,18 @@
-import {EndpointCollectionResponse} from '../../../models/';
-import {createEndpointCollectionResponseFromDiscriminatorValue} from '../../../models/createEndpointCollectionResponseFromDiscriminatorValue';
-import {createEndpointFromDiscriminatorValue} from '../../../models/createEndpointFromDiscriminatorValue';
-import {deserializeIntoEndpoint} from '../../../models/deserializeIntoEndpoint';
-import type {Endpoint} from '../../../models/endpoint';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeEndpoint} from '../../../models/serializeEndpoint';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EndpointsRequestBuilderGetRequestConfiguration} from './endpointsRequestBuilderGetRequestConfiguration';
-import {EndpointsRequestBuilderPostRequestConfiguration} from './endpointsRequestBuilderPostRequestConfiguration';
-import {EndpointItemRequestBuilder} from './item/endpointItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type EndpointCollectionResponse } from '../../../models/';
+import { createEndpointCollectionResponseFromDiscriminatorValue } from '../../../models/createEndpointCollectionResponseFromDiscriminatorValue';
+import { createEndpointFromDiscriminatorValue } from '../../../models/createEndpointFromDiscriminatorValue';
+import { deserializeIntoEndpoint } from '../../../models/deserializeIntoEndpoint';
+import { type Endpoint } from '../../../models/endpoint';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeEndpoint } from '../../../models/serializeEndpoint';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type EndpointsRequestBuilderGetRequestConfiguration } from './endpointsRequestBuilderGetRequestConfiguration';
+import { type EndpointsRequestBuilderPostRequestConfiguration } from './endpointsRequestBuilderPostRequestConfiguration';
+import { EndpointItemRequestBuilder } from './item/endpointItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.servicePrincipal entity.

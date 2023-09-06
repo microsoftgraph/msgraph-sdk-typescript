@@ -1,9 +1,9 @@
-import type {ConvertIdResult} from '../../models/convertIdResult';
-import {createConvertIdResultFromDiscriminatorValue} from '../../models/createConvertIdResultFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeConvertIdResult} from '../../models/serializeConvertIdResult';
-import type {TranslateExchangeIdsResponse} from './translateExchangeIdsResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConvertIdResult } from '../../models/convertIdResult';
+import { createConvertIdResultFromDiscriminatorValue } from '../../models/createConvertIdResultFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeConvertIdResult } from '../../models/serializeConvertIdResult';
+import { type TranslateExchangeIdsResponse } from './translateExchangeIdsResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTranslateExchangeIdsResponse(translateExchangeIdsResponse: TranslateExchangeIdsResponse | undefined = {} as TranslateExchangeIdsResponse) : Record<string, (node: ParseNode) => void> {
     return {

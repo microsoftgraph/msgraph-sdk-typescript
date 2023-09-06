@@ -1,16 +1,15 @@
-import type {ChatMessageInfo} from '../../../../../models/chatMessageInfo';
-import {createChatMessageInfoFromDiscriminatorValue} from '../../../../../models/createChatMessageInfoFromDiscriminatorValue';
-import {deserializeIntoChatMessageInfo} from '../../../../../models/deserializeIntoChatMessageInfo';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeChatMessageInfo} from '../../../../../models/serializeChatMessageInfo';
-import {LastMessagePreviewRequestBuilderDeleteRequestConfiguration} from './lastMessagePreviewRequestBuilderDeleteRequestConfiguration';
-import {LastMessagePreviewRequestBuilderGetRequestConfiguration} from './lastMessagePreviewRequestBuilderGetRequestConfiguration';
-import {LastMessagePreviewRequestBuilderPatchRequestConfiguration} from './lastMessagePreviewRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ChatMessageInfo } from '../../../../../models/chatMessageInfo';
+import { createChatMessageInfoFromDiscriminatorValue } from '../../../../../models/createChatMessageInfoFromDiscriminatorValue';
+import { deserializeIntoChatMessageInfo } from '../../../../../models/deserializeIntoChatMessageInfo';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeChatMessageInfo } from '../../../../../models/serializeChatMessageInfo';
+import { type LastMessagePreviewRequestBuilderDeleteRequestConfiguration } from './lastMessagePreviewRequestBuilderDeleteRequestConfiguration';
+import { type LastMessagePreviewRequestBuilderGetRequestConfiguration } from './lastMessagePreviewRequestBuilderGetRequestConfiguration';
+import { type LastMessagePreviewRequestBuilderPatchRequestConfiguration } from './lastMessagePreviewRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity.

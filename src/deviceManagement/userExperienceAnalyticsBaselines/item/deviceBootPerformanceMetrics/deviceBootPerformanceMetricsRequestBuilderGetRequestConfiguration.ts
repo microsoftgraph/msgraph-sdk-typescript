@@ -1,5 +1,5 @@
-import {DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters} from './deviceBootPerformanceMetricsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters } from './deviceBootPerformanceMetricsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceBootPerformanceMetricsRequestBuilderGetRequestConfiguration {
     /**

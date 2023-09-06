@@ -1,13 +1,13 @@
-import type {BrowserSharedCookie} from './browserSharedCookie';
-import type {BrowserSite} from './browserSite';
-import type {BrowserSiteList} from './browserSiteList';
-import {BrowserSiteListStatus} from './browserSiteListStatus';
-import type {IdentitySet} from './identitySet';
-import {serializeBrowserSharedCookie} from './serializeBrowserSharedCookie';
-import {serializeBrowserSite} from './serializeBrowserSite';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BrowserSharedCookie } from './browserSharedCookie';
+import { type BrowserSite } from './browserSite';
+import { type BrowserSiteList } from './browserSiteList';
+import { BrowserSiteListStatus } from './browserSiteListStatus';
+import { type IdentitySet } from './identitySet';
+import { serializeBrowserSharedCookie } from './serializeBrowserSharedCookie';
+import { serializeBrowserSite } from './serializeBrowserSite';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBrowserSiteList(writer: SerializationWriter, browserSiteList: BrowserSiteList | undefined = {} as BrowserSiteList) : void {
         serializeEntity(writer, browserSiteList)

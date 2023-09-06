@@ -1,11 +1,11 @@
-import {createImplicitGrantSettingsFromDiscriminatorValue} from './createImplicitGrantSettingsFromDiscriminatorValue';
-import {createRedirectUriSettingsFromDiscriminatorValue} from './createRedirectUriSettingsFromDiscriminatorValue';
-import type {ImplicitGrantSettings} from './implicitGrantSettings';
-import type {RedirectUriSettings} from './redirectUriSettings';
-import {serializeImplicitGrantSettings} from './serializeImplicitGrantSettings';
-import {serializeRedirectUriSettings} from './serializeRedirectUriSettings';
-import type {WebApplication} from './webApplication';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createImplicitGrantSettingsFromDiscriminatorValue } from './createImplicitGrantSettingsFromDiscriminatorValue';
+import { createRedirectUriSettingsFromDiscriminatorValue } from './createRedirectUriSettingsFromDiscriminatorValue';
+import { type ImplicitGrantSettings } from './implicitGrantSettings';
+import { type RedirectUriSettings } from './redirectUriSettings';
+import { serializeImplicitGrantSettings } from './serializeImplicitGrantSettings';
+import { serializeRedirectUriSettings } from './serializeRedirectUriSettings';
+import { type WebApplication } from './webApplication';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWebApplication(webApplication: WebApplication | undefined = {} as WebApplication) : Record<string, (node: ParseNode) => void> {
     return {

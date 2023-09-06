@@ -1,5 +1,5 @@
-import {ThreadsRequestBuilderGetQueryParameters} from './threadsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ThreadsRequestBuilderGetQueryParameters } from './threadsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ThreadsRequestBuilderGetRequestConfiguration {
     /**

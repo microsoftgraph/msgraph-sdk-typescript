@@ -1,5 +1,5 @@
-import {DeviceManagementExchangeConnectorSyncType} from '../../../../models/deviceManagementExchangeConnectorSyncType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { DeviceManagementExchangeConnectorSyncType } from '../../../../models/deviceManagementExchangeConnectorSyncType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SyncPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

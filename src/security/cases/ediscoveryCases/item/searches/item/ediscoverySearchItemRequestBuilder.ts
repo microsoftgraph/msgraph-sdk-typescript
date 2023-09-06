@@ -1,23 +1,22 @@
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {createEdiscoverySearchFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
-import {deserializeIntoEdiscoverySearch} from '../../../../../../models/security/deserializeIntoEdiscoverySearch';
-import type {EdiscoverySearch} from '../../../../../../models/security/ediscoverySearch';
-import {serializeEdiscoverySearch} from '../../../../../../models/security/serializeEdiscoverySearch';
-import {AddToReviewSetOperationRequestBuilder} from './addToReviewSetOperation/addToReviewSetOperationRequestBuilder';
-import {AdditionalSourcesRequestBuilder} from './additionalSources/additionalSourcesRequestBuilder';
-import {CustodianSourcesRequestBuilder} from './custodianSources/custodianSourcesRequestBuilder';
-import {EdiscoverySearchItemRequestBuilderDeleteRequestConfiguration} from './ediscoverySearchItemRequestBuilderDeleteRequestConfiguration';
-import {EdiscoverySearchItemRequestBuilderGetRequestConfiguration} from './ediscoverySearchItemRequestBuilderGetRequestConfiguration';
-import {EdiscoverySearchItemRequestBuilderPatchRequestConfiguration} from './ediscoverySearchItemRequestBuilderPatchRequestConfiguration';
-import {LastEstimateStatisticsOperationRequestBuilder} from './lastEstimateStatisticsOperation/lastEstimateStatisticsOperationRequestBuilder';
-import {MicrosoftGraphSecurityEstimateStatisticsRequestBuilder} from './microsoftGraphSecurityEstimateStatistics/microsoftGraphSecurityEstimateStatisticsRequestBuilder';
-import {MicrosoftGraphSecurityPurgeDataRequestBuilder} from './microsoftGraphSecurityPurgeData/microsoftGraphSecurityPurgeDataRequestBuilder';
-import {NoncustodialSourcesRequestBuilder} from './noncustodialSources/noncustodialSourcesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { createEdiscoverySearchFromDiscriminatorValue } from '../../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
+import { deserializeIntoEdiscoverySearch } from '../../../../../../models/security/deserializeIntoEdiscoverySearch';
+import { type EdiscoverySearch } from '../../../../../../models/security/ediscoverySearch';
+import { serializeEdiscoverySearch } from '../../../../../../models/security/serializeEdiscoverySearch';
+import { AdditionalSourcesRequestBuilder } from './additionalSources/additionalSourcesRequestBuilder';
+import { AddToReviewSetOperationRequestBuilder } from './addToReviewSetOperation/addToReviewSetOperationRequestBuilder';
+import { CustodianSourcesRequestBuilder } from './custodianSources/custodianSourcesRequestBuilder';
+import { type EdiscoverySearchItemRequestBuilderDeleteRequestConfiguration } from './ediscoverySearchItemRequestBuilderDeleteRequestConfiguration';
+import { type EdiscoverySearchItemRequestBuilderGetRequestConfiguration } from './ediscoverySearchItemRequestBuilderGetRequestConfiguration';
+import { type EdiscoverySearchItemRequestBuilderPatchRequestConfiguration } from './ediscoverySearchItemRequestBuilderPatchRequestConfiguration';
+import { LastEstimateStatisticsOperationRequestBuilder } from './lastEstimateStatisticsOperation/lastEstimateStatisticsOperationRequestBuilder';
+import { MicrosoftGraphSecurityEstimateStatisticsRequestBuilder } from './microsoftGraphSecurityEstimateStatistics/microsoftGraphSecurityEstimateStatisticsRequestBuilder';
+import { MicrosoftGraphSecurityPurgeDataRequestBuilder } from './microsoftGraphSecurityPurgeData/microsoftGraphSecurityPurgeDataRequestBuilder';
+import { NoncustodialSourcesRequestBuilder } from './noncustodialSources/noncustodialSourcesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.

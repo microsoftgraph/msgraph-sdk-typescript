@@ -1,7 +1,7 @@
-import {deserializeIntoAuthenticationCombinationConfiguration} from './deserializeIntoAuthenticationCombinationConfiguration';
-import {deserializeIntoFido2CombinationConfiguration} from './deserializeIntoFido2CombinationConfiguration';
-import {AuthenticationCombinationConfiguration, Fido2CombinationConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAuthenticationCombinationConfiguration } from './deserializeIntoAuthenticationCombinationConfiguration';
+import { deserializeIntoFido2CombinationConfiguration } from './deserializeIntoFido2CombinationConfiguration';
+import { type AuthenticationCombinationConfiguration, type Fido2CombinationConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAuthenticationCombinationConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

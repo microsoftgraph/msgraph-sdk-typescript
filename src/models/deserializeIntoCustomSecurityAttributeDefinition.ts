@@ -1,9 +1,9 @@
-import type {AllowedValue} from './allowedValue';
-import {createAllowedValueFromDiscriminatorValue} from './createAllowedValueFromDiscriminatorValue';
-import type {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeAllowedValue} from './serializeAllowedValue';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AllowedValue } from './allowedValue';
+import { createAllowedValueFromDiscriminatorValue } from './createAllowedValueFromDiscriminatorValue';
+import { type CustomSecurityAttributeDefinition } from './customSecurityAttributeDefinition';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeAllowedValue } from './serializeAllowedValue';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomSecurityAttributeDefinition(customSecurityAttributeDefinition: CustomSecurityAttributeDefinition | undefined = {} as CustomSecurityAttributeDefinition) : Record<string, (node: ParseNode) => void> {
     return {

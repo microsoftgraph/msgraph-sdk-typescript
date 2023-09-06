@@ -1,17 +1,16 @@
-import {createMeetingAttendanceReportFromDiscriminatorValue} from '../../../../../models/createMeetingAttendanceReportFromDiscriminatorValue';
-import {deserializeIntoMeetingAttendanceReport} from '../../../../../models/deserializeIntoMeetingAttendanceReport';
-import type {MeetingAttendanceReport} from '../../../../../models/meetingAttendanceReport';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeMeetingAttendanceReport} from '../../../../../models/serializeMeetingAttendanceReport';
-import {AttendanceRecordsRequestBuilder} from './attendanceRecords/attendanceRecordsRequestBuilder';
-import {MeetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration} from './meetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration';
-import {MeetingAttendanceReportItemRequestBuilderGetRequestConfiguration} from './meetingAttendanceReportItemRequestBuilderGetRequestConfiguration';
-import {MeetingAttendanceReportItemRequestBuilderPatchRequestConfiguration} from './meetingAttendanceReportItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMeetingAttendanceReportFromDiscriminatorValue } from '../../../../../models/createMeetingAttendanceReportFromDiscriminatorValue';
+import { deserializeIntoMeetingAttendanceReport } from '../../../../../models/deserializeIntoMeetingAttendanceReport';
+import { type MeetingAttendanceReport } from '../../../../../models/meetingAttendanceReport';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeMeetingAttendanceReport } from '../../../../../models/serializeMeetingAttendanceReport';
+import { AttendanceRecordsRequestBuilder } from './attendanceRecords/attendanceRecordsRequestBuilder';
+import { type MeetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration } from './meetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration';
+import { type MeetingAttendanceReportItemRequestBuilderGetRequestConfiguration } from './meetingAttendanceReportItemRequestBuilderGetRequestConfiguration';
+import { type MeetingAttendanceReportItemRequestBuilderPatchRequestConfiguration } from './meetingAttendanceReportItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.

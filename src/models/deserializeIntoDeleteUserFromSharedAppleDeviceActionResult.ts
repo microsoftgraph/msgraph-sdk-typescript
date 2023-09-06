@@ -1,6 +1,6 @@
-import type {DeleteUserFromSharedAppleDeviceActionResult} from './deleteUserFromSharedAppleDeviceActionResult';
-import {deserializeIntoDeviceActionResult} from './deserializeIntoDeviceActionResult';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeleteUserFromSharedAppleDeviceActionResult } from './deleteUserFromSharedAppleDeviceActionResult';
+import { deserializeIntoDeviceActionResult } from './deserializeIntoDeviceActionResult';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeleteUserFromSharedAppleDeviceActionResult(deleteUserFromSharedAppleDeviceActionResult: DeleteUserFromSharedAppleDeviceActionResult | undefined = {} as DeleteUserFromSharedAppleDeviceActionResult) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,8 +1,8 @@
-import type {MobileAppAssignment} from './mobileAppAssignment';
-import type {MobileAppAssignmentCollectionResponse} from './mobileAppAssignmentCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeMobileAppAssignment} from './serializeMobileAppAssignment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MobileAppAssignment } from './mobileAppAssignment';
+import { type MobileAppAssignmentCollectionResponse } from './mobileAppAssignmentCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeMobileAppAssignment } from './serializeMobileAppAssignment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMobileAppAssignmentCollectionResponse(writer: SerializationWriter, mobileAppAssignmentCollectionResponse: MobileAppAssignmentCollectionResponse | undefined = {} as MobileAppAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, mobileAppAssignmentCollectionResponse)

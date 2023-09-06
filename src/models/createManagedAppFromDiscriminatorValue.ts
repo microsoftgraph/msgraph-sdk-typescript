@@ -1,11 +1,11 @@
-import {deserializeIntoManagedAndroidLobApp} from './deserializeIntoManagedAndroidLobApp';
-import {deserializeIntoManagedAndroidStoreApp} from './deserializeIntoManagedAndroidStoreApp';
-import {deserializeIntoManagedApp} from './deserializeIntoManagedApp';
-import {deserializeIntoManagedIOSLobApp} from './deserializeIntoManagedIOSLobApp';
-import {deserializeIntoManagedIOSStoreApp} from './deserializeIntoManagedIOSStoreApp';
-import {deserializeIntoManagedMobileLobApp} from './deserializeIntoManagedMobileLobApp';
-import {ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileLobApp} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoManagedAndroidLobApp } from './deserializeIntoManagedAndroidLobApp';
+import { deserializeIntoManagedAndroidStoreApp } from './deserializeIntoManagedAndroidStoreApp';
+import { deserializeIntoManagedApp } from './deserializeIntoManagedApp';
+import { deserializeIntoManagedIOSLobApp } from './deserializeIntoManagedIOSLobApp';
+import { deserializeIntoManagedIOSStoreApp } from './deserializeIntoManagedIOSStoreApp';
+import { deserializeIntoManagedMobileLobApp } from './deserializeIntoManagedMobileLobApp';
+import { type ManagedAndroidLobApp, type ManagedAndroidStoreApp, type ManagedApp, type ManagedIOSLobApp, type ManagedIOSStoreApp, type ManagedMobileLobApp } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

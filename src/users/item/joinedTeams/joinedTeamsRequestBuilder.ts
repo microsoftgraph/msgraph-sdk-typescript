@@ -1,20 +1,19 @@
-import {TeamCollectionResponse} from '../../../models/';
-import {createTeamCollectionResponseFromDiscriminatorValue} from '../../../models/createTeamCollectionResponseFromDiscriminatorValue';
-import {createTeamFromDiscriminatorValue} from '../../../models/createTeamFromDiscriminatorValue';
-import {deserializeIntoTeam} from '../../../models/deserializeIntoTeam';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeTeam} from '../../../models/serializeTeam';
-import type {Team} from '../../../models/team';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
-import {TeamItemRequestBuilder} from './item/teamItemRequestBuilder';
-import {JoinedTeamsRequestBuilderGetRequestConfiguration} from './joinedTeamsRequestBuilderGetRequestConfiguration';
-import {JoinedTeamsRequestBuilderPostRequestConfiguration} from './joinedTeamsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TeamCollectionResponse } from '../../../models/';
+import { createTeamCollectionResponseFromDiscriminatorValue } from '../../../models/createTeamCollectionResponseFromDiscriminatorValue';
+import { createTeamFromDiscriminatorValue } from '../../../models/createTeamFromDiscriminatorValue';
+import { deserializeIntoTeam } from '../../../models/deserializeIntoTeam';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeTeam } from '../../../models/serializeTeam';
+import { type Team } from '../../../models/team';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { GetAllMessagesRequestBuilder } from './getAllMessages/getAllMessagesRequestBuilder';
+import { TeamItemRequestBuilder } from './item/teamItemRequestBuilder';
+import { type JoinedTeamsRequestBuilderGetRequestConfiguration } from './joinedTeamsRequestBuilderGetRequestConfiguration';
+import { type JoinedTeamsRequestBuilderPostRequestConfiguration } from './joinedTeamsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.

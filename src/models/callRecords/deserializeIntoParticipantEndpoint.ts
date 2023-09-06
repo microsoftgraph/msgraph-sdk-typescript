@@ -1,12 +1,12 @@
-import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromDiscriminatorValue';
-import type {IdentitySet} from '../identitySet';
-import {serializeIdentitySet} from '../serializeIdentitySet';
-import {createUserFeedbackFromDiscriminatorValue} from './createUserFeedbackFromDiscriminatorValue';
-import {deserializeIntoEndpoint} from './deserializeIntoEndpoint';
-import type {ParticipantEndpoint} from './participantEndpoint';
-import {serializeUserFeedback} from './serializeUserFeedback';
-import type {UserFeedback} from './userFeedback';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentitySetFromDiscriminatorValue } from '../createIdentitySetFromDiscriminatorValue';
+import { type IdentitySet } from '../identitySet';
+import { serializeIdentitySet } from '../serializeIdentitySet';
+import { createUserFeedbackFromDiscriminatorValue } from './createUserFeedbackFromDiscriminatorValue';
+import { deserializeIntoEndpoint } from './deserializeIntoEndpoint';
+import { type ParticipantEndpoint } from './participantEndpoint';
+import { serializeUserFeedback } from './serializeUserFeedback';
+import { type UserFeedback } from './userFeedback';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoParticipantEndpoint(participantEndpoint: ParticipantEndpoint | undefined = {} as ParticipantEndpoint) : Record<string, (node: ParseNode) => void> {
     return {

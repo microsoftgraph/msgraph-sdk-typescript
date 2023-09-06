@@ -1,10 +1,10 @@
-import type {OperationError} from './operationError';
-import {serializeEntity} from './serializeEntity';
-import {serializeOperationError} from './serializeOperationError';
-import type {TeamsAsyncOperation} from './teamsAsyncOperation';
-import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
-import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type OperationError } from './operationError';
+import { serializeEntity } from './serializeEntity';
+import { serializeOperationError } from './serializeOperationError';
+import { type TeamsAsyncOperation } from './teamsAsyncOperation';
+import { TeamsAsyncOperationStatus } from './teamsAsyncOperationStatus';
+import { TeamsAsyncOperationType } from './teamsAsyncOperationType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsAsyncOperation(writer: SerializationWriter, teamsAsyncOperation: TeamsAsyncOperation | undefined = {} as TeamsAsyncOperation) : void {
         serializeEntity(writer, teamsAsyncOperation)

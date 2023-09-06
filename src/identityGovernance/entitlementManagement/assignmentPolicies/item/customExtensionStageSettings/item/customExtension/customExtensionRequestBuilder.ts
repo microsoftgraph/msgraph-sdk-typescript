@@ -1,12 +1,11 @@
-import {CustomCalloutExtension} from '../../../../../../../models/';
-import {createCustomCalloutExtensionFromDiscriminatorValue} from '../../../../../../../models/createCustomCalloutExtensionFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {CustomExtensionRequestBuilderGetRequestConfiguration} from './customExtensionRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CustomCalloutExtension } from '../../../../../../../models/';
+import { createCustomCalloutExtensionFromDiscriminatorValue } from '../../../../../../../models/createCustomCalloutExtensionFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { type CustomExtensionRequestBuilderGetRequestConfiguration } from './customExtensionRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customExtension property of the microsoft.graph.customExtensionStageSetting entity.

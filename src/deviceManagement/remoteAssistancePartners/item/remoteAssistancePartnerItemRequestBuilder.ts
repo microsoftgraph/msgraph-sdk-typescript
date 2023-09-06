@@ -1,18 +1,17 @@
-import {createRemoteAssistancePartnerFromDiscriminatorValue} from '../../../models/createRemoteAssistancePartnerFromDiscriminatorValue';
-import {deserializeIntoRemoteAssistancePartner} from '../../../models/deserializeIntoRemoteAssistancePartner';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {RemoteAssistancePartner} from '../../../models/remoteAssistancePartner';
-import {serializeRemoteAssistancePartner} from '../../../models/serializeRemoteAssistancePartner';
-import {BeginOnboardingRequestBuilder} from './beginOnboarding/beginOnboardingRequestBuilder';
-import {DisconnectRequestBuilder} from './disconnect/disconnectRequestBuilder';
-import {RemoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration} from './remoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration';
-import {RemoteAssistancePartnerItemRequestBuilderGetRequestConfiguration} from './remoteAssistancePartnerItemRequestBuilderGetRequestConfiguration';
-import {RemoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration} from './remoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createRemoteAssistancePartnerFromDiscriminatorValue } from '../../../models/createRemoteAssistancePartnerFromDiscriminatorValue';
+import { deserializeIntoRemoteAssistancePartner } from '../../../models/deserializeIntoRemoteAssistancePartner';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type RemoteAssistancePartner } from '../../../models/remoteAssistancePartner';
+import { serializeRemoteAssistancePartner } from '../../../models/serializeRemoteAssistancePartner';
+import { BeginOnboardingRequestBuilder } from './beginOnboarding/beginOnboardingRequestBuilder';
+import { DisconnectRequestBuilder } from './disconnect/disconnectRequestBuilder';
+import { type RemoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration } from './remoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration';
+import { type RemoteAssistancePartnerItemRequestBuilderGetRequestConfiguration } from './remoteAssistancePartnerItemRequestBuilderGetRequestConfiguration';
+import { type RemoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration } from './remoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.

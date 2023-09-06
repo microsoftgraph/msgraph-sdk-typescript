@@ -1,21 +1,20 @@
-import {CallRecordCollectionResponse} from '../../models/callRecords/';
-import type {CallRecord} from '../../models/callRecords/callRecord';
-import {createCallRecordCollectionResponseFromDiscriminatorValue} from '../../models/callRecords/createCallRecordCollectionResponseFromDiscriminatorValue';
-import {createCallRecordFromDiscriminatorValue} from '../../models/callRecords/createCallRecordFromDiscriminatorValue';
-import {deserializeIntoCallRecord} from '../../models/callRecords/deserializeIntoCallRecord';
-import {serializeCallRecord} from '../../models/callRecords/serializeCallRecord';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {CallRecordsRequestBuilderGetRequestConfiguration} from './callRecordsRequestBuilderGetRequestConfiguration';
-import {CallRecordsRequestBuilderPostRequestConfiguration} from './callRecordsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CallRecordItemRequestBuilder} from './item/callRecordItemRequestBuilder';
-import {MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder';
-import {MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CallRecordCollectionResponse } from '../../models/callRecords/';
+import { type CallRecord } from '../../models/callRecords/callRecord';
+import { createCallRecordCollectionResponseFromDiscriminatorValue } from '../../models/callRecords/createCallRecordCollectionResponseFromDiscriminatorValue';
+import { createCallRecordFromDiscriminatorValue } from '../../models/callRecords/createCallRecordFromDiscriminatorValue';
+import { deserializeIntoCallRecord } from '../../models/callRecords/deserializeIntoCallRecord';
+import { serializeCallRecord } from '../../models/callRecords/serializeCallRecord';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type CallRecordsRequestBuilderGetRequestConfiguration } from './callRecordsRequestBuilderGetRequestConfiguration';
+import { type CallRecordsRequestBuilderPostRequestConfiguration } from './callRecordsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { CallRecordItemRequestBuilder } from './item/callRecordItemRequestBuilder';
+import { MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder } from './microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder';
+import { MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder } from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.

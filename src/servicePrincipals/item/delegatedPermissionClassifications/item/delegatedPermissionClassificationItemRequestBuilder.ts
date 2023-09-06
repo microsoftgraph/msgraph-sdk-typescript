@@ -1,16 +1,15 @@
-import {createDelegatedPermissionClassificationFromDiscriminatorValue} from '../../../../models/createDelegatedPermissionClassificationFromDiscriminatorValue';
-import type {DelegatedPermissionClassification} from '../../../../models/delegatedPermissionClassification';
-import {deserializeIntoDelegatedPermissionClassification} from '../../../../models/deserializeIntoDelegatedPermissionClassification';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeDelegatedPermissionClassification} from '../../../../models/serializeDelegatedPermissionClassification';
-import {DelegatedPermissionClassificationItemRequestBuilderDeleteRequestConfiguration} from './delegatedPermissionClassificationItemRequestBuilderDeleteRequestConfiguration';
-import {DelegatedPermissionClassificationItemRequestBuilderGetRequestConfiguration} from './delegatedPermissionClassificationItemRequestBuilderGetRequestConfiguration';
-import {DelegatedPermissionClassificationItemRequestBuilderPatchRequestConfiguration} from './delegatedPermissionClassificationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDelegatedPermissionClassificationFromDiscriminatorValue } from '../../../../models/createDelegatedPermissionClassificationFromDiscriminatorValue';
+import { type DelegatedPermissionClassification } from '../../../../models/delegatedPermissionClassification';
+import { deserializeIntoDelegatedPermissionClassification } from '../../../../models/deserializeIntoDelegatedPermissionClassification';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeDelegatedPermissionClassification } from '../../../../models/serializeDelegatedPermissionClassification';
+import { type DelegatedPermissionClassificationItemRequestBuilderDeleteRequestConfiguration } from './delegatedPermissionClassificationItemRequestBuilderDeleteRequestConfiguration';
+import { type DelegatedPermissionClassificationItemRequestBuilderGetRequestConfiguration } from './delegatedPermissionClassificationItemRequestBuilderGetRequestConfiguration';
+import { type DelegatedPermissionClassificationItemRequestBuilderPatchRequestConfiguration } from './delegatedPermissionClassificationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedPermissionClassifications property of the microsoft.graph.servicePrincipal entity.

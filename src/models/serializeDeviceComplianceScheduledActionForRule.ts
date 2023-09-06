@@ -1,8 +1,8 @@
-import type {DeviceComplianceActionItem} from './deviceComplianceActionItem';
-import type {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
-import {serializeDeviceComplianceActionItem} from './serializeDeviceComplianceActionItem';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceComplianceActionItem } from './deviceComplianceActionItem';
+import { type DeviceComplianceScheduledActionForRule } from './deviceComplianceScheduledActionForRule';
+import { serializeDeviceComplianceActionItem } from './serializeDeviceComplianceActionItem';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceComplianceScheduledActionForRule(writer: SerializationWriter, deviceComplianceScheduledActionForRule: DeviceComplianceScheduledActionForRule | undefined = {} as DeviceComplianceScheduledActionForRule) : void {
         serializeEntity(writer, deviceComplianceScheduledActionForRule)

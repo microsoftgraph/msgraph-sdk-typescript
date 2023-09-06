@@ -1,5 +1,5 @@
-import {AccessReviewInstanceItemRequestBuilderGetQueryParameters} from './accessReviewInstanceItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessReviewInstanceItemRequestBuilderGetQueryParameters } from './accessReviewInstanceItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewInstanceItemRequestBuilderGetRequestConfiguration {
     /**

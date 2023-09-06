@@ -1,6 +1,6 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {LinkedResource} from './linkedResource';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type LinkedResource } from './linkedResource';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLinkedResource(linkedResource: LinkedResource | undefined = {} as LinkedResource) : Record<string, (node: ParseNode) => void> {
     return {

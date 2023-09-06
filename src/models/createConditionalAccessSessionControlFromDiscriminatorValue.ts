@@ -1,10 +1,10 @@
-import {deserializeIntoApplicationEnforcedRestrictionsSessionControl} from './deserializeIntoApplicationEnforcedRestrictionsSessionControl';
-import {deserializeIntoCloudAppSecuritySessionControl} from './deserializeIntoCloudAppSecuritySessionControl';
-import {deserializeIntoConditionalAccessSessionControl} from './deserializeIntoConditionalAccessSessionControl';
-import {deserializeIntoPersistentBrowserSessionControl} from './deserializeIntoPersistentBrowserSessionControl';
-import {deserializeIntoSignInFrequencySessionControl} from './deserializeIntoSignInFrequencySessionControl';
-import {ApplicationEnforcedRestrictionsSessionControl, CloudAppSecuritySessionControl, ConditionalAccessSessionControl, PersistentBrowserSessionControl, SignInFrequencySessionControl} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoApplicationEnforcedRestrictionsSessionControl } from './deserializeIntoApplicationEnforcedRestrictionsSessionControl';
+import { deserializeIntoCloudAppSecuritySessionControl } from './deserializeIntoCloudAppSecuritySessionControl';
+import { deserializeIntoConditionalAccessSessionControl } from './deserializeIntoConditionalAccessSessionControl';
+import { deserializeIntoPersistentBrowserSessionControl } from './deserializeIntoPersistentBrowserSessionControl';
+import { deserializeIntoSignInFrequencySessionControl } from './deserializeIntoSignInFrequencySessionControl';
+import { type ApplicationEnforcedRestrictionsSessionControl, type CloudAppSecuritySessionControl, type ConditionalAccessSessionControl, type PersistentBrowserSessionControl, type SignInFrequencySessionControl } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createConditionalAccessSessionControlFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

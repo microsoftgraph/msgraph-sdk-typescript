@@ -1,25 +1,24 @@
-import {createListItemFromDiscriminatorValue} from '../../../../../../models/createListItemFromDiscriminatorValue';
-import {deserializeIntoListItem} from '../../../../../../models/deserializeIntoListItem';
-import type {ListItem} from '../../../../../../models/listItem';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeListItem} from '../../../../../../models/serializeListItem';
-import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
-import {CreatedByUserRequestBuilder} from './createdByUser/createdByUserRequestBuilder';
-import {DocumentSetVersionsRequestBuilder} from './documentSetVersions/documentSetVersionsRequestBuilder';
-import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
-import {FieldsRequestBuilder} from './fields/fieldsRequestBuilder';
-import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
-import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
-import {LastModifiedByUserRequestBuilder} from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
-import {ListItemItemRequestBuilderDeleteRequestConfiguration} from './listItemItemRequestBuilderDeleteRequestConfiguration';
-import {ListItemItemRequestBuilderGetRequestConfiguration} from './listItemItemRequestBuilderGetRequestConfiguration';
-import {ListItemItemRequestBuilderPatchRequestConfiguration} from './listItemItemRequestBuilderPatchRequestConfiguration';
-import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createListItemFromDiscriminatorValue } from '../../../../../../models/createListItemFromDiscriminatorValue';
+import { deserializeIntoListItem } from '../../../../../../models/deserializeIntoListItem';
+import { type ListItem } from '../../../../../../models/listItem';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeListItem } from '../../../../../../models/serializeListItem';
+import { AnalyticsRequestBuilder } from './analytics/analyticsRequestBuilder';
+import { CreatedByUserRequestBuilder } from './createdByUser/createdByUserRequestBuilder';
+import { DocumentSetVersionsRequestBuilder } from './documentSetVersions/documentSetVersionsRequestBuilder';
+import { DriveItemRequestBuilder } from './driveItem/driveItemRequestBuilder';
+import { FieldsRequestBuilder } from './fields/fieldsRequestBuilder';
+import { GetActivitiesByIntervalRequestBuilder } from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
+import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder } from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
+import { LastModifiedByUserRequestBuilder } from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
+import { type ListItemItemRequestBuilderDeleteRequestConfiguration } from './listItemItemRequestBuilderDeleteRequestConfiguration';
+import { type ListItemItemRequestBuilderGetRequestConfiguration } from './listItemItemRequestBuilderGetRequestConfiguration';
+import { type ListItemItemRequestBuilderPatchRequestConfiguration } from './listItemItemRequestBuilderPatchRequestConfiguration';
+import { VersionsRequestBuilder } from './versions/versionsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.list entity.

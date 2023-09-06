@@ -1,5 +1,5 @@
-import {EducationSchoolItemRequestBuilderGetQueryParameters} from './educationSchoolItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EducationSchoolItemRequestBuilderGetQueryParameters } from './educationSchoolItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EducationSchoolItemRequestBuilderGetRequestConfiguration {
     /**

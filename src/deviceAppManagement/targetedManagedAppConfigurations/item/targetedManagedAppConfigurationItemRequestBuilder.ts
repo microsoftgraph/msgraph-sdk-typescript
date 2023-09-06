@@ -1,21 +1,20 @@
-import {createTargetedManagedAppConfigurationFromDiscriminatorValue} from '../../../models/createTargetedManagedAppConfigurationFromDiscriminatorValue';
-import {deserializeIntoTargetedManagedAppConfiguration} from '../../../models/deserializeIntoTargetedManagedAppConfiguration';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeTargetedManagedAppConfiguration} from '../../../models/serializeTargetedManagedAppConfiguration';
-import type {TargetedManagedAppConfiguration} from '../../../models/targetedManagedAppConfiguration';
-import {AppsRequestBuilder} from './apps/appsRequestBuilder';
-import {AssignRequestBuilder} from './assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSummaryRequestBuilder';
-import {TargetAppsRequestBuilder} from './targetApps/targetAppsRequestBuilder';
-import {TargetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration} from './targetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration';
-import {TargetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration} from './targetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration';
-import {TargetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration} from './targetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTargetedManagedAppConfigurationFromDiscriminatorValue } from '../../../models/createTargetedManagedAppConfigurationFromDiscriminatorValue';
+import { deserializeIntoTargetedManagedAppConfiguration } from '../../../models/deserializeIntoTargetedManagedAppConfiguration';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeTargetedManagedAppConfiguration } from '../../../models/serializeTargetedManagedAppConfiguration';
+import { type TargetedManagedAppConfiguration } from '../../../models/targetedManagedAppConfiguration';
+import { AppsRequestBuilder } from './apps/appsRequestBuilder';
+import { AssignRequestBuilder } from './assign/assignRequestBuilder';
+import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
+import { DeploymentSummaryRequestBuilder } from './deploymentSummary/deploymentSummaryRequestBuilder';
+import { TargetAppsRequestBuilder } from './targetApps/targetAppsRequestBuilder';
+import { type TargetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration } from './targetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration';
+import { type TargetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration } from './targetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration';
+import { type TargetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration } from './targetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.

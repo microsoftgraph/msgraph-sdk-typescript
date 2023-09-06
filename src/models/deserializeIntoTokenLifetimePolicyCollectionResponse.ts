@@ -1,9 +1,9 @@
-import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeTokenLifetimePolicy} from './serializeTokenLifetimePolicy';
-import type {TokenLifetimePolicy} from './tokenLifetimePolicy';
-import type {TokenLifetimePolicyCollectionResponse} from './tokenLifetimePolicyCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTokenLifetimePolicyFromDiscriminatorValue } from './createTokenLifetimePolicyFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeTokenLifetimePolicy } from './serializeTokenLifetimePolicy';
+import { type TokenLifetimePolicy } from './tokenLifetimePolicy';
+import { type TokenLifetimePolicyCollectionResponse } from './tokenLifetimePolicyCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTokenLifetimePolicyCollectionResponse(tokenLifetimePolicyCollectionResponse: TokenLifetimePolicyCollectionResponse | undefined = {} as TokenLifetimePolicyCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

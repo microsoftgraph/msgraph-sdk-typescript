@@ -1,5 +1,5 @@
-import type {CloudAppSecurityState} from './cloudAppSecurityState';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CloudAppSecurityState } from './cloudAppSecurityState';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCloudAppSecurityState(cloudAppSecurityState: CloudAppSecurityState | undefined = {} as CloudAppSecurityState) : Record<string, (node: ParseNode) => void> {
     return {

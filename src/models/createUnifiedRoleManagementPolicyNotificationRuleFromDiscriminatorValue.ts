@@ -1,6 +1,6 @@
-import {deserializeIntoUnifiedRoleManagementPolicyNotificationRule} from './deserializeIntoUnifiedRoleManagementPolicyNotificationRule';
-import {UnifiedRoleManagementPolicyNotificationRule} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUnifiedRoleManagementPolicyNotificationRule } from './deserializeIntoUnifiedRoleManagementPolicyNotificationRule';
+import { type UnifiedRoleManagementPolicyNotificationRule } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUnifiedRoleManagementPolicyNotificationRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

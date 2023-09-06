@@ -1,14 +1,14 @@
-import type {MediaStream} from './mediaStream';
-import type {OnlineMeetingRestricted} from './onlineMeetingRestricted';
-import type {Participant} from './participant';
-import type {ParticipantInfo} from './participantInfo';
-import type {RecordingInfo} from './recordingInfo';
-import {serializeEntity} from './serializeEntity';
-import {serializeMediaStream} from './serializeMediaStream';
-import {serializeOnlineMeetingRestricted} from './serializeOnlineMeetingRestricted';
-import {serializeParticipantInfo} from './serializeParticipantInfo';
-import {serializeRecordingInfo} from './serializeRecordingInfo';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MediaStream } from './mediaStream';
+import { type OnlineMeetingRestricted } from './onlineMeetingRestricted';
+import { type Participant } from './participant';
+import { type ParticipantInfo } from './participantInfo';
+import { type RecordingInfo } from './recordingInfo';
+import { serializeEntity } from './serializeEntity';
+import { serializeMediaStream } from './serializeMediaStream';
+import { serializeOnlineMeetingRestricted } from './serializeOnlineMeetingRestricted';
+import { serializeParticipantInfo } from './serializeParticipantInfo';
+import { serializeRecordingInfo } from './serializeRecordingInfo';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeParticipant(writer: SerializationWriter, participant: Participant | undefined = {} as Participant) : void {
         serializeEntity(writer, participant)

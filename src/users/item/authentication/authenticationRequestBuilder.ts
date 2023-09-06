@@ -1,26 +1,25 @@
-import type {Authentication} from '../../../models/authentication';
-import {createAuthenticationFromDiscriminatorValue} from '../../../models/createAuthenticationFromDiscriminatorValue';
-import {deserializeIntoAuthentication} from '../../../models/deserializeIntoAuthentication';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAuthentication} from '../../../models/serializeAuthentication';
-import {AuthenticationRequestBuilderDeleteRequestConfiguration} from './authenticationRequestBuilderDeleteRequestConfiguration';
-import {AuthenticationRequestBuilderGetRequestConfiguration} from './authenticationRequestBuilderGetRequestConfiguration';
-import {AuthenticationRequestBuilderPatchRequestConfiguration} from './authenticationRequestBuilderPatchRequestConfiguration';
-import {EmailMethodsRequestBuilder} from './emailMethods/emailMethodsRequestBuilder';
-import {Fido2MethodsRequestBuilder} from './fido2Methods/fido2MethodsRequestBuilder';
-import {MethodsRequestBuilder} from './methods/methodsRequestBuilder';
-import {MicrosoftAuthenticatorMethodsRequestBuilder} from './microsoftAuthenticatorMethods/microsoftAuthenticatorMethodsRequestBuilder';
-import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {PasswordMethodsRequestBuilder} from './passwordMethods/passwordMethodsRequestBuilder';
-import {PhoneMethodsRequestBuilder} from './phoneMethods/phoneMethodsRequestBuilder';
-import {SoftwareOathMethodsRequestBuilder} from './softwareOathMethods/softwareOathMethodsRequestBuilder';
-import {TemporaryAccessPassMethodsRequestBuilder} from './temporaryAccessPassMethods/temporaryAccessPassMethodsRequestBuilder';
-import {WindowsHelloForBusinessMethodsRequestBuilder} from './windowsHelloForBusinessMethods/windowsHelloForBusinessMethodsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Authentication } from '../../../models/authentication';
+import { createAuthenticationFromDiscriminatorValue } from '../../../models/createAuthenticationFromDiscriminatorValue';
+import { deserializeIntoAuthentication } from '../../../models/deserializeIntoAuthentication';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAuthentication } from '../../../models/serializeAuthentication';
+import { type AuthenticationRequestBuilderDeleteRequestConfiguration } from './authenticationRequestBuilderDeleteRequestConfiguration';
+import { type AuthenticationRequestBuilderGetRequestConfiguration } from './authenticationRequestBuilderGetRequestConfiguration';
+import { type AuthenticationRequestBuilderPatchRequestConfiguration } from './authenticationRequestBuilderPatchRequestConfiguration';
+import { EmailMethodsRequestBuilder } from './emailMethods/emailMethodsRequestBuilder';
+import { Fido2MethodsRequestBuilder } from './fido2Methods/fido2MethodsRequestBuilder';
+import { MethodsRequestBuilder } from './methods/methodsRequestBuilder';
+import { MicrosoftAuthenticatorMethodsRequestBuilder } from './microsoftAuthenticatorMethods/microsoftAuthenticatorMethodsRequestBuilder';
+import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
+import { PasswordMethodsRequestBuilder } from './passwordMethods/passwordMethodsRequestBuilder';
+import { PhoneMethodsRequestBuilder } from './phoneMethods/phoneMethodsRequestBuilder';
+import { SoftwareOathMethodsRequestBuilder } from './softwareOathMethods/softwareOathMethodsRequestBuilder';
+import { TemporaryAccessPassMethodsRequestBuilder } from './temporaryAccessPassMethods/temporaryAccessPassMethodsRequestBuilder';
+import { WindowsHelloForBusinessMethodsRequestBuilder } from './windowsHelloForBusinessMethods/windowsHelloForBusinessMethodsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authentication property of the microsoft.graph.user entity.

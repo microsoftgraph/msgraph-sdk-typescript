@@ -1,18 +1,17 @@
-import {createSharedWithChannelTeamInfoFromDiscriminatorValue} from '../../../../../../../models/createSharedWithChannelTeamInfoFromDiscriminatorValue';
-import {deserializeIntoSharedWithChannelTeamInfo} from '../../../../../../../models/deserializeIntoSharedWithChannelTeamInfo';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeSharedWithChannelTeamInfo} from '../../../../../../../models/serializeSharedWithChannelTeamInfo';
-import type {SharedWithChannelTeamInfo} from '../../../../../../../models/sharedWithChannelTeamInfo';
-import {AllowedMembersRequestBuilder} from './allowedMembers/allowedMembersRequestBuilder';
-import {SharedWithChannelTeamInfoItemRequestBuilderDeleteRequestConfiguration} from './sharedWithChannelTeamInfoItemRequestBuilderDeleteRequestConfiguration';
-import {SharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration} from './sharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration';
-import {SharedWithChannelTeamInfoItemRequestBuilderPatchRequestConfiguration} from './sharedWithChannelTeamInfoItemRequestBuilderPatchRequestConfiguration';
-import {TeamRequestBuilder} from './team/teamRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSharedWithChannelTeamInfoFromDiscriminatorValue } from '../../../../../../../models/createSharedWithChannelTeamInfoFromDiscriminatorValue';
+import { deserializeIntoSharedWithChannelTeamInfo } from '../../../../../../../models/deserializeIntoSharedWithChannelTeamInfo';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeSharedWithChannelTeamInfo } from '../../../../../../../models/serializeSharedWithChannelTeamInfo';
+import { type SharedWithChannelTeamInfo } from '../../../../../../../models/sharedWithChannelTeamInfo';
+import { AllowedMembersRequestBuilder } from './allowedMembers/allowedMembersRequestBuilder';
+import { type SharedWithChannelTeamInfoItemRequestBuilderDeleteRequestConfiguration } from './sharedWithChannelTeamInfoItemRequestBuilderDeleteRequestConfiguration';
+import { type SharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration } from './sharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration';
+import { type SharedWithChannelTeamInfoItemRequestBuilderPatchRequestConfiguration } from './sharedWithChannelTeamInfoItemRequestBuilderPatchRequestConfiguration';
+import { TeamRequestBuilder } from './team/teamRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.

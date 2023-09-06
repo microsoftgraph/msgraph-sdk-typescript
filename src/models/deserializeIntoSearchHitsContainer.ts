@@ -1,11 +1,11 @@
-import {createSearchAggregationFromDiscriminatorValue} from './createSearchAggregationFromDiscriminatorValue';
-import {createSearchHitFromDiscriminatorValue} from './createSearchHitFromDiscriminatorValue';
-import type {SearchAggregation} from './searchAggregation';
-import type {SearchHit} from './searchHit';
-import type {SearchHitsContainer} from './searchHitsContainer';
-import {serializeSearchAggregation} from './serializeSearchAggregation';
-import {serializeSearchHit} from './serializeSearchHit';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSearchAggregationFromDiscriminatorValue } from './createSearchAggregationFromDiscriminatorValue';
+import { createSearchHitFromDiscriminatorValue } from './createSearchHitFromDiscriminatorValue';
+import { type SearchAggregation } from './searchAggregation';
+import { type SearchHit } from './searchHit';
+import { type SearchHitsContainer } from './searchHitsContainer';
+import { serializeSearchAggregation } from './serializeSearchAggregation';
+import { serializeSearchHit } from './serializeSearchHit';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearchHitsContainer(searchHitsContainer: SearchHitsContainer | undefined = {} as SearchHitsContainer) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,19 +1,18 @@
-import {WorkbookCommentCollectionResponse} from '../../../../../../models/';
-import {createWorkbookCommentCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createWorkbookCommentCollectionResponseFromDiscriminatorValue';
-import {createWorkbookCommentFromDiscriminatorValue} from '../../../../../../models/createWorkbookCommentFromDiscriminatorValue';
-import {deserializeIntoWorkbookComment} from '../../../../../../models/deserializeIntoWorkbookComment';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookComment} from '../../../../../../models/serializeWorkbookComment';
-import type {WorkbookComment} from '../../../../../../models/workbookComment';
-import {CommentsRequestBuilderGetRequestConfiguration} from './commentsRequestBuilderGetRequestConfiguration';
-import {CommentsRequestBuilderPostRequestConfiguration} from './commentsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WorkbookCommentItemRequestBuilder} from './item/workbookCommentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookCommentCollectionResponse } from '../../../../../../models/';
+import { createWorkbookCommentCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createWorkbookCommentCollectionResponseFromDiscriminatorValue';
+import { createWorkbookCommentFromDiscriminatorValue } from '../../../../../../models/createWorkbookCommentFromDiscriminatorValue';
+import { deserializeIntoWorkbookComment } from '../../../../../../models/deserializeIntoWorkbookComment';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookComment } from '../../../../../../models/serializeWorkbookComment';
+import { type WorkbookComment } from '../../../../../../models/workbookComment';
+import { type CommentsRequestBuilderGetRequestConfiguration } from './commentsRequestBuilderGetRequestConfiguration';
+import { type CommentsRequestBuilderPostRequestConfiguration } from './commentsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WorkbookCommentItemRequestBuilder } from './item/workbookCommentItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the comments property of the microsoft.graph.workbook entity.

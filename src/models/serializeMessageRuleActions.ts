@@ -1,8 +1,8 @@
-import {Importance} from './importance';
-import type {MessageRuleActions} from './messageRuleActions';
-import type {Recipient} from './recipient';
-import {serializeRecipient} from './serializeRecipient';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { Importance } from './importance';
+import { type MessageRuleActions } from './messageRuleActions';
+import { type Recipient } from './recipient';
+import { serializeRecipient } from './serializeRecipient';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMessageRuleActions(writer: SerializationWriter, messageRuleActions: MessageRuleActions | undefined = {} as MessageRuleActions) : void {
         writer.writeCollectionOfPrimitiveValues<string>("assignCategories", messageRuleActions.assignCategories);

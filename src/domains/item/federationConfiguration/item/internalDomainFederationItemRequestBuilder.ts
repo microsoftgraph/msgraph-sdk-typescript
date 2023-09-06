@@ -1,16 +1,15 @@
-import {createInternalDomainFederationFromDiscriminatorValue} from '../../../../models/createInternalDomainFederationFromDiscriminatorValue';
-import {deserializeIntoInternalDomainFederation} from '../../../../models/deserializeIntoInternalDomainFederation';
-import type {InternalDomainFederation} from '../../../../models/internalDomainFederation';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeInternalDomainFederation} from '../../../../models/serializeInternalDomainFederation';
-import {InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration} from './internalDomainFederationItemRequestBuilderDeleteRequestConfiguration';
-import {InternalDomainFederationItemRequestBuilderGetRequestConfiguration} from './internalDomainFederationItemRequestBuilderGetRequestConfiguration';
-import {InternalDomainFederationItemRequestBuilderPatchRequestConfiguration} from './internalDomainFederationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createInternalDomainFederationFromDiscriminatorValue } from '../../../../models/createInternalDomainFederationFromDiscriminatorValue';
+import { deserializeIntoInternalDomainFederation } from '../../../../models/deserializeIntoInternalDomainFederation';
+import { type InternalDomainFederation } from '../../../../models/internalDomainFederation';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeInternalDomainFederation } from '../../../../models/serializeInternalDomainFederation';
+import { type InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration } from './internalDomainFederationItemRequestBuilderDeleteRequestConfiguration';
+import { type InternalDomainFederationItemRequestBuilderGetRequestConfiguration } from './internalDomainFederationItemRequestBuilderGetRequestConfiguration';
+import { type InternalDomainFederationItemRequestBuilderPatchRequestConfiguration } from './internalDomainFederationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.

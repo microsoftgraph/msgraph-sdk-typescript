@@ -1,5 +1,5 @@
-import {WorkbookRequestBuilderGetQueryParameters} from './workbookRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookRequestBuilderGetQueryParameters } from './workbookRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookRequestBuilderGetRequestConfiguration {
     /**

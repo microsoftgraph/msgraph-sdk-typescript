@@ -1,5 +1,5 @@
-import {TenantRelationshipsRequestBuilderGetQueryParameters} from './tenantRelationshipsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TenantRelationshipsRequestBuilderGetQueryParameters } from './tenantRelationshipsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TenantRelationshipsRequestBuilderGetRequestConfiguration {
     /**

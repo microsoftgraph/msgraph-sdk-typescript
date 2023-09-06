@@ -1,17 +1,16 @@
-import {createExternalActivityFromDiscriminatorValue} from '../../../../../../../models/externalConnectors/createExternalActivityFromDiscriminatorValue';
-import {deserializeIntoExternalActivity} from '../../../../../../../models/externalConnectors/deserializeIntoExternalActivity';
-import type {ExternalActivity} from '../../../../../../../models/externalConnectors/externalActivity';
-import {serializeExternalActivity} from '../../../../../../../models/externalConnectors/serializeExternalActivity';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {ExternalActivityItemRequestBuilderDeleteRequestConfiguration} from './externalActivityItemRequestBuilderDeleteRequestConfiguration';
-import {ExternalActivityItemRequestBuilderGetRequestConfiguration} from './externalActivityItemRequestBuilderGetRequestConfiguration';
-import {ExternalActivityItemRequestBuilderPatchRequestConfiguration} from './externalActivityItemRequestBuilderPatchRequestConfiguration';
-import {PerformedByRequestBuilder} from './performedBy/performedByRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createExternalActivityFromDiscriminatorValue } from '../../../../../../../models/externalConnectors/createExternalActivityFromDiscriminatorValue';
+import { deserializeIntoExternalActivity } from '../../../../../../../models/externalConnectors/deserializeIntoExternalActivity';
+import { type ExternalActivity } from '../../../../../../../models/externalConnectors/externalActivity';
+import { serializeExternalActivity } from '../../../../../../../models/externalConnectors/serializeExternalActivity';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { type ExternalActivityItemRequestBuilderDeleteRequestConfiguration } from './externalActivityItemRequestBuilderDeleteRequestConfiguration';
+import { type ExternalActivityItemRequestBuilderGetRequestConfiguration } from './externalActivityItemRequestBuilderGetRequestConfiguration';
+import { type ExternalActivityItemRequestBuilderPatchRequestConfiguration } from './externalActivityItemRequestBuilderPatchRequestConfiguration';
+import { PerformedByRequestBuilder } from './performedBy/performedByRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.

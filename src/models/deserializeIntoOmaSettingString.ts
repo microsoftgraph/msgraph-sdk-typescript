@@ -1,6 +1,6 @@
-import {deserializeIntoOmaSetting} from './deserializeIntoOmaSetting';
-import type {OmaSettingString} from './omaSettingString';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoOmaSetting } from './deserializeIntoOmaSetting';
+import { type OmaSettingString } from './omaSettingString';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOmaSettingString(omaSettingString: OmaSettingString | undefined = {} as OmaSettingString) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
-import {HistoryDefinitionsRequestBuilderGetQueryParameters} from './historyDefinitionsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type HistoryDefinitionsRequestBuilderGetQueryParameters } from './historyDefinitionsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface HistoryDefinitionsRequestBuilderGetRequestConfiguration {
     /**

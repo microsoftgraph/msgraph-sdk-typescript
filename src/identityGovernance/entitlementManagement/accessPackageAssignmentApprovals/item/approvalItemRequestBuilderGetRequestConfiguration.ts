@@ -1,5 +1,5 @@
-import {ApprovalItemRequestBuilderGetQueryParameters} from './approvalItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ApprovalItemRequestBuilderGetQueryParameters } from './approvalItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ApprovalItemRequestBuilderGetRequestConfiguration {
     /**

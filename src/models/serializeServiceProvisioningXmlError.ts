@@ -1,6 +1,6 @@
-import {serializeServiceProvisioningError} from './serializeServiceProvisioningError';
-import type {ServiceProvisioningXmlError} from './serviceProvisioningXmlError';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeServiceProvisioningError } from './serializeServiceProvisioningError';
+import { type ServiceProvisioningXmlError } from './serviceProvisioningXmlError';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeServiceProvisioningXmlError(writer: SerializationWriter, serviceProvisioningXmlError: ServiceProvisioningXmlError | undefined = {} as ServiceProvisioningXmlError) : void {
         serializeServiceProvisioningError(writer, serviceProvisioningXmlError)

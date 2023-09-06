@@ -1,5 +1,5 @@
-import type {EducationOnPremisesInfo} from './educationOnPremisesInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EducationOnPremisesInfo } from './educationOnPremisesInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationOnPremisesInfo(educationOnPremisesInfo: EducationOnPremisesInfo | undefined = {} as EducationOnPremisesInfo) : Record<string, (node: ParseNode) => void> {
     return {

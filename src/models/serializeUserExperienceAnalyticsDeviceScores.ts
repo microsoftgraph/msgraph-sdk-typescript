@@ -1,7 +1,7 @@
-import {serializeEntity} from './serializeEntity';
-import type {UserExperienceAnalyticsDeviceScores} from './userExperienceAnalyticsDeviceScores';
-import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { type UserExperienceAnalyticsDeviceScores } from './userExperienceAnalyticsDeviceScores';
+import { UserExperienceAnalyticsHealthState } from './userExperienceAnalyticsHealthState';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsDeviceScores(writer: SerializationWriter, userExperienceAnalyticsDeviceScores: UserExperienceAnalyticsDeviceScores | undefined = {} as UserExperienceAnalyticsDeviceScores) : void {
         serializeEntity(writer, userExperienceAnalyticsDeviceScores)

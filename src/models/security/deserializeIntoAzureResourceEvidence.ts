@@ -1,6 +1,6 @@
-import type {AzureResourceEvidence} from './azureResourceEvidence';
-import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AzureResourceEvidence } from './azureResourceEvidence';
+import { deserializeIntoAlertEvidence } from './deserializeIntoAlertEvidence';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAzureResourceEvidence(azureResourceEvidence: AzureResourceEvidence | undefined = {} as AzureResourceEvidence) : Record<string, (node: ParseNode) => void> {
     return {
