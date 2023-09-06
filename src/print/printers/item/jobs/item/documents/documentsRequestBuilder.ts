@@ -1,19 +1,18 @@
-import {PrintDocumentCollectionResponse} from '../../../../../../models/';
-import {createPrintDocumentCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createPrintDocumentCollectionResponseFromDiscriminatorValue';
-import {createPrintDocumentFromDiscriminatorValue} from '../../../../../../models/createPrintDocumentFromDiscriminatorValue';
-import {deserializeIntoPrintDocument} from '../../../../../../models/deserializeIntoPrintDocument';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import type {PrintDocument} from '../../../../../../models/printDocument';
-import {serializePrintDocument} from '../../../../../../models/serializePrintDocument';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DocumentsRequestBuilderGetRequestConfiguration} from './documentsRequestBuilderGetRequestConfiguration';
-import {DocumentsRequestBuilderPostRequestConfiguration} from './documentsRequestBuilderPostRequestConfiguration';
-import {PrintDocumentItemRequestBuilder} from './item/printDocumentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PrintDocumentCollectionResponse } from '../../../../../../models/';
+import { createPrintDocumentCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createPrintDocumentCollectionResponseFromDiscriminatorValue';
+import { createPrintDocumentFromDiscriminatorValue } from '../../../../../../models/createPrintDocumentFromDiscriminatorValue';
+import { deserializeIntoPrintDocument } from '../../../../../../models/deserializeIntoPrintDocument';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type PrintDocument } from '../../../../../../models/printDocument';
+import { serializePrintDocument } from '../../../../../../models/serializePrintDocument';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DocumentsRequestBuilderGetRequestConfiguration } from './documentsRequestBuilderGetRequestConfiguration';
+import { type DocumentsRequestBuilderPostRequestConfiguration } from './documentsRequestBuilderPostRequestConfiguration';
+import { PrintDocumentItemRequestBuilder } from './item/printDocumentItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documents property of the microsoft.graph.printJob entity.

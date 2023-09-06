@@ -1,6 +1,6 @@
-import {AuthenticationMethodTargetType} from './authenticationMethodTargetType';
-import type {ExcludeTarget} from './excludeTarget';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AuthenticationMethodTargetType } from './authenticationMethodTargetType';
+import { type ExcludeTarget } from './excludeTarget';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeExcludeTarget(writer: SerializationWriter, excludeTarget: ExcludeTarget | undefined = {} as ExcludeTarget) : void {
         writer.writeStringValue("id", excludeTarget.id);

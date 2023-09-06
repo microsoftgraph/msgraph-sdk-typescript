@@ -1,7 +1,7 @@
-import type {IosDeviceType} from './iosDeviceType';
-import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
-import type {ManagedApp} from './managedApp';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type IosDeviceType } from './iosDeviceType';
+import { type IosMinimumOperatingSystem } from './iosMinimumOperatingSystem';
+import { type ManagedApp } from './managedApp';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ManagedIOSStoreApp extends ManagedApp, Parsable {
     /**

@@ -1,20 +1,19 @@
-import {ContactFolderCollectionResponse} from '../../../models/';
-import type {ContactFolder} from '../../../models/contactFolder';
-import {createContactFolderCollectionResponseFromDiscriminatorValue} from '../../../models/createContactFolderCollectionResponseFromDiscriminatorValue';
-import {createContactFolderFromDiscriminatorValue} from '../../../models/createContactFolderFromDiscriminatorValue';
-import {deserializeIntoContactFolder} from '../../../models/deserializeIntoContactFolder';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeContactFolder} from '../../../models/serializeContactFolder';
-import {ContactFoldersRequestBuilderGetRequestConfiguration} from './contactFoldersRequestBuilderGetRequestConfiguration';
-import {ContactFoldersRequestBuilderPostRequestConfiguration} from './contactFoldersRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {ContactFolderItemRequestBuilder} from './item/contactFolderItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ContactFolderCollectionResponse } from '../../../models/';
+import { type ContactFolder } from '../../../models/contactFolder';
+import { createContactFolderCollectionResponseFromDiscriminatorValue } from '../../../models/createContactFolderCollectionResponseFromDiscriminatorValue';
+import { createContactFolderFromDiscriminatorValue } from '../../../models/createContactFolderFromDiscriminatorValue';
+import { deserializeIntoContactFolder } from '../../../models/deserializeIntoContactFolder';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeContactFolder } from '../../../models/serializeContactFolder';
+import { type ContactFoldersRequestBuilderGetRequestConfiguration } from './contactFoldersRequestBuilderGetRequestConfiguration';
+import { type ContactFoldersRequestBuilderPostRequestConfiguration } from './contactFoldersRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { ContactFolderItemRequestBuilder } from './item/contactFolderItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.

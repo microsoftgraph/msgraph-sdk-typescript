@@ -1,8 +1,8 @@
-import {serializeEntity} from './serializeEntity';
-import {serializeWorkbookChartLegendFormat} from './serializeWorkbookChartLegendFormat';
-import type {WorkbookChartLegend} from './workbookChartLegend';
-import type {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { serializeWorkbookChartLegendFormat } from './serializeWorkbookChartLegendFormat';
+import { type WorkbookChartLegend } from './workbookChartLegend';
+import { type WorkbookChartLegendFormat } from './workbookChartLegendFormat';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookChartLegend(writer: SerializationWriter, workbookChartLegend: WorkbookChartLegend | undefined = {} as WorkbookChartLegend) : void {
         serializeEntity(writer, workbookChartLegend)

@@ -1,12 +1,12 @@
-import {CalendarColor} from './calendarColor';
-import type {CalendarPermission} from './calendarPermission';
-import type {EmailAddress} from './emailAddress';
-import type {Entity} from './entity';
-import type {Event} from './event';
-import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
-import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { CalendarColor } from './calendarColor';
+import { type CalendarPermission } from './calendarPermission';
+import { type EmailAddress } from './emailAddress';
+import { type Entity } from './entity';
+import { type Event } from './event';
+import { type MultiValueLegacyExtendedProperty } from './multiValueLegacyExtendedProperty';
+import { OnlineMeetingProviderType } from './onlineMeetingProviderType';
+import { type SingleValueLegacyExtendedProperty } from './singleValueLegacyExtendedProperty';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Calendar extends Entity, Parsable {
     /**

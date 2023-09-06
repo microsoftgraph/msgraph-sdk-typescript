@@ -1,6 +1,6 @@
-import {VmCloudProvider} from './vmCloudProvider';
-import type {VmMetadata} from './vmMetadata';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { VmCloudProvider } from './vmCloudProvider';
+import { type VmMetadata } from './vmMetadata';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoVmMetadata(vmMetadata: VmMetadata | undefined = {} as VmMetadata) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,18 +1,18 @@
-import {createMediaStreamFromDiscriminatorValue} from './createMediaStreamFromDiscriminatorValue';
-import {createOnlineMeetingRestrictedFromDiscriminatorValue} from './createOnlineMeetingRestrictedFromDiscriminatorValue';
-import {createParticipantInfoFromDiscriminatorValue} from './createParticipantInfoFromDiscriminatorValue';
-import {createRecordingInfoFromDiscriminatorValue} from './createRecordingInfoFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {MediaStream} from './mediaStream';
-import type {OnlineMeetingRestricted} from './onlineMeetingRestricted';
-import type {Participant} from './participant';
-import type {ParticipantInfo} from './participantInfo';
-import type {RecordingInfo} from './recordingInfo';
-import {serializeMediaStream} from './serializeMediaStream';
-import {serializeOnlineMeetingRestricted} from './serializeOnlineMeetingRestricted';
-import {serializeParticipantInfo} from './serializeParticipantInfo';
-import {serializeRecordingInfo} from './serializeRecordingInfo';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createMediaStreamFromDiscriminatorValue } from './createMediaStreamFromDiscriminatorValue';
+import { createOnlineMeetingRestrictedFromDiscriminatorValue } from './createOnlineMeetingRestrictedFromDiscriminatorValue';
+import { createParticipantInfoFromDiscriminatorValue } from './createParticipantInfoFromDiscriminatorValue';
+import { createRecordingInfoFromDiscriminatorValue } from './createRecordingInfoFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type MediaStream } from './mediaStream';
+import { type OnlineMeetingRestricted } from './onlineMeetingRestricted';
+import { type Participant } from './participant';
+import { type ParticipantInfo } from './participantInfo';
+import { type RecordingInfo } from './recordingInfo';
+import { serializeMediaStream } from './serializeMediaStream';
+import { serializeOnlineMeetingRestricted } from './serializeOnlineMeetingRestricted';
+import { serializeParticipantInfo } from './serializeParticipantInfo';
+import { serializeRecordingInfo } from './serializeRecordingInfo';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoParticipant(participant: Participant | undefined = {} as Participant) : Record<string, (node: ParseNode) => void> {
     return {

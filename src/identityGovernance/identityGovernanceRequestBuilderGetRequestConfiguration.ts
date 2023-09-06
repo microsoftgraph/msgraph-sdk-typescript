@@ -1,5 +1,5 @@
-import {IdentityGovernanceRequestBuilderGetQueryParameters} from './identityGovernanceRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentityGovernanceRequestBuilderGetQueryParameters } from './identityGovernanceRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IdentityGovernanceRequestBuilderGetRequestConfiguration {
     /**

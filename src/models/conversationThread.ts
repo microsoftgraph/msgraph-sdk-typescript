@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import type {Post} from './post';
-import type {Recipient} from './recipient';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type Post } from './post';
+import { type Recipient } from './recipient';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ConversationThread extends Entity, Parsable {
     /**

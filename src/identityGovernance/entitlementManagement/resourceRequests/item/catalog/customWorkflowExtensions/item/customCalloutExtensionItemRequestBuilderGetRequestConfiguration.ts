@@ -1,5 +1,5 @@
-import {CustomCalloutExtensionItemRequestBuilderGetQueryParameters} from './customCalloutExtensionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CustomCalloutExtensionItemRequestBuilderGetQueryParameters } from './customCalloutExtensionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CustomCalloutExtensionItemRequestBuilderGetRequestConfiguration {
     /**

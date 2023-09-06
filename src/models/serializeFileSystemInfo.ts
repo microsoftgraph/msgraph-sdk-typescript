@@ -1,5 +1,5 @@
-import type {FileSystemInfo} from './fileSystemInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type FileSystemInfo } from './fileSystemInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeFileSystemInfo(writer: SerializationWriter, fileSystemInfo: FileSystemInfo | undefined = {} as FileSystemInfo) : void {
         writer.writeDateValue("createdDateTime", fileSystemInfo.createdDateTime);

@@ -1,6 +1,6 @@
-import {deserializeIntoAndroidLobApp} from './deserializeIntoAndroidLobApp';
-import {AndroidLobApp} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAndroidLobApp } from './deserializeIntoAndroidLobApp';
+import { type AndroidLobApp } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAndroidLobAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

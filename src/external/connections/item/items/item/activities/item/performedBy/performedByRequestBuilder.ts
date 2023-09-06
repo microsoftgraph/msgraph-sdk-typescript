@@ -1,12 +1,11 @@
-import {Identity} from '../../../../../../../../models/externalConnectors/';
-import {createIdentityFromDiscriminatorValue} from '../../../../../../../../models/externalConnectors/createIdentityFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {PerformedByRequestBuilderGetRequestConfiguration} from './performedByRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Identity } from '../../../../../../../../models/externalConnectors/';
+import { createIdentityFromDiscriminatorValue } from '../../../../../../../../models/externalConnectors/createIdentityFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { type PerformedByRequestBuilderGetRequestConfiguration } from './performedByRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the performedBy property of the microsoft.graph.externalConnectors.externalActivity entity.

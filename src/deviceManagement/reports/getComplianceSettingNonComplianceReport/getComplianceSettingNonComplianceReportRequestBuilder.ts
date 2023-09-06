@@ -1,13 +1,12 @@
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {deserializeIntoGetComplianceSettingNonComplianceReportPostRequestBody} from './deserializeIntoGetComplianceSettingNonComplianceReportPostRequestBody';
-import type {GetComplianceSettingNonComplianceReportPostRequestBody} from './getComplianceSettingNonComplianceReportPostRequestBody';
-import {GetComplianceSettingNonComplianceReportRequestBuilderPostRequestConfiguration} from './getComplianceSettingNonComplianceReportRequestBuilderPostRequestConfiguration';
-import {serializeGetComplianceSettingNonComplianceReportPostRequestBody} from './serializeGetComplianceSettingNonComplianceReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { deserializeIntoGetComplianceSettingNonComplianceReportPostRequestBody } from './deserializeIntoGetComplianceSettingNonComplianceReportPostRequestBody';
+import { type GetComplianceSettingNonComplianceReportPostRequestBody } from './getComplianceSettingNonComplianceReportPostRequestBody';
+import { type GetComplianceSettingNonComplianceReportRequestBuilderPostRequestConfiguration } from './getComplianceSettingNonComplianceReportRequestBuilderPostRequestConfiguration';
+import { serializeGetComplianceSettingNonComplianceReportPostRequestBody } from './serializeGetComplianceSettingNonComplianceReportPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getComplianceSettingNonComplianceReport method.

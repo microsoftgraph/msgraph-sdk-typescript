@@ -1,5 +1,5 @@
-import {LocalizedNotificationMessagesRequestBuilderGetQueryParameters} from './localizedNotificationMessagesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LocalizedNotificationMessagesRequestBuilderGetQueryParameters } from './localizedNotificationMessagesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LocalizedNotificationMessagesRequestBuilderGetRequestConfiguration {
     /**

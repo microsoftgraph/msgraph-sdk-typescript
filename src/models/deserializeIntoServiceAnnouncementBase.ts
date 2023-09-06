@@ -1,9 +1,9 @@
-import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {KeyValuePair} from './keyValuePair';
-import {serializeKeyValuePair} from './serializeKeyValuePair';
-import type {ServiceAnnouncementBase} from './serviceAnnouncementBase';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createKeyValuePairFromDiscriminatorValue } from './createKeyValuePairFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type KeyValuePair } from './keyValuePair';
+import { serializeKeyValuePair } from './serializeKeyValuePair';
+import { type ServiceAnnouncementBase } from './serviceAnnouncementBase';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceAnnouncementBase(serviceAnnouncementBase: ServiceAnnouncementBase | undefined = {} as ServiceAnnouncementBase) : Record<string, (node: ParseNode) => void> {
     return {

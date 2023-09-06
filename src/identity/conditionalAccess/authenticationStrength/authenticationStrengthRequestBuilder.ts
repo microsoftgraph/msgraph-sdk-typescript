@@ -1,18 +1,17 @@
-import type {AuthenticationStrengthRoot} from '../../../models/authenticationStrengthRoot';
-import {createAuthenticationStrengthRootFromDiscriminatorValue} from '../../../models/createAuthenticationStrengthRootFromDiscriminatorValue';
-import {deserializeIntoAuthenticationStrengthRoot} from '../../../models/deserializeIntoAuthenticationStrengthRoot';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAuthenticationStrengthRoot} from '../../../models/serializeAuthenticationStrengthRoot';
-import {AuthenticationMethodModesRequestBuilder} from './authenticationMethodModes/authenticationMethodModesRequestBuilder';
-import {AuthenticationStrengthRequestBuilderDeleteRequestConfiguration} from './authenticationStrengthRequestBuilderDeleteRequestConfiguration';
-import {AuthenticationStrengthRequestBuilderGetRequestConfiguration} from './authenticationStrengthRequestBuilderGetRequestConfiguration';
-import {AuthenticationStrengthRequestBuilderPatchRequestConfiguration} from './authenticationStrengthRequestBuilderPatchRequestConfiguration';
-import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationStrengthRoot } from '../../../models/authenticationStrengthRoot';
+import { createAuthenticationStrengthRootFromDiscriminatorValue } from '../../../models/createAuthenticationStrengthRootFromDiscriminatorValue';
+import { deserializeIntoAuthenticationStrengthRoot } from '../../../models/deserializeIntoAuthenticationStrengthRoot';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAuthenticationStrengthRoot } from '../../../models/serializeAuthenticationStrengthRoot';
+import { AuthenticationMethodModesRequestBuilder } from './authenticationMethodModes/authenticationMethodModesRequestBuilder';
+import { type AuthenticationStrengthRequestBuilderDeleteRequestConfiguration } from './authenticationStrengthRequestBuilderDeleteRequestConfiguration';
+import { type AuthenticationStrengthRequestBuilderGetRequestConfiguration } from './authenticationStrengthRequestBuilderGetRequestConfiguration';
+import { type AuthenticationStrengthRequestBuilderPatchRequestConfiguration } from './authenticationStrengthRequestBuilderPatchRequestConfiguration';
+import { PoliciesRequestBuilder } from './policies/policiesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity.

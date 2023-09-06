@@ -1,7 +1,7 @@
-import type {BookingCustomerBase} from './bookingCustomerBase';
-import type {Phone} from './phone';
-import type {PhysicalAddress} from './physicalAddress';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BookingCustomerBase } from './bookingCustomerBase';
+import { type Phone } from './phone';
+import { type PhysicalAddress } from './physicalAddress';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BookingCustomer extends BookingCustomerBase, Parsable {
     /**

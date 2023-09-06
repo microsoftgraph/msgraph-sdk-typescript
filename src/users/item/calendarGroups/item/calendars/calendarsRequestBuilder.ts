@@ -1,19 +1,18 @@
-import {CalendarCollectionResponse} from '../../../../../models/';
-import type {Calendar} from '../../../../../models/calendar';
-import {createCalendarCollectionResponseFromDiscriminatorValue} from '../../../../../models/createCalendarCollectionResponseFromDiscriminatorValue';
-import {createCalendarFromDiscriminatorValue} from '../../../../../models/createCalendarFromDiscriminatorValue';
-import {deserializeIntoCalendar} from '../../../../../models/deserializeIntoCalendar';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeCalendar} from '../../../../../models/serializeCalendar';
-import {CalendarsRequestBuilderGetRequestConfiguration} from './calendarsRequestBuilderGetRequestConfiguration';
-import {CalendarsRequestBuilderPostRequestConfiguration} from './calendarsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CalendarItemRequestBuilder} from './item/calendarItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CalendarCollectionResponse } from '../../../../../models/';
+import { type Calendar } from '../../../../../models/calendar';
+import { createCalendarCollectionResponseFromDiscriminatorValue } from '../../../../../models/createCalendarCollectionResponseFromDiscriminatorValue';
+import { createCalendarFromDiscriminatorValue } from '../../../../../models/createCalendarFromDiscriminatorValue';
+import { deserializeIntoCalendar } from '../../../../../models/deserializeIntoCalendar';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeCalendar } from '../../../../../models/serializeCalendar';
+import { type CalendarsRequestBuilderGetRequestConfiguration } from './calendarsRequestBuilderGetRequestConfiguration';
+import { type CalendarsRequestBuilderPostRequestConfiguration } from './calendarsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { CalendarItemRequestBuilder } from './item/calendarItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity.

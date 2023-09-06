@@ -1,5 +1,5 @@
-import type {GeoCoordinates} from './geoCoordinates';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type GeoCoordinates } from './geoCoordinates';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeGeoCoordinates(writer: SerializationWriter, geoCoordinates: GeoCoordinates | undefined = {} as GeoCoordinates) : void {
         writer.writeNumberValue("altitude", geoCoordinates.altitude);

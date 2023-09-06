@@ -1,19 +1,18 @@
-import {TeamsTemplateCollectionResponse} from '../models/';
-import {createTeamsTemplateCollectionResponseFromDiscriminatorValue} from '../models/createTeamsTemplateCollectionResponseFromDiscriminatorValue';
-import {createTeamsTemplateFromDiscriminatorValue} from '../models/createTeamsTemplateFromDiscriminatorValue';
-import {deserializeIntoTeamsTemplate} from '../models/deserializeIntoTeamsTemplate';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeTeamsTemplate} from '../models/serializeTeamsTemplate';
-import type {TeamsTemplate} from '../models/teamsTemplate';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TeamsTemplateItemRequestBuilder} from './item/teamsTemplateItemRequestBuilder';
-import {TeamsTemplatesRequestBuilderGetRequestConfiguration} from './teamsTemplatesRequestBuilderGetRequestConfiguration';
-import {TeamsTemplatesRequestBuilderPostRequestConfiguration} from './teamsTemplatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TeamsTemplateCollectionResponse } from '../models/';
+import { createTeamsTemplateCollectionResponseFromDiscriminatorValue } from '../models/createTeamsTemplateCollectionResponseFromDiscriminatorValue';
+import { createTeamsTemplateFromDiscriminatorValue } from '../models/createTeamsTemplateFromDiscriminatorValue';
+import { deserializeIntoTeamsTemplate } from '../models/deserializeIntoTeamsTemplate';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeTeamsTemplate } from '../models/serializeTeamsTemplate';
+import { type TeamsTemplate } from '../models/teamsTemplate';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { TeamsTemplateItemRequestBuilder } from './item/teamsTemplateItemRequestBuilder';
+import { type TeamsTemplatesRequestBuilderGetRequestConfiguration } from './teamsTemplatesRequestBuilderGetRequestConfiguration';
+import { type TeamsTemplatesRequestBuilderPostRequestConfiguration } from './teamsTemplatesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of teamsTemplate entities.

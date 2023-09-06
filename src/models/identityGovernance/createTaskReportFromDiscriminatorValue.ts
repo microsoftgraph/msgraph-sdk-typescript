@@ -1,6 +1,6 @@
-import {deserializeIntoTaskReport} from './deserializeIntoTaskReport';
-import {TaskReport} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoTaskReport } from './deserializeIntoTaskReport';
+import { type TaskReport } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTaskReportFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

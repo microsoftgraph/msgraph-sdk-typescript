@@ -1,19 +1,18 @@
-import {DeviceCompliancePolicyCollectionResponse} from '../../models/';
-import {createDeviceCompliancePolicyCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceCompliancePolicyCollectionResponseFromDiscriminatorValue';
-import {createDeviceCompliancePolicyFromDiscriminatorValue} from '../../models/createDeviceCompliancePolicyFromDiscriminatorValue';
-import {deserializeIntoDeviceCompliancePolicy} from '../../models/deserializeIntoDeviceCompliancePolicy';
-import type {DeviceCompliancePolicy} from '../../models/deviceCompliancePolicy';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeDeviceCompliancePolicy} from '../../models/serializeDeviceCompliancePolicy';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeviceCompliancePoliciesRequestBuilderGetRequestConfiguration} from './deviceCompliancePoliciesRequestBuilderGetRequestConfiguration';
-import {DeviceCompliancePoliciesRequestBuilderPostRequestConfiguration} from './deviceCompliancePoliciesRequestBuilderPostRequestConfiguration';
-import {DeviceCompliancePolicyItemRequestBuilder} from './item/deviceCompliancePolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceCompliancePolicyCollectionResponse } from '../../models/';
+import { createDeviceCompliancePolicyCollectionResponseFromDiscriminatorValue } from '../../models/createDeviceCompliancePolicyCollectionResponseFromDiscriminatorValue';
+import { createDeviceCompliancePolicyFromDiscriminatorValue } from '../../models/createDeviceCompliancePolicyFromDiscriminatorValue';
+import { deserializeIntoDeviceCompliancePolicy } from '../../models/deserializeIntoDeviceCompliancePolicy';
+import { type DeviceCompliancePolicy } from '../../models/deviceCompliancePolicy';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeDeviceCompliancePolicy } from '../../models/serializeDeviceCompliancePolicy';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DeviceCompliancePoliciesRequestBuilderGetRequestConfiguration } from './deviceCompliancePoliciesRequestBuilderGetRequestConfiguration';
+import { type DeviceCompliancePoliciesRequestBuilderPostRequestConfiguration } from './deviceCompliancePoliciesRequestBuilderPostRequestConfiguration';
+import { DeviceCompliancePolicyItemRequestBuilder } from './item/deviceCompliancePolicyItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
@@ -61,11 +60,11 @@ export class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceCompliancePolicyCollectionResponse>(requestInfo, createDeviceCompliancePolicyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new androidCompliancePolicy object.
+     * Create a new androidWorkProfileCompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicy
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcompliancepolicy-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceCompliancePolicy, requestConfiguration?: DeviceCompliancePoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceCompliancePolicy | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -96,7 +95,7 @@ export class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new androidCompliancePolicy object.
+     * Create a new androidWorkProfileCompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

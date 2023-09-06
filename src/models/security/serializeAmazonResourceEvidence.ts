@@ -1,6 +1,6 @@
-import type {AmazonResourceEvidence} from './amazonResourceEvidence';
-import {serializeAlertEvidence} from './serializeAlertEvidence';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AmazonResourceEvidence } from './amazonResourceEvidence';
+import { serializeAlertEvidence } from './serializeAlertEvidence';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAmazonResourceEvidence(writer: SerializationWriter, amazonResourceEvidence: AmazonResourceEvidence | undefined = {} as AmazonResourceEvidence) : void {
         serializeAlertEvidence(writer, amazonResourceEvidence)

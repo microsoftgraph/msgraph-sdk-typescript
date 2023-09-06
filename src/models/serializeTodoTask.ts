@@ -1,24 +1,24 @@
-import type {AttachmentBase} from './attachmentBase';
-import type {AttachmentSession} from './attachmentSession';
-import type {ChecklistItem} from './checklistItem';
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import type {Extension} from './extension';
-import {Importance} from './importance';
-import type {ItemBody} from './itemBody';
-import type {LinkedResource} from './linkedResource';
-import type {PatternedRecurrence} from './patternedRecurrence';
-import {serializeAttachmentBase} from './serializeAttachmentBase';
-import {serializeAttachmentSession} from './serializeAttachmentSession';
-import {serializeChecklistItem} from './serializeChecklistItem';
-import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {serializeEntity} from './serializeEntity';
-import {serializeExtension} from './serializeExtension';
-import {serializeItemBody} from './serializeItemBody';
-import {serializeLinkedResource} from './serializeLinkedResource';
-import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import {TaskStatus} from './taskStatus';
-import type {TodoTask} from './todoTask';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttachmentBase } from './attachmentBase';
+import { type AttachmentSession } from './attachmentSession';
+import { type ChecklistItem } from './checklistItem';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { type Extension } from './extension';
+import { Importance } from './importance';
+import { type ItemBody } from './itemBody';
+import { type LinkedResource } from './linkedResource';
+import { type PatternedRecurrence } from './patternedRecurrence';
+import { serializeAttachmentBase } from './serializeAttachmentBase';
+import { serializeAttachmentSession } from './serializeAttachmentSession';
+import { serializeChecklistItem } from './serializeChecklistItem';
+import { serializeDateTimeTimeZone } from './serializeDateTimeTimeZone';
+import { serializeEntity } from './serializeEntity';
+import { serializeExtension } from './serializeExtension';
+import { serializeItemBody } from './serializeItemBody';
+import { serializeLinkedResource } from './serializeLinkedResource';
+import { serializePatternedRecurrence } from './serializePatternedRecurrence';
+import { TaskStatus } from './taskStatus';
+import { type TodoTask } from './todoTask';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTodoTask(writer: SerializationWriter, todoTask: TodoTask | undefined = {} as TodoTask) : void {
         serializeEntity(writer, todoTask)

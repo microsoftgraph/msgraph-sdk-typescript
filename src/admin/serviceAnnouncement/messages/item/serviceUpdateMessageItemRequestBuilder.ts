@@ -1,18 +1,17 @@
-import {createServiceUpdateMessageFromDiscriminatorValue} from '../../../../models/createServiceUpdateMessageFromDiscriminatorValue';
-import {deserializeIntoServiceUpdateMessage} from '../../../../models/deserializeIntoServiceUpdateMessage';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeServiceUpdateMessage} from '../../../../models/serializeServiceUpdateMessage';
-import type {ServiceUpdateMessage} from '../../../../models/serviceUpdateMessage';
-import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
-import {AttachmentsArchiveRequestBuilder} from './attachmentsArchive/attachmentsArchiveRequestBuilder';
-import {ServiceUpdateMessageItemRequestBuilderDeleteRequestConfiguration} from './serviceUpdateMessageItemRequestBuilderDeleteRequestConfiguration';
-import {ServiceUpdateMessageItemRequestBuilderGetRequestConfiguration} from './serviceUpdateMessageItemRequestBuilderGetRequestConfiguration';
-import {ServiceUpdateMessageItemRequestBuilderPatchRequestConfiguration} from './serviceUpdateMessageItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createServiceUpdateMessageFromDiscriminatorValue } from '../../../../models/createServiceUpdateMessageFromDiscriminatorValue';
+import { deserializeIntoServiceUpdateMessage } from '../../../../models/deserializeIntoServiceUpdateMessage';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeServiceUpdateMessage } from '../../../../models/serializeServiceUpdateMessage';
+import { type ServiceUpdateMessage } from '../../../../models/serviceUpdateMessage';
+import { AttachmentsRequestBuilder } from './attachments/attachmentsRequestBuilder';
+import { AttachmentsArchiveRequestBuilder } from './attachmentsArchive/attachmentsArchiveRequestBuilder';
+import { type ServiceUpdateMessageItemRequestBuilderDeleteRequestConfiguration } from './serviceUpdateMessageItemRequestBuilderDeleteRequestConfiguration';
+import { type ServiceUpdateMessageItemRequestBuilderGetRequestConfiguration } from './serviceUpdateMessageItemRequestBuilderGetRequestConfiguration';
+import { type ServiceUpdateMessageItemRequestBuilderPatchRequestConfiguration } from './serviceUpdateMessageItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.

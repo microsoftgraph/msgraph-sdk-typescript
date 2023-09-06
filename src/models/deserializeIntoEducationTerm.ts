@@ -1,6 +1,5 @@
-import type {EducationTerm} from './educationTerm';
-import {DateOnly} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EducationTerm } from './educationTerm';
+import { DateOnly, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationTerm(educationTerm: EducationTerm | undefined = {} as EducationTerm) : Record<string, (node: ParseNode) => void> {
     return {

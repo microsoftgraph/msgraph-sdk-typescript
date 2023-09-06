@@ -1,8 +1,8 @@
-import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {Percentile_ExcPostRequestBody} from './percentile_ExcPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createJsonFromDiscriminatorValue } from '../../../../../../../models/createJsonFromDiscriminatorValue';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type Percentile_ExcPostRequestBody } from './percentile_ExcPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPercentile_ExcPostRequestBody(percentile_ExcPostRequestBody: Percentile_ExcPostRequestBody | undefined = {} as Percentile_ExcPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

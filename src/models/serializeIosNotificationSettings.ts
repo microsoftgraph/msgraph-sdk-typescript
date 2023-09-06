@@ -1,6 +1,6 @@
-import {IosNotificationAlertType} from './iosNotificationAlertType';
-import type {IosNotificationSettings} from './iosNotificationSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { IosNotificationAlertType } from './iosNotificationAlertType';
+import { type IosNotificationSettings } from './iosNotificationSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIosNotificationSettings(writer: SerializationWriter, iosNotificationSettings: IosNotificationSettings | undefined = {} as IosNotificationSettings) : void {
         writer.writeEnumValue<IosNotificationAlertType>("alertType", iosNotificationSettings.alertType);

@@ -1,16 +1,15 @@
-import type {Application} from '../models/application';
-import {createApplicationFromDiscriminatorValue} from '../models/createApplicationFromDiscriminatorValue';
-import {deserializeIntoApplication} from '../models/deserializeIntoApplication';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeApplication} from '../models/serializeApplication';
-import {ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration} from './applicationsWithAppIdRequestBuilderDeleteRequestConfiguration';
-import {ApplicationsWithAppIdRequestBuilderGetRequestConfiguration} from './applicationsWithAppIdRequestBuilderGetRequestConfiguration';
-import {ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration} from './applicationsWithAppIdRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Application } from '../models/application';
+import { createApplicationFromDiscriminatorValue } from '../models/createApplicationFromDiscriminatorValue';
+import { deserializeIntoApplication } from '../models/deserializeIntoApplication';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeApplication } from '../models/serializeApplication';
+import { type ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration } from './applicationsWithAppIdRequestBuilderDeleteRequestConfiguration';
+import { type ApplicationsWithAppIdRequestBuilderGetRequestConfiguration } from './applicationsWithAppIdRequestBuilderGetRequestConfiguration';
+import { type ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration } from './applicationsWithAppIdRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of application entities.

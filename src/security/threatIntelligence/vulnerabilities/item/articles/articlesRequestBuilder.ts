@@ -1,14 +1,13 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {ArticleCollectionResponse} from '../../../../../models/security/';
-import {createArticleCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createArticleCollectionResponseFromDiscriminatorValue';
-import {ArticlesRequestBuilderGetRequestConfiguration} from './articlesRequestBuilderGetRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ArticleItemRequestBuilder} from './item/articleItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type ArticleCollectionResponse } from '../../../../../models/security/';
+import { createArticleCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createArticleCollectionResponseFromDiscriminatorValue';
+import { type ArticlesRequestBuilderGetRequestConfiguration } from './articlesRequestBuilderGetRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ArticleItemRequestBuilder } from './item/articleItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the articles property of the microsoft.graph.security.vulnerability entity.

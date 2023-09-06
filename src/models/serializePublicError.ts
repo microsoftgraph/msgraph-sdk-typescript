@@ -1,9 +1,9 @@
-import type {PublicError} from './publicError';
-import type {PublicErrorDetail} from './publicErrorDetail';
-import type {PublicInnerError} from './publicInnerError';
-import {serializePublicErrorDetail} from './serializePublicErrorDetail';
-import {serializePublicInnerError} from './serializePublicInnerError';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PublicError } from './publicError';
+import { type PublicErrorDetail } from './publicErrorDetail';
+import { type PublicInnerError } from './publicInnerError';
+import { serializePublicErrorDetail } from './serializePublicErrorDetail';
+import { serializePublicInnerError } from './serializePublicInnerError';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePublicError(writer: SerializationWriter, publicError: PublicError | undefined = {} as PublicError) : void {
         writer.writeStringValue("code", publicError.code);

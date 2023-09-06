@@ -1,6 +1,6 @@
-import {BodyType} from './bodyType';
-import type {ItemBody} from './itemBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { BodyType } from './bodyType';
+import { type ItemBody } from './itemBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeItemBody(writer: SerializationWriter, itemBody: ItemBody | undefined = {} as ItemBody) : void {
         writer.writeStringValue("content", itemBody.content);

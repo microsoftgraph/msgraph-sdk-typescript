@@ -1,12 +1,12 @@
-import type {ConversationThread} from './conversationThread';
-import {createPostFromDiscriminatorValue} from './createPostFromDiscriminatorValue';
-import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Post} from './post';
-import type {Recipient} from './recipient';
-import {serializePost} from './serializePost';
-import {serializeRecipient} from './serializeRecipient';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConversationThread } from './conversationThread';
+import { createPostFromDiscriminatorValue } from './createPostFromDiscriminatorValue';
+import { createRecipientFromDiscriminatorValue } from './createRecipientFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Post } from './post';
+import { type Recipient } from './recipient';
+import { serializePost } from './serializePost';
+import { serializeRecipient } from './serializeRecipient';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConversationThread(conversationThread: ConversationThread | undefined = {} as ConversationThread) : Record<string, (node: ParseNode) => void> {
     return {

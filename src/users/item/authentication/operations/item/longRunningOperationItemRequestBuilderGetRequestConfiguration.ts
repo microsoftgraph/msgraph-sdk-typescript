@@ -1,5 +1,5 @@
-import {LongRunningOperationItemRequestBuilderGetQueryParameters} from './longRunningOperationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LongRunningOperationItemRequestBuilderGetQueryParameters } from './longRunningOperationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LongRunningOperationItemRequestBuilderGetRequestConfiguration {
     /**

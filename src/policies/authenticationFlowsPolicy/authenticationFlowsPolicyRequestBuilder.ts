@@ -1,16 +1,15 @@
-import type {AuthenticationFlowsPolicy} from '../../models/authenticationFlowsPolicy';
-import {createAuthenticationFlowsPolicyFromDiscriminatorValue} from '../../models/createAuthenticationFlowsPolicyFromDiscriminatorValue';
-import {deserializeIntoAuthenticationFlowsPolicy} from '../../models/deserializeIntoAuthenticationFlowsPolicy';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeAuthenticationFlowsPolicy} from '../../models/serializeAuthenticationFlowsPolicy';
-import {AuthenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration} from './authenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration';
-import {AuthenticationFlowsPolicyRequestBuilderGetRequestConfiguration} from './authenticationFlowsPolicyRequestBuilderGetRequestConfiguration';
-import {AuthenticationFlowsPolicyRequestBuilderPatchRequestConfiguration} from './authenticationFlowsPolicyRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationFlowsPolicy } from '../../models/authenticationFlowsPolicy';
+import { createAuthenticationFlowsPolicyFromDiscriminatorValue } from '../../models/createAuthenticationFlowsPolicyFromDiscriminatorValue';
+import { deserializeIntoAuthenticationFlowsPolicy } from '../../models/deserializeIntoAuthenticationFlowsPolicy';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeAuthenticationFlowsPolicy } from '../../models/serializeAuthenticationFlowsPolicy';
+import { type AuthenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration } from './authenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration';
+import { type AuthenticationFlowsPolicyRequestBuilderGetRequestConfiguration } from './authenticationFlowsPolicyRequestBuilderGetRequestConfiguration';
+import { type AuthenticationFlowsPolicyRequestBuilderPatchRequestConfiguration } from './authenticationFlowsPolicyRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationFlowsPolicy property of the microsoft.graph.policyRoot entity.

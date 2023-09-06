@@ -1,6 +1,6 @@
-import {ActionState} from './actionState';
-import type {DeviceActionResult} from './deviceActionResult';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ActionState } from './actionState';
+import { type DeviceActionResult } from './deviceActionResult';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceActionResult(deviceActionResult: DeviceActionResult | undefined = {} as DeviceActionResult) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
-import {deserializeIntoIdentityCollectionResponse} from './deserializeIntoIdentityCollectionResponse';
-import {IdentityCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIdentityCollectionResponse } from './deserializeIntoIdentityCollectionResponse';
+import { type IdentityCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIdentityCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

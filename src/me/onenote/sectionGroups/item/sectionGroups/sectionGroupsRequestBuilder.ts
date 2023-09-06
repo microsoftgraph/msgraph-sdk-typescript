@@ -1,14 +1,13 @@
-import {SectionGroupCollectionResponse} from '../../../../../models/';
-import {createSectionGroupCollectionResponseFromDiscriminatorValue} from '../../../../../models/createSectionGroupCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {SectionGroupItemRequestBuilder} from './item/sectionGroupItemRequestBuilder';
-import {SectionGroupsRequestBuilderGetRequestConfiguration} from './sectionGroupsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SectionGroupCollectionResponse } from '../../../../../models/';
+import { createSectionGroupCollectionResponseFromDiscriminatorValue } from '../../../../../models/createSectionGroupCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { SectionGroupItemRequestBuilder } from './item/sectionGroupItemRequestBuilder';
+import { type SectionGroupsRequestBuilderGetRequestConfiguration } from './sectionGroupsRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.

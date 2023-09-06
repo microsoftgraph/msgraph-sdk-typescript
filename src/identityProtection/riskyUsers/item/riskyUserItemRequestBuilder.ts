@@ -1,17 +1,16 @@
-import {createRiskyUserFromDiscriminatorValue} from '../../../models/createRiskyUserFromDiscriminatorValue';
-import {deserializeIntoRiskyUser} from '../../../models/deserializeIntoRiskyUser';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {RiskyUser} from '../../../models/riskyUser';
-import {serializeRiskyUser} from '../../../models/serializeRiskyUser';
-import {HistoryRequestBuilder} from './history/historyRequestBuilder';
-import {RiskyUserItemRequestBuilderDeleteRequestConfiguration} from './riskyUserItemRequestBuilderDeleteRequestConfiguration';
-import {RiskyUserItemRequestBuilderGetRequestConfiguration} from './riskyUserItemRequestBuilderGetRequestConfiguration';
-import {RiskyUserItemRequestBuilderPatchRequestConfiguration} from './riskyUserItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createRiskyUserFromDiscriminatorValue } from '../../../models/createRiskyUserFromDiscriminatorValue';
+import { deserializeIntoRiskyUser } from '../../../models/deserializeIntoRiskyUser';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type RiskyUser } from '../../../models/riskyUser';
+import { serializeRiskyUser } from '../../../models/serializeRiskyUser';
+import { HistoryRequestBuilder } from './history/historyRequestBuilder';
+import { type RiskyUserItemRequestBuilderDeleteRequestConfiguration } from './riskyUserItemRequestBuilderDeleteRequestConfiguration';
+import { type RiskyUserItemRequestBuilderGetRequestConfiguration } from './riskyUserItemRequestBuilderGetRequestConfiguration';
+import { type RiskyUserItemRequestBuilderPatchRequestConfiguration } from './riskyUserItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.

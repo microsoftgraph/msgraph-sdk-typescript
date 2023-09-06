@@ -1,12 +1,12 @@
-import {createEdiscoveryReviewSetFromDiscriminatorValue} from './createEdiscoveryReviewSetFromDiscriminatorValue';
-import {createEdiscoverySearchFromDiscriminatorValue} from './createEdiscoverySearchFromDiscriminatorValue';
-import {deserializeIntoCaseOperation} from './deserializeIntoCaseOperation';
-import type {EdiscoveryAddToReviewSetOperation} from './ediscoveryAddToReviewSetOperation';
-import type {EdiscoveryReviewSet} from './ediscoveryReviewSet';
-import type {EdiscoverySearch} from './ediscoverySearch';
-import {serializeEdiscoveryReviewSet} from './serializeEdiscoveryReviewSet';
-import {serializeEdiscoverySearch} from './serializeEdiscoverySearch';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createEdiscoveryReviewSetFromDiscriminatorValue } from './createEdiscoveryReviewSetFromDiscriminatorValue';
+import { createEdiscoverySearchFromDiscriminatorValue } from './createEdiscoverySearchFromDiscriminatorValue';
+import { deserializeIntoCaseOperation } from './deserializeIntoCaseOperation';
+import { type EdiscoveryAddToReviewSetOperation } from './ediscoveryAddToReviewSetOperation';
+import { type EdiscoveryReviewSet } from './ediscoveryReviewSet';
+import { type EdiscoverySearch } from './ediscoverySearch';
+import { serializeEdiscoveryReviewSet } from './serializeEdiscoveryReviewSet';
+import { serializeEdiscoverySearch } from './serializeEdiscoverySearch';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryAddToReviewSetOperation(ediscoveryAddToReviewSetOperation: EdiscoveryAddToReviewSetOperation | undefined = {} as EdiscoveryAddToReviewSetOperation) : Record<string, (node: ParseNode) => void> {
     return {

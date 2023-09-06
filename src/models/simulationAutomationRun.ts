@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import {SimulationAutomationRunStatus} from './simulationAutomationRunStatus';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { SimulationAutomationRunStatus } from './simulationAutomationRunStatus';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SimulationAutomationRun extends Entity, Parsable {
     /**

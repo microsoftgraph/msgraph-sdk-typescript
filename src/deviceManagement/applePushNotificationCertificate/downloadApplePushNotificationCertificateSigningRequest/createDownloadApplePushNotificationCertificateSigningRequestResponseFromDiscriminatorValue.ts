@@ -1,6 +1,6 @@
-import {deserializeIntoDownloadApplePushNotificationCertificateSigningRequestResponse} from './deserializeIntoDownloadApplePushNotificationCertificateSigningRequestResponse';
-import {DownloadApplePushNotificationCertificateSigningRequestResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDownloadApplePushNotificationCertificateSigningRequestResponse } from './deserializeIntoDownloadApplePushNotificationCertificateSigningRequestResponse';
+import { type DownloadApplePushNotificationCertificateSigningRequestResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,5 +1,5 @@
-import {AuthenticationMethodFeature} from './authenticationMethodFeature';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { AuthenticationMethodFeature } from './authenticationMethodFeature';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserRegistrationFeatureCount extends AdditionalDataHolder, Parsable {
     /**

@@ -1,9 +1,9 @@
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
-import {createEdiscoveryReviewTagFromDiscriminatorValue} from './createEdiscoveryReviewTagFromDiscriminatorValue';
-import type {EdiscoveryReviewTag} from './ediscoveryReviewTag';
-import type {EdiscoveryReviewTagCollectionResponse} from './ediscoveryReviewTagCollectionResponse';
-import {serializeEdiscoveryReviewTag} from './serializeEdiscoveryReviewTag';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../deserializeIntoBaseCollectionPaginationCountResponse';
+import { createEdiscoveryReviewTagFromDiscriminatorValue } from './createEdiscoveryReviewTagFromDiscriminatorValue';
+import { type EdiscoveryReviewTag } from './ediscoveryReviewTag';
+import { type EdiscoveryReviewTagCollectionResponse } from './ediscoveryReviewTagCollectionResponse';
+import { serializeEdiscoveryReviewTag } from './serializeEdiscoveryReviewTag';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryReviewTagCollectionResponse(ediscoveryReviewTagCollectionResponse: EdiscoveryReviewTagCollectionResponse | undefined = {} as EdiscoveryReviewTagCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

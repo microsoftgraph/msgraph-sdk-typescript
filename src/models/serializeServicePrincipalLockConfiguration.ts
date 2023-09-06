@@ -1,5 +1,5 @@
-import type {ServicePrincipalLockConfiguration} from './servicePrincipalLockConfiguration';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ServicePrincipalLockConfiguration } from './servicePrincipalLockConfiguration';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeServicePrincipalLockConfiguration(writer: SerializationWriter, servicePrincipalLockConfiguration: ServicePrincipalLockConfiguration | undefined = {} as ServicePrincipalLockConfiguration) : void {
         writer.writeBooleanValue("allProperties", servicePrincipalLockConfiguration.allProperties);

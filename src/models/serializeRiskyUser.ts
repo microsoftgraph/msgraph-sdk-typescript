@@ -1,11 +1,11 @@
-import {RiskDetail} from './riskDetail';
-import {RiskLevel} from './riskLevel';
-import {RiskState} from './riskState';
-import type {RiskyUser} from './riskyUser';
-import type {RiskyUserHistoryItem} from './riskyUserHistoryItem';
-import {serializeEntity} from './serializeEntity';
-import {serializeRiskyUserHistoryItem} from './serializeRiskyUserHistoryItem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { RiskDetail } from './riskDetail';
+import { RiskLevel } from './riskLevel';
+import { RiskState } from './riskState';
+import { type RiskyUser } from './riskyUser';
+import { type RiskyUserHistoryItem } from './riskyUserHistoryItem';
+import { serializeEntity } from './serializeEntity';
+import { serializeRiskyUserHistoryItem } from './serializeRiskyUserHistoryItem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRiskyUser(writer: SerializationWriter, riskyUser: RiskyUser | undefined = {} as RiskyUser) : void {
         serializeEntity(writer, riskyUser)

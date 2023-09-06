@@ -1,9 +1,9 @@
-import {deserializeIntoOpenShiftItem} from './deserializeIntoOpenShiftItem';
-import {deserializeIntoScheduleEntity} from './deserializeIntoScheduleEntity';
-import {deserializeIntoShiftItem} from './deserializeIntoShiftItem';
-import {deserializeIntoTimeOffItem} from './deserializeIntoTimeOffItem';
-import {OpenShiftItem, ScheduleEntity, ShiftItem, TimeOffItem} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoOpenShiftItem } from './deserializeIntoOpenShiftItem';
+import { deserializeIntoScheduleEntity } from './deserializeIntoScheduleEntity';
+import { deserializeIntoShiftItem } from './deserializeIntoShiftItem';
+import { deserializeIntoTimeOffItem } from './deserializeIntoTimeOffItem';
+import { type OpenShiftItem, type ScheduleEntity, type ShiftItem, type TimeOffItem } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createScheduleEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,13 +1,11 @@
-import {DayOfWeek} from './dayOfWeek';
-import {serializeTimeZoneBase} from './serializeTimeZoneBase';
-import type {TimeZoneBase} from './timeZoneBase';
-import type {WorkingHours} from './workingHours';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { DayOfWeek } from './dayOfWeek';
+import { serializeTimeZoneBase } from './serializeTimeZoneBase';
+import { type TimeZoneBase } from './timeZoneBase';
+import { type WorkingHours } from './workingHours';
+import { TimeOnly, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkingHours(writer: SerializationWriter, workingHours: WorkingHours | undefined = {} as WorkingHours) : void {
-        if(workingHours.daysOfWeek)
-        writer.writeEnumValue<DayOfWeek>("daysOfWeek", ...workingHours.daysOfWeek);
+        writer.writeCollectionOfObjectValues<DayOfWeek>("daysOfWeek", workingHours.daysOfWeek, object);
         writer.writeTimeOnlyValue("endTime", workingHours.endTime);
         writer.writeStringValue("@odata.type", workingHours.odataType);
         writer.writeTimeOnlyValue("startTime", workingHours.startTime);

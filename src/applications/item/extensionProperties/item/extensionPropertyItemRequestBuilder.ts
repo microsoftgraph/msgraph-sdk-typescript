@@ -1,16 +1,15 @@
-import {createExtensionPropertyFromDiscriminatorValue} from '../../../../models/createExtensionPropertyFromDiscriminatorValue';
-import {deserializeIntoExtensionProperty} from '../../../../models/deserializeIntoExtensionProperty';
-import type {ExtensionProperty} from '../../../../models/extensionProperty';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeExtensionProperty} from '../../../../models/serializeExtensionProperty';
-import {ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration} from './extensionPropertyItemRequestBuilderDeleteRequestConfiguration';
-import {ExtensionPropertyItemRequestBuilderGetRequestConfiguration} from './extensionPropertyItemRequestBuilderGetRequestConfiguration';
-import {ExtensionPropertyItemRequestBuilderPatchRequestConfiguration} from './extensionPropertyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createExtensionPropertyFromDiscriminatorValue } from '../../../../models/createExtensionPropertyFromDiscriminatorValue';
+import { deserializeIntoExtensionProperty } from '../../../../models/deserializeIntoExtensionProperty';
+import { type ExtensionProperty } from '../../../../models/extensionProperty';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeExtensionProperty } from '../../../../models/serializeExtensionProperty';
+import { type ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration } from './extensionPropertyItemRequestBuilderDeleteRequestConfiguration';
+import { type ExtensionPropertyItemRequestBuilderGetRequestConfiguration } from './extensionPropertyItemRequestBuilderGetRequestConfiguration';
+import { type ExtensionPropertyItemRequestBuilderPatchRequestConfiguration } from './extensionPropertyItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.

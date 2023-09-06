@@ -1,8 +1,8 @@
-import {createFilterGroupFromDiscriminatorValue} from './createFilterGroupFromDiscriminatorValue';
-import type {Filter} from './filter';
-import type {FilterGroup} from './filterGroup';
-import {serializeFilterGroup} from './serializeFilterGroup';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createFilterGroupFromDiscriminatorValue } from './createFilterGroupFromDiscriminatorValue';
+import { type Filter } from './filter';
+import { type FilterGroup } from './filterGroup';
+import { serializeFilterGroup } from './serializeFilterGroup';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFilter(filter: Filter | undefined = {} as Filter) : Record<string, (node: ParseNode) => void> {
     return {

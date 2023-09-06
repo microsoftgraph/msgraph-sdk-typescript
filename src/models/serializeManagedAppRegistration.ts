@@ -1,13 +1,13 @@
-import {ManagedAppFlaggedReason} from './managedAppFlaggedReason';
-import type {ManagedAppOperation} from './managedAppOperation';
-import type {ManagedAppPolicy} from './managedAppPolicy';
-import type {ManagedAppRegistration} from './managedAppRegistration';
-import type {MobileAppIdentifier} from './mobileAppIdentifier';
-import {serializeEntity} from './serializeEntity';
-import {serializeManagedAppOperation} from './serializeManagedAppOperation';
-import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
-import {serializeMobileAppIdentifier} from './serializeMobileAppIdentifier';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ManagedAppFlaggedReason } from './managedAppFlaggedReason';
+import { type ManagedAppOperation } from './managedAppOperation';
+import { type ManagedAppPolicy } from './managedAppPolicy';
+import { type ManagedAppRegistration } from './managedAppRegistration';
+import { type MobileAppIdentifier } from './mobileAppIdentifier';
+import { serializeEntity } from './serializeEntity';
+import { serializeManagedAppOperation } from './serializeManagedAppOperation';
+import { serializeManagedAppPolicy } from './serializeManagedAppPolicy';
+import { serializeMobileAppIdentifier } from './serializeMobileAppIdentifier';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeManagedAppRegistration(writer: SerializationWriter, managedAppRegistration: ManagedAppRegistration | undefined = {} as ManagedAppRegistration) : void {
         serializeEntity(writer, managedAppRegistration)
@@ -18,8 +18,7 @@ export function serializeManagedAppRegistration(writer: SerializationWriter, man
         writer.writeStringValue("deviceName", managedAppRegistration.deviceName);
         writer.writeStringValue("deviceTag", managedAppRegistration.deviceTag);
         writer.writeStringValue("deviceType", managedAppRegistration.deviceType);
-        if(managedAppRegistration.flaggedReasons)
-        writer.writeEnumValue<ManagedAppFlaggedReason>("flaggedReasons", ...managedAppRegistration.flaggedReasons);
+        writer.writeCollectionOfObjectValues<ManagedAppFlaggedReason>("flaggedReasons", managedAppRegistration.flaggedReasons, object);
         writer.writeCollectionOfObjectValues<ManagedAppPolicy>("intendedPolicies", managedAppRegistration.intendedPolicies, serializeManagedAppPolicy);
         writer.writeDateValue("lastSyncDateTime", managedAppRegistration.lastSyncDateTime);
         writer.writeStringValue("managementSdkVersion", managedAppRegistration.managementSdkVersion);

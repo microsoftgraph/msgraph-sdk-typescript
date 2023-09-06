@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeSubjectRightsRequest} from './serializeSubjectRightsRequest';
-import type {SubjectRightsRequest} from './subjectRightsRequest';
-import type {SubjectRightsRequestCollectionResponse} from './subjectRightsRequestCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeSubjectRightsRequest } from './serializeSubjectRightsRequest';
+import { type SubjectRightsRequest } from './subjectRightsRequest';
+import { type SubjectRightsRequestCollectionResponse } from './subjectRightsRequestCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSubjectRightsRequestCollectionResponse(writer: SerializationWriter, subjectRightsRequestCollectionResponse: SubjectRightsRequestCollectionResponse | undefined = {} as SubjectRightsRequestCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, subjectRightsRequestCollectionResponse)

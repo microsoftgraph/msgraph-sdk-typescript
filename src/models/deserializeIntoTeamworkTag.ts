@@ -1,10 +1,10 @@
-import {createTeamworkTagMemberFromDiscriminatorValue} from './createTeamworkTagMemberFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeTeamworkTagMember} from './serializeTeamworkTagMember';
-import type {TeamworkTag} from './teamworkTag';
-import type {TeamworkTagMember} from './teamworkTagMember';
-import {TeamworkTagType} from './teamworkTagType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTeamworkTagMemberFromDiscriminatorValue } from './createTeamworkTagMemberFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeTeamworkTagMember } from './serializeTeamworkTagMember';
+import { type TeamworkTag } from './teamworkTag';
+import { type TeamworkTagMember } from './teamworkTagMember';
+import { TeamworkTagType } from './teamworkTagType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamworkTag(teamworkTag: TeamworkTag | undefined = {} as TeamworkTag) : Record<string, (node: ParseNode) => void> {
     return {

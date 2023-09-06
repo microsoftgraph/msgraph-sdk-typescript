@@ -1,19 +1,18 @@
-import {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponse} from '../../models/';
-import {createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponseFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponseFromDiscriminatorValue';
-import {createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId} from '../../models/deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId} from '../../models/serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
-import type {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId} from '../../models/userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilder} from './item/userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilder';
-import {UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponse } from '../../models/';
+import { createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponseFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponseFromDiscriminatorValue';
+import { createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId } from '../../models/deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId } from '../../models/serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
+import { type UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId } from '../../models/userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilder } from './item/userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilder';
+import { type UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilderPostRequestConfiguration } from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property of the microsoft.graph.deviceManagement entity.

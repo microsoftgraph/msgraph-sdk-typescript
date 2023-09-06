@@ -1,30 +1,29 @@
-import {createDefenderDetectedMalwareActionsFromDiscriminatorValue} from './createDefenderDetectedMalwareActionsFromDiscriminatorValue';
-import {createEdgeSearchEngineBaseFromDiscriminatorValue} from './createEdgeSearchEngineBaseFromDiscriminatorValue';
-import {createWindows10NetworkProxyServerFromDiscriminatorValue} from './createWindows10NetworkProxyServerFromDiscriminatorValue';
-import {DefenderCloudBlockLevelType} from './defenderCloudBlockLevelType';
-import type {DefenderDetectedMalwareActions} from './defenderDetectedMalwareActions';
-import {DefenderMonitorFileActivity} from './defenderMonitorFileActivity';
-import {DefenderPromptForSampleSubmission} from './defenderPromptForSampleSubmission';
-import {DefenderScanType} from './defenderScanType';
-import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
-import {DiagnosticDataSubmissionMode} from './diagnosticDataSubmissionMode';
-import {EdgeCookiePolicy} from './edgeCookiePolicy';
-import type {EdgeSearchEngineBase} from './edgeSearchEngineBase';
-import {RequiredPasswordType} from './requiredPasswordType';
-import {SafeSearchFilterType} from './safeSearchFilterType';
-import {serializeDefenderDetectedMalwareActions} from './serializeDefenderDetectedMalwareActions';
-import {serializeEdgeSearchEngineBase} from './serializeEdgeSearchEngineBase';
-import {serializeWindows10NetworkProxyServer} from './serializeWindows10NetworkProxyServer';
-import {StateManagementSetting} from './stateManagementSetting';
-import {VisibilitySetting} from './visibilitySetting';
-import {WeeklySchedule} from './weeklySchedule';
-import type {Windows10GeneralConfiguration} from './windows10GeneralConfiguration';
-import type {Windows10NetworkProxyServer} from './windows10NetworkProxyServer';
-import {WindowsSpotlightEnablementSettings} from './windowsSpotlightEnablementSettings';
-import {WindowsStartMenuAppListVisibilityType} from './windowsStartMenuAppListVisibilityType';
-import {WindowsStartMenuModeType} from './windowsStartMenuModeType';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDefenderDetectedMalwareActionsFromDiscriminatorValue } from './createDefenderDetectedMalwareActionsFromDiscriminatorValue';
+import { createEdgeSearchEngineBaseFromDiscriminatorValue } from './createEdgeSearchEngineBaseFromDiscriminatorValue';
+import { createWindows10NetworkProxyServerFromDiscriminatorValue } from './createWindows10NetworkProxyServerFromDiscriminatorValue';
+import { DefenderCloudBlockLevelType } from './defenderCloudBlockLevelType';
+import { type DefenderDetectedMalwareActions } from './defenderDetectedMalwareActions';
+import { DefenderMonitorFileActivity } from './defenderMonitorFileActivity';
+import { DefenderPromptForSampleSubmission } from './defenderPromptForSampleSubmission';
+import { DefenderScanType } from './defenderScanType';
+import { deserializeIntoDeviceConfiguration } from './deserializeIntoDeviceConfiguration';
+import { DiagnosticDataSubmissionMode } from './diagnosticDataSubmissionMode';
+import { EdgeCookiePolicy } from './edgeCookiePolicy';
+import { type EdgeSearchEngineBase } from './edgeSearchEngineBase';
+import { RequiredPasswordType } from './requiredPasswordType';
+import { SafeSearchFilterType } from './safeSearchFilterType';
+import { serializeDefenderDetectedMalwareActions } from './serializeDefenderDetectedMalwareActions';
+import { serializeEdgeSearchEngineBase } from './serializeEdgeSearchEngineBase';
+import { serializeWindows10NetworkProxyServer } from './serializeWindows10NetworkProxyServer';
+import { StateManagementSetting } from './stateManagementSetting';
+import { VisibilitySetting } from './visibilitySetting';
+import { WeeklySchedule } from './weeklySchedule';
+import { type Windows10GeneralConfiguration } from './windows10GeneralConfiguration';
+import { type Windows10NetworkProxyServer } from './windows10NetworkProxyServer';
+import { WindowsSpotlightEnablementSettings } from './windowsSpotlightEnablementSettings';
+import { WindowsStartMenuAppListVisibilityType } from './windowsStartMenuAppListVisibilityType';
+import { WindowsStartMenuModeType } from './windowsStartMenuModeType';
+import { TimeOnly, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindows10GeneralConfiguration(windows10GeneralConfiguration: Windows10GeneralConfiguration | undefined = {} as Windows10GeneralConfiguration) : Record<string, (node: ParseNode) => void> {
     return {
@@ -177,7 +176,7 @@ export function deserializeIntoWindows10GeneralConfiguration(windows10GeneralCon
         "smartScreenBlockPromptOverrideForFiles": n => { windows10GeneralConfiguration.smartScreenBlockPromptOverrideForFiles = n.getBooleanValue(); },
         "smartScreenEnableAppInstallControl": n => { windows10GeneralConfiguration.smartScreenEnableAppInstallControl = n.getBooleanValue(); },
         "startBlockUnpinningAppsFromTaskbar": n => { windows10GeneralConfiguration.startBlockUnpinningAppsFromTaskbar = n.getBooleanValue(); },
-        "startMenuAppListVisibility": n => { windows10GeneralConfiguration.startMenuAppListVisibility = n.getEnumValue<WindowsStartMenuAppListVisibilityType>(WindowsStartMenuAppListVisibilityType); },
+        "startMenuAppListVisibility": n => { windows10GeneralConfiguration.startMenuAppListVisibility = n.getCollectionOfEnumValues<WindowsStartMenuAppListVisibilityType>(WindowsStartMenuAppListVisibilityType); },
         "startMenuHideChangeAccountSettings": n => { windows10GeneralConfiguration.startMenuHideChangeAccountSettings = n.getBooleanValue(); },
         "startMenuHideFrequentlyUsedApps": n => { windows10GeneralConfiguration.startMenuHideFrequentlyUsedApps = n.getBooleanValue(); },
         "startMenuHideHibernate": n => { windows10GeneralConfiguration.startMenuHideHibernate = n.getBooleanValue(); },

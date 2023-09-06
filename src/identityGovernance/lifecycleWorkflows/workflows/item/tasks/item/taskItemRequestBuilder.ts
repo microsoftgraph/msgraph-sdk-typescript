@@ -1,17 +1,16 @@
-import {createTaskFromDiscriminatorValue} from '../../../../../../models/identityGovernance/createTaskFromDiscriminatorValue';
-import {deserializeIntoTask} from '../../../../../../models/identityGovernance/deserializeIntoTask';
-import {serializeTask} from '../../../../../../models/identityGovernance/serializeTask';
-import type {Task} from '../../../../../../models/identityGovernance/task';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {TaskItemRequestBuilderDeleteRequestConfiguration} from './taskItemRequestBuilderDeleteRequestConfiguration';
-import {TaskItemRequestBuilderGetRequestConfiguration} from './taskItemRequestBuilderGetRequestConfiguration';
-import {TaskItemRequestBuilderPatchRequestConfiguration} from './taskItemRequestBuilderPatchRequestConfiguration';
-import {TaskProcessingResultsRequestBuilder} from './taskProcessingResults/taskProcessingResultsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTaskFromDiscriminatorValue } from '../../../../../../models/identityGovernance/createTaskFromDiscriminatorValue';
+import { deserializeIntoTask } from '../../../../../../models/identityGovernance/deserializeIntoTask';
+import { serializeTask } from '../../../../../../models/identityGovernance/serializeTask';
+import { type Task } from '../../../../../../models/identityGovernance/task';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type TaskItemRequestBuilderDeleteRequestConfiguration } from './taskItemRequestBuilderDeleteRequestConfiguration';
+import { type TaskItemRequestBuilderGetRequestConfiguration } from './taskItemRequestBuilderGetRequestConfiguration';
+import { type TaskItemRequestBuilderPatchRequestConfiguration } from './taskItemRequestBuilderPatchRequestConfiguration';
+import { TaskProcessingResultsRequestBuilder } from './taskProcessingResults/taskProcessingResultsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowBase entity.

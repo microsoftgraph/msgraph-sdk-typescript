@@ -1,13 +1,13 @@
-import type {LocalizedNotificationMessage} from './localizedNotificationMessage';
-import type {NotificationMessageTemplate} from './notificationMessageTemplate';
-import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
-import {serializeEntity} from './serializeEntity';
-import {serializeLocalizedNotificationMessage} from './serializeLocalizedNotificationMessage';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type LocalizedNotificationMessage } from './localizedNotificationMessage';
+import { type NotificationMessageTemplate } from './notificationMessageTemplate';
+import { NotificationTemplateBrandingOptions } from './notificationTemplateBrandingOptions';
+import { serializeEntity } from './serializeEntity';
+import { serializeLocalizedNotificationMessage } from './serializeLocalizedNotificationMessage';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeNotificationMessageTemplate(writer: SerializationWriter, notificationMessageTemplate: NotificationMessageTemplate | undefined = {} as NotificationMessageTemplate) : void {
         serializeEntity(writer, notificationMessageTemplate)
-        writer.writeEnumValue<NotificationTemplateBrandingOptions>("brandingOptions", notificationMessageTemplate.brandingOptions);
+        writer.writeEnumValue<NotificationTemplateBrandingOptions[]>("brandingOptions", notificationMessageTemplate.brandingOptions);
         writer.writeStringValue("defaultLocale", notificationMessageTemplate.defaultLocale);
         writer.writeStringValue("displayName", notificationMessageTemplate.displayName);
         writer.writeDateValue("lastModifiedDateTime", notificationMessageTemplate.lastModifiedDateTime);

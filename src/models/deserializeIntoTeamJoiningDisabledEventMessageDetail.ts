@@ -1,9 +1,9 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import type {IdentitySet} from './identitySet';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {TeamJoiningDisabledEventMessageDetail} from './teamJoiningDisabledEventMessageDetail';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { deserializeIntoEventMessageDetail } from './deserializeIntoEventMessageDetail';
+import { type IdentitySet } from './identitySet';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type TeamJoiningDisabledEventMessageDetail } from './teamJoiningDisabledEventMessageDetail';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamJoiningDisabledEventMessageDetail(teamJoiningDisabledEventMessageDetail: TeamJoiningDisabledEventMessageDetail | undefined = {} as TeamJoiningDisabledEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

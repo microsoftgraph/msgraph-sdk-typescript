@@ -1,5 +1,5 @@
-import type {SignInActivity} from './signInActivity';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SignInActivity } from './signInActivity';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSignInActivity(writer: SerializationWriter, signInActivity: SignInActivity | undefined = {} as SignInActivity) : void {
         writer.writeDateValue("lastNonInteractiveSignInDateTime", signInActivity.lastNonInteractiveSignInDateTime);

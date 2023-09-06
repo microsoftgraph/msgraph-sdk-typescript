@@ -1,6 +1,6 @@
-import {deserializeIntoTaskCollectionResponse} from './deserializeIntoTaskCollectionResponse';
-import {TaskCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoTaskCollectionResponse } from './deserializeIntoTaskCollectionResponse';
+import { type TaskCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTaskCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

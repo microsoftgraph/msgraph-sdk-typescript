@@ -1,6 +1,6 @@
-import {deserializeIntoMediaContentRatingCanada} from './deserializeIntoMediaContentRatingCanada';
-import {MediaContentRatingCanada} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoMediaContentRatingCanada } from './deserializeIntoMediaContentRatingCanada';
+import { type MediaContentRatingCanada } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMediaContentRatingCanadaFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

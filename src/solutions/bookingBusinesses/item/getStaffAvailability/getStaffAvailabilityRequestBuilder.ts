@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {createGetStaffAvailabilityResponseFromDiscriminatorValue} from './createGetStaffAvailabilityResponseFromDiscriminatorValue';
-import {deserializeIntoGetStaffAvailabilityPostRequestBody} from './deserializeIntoGetStaffAvailabilityPostRequestBody';
-import {deserializeIntoGetStaffAvailabilityResponse} from './deserializeIntoGetStaffAvailabilityResponse';
-import type {GetStaffAvailabilityPostRequestBody} from './getStaffAvailabilityPostRequestBody';
-import {GetStaffAvailabilityRequestBuilderPostRequestConfiguration} from './getStaffAvailabilityRequestBuilderPostRequestConfiguration';
-import type {GetStaffAvailabilityResponse} from './getStaffAvailabilityResponse';
-import {serializeGetStaffAvailabilityPostRequestBody} from './serializeGetStaffAvailabilityPostRequestBody';
-import {serializeGetStaffAvailabilityResponse} from './serializeGetStaffAvailabilityResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createGetStaffAvailabilityResponseFromDiscriminatorValue } from './createGetStaffAvailabilityResponseFromDiscriminatorValue';
+import { deserializeIntoGetStaffAvailabilityPostRequestBody } from './deserializeIntoGetStaffAvailabilityPostRequestBody';
+import { deserializeIntoGetStaffAvailabilityResponse } from './deserializeIntoGetStaffAvailabilityResponse';
+import { type GetStaffAvailabilityPostRequestBody } from './getStaffAvailabilityPostRequestBody';
+import { type GetStaffAvailabilityRequestBuilderPostRequestConfiguration } from './getStaffAvailabilityRequestBuilderPostRequestConfiguration';
+import { type GetStaffAvailabilityResponse } from './getStaffAvailabilityResponse';
+import { serializeGetStaffAvailabilityPostRequestBody } from './serializeGetStaffAvailabilityPostRequestBody';
+import { serializeGetStaffAvailabilityResponse } from './serializeGetStaffAvailabilityResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getStaffAvailability method.

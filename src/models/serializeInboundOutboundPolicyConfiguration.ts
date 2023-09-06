@@ -1,5 +1,5 @@
-import type {InboundOutboundPolicyConfiguration} from './inboundOutboundPolicyConfiguration';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type InboundOutboundPolicyConfiguration } from './inboundOutboundPolicyConfiguration';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeInboundOutboundPolicyConfiguration(writer: SerializationWriter, inboundOutboundPolicyConfiguration: InboundOutboundPolicyConfiguration | undefined = {} as InboundOutboundPolicyConfiguration) : void {
         writer.writeBooleanValue("inboundAllowed", inboundOutboundPolicyConfiguration.inboundAllowed);

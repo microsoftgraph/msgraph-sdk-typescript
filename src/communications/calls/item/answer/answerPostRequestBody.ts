@@ -1,7 +1,7 @@
-import type {IncomingCallOptions} from '../../../../models/incomingCallOptions';
-import type {MediaConfig} from '../../../../models/mediaConfig';
-import {Modality} from '../../../../models/modality';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type IncomingCallOptions } from '../../../../models/incomingCallOptions';
+import { type MediaConfig } from '../../../../models/mediaConfig';
+import { Modality } from '../../../../models/modality';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AnswerPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

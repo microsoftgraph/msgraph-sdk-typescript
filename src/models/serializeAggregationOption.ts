@@ -1,7 +1,7 @@
-import type {AggregationOption} from './aggregationOption';
-import type {BucketAggregationDefinition} from './bucketAggregationDefinition';
-import {serializeBucketAggregationDefinition} from './serializeBucketAggregationDefinition';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AggregationOption } from './aggregationOption';
+import { type BucketAggregationDefinition } from './bucketAggregationDefinition';
+import { serializeBucketAggregationDefinition } from './serializeBucketAggregationDefinition';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAggregationOption(writer: SerializationWriter, aggregationOption: AggregationOption | undefined = {} as AggregationOption) : void {
         writer.writeObjectValue<BucketAggregationDefinition>("bucketDefinition", aggregationOption.bucketDefinition, serializeBucketAggregationDefinition);

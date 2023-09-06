@@ -1,6 +1,6 @@
-import type {DirectoryObject} from './directoryObject';
-import type {PolicyBase} from './policyBase';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DirectoryObject } from './directoryObject';
+import { type PolicyBase } from './policyBase';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface StsPolicy extends Parsable, PolicyBase {
     /**

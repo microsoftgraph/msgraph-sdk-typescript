@@ -1,5 +1,5 @@
-import {MobileThreatDefenseConnectorsRequestBuilderGetQueryParameters} from './mobileThreatDefenseConnectorsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type MobileThreatDefenseConnectorsRequestBuilderGetQueryParameters } from './mobileThreatDefenseConnectorsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MobileThreatDefenseConnectorsRequestBuilderGetRequestConfiguration {
     /**

@@ -1,15 +1,15 @@
-import type {AccessPackageResource} from './accessPackageResource';
-import type {AccessPackageResourceEnvironment} from './accessPackageResourceEnvironment';
-import type {AccessPackageResourceRole} from './accessPackageResourceRole';
-import type {AccessPackageResourceScope} from './accessPackageResourceScope';
-import {createAccessPackageResourceEnvironmentFromDiscriminatorValue} from './createAccessPackageResourceEnvironmentFromDiscriminatorValue';
-import {createAccessPackageResourceRoleFromDiscriminatorValue} from './createAccessPackageResourceRoleFromDiscriminatorValue';
-import {createAccessPackageResourceScopeFromDiscriminatorValue} from './createAccessPackageResourceScopeFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeAccessPackageResourceEnvironment} from './serializeAccessPackageResourceEnvironment';
-import {serializeAccessPackageResourceRole} from './serializeAccessPackageResourceRole';
-import {serializeAccessPackageResourceScope} from './serializeAccessPackageResourceScope';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResource } from './accessPackageResource';
+import { type AccessPackageResourceEnvironment } from './accessPackageResourceEnvironment';
+import { type AccessPackageResourceRole } from './accessPackageResourceRole';
+import { type AccessPackageResourceScope } from './accessPackageResourceScope';
+import { createAccessPackageResourceEnvironmentFromDiscriminatorValue } from './createAccessPackageResourceEnvironmentFromDiscriminatorValue';
+import { createAccessPackageResourceRoleFromDiscriminatorValue } from './createAccessPackageResourceRoleFromDiscriminatorValue';
+import { createAccessPackageResourceScopeFromDiscriminatorValue } from './createAccessPackageResourceScopeFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeAccessPackageResourceEnvironment } from './serializeAccessPackageResourceEnvironment';
+import { serializeAccessPackageResourceRole } from './serializeAccessPackageResourceRole';
+import { serializeAccessPackageResourceScope } from './serializeAccessPackageResourceScope';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageResource(accessPackageResource: AccessPackageResource | undefined = {} as AccessPackageResource) : Record<string, (node: ParseNode) => void> {
     return {

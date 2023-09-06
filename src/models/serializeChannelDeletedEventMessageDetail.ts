@@ -1,8 +1,8 @@
-import type {ChannelDeletedEventMessageDetail} from './channelDeletedEventMessageDetail';
-import type {IdentitySet} from './identitySet';
-import {serializeEventMessageDetail} from './serializeEventMessageDetail';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ChannelDeletedEventMessageDetail } from './channelDeletedEventMessageDetail';
+import { type IdentitySet } from './identitySet';
+import { serializeEventMessageDetail } from './serializeEventMessageDetail';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeChannelDeletedEventMessageDetail(writer: SerializationWriter, channelDeletedEventMessageDetail: ChannelDeletedEventMessageDetail | undefined = {} as ChannelDeletedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, channelDeletedEventMessageDetail)

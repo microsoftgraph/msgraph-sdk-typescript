@@ -1,6 +1,6 @@
-import {deserializeIntoCheckGrantedPermissionsForAppResponse} from './deserializeIntoCheckGrantedPermissionsForAppResponse';
-import {CheckGrantedPermissionsForAppResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCheckGrantedPermissionsForAppResponse } from './deserializeIntoCheckGrantedPermissionsForAppResponse';
+import { type CheckGrantedPermissionsForAppResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCheckGrantedPermissionsForAppResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

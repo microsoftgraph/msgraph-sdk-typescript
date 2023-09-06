@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeServiceUpdateMessage} from './serializeServiceUpdateMessage';
-import type {ServiceUpdateMessage} from './serviceUpdateMessage';
-import type {ServiceUpdateMessageCollectionResponse} from './serviceUpdateMessageCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeServiceUpdateMessage } from './serializeServiceUpdateMessage';
+import { type ServiceUpdateMessage } from './serviceUpdateMessage';
+import { type ServiceUpdateMessageCollectionResponse } from './serviceUpdateMessageCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeServiceUpdateMessageCollectionResponse(writer: SerializationWriter, serviceUpdateMessageCollectionResponse: ServiceUpdateMessageCollectionResponse | undefined = {} as ServiceUpdateMessageCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, serviceUpdateMessageCollectionResponse)

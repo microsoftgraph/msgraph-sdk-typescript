@@ -1,8 +1,8 @@
-import {createUnifiedRoleFromDiscriminatorValue} from './createUnifiedRoleFromDiscriminatorValue';
-import type {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
-import {serializeUnifiedRole} from './serializeUnifiedRole';
-import type {UnifiedRole} from './unifiedRole';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUnifiedRoleFromDiscriminatorValue } from './createUnifiedRoleFromDiscriminatorValue';
+import { type DelegatedAdminAccessDetails } from './delegatedAdminAccessDetails';
+import { serializeUnifiedRole } from './serializeUnifiedRole';
+import { type UnifiedRole } from './unifiedRole';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDelegatedAdminAccessDetails(delegatedAdminAccessDetails: DelegatedAdminAccessDetails | undefined = {} as DelegatedAdminAccessDetails) : Record<string, (node: ParseNode) => void> {
     return {

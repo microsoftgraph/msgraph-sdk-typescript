@@ -1,6 +1,6 @@
-import {deserializeIntoPlannerTaskDetails} from './deserializeIntoPlannerTaskDetails';
-import {PlannerTaskDetails} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPlannerTaskDetails } from './deserializeIntoPlannerTaskDetails';
+import { type PlannerTaskDetails } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPlannerTaskDetailsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

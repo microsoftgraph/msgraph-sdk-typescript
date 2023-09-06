@@ -1,12 +1,12 @@
-import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
-import {createWorkbookFilterFromDiscriminatorValue} from './createWorkbookFilterFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Json} from './json';
-import {serializeJson} from './serializeJson';
-import {serializeWorkbookFilter} from './serializeWorkbookFilter';
-import type {WorkbookFilter} from './workbookFilter';
-import type {WorkbookTableColumn} from './workbookTableColumn';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createJsonFromDiscriminatorValue } from './createJsonFromDiscriminatorValue';
+import { createWorkbookFilterFromDiscriminatorValue } from './createWorkbookFilterFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Json } from './json';
+import { serializeJson } from './serializeJson';
+import { serializeWorkbookFilter } from './serializeWorkbookFilter';
+import { type WorkbookFilter } from './workbookFilter';
+import { type WorkbookTableColumn } from './workbookTableColumn';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookTableColumn(workbookTableColumn: WorkbookTableColumn | undefined = {} as WorkbookTableColumn) : Record<string, (node: ParseNode) => void> {
     return {

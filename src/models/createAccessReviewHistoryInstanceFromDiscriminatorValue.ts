@@ -1,6 +1,6 @@
-import {deserializeIntoAccessReviewHistoryInstance} from './deserializeIntoAccessReviewHistoryInstance';
-import {AccessReviewHistoryInstance} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessReviewHistoryInstance } from './deserializeIntoAccessReviewHistoryInstance';
+import { type AccessReviewHistoryInstance } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAccessReviewHistoryInstanceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,5 +1,5 @@
-import {GovernanceInsightItemRequestBuilderGetQueryParameters} from './governanceInsightItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GovernanceInsightItemRequestBuilderGetQueryParameters } from './governanceInsightItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GovernanceInsightItemRequestBuilderGetRequestConfiguration {
     /**

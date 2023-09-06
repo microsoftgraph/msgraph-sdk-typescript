@@ -1,5 +1,5 @@
-import type {ConversationMember} from './conversationMember';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ConversationMember } from './conversationMember';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AnonymousGuestConversationMember extends ConversationMember, Parsable {
     /**

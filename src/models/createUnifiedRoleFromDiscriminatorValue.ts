@@ -1,6 +1,6 @@
-import {deserializeIntoUnifiedRole} from './deserializeIntoUnifiedRole';
-import {UnifiedRole} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUnifiedRole } from './deserializeIntoUnifiedRole';
+import { type UnifiedRole } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUnifiedRoleFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

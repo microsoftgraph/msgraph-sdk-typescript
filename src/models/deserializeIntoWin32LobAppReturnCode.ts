@@ -1,6 +1,6 @@
-import type {Win32LobAppReturnCode} from './win32LobAppReturnCode';
-import {Win32LobAppReturnCodeType} from './win32LobAppReturnCodeType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Win32LobAppReturnCode } from './win32LobAppReturnCode';
+import { Win32LobAppReturnCodeType } from './win32LobAppReturnCodeType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWin32LobAppReturnCode(win32LobAppReturnCode: Win32LobAppReturnCode | undefined = {} as Win32LobAppReturnCode) : Record<string, (node: ParseNode) => void> {
     return {

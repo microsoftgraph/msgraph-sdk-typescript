@@ -1,5 +1,5 @@
-import {UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters} from './unifiedRoleDefinitionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters } from './unifiedRoleDefinitionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration {
     /**

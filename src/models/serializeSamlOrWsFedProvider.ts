@@ -1,7 +1,7 @@
-import {AuthenticationProtocol} from './authenticationProtocol';
-import type {SamlOrWsFedProvider} from './samlOrWsFedProvider';
-import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AuthenticationProtocol } from './authenticationProtocol';
+import { type SamlOrWsFedProvider } from './samlOrWsFedProvider';
+import { serializeIdentityProviderBase } from './serializeIdentityProviderBase';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSamlOrWsFedProvider(writer: SerializationWriter, samlOrWsFedProvider: SamlOrWsFedProvider | undefined = {} as SamlOrWsFedProvider) : void {
         serializeIdentityProviderBase(writer, samlOrWsFedProvider)

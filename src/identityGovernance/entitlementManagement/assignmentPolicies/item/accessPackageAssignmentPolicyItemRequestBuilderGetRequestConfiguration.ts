@@ -1,5 +1,5 @@
-import {AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters} from './accessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters } from './accessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration {
     /**

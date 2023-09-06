@@ -1,5 +1,5 @@
-import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type WindowsMinimumOperatingSystem } from './windowsMinimumOperatingSystem';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsMinimumOperatingSystem(windowsMinimumOperatingSystem: WindowsMinimumOperatingSystem | undefined = {} as WindowsMinimumOperatingSystem) : Record<string, (node: ParseNode) => void> {
     return {

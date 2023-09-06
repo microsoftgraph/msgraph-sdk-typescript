@@ -1,7 +1,7 @@
-import type {PrintCertificateSigningRequest} from '../../../models/printCertificateSigningRequest';
-import {serializePrintCertificateSigningRequest} from '../../../models/serializePrintCertificateSigningRequest';
-import type {CreatePostRequestBody} from './createPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PrintCertificateSigningRequest } from '../../../models/printCertificateSigningRequest';
+import { serializePrintCertificateSigningRequest } from '../../../models/serializePrintCertificateSigningRequest';
+import { type CreatePostRequestBody } from './createPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCreatePostRequestBody(writer: SerializationWriter, createPostRequestBody: CreatePostRequestBody | undefined = {} as CreatePostRequestBody) : void {
         writer.writeObjectValue<PrintCertificateSigningRequest>("certificateSigningRequest", createPostRequestBody.certificateSigningRequest, serializePrintCertificateSigningRequest);

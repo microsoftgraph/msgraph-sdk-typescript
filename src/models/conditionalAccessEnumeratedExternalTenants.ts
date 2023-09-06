@@ -1,5 +1,5 @@
-import type {ConditionalAccessExternalTenants} from './conditionalAccessExternalTenants';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessExternalTenants } from './conditionalAccessExternalTenants';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExternalTenants, Parsable {
     /**

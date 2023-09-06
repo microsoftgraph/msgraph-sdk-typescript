@@ -1,19 +1,18 @@
-import {AccessPackageCatalogCollectionResponse} from '../../../models/';
-import type {AccessPackageCatalog} from '../../../models/accessPackageCatalog';
-import {createAccessPackageCatalogCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageCatalogCollectionResponseFromDiscriminatorValue';
-import {createAccessPackageCatalogFromDiscriminatorValue} from '../../../models/createAccessPackageCatalogFromDiscriminatorValue';
-import {deserializeIntoAccessPackageCatalog} from '../../../models/deserializeIntoAccessPackageCatalog';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackageCatalog} from '../../../models/serializeAccessPackageCatalog';
-import {CatalogsRequestBuilderGetRequestConfiguration} from './catalogsRequestBuilderGetRequestConfiguration';
-import {CatalogsRequestBuilderPostRequestConfiguration} from './catalogsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AccessPackageCatalogItemRequestBuilder} from './item/accessPackageCatalogItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageCatalogCollectionResponse } from '../../../models/';
+import { type AccessPackageCatalog } from '../../../models/accessPackageCatalog';
+import { createAccessPackageCatalogCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageCatalogCollectionResponseFromDiscriminatorValue';
+import { createAccessPackageCatalogFromDiscriminatorValue } from '../../../models/createAccessPackageCatalogFromDiscriminatorValue';
+import { deserializeIntoAccessPackageCatalog } from '../../../models/deserializeIntoAccessPackageCatalog';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackageCatalog } from '../../../models/serializeAccessPackageCatalog';
+import { type CatalogsRequestBuilderGetRequestConfiguration } from './catalogsRequestBuilderGetRequestConfiguration';
+import { type CatalogsRequestBuilderPostRequestConfiguration } from './catalogsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AccessPackageCatalogItemRequestBuilder } from './item/accessPackageCatalogItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.

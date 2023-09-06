@@ -1,8 +1,8 @@
-import type {Host} from './host';
-import type {HostComponent} from './hostComponent';
-import {serializeArtifact} from './serializeArtifact';
-import {serializeHost} from './serializeHost';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Host } from './host';
+import { type HostComponent } from './hostComponent';
+import { serializeArtifact } from './serializeArtifact';
+import { serializeHost } from './serializeHost';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeHostComponent(writer: SerializationWriter, hostComponent: HostComponent | undefined = {} as HostComponent) : void {
         serializeArtifact(writer, hostComponent)

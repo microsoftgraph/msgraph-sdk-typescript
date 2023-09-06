@@ -1,9 +1,9 @@
-import type {PublicError} from './publicError';
-import {serializePublicError} from './serializePublicError';
-import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
-import type {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
-import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PublicError } from './publicError';
+import { serializePublicError } from './serializePublicError';
+import { SubjectRightsRequestStage } from './subjectRightsRequestStage';
+import { type SubjectRightsRequestStageDetail } from './subjectRightsRequestStageDetail';
+import { SubjectRightsRequestStageStatus } from './subjectRightsRequestStageStatus';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSubjectRightsRequestStageDetail(writer: SerializationWriter, subjectRightsRequestStageDetail: SubjectRightsRequestStageDetail | undefined = {} as SubjectRightsRequestStageDetail) : void {
         writer.writeObjectValue<PublicError>("error", subjectRightsRequestStageDetail.errorEscaped, serializePublicError);

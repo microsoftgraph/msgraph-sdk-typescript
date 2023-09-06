@@ -1,16 +1,16 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createTeamsAppAuthorizationFromDiscriminatorValue} from './createTeamsAppAuthorizationFromDiscriminatorValue';
-import {createTeamworkBotFromDiscriminatorValue} from './createTeamworkBotFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IdentitySet} from './identitySet';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeTeamsAppAuthorization} from './serializeTeamsAppAuthorization';
-import {serializeTeamworkBot} from './serializeTeamworkBot';
-import type {TeamsAppAuthorization} from './teamsAppAuthorization';
-import type {TeamsAppDefinition} from './teamsAppDefinition';
-import {TeamsAppPublishingState} from './teamsAppPublishingState';
-import type {TeamworkBot} from './teamworkBot';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { createTeamsAppAuthorizationFromDiscriminatorValue } from './createTeamsAppAuthorizationFromDiscriminatorValue';
+import { createTeamworkBotFromDiscriminatorValue } from './createTeamworkBotFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IdentitySet } from './identitySet';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeTeamsAppAuthorization } from './serializeTeamsAppAuthorization';
+import { serializeTeamworkBot } from './serializeTeamworkBot';
+import { type TeamsAppAuthorization } from './teamsAppAuthorization';
+import { type TeamsAppDefinition } from './teamsAppDefinition';
+import { TeamsAppPublishingState } from './teamsAppPublishingState';
+import { type TeamworkBot } from './teamworkBot';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAppDefinition(teamsAppDefinition: TeamsAppDefinition | undefined = {} as TeamsAppDefinition) : Record<string, (node: ParseNode) => void> {
     return {

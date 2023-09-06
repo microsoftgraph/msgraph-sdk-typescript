@@ -1,10 +1,10 @@
-import type {BookingCustomer} from './bookingCustomer';
-import type {Phone} from './phone';
-import type {PhysicalAddress} from './physicalAddress';
-import {serializeBookingCustomerBase} from './serializeBookingCustomerBase';
-import {serializePhone} from './serializePhone';
-import {serializePhysicalAddress} from './serializePhysicalAddress';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BookingCustomer } from './bookingCustomer';
+import { type Phone } from './phone';
+import { type PhysicalAddress } from './physicalAddress';
+import { serializeBookingCustomerBase } from './serializeBookingCustomerBase';
+import { serializePhone } from './serializePhone';
+import { serializePhysicalAddress } from './serializePhysicalAddress';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBookingCustomer(writer: SerializationWriter, bookingCustomer: BookingCustomer | undefined = {} as BookingCustomer) : void {
         serializeBookingCustomerBase(writer, bookingCustomer)

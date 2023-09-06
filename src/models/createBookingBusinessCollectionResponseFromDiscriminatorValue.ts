@@ -1,6 +1,6 @@
-import {deserializeIntoBookingBusinessCollectionResponse} from './deserializeIntoBookingBusinessCollectionResponse';
-import {BookingBusinessCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBookingBusinessCollectionResponse } from './deserializeIntoBookingBusinessCollectionResponse';
+import { type BookingBusinessCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createBookingBusinessCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,19 +1,18 @@
-import {DomainCollectionResponse} from '../models/';
-import {createDomainCollectionResponseFromDiscriminatorValue} from '../models/createDomainCollectionResponseFromDiscriminatorValue';
-import {createDomainFromDiscriminatorValue} from '../models/createDomainFromDiscriminatorValue';
-import {deserializeIntoDomain} from '../models/deserializeIntoDomain';
-import type {Domain} from '../models/domain';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeDomain} from '../models/serializeDomain';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DomainsRequestBuilderGetRequestConfiguration} from './domainsRequestBuilderGetRequestConfiguration';
-import {DomainsRequestBuilderPostRequestConfiguration} from './domainsRequestBuilderPostRequestConfiguration';
-import {DomainItemRequestBuilder} from './item/domainItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DomainCollectionResponse } from '../models/';
+import { createDomainCollectionResponseFromDiscriminatorValue } from '../models/createDomainCollectionResponseFromDiscriminatorValue';
+import { createDomainFromDiscriminatorValue } from '../models/createDomainFromDiscriminatorValue';
+import { deserializeIntoDomain } from '../models/deserializeIntoDomain';
+import { type Domain } from '../models/domain';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeDomain } from '../models/serializeDomain';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DomainsRequestBuilderGetRequestConfiguration } from './domainsRequestBuilderGetRequestConfiguration';
+import { type DomainsRequestBuilderPostRequestConfiguration } from './domainsRequestBuilderPostRequestConfiguration';
+import { DomainItemRequestBuilder } from './item/domainItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of domain entities.

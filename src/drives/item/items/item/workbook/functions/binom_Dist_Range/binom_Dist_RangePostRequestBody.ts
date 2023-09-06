@@ -1,5 +1,5 @@
-import type {Json} from '../../../../../../../models/json';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type Json } from '../../../../../../../models/json';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Binom_Dist_RangePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

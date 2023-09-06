@@ -1,6 +1,6 @@
-import type {CalendarSharingMessageAction} from './calendarSharingMessageAction';
-import type {Message} from './message';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type CalendarSharingMessageAction } from './calendarSharingMessageAction';
+import { type Message } from './message';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CalendarSharingMessage extends Message, Parsable {
     /**

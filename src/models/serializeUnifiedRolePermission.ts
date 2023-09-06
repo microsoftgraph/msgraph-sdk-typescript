@@ -1,5 +1,5 @@
-import type {UnifiedRolePermission} from './unifiedRolePermission';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type UnifiedRolePermission } from './unifiedRolePermission';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRolePermission(writer: SerializationWriter, unifiedRolePermission: UnifiedRolePermission | undefined = {} as UnifiedRolePermission) : void {
         writer.writeCollectionOfPrimitiveValues<string>("allowedResourceActions", unifiedRolePermission.allowedResourceActions);

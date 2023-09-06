@@ -1,11 +1,11 @@
-import type {AndroidGeneralDeviceConfiguration} from './androidGeneralDeviceConfiguration';
-import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
-import type {AppListItem} from './appListItem';
-import {AppListType} from './appListType';
-import {serializeAppListItem} from './serializeAppListItem';
-import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AndroidGeneralDeviceConfiguration } from './androidGeneralDeviceConfiguration';
+import { AndroidRequiredPasswordType } from './androidRequiredPasswordType';
+import { type AppListItem } from './appListItem';
+import { AppListType } from './appListType';
+import { serializeAppListItem } from './serializeAppListItem';
+import { serializeDeviceConfiguration } from './serializeDeviceConfiguration';
+import { WebBrowserCookieSettings } from './webBrowserCookieSettings';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAndroidGeneralDeviceConfiguration(writer: SerializationWriter, androidGeneralDeviceConfiguration: AndroidGeneralDeviceConfiguration | undefined = {} as AndroidGeneralDeviceConfiguration) : void {
         serializeDeviceConfiguration(writer, androidGeneralDeviceConfiguration)

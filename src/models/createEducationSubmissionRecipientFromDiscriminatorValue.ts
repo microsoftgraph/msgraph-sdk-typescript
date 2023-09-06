@@ -1,7 +1,7 @@
-import {deserializeIntoEducationSubmissionIndividualRecipient} from './deserializeIntoEducationSubmissionIndividualRecipient';
-import {deserializeIntoEducationSubmissionRecipient} from './deserializeIntoEducationSubmissionRecipient';
-import {EducationSubmissionIndividualRecipient, EducationSubmissionRecipient} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEducationSubmissionIndividualRecipient } from './deserializeIntoEducationSubmissionIndividualRecipient';
+import { deserializeIntoEducationSubmissionRecipient } from './deserializeIntoEducationSubmissionRecipient';
+import { type EducationSubmissionIndividualRecipient, type EducationSubmissionRecipient } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEducationSubmissionRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

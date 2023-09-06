@@ -1,19 +1,18 @@
-import {LocalizedNotificationMessageCollectionResponse} from '../../../../models/';
-import {createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue} from '../../../../models/createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue';
-import {createLocalizedNotificationMessageFromDiscriminatorValue} from '../../../../models/createLocalizedNotificationMessageFromDiscriminatorValue';
-import {deserializeIntoLocalizedNotificationMessage} from '../../../../models/deserializeIntoLocalizedNotificationMessage';
-import type {LocalizedNotificationMessage} from '../../../../models/localizedNotificationMessage';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeLocalizedNotificationMessage} from '../../../../models/serializeLocalizedNotificationMessage';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {LocalizedNotificationMessageItemRequestBuilder} from './item/localizedNotificationMessageItemRequestBuilder';
-import {LocalizedNotificationMessagesRequestBuilderGetRequestConfiguration} from './localizedNotificationMessagesRequestBuilderGetRequestConfiguration';
-import {LocalizedNotificationMessagesRequestBuilderPostRequestConfiguration} from './localizedNotificationMessagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type LocalizedNotificationMessageCollectionResponse } from '../../../../models/';
+import { createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue } from '../../../../models/createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue';
+import { createLocalizedNotificationMessageFromDiscriminatorValue } from '../../../../models/createLocalizedNotificationMessageFromDiscriminatorValue';
+import { deserializeIntoLocalizedNotificationMessage } from '../../../../models/deserializeIntoLocalizedNotificationMessage';
+import { type LocalizedNotificationMessage } from '../../../../models/localizedNotificationMessage';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeLocalizedNotificationMessage } from '../../../../models/serializeLocalizedNotificationMessage';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { LocalizedNotificationMessageItemRequestBuilder } from './item/localizedNotificationMessageItemRequestBuilder';
+import { type LocalizedNotificationMessagesRequestBuilderGetRequestConfiguration } from './localizedNotificationMessagesRequestBuilderGetRequestConfiguration';
+import { type LocalizedNotificationMessagesRequestBuilderPostRequestConfiguration } from './localizedNotificationMessagesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity.

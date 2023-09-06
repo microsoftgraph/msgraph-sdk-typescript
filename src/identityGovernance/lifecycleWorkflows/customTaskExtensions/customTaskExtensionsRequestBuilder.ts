@@ -1,19 +1,18 @@
-import {CustomTaskExtensionCollectionResponse} from '../../../models/identityGovernance/';
-import {createCustomTaskExtensionCollectionResponseFromDiscriminatorValue} from '../../../models/identityGovernance/createCustomTaskExtensionCollectionResponseFromDiscriminatorValue';
-import {createCustomTaskExtensionFromDiscriminatorValue} from '../../../models/identityGovernance/createCustomTaskExtensionFromDiscriminatorValue';
-import type {CustomTaskExtension} from '../../../models/identityGovernance/customTaskExtension';
-import {deserializeIntoCustomTaskExtension} from '../../../models/identityGovernance/deserializeIntoCustomTaskExtension';
-import {serializeCustomTaskExtension} from '../../../models/identityGovernance/serializeCustomTaskExtension';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CustomTaskExtensionsRequestBuilderGetRequestConfiguration} from './customTaskExtensionsRequestBuilderGetRequestConfiguration';
-import {CustomTaskExtensionsRequestBuilderPostRequestConfiguration} from './customTaskExtensionsRequestBuilderPostRequestConfiguration';
-import {CustomTaskExtensionItemRequestBuilder} from './item/customTaskExtensionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CustomTaskExtensionCollectionResponse } from '../../../models/identityGovernance/';
+import { createCustomTaskExtensionCollectionResponseFromDiscriminatorValue } from '../../../models/identityGovernance/createCustomTaskExtensionCollectionResponseFromDiscriminatorValue';
+import { createCustomTaskExtensionFromDiscriminatorValue } from '../../../models/identityGovernance/createCustomTaskExtensionFromDiscriminatorValue';
+import { type CustomTaskExtension } from '../../../models/identityGovernance/customTaskExtension';
+import { deserializeIntoCustomTaskExtension } from '../../../models/identityGovernance/deserializeIntoCustomTaskExtension';
+import { serializeCustomTaskExtension } from '../../../models/identityGovernance/serializeCustomTaskExtension';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type CustomTaskExtensionsRequestBuilderGetRequestConfiguration } from './customTaskExtensionsRequestBuilderGetRequestConfiguration';
+import { type CustomTaskExtensionsRequestBuilderPostRequestConfiguration } from './customTaskExtensionsRequestBuilderPostRequestConfiguration';
+import { CustomTaskExtensionItemRequestBuilder } from './item/customTaskExtensionItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.

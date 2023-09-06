@@ -1,7 +1,7 @@
-import type {AppLogCollectionRequest} from './appLogCollectionRequest';
-import {AppLogUploadState} from './appLogUploadState';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppLogCollectionRequest } from './appLogCollectionRequest';
+import { AppLogUploadState } from './appLogUploadState';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppLogCollectionRequest(appLogCollectionRequest: AppLogCollectionRequest | undefined = {} as AppLogCollectionRequest) : Record<string, (node: ParseNode) => void> {
     return {

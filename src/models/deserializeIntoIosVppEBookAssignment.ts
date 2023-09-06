@@ -1,6 +1,6 @@
-import {deserializeIntoManagedEBookAssignment} from './deserializeIntoManagedEBookAssignment';
-import type {IosVppEBookAssignment} from './iosVppEBookAssignment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoManagedEBookAssignment } from './deserializeIntoManagedEBookAssignment';
+import { type IosVppEBookAssignment } from './iosVppEBookAssignment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosVppEBookAssignment(iosVppEBookAssignment: IosVppEBookAssignment | undefined = {} as IosVppEBookAssignment) : Record<string, (node: ParseNode) => void> {
     return {

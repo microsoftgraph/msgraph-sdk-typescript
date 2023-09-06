@@ -1,7 +1,7 @@
-import {deserializeIntoAccessReviewInactiveUsersQueryScope} from './deserializeIntoAccessReviewInactiveUsersQueryScope';
-import {deserializeIntoAccessReviewQueryScope} from './deserializeIntoAccessReviewQueryScope';
-import {AccessReviewInactiveUsersQueryScope, AccessReviewQueryScope} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessReviewInactiveUsersQueryScope } from './deserializeIntoAccessReviewInactiveUsersQueryScope';
+import { deserializeIntoAccessReviewQueryScope } from './deserializeIntoAccessReviewQueryScope';
+import { type AccessReviewInactiveUsersQueryScope, type AccessReviewQueryScope } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAccessReviewQueryScopeFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

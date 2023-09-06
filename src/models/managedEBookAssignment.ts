@@ -1,7 +1,7 @@
-import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
-import type {Entity} from './entity';
-import {InstallIntent} from './installIntent';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DeviceAndAppManagementAssignmentTarget } from './deviceAndAppManagementAssignmentTarget';
+import { type Entity } from './entity';
+import { InstallIntent } from './installIntent';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ManagedEBookAssignment extends Entity, Parsable {
     /**

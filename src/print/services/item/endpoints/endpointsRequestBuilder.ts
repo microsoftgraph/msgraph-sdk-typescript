@@ -1,19 +1,18 @@
-import {PrintServiceEndpointCollectionResponse} from '../../../../models/';
-import {createPrintServiceEndpointCollectionResponseFromDiscriminatorValue} from '../../../../models/createPrintServiceEndpointCollectionResponseFromDiscriminatorValue';
-import {createPrintServiceEndpointFromDiscriminatorValue} from '../../../../models/createPrintServiceEndpointFromDiscriminatorValue';
-import {deserializeIntoPrintServiceEndpoint} from '../../../../models/deserializeIntoPrintServiceEndpoint';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {PrintServiceEndpoint} from '../../../../models/printServiceEndpoint';
-import {serializePrintServiceEndpoint} from '../../../../models/serializePrintServiceEndpoint';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EndpointsRequestBuilderGetRequestConfiguration} from './endpointsRequestBuilderGetRequestConfiguration';
-import {EndpointsRequestBuilderPostRequestConfiguration} from './endpointsRequestBuilderPostRequestConfiguration';
-import {PrintServiceEndpointItemRequestBuilder} from './item/printServiceEndpointItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PrintServiceEndpointCollectionResponse } from '../../../../models/';
+import { createPrintServiceEndpointCollectionResponseFromDiscriminatorValue } from '../../../../models/createPrintServiceEndpointCollectionResponseFromDiscriminatorValue';
+import { createPrintServiceEndpointFromDiscriminatorValue } from '../../../../models/createPrintServiceEndpointFromDiscriminatorValue';
+import { deserializeIntoPrintServiceEndpoint } from '../../../../models/deserializeIntoPrintServiceEndpoint';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type PrintServiceEndpoint } from '../../../../models/printServiceEndpoint';
+import { serializePrintServiceEndpoint } from '../../../../models/serializePrintServiceEndpoint';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type EndpointsRequestBuilderGetRequestConfiguration } from './endpointsRequestBuilderGetRequestConfiguration';
+import { type EndpointsRequestBuilderPostRequestConfiguration } from './endpointsRequestBuilderPostRequestConfiguration';
+import { PrintServiceEndpointItemRequestBuilder } from './item/printServiceEndpointItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.

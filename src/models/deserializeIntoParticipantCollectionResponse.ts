@@ -1,9 +1,9 @@
-import {createParticipantFromDiscriminatorValue} from './createParticipantFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {Participant} from './participant';
-import type {ParticipantCollectionResponse} from './participantCollectionResponse';
-import {serializeParticipant} from './serializeParticipant';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createParticipantFromDiscriminatorValue } from './createParticipantFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type Participant } from './participant';
+import { type ParticipantCollectionResponse } from './participantCollectionResponse';
+import { serializeParticipant } from './serializeParticipant';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoParticipantCollectionResponse(participantCollectionResponse: ParticipantCollectionResponse | undefined = {} as ParticipantCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

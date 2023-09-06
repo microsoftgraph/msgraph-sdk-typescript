@@ -1,10 +1,10 @@
-import type {AccessPackageSubject} from './accessPackageSubject';
-import {AccessPackageSubjectType} from './accessPackageSubjectType';
-import type {ConnectedOrganization} from './connectedOrganization';
-import {createConnectedOrganizationFromDiscriminatorValue} from './createConnectedOrganizationFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeConnectedOrganization} from './serializeConnectedOrganization';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageSubject } from './accessPackageSubject';
+import { AccessPackageSubjectType } from './accessPackageSubjectType';
+import { type ConnectedOrganization } from './connectedOrganization';
+import { createConnectedOrganizationFromDiscriminatorValue } from './createConnectedOrganizationFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeConnectedOrganization } from './serializeConnectedOrganization';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageSubject(accessPackageSubject: AccessPackageSubject | undefined = {} as AccessPackageSubject) : Record<string, (node: ParseNode) => void> {
     return {

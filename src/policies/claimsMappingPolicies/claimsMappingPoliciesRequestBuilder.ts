@@ -1,19 +1,18 @@
-import {ClaimsMappingPolicyCollectionResponse} from '../../models/';
-import type {ClaimsMappingPolicy} from '../../models/claimsMappingPolicy';
-import {createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue';
-import {createClaimsMappingPolicyFromDiscriminatorValue} from '../../models/createClaimsMappingPolicyFromDiscriminatorValue';
-import {deserializeIntoClaimsMappingPolicy} from '../../models/deserializeIntoClaimsMappingPolicy';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeClaimsMappingPolicy} from '../../models/serializeClaimsMappingPolicy';
-import {ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration} from './claimsMappingPoliciesRequestBuilderGetRequestConfiguration';
-import {ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration} from './claimsMappingPoliciesRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ClaimsMappingPolicyItemRequestBuilder} from './item/claimsMappingPolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ClaimsMappingPolicyCollectionResponse } from '../../models/';
+import { type ClaimsMappingPolicy } from '../../models/claimsMappingPolicy';
+import { createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue';
+import { createClaimsMappingPolicyFromDiscriminatorValue } from '../../models/createClaimsMappingPolicyFromDiscriminatorValue';
+import { deserializeIntoClaimsMappingPolicy } from '../../models/deserializeIntoClaimsMappingPolicy';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeClaimsMappingPolicy } from '../../models/serializeClaimsMappingPolicy';
+import { type ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration } from './claimsMappingPoliciesRequestBuilderGetRequestConfiguration';
+import { type ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration } from './claimsMappingPoliciesRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ClaimsMappingPolicyItemRequestBuilder } from './item/claimsMappingPolicyItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.

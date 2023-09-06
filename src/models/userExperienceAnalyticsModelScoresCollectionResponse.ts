@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {UserExperienceAnalyticsModelScores} from './userExperienceAnalyticsModelScores';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type UserExperienceAnalyticsModelScores } from './userExperienceAnalyticsModelScores';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsModelScoresCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

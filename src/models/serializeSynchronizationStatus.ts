@@ -1,14 +1,14 @@
-import {serializeStringKeyLongValuePair} from './serializeStringKeyLongValuePair';
-import {serializeSynchronizationProgress} from './serializeSynchronizationProgress';
-import {serializeSynchronizationQuarantine} from './serializeSynchronizationQuarantine';
-import {serializeSynchronizationTaskExecution} from './serializeSynchronizationTaskExecution';
-import type {StringKeyLongValuePair} from './stringKeyLongValuePair';
-import type {SynchronizationProgress} from './synchronizationProgress';
-import type {SynchronizationQuarantine} from './synchronizationQuarantine';
-import type {SynchronizationStatus} from './synchronizationStatus';
-import {SynchronizationStatusCode} from './synchronizationStatusCode';
-import type {SynchronizationTaskExecution} from './synchronizationTaskExecution';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeStringKeyLongValuePair } from './serializeStringKeyLongValuePair';
+import { serializeSynchronizationProgress } from './serializeSynchronizationProgress';
+import { serializeSynchronizationQuarantine } from './serializeSynchronizationQuarantine';
+import { serializeSynchronizationTaskExecution } from './serializeSynchronizationTaskExecution';
+import { type StringKeyLongValuePair } from './stringKeyLongValuePair';
+import { type SynchronizationProgress } from './synchronizationProgress';
+import { type SynchronizationQuarantine } from './synchronizationQuarantine';
+import { type SynchronizationStatus } from './synchronizationStatus';
+import { SynchronizationStatusCode } from './synchronizationStatusCode';
+import { type SynchronizationTaskExecution } from './synchronizationTaskExecution';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationStatus(writer: SerializationWriter, synchronizationStatus: SynchronizationStatus | undefined = {} as SynchronizationStatus) : void {
         writer.writeEnumValue<SynchronizationStatusCode>("code", synchronizationStatus.code);

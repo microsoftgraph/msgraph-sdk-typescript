@@ -1,9 +1,9 @@
-import {createOpenShiftItemFromDiscriminatorValue} from './createOpenShiftItemFromDiscriminatorValue';
-import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTrackedEntity';
-import type {OpenShift} from './openShift';
-import type {OpenShiftItem} from './openShiftItem';
-import {serializeOpenShiftItem} from './serializeOpenShiftItem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createOpenShiftItemFromDiscriminatorValue } from './createOpenShiftItemFromDiscriminatorValue';
+import { deserializeIntoChangeTrackedEntity } from './deserializeIntoChangeTrackedEntity';
+import { type OpenShift } from './openShift';
+import { type OpenShiftItem } from './openShiftItem';
+import { serializeOpenShiftItem } from './serializeOpenShiftItem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOpenShift(openShift: OpenShift | undefined = {} as OpenShift) : Record<string, (node: ParseNode) => void> {
     return {

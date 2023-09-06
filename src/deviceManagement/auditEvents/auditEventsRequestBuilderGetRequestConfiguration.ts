@@ -1,5 +1,5 @@
-import {AuditEventsRequestBuilderGetQueryParameters} from './auditEventsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuditEventsRequestBuilderGetQueryParameters } from './auditEventsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AuditEventsRequestBuilderGetRequestConfiguration {
     /**

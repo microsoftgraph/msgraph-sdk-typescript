@@ -1,6 +1,6 @@
-import type {AlertEvidence} from './alertEvidence';
-import type {AzureResourceEvidence} from './azureResourceEvidence';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AlertEvidence } from './alertEvidence';
+import { type AzureResourceEvidence } from './azureResourceEvidence';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BlobContainerEvidence extends AlertEvidence, Parsable {
     /**

@@ -1,19 +1,18 @@
-import {AttendanceRecordCollectionResponse} from '../../../../../../../models/';
-import type {AttendanceRecord} from '../../../../../../../models/attendanceRecord';
-import {createAttendanceRecordCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createAttendanceRecordCollectionResponseFromDiscriminatorValue';
-import {createAttendanceRecordFromDiscriminatorValue} from '../../../../../../../models/createAttendanceRecordFromDiscriminatorValue';
-import {deserializeIntoAttendanceRecord} from '../../../../../../../models/deserializeIntoAttendanceRecord';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAttendanceRecord} from '../../../../../../../models/serializeAttendanceRecord';
-import {AttendanceRecordsRequestBuilderGetRequestConfiguration} from './attendanceRecordsRequestBuilderGetRequestConfiguration';
-import {AttendanceRecordsRequestBuilderPostRequestConfiguration} from './attendanceRecordsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AttendanceRecordItemRequestBuilder} from './item/attendanceRecordItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AttendanceRecordCollectionResponse } from '../../../../../../../models/';
+import { type AttendanceRecord } from '../../../../../../../models/attendanceRecord';
+import { createAttendanceRecordCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createAttendanceRecordCollectionResponseFromDiscriminatorValue';
+import { createAttendanceRecordFromDiscriminatorValue } from '../../../../../../../models/createAttendanceRecordFromDiscriminatorValue';
+import { deserializeIntoAttendanceRecord } from '../../../../../../../models/deserializeIntoAttendanceRecord';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAttendanceRecord } from '../../../../../../../models/serializeAttendanceRecord';
+import { type AttendanceRecordsRequestBuilderGetRequestConfiguration } from './attendanceRecordsRequestBuilderGetRequestConfiguration';
+import { type AttendanceRecordsRequestBuilderPostRequestConfiguration } from './attendanceRecordsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AttendanceRecordItemRequestBuilder } from './item/attendanceRecordItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.

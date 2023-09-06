@@ -1,17 +1,17 @@
-import type {IntegerRange} from './integerRange';
-import {PrintColorMode} from './printColorMode';
-import {PrintDuplexMode} from './printDuplexMode';
-import {PrintFinishing} from './printFinishing';
-import type {PrintJobConfiguration} from './printJobConfiguration';
-import type {PrintMargin} from './printMargin';
-import {PrintMultipageLayout} from './printMultipageLayout';
-import {PrintOrientation} from './printOrientation';
-import {PrintQuality} from './printQuality';
-import {PrintScaling} from './printScaling';
-import {PrinterFeedOrientation} from './printerFeedOrientation';
-import {serializeIntegerRange} from './serializeIntegerRange';
-import {serializePrintMargin} from './serializePrintMargin';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IntegerRange } from './integerRange';
+import { PrintColorMode } from './printColorMode';
+import { PrintDuplexMode } from './printDuplexMode';
+import { PrinterFeedOrientation } from './printerFeedOrientation';
+import { PrintFinishing } from './printFinishing';
+import { type PrintJobConfiguration } from './printJobConfiguration';
+import { type PrintMargin } from './printMargin';
+import { PrintMultipageLayout } from './printMultipageLayout';
+import { PrintOrientation } from './printOrientation';
+import { PrintQuality } from './printQuality';
+import { PrintScaling } from './printScaling';
+import { serializeIntegerRange } from './serializeIntegerRange';
+import { serializePrintMargin } from './serializePrintMargin';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePrintJobConfiguration(writer: SerializationWriter, printJobConfiguration: PrintJobConfiguration | undefined = {} as PrintJobConfiguration) : void {
         writer.writeBooleanValue("collate", printJobConfiguration.collate);
@@ -20,8 +20,7 @@ export function serializePrintJobConfiguration(writer: SerializationWriter, prin
         writer.writeNumberValue("dpi", printJobConfiguration.dpi);
         writer.writeEnumValue<PrintDuplexMode>("duplexMode", printJobConfiguration.duplexMode);
         writer.writeEnumValue<PrinterFeedOrientation>("feedOrientation", printJobConfiguration.feedOrientation);
-        if(printJobConfiguration.finishings)
-        writer.writeEnumValue<PrintFinishing>("finishings", ...printJobConfiguration.finishings);
+        writer.writeCollectionOfObjectValues<PrintFinishing>("finishings", printJobConfiguration.finishings, object);
         writer.writeBooleanValue("fitPdfToPage", printJobConfiguration.fitPdfToPage);
         writer.writeStringValue("inputBin", printJobConfiguration.inputBin);
         writer.writeObjectValue<PrintMargin>("margin", printJobConfiguration.margin, serializePrintMargin);

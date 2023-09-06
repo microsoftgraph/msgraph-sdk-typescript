@@ -1,5 +1,5 @@
-import type {MobileAppAssignment} from '../../../../models/mobileAppAssignment';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type MobileAppAssignment } from '../../../../models/mobileAppAssignment';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AssignPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

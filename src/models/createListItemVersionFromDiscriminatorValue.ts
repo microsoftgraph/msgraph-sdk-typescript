@@ -1,7 +1,7 @@
-import {deserializeIntoDocumentSetVersion} from './deserializeIntoDocumentSetVersion';
-import {deserializeIntoListItemVersion} from './deserializeIntoListItemVersion';
-import {DocumentSetVersion, ListItemVersion} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDocumentSetVersion } from './deserializeIntoDocumentSetVersion';
+import { deserializeIntoListItemVersion } from './deserializeIntoListItemVersion';
+import { type DocumentSetVersion, type ListItemVersion } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createListItemVersionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

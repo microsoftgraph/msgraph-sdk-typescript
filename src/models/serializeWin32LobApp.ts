@@ -1,19 +1,19 @@
-import {serializeMobileLobApp} from './serializeMobileLobApp';
-import {serializeWin32LobAppInstallExperience} from './serializeWin32LobAppInstallExperience';
-import {serializeWin32LobAppMsiInformation} from './serializeWin32LobAppMsiInformation';
-import {serializeWin32LobAppReturnCode} from './serializeWin32LobAppReturnCode';
-import {serializeWin32LobAppRule} from './serializeWin32LobAppRule';
-import type {Win32LobApp} from './win32LobApp';
-import type {Win32LobAppInstallExperience} from './win32LobAppInstallExperience';
-import type {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
-import type {Win32LobAppReturnCode} from './win32LobAppReturnCode';
-import type {Win32LobAppRule} from './win32LobAppRule';
-import {WindowsArchitecture} from './windowsArchitecture';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeMobileLobApp } from './serializeMobileLobApp';
+import { serializeWin32LobAppInstallExperience } from './serializeWin32LobAppInstallExperience';
+import { serializeWin32LobAppMsiInformation } from './serializeWin32LobAppMsiInformation';
+import { serializeWin32LobAppReturnCode } from './serializeWin32LobAppReturnCode';
+import { serializeWin32LobAppRule } from './serializeWin32LobAppRule';
+import { type Win32LobApp } from './win32LobApp';
+import { type Win32LobAppInstallExperience } from './win32LobAppInstallExperience';
+import { type Win32LobAppMsiInformation } from './win32LobAppMsiInformation';
+import { type Win32LobAppReturnCode } from './win32LobAppReturnCode';
+import { type Win32LobAppRule } from './win32LobAppRule';
+import { WindowsArchitecture } from './windowsArchitecture';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWin32LobApp(writer: SerializationWriter, win32LobApp: Win32LobApp | undefined = {} as Win32LobApp) : void {
         serializeMobileLobApp(writer, win32LobApp)
-        writer.writeEnumValue<WindowsArchitecture>("applicableArchitectures", win32LobApp.applicableArchitectures);
+        writer.writeEnumValue<WindowsArchitecture[]>("applicableArchitectures", win32LobApp.applicableArchitectures);
         writer.writeStringValue("installCommandLine", win32LobApp.installCommandLine);
         writer.writeObjectValue<Win32LobAppInstallExperience>("installExperience", win32LobApp.installExperience, serializeWin32LobAppInstallExperience);
         writer.writeNumberValue("minimumCpuSpeedInMHz", win32LobApp.minimumCpuSpeedInMHz);

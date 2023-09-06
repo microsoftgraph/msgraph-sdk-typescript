@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type OAuth2PermissionGrant } from './oAuth2PermissionGrant';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OAuth2PermissionGrantCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

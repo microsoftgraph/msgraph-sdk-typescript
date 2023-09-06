@@ -1,17 +1,16 @@
-import type {ApplePushNotificationCertificate} from '../../models/applePushNotificationCertificate';
-import {createApplePushNotificationCertificateFromDiscriminatorValue} from '../../models/createApplePushNotificationCertificateFromDiscriminatorValue';
-import {deserializeIntoApplePushNotificationCertificate} from '../../models/deserializeIntoApplePushNotificationCertificate';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeApplePushNotificationCertificate} from '../../models/serializeApplePushNotificationCertificate';
-import {ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration} from './applePushNotificationCertificateRequestBuilderDeleteRequestConfiguration';
-import {ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration} from './applePushNotificationCertificateRequestBuilderGetRequestConfiguration';
-import {ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration} from './applePushNotificationCertificateRequestBuilderPatchRequestConfiguration';
-import {DownloadApplePushNotificationCertificateSigningRequestRequestBuilder} from './downloadApplePushNotificationCertificateSigningRequest/downloadApplePushNotificationCertificateSigningRequestRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ApplePushNotificationCertificate } from '../../models/applePushNotificationCertificate';
+import { createApplePushNotificationCertificateFromDiscriminatorValue } from '../../models/createApplePushNotificationCertificateFromDiscriminatorValue';
+import { deserializeIntoApplePushNotificationCertificate } from '../../models/deserializeIntoApplePushNotificationCertificate';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeApplePushNotificationCertificate } from '../../models/serializeApplePushNotificationCertificate';
+import { type ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration } from './applePushNotificationCertificateRequestBuilderDeleteRequestConfiguration';
+import { type ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration } from './applePushNotificationCertificateRequestBuilderGetRequestConfiguration';
+import { type ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration } from './applePushNotificationCertificateRequestBuilderPatchRequestConfiguration';
+import { DownloadApplePushNotificationCertificateSigningRequestRequestBuilder } from './downloadApplePushNotificationCertificateSigningRequest/downloadApplePushNotificationCertificateSigningRequestRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the applePushNotificationCertificate property of the microsoft.graph.deviceManagement entity.

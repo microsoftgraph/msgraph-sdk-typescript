@@ -1,9 +1,9 @@
-import {IncludedUserRoles} from './includedUserRoles';
-import {IncludedUserTypes} from './includedUserTypes';
-import {serializeUserRegistrationFeatureCount} from './serializeUserRegistrationFeatureCount';
-import type {UserRegistrationFeatureCount} from './userRegistrationFeatureCount';
-import type {UserRegistrationFeatureSummary} from './userRegistrationFeatureSummary';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { IncludedUserRoles } from './includedUserRoles';
+import { IncludedUserTypes } from './includedUserTypes';
+import { serializeUserRegistrationFeatureCount } from './serializeUserRegistrationFeatureCount';
+import { type UserRegistrationFeatureCount } from './userRegistrationFeatureCount';
+import { type UserRegistrationFeatureSummary } from './userRegistrationFeatureSummary';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserRegistrationFeatureSummary(writer: SerializationWriter, userRegistrationFeatureSummary: UserRegistrationFeatureSummary | undefined = {} as UserRegistrationFeatureSummary) : void {
         writer.writeStringValue("@odata.type", userRegistrationFeatureSummary.odataType);

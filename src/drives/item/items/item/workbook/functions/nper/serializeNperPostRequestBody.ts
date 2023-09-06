@@ -1,7 +1,7 @@
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {NperPostRequestBody} from './nperPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type NperPostRequestBody } from './nperPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeNperPostRequestBody(writer: SerializationWriter, nperPostRequestBody: NperPostRequestBody | undefined = {} as NperPostRequestBody) : void {
         writer.writeObjectValue<Json>("fv", nperPostRequestBody.fv, serializeJson);

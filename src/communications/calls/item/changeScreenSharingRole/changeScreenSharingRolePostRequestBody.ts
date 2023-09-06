@@ -1,5 +1,5 @@
-import {ScreenSharingRole} from '../../../../models/screenSharingRole';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ScreenSharingRole } from '../../../../models/screenSharingRole';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ChangeScreenSharingRolePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

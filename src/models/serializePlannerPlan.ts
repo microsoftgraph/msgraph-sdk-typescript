@@ -1,16 +1,16 @@
-import type {IdentitySet} from './identitySet';
-import type {PlannerBucket} from './plannerBucket';
-import type {PlannerPlan} from './plannerPlan';
-import type {PlannerPlanContainer} from './plannerPlanContainer';
-import type {PlannerPlanDetails} from './plannerPlanDetails';
-import type {PlannerTask} from './plannerTask';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializePlannerBucket} from './serializePlannerBucket';
-import {serializePlannerPlanContainer} from './serializePlannerPlanContainer';
-import {serializePlannerPlanDetails} from './serializePlannerPlanDetails';
-import {serializePlannerTask} from './serializePlannerTask';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from './identitySet';
+import { type PlannerBucket } from './plannerBucket';
+import { type PlannerPlan } from './plannerPlan';
+import { type PlannerPlanContainer } from './plannerPlanContainer';
+import { type PlannerPlanDetails } from './plannerPlanDetails';
+import { type PlannerTask } from './plannerTask';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializePlannerBucket } from './serializePlannerBucket';
+import { serializePlannerPlanContainer } from './serializePlannerPlanContainer';
+import { serializePlannerPlanDetails } from './serializePlannerPlanDetails';
+import { serializePlannerTask } from './serializePlannerTask';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePlannerPlan(writer: SerializationWriter, plannerPlan: PlannerPlan | undefined = {} as PlannerPlan) : void {
         serializeEntity(writer, plannerPlan)

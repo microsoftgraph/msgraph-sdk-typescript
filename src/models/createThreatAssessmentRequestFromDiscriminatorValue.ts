@@ -1,10 +1,10 @@
-import {deserializeIntoEmailFileAssessmentRequest} from './deserializeIntoEmailFileAssessmentRequest';
-import {deserializeIntoFileAssessmentRequest} from './deserializeIntoFileAssessmentRequest';
-import {deserializeIntoMailAssessmentRequest} from './deserializeIntoMailAssessmentRequest';
-import {deserializeIntoThreatAssessmentRequest} from './deserializeIntoThreatAssessmentRequest';
-import {deserializeIntoUrlAssessmentRequest} from './deserializeIntoUrlAssessmentRequest';
-import {EmailFileAssessmentRequest, FileAssessmentRequest, MailAssessmentRequest, ThreatAssessmentRequest, UrlAssessmentRequest} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEmailFileAssessmentRequest } from './deserializeIntoEmailFileAssessmentRequest';
+import { deserializeIntoFileAssessmentRequest } from './deserializeIntoFileAssessmentRequest';
+import { deserializeIntoMailAssessmentRequest } from './deserializeIntoMailAssessmentRequest';
+import { deserializeIntoThreatAssessmentRequest } from './deserializeIntoThreatAssessmentRequest';
+import { deserializeIntoUrlAssessmentRequest } from './deserializeIntoUrlAssessmentRequest';
+import { type EmailFileAssessmentRequest, type FileAssessmentRequest, type MailAssessmentRequest, type ThreatAssessmentRequest, type UrlAssessmentRequest } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createThreatAssessmentRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

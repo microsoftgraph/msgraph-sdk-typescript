@@ -1,6 +1,6 @@
-import {deserializeIntoPermissionCollectionResponse} from './deserializeIntoPermissionCollectionResponse';
-import {PermissionCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPermissionCollectionResponse } from './deserializeIntoPermissionCollectionResponse';
+import { type PermissionCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPermissionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

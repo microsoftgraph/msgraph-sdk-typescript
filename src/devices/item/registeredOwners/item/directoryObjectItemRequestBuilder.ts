@@ -1,10 +1,9 @@
-import {GraphAppRoleAssignmentRequestBuilder} from './graphAppRoleAssignment/graphAppRoleAssignmentRequestBuilder';
-import {GraphEndpointRequestBuilder} from './graphEndpoint/graphEndpointRequestBuilder';
-import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
-import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder} from '@microsoft/kiota-abstractions';
-import type {RequestAdapter} from '@microsoft/kiota-abstractions';
+import { GraphAppRoleAssignmentRequestBuilder } from './graphAppRoleAssignment/graphAppRoleAssignmentRequestBuilder';
+import { GraphEndpointRequestBuilder } from './graphEndpoint/graphEndpointRequestBuilder';
+import { GraphServicePrincipalRequestBuilder } from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
+import { GraphUserRequestBuilder } from './graphUser/graphUserRequestBuilder';
+import { RefRequestBuilder } from './ref/refRequestBuilder';
+import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /devices/{device-id}/registeredOwners/{directoryObject-id}

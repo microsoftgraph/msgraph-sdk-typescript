@@ -1,9 +1,9 @@
-import {createOrgContactFromDiscriminatorValue} from './createOrgContactFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {OrgContact} from './orgContact';
-import type {OrgContactCollectionResponse} from './orgContactCollectionResponse';
-import {serializeOrgContact} from './serializeOrgContact';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createOrgContactFromDiscriminatorValue } from './createOrgContactFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type OrgContact } from './orgContact';
+import { type OrgContactCollectionResponse } from './orgContactCollectionResponse';
+import { serializeOrgContact } from './serializeOrgContact';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOrgContactCollectionResponse(orgContactCollectionResponse: OrgContactCollectionResponse | undefined = {} as OrgContactCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

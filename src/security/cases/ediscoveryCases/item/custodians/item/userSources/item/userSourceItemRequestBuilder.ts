@@ -1,16 +1,15 @@
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {createUserSourceFromDiscriminatorValue} from '../../../../../../../../models/security/createUserSourceFromDiscriminatorValue';
-import {deserializeIntoUserSource} from '../../../../../../../../models/security/deserializeIntoUserSource';
-import {serializeUserSource} from '../../../../../../../../models/security/serializeUserSource';
-import type {UserSource} from '../../../../../../../../models/security/userSource';
-import {UserSourceItemRequestBuilderDeleteRequestConfiguration} from './userSourceItemRequestBuilderDeleteRequestConfiguration';
-import {UserSourceItemRequestBuilderGetRequestConfiguration} from './userSourceItemRequestBuilderGetRequestConfiguration';
-import {UserSourceItemRequestBuilderPatchRequestConfiguration} from './userSourceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { createUserSourceFromDiscriminatorValue } from '../../../../../../../../models/security/createUserSourceFromDiscriminatorValue';
+import { deserializeIntoUserSource } from '../../../../../../../../models/security/deserializeIntoUserSource';
+import { serializeUserSource } from '../../../../../../../../models/security/serializeUserSource';
+import { type UserSource } from '../../../../../../../../models/security/userSource';
+import { type UserSourceItemRequestBuilderDeleteRequestConfiguration } from './userSourceItemRequestBuilderDeleteRequestConfiguration';
+import { type UserSourceItemRequestBuilderGetRequestConfiguration } from './userSourceItemRequestBuilderGetRequestConfiguration';
+import { type UserSourceItemRequestBuilderPatchRequestConfiguration } from './userSourceItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.

@@ -1,6 +1,6 @@
-import type {CallMediaState} from './callMediaState';
-import {MediaState} from './mediaState';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CallMediaState } from './callMediaState';
+import { MediaState } from './mediaState';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCallMediaState(writer: SerializationWriter, callMediaState: CallMediaState | undefined = {} as CallMediaState) : void {
         writer.writeEnumValue<MediaState>("audio", callMediaState.audio);

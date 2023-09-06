@@ -1,9 +1,9 @@
-import type {BrowserSite} from './browserSite';
-import type {BrowserSiteCollectionResponse} from './browserSiteCollectionResponse';
-import {createBrowserSiteFromDiscriminatorValue} from './createBrowserSiteFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeBrowserSite} from './serializeBrowserSite';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BrowserSite } from './browserSite';
+import { type BrowserSiteCollectionResponse } from './browserSiteCollectionResponse';
+import { createBrowserSiteFromDiscriminatorValue } from './createBrowserSiteFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeBrowserSite } from './serializeBrowserSite';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBrowserSiteCollectionResponse(browserSiteCollectionResponse: BrowserSiteCollectionResponse | undefined = {} as BrowserSiteCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,9 +1,9 @@
-import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeTokenIssuancePolicy} from './serializeTokenIssuancePolicy';
-import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
-import type {TokenIssuancePolicyCollectionResponse} from './tokenIssuancePolicyCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTokenIssuancePolicyFromDiscriminatorValue } from './createTokenIssuancePolicyFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeTokenIssuancePolicy } from './serializeTokenIssuancePolicy';
+import { type TokenIssuancePolicy } from './tokenIssuancePolicy';
+import { type TokenIssuancePolicyCollectionResponse } from './tokenIssuancePolicyCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTokenIssuancePolicyCollectionResponse(tokenIssuancePolicyCollectionResponse: TokenIssuancePolicyCollectionResponse | undefined = {} as TokenIssuancePolicyCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

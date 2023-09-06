@@ -1,12 +1,12 @@
-import type {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
-import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import type {AccessReviewStage} from './accessReviewStage';
-import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from './createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
-import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeAccessReviewInstanceDecisionItem} from './serializeAccessReviewInstanceDecisionItem';
-import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessReviewInstanceDecisionItem } from './accessReviewInstanceDecisionItem';
+import { type AccessReviewReviewerScope } from './accessReviewReviewerScope';
+import { type AccessReviewStage } from './accessReviewStage';
+import { createAccessReviewInstanceDecisionItemFromDiscriminatorValue } from './createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
+import { createAccessReviewReviewerScopeFromDiscriminatorValue } from './createAccessReviewReviewerScopeFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeAccessReviewInstanceDecisionItem } from './serializeAccessReviewInstanceDecisionItem';
+import { serializeAccessReviewReviewerScope } from './serializeAccessReviewReviewerScope';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewStage(accessReviewStage: AccessReviewStage | undefined = {} as AccessReviewStage) : Record<string, (node: ParseNode) => void> {
     return {

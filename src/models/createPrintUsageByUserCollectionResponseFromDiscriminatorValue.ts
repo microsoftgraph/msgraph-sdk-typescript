@@ -1,6 +1,6 @@
-import {deserializeIntoPrintUsageByUserCollectionResponse} from './deserializeIntoPrintUsageByUserCollectionResponse';
-import {PrintUsageByUserCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPrintUsageByUserCollectionResponse } from './deserializeIntoPrintUsageByUserCollectionResponse';
+import { type PrintUsageByUserCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPrintUsageByUserCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

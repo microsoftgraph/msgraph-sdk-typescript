@@ -1,16 +1,15 @@
-import {createDirectoryRoleFromDiscriminatorValue} from '../models/createDirectoryRoleFromDiscriminatorValue';
-import {deserializeIntoDirectoryRole} from '../models/deserializeIntoDirectoryRole';
-import type {DirectoryRole} from '../models/directoryRole';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeDirectoryRole} from '../models/serializeDirectoryRole';
-import {DirectoryRolesWithRoleTemplateIdRequestBuilderDeleteRequestConfiguration} from './directoryRolesWithRoleTemplateIdRequestBuilderDeleteRequestConfiguration';
-import {DirectoryRolesWithRoleTemplateIdRequestBuilderGetRequestConfiguration} from './directoryRolesWithRoleTemplateIdRequestBuilderGetRequestConfiguration';
-import {DirectoryRolesWithRoleTemplateIdRequestBuilderPatchRequestConfiguration} from './directoryRolesWithRoleTemplateIdRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDirectoryRoleFromDiscriminatorValue } from '../models/createDirectoryRoleFromDiscriminatorValue';
+import { deserializeIntoDirectoryRole } from '../models/deserializeIntoDirectoryRole';
+import { type DirectoryRole } from '../models/directoryRole';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeDirectoryRole } from '../models/serializeDirectoryRole';
+import { type DirectoryRolesWithRoleTemplateIdRequestBuilderDeleteRequestConfiguration } from './directoryRolesWithRoleTemplateIdRequestBuilderDeleteRequestConfiguration';
+import { type DirectoryRolesWithRoleTemplateIdRequestBuilderGetRequestConfiguration } from './directoryRolesWithRoleTemplateIdRequestBuilderGetRequestConfiguration';
+import { type DirectoryRolesWithRoleTemplateIdRequestBuilderPatchRequestConfiguration } from './directoryRolesWithRoleTemplateIdRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.

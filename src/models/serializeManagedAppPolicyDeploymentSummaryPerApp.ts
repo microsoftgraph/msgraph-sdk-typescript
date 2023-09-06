@@ -1,7 +1,7 @@
-import type {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
-import type {MobileAppIdentifier} from './mobileAppIdentifier';
-import {serializeMobileAppIdentifier} from './serializeMobileAppIdentifier';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ManagedAppPolicyDeploymentSummaryPerApp } from './managedAppPolicyDeploymentSummaryPerApp';
+import { type MobileAppIdentifier } from './mobileAppIdentifier';
+import { serializeMobileAppIdentifier } from './serializeMobileAppIdentifier';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeManagedAppPolicyDeploymentSummaryPerApp(writer: SerializationWriter, managedAppPolicyDeploymentSummaryPerApp: ManagedAppPolicyDeploymentSummaryPerApp | undefined = {} as ManagedAppPolicyDeploymentSummaryPerApp) : void {
         writer.writeNumberValue("configurationAppliedUserCount", managedAppPolicyDeploymentSummaryPerApp.configurationAppliedUserCount);

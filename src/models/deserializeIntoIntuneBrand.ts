@@ -1,11 +1,11 @@
-import {createMimeContentFromDiscriminatorValue} from './createMimeContentFromDiscriminatorValue';
-import {createRgbColorFromDiscriminatorValue} from './createRgbColorFromDiscriminatorValue';
-import type {IntuneBrand} from './intuneBrand';
-import type {MimeContent} from './mimeContent';
-import type {RgbColor} from './rgbColor';
-import {serializeMimeContent} from './serializeMimeContent';
-import {serializeRgbColor} from './serializeRgbColor';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createMimeContentFromDiscriminatorValue } from './createMimeContentFromDiscriminatorValue';
+import { createRgbColorFromDiscriminatorValue } from './createRgbColorFromDiscriminatorValue';
+import { type IntuneBrand } from './intuneBrand';
+import { type MimeContent } from './mimeContent';
+import { type RgbColor } from './rgbColor';
+import { serializeMimeContent } from './serializeMimeContent';
+import { serializeRgbColor } from './serializeRgbColor';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIntuneBrand(intuneBrand: IntuneBrand | undefined = {} as IntuneBrand) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
-import {DetectedAppPlatformType} from './detectedAppPlatformType';
-import type {Entity} from './entity';
-import type {ManagedDevice} from './managedDevice';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { DetectedAppPlatformType } from './detectedAppPlatformType';
+import { type Entity } from './entity';
+import { type ManagedDevice } from './managedDevice';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DetectedApp extends Entity, Parsable {
     /**

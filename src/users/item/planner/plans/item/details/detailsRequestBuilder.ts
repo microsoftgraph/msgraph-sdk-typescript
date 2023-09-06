@@ -1,16 +1,15 @@
-import {createPlannerPlanDetailsFromDiscriminatorValue} from '../../../../../../models/createPlannerPlanDetailsFromDiscriminatorValue';
-import {deserializeIntoPlannerPlanDetails} from '../../../../../../models/deserializeIntoPlannerPlanDetails';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import type {PlannerPlanDetails} from '../../../../../../models/plannerPlanDetails';
-import {serializePlannerPlanDetails} from '../../../../../../models/serializePlannerPlanDetails';
-import {DetailsRequestBuilderDeleteRequestConfiguration} from './detailsRequestBuilderDeleteRequestConfiguration';
-import {DetailsRequestBuilderGetRequestConfiguration} from './detailsRequestBuilderGetRequestConfiguration';
-import {DetailsRequestBuilderPatchRequestConfiguration} from './detailsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPlannerPlanDetailsFromDiscriminatorValue } from '../../../../../../models/createPlannerPlanDetailsFromDiscriminatorValue';
+import { deserializeIntoPlannerPlanDetails } from '../../../../../../models/deserializeIntoPlannerPlanDetails';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type PlannerPlanDetails } from '../../../../../../models/plannerPlanDetails';
+import { serializePlannerPlanDetails } from '../../../../../../models/serializePlannerPlanDetails';
+import { type DetailsRequestBuilderDeleteRequestConfiguration } from './detailsRequestBuilderDeleteRequestConfiguration';
+import { type DetailsRequestBuilderGetRequestConfiguration } from './detailsRequestBuilderGetRequestConfiguration';
+import { type DetailsRequestBuilderPatchRequestConfiguration } from './detailsRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the details property of the microsoft.graph.plannerPlan entity.

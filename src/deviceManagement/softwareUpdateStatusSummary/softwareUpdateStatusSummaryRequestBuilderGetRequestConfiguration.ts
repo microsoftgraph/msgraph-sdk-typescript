@@ -1,5 +1,5 @@
-import {SoftwareUpdateStatusSummaryRequestBuilderGetQueryParameters} from './softwareUpdateStatusSummaryRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SoftwareUpdateStatusSummaryRequestBuilderGetQueryParameters } from './softwareUpdateStatusSummaryRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SoftwareUpdateStatusSummaryRequestBuilderGetRequestConfiguration {
     /**

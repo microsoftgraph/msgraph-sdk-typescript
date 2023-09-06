@@ -1,5 +1,5 @@
-import {DeviceManagementTroubleshootingEventItemRequestBuilderGetQueryParameters} from './deviceManagementTroubleshootingEventItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceManagementTroubleshootingEventItemRequestBuilderGetQueryParameters } from './deviceManagementTroubleshootingEventItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration {
     /**

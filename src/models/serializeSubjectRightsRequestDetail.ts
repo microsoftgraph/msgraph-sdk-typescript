@@ -1,7 +1,7 @@
-import type {KeyValuePair} from './keyValuePair';
-import {serializeKeyValuePair} from './serializeKeyValuePair';
-import type {SubjectRightsRequestDetail} from './subjectRightsRequestDetail';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type KeyValuePair } from './keyValuePair';
+import { serializeKeyValuePair } from './serializeKeyValuePair';
+import { type SubjectRightsRequestDetail } from './subjectRightsRequestDetail';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSubjectRightsRequestDetail(writer: SerializationWriter, subjectRightsRequestDetail: SubjectRightsRequestDetail | undefined = {} as SubjectRightsRequestDetail) : void {
         writer.writeNumberValue("excludedItemCount", subjectRightsRequestDetail.excludedItemCount);

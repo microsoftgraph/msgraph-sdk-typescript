@@ -1,12 +1,11 @@
-import {SoftwareUpdateStatusSummary} from '../../models/';
-import {createSoftwareUpdateStatusSummaryFromDiscriminatorValue} from '../../models/createSoftwareUpdateStatusSummaryFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {SoftwareUpdateStatusSummaryRequestBuilderGetRequestConfiguration} from './softwareUpdateStatusSummaryRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SoftwareUpdateStatusSummary } from '../../models/';
+import { createSoftwareUpdateStatusSummaryFromDiscriminatorValue } from '../../models/createSoftwareUpdateStatusSummaryFromDiscriminatorValue';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type SoftwareUpdateStatusSummaryRequestBuilderGetRequestConfiguration } from './softwareUpdateStatusSummaryRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the softwareUpdateStatusSummary property of the microsoft.graph.deviceManagement entity.

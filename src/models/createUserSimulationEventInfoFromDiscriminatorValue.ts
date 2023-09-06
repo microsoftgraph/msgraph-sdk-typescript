@@ -1,6 +1,6 @@
-import {deserializeIntoUserSimulationEventInfo} from './deserializeIntoUserSimulationEventInfo';
-import {UserSimulationEventInfo} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUserSimulationEventInfo } from './deserializeIntoUserSimulationEventInfo';
+import { type UserSimulationEventInfo } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUserSimulationEventInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

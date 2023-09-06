@@ -1,11 +1,10 @@
-import {ManagedAppClipboardSharingLevel} from './managedAppClipboardSharingLevel';
-import {ManagedAppDataStorageLocation} from './managedAppDataStorageLocation';
-import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
-import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
-import type {ManagedAppPolicy} from './managedAppPolicy';
-import {ManagedBrowserType} from './managedBrowserType';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { ManagedAppClipboardSharingLevel } from './managedAppClipboardSharingLevel';
+import { ManagedAppDataStorageLocation } from './managedAppDataStorageLocation';
+import { ManagedAppDataTransferLevel } from './managedAppDataTransferLevel';
+import { ManagedAppPinCharacterSet } from './managedAppPinCharacterSet';
+import { type ManagedAppPolicy } from './managedAppPolicy';
+import { ManagedBrowserType } from './managedBrowserType';
+import { Duration, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppProtection extends ManagedAppPolicy, Parsable {
     /**
@@ -47,7 +46,7 @@ export interface ManagedAppProtection extends ManagedAppPolicy, Parsable {
     /**
      * Type of managed browser
      */
-    managedBrowser?: ManagedBrowserType | undefined;
+    managedBrowser?: ManagedBrowserType[] | undefined;
     /**
      * Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)
      */

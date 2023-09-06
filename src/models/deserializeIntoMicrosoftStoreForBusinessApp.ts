@@ -1,7 +1,7 @@
-import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
-import type {MicrosoftStoreForBusinessApp} from './microsoftStoreForBusinessApp';
-import {MicrosoftStoreForBusinessLicenseType} from './microsoftStoreForBusinessLicenseType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoMobileApp } from './deserializeIntoMobileApp';
+import { type MicrosoftStoreForBusinessApp } from './microsoftStoreForBusinessApp';
+import { MicrosoftStoreForBusinessLicenseType } from './microsoftStoreForBusinessLicenseType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMicrosoftStoreForBusinessApp(microsoftStoreForBusinessApp: MicrosoftStoreForBusinessApp | undefined = {} as MicrosoftStoreForBusinessApp) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,18 +1,17 @@
-import {createExternalItemFromDiscriminatorValue} from '../../../../../models/externalConnectors/createExternalItemFromDiscriminatorValue';
-import {deserializeIntoExternalItem} from '../../../../../models/externalConnectors/deserializeIntoExternalItem';
-import type {ExternalItem} from '../../../../../models/externalConnectors/externalItem';
-import {serializeExternalItem} from '../../../../../models/externalConnectors/serializeExternalItem';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {ActivitiesRequestBuilder} from './activities/activitiesRequestBuilder';
-import {ExternalItemItemRequestBuilderDeleteRequestConfiguration} from './externalItemItemRequestBuilderDeleteRequestConfiguration';
-import {ExternalItemItemRequestBuilderGetRequestConfiguration} from './externalItemItemRequestBuilderGetRequestConfiguration';
-import {ExternalItemItemRequestBuilderPutRequestConfiguration} from './externalItemItemRequestBuilderPutRequestConfiguration';
-import {MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder} from './microsoftGraphExternalConnectorsAddActivities/microsoftGraphExternalConnectorsAddActivitiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createExternalItemFromDiscriminatorValue } from '../../../../../models/externalConnectors/createExternalItemFromDiscriminatorValue';
+import { deserializeIntoExternalItem } from '../../../../../models/externalConnectors/deserializeIntoExternalItem';
+import { type ExternalItem } from '../../../../../models/externalConnectors/externalItem';
+import { serializeExternalItem } from '../../../../../models/externalConnectors/serializeExternalItem';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { ActivitiesRequestBuilder } from './activities/activitiesRequestBuilder';
+import { type ExternalItemItemRequestBuilderDeleteRequestConfiguration } from './externalItemItemRequestBuilderDeleteRequestConfiguration';
+import { type ExternalItemItemRequestBuilderGetRequestConfiguration } from './externalItemItemRequestBuilderGetRequestConfiguration';
+import { type ExternalItemItemRequestBuilderPutRequestConfiguration } from './externalItemItemRequestBuilderPutRequestConfiguration';
+import { MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder } from './microsoftGraphExternalConnectorsAddActivities/microsoftGraphExternalConnectorsAddActivitiesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.

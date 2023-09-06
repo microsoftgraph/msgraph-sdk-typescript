@@ -1,20 +1,19 @@
-import {createExternalConnectionFromDiscriminatorValue} from '../../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
-import {deserializeIntoExternalConnection} from '../../models/externalConnectors/deserializeIntoExternalConnection';
-import type {ExternalConnection} from '../../models/externalConnectors/externalConnection';
-import {serializeExternalConnection} from '../../models/externalConnectors/serializeExternalConnection';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {ExternalConnectionItemRequestBuilderDeleteRequestConfiguration} from './externalConnectionItemRequestBuilderDeleteRequestConfiguration';
-import {ExternalConnectionItemRequestBuilderGetRequestConfiguration} from './externalConnectionItemRequestBuilderGetRequestConfiguration';
-import {ExternalConnectionItemRequestBuilderPatchRequestConfiguration} from './externalConnectionItemRequestBuilderPatchRequestConfiguration';
-import {GroupsRequestBuilder} from './groups/groupsRequestBuilder';
-import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
-import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {SchemaRequestBuilder} from './schema/schemaRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createExternalConnectionFromDiscriminatorValue } from '../../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
+import { deserializeIntoExternalConnection } from '../../models/externalConnectors/deserializeIntoExternalConnection';
+import { type ExternalConnection } from '../../models/externalConnectors/externalConnection';
+import { serializeExternalConnection } from '../../models/externalConnectors/serializeExternalConnection';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type ExternalConnectionItemRequestBuilderDeleteRequestConfiguration } from './externalConnectionItemRequestBuilderDeleteRequestConfiguration';
+import { type ExternalConnectionItemRequestBuilderGetRequestConfiguration } from './externalConnectionItemRequestBuilderGetRequestConfiguration';
+import { type ExternalConnectionItemRequestBuilderPatchRequestConfiguration } from './externalConnectionItemRequestBuilderPatchRequestConfiguration';
+import { GroupsRequestBuilder } from './groups/groupsRequestBuilder';
+import { ItemsRequestBuilder } from './items/itemsRequestBuilder';
+import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
+import { SchemaRequestBuilder } from './schema/schemaRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of externalConnection entities.

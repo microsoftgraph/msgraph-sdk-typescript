@@ -1,5 +1,5 @@
-import {AttachmentType} from './attachmentType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { AttachmentType } from './attachmentType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AttachmentInfo extends AdditionalDataHolder, Parsable {
     /**

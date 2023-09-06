@@ -1,5 +1,5 @@
-import {ManagedAppStatusItemRequestBuilderGetQueryParameters} from './managedAppStatusItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedAppStatusItemRequestBuilderGetQueryParameters } from './managedAppStatusItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppStatusItemRequestBuilderGetRequestConfiguration {
     /**

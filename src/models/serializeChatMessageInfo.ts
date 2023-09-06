@@ -1,13 +1,13 @@
-import type {ChatMessageFromIdentitySet} from './chatMessageFromIdentitySet';
-import type {ChatMessageInfo} from './chatMessageInfo';
-import {ChatMessageType} from './chatMessageType';
-import type {EventMessageDetail} from './eventMessageDetail';
-import type {ItemBody} from './itemBody';
-import {serializeChatMessageFromIdentitySet} from './serializeChatMessageFromIdentitySet';
-import {serializeEntity} from './serializeEntity';
-import {serializeEventMessageDetail} from './serializeEventMessageDetail';
-import {serializeItemBody} from './serializeItemBody';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ChatMessageFromIdentitySet } from './chatMessageFromIdentitySet';
+import { type ChatMessageInfo } from './chatMessageInfo';
+import { ChatMessageType } from './chatMessageType';
+import { type EventMessageDetail } from './eventMessageDetail';
+import { type ItemBody } from './itemBody';
+import { serializeChatMessageFromIdentitySet } from './serializeChatMessageFromIdentitySet';
+import { serializeEntity } from './serializeEntity';
+import { serializeEventMessageDetail } from './serializeEventMessageDetail';
+import { serializeItemBody } from './serializeItemBody';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeChatMessageInfo(writer: SerializationWriter, chatMessageInfo: ChatMessageInfo | undefined = {} as ChatMessageInfo) : void {
         serializeEntity(writer, chatMessageInfo)

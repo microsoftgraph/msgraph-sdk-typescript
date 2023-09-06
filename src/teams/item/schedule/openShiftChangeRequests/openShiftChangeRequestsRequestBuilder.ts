@@ -1,19 +1,18 @@
-import {OpenShiftChangeRequestCollectionResponse} from '../../../../models/';
-import {createOpenShiftChangeRequestCollectionResponseFromDiscriminatorValue} from '../../../../models/createOpenShiftChangeRequestCollectionResponseFromDiscriminatorValue';
-import {createOpenShiftChangeRequestFromDiscriminatorValue} from '../../../../models/createOpenShiftChangeRequestFromDiscriminatorValue';
-import {deserializeIntoOpenShiftChangeRequest} from '../../../../models/deserializeIntoOpenShiftChangeRequest';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {OpenShiftChangeRequest} from '../../../../models/openShiftChangeRequest';
-import {serializeOpenShiftChangeRequest} from '../../../../models/serializeOpenShiftChangeRequest';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {OpenShiftChangeRequestItemRequestBuilder} from './item/openShiftChangeRequestItemRequestBuilder';
-import {OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration} from './openShiftChangeRequestsRequestBuilderGetRequestConfiguration';
-import {OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration} from './openShiftChangeRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OpenShiftChangeRequestCollectionResponse } from '../../../../models/';
+import { createOpenShiftChangeRequestCollectionResponseFromDiscriminatorValue } from '../../../../models/createOpenShiftChangeRequestCollectionResponseFromDiscriminatorValue';
+import { createOpenShiftChangeRequestFromDiscriminatorValue } from '../../../../models/createOpenShiftChangeRequestFromDiscriminatorValue';
+import { deserializeIntoOpenShiftChangeRequest } from '../../../../models/deserializeIntoOpenShiftChangeRequest';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type OpenShiftChangeRequest } from '../../../../models/openShiftChangeRequest';
+import { serializeOpenShiftChangeRequest } from '../../../../models/serializeOpenShiftChangeRequest';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { OpenShiftChangeRequestItemRequestBuilder } from './item/openShiftChangeRequestItemRequestBuilder';
+import { type OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration } from './openShiftChangeRequestsRequestBuilderGetRequestConfiguration';
+import { type OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration } from './openShiftChangeRequestsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.

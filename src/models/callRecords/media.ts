@@ -1,7 +1,7 @@
-import type {DeviceInfo} from './deviceInfo';
-import type {MediaStream} from './mediaStream';
-import type {NetworkInfo} from './networkInfo';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type DeviceInfo } from './deviceInfo';
+import { type MediaStream } from './mediaStream';
+import { type NetworkInfo } from './networkInfo';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Media extends AdditionalDataHolder, Parsable {
     /**

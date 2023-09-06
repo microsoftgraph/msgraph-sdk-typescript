@@ -1,5 +1,5 @@
-import type {TeamworkNotificationRecipient} from './teamworkNotificationRecipient';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type TeamworkNotificationRecipient } from './teamworkNotificationRecipient';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTeamworkNotificationRecipient(writer: SerializationWriter, teamworkNotificationRecipient: TeamworkNotificationRecipient | undefined = {} as TeamworkNotificationRecipient) : void {
         writer.writeStringValue("@odata.type", teamworkNotificationRecipient.odataType);

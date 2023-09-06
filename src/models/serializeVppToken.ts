@@ -1,9 +1,9 @@
-import {serializeEntity} from './serializeEntity';
-import type {VppToken} from './vppToken';
-import {VppTokenAccountType} from './vppTokenAccountType';
-import {VppTokenState} from './vppTokenState';
-import {VppTokenSyncStatus} from './vppTokenSyncStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { type VppToken } from './vppToken';
+import { VppTokenAccountType } from './vppTokenAccountType';
+import { VppTokenState } from './vppTokenState';
+import { VppTokenSyncStatus } from './vppTokenSyncStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeVppToken(writer: SerializationWriter, vppToken: VppToken | undefined = {} as VppToken) : void {
         serializeEntity(writer, vppToken)

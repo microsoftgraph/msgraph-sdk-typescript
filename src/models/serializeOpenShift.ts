@@ -1,8 +1,8 @@
-import type {OpenShift} from './openShift';
-import type {OpenShiftItem} from './openShiftItem';
-import {serializeChangeTrackedEntity} from './serializeChangeTrackedEntity';
-import {serializeOpenShiftItem} from './serializeOpenShiftItem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type OpenShift } from './openShift';
+import { type OpenShiftItem } from './openShiftItem';
+import { serializeChangeTrackedEntity } from './serializeChangeTrackedEntity';
+import { serializeOpenShiftItem } from './serializeOpenShiftItem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOpenShift(writer: SerializationWriter, openShift: OpenShift | undefined = {} as OpenShift) : void {
         serializeChangeTrackedEntity(writer, openShift)

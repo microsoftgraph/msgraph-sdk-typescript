@@ -1,16 +1,15 @@
-import {createManagedEBookAssignmentFromDiscriminatorValue} from '../../../../../models/createManagedEBookAssignmentFromDiscriminatorValue';
-import {deserializeIntoManagedEBookAssignment} from '../../../../../models/deserializeIntoManagedEBookAssignment';
-import type {ManagedEBookAssignment} from '../../../../../models/managedEBookAssignment';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeManagedEBookAssignment} from '../../../../../models/serializeManagedEBookAssignment';
-import {ManagedEBookAssignmentItemRequestBuilderDeleteRequestConfiguration} from './managedEBookAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {ManagedEBookAssignmentItemRequestBuilderGetRequestConfiguration} from './managedEBookAssignmentItemRequestBuilderGetRequestConfiguration';
-import {ManagedEBookAssignmentItemRequestBuilderPatchRequestConfiguration} from './managedEBookAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createManagedEBookAssignmentFromDiscriminatorValue } from '../../../../../models/createManagedEBookAssignmentFromDiscriminatorValue';
+import { deserializeIntoManagedEBookAssignment } from '../../../../../models/deserializeIntoManagedEBookAssignment';
+import { type ManagedEBookAssignment } from '../../../../../models/managedEBookAssignment';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeManagedEBookAssignment } from '../../../../../models/serializeManagedEBookAssignment';
+import { type ManagedEBookAssignmentItemRequestBuilderDeleteRequestConfiguration } from './managedEBookAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type ManagedEBookAssignmentItemRequestBuilderGetRequestConfiguration } from './managedEBookAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type ManagedEBookAssignmentItemRequestBuilderPatchRequestConfiguration } from './managedEBookAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.
@@ -56,11 +55,11 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<ManagedEBookAssignment>(requestInfo, createManagedEBookAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a managedEBookAssignment object.
+     * Update the properties of a iosVppEBookAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBookAssignment
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebookassignment-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedEBookAssignment, requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedEBookAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -107,7 +106,7 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Update the properties of a managedEBookAssignment object.
+     * Update the properties of a iosVppEBookAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

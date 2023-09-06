@@ -1,6 +1,6 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {UserExperienceAnalyticsAppHealthApplicationPerformance} from './userExperienceAnalyticsAppHealthApplicationPerformance';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type UserExperienceAnalyticsAppHealthApplicationPerformance } from './userExperienceAnalyticsAppHealthApplicationPerformance';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsAppHealthApplicationPerformance(userExperienceAnalyticsAppHealthApplicationPerformance: UserExperienceAnalyticsAppHealthApplicationPerformance | undefined = {} as UserExperienceAnalyticsAppHealthApplicationPerformance) : Record<string, (node: ParseNode) => void> {
     return {

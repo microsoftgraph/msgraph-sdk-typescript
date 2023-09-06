@@ -1,6 +1,6 @@
-import {deserializeIntoEmployeeExperienceUser} from './deserializeIntoEmployeeExperienceUser';
-import {EmployeeExperienceUser} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEmployeeExperienceUser } from './deserializeIntoEmployeeExperienceUser';
+import { type EmployeeExperienceUser } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEmployeeExperienceUserFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

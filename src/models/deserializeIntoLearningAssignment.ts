@@ -1,13 +1,13 @@
-import {AssignmentType} from './assignmentType';
-import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
-import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import {deserializeIntoLearningCourseActivity} from './deserializeIntoLearningCourseActivity';
-import type {ItemBody} from './itemBody';
-import type {LearningAssignment} from './learningAssignment';
-import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {serializeItemBody} from './serializeItemBody';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AssignmentType } from './assignmentType';
+import { createDateTimeTimeZoneFromDiscriminatorValue } from './createDateTimeTimeZoneFromDiscriminatorValue';
+import { createItemBodyFromDiscriminatorValue } from './createItemBodyFromDiscriminatorValue';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { deserializeIntoLearningCourseActivity } from './deserializeIntoLearningCourseActivity';
+import { type ItemBody } from './itemBody';
+import { type LearningAssignment } from './learningAssignment';
+import { serializeDateTimeTimeZone } from './serializeDateTimeTimeZone';
+import { serializeItemBody } from './serializeItemBody';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLearningAssignment(learningAssignment: LearningAssignment | undefined = {} as LearningAssignment) : Record<string, (node: ParseNode) => void> {
     return {

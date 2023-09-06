@@ -1,14 +1,14 @@
-import {deserializeIntoAuthenticationMethodConfiguration} from './deserializeIntoAuthenticationMethodConfiguration';
-import {deserializeIntoEmailAuthenticationMethodConfiguration} from './deserializeIntoEmailAuthenticationMethodConfiguration';
-import {deserializeIntoFido2AuthenticationMethodConfiguration} from './deserializeIntoFido2AuthenticationMethodConfiguration';
-import {deserializeIntoMicrosoftAuthenticatorAuthenticationMethodConfiguration} from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethodConfiguration';
-import {deserializeIntoSmsAuthenticationMethodConfiguration} from './deserializeIntoSmsAuthenticationMethodConfiguration';
-import {deserializeIntoSoftwareOathAuthenticationMethodConfiguration} from './deserializeIntoSoftwareOathAuthenticationMethodConfiguration';
-import {deserializeIntoTemporaryAccessPassAuthenticationMethodConfiguration} from './deserializeIntoTemporaryAccessPassAuthenticationMethodConfiguration';
-import {deserializeIntoVoiceAuthenticationMethodConfiguration} from './deserializeIntoVoiceAuthenticationMethodConfiguration';
-import {deserializeIntoX509CertificateAuthenticationMethodConfiguration} from './deserializeIntoX509CertificateAuthenticationMethodConfiguration';
-import {AuthenticationMethodConfiguration, EmailAuthenticationMethodConfiguration, Fido2AuthenticationMethodConfiguration, MicrosoftAuthenticatorAuthenticationMethodConfiguration, SmsAuthenticationMethodConfiguration, SoftwareOathAuthenticationMethodConfiguration, TemporaryAccessPassAuthenticationMethodConfiguration, VoiceAuthenticationMethodConfiguration, X509CertificateAuthenticationMethodConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAuthenticationMethodConfiguration } from './deserializeIntoAuthenticationMethodConfiguration';
+import { deserializeIntoEmailAuthenticationMethodConfiguration } from './deserializeIntoEmailAuthenticationMethodConfiguration';
+import { deserializeIntoFido2AuthenticationMethodConfiguration } from './deserializeIntoFido2AuthenticationMethodConfiguration';
+import { deserializeIntoMicrosoftAuthenticatorAuthenticationMethodConfiguration } from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethodConfiguration';
+import { deserializeIntoSmsAuthenticationMethodConfiguration } from './deserializeIntoSmsAuthenticationMethodConfiguration';
+import { deserializeIntoSoftwareOathAuthenticationMethodConfiguration } from './deserializeIntoSoftwareOathAuthenticationMethodConfiguration';
+import { deserializeIntoTemporaryAccessPassAuthenticationMethodConfiguration } from './deserializeIntoTemporaryAccessPassAuthenticationMethodConfiguration';
+import { deserializeIntoVoiceAuthenticationMethodConfiguration } from './deserializeIntoVoiceAuthenticationMethodConfiguration';
+import { deserializeIntoX509CertificateAuthenticationMethodConfiguration } from './deserializeIntoX509CertificateAuthenticationMethodConfiguration';
+import { type AuthenticationMethodConfiguration, type EmailAuthenticationMethodConfiguration, type Fido2AuthenticationMethodConfiguration, type MicrosoftAuthenticatorAuthenticationMethodConfiguration, type SmsAuthenticationMethodConfiguration, type SoftwareOathAuthenticationMethodConfiguration, type TemporaryAccessPassAuthenticationMethodConfiguration, type VoiceAuthenticationMethodConfiguration, type X509CertificateAuthenticationMethodConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAuthenticationMethodConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

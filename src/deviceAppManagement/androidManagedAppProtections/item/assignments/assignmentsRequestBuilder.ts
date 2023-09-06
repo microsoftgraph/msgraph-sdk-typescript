@@ -1,19 +1,18 @@
-import {TargetedManagedAppPolicyAssignmentCollectionResponse} from '../../../../models/';
-import {createTargetedManagedAppPolicyAssignmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createTargetedManagedAppPolicyAssignmentCollectionResponseFromDiscriminatorValue';
-import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from '../../../../models/createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
-import {deserializeIntoTargetedManagedAppPolicyAssignment} from '../../../../models/deserializeIntoTargetedManagedAppPolicyAssignment';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeTargetedManagedAppPolicyAssignment} from '../../../../models/serializeTargetedManagedAppPolicyAssignment';
-import type {TargetedManagedAppPolicyAssignment} from '../../../../models/targetedManagedAppPolicyAssignment';
-import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsRequestBuilderGetRequestConfiguration';
-import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TargetedManagedAppPolicyAssignmentItemRequestBuilder} from './item/targetedManagedAppPolicyAssignmentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TargetedManagedAppPolicyAssignmentCollectionResponse } from '../../../../models/';
+import { createTargetedManagedAppPolicyAssignmentCollectionResponseFromDiscriminatorValue } from '../../../../models/createTargetedManagedAppPolicyAssignmentCollectionResponseFromDiscriminatorValue';
+import { createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue } from '../../../../models/createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
+import { deserializeIntoTargetedManagedAppPolicyAssignment } from '../../../../models/deserializeIntoTargetedManagedAppPolicyAssignment';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeTargetedManagedAppPolicyAssignment } from '../../../../models/serializeTargetedManagedAppPolicyAssignment';
+import { type TargetedManagedAppPolicyAssignment } from '../../../../models/targetedManagedAppPolicyAssignment';
+import { type AssignmentsRequestBuilderGetRequestConfiguration } from './assignmentsRequestBuilderGetRequestConfiguration';
+import { type AssignmentsRequestBuilderPostRequestConfiguration } from './assignmentsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { TargetedManagedAppPolicyAssignmentItemRequestBuilder } from './item/targetedManagedAppPolicyAssignmentItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppProtection entity.

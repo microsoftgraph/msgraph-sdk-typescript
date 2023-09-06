@@ -1,6 +1,6 @@
-import {deserializeIntoChatMembersNotificationRecipient} from './deserializeIntoChatMembersNotificationRecipient';
-import {ChatMembersNotificationRecipient} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoChatMembersNotificationRecipient } from './deserializeIntoChatMembersNotificationRecipient';
+import { type ChatMembersNotificationRecipient } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createChatMembersNotificationRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

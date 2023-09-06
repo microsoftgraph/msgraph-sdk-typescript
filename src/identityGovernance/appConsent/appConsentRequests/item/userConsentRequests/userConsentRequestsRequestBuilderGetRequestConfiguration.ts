@@ -1,5 +1,5 @@
-import {UserConsentRequestsRequestBuilderGetQueryParameters} from './userConsentRequestsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserConsentRequestsRequestBuilderGetQueryParameters } from './userConsentRequestsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserConsentRequestsRequestBuilderGetRequestConfiguration {
     /**

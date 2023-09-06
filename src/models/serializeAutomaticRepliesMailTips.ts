@@ -1,9 +1,9 @@
-import type {AutomaticRepliesMailTips} from './automaticRepliesMailTips';
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import type {LocaleInfo} from './localeInfo';
-import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {serializeLocaleInfo} from './serializeLocaleInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AutomaticRepliesMailTips } from './automaticRepliesMailTips';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { type LocaleInfo } from './localeInfo';
+import { serializeDateTimeTimeZone } from './serializeDateTimeTimeZone';
+import { serializeLocaleInfo } from './serializeLocaleInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAutomaticRepliesMailTips(writer: SerializationWriter, automaticRepliesMailTips: AutomaticRepliesMailTips | undefined = {} as AutomaticRepliesMailTips) : void {
         writer.writeStringValue("message", automaticRepliesMailTips.message);

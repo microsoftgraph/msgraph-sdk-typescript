@@ -1,16 +1,15 @@
-import {createSchemaFromDiscriminatorValue} from '../../../models/externalConnectors/createSchemaFromDiscriminatorValue';
-import {deserializeIntoSchema} from '../../../models/externalConnectors/deserializeIntoSchema';
-import type {Schema} from '../../../models/externalConnectors/schema';
-import {serializeSchema} from '../../../models/externalConnectors/serializeSchema';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {SchemaRequestBuilderDeleteRequestConfiguration} from './schemaRequestBuilderDeleteRequestConfiguration';
-import {SchemaRequestBuilderGetRequestConfiguration} from './schemaRequestBuilderGetRequestConfiguration';
-import {SchemaRequestBuilderPatchRequestConfiguration} from './schemaRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSchemaFromDiscriminatorValue } from '../../../models/externalConnectors/createSchemaFromDiscriminatorValue';
+import { deserializeIntoSchema } from '../../../models/externalConnectors/deserializeIntoSchema';
+import { type Schema } from '../../../models/externalConnectors/schema';
+import { serializeSchema } from '../../../models/externalConnectors/serializeSchema';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type SchemaRequestBuilderDeleteRequestConfiguration } from './schemaRequestBuilderDeleteRequestConfiguration';
+import { type SchemaRequestBuilderGetRequestConfiguration } from './schemaRequestBuilderGetRequestConfiguration';
+import { type SchemaRequestBuilderPatchRequestConfiguration } from './schemaRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schema property of the microsoft.graph.externalConnectors.externalConnection entity.

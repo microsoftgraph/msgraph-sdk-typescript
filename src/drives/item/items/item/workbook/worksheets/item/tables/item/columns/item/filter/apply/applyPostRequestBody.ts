@@ -1,5 +1,5 @@
-import type {WorkbookFilterCriteria} from '../../../../../../../../../../../../../models/workbookFilterCriteria';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type WorkbookFilterCriteria } from '../../../../../../../../../../../../../models/workbookFilterCriteria';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ApplyPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

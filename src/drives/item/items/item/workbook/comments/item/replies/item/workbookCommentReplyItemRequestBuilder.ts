@@ -1,16 +1,15 @@
-import {createWorkbookCommentReplyFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookCommentReplyFromDiscriminatorValue';
-import {deserializeIntoWorkbookCommentReply} from '../../../../../../../../../models/deserializeIntoWorkbookCommentReply';
-import {ODataError} from '../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookCommentReply} from '../../../../../../../../../models/serializeWorkbookCommentReply';
-import type {WorkbookCommentReply} from '../../../../../../../../../models/workbookCommentReply';
-import {WorkbookCommentReplyItemRequestBuilderDeleteRequestConfiguration} from './workbookCommentReplyItemRequestBuilderDeleteRequestConfiguration';
-import {WorkbookCommentReplyItemRequestBuilderGetRequestConfiguration} from './workbookCommentReplyItemRequestBuilderGetRequestConfiguration';
-import {WorkbookCommentReplyItemRequestBuilderPatchRequestConfiguration} from './workbookCommentReplyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookCommentReplyFromDiscriminatorValue } from '../../../../../../../../../models/createWorkbookCommentReplyFromDiscriminatorValue';
+import { deserializeIntoWorkbookCommentReply } from '../../../../../../../../../models/deserializeIntoWorkbookCommentReply';
+import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookCommentReply } from '../../../../../../../../../models/serializeWorkbookCommentReply';
+import { type WorkbookCommentReply } from '../../../../../../../../../models/workbookCommentReply';
+import { type WorkbookCommentReplyItemRequestBuilderDeleteRequestConfiguration } from './workbookCommentReplyItemRequestBuilderDeleteRequestConfiguration';
+import { type WorkbookCommentReplyItemRequestBuilderGetRequestConfiguration } from './workbookCommentReplyItemRequestBuilderGetRequestConfiguration';
+import { type WorkbookCommentReplyItemRequestBuilderPatchRequestConfiguration } from './workbookCommentReplyItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.

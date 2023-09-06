@@ -1,8 +1,7 @@
-import type {AccessPackageApprovalStage} from './accessPackageApprovalStage';
-import {serializeSubjectSet} from './serializeSubjectSet';
-import type {SubjectSet} from './subjectSet';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageApprovalStage } from './accessPackageApprovalStage';
+import { serializeSubjectSet } from './serializeSubjectSet';
+import { type SubjectSet } from './subjectSet';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageApprovalStage(writer: SerializationWriter, accessPackageApprovalStage: AccessPackageApprovalStage | undefined = {} as AccessPackageApprovalStage) : void {
         writer.writeDurationValue("durationBeforeAutomaticDenial", accessPackageApprovalStage.durationBeforeAutomaticDenial);

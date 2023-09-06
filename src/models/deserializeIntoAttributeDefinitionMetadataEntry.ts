@@ -1,6 +1,6 @@
-import {AttributeDefinitionMetadata} from './attributeDefinitionMetadata';
-import type {AttributeDefinitionMetadataEntry} from './attributeDefinitionMetadataEntry';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AttributeDefinitionMetadata } from './attributeDefinitionMetadata';
+import { type AttributeDefinitionMetadataEntry } from './attributeDefinitionMetadataEntry';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttributeDefinitionMetadataEntry(attributeDefinitionMetadataEntry: AttributeDefinitionMetadataEntry | undefined = {} as AttributeDefinitionMetadataEntry) : Record<string, (node: ParseNode) => void> {
     return {

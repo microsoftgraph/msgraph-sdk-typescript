@@ -1,16 +1,16 @@
-import type {AdministrativeUnit} from './administrativeUnit';
-import type {EducationClass} from './educationClass';
-import type {EducationSchool} from './educationSchool';
-import type {EducationUser} from './educationUser';
-import type {IdentitySet} from './identitySet';
-import type {PhysicalAddress} from './physicalAddress';
-import {serializeAdministrativeUnit} from './serializeAdministrativeUnit';
-import {serializeEducationClass} from './serializeEducationClass';
-import {serializeEducationOrganization} from './serializeEducationOrganization';
-import {serializeEducationUser} from './serializeEducationUser';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializePhysicalAddress} from './serializePhysicalAddress';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AdministrativeUnit } from './administrativeUnit';
+import { type EducationClass } from './educationClass';
+import { type EducationSchool } from './educationSchool';
+import { type EducationUser } from './educationUser';
+import { type IdentitySet } from './identitySet';
+import { type PhysicalAddress } from './physicalAddress';
+import { serializeAdministrativeUnit } from './serializeAdministrativeUnit';
+import { serializeEducationClass } from './serializeEducationClass';
+import { serializeEducationOrganization } from './serializeEducationOrganization';
+import { serializeEducationUser } from './serializeEducationUser';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializePhysicalAddress } from './serializePhysicalAddress';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEducationSchool(writer: SerializationWriter, educationSchool: EducationSchool | undefined = {} as EducationSchool) : void {
         serializeEducationOrganization(writer, educationSchool)

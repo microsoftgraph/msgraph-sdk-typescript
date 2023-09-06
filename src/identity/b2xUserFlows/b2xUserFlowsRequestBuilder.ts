@@ -1,19 +1,18 @@
-import {B2xIdentityUserFlowCollectionResponse} from '../../models/';
-import type {B2xIdentityUserFlow} from '../../models/b2xIdentityUserFlow';
-import {createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue} from '../../models/createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue';
-import {createB2xIdentityUserFlowFromDiscriminatorValue} from '../../models/createB2xIdentityUserFlowFromDiscriminatorValue';
-import {deserializeIntoB2xIdentityUserFlow} from '../../models/deserializeIntoB2xIdentityUserFlow';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeB2xIdentityUserFlow} from '../../models/serializeB2xIdentityUserFlow';
-import {B2xUserFlowsRequestBuilderGetRequestConfiguration} from './b2xUserFlowsRequestBuilderGetRequestConfiguration';
-import {B2xUserFlowsRequestBuilderPostRequestConfiguration} from './b2xUserFlowsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {B2xIdentityUserFlowItemRequestBuilder} from './item/b2xIdentityUserFlowItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type B2xIdentityUserFlowCollectionResponse } from '../../models/';
+import { type B2xIdentityUserFlow } from '../../models/b2xIdentityUserFlow';
+import { createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue } from '../../models/createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue';
+import { createB2xIdentityUserFlowFromDiscriminatorValue } from '../../models/createB2xIdentityUserFlowFromDiscriminatorValue';
+import { deserializeIntoB2xIdentityUserFlow } from '../../models/deserializeIntoB2xIdentityUserFlow';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeB2xIdentityUserFlow } from '../../models/serializeB2xIdentityUserFlow';
+import { type B2xUserFlowsRequestBuilderGetRequestConfiguration } from './b2xUserFlowsRequestBuilderGetRequestConfiguration';
+import { type B2xUserFlowsRequestBuilderPostRequestConfiguration } from './b2xUserFlowsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { B2xIdentityUserFlowItemRequestBuilder } from './item/b2xIdentityUserFlowItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.

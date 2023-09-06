@@ -1,8 +1,8 @@
-import type {AccessPackageAnswerChoice} from './accessPackageAnswerChoice';
-import type {AccessPackageMultipleChoiceQuestion} from './accessPackageMultipleChoiceQuestion';
-import {serializeAccessPackageAnswerChoice} from './serializeAccessPackageAnswerChoice';
-import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAnswerChoice } from './accessPackageAnswerChoice';
+import { type AccessPackageMultipleChoiceQuestion } from './accessPackageMultipleChoiceQuestion';
+import { serializeAccessPackageAnswerChoice } from './serializeAccessPackageAnswerChoice';
+import { serializeAccessPackageQuestion } from './serializeAccessPackageQuestion';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageMultipleChoiceQuestion(writer: SerializationWriter, accessPackageMultipleChoiceQuestion: AccessPackageMultipleChoiceQuestion | undefined = {} as AccessPackageMultipleChoiceQuestion) : void {
         serializeAccessPackageQuestion(writer, accessPackageMultipleChoiceQuestion)

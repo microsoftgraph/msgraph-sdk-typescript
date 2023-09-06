@@ -1,5 +1,5 @@
-import type {StringKeyLongValuePair} from './stringKeyLongValuePair';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type StringKeyLongValuePair } from './stringKeyLongValuePair';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoStringKeyLongValuePair(stringKeyLongValuePair: StringKeyLongValuePair | undefined = {} as StringKeyLongValuePair) : Record<string, (node: ParseNode) => void> {
     return {

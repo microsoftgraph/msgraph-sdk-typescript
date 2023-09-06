@@ -1,5 +1,5 @@
-import type {PersonOrGroupColumn} from './personOrGroupColumn';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PersonOrGroupColumn } from './personOrGroupColumn';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPersonOrGroupColumn(personOrGroupColumn: PersonOrGroupColumn | undefined = {} as PersonOrGroupColumn) : Record<string, (node: ParseNode) => void> {
     return {

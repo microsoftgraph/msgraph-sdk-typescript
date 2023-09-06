@@ -1,25 +1,24 @@
-import {createDeviceCompliancePolicyFromDiscriminatorValue} from '../../../models/createDeviceCompliancePolicyFromDiscriminatorValue';
-import {deserializeIntoDeviceCompliancePolicy} from '../../../models/deserializeIntoDeviceCompliancePolicy';
-import type {DeviceCompliancePolicy} from '../../../models/deviceCompliancePolicy';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceCompliancePolicy} from '../../../models/serializeDeviceCompliancePolicy';
-import {AssignRequestBuilder} from './assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration} from './deviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicyItemRequestBuilderGetRequestConfiguration';
-import {DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration} from './deviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration';
-import {DeviceSettingStateSummariesRequestBuilder} from './deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
-import {DeviceStatusOverviewRequestBuilder} from './deviceStatusOverview/deviceStatusOverviewRequestBuilder';
-import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
-import {ScheduleActionsForRulesRequestBuilder} from './scheduleActionsForRules/scheduleActionsForRulesRequestBuilder';
-import {ScheduledActionsForRuleRequestBuilder} from './scheduledActionsForRule/scheduledActionsForRuleRequestBuilder';
-import {UserStatusOverviewRequestBuilder} from './userStatusOverview/userStatusOverviewRequestBuilder';
-import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceCompliancePolicyFromDiscriminatorValue } from '../../../models/createDeviceCompliancePolicyFromDiscriminatorValue';
+import { deserializeIntoDeviceCompliancePolicy } from '../../../models/deserializeIntoDeviceCompliancePolicy';
+import { type DeviceCompliancePolicy } from '../../../models/deviceCompliancePolicy';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceCompliancePolicy } from '../../../models/serializeDeviceCompliancePolicy';
+import { AssignRequestBuilder } from './assign/assignRequestBuilder';
+import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
+import { type DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration } from './deviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration } from './deviceCompliancePolicyItemRequestBuilderGetRequestConfiguration';
+import { type DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration } from './deviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration';
+import { DeviceSettingStateSummariesRequestBuilder } from './deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
+import { DeviceStatusesRequestBuilder } from './deviceStatuses/deviceStatusesRequestBuilder';
+import { DeviceStatusOverviewRequestBuilder } from './deviceStatusOverview/deviceStatusOverviewRequestBuilder';
+import { ScheduleActionsForRulesRequestBuilder } from './scheduleActionsForRules/scheduleActionsForRulesRequestBuilder';
+import { ScheduledActionsForRuleRequestBuilder } from './scheduledActionsForRule/scheduledActionsForRuleRequestBuilder';
+import { UserStatusesRequestBuilder } from './userStatuses/userStatusesRequestBuilder';
+import { UserStatusOverviewRequestBuilder } from './userStatusOverview/userStatusOverviewRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
@@ -88,9 +87,9 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a windowsPhone81CompliancePolicy.
+     * Deletes a androidWorkProfileCompliancePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsphone81compliancepolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -119,11 +118,11 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<DeviceCompliancePolicy>(requestInfo, createDeviceCompliancePolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a windows10MobileCompliancePolicy object.
+     * Update the properties of a androidCompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicy
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10mobilecompliancepolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcompliancepolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceCompliancePolicy, requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceCompliancePolicy | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -136,7 +135,7 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<DeviceCompliancePolicy>(requestInfo, createDeviceCompliancePolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a windowsPhone81CompliancePolicy.
+     * Deletes a androidWorkProfileCompliancePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -170,7 +169,7 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Update the properties of a windows10MobileCompliancePolicy object.
+     * Update the properties of a androidCompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

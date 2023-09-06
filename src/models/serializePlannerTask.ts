@@ -1,21 +1,21 @@
-import type {IdentitySet} from './identitySet';
-import type {PlannerAppliedCategories} from './plannerAppliedCategories';
-import type {PlannerAssignedToTaskBoardTaskFormat} from './plannerAssignedToTaskBoardTaskFormat';
-import type {PlannerAssignments} from './plannerAssignments';
-import type {PlannerBucketTaskBoardTaskFormat} from './plannerBucketTaskBoardTaskFormat';
-import {PlannerPreviewType} from './plannerPreviewType';
-import type {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTaskFormat';
-import type {PlannerTask} from './plannerTask';
-import type {PlannerTaskDetails} from './plannerTaskDetails';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializePlannerAppliedCategories} from './serializePlannerAppliedCategories';
-import {serializePlannerAssignedToTaskBoardTaskFormat} from './serializePlannerAssignedToTaskBoardTaskFormat';
-import {serializePlannerAssignments} from './serializePlannerAssignments';
-import {serializePlannerBucketTaskBoardTaskFormat} from './serializePlannerBucketTaskBoardTaskFormat';
-import {serializePlannerProgressTaskBoardTaskFormat} from './serializePlannerProgressTaskBoardTaskFormat';
-import {serializePlannerTaskDetails} from './serializePlannerTaskDetails';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from './identitySet';
+import { type PlannerAppliedCategories } from './plannerAppliedCategories';
+import { type PlannerAssignedToTaskBoardTaskFormat } from './plannerAssignedToTaskBoardTaskFormat';
+import { type PlannerAssignments } from './plannerAssignments';
+import { type PlannerBucketTaskBoardTaskFormat } from './plannerBucketTaskBoardTaskFormat';
+import { PlannerPreviewType } from './plannerPreviewType';
+import { type PlannerProgressTaskBoardTaskFormat } from './plannerProgressTaskBoardTaskFormat';
+import { type PlannerTask } from './plannerTask';
+import { type PlannerTaskDetails } from './plannerTaskDetails';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializePlannerAppliedCategories } from './serializePlannerAppliedCategories';
+import { serializePlannerAssignedToTaskBoardTaskFormat } from './serializePlannerAssignedToTaskBoardTaskFormat';
+import { serializePlannerAssignments } from './serializePlannerAssignments';
+import { serializePlannerBucketTaskBoardTaskFormat } from './serializePlannerBucketTaskBoardTaskFormat';
+import { serializePlannerProgressTaskBoardTaskFormat } from './serializePlannerProgressTaskBoardTaskFormat';
+import { serializePlannerTaskDetails } from './serializePlannerTaskDetails';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePlannerTask(writer: SerializationWriter, plannerTask: PlannerTask | undefined = {} as PlannerTask) : void {
         serializeEntity(writer, plannerTask)

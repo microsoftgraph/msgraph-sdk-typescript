@@ -1,20 +1,19 @@
-import {AppConsentRequestCollectionResponse} from '../../../models/';
-import type {AppConsentRequest} from '../../../models/appConsentRequest';
-import {createAppConsentRequestCollectionResponseFromDiscriminatorValue} from '../../../models/createAppConsentRequestCollectionResponseFromDiscriminatorValue';
-import {createAppConsentRequestFromDiscriminatorValue} from '../../../models/createAppConsentRequestFromDiscriminatorValue';
-import {deserializeIntoAppConsentRequest} from '../../../models/deserializeIntoAppConsentRequest';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAppConsentRequest} from '../../../models/serializeAppConsentRequest';
-import {AppConsentRequestsRequestBuilderGetRequestConfiguration} from './appConsentRequestsRequestBuilderGetRequestConfiguration';
-import {AppConsentRequestsRequestBuilderPostRequestConfiguration} from './appConsentRequestsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {AppConsentRequestItemRequestBuilder} from './item/appConsentRequestItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppConsentRequestCollectionResponse } from '../../../models/';
+import { type AppConsentRequest } from '../../../models/appConsentRequest';
+import { createAppConsentRequestCollectionResponseFromDiscriminatorValue } from '../../../models/createAppConsentRequestCollectionResponseFromDiscriminatorValue';
+import { createAppConsentRequestFromDiscriminatorValue } from '../../../models/createAppConsentRequestFromDiscriminatorValue';
+import { deserializeIntoAppConsentRequest } from '../../../models/deserializeIntoAppConsentRequest';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAppConsentRequest } from '../../../models/serializeAppConsentRequest';
+import { type AppConsentRequestsRequestBuilderGetRequestConfiguration } from './appConsentRequestsRequestBuilderGetRequestConfiguration';
+import { type AppConsentRequestsRequestBuilderPostRequestConfiguration } from './appConsentRequestsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import { AppConsentRequestItemRequestBuilder } from './item/appConsentRequestItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.

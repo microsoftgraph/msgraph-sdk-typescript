@@ -1,0 +1,108 @@
+import { createMailboxSettingsFromDiscriminatorValue } from '../../../../../../models/createMailboxSettingsFromDiscriminatorValue';
+import { deserializeIntoMailboxSettings } from '../../../../../../models/deserializeIntoMailboxSettings';
+import { type MailboxSettings } from '../../../../../../models/mailboxSettings';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeMailboxSettings } from '../../../../../../models/serializeMailboxSettings';
+import { type MailboxSettingsRequestBuilderGetRequestConfiguration } from './mailboxSettingsRequestBuilderGetRequestConfiguration';
+import { type MailboxSettingsRequestBuilderPatchRequestConfiguration } from './mailboxSettingsRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+
+/**
+ * Builds and executes requests for operations under /privacy/subjectRightsRequests/{subjectRightsRequest-id}/approvers/{user-id}/mailboxSettings
+ */
+export class MailboxSettingsRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Instantiates a new MailboxSettingsRequestBuilder and sets the default values.
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
+     */
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        super(pathParameters, requestAdapter, "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/approvers/{user%2Did}/mailboxSettings{?%24select,%24expand}");
+    };
+    /**
+     * Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale and time zone. Returned only on $select.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a Promise of MailboxSettings
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     */
+    public get(requestConfiguration?: MailboxSettingsRequestBuilderGetRequestConfiguration | undefined) : Promise<MailboxSettings | undefined> {
+        const requestInfo = this.toGetRequestInformation(
+            requestConfiguration
+        );
+        const errorMapping = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        } as Record<string, ParsableFactory<Parsable>>;
+        return this.requestAdapter.sendAsync<MailboxSettings>(requestInfo, createMailboxSettingsFromDiscriminatorValue, errorMapping);
+    };
+    /**
+     * Update property mailboxSettings value.
+     * @param body The request body
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a Promise of MailboxSettings
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     */
+    public patch(body: MailboxSettings, requestConfiguration?: MailboxSettingsRequestBuilderPatchRequestConfiguration | undefined) : Promise<MailboxSettings | undefined> {
+        const requestInfo = this.toPatchRequestInformation(
+            body, requestConfiguration
+        );
+        const errorMapping = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        } as Record<string, ParsableFactory<Parsable>>;
+        return this.requestAdapter.sendAsync<MailboxSettings>(requestInfo, createMailboxSettingsFromDiscriminatorValue, errorMapping);
+    };
+    /**
+     * Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale and time zone. Returned only on $select.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     */
+    public toGetRequestInformation(requestConfiguration?: MailboxSettingsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
+    };
+    /**
+     * Update property mailboxSettings value.
+     * @param body The request body
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     */
+    public toPatchRequestInformation(body: MailboxSettings, requestConfiguration?: MailboxSettingsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMailboxSettings);
+        return requestInfo;
+    };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a mailboxSettingsRequestBuilder
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
+     */
+    public withUrl(rawUrl: string) : MailboxSettingsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new MailboxSettingsRequestBuilder(rawUrl, this.requestAdapter);
+    };
+}

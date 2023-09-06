@@ -1,5 +1,5 @@
-import {WindowsProtectionStateRequestBuilderGetQueryParameters} from './windowsProtectionStateRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WindowsProtectionStateRequestBuilderGetQueryParameters } from './windowsProtectionStateRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WindowsProtectionStateRequestBuilderGetRequestConfiguration {
     /**

@@ -1,18 +1,17 @@
-import {DirectoryObject} from '../../../../models/';
-import {createDirectoryObjectFromDiscriminatorValue} from '../../../../models/createDirectoryObjectFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './directoryObjectItemRequestBuilderGetRequestConfiguration';
-import {GraphApplicationRequestBuilder} from './graphApplication/graphApplicationRequestBuilder';
-import {GraphDeviceRequestBuilder} from './graphDevice/graphDeviceRequestBuilder';
-import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
-import {GraphOrgContactRequestBuilder} from './graphOrgContact/graphOrgContactRequestBuilder';
-import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
-import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryObject } from '../../../../models/';
+import { createDirectoryObjectFromDiscriminatorValue } from '../../../../models/createDirectoryObjectFromDiscriminatorValue';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type DirectoryObjectItemRequestBuilderGetRequestConfiguration } from './directoryObjectItemRequestBuilderGetRequestConfiguration';
+import { GraphApplicationRequestBuilder } from './graphApplication/graphApplicationRequestBuilder';
+import { GraphDeviceRequestBuilder } from './graphDevice/graphDeviceRequestBuilder';
+import { GraphGroupRequestBuilder } from './graphGroup/graphGroupRequestBuilder';
+import { GraphOrgContactRequestBuilder } from './graphOrgContact/graphOrgContactRequestBuilder';
+import { GraphServicePrincipalRequestBuilder } from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
+import { GraphUserRequestBuilder } from './graphUser/graphUserRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the membersWithLicenseErrors property of the microsoft.graph.group entity.

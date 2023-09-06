@@ -1,7 +1,7 @@
-import type {ActivitySettings} from './activitySettings';
-import {serializeUrlToItemResolverBase} from './serializeUrlToItemResolverBase';
-import type {UrlToItemResolverBase} from './urlToItemResolverBase';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ActivitySettings } from './activitySettings';
+import { serializeUrlToItemResolverBase } from './serializeUrlToItemResolverBase';
+import { type UrlToItemResolverBase } from './urlToItemResolverBase';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeActivitySettings(writer: SerializationWriter, activitySettings: ActivitySettings | undefined = {} as ActivitySettings) : void {
         writer.writeStringValue("@odata.type", activitySettings.odataType);

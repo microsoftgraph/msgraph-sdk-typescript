@@ -1,19 +1,18 @@
-import {IdentityUserFlowAttributeCollectionResponse} from '../../models/';
-import {createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue} from '../../models/createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue';
-import {createIdentityUserFlowAttributeFromDiscriminatorValue} from '../../models/createIdentityUserFlowAttributeFromDiscriminatorValue';
-import {deserializeIntoIdentityUserFlowAttribute} from '../../models/deserializeIntoIdentityUserFlowAttribute';
-import type {IdentityUserFlowAttribute} from '../../models/identityUserFlowAttribute';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeIdentityUserFlowAttribute} from '../../models/serializeIdentityUserFlowAttribute';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {IdentityUserFlowAttributeItemRequestBuilder} from './item/identityUserFlowAttributeItemRequestBuilder';
-import {UserFlowAttributesRequestBuilderGetRequestConfiguration} from './userFlowAttributesRequestBuilderGetRequestConfiguration';
-import {UserFlowAttributesRequestBuilderPostRequestConfiguration} from './userFlowAttributesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentityUserFlowAttributeCollectionResponse } from '../../models/';
+import { createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue } from '../../models/createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue';
+import { createIdentityUserFlowAttributeFromDiscriminatorValue } from '../../models/createIdentityUserFlowAttributeFromDiscriminatorValue';
+import { deserializeIntoIdentityUserFlowAttribute } from '../../models/deserializeIntoIdentityUserFlowAttribute';
+import { type IdentityUserFlowAttribute } from '../../models/identityUserFlowAttribute';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeIdentityUserFlowAttribute } from '../../models/serializeIdentityUserFlowAttribute';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { IdentityUserFlowAttributeItemRequestBuilder } from './item/identityUserFlowAttributeItemRequestBuilder';
+import { type UserFlowAttributesRequestBuilderGetRequestConfiguration } from './userFlowAttributesRequestBuilderGetRequestConfiguration';
+import { type UserFlowAttributesRequestBuilderPostRequestConfiguration } from './userFlowAttributesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.

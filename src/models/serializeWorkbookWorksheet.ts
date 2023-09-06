@@ -1,16 +1,16 @@
-import {serializeEntity} from './serializeEntity';
-import {serializeWorkbookChart} from './serializeWorkbookChart';
-import {serializeWorkbookNamedItem} from './serializeWorkbookNamedItem';
-import {serializeWorkbookPivotTable} from './serializeWorkbookPivotTable';
-import {serializeWorkbookTable} from './serializeWorkbookTable';
-import {serializeWorkbookWorksheetProtection} from './serializeWorkbookWorksheetProtection';
-import type {WorkbookChart} from './workbookChart';
-import type {WorkbookNamedItem} from './workbookNamedItem';
-import type {WorkbookPivotTable} from './workbookPivotTable';
-import type {WorkbookTable} from './workbookTable';
-import type {WorkbookWorksheet} from './workbookWorksheet';
-import type {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { serializeWorkbookChart } from './serializeWorkbookChart';
+import { serializeWorkbookNamedItem } from './serializeWorkbookNamedItem';
+import { serializeWorkbookPivotTable } from './serializeWorkbookPivotTable';
+import { serializeWorkbookTable } from './serializeWorkbookTable';
+import { serializeWorkbookWorksheetProtection } from './serializeWorkbookWorksheetProtection';
+import { type WorkbookChart } from './workbookChart';
+import { type WorkbookNamedItem } from './workbookNamedItem';
+import { type WorkbookPivotTable } from './workbookPivotTable';
+import { type WorkbookTable } from './workbookTable';
+import { type WorkbookWorksheet } from './workbookWorksheet';
+import { type WorkbookWorksheetProtection } from './workbookWorksheetProtection';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookWorksheet(writer: SerializationWriter, workbookWorksheet: WorkbookWorksheet | undefined = {} as WorkbookWorksheet) : void {
         serializeEntity(writer, workbookWorksheet)

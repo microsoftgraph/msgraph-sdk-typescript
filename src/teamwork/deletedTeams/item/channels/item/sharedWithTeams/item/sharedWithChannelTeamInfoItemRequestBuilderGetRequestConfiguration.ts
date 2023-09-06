@@ -1,5 +1,5 @@
-import {SharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters} from './sharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters } from './sharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration {
     /**

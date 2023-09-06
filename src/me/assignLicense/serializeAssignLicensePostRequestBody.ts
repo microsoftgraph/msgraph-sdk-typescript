@@ -1,8 +1,8 @@
-import type {AssignedLicense} from '../../models/assignedLicense';
-import {serializeAssignedLicense} from '../../models/serializeAssignedLicense';
-import type {AssignLicensePostRequestBody} from './assignLicensePostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type AssignedLicense } from '../../models/assignedLicense';
+import { serializeAssignedLicense } from '../../models/serializeAssignedLicense';
+import { type AssignLicensePostRequestBody } from './assignLicensePostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeAssignLicensePostRequestBody(writer: SerializationWriter, assignLicensePostRequestBody: AssignLicensePostRequestBody | undefined = {} as AssignLicensePostRequestBody) : void {
         writer.writeCollectionOfObjectValues<AssignedLicense>("addLicenses", assignLicensePostRequestBody.addLicenses, serializeAssignedLicense);

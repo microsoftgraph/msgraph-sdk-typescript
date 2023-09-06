@@ -1,5 +1,5 @@
-import {BitlockerRequestBuilderGetQueryParameters} from './bitlockerRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BitlockerRequestBuilderGetQueryParameters } from './bitlockerRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BitlockerRequestBuilderGetRequestConfiguration {
     /**

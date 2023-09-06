@@ -1,9 +1,9 @@
-import type {ActivityHistoryItem} from './activityHistoryItem';
-import {serializeEntity} from './serializeEntity';
-import {serializeUserActivity} from './serializeUserActivity';
-import {Status} from './status';
-import type {UserActivity} from './userActivity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ActivityHistoryItem } from './activityHistoryItem';
+import { serializeEntity } from './serializeEntity';
+import { serializeUserActivity } from './serializeUserActivity';
+import { Status } from './status';
+import { type UserActivity } from './userActivity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeActivityHistoryItem(writer: SerializationWriter, activityHistoryItem: ActivityHistoryItem | undefined = {} as ActivityHistoryItem) : void {
         serializeEntity(writer, activityHistoryItem)

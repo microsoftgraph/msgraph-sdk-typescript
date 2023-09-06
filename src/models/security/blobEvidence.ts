@@ -1,7 +1,7 @@
-import type {AlertEvidence} from './alertEvidence';
-import type {BlobContainerEvidence} from './blobContainerEvidence';
-import type {FileHash} from './fileHash';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AlertEvidence } from './alertEvidence';
+import { type BlobContainerEvidence } from './blobContainerEvidence';
+import { type FileHash } from './fileHash';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BlobEvidence extends AlertEvidence, Parsable {
     /**

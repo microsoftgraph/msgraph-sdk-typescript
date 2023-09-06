@@ -1,21 +1,21 @@
-import {createDeviceInstallStateFromDiscriminatorValue} from './createDeviceInstallStateFromDiscriminatorValue';
-import {createEBookInstallSummaryFromDiscriminatorValue} from './createEBookInstallSummaryFromDiscriminatorValue';
-import {createManagedEBookAssignmentFromDiscriminatorValue} from './createManagedEBookAssignmentFromDiscriminatorValue';
-import {createMimeContentFromDiscriminatorValue} from './createMimeContentFromDiscriminatorValue';
-import {createUserInstallStateSummaryFromDiscriminatorValue} from './createUserInstallStateSummaryFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DeviceInstallState} from './deviceInstallState';
-import type {EBookInstallSummary} from './eBookInstallSummary';
-import type {ManagedEBook} from './managedEBook';
-import type {ManagedEBookAssignment} from './managedEBookAssignment';
-import type {MimeContent} from './mimeContent';
-import {serializeDeviceInstallState} from './serializeDeviceInstallState';
-import {serializeEBookInstallSummary} from './serializeEBookInstallSummary';
-import {serializeManagedEBookAssignment} from './serializeManagedEBookAssignment';
-import {serializeMimeContent} from './serializeMimeContent';
-import {serializeUserInstallStateSummary} from './serializeUserInstallStateSummary';
-import type {UserInstallStateSummary} from './userInstallStateSummary';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDeviceInstallStateFromDiscriminatorValue } from './createDeviceInstallStateFromDiscriminatorValue';
+import { createEBookInstallSummaryFromDiscriminatorValue } from './createEBookInstallSummaryFromDiscriminatorValue';
+import { createManagedEBookAssignmentFromDiscriminatorValue } from './createManagedEBookAssignmentFromDiscriminatorValue';
+import { createMimeContentFromDiscriminatorValue } from './createMimeContentFromDiscriminatorValue';
+import { createUserInstallStateSummaryFromDiscriminatorValue } from './createUserInstallStateSummaryFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DeviceInstallState } from './deviceInstallState';
+import { type EBookInstallSummary } from './eBookInstallSummary';
+import { type ManagedEBook } from './managedEBook';
+import { type ManagedEBookAssignment } from './managedEBookAssignment';
+import { type MimeContent } from './mimeContent';
+import { serializeDeviceInstallState } from './serializeDeviceInstallState';
+import { serializeEBookInstallSummary } from './serializeEBookInstallSummary';
+import { serializeManagedEBookAssignment } from './serializeManagedEBookAssignment';
+import { serializeMimeContent } from './serializeMimeContent';
+import { serializeUserInstallStateSummary } from './serializeUserInstallStateSummary';
+import { type UserInstallStateSummary } from './userInstallStateSummary';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedEBook(managedEBook: ManagedEBook | undefined = {} as ManagedEBook) : Record<string, (node: ParseNode) => void> {
     return {

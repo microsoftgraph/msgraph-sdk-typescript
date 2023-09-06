@@ -1,5 +1,5 @@
-import {DeviceInstallStateItemRequestBuilderGetQueryParameters} from './deviceInstallStateItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceInstallStateItemRequestBuilderGetQueryParameters } from './deviceInstallStateItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceInstallStateItemRequestBuilderGetRequestConfiguration {
     /**

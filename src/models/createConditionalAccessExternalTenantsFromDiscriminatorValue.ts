@@ -1,8 +1,8 @@
-import {deserializeIntoConditionalAccessAllExternalTenants} from './deserializeIntoConditionalAccessAllExternalTenants';
-import {deserializeIntoConditionalAccessEnumeratedExternalTenants} from './deserializeIntoConditionalAccessEnumeratedExternalTenants';
-import {deserializeIntoConditionalAccessExternalTenants} from './deserializeIntoConditionalAccessExternalTenants';
-import {ConditionalAccessAllExternalTenants, ConditionalAccessEnumeratedExternalTenants, ConditionalAccessExternalTenants} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoConditionalAccessAllExternalTenants } from './deserializeIntoConditionalAccessAllExternalTenants';
+import { deserializeIntoConditionalAccessEnumeratedExternalTenants } from './deserializeIntoConditionalAccessEnumeratedExternalTenants';
+import { deserializeIntoConditionalAccessExternalTenants } from './deserializeIntoConditionalAccessExternalTenants';
+import { type ConditionalAccessAllExternalTenants, type ConditionalAccessEnumeratedExternalTenants, type ConditionalAccessExternalTenants } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createConditionalAccessExternalTenantsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

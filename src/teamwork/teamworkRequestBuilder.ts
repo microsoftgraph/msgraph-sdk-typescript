@@ -1,19 +1,18 @@
-import {createTeamworkFromDiscriminatorValue} from '../models/createTeamworkFromDiscriminatorValue';
-import {deserializeIntoTeamwork} from '../models/deserializeIntoTeamwork';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeTeamwork} from '../models/serializeTeamwork';
-import type {Teamwork} from '../models/teamwork';
-import {DeletedTeamsRequestBuilder} from './deletedTeams/deletedTeamsRequestBuilder';
-import {SendActivityNotificationToRecipientsRequestBuilder} from './sendActivityNotificationToRecipients/sendActivityNotificationToRecipientsRequestBuilder';
-import {TeamsAppSettingsRequestBuilder} from './teamsAppSettings/teamsAppSettingsRequestBuilder';
-import {TeamworkRequestBuilderGetRequestConfiguration} from './teamworkRequestBuilderGetRequestConfiguration';
-import {TeamworkRequestBuilderPatchRequestConfiguration} from './teamworkRequestBuilderPatchRequestConfiguration';
-import {WorkforceIntegrationsRequestBuilder} from './workforceIntegrations/workforceIntegrationsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTeamworkFromDiscriminatorValue } from '../models/createTeamworkFromDiscriminatorValue';
+import { deserializeIntoTeamwork } from '../models/deserializeIntoTeamwork';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeTeamwork } from '../models/serializeTeamwork';
+import { type Teamwork } from '../models/teamwork';
+import { DeletedTeamsRequestBuilder } from './deletedTeams/deletedTeamsRequestBuilder';
+import { SendActivityNotificationToRecipientsRequestBuilder } from './sendActivityNotificationToRecipients/sendActivityNotificationToRecipientsRequestBuilder';
+import { TeamsAppSettingsRequestBuilder } from './teamsAppSettings/teamsAppSettingsRequestBuilder';
+import { type TeamworkRequestBuilderGetRequestConfiguration } from './teamworkRequestBuilderGetRequestConfiguration';
+import { type TeamworkRequestBuilderPatchRequestConfiguration } from './teamworkRequestBuilderPatchRequestConfiguration';
+import { WorkforceIntegrationsRequestBuilder } from './workforceIntegrations/workforceIntegrationsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamwork singleton.

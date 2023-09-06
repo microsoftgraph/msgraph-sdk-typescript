@@ -1,5 +1,5 @@
-import type {FilterOperand} from './filterOperand';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type FilterOperand } from './filterOperand';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface FilterClause extends AdditionalDataHolder, Parsable {
     /**

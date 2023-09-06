@@ -1,15 +1,15 @@
-import type {ComplianceInformation} from './complianceInformation';
-import {createComplianceInformationFromDiscriminatorValue} from './createComplianceInformationFromDiscriminatorValue';
-import {createSecureScoreControlStateUpdateFromDiscriminatorValue} from './createSecureScoreControlStateUpdateFromDiscriminatorValue';
-import {createSecurityVendorInformationFromDiscriminatorValue} from './createSecurityVendorInformationFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {SecureScoreControlProfile} from './secureScoreControlProfile';
-import type {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
-import type {SecurityVendorInformation} from './securityVendorInformation';
-import {serializeComplianceInformation} from './serializeComplianceInformation';
-import {serializeSecureScoreControlStateUpdate} from './serializeSecureScoreControlStateUpdate';
-import {serializeSecurityVendorInformation} from './serializeSecurityVendorInformation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ComplianceInformation } from './complianceInformation';
+import { createComplianceInformationFromDiscriminatorValue } from './createComplianceInformationFromDiscriminatorValue';
+import { createSecureScoreControlStateUpdateFromDiscriminatorValue } from './createSecureScoreControlStateUpdateFromDiscriminatorValue';
+import { createSecurityVendorInformationFromDiscriminatorValue } from './createSecurityVendorInformationFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type SecureScoreControlProfile } from './secureScoreControlProfile';
+import { type SecureScoreControlStateUpdate } from './secureScoreControlStateUpdate';
+import { type SecurityVendorInformation } from './securityVendorInformation';
+import { serializeComplianceInformation } from './serializeComplianceInformation';
+import { serializeSecureScoreControlStateUpdate } from './serializeSecureScoreControlStateUpdate';
+import { serializeSecurityVendorInformation } from './serializeSecurityVendorInformation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSecureScoreControlProfile(secureScoreControlProfile: SecureScoreControlProfile | undefined = {} as SecureScoreControlProfile) : Record<string, (node: ParseNode) => void> {
     return {

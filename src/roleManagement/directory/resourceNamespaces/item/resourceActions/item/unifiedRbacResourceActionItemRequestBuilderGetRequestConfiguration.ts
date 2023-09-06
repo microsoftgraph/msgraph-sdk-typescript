@@ -1,5 +1,5 @@
-import {UnifiedRbacResourceActionItemRequestBuilderGetQueryParameters} from './unifiedRbacResourceActionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedRbacResourceActionItemRequestBuilderGetQueryParameters } from './unifiedRbacResourceActionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,17 +1,17 @@
-import {deserializeIntoAddLargeGalleryViewOperation} from './deserializeIntoAddLargeGalleryViewOperation';
-import {deserializeIntoCancelMediaProcessingOperation} from './deserializeIntoCancelMediaProcessingOperation';
-import {deserializeIntoCommsOperation} from './deserializeIntoCommsOperation';
-import {deserializeIntoInviteParticipantsOperation} from './deserializeIntoInviteParticipantsOperation';
-import {deserializeIntoMuteParticipantOperation} from './deserializeIntoMuteParticipantOperation';
-import {deserializeIntoPlayPromptOperation} from './deserializeIntoPlayPromptOperation';
-import {deserializeIntoRecordOperation} from './deserializeIntoRecordOperation';
-import {deserializeIntoStartHoldMusicOperation} from './deserializeIntoStartHoldMusicOperation';
-import {deserializeIntoStopHoldMusicOperation} from './deserializeIntoStopHoldMusicOperation';
-import {deserializeIntoSubscribeToToneOperation} from './deserializeIntoSubscribeToToneOperation';
-import {deserializeIntoUnmuteParticipantOperation} from './deserializeIntoUnmuteParticipantOperation';
-import {deserializeIntoUpdateRecordingStatusOperation} from './deserializeIntoUpdateRecordingStatusOperation';
-import {AddLargeGalleryViewOperation, CancelMediaProcessingOperation, CommsOperation, InviteParticipantsOperation, MuteParticipantOperation, PlayPromptOperation, RecordOperation, StartHoldMusicOperation, StopHoldMusicOperation, SubscribeToToneOperation, UnmuteParticipantOperation, UpdateRecordingStatusOperation} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAddLargeGalleryViewOperation } from './deserializeIntoAddLargeGalleryViewOperation';
+import { deserializeIntoCancelMediaProcessingOperation } from './deserializeIntoCancelMediaProcessingOperation';
+import { deserializeIntoCommsOperation } from './deserializeIntoCommsOperation';
+import { deserializeIntoInviteParticipantsOperation } from './deserializeIntoInviteParticipantsOperation';
+import { deserializeIntoMuteParticipantOperation } from './deserializeIntoMuteParticipantOperation';
+import { deserializeIntoPlayPromptOperation } from './deserializeIntoPlayPromptOperation';
+import { deserializeIntoRecordOperation } from './deserializeIntoRecordOperation';
+import { deserializeIntoStartHoldMusicOperation } from './deserializeIntoStartHoldMusicOperation';
+import { deserializeIntoStopHoldMusicOperation } from './deserializeIntoStopHoldMusicOperation';
+import { deserializeIntoSubscribeToToneOperation } from './deserializeIntoSubscribeToToneOperation';
+import { deserializeIntoUnmuteParticipantOperation } from './deserializeIntoUnmuteParticipantOperation';
+import { deserializeIntoUpdateRecordingStatusOperation } from './deserializeIntoUpdateRecordingStatusOperation';
+import { type AddLargeGalleryViewOperation, type CancelMediaProcessingOperation, type CommsOperation, type InviteParticipantsOperation, type MuteParticipantOperation, type PlayPromptOperation, type RecordOperation, type StartHoldMusicOperation, type StopHoldMusicOperation, type SubscribeToToneOperation, type UnmuteParticipantOperation, type UpdateRecordingStatusOperation } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCommsOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

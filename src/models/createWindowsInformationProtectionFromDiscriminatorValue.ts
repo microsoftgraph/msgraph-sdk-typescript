@@ -1,8 +1,8 @@
-import {deserializeIntoMdmWindowsInformationProtectionPolicy} from './deserializeIntoMdmWindowsInformationProtectionPolicy';
-import {deserializeIntoWindowsInformationProtection} from './deserializeIntoWindowsInformationProtection';
-import {deserializeIntoWindowsInformationProtectionPolicy} from './deserializeIntoWindowsInformationProtectionPolicy';
-import {MdmWindowsInformationProtectionPolicy, WindowsInformationProtection, WindowsInformationProtectionPolicy} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoMdmWindowsInformationProtectionPolicy } from './deserializeIntoMdmWindowsInformationProtectionPolicy';
+import { deserializeIntoWindowsInformationProtection } from './deserializeIntoWindowsInformationProtection';
+import { deserializeIntoWindowsInformationProtectionPolicy } from './deserializeIntoWindowsInformationProtectionPolicy';
+import { type MdmWindowsInformationProtectionPolicy, type WindowsInformationProtection, type WindowsInformationProtectionPolicy } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWindowsInformationProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

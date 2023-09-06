@@ -1,6 +1,6 @@
-import {deserializeIntoEducationRoot} from './deserializeIntoEducationRoot';
-import {EducationRoot} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEducationRoot } from './deserializeIntoEducationRoot';
+import { type EducationRoot } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEducationRootFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

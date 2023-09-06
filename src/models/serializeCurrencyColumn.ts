@@ -1,5 +1,5 @@
-import type {CurrencyColumn} from './currencyColumn';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CurrencyColumn } from './currencyColumn';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCurrencyColumn(writer: SerializationWriter, currencyColumn: CurrencyColumn | undefined = {} as CurrencyColumn) : void {
         writer.writeStringValue("locale", currencyColumn.locale);

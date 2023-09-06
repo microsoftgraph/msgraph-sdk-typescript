@@ -1,18 +1,18 @@
-import type {DeviceConfiguration} from './deviceConfiguration';
-import type {DeviceConfigurationAssignment} from './deviceConfigurationAssignment';
-import type {DeviceConfigurationDeviceOverview} from './deviceConfigurationDeviceOverview';
-import type {DeviceConfigurationDeviceStatus} from './deviceConfigurationDeviceStatus';
-import type {DeviceConfigurationUserOverview} from './deviceConfigurationUserOverview';
-import type {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
-import {serializeDeviceConfigurationAssignment} from './serializeDeviceConfigurationAssignment';
-import {serializeDeviceConfigurationDeviceOverview} from './serializeDeviceConfigurationDeviceOverview';
-import {serializeDeviceConfigurationDeviceStatus} from './serializeDeviceConfigurationDeviceStatus';
-import {serializeDeviceConfigurationUserOverview} from './serializeDeviceConfigurationUserOverview';
-import {serializeDeviceConfigurationUserStatus} from './serializeDeviceConfigurationUserStatus';
-import {serializeEntity} from './serializeEntity';
-import {serializeSettingStateDeviceSummary} from './serializeSettingStateDeviceSummary';
-import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceConfiguration } from './deviceConfiguration';
+import { type DeviceConfigurationAssignment } from './deviceConfigurationAssignment';
+import { type DeviceConfigurationDeviceOverview } from './deviceConfigurationDeviceOverview';
+import { type DeviceConfigurationDeviceStatus } from './deviceConfigurationDeviceStatus';
+import { type DeviceConfigurationUserOverview } from './deviceConfigurationUserOverview';
+import { type DeviceConfigurationUserStatus } from './deviceConfigurationUserStatus';
+import { serializeDeviceConfigurationAssignment } from './serializeDeviceConfigurationAssignment';
+import { serializeDeviceConfigurationDeviceOverview } from './serializeDeviceConfigurationDeviceOverview';
+import { serializeDeviceConfigurationDeviceStatus } from './serializeDeviceConfigurationDeviceStatus';
+import { serializeDeviceConfigurationUserOverview } from './serializeDeviceConfigurationUserOverview';
+import { serializeDeviceConfigurationUserStatus } from './serializeDeviceConfigurationUserStatus';
+import { serializeEntity } from './serializeEntity';
+import { serializeSettingStateDeviceSummary } from './serializeSettingStateDeviceSummary';
+import { type SettingStateDeviceSummary } from './settingStateDeviceSummary';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceConfiguration(writer: SerializationWriter, deviceConfiguration: DeviceConfiguration | undefined = {} as DeviceConfiguration) : void {
         serializeEntity(writer, deviceConfiguration)

@@ -1,7 +1,7 @@
-import {deserializeIntoIosMobileAppConfiguration} from './deserializeIntoIosMobileAppConfiguration';
-import {deserializeIntoManagedDeviceMobileAppConfiguration} from './deserializeIntoManagedDeviceMobileAppConfiguration';
-import {IosMobileAppConfiguration, ManagedDeviceMobileAppConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIosMobileAppConfiguration } from './deserializeIntoIosMobileAppConfiguration';
+import { deserializeIntoManagedDeviceMobileAppConfiguration } from './deserializeIntoManagedDeviceMobileAppConfiguration';
+import { type IosMobileAppConfiguration, type ManagedDeviceMobileAppConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedDeviceMobileAppConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

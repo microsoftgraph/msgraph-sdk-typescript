@@ -1,17 +1,16 @@
-import {createTeamsTabFromDiscriminatorValue} from '../../../../../models/createTeamsTabFromDiscriminatorValue';
-import {deserializeIntoTeamsTab} from '../../../../../models/deserializeIntoTeamsTab';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeTeamsTab} from '../../../../../models/serializeTeamsTab';
-import type {TeamsTab} from '../../../../../models/teamsTab';
-import {TeamsAppRequestBuilder} from './teamsApp/teamsAppRequestBuilder';
-import {TeamsTabItemRequestBuilderDeleteRequestConfiguration} from './teamsTabItemRequestBuilderDeleteRequestConfiguration';
-import {TeamsTabItemRequestBuilderGetRequestConfiguration} from './teamsTabItemRequestBuilderGetRequestConfiguration';
-import {TeamsTabItemRequestBuilderPatchRequestConfiguration} from './teamsTabItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTeamsTabFromDiscriminatorValue } from '../../../../../models/createTeamsTabFromDiscriminatorValue';
+import { deserializeIntoTeamsTab } from '../../../../../models/deserializeIntoTeamsTab';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeTeamsTab } from '../../../../../models/serializeTeamsTab';
+import { type TeamsTab } from '../../../../../models/teamsTab';
+import { TeamsAppRequestBuilder } from './teamsApp/teamsAppRequestBuilder';
+import { type TeamsTabItemRequestBuilderDeleteRequestConfiguration } from './teamsTabItemRequestBuilderDeleteRequestConfiguration';
+import { type TeamsTabItemRequestBuilderGetRequestConfiguration } from './teamsTabItemRequestBuilderGetRequestConfiguration';
+import { type TeamsTabItemRequestBuilderPatchRequestConfiguration } from './teamsTabItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.chat entity.

@@ -1,9 +1,9 @@
-import type {BucketAggregationDefinition} from './bucketAggregationDefinition';
-import type {BucketAggregationRange} from './bucketAggregationRange';
-import {BucketAggregationSortProperty} from './bucketAggregationSortProperty';
-import {createBucketAggregationRangeFromDiscriminatorValue} from './createBucketAggregationRangeFromDiscriminatorValue';
-import {serializeBucketAggregationRange} from './serializeBucketAggregationRange';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BucketAggregationDefinition } from './bucketAggregationDefinition';
+import { type BucketAggregationRange } from './bucketAggregationRange';
+import { BucketAggregationSortProperty } from './bucketAggregationSortProperty';
+import { createBucketAggregationRangeFromDiscriminatorValue } from './createBucketAggregationRangeFromDiscriminatorValue';
+import { serializeBucketAggregationRange } from './serializeBucketAggregationRange';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBucketAggregationDefinition(bucketAggregationDefinition: BucketAggregationDefinition | undefined = {} as BucketAggregationDefinition) : Record<string, (node: ParseNode) => void> {
     return {

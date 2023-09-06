@@ -1,9 +1,9 @@
-import {createPrintTaskDefinitionFromDiscriminatorValue} from './createPrintTaskDefinitionFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {PrintTaskDefinition} from './printTaskDefinition';
-import type {PrintTaskDefinitionCollectionResponse} from './printTaskDefinitionCollectionResponse';
-import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPrintTaskDefinitionFromDiscriminatorValue } from './createPrintTaskDefinitionFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type PrintTaskDefinition } from './printTaskDefinition';
+import { type PrintTaskDefinitionCollectionResponse } from './printTaskDefinitionCollectionResponse';
+import { serializePrintTaskDefinition } from './serializePrintTaskDefinition';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintTaskDefinitionCollectionResponse(printTaskDefinitionCollectionResponse: PrintTaskDefinitionCollectionResponse | undefined = {} as PrintTaskDefinitionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

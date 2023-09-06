@@ -1,6 +1,6 @@
-import {deserializeIntoAllLicensedUsersAssignmentTarget} from './deserializeIntoAllLicensedUsersAssignmentTarget';
-import {AllLicensedUsersAssignmentTarget} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAllLicensedUsersAssignmentTarget } from './deserializeIntoAllLicensedUsersAssignmentTarget';
+import { type AllLicensedUsersAssignmentTarget } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAllLicensedUsersAssignmentTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

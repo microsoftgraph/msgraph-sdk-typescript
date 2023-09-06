@@ -1,6 +1,6 @@
-import type {ConnectedOrganizationMembers} from './connectedOrganizationMembers';
-import {deserializeIntoSubjectSet} from './deserializeIntoSubjectSet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConnectedOrganizationMembers } from './connectedOrganizationMembers';
+import { deserializeIntoSubjectSet } from './deserializeIntoSubjectSet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConnectedOrganizationMembers(connectedOrganizationMembers: ConnectedOrganizationMembers | undefined = {} as ConnectedOrganizationMembers) : Record<string, (node: ParseNode) => void> {
     return {

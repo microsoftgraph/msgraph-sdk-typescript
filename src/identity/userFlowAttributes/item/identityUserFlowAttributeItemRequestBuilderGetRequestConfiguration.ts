@@ -1,5 +1,5 @@
-import {IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters} from './identityUserFlowAttributeItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters } from './identityUserFlowAttributeItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration {
     /**

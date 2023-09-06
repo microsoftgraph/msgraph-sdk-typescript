@@ -1,5 +1,5 @@
-import {PresenceRequestBuilderGetQueryParameters} from './presenceRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PresenceRequestBuilderGetQueryParameters } from './presenceRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PresenceRequestBuilderGetRequestConfiguration {
     /**

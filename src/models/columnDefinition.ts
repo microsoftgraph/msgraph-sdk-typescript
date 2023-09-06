@@ -1,23 +1,23 @@
-import type {BooleanColumn} from './booleanColumn';
-import type {CalculatedColumn} from './calculatedColumn';
-import type {ChoiceColumn} from './choiceColumn';
-import {ColumnTypes} from './columnTypes';
-import type {ColumnValidation} from './columnValidation';
-import type {ContentApprovalStatusColumn} from './contentApprovalStatusColumn';
-import type {ContentTypeInfo} from './contentTypeInfo';
-import type {CurrencyColumn} from './currencyColumn';
-import type {DateTimeColumn} from './dateTimeColumn';
-import type {DefaultColumnValue} from './defaultColumnValue';
-import type {Entity} from './entity';
-import type {GeolocationColumn} from './geolocationColumn';
-import type {HyperlinkOrPictureColumn} from './hyperlinkOrPictureColumn';
-import type {LookupColumn} from './lookupColumn';
-import type {NumberColumn} from './numberColumn';
-import type {PersonOrGroupColumn} from './personOrGroupColumn';
-import type {TermColumn} from './termColumn';
-import type {TextColumn} from './textColumn';
-import type {ThumbnailColumn} from './thumbnailColumn';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BooleanColumn } from './booleanColumn';
+import { type CalculatedColumn } from './calculatedColumn';
+import { type ChoiceColumn } from './choiceColumn';
+import { ColumnTypes } from './columnTypes';
+import { type ColumnValidation } from './columnValidation';
+import { type ContentApprovalStatusColumn } from './contentApprovalStatusColumn';
+import { type ContentTypeInfo } from './contentTypeInfo';
+import { type CurrencyColumn } from './currencyColumn';
+import { type DateTimeColumn } from './dateTimeColumn';
+import { type DefaultColumnValue } from './defaultColumnValue';
+import { type Entity } from './entity';
+import { type GeolocationColumn } from './geolocationColumn';
+import { type HyperlinkOrPictureColumn } from './hyperlinkOrPictureColumn';
+import { type LookupColumn } from './lookupColumn';
+import { type NumberColumn } from './numberColumn';
+import { type PersonOrGroupColumn } from './personOrGroupColumn';
+import { type TermColumn } from './termColumn';
+import { type TextColumn } from './textColumn';
+import { type ThumbnailColumn } from './thumbnailColumn';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ColumnDefinition extends Entity, Parsable {
     /**

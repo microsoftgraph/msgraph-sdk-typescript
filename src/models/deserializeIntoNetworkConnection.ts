@@ -1,8 +1,8 @@
-import {ConnectionDirection} from './connectionDirection';
-import {ConnectionStatus} from './connectionStatus';
-import type {NetworkConnection} from './networkConnection';
-import {SecurityNetworkProtocol} from './securityNetworkProtocol';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ConnectionDirection } from './connectionDirection';
+import { ConnectionStatus } from './connectionStatus';
+import { type NetworkConnection } from './networkConnection';
+import { SecurityNetworkProtocol } from './securityNetworkProtocol';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNetworkConnection(networkConnection: NetworkConnection | undefined = {} as NetworkConnection) : Record<string, (node: ParseNode) => void> {
     return {

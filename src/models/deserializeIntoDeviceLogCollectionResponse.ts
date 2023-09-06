@@ -1,8 +1,8 @@
-import {AppLogUploadState} from './appLogUploadState';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { AppLogUploadState } from './appLogUploadState';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DeviceLogCollectionResponse } from './deviceLogCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function deserializeIntoDeviceLogCollectionResponse(deviceLogCollectionResponse: DeviceLogCollectionResponse | undefined = {} as DeviceLogCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

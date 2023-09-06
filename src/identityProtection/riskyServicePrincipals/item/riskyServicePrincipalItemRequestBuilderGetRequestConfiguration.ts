@@ -1,5 +1,5 @@
-import {RiskyServicePrincipalItemRequestBuilderGetQueryParameters} from './riskyServicePrincipalItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RiskyServicePrincipalItemRequestBuilderGetQueryParameters } from './riskyServicePrincipalItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RiskyServicePrincipalItemRequestBuilderGetRequestConfiguration {
     /**

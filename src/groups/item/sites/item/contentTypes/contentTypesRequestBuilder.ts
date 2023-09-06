@@ -1,22 +1,21 @@
-import {ContentTypeCollectionResponse} from '../../../../../models/';
-import type {ContentType} from '../../../../../models/contentType';
-import {createContentTypeCollectionResponseFromDiscriminatorValue} from '../../../../../models/createContentTypeCollectionResponseFromDiscriminatorValue';
-import {createContentTypeFromDiscriminatorValue} from '../../../../../models/createContentTypeFromDiscriminatorValue';
-import {deserializeIntoContentType} from '../../../../../models/deserializeIntoContentType';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeContentType} from '../../../../../models/serializeContentType';
-import {AddCopyRequestBuilder} from './addCopy/addCopyRequestBuilder';
-import {AddCopyFromContentTypeHubRequestBuilder} from './addCopyFromContentTypeHub/addCopyFromContentTypeHubRequestBuilder';
-import {ContentTypesRequestBuilderGetRequestConfiguration} from './contentTypesRequestBuilderGetRequestConfiguration';
-import {ContentTypesRequestBuilderPostRequestConfiguration} from './contentTypesRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetCompatibleHubContentTypesRequestBuilder} from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
-import {ContentTypeItemRequestBuilder} from './item/contentTypeItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ContentTypeCollectionResponse } from '../../../../../models/';
+import { type ContentType } from '../../../../../models/contentType';
+import { createContentTypeCollectionResponseFromDiscriminatorValue } from '../../../../../models/createContentTypeCollectionResponseFromDiscriminatorValue';
+import { createContentTypeFromDiscriminatorValue } from '../../../../../models/createContentTypeFromDiscriminatorValue';
+import { deserializeIntoContentType } from '../../../../../models/deserializeIntoContentType';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeContentType } from '../../../../../models/serializeContentType';
+import { AddCopyRequestBuilder } from './addCopy/addCopyRequestBuilder';
+import { AddCopyFromContentTypeHubRequestBuilder } from './addCopyFromContentTypeHub/addCopyFromContentTypeHubRequestBuilder';
+import { type ContentTypesRequestBuilderGetRequestConfiguration } from './contentTypesRequestBuilderGetRequestConfiguration';
+import { type ContentTypesRequestBuilderPostRequestConfiguration } from './contentTypesRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { GetCompatibleHubContentTypesRequestBuilder } from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
+import { ContentTypeItemRequestBuilder } from './item/contentTypeItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.

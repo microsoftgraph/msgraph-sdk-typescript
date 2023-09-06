@@ -1,6 +1,6 @@
-import type {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMobileAppConfigurationUserSummary';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ManagedDeviceMobileAppConfigurationUserSummary } from './managedDeviceMobileAppConfigurationUserSummary';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeManagedDeviceMobileAppConfigurationUserSummary(writer: SerializationWriter, managedDeviceMobileAppConfigurationUserSummary: ManagedDeviceMobileAppConfigurationUserSummary | undefined = {} as ManagedDeviceMobileAppConfigurationUserSummary) : void {
         serializeEntity(writer, managedDeviceMobileAppConfigurationUserSummary)

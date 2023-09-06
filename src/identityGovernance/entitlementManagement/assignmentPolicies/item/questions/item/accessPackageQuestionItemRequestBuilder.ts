@@ -1,16 +1,15 @@
-import type {AccessPackageQuestion} from '../../../../../../models/accessPackageQuestion';
-import {createAccessPackageQuestionFromDiscriminatorValue} from '../../../../../../models/createAccessPackageQuestionFromDiscriminatorValue';
-import {deserializeIntoAccessPackageQuestion} from '../../../../../../models/deserializeIntoAccessPackageQuestion';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackageQuestion} from '../../../../../../models/serializeAccessPackageQuestion';
-import {AccessPackageQuestionItemRequestBuilderDeleteRequestConfiguration} from './accessPackageQuestionItemRequestBuilderDeleteRequestConfiguration';
-import {AccessPackageQuestionItemRequestBuilderGetRequestConfiguration} from './accessPackageQuestionItemRequestBuilderGetRequestConfiguration';
-import {AccessPackageQuestionItemRequestBuilderPatchRequestConfiguration} from './accessPackageQuestionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageQuestion } from '../../../../../../models/accessPackageQuestion';
+import { createAccessPackageQuestionFromDiscriminatorValue } from '../../../../../../models/createAccessPackageQuestionFromDiscriminatorValue';
+import { deserializeIntoAccessPackageQuestion } from '../../../../../../models/deserializeIntoAccessPackageQuestion';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackageQuestion } from '../../../../../../models/serializeAccessPackageQuestion';
+import { type AccessPackageQuestionItemRequestBuilderDeleteRequestConfiguration } from './accessPackageQuestionItemRequestBuilderDeleteRequestConfiguration';
+import { type AccessPackageQuestionItemRequestBuilderGetRequestConfiguration } from './accessPackageQuestionItemRequestBuilderGetRequestConfiguration';
+import { type AccessPackageQuestionItemRequestBuilderPatchRequestConfiguration } from './accessPackageQuestionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.

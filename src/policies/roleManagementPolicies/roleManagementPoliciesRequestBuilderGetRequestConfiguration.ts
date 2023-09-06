@@ -1,5 +1,5 @@
-import {RoleManagementPoliciesRequestBuilderGetQueryParameters} from './roleManagementPoliciesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RoleManagementPoliciesRequestBuilderGetQueryParameters } from './roleManagementPoliciesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RoleManagementPoliciesRequestBuilderGetRequestConfiguration {
     /**

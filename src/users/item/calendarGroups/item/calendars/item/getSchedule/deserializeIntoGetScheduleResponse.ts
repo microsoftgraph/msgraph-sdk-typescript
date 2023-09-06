@@ -1,9 +1,9 @@
-import {createScheduleInformationFromDiscriminatorValue} from '../../../../../../../models/createScheduleInformationFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import type {ScheduleInformation} from '../../../../../../../models/scheduleInformation';
-import {serializeScheduleInformation} from '../../../../../../../models/serializeScheduleInformation';
-import type {GetScheduleResponse} from './getScheduleResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createScheduleInformationFromDiscriminatorValue } from '../../../../../../../models/createScheduleInformationFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { type ScheduleInformation } from '../../../../../../../models/scheduleInformation';
+import { serializeScheduleInformation } from '../../../../../../../models/serializeScheduleInformation';
+import { type GetScheduleResponse } from './getScheduleResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetScheduleResponse(getScheduleResponse: GetScheduleResponse | undefined = {} as GetScheduleResponse) : Record<string, (node: ParseNode) => void> {
     return {

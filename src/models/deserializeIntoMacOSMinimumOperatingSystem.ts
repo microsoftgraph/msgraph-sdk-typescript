@@ -1,5 +1,5 @@
-import type {MacOSMinimumOperatingSystem} from './macOSMinimumOperatingSystem';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MacOSMinimumOperatingSystem } from './macOSMinimumOperatingSystem';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMacOSMinimumOperatingSystem(macOSMinimumOperatingSystem: MacOSMinimumOperatingSystem | undefined = {} as MacOSMinimumOperatingSystem) : Record<string, (node: ParseNode) => void> {
     return {

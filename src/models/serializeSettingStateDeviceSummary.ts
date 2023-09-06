@@ -1,6 +1,6 @@
-import {serializeEntity} from './serializeEntity';
-import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { type SettingStateDeviceSummary } from './settingStateDeviceSummary';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSettingStateDeviceSummary(writer: SerializationWriter, settingStateDeviceSummary: SettingStateDeviceSummary | undefined = {} as SettingStateDeviceSummary) : void {
         serializeEntity(writer, settingStateDeviceSummary)

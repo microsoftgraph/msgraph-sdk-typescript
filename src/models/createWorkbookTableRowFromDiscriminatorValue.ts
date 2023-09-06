@@ -1,6 +1,6 @@
-import {deserializeIntoWorkbookTableRow} from './deserializeIntoWorkbookTableRow';
-import {WorkbookTableRow} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWorkbookTableRow } from './deserializeIntoWorkbookTableRow';
+import { type WorkbookTableRow } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWorkbookTableRowFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

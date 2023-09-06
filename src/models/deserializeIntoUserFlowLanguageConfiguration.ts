@@ -1,9 +1,9 @@
-import {createUserFlowLanguagePageFromDiscriminatorValue} from './createUserFlowLanguagePageFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeUserFlowLanguagePage} from './serializeUserFlowLanguagePage';
-import type {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
-import type {UserFlowLanguagePage} from './userFlowLanguagePage';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUserFlowLanguagePageFromDiscriminatorValue } from './createUserFlowLanguagePageFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeUserFlowLanguagePage } from './serializeUserFlowLanguagePage';
+import { type UserFlowLanguageConfiguration } from './userFlowLanguageConfiguration';
+import { type UserFlowLanguagePage } from './userFlowLanguagePage';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserFlowLanguageConfiguration(userFlowLanguageConfiguration: UserFlowLanguageConfiguration | undefined = {} as UserFlowLanguageConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

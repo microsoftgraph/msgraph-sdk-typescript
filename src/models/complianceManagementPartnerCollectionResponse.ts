@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {ComplianceManagementPartner} from './complianceManagementPartner';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type ComplianceManagementPartner } from './complianceManagementPartner';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ComplianceManagementPartnerCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

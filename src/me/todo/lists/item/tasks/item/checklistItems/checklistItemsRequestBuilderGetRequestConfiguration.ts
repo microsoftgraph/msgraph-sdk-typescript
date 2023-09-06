@@ -1,5 +1,5 @@
-import {ChecklistItemsRequestBuilderGetQueryParameters} from './checklistItemsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ChecklistItemsRequestBuilderGetQueryParameters } from './checklistItemsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ChecklistItemsRequestBuilderGetRequestConfiguration {
     /**

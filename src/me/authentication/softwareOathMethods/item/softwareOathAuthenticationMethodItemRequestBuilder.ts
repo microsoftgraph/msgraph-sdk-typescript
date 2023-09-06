@@ -1,13 +1,12 @@
-import {SoftwareOathAuthenticationMethod} from '../../../../models/';
-import {createSoftwareOathAuthenticationMethodFromDiscriminatorValue} from '../../../../models/createSoftwareOathAuthenticationMethodFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration} from './softwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import {SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './softwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SoftwareOathAuthenticationMethod } from '../../../../models/';
+import { createSoftwareOathAuthenticationMethodFromDiscriminatorValue } from '../../../../models/createSoftwareOathAuthenticationMethodFromDiscriminatorValue';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './softwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
+import { type SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './softwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.

@@ -1,6 +1,6 @@
-import type {Website} from './website';
-import {WebsiteType} from './websiteType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Website } from './website';
+import { WebsiteType } from './websiteType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWebsite(website: Website | undefined = {} as Website) : Record<string, (node: ParseNode) => void> {
     return {

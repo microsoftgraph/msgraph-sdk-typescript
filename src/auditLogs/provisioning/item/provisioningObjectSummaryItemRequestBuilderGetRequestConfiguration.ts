@@ -1,5 +1,5 @@
-import {ProvisioningObjectSummaryItemRequestBuilderGetQueryParameters} from './provisioningObjectSummaryItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ProvisioningObjectSummaryItemRequestBuilderGetQueryParameters } from './provisioningObjectSummaryItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ProvisioningObjectSummaryItemRequestBuilderGetRequestConfiguration {
     /**

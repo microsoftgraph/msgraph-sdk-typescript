@@ -1,5 +1,5 @@
-import {AssignedToTaskBoardFormatRequestBuilderGetQueryParameters} from './assignedToTaskBoardFormatRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AssignedToTaskBoardFormatRequestBuilderGetQueryParameters } from './assignedToTaskBoardFormatRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration {
     /**

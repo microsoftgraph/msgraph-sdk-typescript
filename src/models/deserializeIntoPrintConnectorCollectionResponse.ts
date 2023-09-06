@@ -1,9 +1,9 @@
-import {createPrintConnectorFromDiscriminatorValue} from './createPrintConnectorFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {PrintConnector} from './printConnector';
-import type {PrintConnectorCollectionResponse} from './printConnectorCollectionResponse';
-import {serializePrintConnector} from './serializePrintConnector';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPrintConnectorFromDiscriminatorValue } from './createPrintConnectorFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type PrintConnector } from './printConnector';
+import { type PrintConnectorCollectionResponse } from './printConnectorCollectionResponse';
+import { serializePrintConnector } from './serializePrintConnector';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintConnectorCollectionResponse(printConnectorCollectionResponse: PrintConnectorCollectionResponse | undefined = {} as PrintConnectorCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

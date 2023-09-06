@@ -1,16 +1,15 @@
-import {createShiftFromDiscriminatorValue} from '../../../../../../../models/createShiftFromDiscriminatorValue';
-import {deserializeIntoShift} from '../../../../../../../models/deserializeIntoShift';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeShift} from '../../../../../../../models/serializeShift';
-import type {Shift} from '../../../../../../../models/shift';
-import {ShiftItemRequestBuilderDeleteRequestConfiguration} from './shiftItemRequestBuilderDeleteRequestConfiguration';
-import {ShiftItemRequestBuilderGetRequestConfiguration} from './shiftItemRequestBuilderGetRequestConfiguration';
-import {ShiftItemRequestBuilderPatchRequestConfiguration} from './shiftItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createShiftFromDiscriminatorValue } from '../../../../../../../models/createShiftFromDiscriminatorValue';
+import { deserializeIntoShift } from '../../../../../../../models/deserializeIntoShift';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeShift } from '../../../../../../../models/serializeShift';
+import { type Shift } from '../../../../../../../models/shift';
+import { type ShiftItemRequestBuilderDeleteRequestConfiguration } from './shiftItemRequestBuilderDeleteRequestConfiguration';
+import { type ShiftItemRequestBuilderGetRequestConfiguration } from './shiftItemRequestBuilderGetRequestConfiguration';
+import { type ShiftItemRequestBuilderPatchRequestConfiguration } from './shiftItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.

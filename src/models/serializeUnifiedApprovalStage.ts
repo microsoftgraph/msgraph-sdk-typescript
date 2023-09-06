@@ -1,7 +1,7 @@
-import {serializeSubjectSet} from './serializeSubjectSet';
-import type {SubjectSet} from './subjectSet';
-import type {UnifiedApprovalStage} from './unifiedApprovalStage';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeSubjectSet } from './serializeSubjectSet';
+import { type SubjectSet } from './subjectSet';
+import { type UnifiedApprovalStage } from './unifiedApprovalStage';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedApprovalStage(writer: SerializationWriter, unifiedApprovalStage: UnifiedApprovalStage | undefined = {} as UnifiedApprovalStage) : void {
         writer.writeNumberValue("approvalStageTimeOutInDays", unifiedApprovalStage.approvalStageTimeOutInDays);

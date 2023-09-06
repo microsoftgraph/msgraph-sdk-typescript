@@ -1,17 +1,16 @@
-import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from '../../../models/createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
-import {deserializeIntoHomeRealmDiscoveryPolicy} from '../../../models/deserializeIntoHomeRealmDiscoveryPolicy';
-import type {HomeRealmDiscoveryPolicy} from '../../../models/homeRealmDiscoveryPolicy';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeHomeRealmDiscoveryPolicy} from '../../../models/serializeHomeRealmDiscoveryPolicy';
-import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
-import {HomeRealmDiscoveryPolicyItemRequestBuilderDeleteRequestConfiguration} from './homeRealmDiscoveryPolicyItemRequestBuilderDeleteRequestConfiguration';
-import {HomeRealmDiscoveryPolicyItemRequestBuilderGetRequestConfiguration} from './homeRealmDiscoveryPolicyItemRequestBuilderGetRequestConfiguration';
-import {HomeRealmDiscoveryPolicyItemRequestBuilderPatchRequestConfiguration} from './homeRealmDiscoveryPolicyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createHomeRealmDiscoveryPolicyFromDiscriminatorValue } from '../../../models/createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
+import { deserializeIntoHomeRealmDiscoveryPolicy } from '../../../models/deserializeIntoHomeRealmDiscoveryPolicy';
+import { type HomeRealmDiscoveryPolicy } from '../../../models/homeRealmDiscoveryPolicy';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeHomeRealmDiscoveryPolicy } from '../../../models/serializeHomeRealmDiscoveryPolicy';
+import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
+import { type HomeRealmDiscoveryPolicyItemRequestBuilderDeleteRequestConfiguration } from './homeRealmDiscoveryPolicyItemRequestBuilderDeleteRequestConfiguration';
+import { type HomeRealmDiscoveryPolicyItemRequestBuilderGetRequestConfiguration } from './homeRealmDiscoveryPolicyItemRequestBuilderGetRequestConfiguration';
+import { type HomeRealmDiscoveryPolicyItemRequestBuilderPatchRequestConfiguration } from './homeRealmDiscoveryPolicyItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.

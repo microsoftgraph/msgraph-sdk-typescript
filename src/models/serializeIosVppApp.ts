@@ -1,11 +1,11 @@
-import type {IosDeviceType} from './iosDeviceType';
-import type {IosVppApp} from './iosVppApp';
-import {serializeIosDeviceType} from './serializeIosDeviceType';
-import {serializeMobileApp} from './serializeMobileApp';
-import {serializeVppLicensingType} from './serializeVppLicensingType';
-import type {VppLicensingType} from './vppLicensingType';
-import {VppTokenAccountType} from './vppTokenAccountType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IosDeviceType } from './iosDeviceType';
+import { type IosVppApp } from './iosVppApp';
+import { serializeIosDeviceType } from './serializeIosDeviceType';
+import { serializeMobileApp } from './serializeMobileApp';
+import { serializeVppLicensingType } from './serializeVppLicensingType';
+import { type VppLicensingType } from './vppLicensingType';
+import { VppTokenAccountType } from './vppTokenAccountType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIosVppApp(writer: SerializationWriter, iosVppApp: IosVppApp | undefined = {} as IosVppApp) : void {
         serializeMobileApp(writer, iosVppApp)

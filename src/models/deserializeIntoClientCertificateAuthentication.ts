@@ -1,9 +1,9 @@
-import type {ClientCertificateAuthentication} from './clientCertificateAuthentication';
-import {createPkcs12CertificateInformationFromDiscriminatorValue} from './createPkcs12CertificateInformationFromDiscriminatorValue';
-import {deserializeIntoApiAuthenticationConfigurationBase} from './deserializeIntoApiAuthenticationConfigurationBase';
-import type {Pkcs12CertificateInformation} from './pkcs12CertificateInformation';
-import {serializePkcs12CertificateInformation} from './serializePkcs12CertificateInformation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ClientCertificateAuthentication } from './clientCertificateAuthentication';
+import { createPkcs12CertificateInformationFromDiscriminatorValue } from './createPkcs12CertificateInformationFromDiscriminatorValue';
+import { deserializeIntoApiAuthenticationConfigurationBase } from './deserializeIntoApiAuthenticationConfigurationBase';
+import { type Pkcs12CertificateInformation } from './pkcs12CertificateInformation';
+import { serializePkcs12CertificateInformation } from './serializePkcs12CertificateInformation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoClientCertificateAuthentication(clientCertificateAuthentication: ClientCertificateAuthentication | undefined = {} as ClientCertificateAuthentication) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,14 +1,14 @@
-import {deserializeIntoAndroidCompliancePolicy} from './deserializeIntoAndroidCompliancePolicy';
-import {deserializeIntoAndroidWorkProfileCompliancePolicy} from './deserializeIntoAndroidWorkProfileCompliancePolicy';
-import {deserializeIntoDeviceCompliancePolicy} from './deserializeIntoDeviceCompliancePolicy';
-import {deserializeIntoIosCompliancePolicy} from './deserializeIntoIosCompliancePolicy';
-import {deserializeIntoMacOSCompliancePolicy} from './deserializeIntoMacOSCompliancePolicy';
-import {deserializeIntoWindows10CompliancePolicy} from './deserializeIntoWindows10CompliancePolicy';
-import {deserializeIntoWindows10MobileCompliancePolicy} from './deserializeIntoWindows10MobileCompliancePolicy';
-import {deserializeIntoWindows81CompliancePolicy} from './deserializeIntoWindows81CompliancePolicy';
-import {deserializeIntoWindowsPhone81CompliancePolicy} from './deserializeIntoWindowsPhone81CompliancePolicy';
-import {AndroidCompliancePolicy, AndroidWorkProfileCompliancePolicy, DeviceCompliancePolicy, IosCompliancePolicy, MacOSCompliancePolicy, Windows10CompliancePolicy, Windows10MobileCompliancePolicy, Windows81CompliancePolicy, WindowsPhone81CompliancePolicy} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAndroidCompliancePolicy } from './deserializeIntoAndroidCompliancePolicy';
+import { deserializeIntoAndroidWorkProfileCompliancePolicy } from './deserializeIntoAndroidWorkProfileCompliancePolicy';
+import { deserializeIntoDeviceCompliancePolicy } from './deserializeIntoDeviceCompliancePolicy';
+import { deserializeIntoIosCompliancePolicy } from './deserializeIntoIosCompliancePolicy';
+import { deserializeIntoMacOSCompliancePolicy } from './deserializeIntoMacOSCompliancePolicy';
+import { deserializeIntoWindows10CompliancePolicy } from './deserializeIntoWindows10CompliancePolicy';
+import { deserializeIntoWindows10MobileCompliancePolicy } from './deserializeIntoWindows10MobileCompliancePolicy';
+import { deserializeIntoWindows81CompliancePolicy } from './deserializeIntoWindows81CompliancePolicy';
+import { deserializeIntoWindowsPhone81CompliancePolicy } from './deserializeIntoWindowsPhone81CompliancePolicy';
+import { type AndroidCompliancePolicy, type AndroidWorkProfileCompliancePolicy, type DeviceCompliancePolicy, type IosCompliancePolicy, type MacOSCompliancePolicy, type Windows10CompliancePolicy, type Windows10MobileCompliancePolicy, type Windows81CompliancePolicy, type WindowsPhone81CompliancePolicy } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeviceCompliancePolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

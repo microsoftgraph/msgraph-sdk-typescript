@@ -1,11 +1,11 @@
-import type {DeviceInfo} from './deviceInfo';
-import type {Media} from './media';
-import type {MediaStream} from './mediaStream';
-import type {NetworkInfo} from './networkInfo';
-import {serializeDeviceInfo} from './serializeDeviceInfo';
-import {serializeMediaStream} from './serializeMediaStream';
-import {serializeNetworkInfo} from './serializeNetworkInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceInfo } from './deviceInfo';
+import { type Media } from './media';
+import { type MediaStream } from './mediaStream';
+import { type NetworkInfo } from './networkInfo';
+import { serializeDeviceInfo } from './serializeDeviceInfo';
+import { serializeMediaStream } from './serializeMediaStream';
+import { serializeNetworkInfo } from './serializeNetworkInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMedia(writer: SerializationWriter, media: Media | undefined = {} as Media) : void {
         writer.writeObjectValue<DeviceInfo>("calleeDevice", media.calleeDevice, serializeDeviceInfo);

@@ -1,8 +1,8 @@
-import type {PrintConnector} from './printConnector';
-import type {PrintConnectorCollectionResponse} from './printConnectorCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializePrintConnector} from './serializePrintConnector';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PrintConnector } from './printConnector';
+import { type PrintConnectorCollectionResponse } from './printConnectorCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializePrintConnector } from './serializePrintConnector';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePrintConnectorCollectionResponse(writer: SerializationWriter, printConnectorCollectionResponse: PrintConnectorCollectionResponse | undefined = {} as PrintConnectorCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, printConnectorCollectionResponse)

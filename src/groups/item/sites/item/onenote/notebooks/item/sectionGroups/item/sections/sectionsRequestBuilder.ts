@@ -1,19 +1,18 @@
-import {OnenoteSectionCollectionResponse} from '../../../../../../../../../../models/';
-import {createOnenoteSectionCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../../models/createOnenoteSectionCollectionResponseFromDiscriminatorValue';
-import {createOnenoteSectionFromDiscriminatorValue} from '../../../../../../../../../../models/createOnenoteSectionFromDiscriminatorValue';
-import {deserializeIntoOnenoteSection} from '../../../../../../../../../../models/deserializeIntoOnenoteSection';
-import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import type {OnenoteSection} from '../../../../../../../../../../models/onenoteSection';
-import {serializeOnenoteSection} from '../../../../../../../../../../models/serializeOnenoteSection';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {OnenoteSectionItemRequestBuilder} from './item/onenoteSectionItemRequestBuilder';
-import {SectionsRequestBuilderGetRequestConfiguration} from './sectionsRequestBuilderGetRequestConfiguration';
-import {SectionsRequestBuilderPostRequestConfiguration} from './sectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OnenoteSectionCollectionResponse } from '../../../../../../../../../../models/';
+import { createOnenoteSectionCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../models/createOnenoteSectionCollectionResponseFromDiscriminatorValue';
+import { createOnenoteSectionFromDiscriminatorValue } from '../../../../../../../../../../models/createOnenoteSectionFromDiscriminatorValue';
+import { deserializeIntoOnenoteSection } from '../../../../../../../../../../models/deserializeIntoOnenoteSection';
+import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { type OnenoteSection } from '../../../../../../../../../../models/onenoteSection';
+import { serializeOnenoteSection } from '../../../../../../../../../../models/serializeOnenoteSection';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { OnenoteSectionItemRequestBuilder } from './item/onenoteSectionItemRequestBuilder';
+import { type SectionsRequestBuilderGetRequestConfiguration } from './sectionsRequestBuilderGetRequestConfiguration';
+import { type SectionsRequestBuilderPostRequestConfiguration } from './sectionsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.

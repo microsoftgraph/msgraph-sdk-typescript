@@ -1,23 +1,22 @@
-import {DirectoryObjectCollectionResponse} from '../models/';
-import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
-import {createDirectoryObjectFromDiscriminatorValue} from '../models/createDirectoryObjectFromDiscriminatorValue';
-import {deserializeIntoDirectoryObject} from '../models/deserializeIntoDirectoryObject';
-import type {DirectoryObject} from '../models/directoryObject';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeDirectoryObject} from '../models/serializeDirectoryObject';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {DirectoryObjectsRequestBuilderGetRequestConfiguration} from './directoryObjectsRequestBuilderGetRequestConfiguration';
-import {DirectoryObjectsRequestBuilderPostRequestConfiguration} from './directoryObjectsRequestBuilderPostRequestConfiguration';
-import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryObjectCollectionResponse } from '../models/';
+import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
+import { createDirectoryObjectFromDiscriminatorValue } from '../models/createDirectoryObjectFromDiscriminatorValue';
+import { deserializeIntoDirectoryObject } from '../models/deserializeIntoDirectoryObject';
+import { type DirectoryObject } from '../models/directoryObject';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeDirectoryObject } from '../models/serializeDirectoryObject';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { type DirectoryObjectsRequestBuilderGetRequestConfiguration } from './directoryObjectsRequestBuilderGetRequestConfiguration';
+import { type DirectoryObjectsRequestBuilderPostRequestConfiguration } from './directoryObjectsRequestBuilderPostRequestConfiguration';
+import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
+import { DirectoryObjectItemRequestBuilder } from './item/directoryObjectItemRequestBuilder';
+import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryObject entities.

@@ -1,6 +1,6 @@
-import type {ChannelMembersNotificationRecipient} from './channelMembersNotificationRecipient';
-import {serializeTeamworkNotificationRecipient} from './serializeTeamworkNotificationRecipient';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ChannelMembersNotificationRecipient } from './channelMembersNotificationRecipient';
+import { serializeTeamworkNotificationRecipient } from './serializeTeamworkNotificationRecipient';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeChannelMembersNotificationRecipient(writer: SerializationWriter, channelMembersNotificationRecipient: ChannelMembersNotificationRecipient | undefined = {} as ChannelMembersNotificationRecipient) : void {
         serializeTeamworkNotificationRecipient(writer, channelMembersNotificationRecipient)

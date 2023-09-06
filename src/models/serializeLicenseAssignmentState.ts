@@ -1,6 +1,6 @@
-import type {LicenseAssignmentState} from './licenseAssignmentState';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type LicenseAssignmentState } from './licenseAssignmentState';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeLicenseAssignmentState(writer: SerializationWriter, licenseAssignmentState: LicenseAssignmentState | undefined = {} as LicenseAssignmentState) : void {
         writer.writeStringValue("assignedByGroup", licenseAssignmentState.assignedByGroup);

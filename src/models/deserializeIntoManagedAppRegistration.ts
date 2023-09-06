@@ -1,16 +1,16 @@
-import {createManagedAppOperationFromDiscriminatorValue} from './createManagedAppOperationFromDiscriminatorValue';
-import {createManagedAppPolicyFromDiscriminatorValue} from './createManagedAppPolicyFromDiscriminatorValue';
-import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileAppIdentifierFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {ManagedAppFlaggedReason} from './managedAppFlaggedReason';
-import type {ManagedAppOperation} from './managedAppOperation';
-import type {ManagedAppPolicy} from './managedAppPolicy';
-import type {ManagedAppRegistration} from './managedAppRegistration';
-import type {MobileAppIdentifier} from './mobileAppIdentifier';
-import {serializeManagedAppOperation} from './serializeManagedAppOperation';
-import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
-import {serializeMobileAppIdentifier} from './serializeMobileAppIdentifier';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createManagedAppOperationFromDiscriminatorValue } from './createManagedAppOperationFromDiscriminatorValue';
+import { createManagedAppPolicyFromDiscriminatorValue } from './createManagedAppPolicyFromDiscriminatorValue';
+import { createMobileAppIdentifierFromDiscriminatorValue } from './createMobileAppIdentifierFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { ManagedAppFlaggedReason } from './managedAppFlaggedReason';
+import { type ManagedAppOperation } from './managedAppOperation';
+import { type ManagedAppPolicy } from './managedAppPolicy';
+import { type ManagedAppRegistration } from './managedAppRegistration';
+import { type MobileAppIdentifier } from './mobileAppIdentifier';
+import { serializeManagedAppOperation } from './serializeManagedAppOperation';
+import { serializeManagedAppPolicy } from './serializeManagedAppPolicy';
+import { serializeMobileAppIdentifier } from './serializeMobileAppIdentifier';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAppRegistration(managedAppRegistration: ManagedAppRegistration | undefined = {} as ManagedAppRegistration) : Record<string, (node: ParseNode) => void> {
     return {

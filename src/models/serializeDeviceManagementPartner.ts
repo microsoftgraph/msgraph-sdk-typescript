@@ -1,10 +1,10 @@
-import type {DeviceManagementPartner} from './deviceManagementPartner';
-import {DeviceManagementPartnerAppType} from './deviceManagementPartnerAppType';
-import type {DeviceManagementPartnerAssignment} from './deviceManagementPartnerAssignment';
-import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
-import {serializeDeviceManagementPartnerAssignment} from './serializeDeviceManagementPartnerAssignment';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceManagementPartner } from './deviceManagementPartner';
+import { DeviceManagementPartnerAppType } from './deviceManagementPartnerAppType';
+import { type DeviceManagementPartnerAssignment } from './deviceManagementPartnerAssignment';
+import { DeviceManagementPartnerTenantState } from './deviceManagementPartnerTenantState';
+import { serializeDeviceManagementPartnerAssignment } from './serializeDeviceManagementPartnerAssignment';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceManagementPartner(writer: SerializationWriter, deviceManagementPartner: DeviceManagementPartner | undefined = {} as DeviceManagementPartner) : void {
         serializeEntity(writer, deviceManagementPartner)

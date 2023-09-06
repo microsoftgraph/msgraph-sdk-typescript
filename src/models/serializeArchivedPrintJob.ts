@@ -1,8 +1,8 @@
-import type {ArchivedPrintJob} from './archivedPrintJob';
-import {PrintJobProcessingState} from './printJobProcessingState';
-import {serializeUserIdentity} from './serializeUserIdentity';
-import type {UserIdentity} from './userIdentity';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ArchivedPrintJob } from './archivedPrintJob';
+import { PrintJobProcessingState } from './printJobProcessingState';
+import { serializeUserIdentity } from './serializeUserIdentity';
+import { type UserIdentity } from './userIdentity';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeArchivedPrintJob(writer: SerializationWriter, archivedPrintJob: ArchivedPrintJob | undefined = {} as ArchivedPrintJob) : void {
         writer.writeBooleanValue("acquiredByPrinter", archivedPrintJob.acquiredByPrinter);

@@ -1,5 +1,5 @@
-import {IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters} from './iosUpdateDeviceStatusItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters } from './iosUpdateDeviceStatusItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration {
     /**

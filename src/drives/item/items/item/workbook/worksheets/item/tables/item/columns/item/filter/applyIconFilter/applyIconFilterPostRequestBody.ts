@@ -1,5 +1,5 @@
-import type {WorkbookIcon} from '../../../../../../../../../../../../../models/workbookIcon';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type WorkbookIcon } from '../../../../../../../../../../../../../models/workbookIcon';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ApplyIconFilterPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

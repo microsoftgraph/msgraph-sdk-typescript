@@ -1,9 +1,9 @@
-import {deserializeIntoAttachment} from './deserializeIntoAttachment';
-import {deserializeIntoFileAttachment} from './deserializeIntoFileAttachment';
-import {deserializeIntoItemAttachment} from './deserializeIntoItemAttachment';
-import {deserializeIntoReferenceAttachment} from './deserializeIntoReferenceAttachment';
-import {Attachment, FileAttachment, ItemAttachment, ReferenceAttachment} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAttachment } from './deserializeIntoAttachment';
+import { deserializeIntoFileAttachment } from './deserializeIntoFileAttachment';
+import { deserializeIntoItemAttachment } from './deserializeIntoItemAttachment';
+import { deserializeIntoReferenceAttachment } from './deserializeIntoReferenceAttachment';
+import { type Attachment, type FileAttachment, type ItemAttachment, type ReferenceAttachment } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAttachmentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

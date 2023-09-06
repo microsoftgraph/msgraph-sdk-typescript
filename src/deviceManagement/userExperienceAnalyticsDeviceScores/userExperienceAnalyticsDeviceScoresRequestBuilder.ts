@@ -1,19 +1,18 @@
-import {UserExperienceAnalyticsDeviceScoresCollectionResponse} from '../../models/';
-import {createUserExperienceAnalyticsDeviceScoresCollectionResponseFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsDeviceScoresCollectionResponseFromDiscriminatorValue';
-import {createUserExperienceAnalyticsDeviceScoresFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsDeviceScoresFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsDeviceScores} from '../../models/deserializeIntoUserExperienceAnalyticsDeviceScores';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsDeviceScores} from '../../models/serializeUserExperienceAnalyticsDeviceScores';
-import type {UserExperienceAnalyticsDeviceScores} from '../../models/userExperienceAnalyticsDeviceScores';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserExperienceAnalyticsDeviceScoresItemRequestBuilder} from './item/userExperienceAnalyticsDeviceScoresItemRequestBuilder';
-import {UserExperienceAnalyticsDeviceScoresRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDeviceScoresRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsDeviceScoresCollectionResponse } from '../../models/';
+import { createUserExperienceAnalyticsDeviceScoresCollectionResponseFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsDeviceScoresCollectionResponseFromDiscriminatorValue';
+import { createUserExperienceAnalyticsDeviceScoresFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsDeviceScoresFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsDeviceScores } from '../../models/deserializeIntoUserExperienceAnalyticsDeviceScores';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsDeviceScores } from '../../models/serializeUserExperienceAnalyticsDeviceScores';
+import { type UserExperienceAnalyticsDeviceScores } from '../../models/userExperienceAnalyticsDeviceScores';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserExperienceAnalyticsDeviceScoresItemRequestBuilder } from './item/userExperienceAnalyticsDeviceScoresItemRequestBuilder';
+import { type UserExperienceAnalyticsDeviceScoresRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsDeviceScoresRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration } from './userExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceScores property of the microsoft.graph.deviceManagement entity.

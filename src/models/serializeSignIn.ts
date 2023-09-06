@@ -1,19 +1,19 @@
-import type {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
-import {ConditionalAccessStatus} from './conditionalAccessStatus';
-import type {DeviceDetail} from './deviceDetail';
-import {RiskDetail} from './riskDetail';
-import {RiskEventType} from './riskEventType';
-import {RiskLevel} from './riskLevel';
-import {RiskState} from './riskState';
-import {serializeAppliedConditionalAccessPolicy} from './serializeAppliedConditionalAccessPolicy';
-import {serializeDeviceDetail} from './serializeDeviceDetail';
-import {serializeEntity} from './serializeEntity';
-import {serializeSignInLocation} from './serializeSignInLocation';
-import {serializeSignInStatus} from './serializeSignInStatus';
-import type {SignIn} from './signIn';
-import type {SignInLocation} from './signInLocation';
-import type {SignInStatus} from './signInStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppliedConditionalAccessPolicy } from './appliedConditionalAccessPolicy';
+import { ConditionalAccessStatus } from './conditionalAccessStatus';
+import { type DeviceDetail } from './deviceDetail';
+import { RiskDetail } from './riskDetail';
+import { RiskEventType } from './riskEventType';
+import { RiskLevel } from './riskLevel';
+import { RiskState } from './riskState';
+import { serializeAppliedConditionalAccessPolicy } from './serializeAppliedConditionalAccessPolicy';
+import { serializeDeviceDetail } from './serializeDeviceDetail';
+import { serializeEntity } from './serializeEntity';
+import { serializeSignInLocation } from './serializeSignInLocation';
+import { serializeSignInStatus } from './serializeSignInStatus';
+import { type SignIn } from './signIn';
+import { type SignInLocation } from './signInLocation';
+import { type SignInStatus } from './signInStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSignIn(writer: SerializationWriter, signIn: SignIn | undefined = {} as SignIn) : void {
         serializeEntity(writer, signIn)
@@ -31,8 +31,7 @@ export function serializeSignIn(writer: SerializationWriter, signIn: SignIn | un
         writer.writeStringValue("resourceDisplayName", signIn.resourceDisplayName);
         writer.writeStringValue("resourceId", signIn.resourceId);
         writer.writeEnumValue<RiskDetail>("riskDetail", signIn.riskDetail);
-        if(signIn.riskEventTypes)
-        writer.writeEnumValue<RiskEventType>("riskEventTypes", ...signIn.riskEventTypes);
+        writer.writeCollectionOfObjectValues<RiskEventType>("riskEventTypes", signIn.riskEventTypes, object);
         writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes_v2", signIn.riskEventTypes_v2);
         writer.writeEnumValue<RiskLevel>("riskLevelAggregated", signIn.riskLevelAggregated);
         writer.writeEnumValue<RiskLevel>("riskLevelDuringSignIn", signIn.riskLevelDuringSignIn);

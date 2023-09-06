@@ -1,9 +1,9 @@
-import {createNamedLocationFromDiscriminatorValue} from './createNamedLocationFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {NamedLocation} from './namedLocation';
-import type {NamedLocationCollectionResponse} from './namedLocationCollectionResponse';
-import {serializeNamedLocation} from './serializeNamedLocation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createNamedLocationFromDiscriminatorValue } from './createNamedLocationFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type NamedLocation } from './namedLocation';
+import { type NamedLocationCollectionResponse } from './namedLocationCollectionResponse';
+import { serializeNamedLocation } from './serializeNamedLocation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNamedLocationCollectionResponse(namedLocationCollectionResponse: NamedLocationCollectionResponse | undefined = {} as NamedLocationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

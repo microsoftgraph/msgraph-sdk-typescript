@@ -1,23 +1,22 @@
-import {Event} from '../../../../../models/';
-import {createEventFromDiscriminatorValue} from '../../../../../models/createEventFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {AcceptRequestBuilder} from './accept/acceptRequestBuilder';
-import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
-import {CalendarRequestBuilder} from './calendar/calendarRequestBuilder';
-import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
-import {DeclineRequestBuilder} from './decline/declineRequestBuilder';
-import {DismissReminderRequestBuilder} from './dismissReminder/dismissReminderRequestBuilder';
-import {EventItemRequestBuilderGetRequestConfiguration} from './eventItemRequestBuilderGetRequestConfiguration';
-import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
-import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {SnoozeReminderRequestBuilder} from './snoozeReminder/snoozeReminderRequestBuilder';
-import {TentativelyAcceptRequestBuilder} from './tentativelyAccept/tentativelyAcceptRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Event } from '../../../../../models/';
+import { createEventFromDiscriminatorValue } from '../../../../../models/createEventFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { AcceptRequestBuilder } from './accept/acceptRequestBuilder';
+import { AttachmentsRequestBuilder } from './attachments/attachmentsRequestBuilder';
+import { CalendarRequestBuilder } from './calendar/calendarRequestBuilder';
+import { CancelRequestBuilder } from './cancel/cancelRequestBuilder';
+import { DeclineRequestBuilder } from './decline/declineRequestBuilder';
+import { DismissReminderRequestBuilder } from './dismissReminder/dismissReminderRequestBuilder';
+import { type EventItemRequestBuilderGetRequestConfiguration } from './eventItemRequestBuilderGetRequestConfiguration';
+import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
+import { ForwardRequestBuilder } from './forward/forwardRequestBuilder';
+import { InstancesRequestBuilder } from './instances/instancesRequestBuilder';
+import { SnoozeReminderRequestBuilder } from './snoozeReminder/snoozeReminderRequestBuilder';
+import { TentativelyAcceptRequestBuilder } from './tentativelyAccept/tentativelyAcceptRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.

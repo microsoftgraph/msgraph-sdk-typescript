@@ -1,17 +1,16 @@
-import {createPlaceFromDiscriminatorValue} from '../../models/createPlaceFromDiscriminatorValue';
-import {deserializeIntoPlace} from '../../models/deserializeIntoPlace';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {Place} from '../../models/place';
-import {serializePlace} from '../../models/serializePlace';
-import {GraphRoomRequestBuilder} from './graphRoom/graphRoomRequestBuilder';
-import {GraphRoomListRequestBuilder} from './graphRoomList/graphRoomListRequestBuilder';
-import {PlaceItemRequestBuilderDeleteRequestConfiguration} from './placeItemRequestBuilderDeleteRequestConfiguration';
-import {PlaceItemRequestBuilderPatchRequestConfiguration} from './placeItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPlaceFromDiscriminatorValue } from '../../models/createPlaceFromDiscriminatorValue';
+import { deserializeIntoPlace } from '../../models/deserializeIntoPlace';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type Place } from '../../models/place';
+import { serializePlace } from '../../models/serializePlace';
+import { GraphRoomRequestBuilder } from './graphRoom/graphRoomRequestBuilder';
+import { GraphRoomListRequestBuilder } from './graphRoomList/graphRoomListRequestBuilder';
+import { type PlaceItemRequestBuilderDeleteRequestConfiguration } from './placeItemRequestBuilderDeleteRequestConfiguration';
+import { type PlaceItemRequestBuilderPatchRequestConfiguration } from './placeItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of place entities.

@@ -1,5 +1,5 @@
-import {DataLabelsRequestBuilderGetQueryParameters} from './dataLabelsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DataLabelsRequestBuilderGetQueryParameters } from './dataLabelsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DataLabelsRequestBuilderGetRequestConfiguration {
     /**

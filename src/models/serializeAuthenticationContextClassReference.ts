@@ -1,6 +1,6 @@
-import type {AuthenticationContextClassReference} from './authenticationContextClassReference';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationContextClassReference } from './authenticationContextClassReference';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationContextClassReference(writer: SerializationWriter, authenticationContextClassReference: AuthenticationContextClassReference | undefined = {} as AuthenticationContextClassReference) : void {
         serializeEntity(writer, authenticationContextClassReference)

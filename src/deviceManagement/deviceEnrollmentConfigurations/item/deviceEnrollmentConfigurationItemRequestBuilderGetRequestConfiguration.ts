@@ -1,5 +1,5 @@
-import {DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters} from './deviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters } from './deviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration {
     /**

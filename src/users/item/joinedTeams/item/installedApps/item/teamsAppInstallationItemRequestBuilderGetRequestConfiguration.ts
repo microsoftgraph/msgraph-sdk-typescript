@@ -1,5 +1,5 @@
-import {TeamsAppInstallationItemRequestBuilderGetQueryParameters} from './teamsAppInstallationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TeamsAppInstallationItemRequestBuilderGetQueryParameters } from './teamsAppInstallationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TeamsAppInstallationItemRequestBuilderGetRequestConfiguration {
     /**

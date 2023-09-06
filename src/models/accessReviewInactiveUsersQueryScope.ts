@@ -1,6 +1,5 @@
-import type {AccessReviewQueryScope} from './accessReviewQueryScope';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessReviewQueryScope } from './accessReviewQueryScope';
+import { Duration, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewInactiveUsersQueryScope extends AccessReviewQueryScope, Parsable {
     /**

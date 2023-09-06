@@ -1,6 +1,6 @@
-import {deserializeIntoEducationResource} from './deserializeIntoEducationResource';
-import type {EducationTeamsAppResource} from './educationTeamsAppResource';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEducationResource } from './deserializeIntoEducationResource';
+import { type EducationTeamsAppResource } from './educationTeamsAppResource';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationTeamsAppResource(educationTeamsAppResource: EducationTeamsAppResource | undefined = {} as EducationTeamsAppResource) : Record<string, (node: ParseNode) => void> {
     return {

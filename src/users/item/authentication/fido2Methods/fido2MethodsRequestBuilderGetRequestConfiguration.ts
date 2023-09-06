@@ -1,5 +1,5 @@
-import {Fido2MethodsRequestBuilderGetQueryParameters} from './fido2MethodsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type Fido2MethodsRequestBuilderGetQueryParameters } from './fido2MethodsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface Fido2MethodsRequestBuilderGetRequestConfiguration {
     /**

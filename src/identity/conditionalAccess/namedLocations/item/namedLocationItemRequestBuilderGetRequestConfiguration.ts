@@ -1,5 +1,5 @@
-import {NamedLocationItemRequestBuilderGetQueryParameters} from './namedLocationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type NamedLocationItemRequestBuilderGetQueryParameters } from './namedLocationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface NamedLocationItemRequestBuilderGetRequestConfiguration {
     /**

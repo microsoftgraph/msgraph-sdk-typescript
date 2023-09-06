@@ -1,16 +1,15 @@
-import {createManagedMobileAppFromDiscriminatorValue} from '../../../../../models/createManagedMobileAppFromDiscriminatorValue';
-import {deserializeIntoManagedMobileApp} from '../../../../../models/deserializeIntoManagedMobileApp';
-import type {ManagedMobileApp} from '../../../../../models/managedMobileApp';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeManagedMobileApp} from '../../../../../models/serializeManagedMobileApp';
-import {ManagedMobileAppItemRequestBuilderDeleteRequestConfiguration} from './managedMobileAppItemRequestBuilderDeleteRequestConfiguration';
-import {ManagedMobileAppItemRequestBuilderGetRequestConfiguration} from './managedMobileAppItemRequestBuilderGetRequestConfiguration';
-import {ManagedMobileAppItemRequestBuilderPatchRequestConfiguration} from './managedMobileAppItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createManagedMobileAppFromDiscriminatorValue } from '../../../../../models/createManagedMobileAppFromDiscriminatorValue';
+import { deserializeIntoManagedMobileApp } from '../../../../../models/deserializeIntoManagedMobileApp';
+import { type ManagedMobileApp } from '../../../../../models/managedMobileApp';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeManagedMobileApp } from '../../../../../models/serializeManagedMobileApp';
+import { type ManagedMobileAppItemRequestBuilderDeleteRequestConfiguration } from './managedMobileAppItemRequestBuilderDeleteRequestConfiguration';
+import { type ManagedMobileAppItemRequestBuilderGetRequestConfiguration } from './managedMobileAppItemRequestBuilderGetRequestConfiguration';
+import { type ManagedMobileAppItemRequestBuilderPatchRequestConfiguration } from './managedMobileAppItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apps property of the microsoft.graph.androidManagedAppProtection entity.

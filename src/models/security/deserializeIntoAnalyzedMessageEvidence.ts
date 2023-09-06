@@ -1,9 +1,9 @@
-import type {AnalyzedMessageEvidence} from './analyzedMessageEvidence';
-import {createEmailSenderFromDiscriminatorValue} from './createEmailSenderFromDiscriminatorValue';
-import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import type {EmailSender} from './emailSender';
-import {serializeEmailSender} from './serializeEmailSender';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AnalyzedMessageEvidence } from './analyzedMessageEvidence';
+import { createEmailSenderFromDiscriminatorValue } from './createEmailSenderFromDiscriminatorValue';
+import { deserializeIntoAlertEvidence } from './deserializeIntoAlertEvidence';
+import { type EmailSender } from './emailSender';
+import { serializeEmailSender } from './serializeEmailSender';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAnalyzedMessageEvidence(analyzedMessageEvidence: AnalyzedMessageEvidence | undefined = {} as AnalyzedMessageEvidence) : Record<string, (node: ParseNode) => void> {
     return {

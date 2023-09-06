@@ -1,5 +1,5 @@
-import {ColumnPositionsRequestBuilderGetQueryParameters} from './columnPositionsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ColumnPositionsRequestBuilderGetQueryParameters } from './columnPositionsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ColumnPositionsRequestBuilderGetRequestConfiguration {
     /**

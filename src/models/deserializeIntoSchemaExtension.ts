@@ -1,9 +1,9 @@
-import {createExtensionSchemaPropertyFromDiscriminatorValue} from './createExtensionSchemaPropertyFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {ExtensionSchemaProperty} from './extensionSchemaProperty';
-import type {SchemaExtension} from './schemaExtension';
-import {serializeExtensionSchemaProperty} from './serializeExtensionSchemaProperty';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createExtensionSchemaPropertyFromDiscriminatorValue } from './createExtensionSchemaPropertyFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type ExtensionSchemaProperty } from './extensionSchemaProperty';
+import { type SchemaExtension } from './schemaExtension';
+import { serializeExtensionSchemaProperty } from './serializeExtensionSchemaProperty';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSchemaExtension(schemaExtension: SchemaExtension | undefined = {} as SchemaExtension) : Record<string, (node: ParseNode) => void> {
     return {

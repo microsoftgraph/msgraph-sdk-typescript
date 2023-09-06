@@ -1,19 +1,18 @@
-import {MdmWindowsInformationProtectionPolicyCollectionResponse} from '../../models/';
-import {createMdmWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createMdmWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue';
-import {createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue} from '../../models/createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue';
-import {deserializeIntoMdmWindowsInformationProtectionPolicy} from '../../models/deserializeIntoMdmWindowsInformationProtectionPolicy';
-import type {MdmWindowsInformationProtectionPolicy} from '../../models/mdmWindowsInformationProtectionPolicy';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeMdmWindowsInformationProtectionPolicy} from '../../models/serializeMdmWindowsInformationProtectionPolicy';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MdmWindowsInformationProtectionPolicyItemRequestBuilder} from './item/mdmWindowsInformationProtectionPolicyItemRequestBuilder';
-import {MdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration} from './mdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration';
-import {MdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration} from './mdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type MdmWindowsInformationProtectionPolicyCollectionResponse } from '../../models/';
+import { createMdmWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createMdmWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue';
+import { createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue } from '../../models/createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue';
+import { deserializeIntoMdmWindowsInformationProtectionPolicy } from '../../models/deserializeIntoMdmWindowsInformationProtectionPolicy';
+import { type MdmWindowsInformationProtectionPolicy } from '../../models/mdmWindowsInformationProtectionPolicy';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeMdmWindowsInformationProtectionPolicy } from '../../models/serializeMdmWindowsInformationProtectionPolicy';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { MdmWindowsInformationProtectionPolicyItemRequestBuilder } from './item/mdmWindowsInformationProtectionPolicyItemRequestBuilder';
+import { type MdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration } from './mdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration';
+import { type MdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration } from './mdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.

@@ -1,9 +1,9 @@
-import type {ComplianceManagementPartner} from './complianceManagementPartner';
-import type {ComplianceManagementPartnerCollectionResponse} from './complianceManagementPartnerCollectionResponse';
-import {createComplianceManagementPartnerFromDiscriminatorValue} from './createComplianceManagementPartnerFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeComplianceManagementPartner} from './serializeComplianceManagementPartner';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ComplianceManagementPartner } from './complianceManagementPartner';
+import { type ComplianceManagementPartnerCollectionResponse } from './complianceManagementPartnerCollectionResponse';
+import { createComplianceManagementPartnerFromDiscriminatorValue } from './createComplianceManagementPartnerFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeComplianceManagementPartner } from './serializeComplianceManagementPartner';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoComplianceManagementPartnerCollectionResponse(complianceManagementPartnerCollectionResponse: ComplianceManagementPartnerCollectionResponse | undefined = {} as ComplianceManagementPartnerCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

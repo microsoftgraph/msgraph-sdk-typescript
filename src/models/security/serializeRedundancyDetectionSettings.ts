@@ -1,5 +1,5 @@
-import type {RedundancyDetectionSettings} from './redundancyDetectionSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type RedundancyDetectionSettings } from './redundancyDetectionSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRedundancyDetectionSettings(writer: SerializationWriter, redundancyDetectionSettings: RedundancyDetectionSettings | undefined = {} as RedundancyDetectionSettings) : void {
         writer.writeBooleanValue("isEnabled", redundancyDetectionSettings.isEnabled);

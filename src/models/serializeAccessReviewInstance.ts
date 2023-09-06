@@ -1,16 +1,16 @@
-import type {AccessReviewInstance} from './accessReviewInstance';
-import type {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
-import type {AccessReviewReviewer} from './accessReviewReviewer';
-import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import type {AccessReviewScope} from './accessReviewScope';
-import type {AccessReviewStage} from './accessReviewStage';
-import {serializeAccessReviewInstanceDecisionItem} from './serializeAccessReviewInstanceDecisionItem';
-import {serializeAccessReviewReviewer} from './serializeAccessReviewReviewer';
-import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
-import {serializeAccessReviewScope} from './serializeAccessReviewScope';
-import {serializeAccessReviewStage} from './serializeAccessReviewStage';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessReviewInstance } from './accessReviewInstance';
+import { type AccessReviewInstanceDecisionItem } from './accessReviewInstanceDecisionItem';
+import { type AccessReviewReviewer } from './accessReviewReviewer';
+import { type AccessReviewReviewerScope } from './accessReviewReviewerScope';
+import { type AccessReviewScope } from './accessReviewScope';
+import { type AccessReviewStage } from './accessReviewStage';
+import { serializeAccessReviewInstanceDecisionItem } from './serializeAccessReviewInstanceDecisionItem';
+import { serializeAccessReviewReviewer } from './serializeAccessReviewReviewer';
+import { serializeAccessReviewReviewerScope } from './serializeAccessReviewReviewerScope';
+import { serializeAccessReviewScope } from './serializeAccessReviewScope';
+import { serializeAccessReviewStage } from './serializeAccessReviewStage';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewInstance(writer: SerializationWriter, accessReviewInstance: AccessReviewInstance | undefined = {} as AccessReviewInstance) : void {
         serializeEntity(writer, accessReviewInstance)

@@ -1,6 +1,6 @@
-import {deserializeIntoMediaPrompt} from './deserializeIntoMediaPrompt';
-import {MediaPrompt} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoMediaPrompt } from './deserializeIntoMediaPrompt';
+import { type MediaPrompt } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMediaPromptFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,9 +1,9 @@
-import type {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
-import type {MobileAppInstallTimeSettings} from './mobileAppInstallTimeSettings';
-import {Win32LobAppDeliveryOptimizationPriority} from './win32LobAppDeliveryOptimizationPriority';
-import {Win32LobAppNotification} from './win32LobAppNotification';
-import type {Win32LobAppRestartSettings} from './win32LobAppRestartSettings';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type MobileAppAssignmentSettings } from './mobileAppAssignmentSettings';
+import { type MobileAppInstallTimeSettings } from './mobileAppInstallTimeSettings';
+import { Win32LobAppDeliveryOptimizationPriority } from './win32LobAppDeliveryOptimizationPriority';
+import { Win32LobAppNotification } from './win32LobAppNotification';
+import { type Win32LobAppRestartSettings } from './win32LobAppRestartSettings';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings, Parsable {
     /**

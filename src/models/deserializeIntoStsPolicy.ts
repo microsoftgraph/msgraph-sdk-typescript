@@ -1,9 +1,9 @@
-import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
-import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
-import type {DirectoryObject} from './directoryObject';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import type {StsPolicy} from './stsPolicy';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDirectoryObjectFromDiscriminatorValue } from './createDirectoryObjectFromDiscriminatorValue';
+import { deserializeIntoPolicyBase } from './deserializeIntoPolicyBase';
+import { type DirectoryObject } from './directoryObject';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { type StsPolicy } from './stsPolicy';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoStsPolicy(stsPolicy: StsPolicy | undefined = {} as StsPolicy) : Record<string, (node: ParseNode) => void> {
     return {

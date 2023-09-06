@@ -1,6 +1,6 @@
-import {deserializeIntoCallStartedEventMessageDetail} from './deserializeIntoCallStartedEventMessageDetail';
-import {CallStartedEventMessageDetail} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCallStartedEventMessageDetail } from './deserializeIntoCallStartedEventMessageDetail';
+import { type CallStartedEventMessageDetail } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCallStartedEventMessageDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

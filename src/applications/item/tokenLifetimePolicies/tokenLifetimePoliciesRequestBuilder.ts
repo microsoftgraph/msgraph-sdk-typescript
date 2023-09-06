@@ -1,15 +1,14 @@
-import {TokenLifetimePolicyCollectionResponse} from '../../../models/';
-import {createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue} from '../../../models/createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TokenLifetimePolicyItemRequestBuilder} from './item/tokenLifetimePolicyItemRequestBuilder';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {TokenLifetimePoliciesRequestBuilderGetRequestConfiguration} from './tokenLifetimePoliciesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TokenLifetimePolicyCollectionResponse } from '../../../models/';
+import { createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue } from '../../../models/createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { TokenLifetimePolicyItemRequestBuilder } from './item/tokenLifetimePolicyItemRequestBuilder';
+import { RefRequestBuilder } from './ref/refRequestBuilder';
+import { type TokenLifetimePoliciesRequestBuilderGetRequestConfiguration } from './tokenLifetimePoliciesRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.application entity.

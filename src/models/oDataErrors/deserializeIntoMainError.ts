@@ -1,11 +1,11 @@
-import {createErrorDetailsFromDiscriminatorValue} from './createErrorDetailsFromDiscriminatorValue';
-import {createInnerErrorFromDiscriminatorValue} from './createInnerErrorFromDiscriminatorValue';
-import type {ErrorDetails} from './errorDetails';
-import type {InnerError} from './innerError';
-import type {MainError} from './mainError';
-import {serializeErrorDetails} from './serializeErrorDetails';
-import {serializeInnerError} from './serializeInnerError';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createErrorDetailsFromDiscriminatorValue } from './createErrorDetailsFromDiscriminatorValue';
+import { createInnerErrorFromDiscriminatorValue } from './createInnerErrorFromDiscriminatorValue';
+import { type ErrorDetails } from './errorDetails';
+import { type InnerError } from './innerError';
+import { type MainError } from './mainError';
+import { serializeErrorDetails } from './serializeErrorDetails';
+import { serializeInnerError } from './serializeInnerError';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMainError(mainError: MainError | undefined = {} as MainError) : Record<string, (node: ParseNode) => void> {
     return {

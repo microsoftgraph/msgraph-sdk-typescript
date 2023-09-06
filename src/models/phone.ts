@@ -1,5 +1,5 @@
-import {PhoneType} from './phoneType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { PhoneType } from './phoneType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Phone extends AdditionalDataHolder, Parsable {
     /**

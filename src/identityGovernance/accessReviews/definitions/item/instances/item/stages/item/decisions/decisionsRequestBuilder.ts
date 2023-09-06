@@ -1,20 +1,19 @@
-import {AccessReviewInstanceDecisionItemCollectionResponse} from '../../../../../../../../../models/';
-import type {AccessReviewInstanceDecisionItem} from '../../../../../../../../../models/accessReviewInstanceDecisionItem';
-import {createAccessReviewInstanceDecisionItemCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../models/createAccessReviewInstanceDecisionItemCollectionResponseFromDiscriminatorValue';
-import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from '../../../../../../../../../models/createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
-import {deserializeIntoAccessReviewInstanceDecisionItem} from '../../../../../../../../../models/deserializeIntoAccessReviewInstanceDecisionItem';
-import {ODataError} from '../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessReviewInstanceDecisionItem} from '../../../../../../../../../models/serializeAccessReviewInstanceDecisionItem';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DecisionsRequestBuilderGetRequestConfiguration} from './decisionsRequestBuilderGetRequestConfiguration';
-import {DecisionsRequestBuilderPostRequestConfiguration} from './decisionsRequestBuilderPostRequestConfiguration';
-import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './item/accessReviewInstanceDecisionItemItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessReviewInstanceDecisionItemCollectionResponse } from '../../../../../../../../../models/';
+import { type AccessReviewInstanceDecisionItem } from '../../../../../../../../../models/accessReviewInstanceDecisionItem';
+import { createAccessReviewInstanceDecisionItemCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../models/createAccessReviewInstanceDecisionItemCollectionResponseFromDiscriminatorValue';
+import { createAccessReviewInstanceDecisionItemFromDiscriminatorValue } from '../../../../../../../../../models/createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
+import { deserializeIntoAccessReviewInstanceDecisionItem } from '../../../../../../../../../models/deserializeIntoAccessReviewInstanceDecisionItem';
+import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessReviewInstanceDecisionItem } from '../../../../../../../../../models/serializeAccessReviewInstanceDecisionItem';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DecisionsRequestBuilderGetRequestConfiguration } from './decisionsRequestBuilderGetRequestConfiguration';
+import { type DecisionsRequestBuilderPostRequestConfiguration } from './decisionsRequestBuilderPostRequestConfiguration';
+import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import { AccessReviewInstanceDecisionItemItemRequestBuilder } from './item/accessReviewInstanceDecisionItemItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.

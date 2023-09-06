@@ -1,16 +1,16 @@
-import type {ManagedDeviceMobileAppConfiguration} from './managedDeviceMobileAppConfiguration';
-import type {ManagedDeviceMobileAppConfigurationAssignment} from './managedDeviceMobileAppConfigurationAssignment';
-import type {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMobileAppConfigurationDeviceStatus';
-import type {ManagedDeviceMobileAppConfigurationDeviceSummary} from './managedDeviceMobileAppConfigurationDeviceSummary';
-import type {ManagedDeviceMobileAppConfigurationUserStatus} from './managedDeviceMobileAppConfigurationUserStatus';
-import type {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMobileAppConfigurationUserSummary';
-import {serializeEntity} from './serializeEntity';
-import {serializeManagedDeviceMobileAppConfigurationAssignment} from './serializeManagedDeviceMobileAppConfigurationAssignment';
-import {serializeManagedDeviceMobileAppConfigurationDeviceStatus} from './serializeManagedDeviceMobileAppConfigurationDeviceStatus';
-import {serializeManagedDeviceMobileAppConfigurationDeviceSummary} from './serializeManagedDeviceMobileAppConfigurationDeviceSummary';
-import {serializeManagedDeviceMobileAppConfigurationUserStatus} from './serializeManagedDeviceMobileAppConfigurationUserStatus';
-import {serializeManagedDeviceMobileAppConfigurationUserSummary} from './serializeManagedDeviceMobileAppConfigurationUserSummary';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ManagedDeviceMobileAppConfiguration } from './managedDeviceMobileAppConfiguration';
+import { type ManagedDeviceMobileAppConfigurationAssignment } from './managedDeviceMobileAppConfigurationAssignment';
+import { type ManagedDeviceMobileAppConfigurationDeviceStatus } from './managedDeviceMobileAppConfigurationDeviceStatus';
+import { type ManagedDeviceMobileAppConfigurationDeviceSummary } from './managedDeviceMobileAppConfigurationDeviceSummary';
+import { type ManagedDeviceMobileAppConfigurationUserStatus } from './managedDeviceMobileAppConfigurationUserStatus';
+import { type ManagedDeviceMobileAppConfigurationUserSummary } from './managedDeviceMobileAppConfigurationUserSummary';
+import { serializeEntity } from './serializeEntity';
+import { serializeManagedDeviceMobileAppConfigurationAssignment } from './serializeManagedDeviceMobileAppConfigurationAssignment';
+import { serializeManagedDeviceMobileAppConfigurationDeviceStatus } from './serializeManagedDeviceMobileAppConfigurationDeviceStatus';
+import { serializeManagedDeviceMobileAppConfigurationDeviceSummary } from './serializeManagedDeviceMobileAppConfigurationDeviceSummary';
+import { serializeManagedDeviceMobileAppConfigurationUserStatus } from './serializeManagedDeviceMobileAppConfigurationUserStatus';
+import { serializeManagedDeviceMobileAppConfigurationUserSummary } from './serializeManagedDeviceMobileAppConfigurationUserSummary';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeManagedDeviceMobileAppConfiguration(writer: SerializationWriter, managedDeviceMobileAppConfiguration: ManagedDeviceMobileAppConfiguration | undefined = {} as ManagedDeviceMobileAppConfiguration) : void {
         serializeEntity(writer, managedDeviceMobileAppConfiguration)

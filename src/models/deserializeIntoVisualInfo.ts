@@ -1,11 +1,11 @@
-import {createImageInfoFromDiscriminatorValue} from './createImageInfoFromDiscriminatorValue';
-import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
-import type {ImageInfo} from './imageInfo';
-import type {Json} from './json';
-import {serializeImageInfo} from './serializeImageInfo';
-import {serializeJson} from './serializeJson';
-import type {VisualInfo} from './visualInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createImageInfoFromDiscriminatorValue } from './createImageInfoFromDiscriminatorValue';
+import { createJsonFromDiscriminatorValue } from './createJsonFromDiscriminatorValue';
+import { type ImageInfo } from './imageInfo';
+import { type Json } from './json';
+import { serializeImageInfo } from './serializeImageInfo';
+import { serializeJson } from './serializeJson';
+import { type VisualInfo } from './visualInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoVisualInfo(visualInfo: VisualInfo | undefined = {} as VisualInfo) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
-import {SessionsRequestBuilderGetQueryParameters} from './sessionsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SessionsRequestBuilderGetQueryParameters } from './sessionsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SessionsRequestBuilderGetRequestConfiguration {
     /**

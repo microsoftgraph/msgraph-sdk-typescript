@@ -1,5 +1,5 @@
-import {SharepointRequestBuilderGetQueryParameters} from './sharepointRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SharepointRequestBuilderGetQueryParameters } from './sharepointRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SharepointRequestBuilderGetRequestConfiguration {
     /**

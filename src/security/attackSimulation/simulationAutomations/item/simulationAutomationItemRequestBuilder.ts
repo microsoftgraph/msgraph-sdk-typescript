@@ -1,17 +1,16 @@
-import {createSimulationAutomationFromDiscriminatorValue} from '../../../../models/createSimulationAutomationFromDiscriminatorValue';
-import {deserializeIntoSimulationAutomation} from '../../../../models/deserializeIntoSimulationAutomation';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeSimulationAutomation} from '../../../../models/serializeSimulationAutomation';
-import type {SimulationAutomation} from '../../../../models/simulationAutomation';
-import {RunsRequestBuilder} from './runs/runsRequestBuilder';
-import {SimulationAutomationItemRequestBuilderDeleteRequestConfiguration} from './simulationAutomationItemRequestBuilderDeleteRequestConfiguration';
-import {SimulationAutomationItemRequestBuilderGetRequestConfiguration} from './simulationAutomationItemRequestBuilderGetRequestConfiguration';
-import {SimulationAutomationItemRequestBuilderPatchRequestConfiguration} from './simulationAutomationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSimulationAutomationFromDiscriminatorValue } from '../../../../models/createSimulationAutomationFromDiscriminatorValue';
+import { deserializeIntoSimulationAutomation } from '../../../../models/deserializeIntoSimulationAutomation';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeSimulationAutomation } from '../../../../models/serializeSimulationAutomation';
+import { type SimulationAutomation } from '../../../../models/simulationAutomation';
+import { RunsRequestBuilder } from './runs/runsRequestBuilder';
+import { type SimulationAutomationItemRequestBuilderDeleteRequestConfiguration } from './simulationAutomationItemRequestBuilderDeleteRequestConfiguration';
+import { type SimulationAutomationItemRequestBuilderGetRequestConfiguration } from './simulationAutomationItemRequestBuilderGetRequestConfiguration';
+import { type SimulationAutomationItemRequestBuilderPatchRequestConfiguration } from './simulationAutomationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.

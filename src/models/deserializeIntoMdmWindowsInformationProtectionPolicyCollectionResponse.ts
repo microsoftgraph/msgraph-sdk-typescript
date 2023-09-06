@@ -1,9 +1,9 @@
-import {createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue} from './createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {MdmWindowsInformationProtectionPolicy} from './mdmWindowsInformationProtectionPolicy';
-import type {MdmWindowsInformationProtectionPolicyCollectionResponse} from './mdmWindowsInformationProtectionPolicyCollectionResponse';
-import {serializeMdmWindowsInformationProtectionPolicy} from './serializeMdmWindowsInformationProtectionPolicy';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue } from './createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type MdmWindowsInformationProtectionPolicy } from './mdmWindowsInformationProtectionPolicy';
+import { type MdmWindowsInformationProtectionPolicyCollectionResponse } from './mdmWindowsInformationProtectionPolicyCollectionResponse';
+import { serializeMdmWindowsInformationProtectionPolicy } from './serializeMdmWindowsInformationProtectionPolicy';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMdmWindowsInformationProtectionPolicyCollectionResponse(mdmWindowsInformationProtectionPolicyCollectionResponse: MdmWindowsInformationProtectionPolicyCollectionResponse | undefined = {} as MdmWindowsInformationProtectionPolicyCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

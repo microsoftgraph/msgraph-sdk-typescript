@@ -1,6 +1,6 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {GovernanceInsight} from './governanceInsight';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type GovernanceInsight } from './governanceInsight';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGovernanceInsight(governanceInsight: GovernanceInsight | undefined = {} as GovernanceInsight) : Record<string, (node: ParseNode) => void> {
     return {

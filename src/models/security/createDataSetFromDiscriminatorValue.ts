@@ -1,7 +1,7 @@
-import {deserializeIntoDataSet} from './deserializeIntoDataSet';
-import {deserializeIntoEdiscoveryReviewSet} from './deserializeIntoEdiscoveryReviewSet';
-import {DataSet, EdiscoveryReviewSet} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDataSet } from './deserializeIntoDataSet';
+import { deserializeIntoEdiscoveryReviewSet } from './deserializeIntoEdiscoveryReviewSet';
+import { type DataSet, type EdiscoveryReviewSet } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDataSetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

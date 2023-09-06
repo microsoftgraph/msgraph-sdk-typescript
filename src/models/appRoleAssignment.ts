@@ -1,6 +1,6 @@
-import type {DirectoryObject} from './directoryObject';
-import type {Parsable} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type DirectoryObject } from './directoryObject';
+import { type Parsable } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export interface AppRoleAssignment extends DirectoryObject, Parsable {
     /**

@@ -1,13 +1,13 @@
-import type {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
-import type {AuthenticationMethodsPolicy} from './authenticationMethodsPolicy';
-import {AuthenticationMethodsPolicyMigrationState} from './authenticationMethodsPolicyMigrationState';
-import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from './createAuthenticationMethodConfigurationFromDiscriminatorValue';
-import {createRegistrationEnforcementFromDiscriminatorValue} from './createRegistrationEnforcementFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {RegistrationEnforcement} from './registrationEnforcement';
-import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticationMethodConfiguration';
-import {serializeRegistrationEnforcement} from './serializeRegistrationEnforcement';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodConfiguration } from './authenticationMethodConfiguration';
+import { type AuthenticationMethodsPolicy } from './authenticationMethodsPolicy';
+import { AuthenticationMethodsPolicyMigrationState } from './authenticationMethodsPolicyMigrationState';
+import { createAuthenticationMethodConfigurationFromDiscriminatorValue } from './createAuthenticationMethodConfigurationFromDiscriminatorValue';
+import { createRegistrationEnforcementFromDiscriminatorValue } from './createRegistrationEnforcementFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type RegistrationEnforcement } from './registrationEnforcement';
+import { serializeAuthenticationMethodConfiguration } from './serializeAuthenticationMethodConfiguration';
+import { serializeRegistrationEnforcement } from './serializeRegistrationEnforcement';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthenticationMethodsPolicy(authenticationMethodsPolicy: AuthenticationMethodsPolicy | undefined = {} as AuthenticationMethodsPolicy) : Record<string, (node: ParseNode) => void> {
     return {

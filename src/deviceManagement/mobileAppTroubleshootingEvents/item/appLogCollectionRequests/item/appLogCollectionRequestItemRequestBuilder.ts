@@ -1,17 +1,16 @@
-import type {AppLogCollectionRequest} from '../../../../../models/appLogCollectionRequest';
-import {createAppLogCollectionRequestFromDiscriminatorValue} from '../../../../../models/createAppLogCollectionRequestFromDiscriminatorValue';
-import {deserializeIntoAppLogCollectionRequest} from '../../../../../models/deserializeIntoAppLogCollectionRequest';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeAppLogCollectionRequest} from '../../../../../models/serializeAppLogCollectionRequest';
-import {AppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration} from './appLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration';
-import {AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration} from './appLogCollectionRequestItemRequestBuilderGetRequestConfiguration';
-import {AppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration} from './appLogCollectionRequestItemRequestBuilderPatchRequestConfiguration';
-import {CreateDownloadUrlRequestBuilder} from './createDownloadUrl/createDownloadUrlRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppLogCollectionRequest } from '../../../../../models/appLogCollectionRequest';
+import { createAppLogCollectionRequestFromDiscriminatorValue } from '../../../../../models/createAppLogCollectionRequestFromDiscriminatorValue';
+import { deserializeIntoAppLogCollectionRequest } from '../../../../../models/deserializeIntoAppLogCollectionRequest';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeAppLogCollectionRequest } from '../../../../../models/serializeAppLogCollectionRequest';
+import { type AppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration } from './appLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration';
+import { type AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration } from './appLogCollectionRequestItemRequestBuilderGetRequestConfiguration';
+import { type AppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration } from './appLogCollectionRequestItemRequestBuilderPatchRequestConfiguration';
+import { CreateDownloadUrlRequestBuilder } from './createDownloadUrl/createDownloadUrlRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.

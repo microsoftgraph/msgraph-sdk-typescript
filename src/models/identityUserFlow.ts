@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import {UserFlowType} from './userFlowType';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { UserFlowType } from './userFlowType';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IdentityUserFlow extends Entity, Parsable {
     /**

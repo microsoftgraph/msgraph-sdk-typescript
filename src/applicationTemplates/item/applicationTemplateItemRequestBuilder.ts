@@ -1,13 +1,12 @@
-import {ApplicationTemplate} from '../../models/';
-import {createApplicationTemplateFromDiscriminatorValue} from '../../models/createApplicationTemplateFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {ApplicationTemplateItemRequestBuilderGetRequestConfiguration} from './applicationTemplateItemRequestBuilderGetRequestConfiguration';
-import {InstantiateRequestBuilder} from './instantiate/instantiateRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ApplicationTemplate } from '../../models/';
+import { createApplicationTemplateFromDiscriminatorValue } from '../../models/createApplicationTemplateFromDiscriminatorValue';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type ApplicationTemplateItemRequestBuilderGetRequestConfiguration } from './applicationTemplateItemRequestBuilderGetRequestConfiguration';
+import { InstantiateRequestBuilder } from './instantiate/instantiateRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of applicationTemplate entities.

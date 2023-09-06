@@ -1,7 +1,7 @@
-import {CountryLookupMethodType} from './countryLookupMethodType';
-import type {CountryNamedLocation} from './countryNamedLocation';
-import {serializeNamedLocation} from './serializeNamedLocation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { CountryLookupMethodType } from './countryLookupMethodType';
+import { type CountryNamedLocation } from './countryNamedLocation';
+import { serializeNamedLocation } from './serializeNamedLocation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCountryNamedLocation(writer: SerializationWriter, countryNamedLocation: CountryNamedLocation | undefined = {} as CountryNamedLocation) : void {
         serializeNamedLocation(writer, countryNamedLocation)

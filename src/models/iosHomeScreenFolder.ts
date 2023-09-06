@@ -1,6 +1,6 @@
-import type {IosHomeScreenFolderPage} from './iosHomeScreenFolderPage';
-import type {IosHomeScreenItem} from './iosHomeScreenItem';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type IosHomeScreenFolderPage } from './iosHomeScreenFolderPage';
+import { type IosHomeScreenItem } from './iosHomeScreenItem';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IosHomeScreenFolder extends IosHomeScreenItem, Parsable {
     /**

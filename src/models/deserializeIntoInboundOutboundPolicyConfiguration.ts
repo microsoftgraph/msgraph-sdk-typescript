@@ -1,5 +1,5 @@
-import type {InboundOutboundPolicyConfiguration} from './inboundOutboundPolicyConfiguration';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type InboundOutboundPolicyConfiguration } from './inboundOutboundPolicyConfiguration';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInboundOutboundPolicyConfiguration(inboundOutboundPolicyConfiguration: InboundOutboundPolicyConfiguration | undefined = {} as InboundOutboundPolicyConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

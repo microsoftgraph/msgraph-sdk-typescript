@@ -1,6 +1,6 @@
-import type {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
-import {Win32LobAppMsiPackageType} from './win32LobAppMsiPackageType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Win32LobAppMsiInformation } from './win32LobAppMsiInformation';
+import { Win32LobAppMsiPackageType } from './win32LobAppMsiPackageType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWin32LobAppMsiInformation(win32LobAppMsiInformation: Win32LobAppMsiInformation | undefined = {} as Win32LobAppMsiInformation) : Record<string, (node: ParseNode) => void> {
     return {

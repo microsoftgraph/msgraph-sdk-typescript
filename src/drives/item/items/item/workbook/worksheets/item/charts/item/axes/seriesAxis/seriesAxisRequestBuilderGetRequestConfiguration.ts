@@ -1,5 +1,5 @@
-import {SeriesAxisRequestBuilderGetQueryParameters} from './seriesAxisRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SeriesAxisRequestBuilderGetQueryParameters } from './seriesAxisRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SeriesAxisRequestBuilderGetRequestConfiguration {
     /**

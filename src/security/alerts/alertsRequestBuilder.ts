@@ -1,19 +1,18 @@
-import {AlertCollectionResponse} from '../../models/';
-import type {Alert} from '../../models/alert';
-import {createAlertCollectionResponseFromDiscriminatorValue} from '../../models/createAlertCollectionResponseFromDiscriminatorValue';
-import {createAlertFromDiscriminatorValue} from '../../models/createAlertFromDiscriminatorValue';
-import {deserializeIntoAlert} from '../../models/deserializeIntoAlert';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeAlert} from '../../models/serializeAlert';
-import {AlertsRequestBuilderGetRequestConfiguration} from './alertsRequestBuilderGetRequestConfiguration';
-import {AlertsRequestBuilderPostRequestConfiguration} from './alertsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AlertItemRequestBuilder} from './item/alertItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AlertCollectionResponse } from '../../models/';
+import { type Alert } from '../../models/alert';
+import { createAlertCollectionResponseFromDiscriminatorValue } from '../../models/createAlertCollectionResponseFromDiscriminatorValue';
+import { createAlertFromDiscriminatorValue } from '../../models/createAlertFromDiscriminatorValue';
+import { deserializeIntoAlert } from '../../models/deserializeIntoAlert';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeAlert } from '../../models/serializeAlert';
+import { type AlertsRequestBuilderGetRequestConfiguration } from './alertsRequestBuilderGetRequestConfiguration';
+import { type AlertsRequestBuilderPostRequestConfiguration } from './alertsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AlertItemRequestBuilder } from './item/alertItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the alerts property of the microsoft.graph.security entity.

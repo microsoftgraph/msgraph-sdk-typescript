@@ -1,5 +1,5 @@
-import {PolicyRequestBuilderGetQueryParameters} from './policyRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PolicyRequestBuilderGetQueryParameters } from './policyRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PolicyRequestBuilderGetRequestConfiguration {
     /**

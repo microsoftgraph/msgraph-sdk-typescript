@@ -1,19 +1,18 @@
-import {DirectoryDefinitionCollectionResponse} from '../../../../../../../models/';
-import {createDirectoryDefinitionCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createDirectoryDefinitionCollectionResponseFromDiscriminatorValue';
-import {createDirectoryDefinitionFromDiscriminatorValue} from '../../../../../../../models/createDirectoryDefinitionFromDiscriminatorValue';
-import {deserializeIntoDirectoryDefinition} from '../../../../../../../models/deserializeIntoDirectoryDefinition';
-import type {DirectoryDefinition} from '../../../../../../../models/directoryDefinition';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeDirectoryDefinition} from '../../../../../../../models/serializeDirectoryDefinition';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DirectoriesRequestBuilderGetRequestConfiguration} from './directoriesRequestBuilderGetRequestConfiguration';
-import {DirectoriesRequestBuilderPostRequestConfiguration} from './directoriesRequestBuilderPostRequestConfiguration';
-import {DirectoryDefinitionItemRequestBuilder} from './item/directoryDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryDefinitionCollectionResponse } from '../../../../../../../models/';
+import { createDirectoryDefinitionCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createDirectoryDefinitionCollectionResponseFromDiscriminatorValue';
+import { createDirectoryDefinitionFromDiscriminatorValue } from '../../../../../../../models/createDirectoryDefinitionFromDiscriminatorValue';
+import { deserializeIntoDirectoryDefinition } from '../../../../../../../models/deserializeIntoDirectoryDefinition';
+import { type DirectoryDefinition } from '../../../../../../../models/directoryDefinition';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeDirectoryDefinition } from '../../../../../../../models/serializeDirectoryDefinition';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DirectoriesRequestBuilderGetRequestConfiguration } from './directoriesRequestBuilderGetRequestConfiguration';
+import { type DirectoriesRequestBuilderPostRequestConfiguration } from './directoriesRequestBuilderPostRequestConfiguration';
+import { DirectoryDefinitionItemRequestBuilder } from './item/directoryDefinitionItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.

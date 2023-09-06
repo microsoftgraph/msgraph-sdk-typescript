@@ -1,7 +1,7 @@
-import type {DirectoryObjectPartnerReference} from './directoryObjectPartnerReference';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type DirectoryObjectPartnerReference } from './directoryObjectPartnerReference';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeDirectoryObjectPartnerReference(writer: SerializationWriter, directoryObjectPartnerReference: DirectoryObjectPartnerReference | undefined = {} as DirectoryObjectPartnerReference) : void {
         serializeDirectoryObject(writer, directoryObjectPartnerReference)

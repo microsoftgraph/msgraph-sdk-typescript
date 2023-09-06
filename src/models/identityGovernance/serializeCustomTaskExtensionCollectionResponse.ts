@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCollectionPaginationCountResponse';
-import type {CustomTaskExtension} from './customTaskExtension';
-import type {CustomTaskExtensionCollectionResponse} from './customTaskExtensionCollectionResponse';
-import {serializeCustomTaskExtension} from './serializeCustomTaskExtension';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from '../serializeBaseCollectionPaginationCountResponse';
+import { type CustomTaskExtension } from './customTaskExtension';
+import { type CustomTaskExtensionCollectionResponse } from './customTaskExtensionCollectionResponse';
+import { serializeCustomTaskExtension } from './serializeCustomTaskExtension';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCustomTaskExtensionCollectionResponse(writer: SerializationWriter, customTaskExtensionCollectionResponse: CustomTaskExtensionCollectionResponse | undefined = {} as CustomTaskExtensionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, customTaskExtensionCollectionResponse)

@@ -1,8 +1,8 @@
-import type {Entity} from '../entity';
-import {RelationType} from './relationType';
-import type {Set} from './set';
-import type {Term} from './term';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { RelationType } from './relationType';
+import { type Set } from './set';
+import { type Term } from './term';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Relation extends Entity, Parsable {
     /**

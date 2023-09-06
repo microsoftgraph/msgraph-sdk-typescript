@@ -1,16 +1,16 @@
-import type {BrowserSite} from './browserSite';
-import {BrowserSiteCompatibilityMode} from './browserSiteCompatibilityMode';
-import type {BrowserSiteHistory} from './browserSiteHistory';
-import {BrowserSiteMergeType} from './browserSiteMergeType';
-import {BrowserSiteStatus} from './browserSiteStatus';
-import {BrowserSiteTargetEnvironment} from './browserSiteTargetEnvironment';
-import {createBrowserSiteHistoryFromDiscriminatorValue} from './createBrowserSiteHistoryFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IdentitySet} from './identitySet';
-import {serializeBrowserSiteHistory} from './serializeBrowserSiteHistory';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BrowserSite } from './browserSite';
+import { BrowserSiteCompatibilityMode } from './browserSiteCompatibilityMode';
+import { type BrowserSiteHistory } from './browserSiteHistory';
+import { BrowserSiteMergeType } from './browserSiteMergeType';
+import { BrowserSiteStatus } from './browserSiteStatus';
+import { BrowserSiteTargetEnvironment } from './browserSiteTargetEnvironment';
+import { createBrowserSiteHistoryFromDiscriminatorValue } from './createBrowserSiteHistoryFromDiscriminatorValue';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IdentitySet } from './identitySet';
+import { serializeBrowserSiteHistory } from './serializeBrowserSiteHistory';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBrowserSite(browserSite: BrowserSite | undefined = {} as BrowserSite) : Record<string, (node: ParseNode) => void> {
     return {

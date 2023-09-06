@@ -1,17 +1,16 @@
-import {createPermissionFromDiscriminatorValue} from '../../../../models/createPermissionFromDiscriminatorValue';
-import {deserializeIntoPermission} from '../../../../models/deserializeIntoPermission';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {Permission} from '../../../../models/permission';
-import {serializePermission} from '../../../../models/serializePermission';
-import {GrantRequestBuilder} from './grant/grantRequestBuilder';
-import {PermissionItemRequestBuilderDeleteRequestConfiguration} from './permissionItemRequestBuilderDeleteRequestConfiguration';
-import {PermissionItemRequestBuilderGetRequestConfiguration} from './permissionItemRequestBuilderGetRequestConfiguration';
-import {PermissionItemRequestBuilderPatchRequestConfiguration} from './permissionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPermissionFromDiscriminatorValue } from '../../../../models/createPermissionFromDiscriminatorValue';
+import { deserializeIntoPermission } from '../../../../models/deserializeIntoPermission';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type Permission } from '../../../../models/permission';
+import { serializePermission } from '../../../../models/serializePermission';
+import { GrantRequestBuilder } from './grant/grantRequestBuilder';
+import { type PermissionItemRequestBuilderDeleteRequestConfiguration } from './permissionItemRequestBuilderDeleteRequestConfiguration';
+import { type PermissionItemRequestBuilderGetRequestConfiguration } from './permissionItemRequestBuilderGetRequestConfiguration';
+import { type PermissionItemRequestBuilderPatchRequestConfiguration } from './permissionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissions property of the microsoft.graph.site entity.

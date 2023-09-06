@@ -1,5 +1,5 @@
-import {UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetQueryParameters} from './userExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetQueryParameters } from './userExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetRequestConfiguration {
     /**

@@ -1,9 +1,9 @@
-import {createEdiscoverySearchFromDiscriminatorValue} from './createEdiscoverySearchFromDiscriminatorValue';
-import {deserializeIntoCaseOperation} from './deserializeIntoCaseOperation';
-import type {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
-import type {EdiscoverySearch} from './ediscoverySearch';
-import {serializeEdiscoverySearch} from './serializeEdiscoverySearch';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createEdiscoverySearchFromDiscriminatorValue } from './createEdiscoverySearchFromDiscriminatorValue';
+import { deserializeIntoCaseOperation } from './deserializeIntoCaseOperation';
+import { type EdiscoveryEstimateOperation } from './ediscoveryEstimateOperation';
+import { type EdiscoverySearch } from './ediscoverySearch';
+import { serializeEdiscoverySearch } from './serializeEdiscoverySearch';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryEstimateOperation(ediscoveryEstimateOperation: EdiscoveryEstimateOperation | undefined = {} as EdiscoveryEstimateOperation) : Record<string, (node: ParseNode) => void> {
     return {

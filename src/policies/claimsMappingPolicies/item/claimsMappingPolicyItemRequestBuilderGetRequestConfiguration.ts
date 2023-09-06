@@ -1,5 +1,5 @@
-import {ClaimsMappingPolicyItemRequestBuilderGetQueryParameters} from './claimsMappingPolicyItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ClaimsMappingPolicyItemRequestBuilderGetQueryParameters } from './claimsMappingPolicyItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ClaimsMappingPolicyItemRequestBuilderGetRequestConfiguration {
     /**

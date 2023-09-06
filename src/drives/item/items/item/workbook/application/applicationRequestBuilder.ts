@@ -1,17 +1,16 @@
-import {createWorkbookApplicationFromDiscriminatorValue} from '../../../../../../models/createWorkbookApplicationFromDiscriminatorValue';
-import {deserializeIntoWorkbookApplication} from '../../../../../../models/deserializeIntoWorkbookApplication';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookApplication} from '../../../../../../models/serializeWorkbookApplication';
-import type {WorkbookApplication} from '../../../../../../models/workbookApplication';
-import {ApplicationRequestBuilderDeleteRequestConfiguration} from './applicationRequestBuilderDeleteRequestConfiguration';
-import {ApplicationRequestBuilderGetRequestConfiguration} from './applicationRequestBuilderGetRequestConfiguration';
-import {ApplicationRequestBuilderPatchRequestConfiguration} from './applicationRequestBuilderPatchRequestConfiguration';
-import {CalculateRequestBuilder} from './calculate/calculateRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookApplicationFromDiscriminatorValue } from '../../../../../../models/createWorkbookApplicationFromDiscriminatorValue';
+import { deserializeIntoWorkbookApplication } from '../../../../../../models/deserializeIntoWorkbookApplication';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookApplication } from '../../../../../../models/serializeWorkbookApplication';
+import { type WorkbookApplication } from '../../../../../../models/workbookApplication';
+import { type ApplicationRequestBuilderDeleteRequestConfiguration } from './applicationRequestBuilderDeleteRequestConfiguration';
+import { type ApplicationRequestBuilderGetRequestConfiguration } from './applicationRequestBuilderGetRequestConfiguration';
+import { type ApplicationRequestBuilderPatchRequestConfiguration } from './applicationRequestBuilderPatchRequestConfiguration';
+import { CalculateRequestBuilder } from './calculate/calculateRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the application property of the microsoft.graph.workbook entity.

@@ -1,21 +1,20 @@
-import {WorkbookNamedItemCollectionResponse} from '../../../../../../../../models/';
-import {createWorkbookNamedItemCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookNamedItemCollectionResponseFromDiscriminatorValue';
-import {createWorkbookNamedItemFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookNamedItemFromDiscriminatorValue';
-import {deserializeIntoWorkbookNamedItem} from '../../../../../../../../models/deserializeIntoWorkbookNamedItem';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookNamedItem} from '../../../../../../../../models/serializeWorkbookNamedItem';
-import type {WorkbookNamedItem} from '../../../../../../../../models/workbookNamedItem';
-import {AddRequestBuilder} from './add/addRequestBuilder';
-import {AddFormulaLocalRequestBuilder} from './addFormulaLocal/addFormulaLocalRequestBuilder';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WorkbookNamedItemItemRequestBuilder} from './item/workbookNamedItemItemRequestBuilder';
-import {NamesRequestBuilderGetRequestConfiguration} from './namesRequestBuilderGetRequestConfiguration';
-import {NamesRequestBuilderPostRequestConfiguration} from './namesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookNamedItemCollectionResponse } from '../../../../../../../../models/';
+import { createWorkbookNamedItemCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookNamedItemCollectionResponseFromDiscriminatorValue';
+import { createWorkbookNamedItemFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookNamedItemFromDiscriminatorValue';
+import { deserializeIntoWorkbookNamedItem } from '../../../../../../../../models/deserializeIntoWorkbookNamedItem';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookNamedItem } from '../../../../../../../../models/serializeWorkbookNamedItem';
+import { type WorkbookNamedItem } from '../../../../../../../../models/workbookNamedItem';
+import { AddRequestBuilder } from './add/addRequestBuilder';
+import { AddFormulaLocalRequestBuilder } from './addFormulaLocal/addFormulaLocalRequestBuilder';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WorkbookNamedItemItemRequestBuilder } from './item/workbookNamedItemItemRequestBuilder';
+import { type NamesRequestBuilderGetRequestConfiguration } from './namesRequestBuilderGetRequestConfiguration';
+import { type NamesRequestBuilderPostRequestConfiguration } from './namesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.

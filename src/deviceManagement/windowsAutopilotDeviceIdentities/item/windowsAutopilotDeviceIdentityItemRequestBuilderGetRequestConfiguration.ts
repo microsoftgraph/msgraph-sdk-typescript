@@ -1,5 +1,5 @@
-import {WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters} from './windowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters } from './windowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration {
     /**

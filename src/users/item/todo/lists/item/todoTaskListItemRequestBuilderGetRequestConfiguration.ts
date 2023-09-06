@@ -1,5 +1,5 @@
-import {TodoTaskListItemRequestBuilderGetQueryParameters} from './todoTaskListItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TodoTaskListItemRequestBuilderGetQueryParameters } from './todoTaskListItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TodoTaskListItemRequestBuilderGetRequestConfiguration {
     /**

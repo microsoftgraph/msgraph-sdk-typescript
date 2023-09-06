@@ -1,9 +1,9 @@
-import type {Json} from './json';
-import {serializeJson} from './serializeJson';
-import {serializeWorkbookIcon} from './serializeWorkbookIcon';
-import type {WorkbookFilterCriteria} from './workbookFilterCriteria';
-import type {WorkbookIcon} from './workbookIcon';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from './json';
+import { serializeJson } from './serializeJson';
+import { serializeWorkbookIcon } from './serializeWorkbookIcon';
+import { type WorkbookFilterCriteria } from './workbookFilterCriteria';
+import { type WorkbookIcon } from './workbookIcon';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookFilterCriteria(writer: SerializationWriter, workbookFilterCriteria: WorkbookFilterCriteria | undefined = {} as WorkbookFilterCriteria) : void {
         writer.writeStringValue("color", workbookFilterCriteria.color);

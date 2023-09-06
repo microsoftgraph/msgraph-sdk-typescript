@@ -1,5 +1,5 @@
-import {ReviewSetsRequestBuilderGetQueryParameters} from './reviewSetsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ReviewSetsRequestBuilderGetQueryParameters } from './reviewSetsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ReviewSetsRequestBuilderGetRequestConfiguration {
     /**

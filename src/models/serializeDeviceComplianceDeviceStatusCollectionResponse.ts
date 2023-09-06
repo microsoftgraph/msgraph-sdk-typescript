@@ -1,8 +1,8 @@
-import type {DeviceComplianceDeviceStatus} from './deviceComplianceDeviceStatus';
-import type {DeviceComplianceDeviceStatusCollectionResponse} from './deviceComplianceDeviceStatusCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeDeviceComplianceDeviceStatus} from './serializeDeviceComplianceDeviceStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceComplianceDeviceStatus } from './deviceComplianceDeviceStatus';
+import { type DeviceComplianceDeviceStatusCollectionResponse } from './deviceComplianceDeviceStatusCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeDeviceComplianceDeviceStatus } from './serializeDeviceComplianceDeviceStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceComplianceDeviceStatusCollectionResponse(writer: SerializationWriter, deviceComplianceDeviceStatusCollectionResponse: DeviceComplianceDeviceStatusCollectionResponse | undefined = {} as DeviceComplianceDeviceStatusCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceComplianceDeviceStatusCollectionResponse)

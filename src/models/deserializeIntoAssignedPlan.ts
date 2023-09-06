@@ -1,6 +1,6 @@
-import type {AssignedPlan} from './assignedPlan';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type AssignedPlan } from './assignedPlan';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function deserializeIntoAssignedPlan(assignedPlan: AssignedPlan | undefined = {} as AssignedPlan) : Record<string, (node: ParseNode) => void> {
     return {

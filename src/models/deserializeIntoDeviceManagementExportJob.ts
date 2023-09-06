@@ -1,9 +1,9 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DeviceManagementExportJob} from './deviceManagementExportJob';
-import {DeviceManagementExportJobLocalizationType} from './deviceManagementExportJobLocalizationType';
-import {DeviceManagementReportFileFormat} from './deviceManagementReportFileFormat';
-import {DeviceManagementReportStatus} from './deviceManagementReportStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DeviceManagementExportJob } from './deviceManagementExportJob';
+import { DeviceManagementExportJobLocalizationType } from './deviceManagementExportJobLocalizationType';
+import { DeviceManagementReportFileFormat } from './deviceManagementReportFileFormat';
+import { DeviceManagementReportStatus } from './deviceManagementReportStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceManagementExportJob(deviceManagementExportJob: DeviceManagementExportJob | undefined = {} as DeviceManagementExportJob) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
-import {deserializeIntoEvent} from './deserializeIntoEvent';
-import {Event} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEvent } from './deserializeIntoEvent';
+import { type Event } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEventFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {WorkbookOperation} from './workbookOperation';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type WorkbookOperation } from './workbookOperation';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookOperationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

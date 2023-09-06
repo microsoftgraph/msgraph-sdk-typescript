@@ -1,5 +1,5 @@
-import {OnlineMeetingsRequestBuilderGetQueryParameters} from './onlineMeetingsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type OnlineMeetingsRequestBuilderGetQueryParameters } from './onlineMeetingsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OnlineMeetingsRequestBuilderGetRequestConfiguration {
     /**

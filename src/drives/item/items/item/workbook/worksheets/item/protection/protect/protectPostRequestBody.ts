@@ -1,5 +1,5 @@
-import type {WorkbookWorksheetProtectionOptions} from '../../../../../../../../../models/workbookWorksheetProtectionOptions';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type WorkbookWorksheetProtectionOptions } from '../../../../../../../../../models/workbookWorksheetProtectionOptions';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ProtectPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

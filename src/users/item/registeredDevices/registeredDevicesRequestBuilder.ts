@@ -1,17 +1,16 @@
-import {DirectoryObjectCollectionResponse} from '../../../models/';
-import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GraphAppRoleAssignmentRequestBuilder} from './graphAppRoleAssignment/graphAppRoleAssignmentRequestBuilder';
-import {GraphDeviceRequestBuilder} from './graphDevice/graphDeviceRequestBuilder';
-import {GraphEndpointRequestBuilder} from './graphEndpoint/graphEndpointRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
-import {RegisteredDevicesRequestBuilderGetRequestConfiguration} from './registeredDevicesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryObjectCollectionResponse } from '../../../models/';
+import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { GraphAppRoleAssignmentRequestBuilder } from './graphAppRoleAssignment/graphAppRoleAssignmentRequestBuilder';
+import { GraphDeviceRequestBuilder } from './graphDevice/graphDeviceRequestBuilder';
+import { GraphEndpointRequestBuilder } from './graphEndpoint/graphEndpointRequestBuilder';
+import { DirectoryObjectItemRequestBuilder } from './item/directoryObjectItemRequestBuilder';
+import { type RegisteredDevicesRequestBuilderGetRequestConfiguration } from './registeredDevicesRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.

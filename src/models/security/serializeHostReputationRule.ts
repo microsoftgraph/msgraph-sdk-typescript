@@ -1,6 +1,6 @@
-import type {HostReputationRule} from './hostReputationRule';
-import {HostReputationRuleSeverity} from './hostReputationRuleSeverity';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type HostReputationRule } from './hostReputationRule';
+import { HostReputationRuleSeverity } from './hostReputationRuleSeverity';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeHostReputationRule(writer: SerializationWriter, hostReputationRule: HostReputationRule | undefined = {} as HostReputationRule) : void {
         writer.writeStringValue("description", hostReputationRule.description);

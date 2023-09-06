@@ -1,5 +1,5 @@
-import {DeviceManagementExchangeConnectorItemRequestBuilderGetQueryParameters} from './deviceManagementExchangeConnectorItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceManagementExchangeConnectorItemRequestBuilderGetQueryParameters } from './deviceManagementExchangeConnectorItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration {
     /**

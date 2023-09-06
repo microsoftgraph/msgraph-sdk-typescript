@@ -1,5 +1,5 @@
-import type {ContentTypeInfo} from './contentTypeInfo';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type ContentTypeInfo } from './contentTypeInfo';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DocumentSetContent extends AdditionalDataHolder, Parsable {
     /**

@@ -1,16 +1,15 @@
-import {createCustomCalloutExtensionFromDiscriminatorValue} from '../../../../../../models/createCustomCalloutExtensionFromDiscriminatorValue';
-import type {CustomCalloutExtension} from '../../../../../../models/customCalloutExtension';
-import {deserializeIntoCustomCalloutExtension} from '../../../../../../models/deserializeIntoCustomCalloutExtension';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeCustomCalloutExtension} from '../../../../../../models/serializeCustomCalloutExtension';
-import {CustomCalloutExtensionItemRequestBuilderDeleteRequestConfiguration} from './customCalloutExtensionItemRequestBuilderDeleteRequestConfiguration';
-import {CustomCalloutExtensionItemRequestBuilderGetRequestConfiguration} from './customCalloutExtensionItemRequestBuilderGetRequestConfiguration';
-import {CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration} from './customCalloutExtensionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createCustomCalloutExtensionFromDiscriminatorValue } from '../../../../../../models/createCustomCalloutExtensionFromDiscriminatorValue';
+import { type CustomCalloutExtension } from '../../../../../../models/customCalloutExtension';
+import { deserializeIntoCustomCalloutExtension } from '../../../../../../models/deserializeIntoCustomCalloutExtension';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeCustomCalloutExtension } from '../../../../../../models/serializeCustomCalloutExtension';
+import { type CustomCalloutExtensionItemRequestBuilderDeleteRequestConfiguration } from './customCalloutExtensionItemRequestBuilderDeleteRequestConfiguration';
+import { type CustomCalloutExtensionItemRequestBuilderGetRequestConfiguration } from './customCalloutExtensionItemRequestBuilderGetRequestConfiguration';
+import { type CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration } from './customCalloutExtensionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.

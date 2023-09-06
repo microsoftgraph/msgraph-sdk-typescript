@@ -1,6 +1,6 @@
-import type {AttributeMappingParameterSchema} from './attributeMappingParameterSchema';
-import {AttributeType} from './attributeType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttributeMappingParameterSchema } from './attributeMappingParameterSchema';
+import { AttributeType } from './attributeType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAttributeMappingParameterSchema(writer: SerializationWriter, attributeMappingParameterSchema: AttributeMappingParameterSchema | undefined = {} as AttributeMappingParameterSchema) : void {
         writer.writeBooleanValue("allowMultipleOccurrences", attributeMappingParameterSchema.allowMultipleOccurrences);

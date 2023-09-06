@@ -1,19 +1,18 @@
-import {RiskyServicePrincipalHistoryItemCollectionResponse} from '../../../../models/';
-import {createRiskyServicePrincipalHistoryItemCollectionResponseFromDiscriminatorValue} from '../../../../models/createRiskyServicePrincipalHistoryItemCollectionResponseFromDiscriminatorValue';
-import {createRiskyServicePrincipalHistoryItemFromDiscriminatorValue} from '../../../../models/createRiskyServicePrincipalHistoryItemFromDiscriminatorValue';
-import {deserializeIntoRiskyServicePrincipalHistoryItem} from '../../../../models/deserializeIntoRiskyServicePrincipalHistoryItem';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {RiskyServicePrincipalHistoryItem} from '../../../../models/riskyServicePrincipalHistoryItem';
-import {serializeRiskyServicePrincipalHistoryItem} from '../../../../models/serializeRiskyServicePrincipalHistoryItem';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {HistoryRequestBuilderGetRequestConfiguration} from './historyRequestBuilderGetRequestConfiguration';
-import {HistoryRequestBuilderPostRequestConfiguration} from './historyRequestBuilderPostRequestConfiguration';
-import {RiskyServicePrincipalHistoryItemItemRequestBuilder} from './item/riskyServicePrincipalHistoryItemItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type RiskyServicePrincipalHistoryItemCollectionResponse } from '../../../../models/';
+import { createRiskyServicePrincipalHistoryItemCollectionResponseFromDiscriminatorValue } from '../../../../models/createRiskyServicePrincipalHistoryItemCollectionResponseFromDiscriminatorValue';
+import { createRiskyServicePrincipalHistoryItemFromDiscriminatorValue } from '../../../../models/createRiskyServicePrincipalHistoryItemFromDiscriminatorValue';
+import { deserializeIntoRiskyServicePrincipalHistoryItem } from '../../../../models/deserializeIntoRiskyServicePrincipalHistoryItem';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type RiskyServicePrincipalHistoryItem } from '../../../../models/riskyServicePrincipalHistoryItem';
+import { serializeRiskyServicePrincipalHistoryItem } from '../../../../models/serializeRiskyServicePrincipalHistoryItem';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type HistoryRequestBuilderGetRequestConfiguration } from './historyRequestBuilderGetRequestConfiguration';
+import { type HistoryRequestBuilderPostRequestConfiguration } from './historyRequestBuilderPostRequestConfiguration';
+import { RiskyServicePrincipalHistoryItemItemRequestBuilder } from './item/riskyServicePrincipalHistoryItemItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.

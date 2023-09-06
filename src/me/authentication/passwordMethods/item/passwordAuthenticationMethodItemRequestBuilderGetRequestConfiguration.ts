@@ -1,5 +1,5 @@
-import {PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters} from './passwordAuthenticationMethodItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters } from './passwordAuthenticationMethodItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PasswordAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
     /**
