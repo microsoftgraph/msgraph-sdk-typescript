@@ -1,19 +1,18 @@
-import {DeviceManagementExportJobCollectionResponse} from '../../../models/';
-import {createDeviceManagementExportJobCollectionResponseFromDiscriminatorValue} from '../../../models/createDeviceManagementExportJobCollectionResponseFromDiscriminatorValue';
-import {createDeviceManagementExportJobFromDiscriminatorValue} from '../../../models/createDeviceManagementExportJobFromDiscriminatorValue';
-import {deserializeIntoDeviceManagementExportJob} from '../../../models/deserializeIntoDeviceManagementExportJob';
-import type {DeviceManagementExportJob} from '../../../models/deviceManagementExportJob';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceManagementExportJob} from '../../../models/serializeDeviceManagementExportJob';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ExportJobsRequestBuilderGetRequestConfiguration} from './exportJobsRequestBuilderGetRequestConfiguration';
-import {ExportJobsRequestBuilderPostRequestConfiguration} from './exportJobsRequestBuilderPostRequestConfiguration';
-import {DeviceManagementExportJobItemRequestBuilder} from './item/deviceManagementExportJobItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceManagementExportJobCollectionResponse } from '../../../models/';
+import { createDeviceManagementExportJobCollectionResponseFromDiscriminatorValue } from '../../../models/createDeviceManagementExportJobCollectionResponseFromDiscriminatorValue';
+import { createDeviceManagementExportJobFromDiscriminatorValue } from '../../../models/createDeviceManagementExportJobFromDiscriminatorValue';
+import { deserializeIntoDeviceManagementExportJob } from '../../../models/deserializeIntoDeviceManagementExportJob';
+import { type DeviceManagementExportJob } from '../../../models/deviceManagementExportJob';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceManagementExportJob } from '../../../models/serializeDeviceManagementExportJob';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type ExportJobsRequestBuilderGetRequestConfiguration } from './exportJobsRequestBuilderGetRequestConfiguration';
+import { type ExportJobsRequestBuilderPostRequestConfiguration } from './exportJobsRequestBuilderPostRequestConfiguration';
+import { DeviceManagementExportJobItemRequestBuilder } from './item/deviceManagementExportJobItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.

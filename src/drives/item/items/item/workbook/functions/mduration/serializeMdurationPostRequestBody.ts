@@ -1,7 +1,7 @@
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {MdurationPostRequestBody} from './mdurationPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type MdurationPostRequestBody } from './mdurationPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMdurationPostRequestBody(writer: SerializationWriter, mdurationPostRequestBody: MdurationPostRequestBody | undefined = {} as MdurationPostRequestBody) : void {
         writer.writeObjectValue<Json>("basis", mdurationPostRequestBody.basis, serializeJson);

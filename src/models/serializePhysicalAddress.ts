@@ -1,5 +1,5 @@
-import type {PhysicalAddress} from './physicalAddress';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PhysicalAddress } from './physicalAddress';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePhysicalAddress(writer: SerializationWriter, physicalAddress: PhysicalAddress | undefined = {} as PhysicalAddress) : void {
         writer.writeStringValue("city", physicalAddress.city);

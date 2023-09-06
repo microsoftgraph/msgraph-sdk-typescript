@@ -1,5 +1,5 @@
-import {IosManagedAppProtectionItemRequestBuilderGetQueryParameters} from './iosManagedAppProtectionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IosManagedAppProtectionItemRequestBuilderGetQueryParameters } from './iosManagedAppProtectionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IosManagedAppProtectionItemRequestBuilderGetRequestConfiguration {
     /**

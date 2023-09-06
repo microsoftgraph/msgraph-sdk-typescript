@@ -1,17 +1,16 @@
-import {createWorkbookTableRowFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookTableRowFromDiscriminatorValue';
-import {deserializeIntoWorkbookTableRow} from '../../../../../../../../../models/deserializeIntoWorkbookTableRow';
-import {ODataError} from '../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookTableRow} from '../../../../../../../../../models/serializeWorkbookTableRow';
-import type {WorkbookTableRow} from '../../../../../../../../../models/workbookTableRow';
-import type {AddPostRequestBody} from './addPostRequestBody';
-import {AddRequestBuilderPostRequestConfiguration} from './addRequestBuilderPostRequestConfiguration';
-import {deserializeIntoAddPostRequestBody} from './deserializeIntoAddPostRequestBody';
-import {serializeAddPostRequestBody} from './serializeAddPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookTableRowFromDiscriminatorValue } from '../../../../../../../../../models/createWorkbookTableRowFromDiscriminatorValue';
+import { deserializeIntoWorkbookTableRow } from '../../../../../../../../../models/deserializeIntoWorkbookTableRow';
+import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookTableRow } from '../../../../../../../../../models/serializeWorkbookTableRow';
+import { type WorkbookTableRow } from '../../../../../../../../../models/workbookTableRow';
+import { type AddPostRequestBody } from './addPostRequestBody';
+import { type AddRequestBuilderPostRequestConfiguration } from './addRequestBuilderPostRequestConfiguration';
+import { deserializeIntoAddPostRequestBody } from './deserializeIntoAddPostRequestBody';
+import { serializeAddPostRequestBody } from './serializeAddPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the add method.

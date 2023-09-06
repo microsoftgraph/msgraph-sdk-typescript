@@ -1,17 +1,16 @@
-import type {ActivityBasedTimeoutPolicy} from '../../../models/activityBasedTimeoutPolicy';
-import {createActivityBasedTimeoutPolicyFromDiscriminatorValue} from '../../../models/createActivityBasedTimeoutPolicyFromDiscriminatorValue';
-import {deserializeIntoActivityBasedTimeoutPolicy} from '../../../models/deserializeIntoActivityBasedTimeoutPolicy';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeActivityBasedTimeoutPolicy} from '../../../models/serializeActivityBasedTimeoutPolicy';
-import {ActivityBasedTimeoutPolicyItemRequestBuilderDeleteRequestConfiguration} from './activityBasedTimeoutPolicyItemRequestBuilderDeleteRequestConfiguration';
-import {ActivityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration} from './activityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration';
-import {ActivityBasedTimeoutPolicyItemRequestBuilderPatchRequestConfiguration} from './activityBasedTimeoutPolicyItemRequestBuilderPatchRequestConfiguration';
-import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ActivityBasedTimeoutPolicy } from '../../../models/activityBasedTimeoutPolicy';
+import { createActivityBasedTimeoutPolicyFromDiscriminatorValue } from '../../../models/createActivityBasedTimeoutPolicyFromDiscriminatorValue';
+import { deserializeIntoActivityBasedTimeoutPolicy } from '../../../models/deserializeIntoActivityBasedTimeoutPolicy';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeActivityBasedTimeoutPolicy } from '../../../models/serializeActivityBasedTimeoutPolicy';
+import { type ActivityBasedTimeoutPolicyItemRequestBuilderDeleteRequestConfiguration } from './activityBasedTimeoutPolicyItemRequestBuilderDeleteRequestConfiguration';
+import { type ActivityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration } from './activityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration';
+import { type ActivityBasedTimeoutPolicyItemRequestBuilderPatchRequestConfiguration } from './activityBasedTimeoutPolicyItemRequestBuilderPatchRequestConfiguration';
+import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.

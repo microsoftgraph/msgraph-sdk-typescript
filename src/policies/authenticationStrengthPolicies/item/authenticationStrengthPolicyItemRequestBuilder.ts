@@ -1,19 +1,18 @@
-import type {AuthenticationStrengthPolicy} from '../../../models/authenticationStrengthPolicy';
-import {createAuthenticationStrengthPolicyFromDiscriminatorValue} from '../../../models/createAuthenticationStrengthPolicyFromDiscriminatorValue';
-import {deserializeIntoAuthenticationStrengthPolicy} from '../../../models/deserializeIntoAuthenticationStrengthPolicy';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAuthenticationStrengthPolicy} from '../../../models/serializeAuthenticationStrengthPolicy';
-import {AuthenticationStrengthPolicyItemRequestBuilderDeleteRequestConfiguration} from './authenticationStrengthPolicyItemRequestBuilderDeleteRequestConfiguration';
-import {AuthenticationStrengthPolicyItemRequestBuilderGetRequestConfiguration} from './authenticationStrengthPolicyItemRequestBuilderGetRequestConfiguration';
-import {AuthenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration} from './authenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration';
-import {CombinationConfigurationsRequestBuilder} from './combinationConfigurations/combinationConfigurationsRequestBuilder';
-import {UpdateAllowedCombinationsRequestBuilder} from './updateAllowedCombinations/updateAllowedCombinationsRequestBuilder';
-import {UsageRequestBuilder} from './usage/usageRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationStrengthPolicy } from '../../../models/authenticationStrengthPolicy';
+import { createAuthenticationStrengthPolicyFromDiscriminatorValue } from '../../../models/createAuthenticationStrengthPolicyFromDiscriminatorValue';
+import { deserializeIntoAuthenticationStrengthPolicy } from '../../../models/deserializeIntoAuthenticationStrengthPolicy';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAuthenticationStrengthPolicy } from '../../../models/serializeAuthenticationStrengthPolicy';
+import { type AuthenticationStrengthPolicyItemRequestBuilderDeleteRequestConfiguration } from './authenticationStrengthPolicyItemRequestBuilderDeleteRequestConfiguration';
+import { type AuthenticationStrengthPolicyItemRequestBuilderGetRequestConfiguration } from './authenticationStrengthPolicyItemRequestBuilderGetRequestConfiguration';
+import { type AuthenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration } from './authenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration';
+import { CombinationConfigurationsRequestBuilder } from './combinationConfigurations/combinationConfigurationsRequestBuilder';
+import { UpdateAllowedCombinationsRequestBuilder } from './updateAllowedCombinations/updateAllowedCombinationsRequestBuilder';
+import { UsageRequestBuilder } from './usage/usageRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.

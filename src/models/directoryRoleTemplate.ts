@@ -1,5 +1,5 @@
-import type {DirectoryObject} from './directoryObject';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DirectoryObject } from './directoryObject';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DirectoryRoleTemplate extends DirectoryObject, Parsable {
     /**

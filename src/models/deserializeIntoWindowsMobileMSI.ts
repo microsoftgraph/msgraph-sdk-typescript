@@ -1,6 +1,6 @@
-import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
-import type {WindowsMobileMSI} from './windowsMobileMSI';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoMobileLobApp } from './deserializeIntoMobileLobApp';
+import { type WindowsMobileMSI } from './windowsMobileMSI';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsMobileMSI(windowsMobileMSI: WindowsMobileMSI | undefined = {} as WindowsMobileMSI) : Record<string, (node: ParseNode) => void> {
     return {

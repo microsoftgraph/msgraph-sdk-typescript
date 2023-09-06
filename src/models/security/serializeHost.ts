@@ -1,16 +1,16 @@
-import type {Host} from './host';
-import type {HostComponent} from './hostComponent';
-import type {HostCookie} from './hostCookie';
-import type {HostReputation} from './hostReputation';
-import type {HostTracker} from './hostTracker';
-import type {PassiveDnsRecord} from './passiveDnsRecord';
-import {serializeArtifact} from './serializeArtifact';
-import {serializeHostComponent} from './serializeHostComponent';
-import {serializeHostCookie} from './serializeHostCookie';
-import {serializeHostReputation} from './serializeHostReputation';
-import {serializeHostTracker} from './serializeHostTracker';
-import {serializePassiveDnsRecord} from './serializePassiveDnsRecord';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Host } from './host';
+import { type HostComponent } from './hostComponent';
+import { type HostCookie } from './hostCookie';
+import { type HostReputation } from './hostReputation';
+import { type HostTracker } from './hostTracker';
+import { type PassiveDnsRecord } from './passiveDnsRecord';
+import { serializeArtifact } from './serializeArtifact';
+import { serializeHostComponent } from './serializeHostComponent';
+import { serializeHostCookie } from './serializeHostCookie';
+import { serializeHostReputation } from './serializeHostReputation';
+import { serializeHostTracker } from './serializeHostTracker';
+import { serializePassiveDnsRecord } from './serializePassiveDnsRecord';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeHost(writer: SerializationWriter, host: Host | undefined = {} as Host) : void {
         serializeArtifact(writer, host)

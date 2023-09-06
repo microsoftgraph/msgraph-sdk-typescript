@@ -1,12 +1,12 @@
-import type {AverageComparativeScore} from './averageComparativeScore';
-import type {ControlScore} from './controlScore';
-import type {SecureScore} from './secureScore';
-import type {SecurityVendorInformation} from './securityVendorInformation';
-import {serializeAverageComparativeScore} from './serializeAverageComparativeScore';
-import {serializeControlScore} from './serializeControlScore';
-import {serializeEntity} from './serializeEntity';
-import {serializeSecurityVendorInformation} from './serializeSecurityVendorInformation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AverageComparativeScore } from './averageComparativeScore';
+import { type ControlScore } from './controlScore';
+import { type SecureScore } from './secureScore';
+import { type SecurityVendorInformation } from './securityVendorInformation';
+import { serializeAverageComparativeScore } from './serializeAverageComparativeScore';
+import { serializeControlScore } from './serializeControlScore';
+import { serializeEntity } from './serializeEntity';
+import { serializeSecurityVendorInformation } from './serializeSecurityVendorInformation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSecureScore(writer: SerializationWriter, secureScore: SecureScore | undefined = {} as SecureScore) : void {
         serializeEntity(writer, secureScore)

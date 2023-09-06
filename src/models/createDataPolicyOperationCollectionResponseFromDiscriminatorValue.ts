@@ -1,6 +1,6 @@
-import {deserializeIntoDataPolicyOperationCollectionResponse} from './deserializeIntoDataPolicyOperationCollectionResponse';
-import {DataPolicyOperationCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDataPolicyOperationCollectionResponse } from './deserializeIntoDataPolicyOperationCollectionResponse';
+import { type DataPolicyOperationCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDataPolicyOperationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

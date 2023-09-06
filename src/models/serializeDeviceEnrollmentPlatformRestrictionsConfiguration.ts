@@ -1,8 +1,8 @@
-import type {DeviceEnrollmentPlatformRestriction} from './deviceEnrollmentPlatformRestriction';
-import type {DeviceEnrollmentPlatformRestrictionsConfiguration} from './deviceEnrollmentPlatformRestrictionsConfiguration';
-import {serializeDeviceEnrollmentConfiguration} from './serializeDeviceEnrollmentConfiguration';
-import {serializeDeviceEnrollmentPlatformRestriction} from './serializeDeviceEnrollmentPlatformRestriction';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceEnrollmentPlatformRestriction } from './deviceEnrollmentPlatformRestriction';
+import { type DeviceEnrollmentPlatformRestrictionsConfiguration } from './deviceEnrollmentPlatformRestrictionsConfiguration';
+import { serializeDeviceEnrollmentConfiguration } from './serializeDeviceEnrollmentConfiguration';
+import { serializeDeviceEnrollmentPlatformRestriction } from './serializeDeviceEnrollmentPlatformRestriction';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceEnrollmentPlatformRestrictionsConfiguration(writer: SerializationWriter, deviceEnrollmentPlatformRestrictionsConfiguration: DeviceEnrollmentPlatformRestrictionsConfiguration | undefined = {} as DeviceEnrollmentPlatformRestrictionsConfiguration) : void {
         serializeDeviceEnrollmentConfiguration(writer, deviceEnrollmentPlatformRestrictionsConfiguration)

@@ -1,6 +1,6 @@
-import {deserializeIntoPublicErrorDetail} from './deserializeIntoPublicErrorDetail';
-import {PublicErrorDetail} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPublicErrorDetail } from './deserializeIntoPublicErrorDetail';
+import { type PublicErrorDetail } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPublicErrorDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

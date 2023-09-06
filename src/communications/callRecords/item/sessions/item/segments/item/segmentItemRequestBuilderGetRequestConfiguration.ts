@@ -1,5 +1,5 @@
-import {SegmentItemRequestBuilderGetQueryParameters} from './segmentItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SegmentItemRequestBuilderGetQueryParameters } from './segmentItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SegmentItemRequestBuilderGetRequestConfiguration {
     /**

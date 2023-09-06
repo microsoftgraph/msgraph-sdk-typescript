@@ -1,6 +1,6 @@
-import {deserializeIntoEducationSubmissionCollectionResponse} from './deserializeIntoEducationSubmissionCollectionResponse';
-import {EducationSubmissionCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEducationSubmissionCollectionResponse } from './deserializeIntoEducationSubmissionCollectionResponse';
+import { type EducationSubmissionCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEducationSubmissionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

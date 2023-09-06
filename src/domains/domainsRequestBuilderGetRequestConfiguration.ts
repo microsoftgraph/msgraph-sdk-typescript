@@ -1,5 +1,5 @@
-import {DomainsRequestBuilderGetQueryParameters} from './domainsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DomainsRequestBuilderGetQueryParameters } from './domainsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DomainsRequestBuilderGetRequestConfiguration {
     /**

@@ -1,9 +1,9 @@
-import type {AttributeDefinition} from './attributeDefinition';
-import type {ObjectDefinition} from './objectDefinition';
-import type {ObjectDefinitionMetadataEntry} from './objectDefinitionMetadataEntry';
-import {serializeAttributeDefinition} from './serializeAttributeDefinition';
-import {serializeObjectDefinitionMetadataEntry} from './serializeObjectDefinitionMetadataEntry';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttributeDefinition } from './attributeDefinition';
+import { type ObjectDefinition } from './objectDefinition';
+import { type ObjectDefinitionMetadataEntry } from './objectDefinitionMetadataEntry';
+import { serializeAttributeDefinition } from './serializeAttributeDefinition';
+import { serializeObjectDefinitionMetadataEntry } from './serializeObjectDefinitionMetadataEntry';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeObjectDefinition(writer: SerializationWriter, objectDefinition: ObjectDefinition | undefined = {} as ObjectDefinition) : void {
         writer.writeCollectionOfObjectValues<AttributeDefinition>("attributes", objectDefinition.attributes, serializeAttributeDefinition);

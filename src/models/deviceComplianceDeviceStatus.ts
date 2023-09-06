@@ -1,6 +1,6 @@
-import {ComplianceStatus} from './complianceStatus';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { ComplianceStatus } from './complianceStatus';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DeviceComplianceDeviceStatus extends Entity, Parsable {
     /**

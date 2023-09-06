@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {createFavoriteResponseFromDiscriminatorValue} from './createFavoriteResponseFromDiscriminatorValue';
-import {deserializeIntoFavoritePostRequestBody} from './deserializeIntoFavoritePostRequestBody';
-import {deserializeIntoFavoriteResponse} from './deserializeIntoFavoriteResponse';
-import type {FavoritePostRequestBody} from './favoritePostRequestBody';
-import {FavoriteRequestBuilderPostRequestConfiguration} from './favoriteRequestBuilderPostRequestConfiguration';
-import type {FavoriteResponse} from './favoriteResponse';
-import {serializeFavoritePostRequestBody} from './serializeFavoritePostRequestBody';
-import {serializeFavoriteResponse} from './serializeFavoriteResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createFavoriteResponseFromDiscriminatorValue } from './createFavoriteResponseFromDiscriminatorValue';
+import { deserializeIntoFavoritePostRequestBody } from './deserializeIntoFavoritePostRequestBody';
+import { deserializeIntoFavoriteResponse } from './deserializeIntoFavoriteResponse';
+import { type FavoritePostRequestBody } from './favoritePostRequestBody';
+import { type FavoriteRequestBuilderPostRequestConfiguration } from './favoriteRequestBuilderPostRequestConfiguration';
+import { type FavoriteResponse } from './favoriteResponse';
+import { serializeFavoritePostRequestBody } from './serializeFavoritePostRequestBody';
+import { serializeFavoriteResponse } from './serializeFavoriteResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the favorite method.

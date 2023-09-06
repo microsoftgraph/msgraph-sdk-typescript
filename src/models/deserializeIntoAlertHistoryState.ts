@@ -1,7 +1,7 @@
-import {AlertFeedback} from './alertFeedback';
-import type {AlertHistoryState} from './alertHistoryState';
-import {AlertStatus} from './alertStatus';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AlertFeedback } from './alertFeedback';
+import { type AlertHistoryState } from './alertHistoryState';
+import { AlertStatus } from './alertStatus';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlertHistoryState(alertHistoryState: AlertHistoryState | undefined = {} as AlertHistoryState) : Record<string, (node: ParseNode) => void> {
     return {

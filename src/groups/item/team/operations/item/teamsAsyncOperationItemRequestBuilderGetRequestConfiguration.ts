@@ -1,5 +1,5 @@
-import {TeamsAsyncOperationItemRequestBuilderGetQueryParameters} from './teamsAsyncOperationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TeamsAsyncOperationItemRequestBuilderGetQueryParameters } from './teamsAsyncOperationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration {
     /**

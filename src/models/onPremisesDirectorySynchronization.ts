@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import type {OnPremisesDirectorySynchronizationConfiguration} from './onPremisesDirectorySynchronizationConfiguration';
-import type {OnPremisesDirectorySynchronizationFeature} from './onPremisesDirectorySynchronizationFeature';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type OnPremisesDirectorySynchronizationConfiguration } from './onPremisesDirectorySynchronizationConfiguration';
+import { type OnPremisesDirectorySynchronizationFeature } from './onPremisesDirectorySynchronizationFeature';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OnPremisesDirectorySynchronization extends Entity, Parsable {
     /**

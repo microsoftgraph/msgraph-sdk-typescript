@@ -1,6 +1,6 @@
-import {deserializeIntoTbillEqPostRequestBody} from './deserializeIntoTbillEqPostRequestBody';
-import {TbillEqPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoTbillEqPostRequestBody } from './deserializeIntoTbillEqPostRequestBody';
+import { type TbillEqPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTbillEqPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

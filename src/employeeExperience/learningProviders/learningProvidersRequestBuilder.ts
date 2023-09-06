@@ -1,19 +1,18 @@
-import {LearningProviderCollectionResponse} from '../../models/';
-import {createLearningProviderCollectionResponseFromDiscriminatorValue} from '../../models/createLearningProviderCollectionResponseFromDiscriminatorValue';
-import {createLearningProviderFromDiscriminatorValue} from '../../models/createLearningProviderFromDiscriminatorValue';
-import {deserializeIntoLearningProvider} from '../../models/deserializeIntoLearningProvider';
-import type {LearningProvider} from '../../models/learningProvider';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeLearningProvider} from '../../models/serializeLearningProvider';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {LearningProviderItemRequestBuilder} from './item/learningProviderItemRequestBuilder';
-import {LearningProvidersRequestBuilderGetRequestConfiguration} from './learningProvidersRequestBuilderGetRequestConfiguration';
-import {LearningProvidersRequestBuilderPostRequestConfiguration} from './learningProvidersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type LearningProviderCollectionResponse } from '../../models/';
+import { createLearningProviderCollectionResponseFromDiscriminatorValue } from '../../models/createLearningProviderCollectionResponseFromDiscriminatorValue';
+import { createLearningProviderFromDiscriminatorValue } from '../../models/createLearningProviderFromDiscriminatorValue';
+import { deserializeIntoLearningProvider } from '../../models/deserializeIntoLearningProvider';
+import { type LearningProvider } from '../../models/learningProvider';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeLearningProvider } from '../../models/serializeLearningProvider';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { LearningProviderItemRequestBuilder } from './item/learningProviderItemRequestBuilder';
+import { type LearningProvidersRequestBuilderGetRequestConfiguration } from './learningProvidersRequestBuilderGetRequestConfiguration';
+import { type LearningProvidersRequestBuilderPostRequestConfiguration } from './learningProvidersRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.

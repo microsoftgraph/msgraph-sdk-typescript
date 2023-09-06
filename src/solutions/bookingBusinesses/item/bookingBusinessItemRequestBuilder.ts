@@ -1,25 +1,24 @@
-import type {BookingBusiness} from '../../../models/bookingBusiness';
-import {createBookingBusinessFromDiscriminatorValue} from '../../../models/createBookingBusinessFromDiscriminatorValue';
-import {deserializeIntoBookingBusiness} from '../../../models/deserializeIntoBookingBusiness';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeBookingBusiness} from '../../../models/serializeBookingBusiness';
-import {AppointmentsRequestBuilder} from './appointments/appointmentsRequestBuilder';
-import {BookingBusinessItemRequestBuilderDeleteRequestConfiguration} from './bookingBusinessItemRequestBuilderDeleteRequestConfiguration';
-import {BookingBusinessItemRequestBuilderGetRequestConfiguration} from './bookingBusinessItemRequestBuilderGetRequestConfiguration';
-import {BookingBusinessItemRequestBuilderPatchRequestConfiguration} from './bookingBusinessItemRequestBuilderPatchRequestConfiguration';
-import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {CustomQuestionsRequestBuilder} from './customQuestions/customQuestionsRequestBuilder';
-import {CustomersRequestBuilder} from './customers/customersRequestBuilder';
-import {GetStaffAvailabilityRequestBuilder} from './getStaffAvailability/getStaffAvailabilityRequestBuilder';
-import {PublishRequestBuilder} from './publish/publishRequestBuilder';
-import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
-import {StaffMembersRequestBuilder} from './staffMembers/staffMembersRequestBuilder';
-import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BookingBusiness } from '../../../models/bookingBusiness';
+import { createBookingBusinessFromDiscriminatorValue } from '../../../models/createBookingBusinessFromDiscriminatorValue';
+import { deserializeIntoBookingBusiness } from '../../../models/deserializeIntoBookingBusiness';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeBookingBusiness } from '../../../models/serializeBookingBusiness';
+import { AppointmentsRequestBuilder } from './appointments/appointmentsRequestBuilder';
+import { type BookingBusinessItemRequestBuilderDeleteRequestConfiguration } from './bookingBusinessItemRequestBuilderDeleteRequestConfiguration';
+import { type BookingBusinessItemRequestBuilderGetRequestConfiguration } from './bookingBusinessItemRequestBuilderGetRequestConfiguration';
+import { type BookingBusinessItemRequestBuilderPatchRequestConfiguration } from './bookingBusinessItemRequestBuilderPatchRequestConfiguration';
+import { CalendarViewRequestBuilder } from './calendarView/calendarViewRequestBuilder';
+import { CustomersRequestBuilder } from './customers/customersRequestBuilder';
+import { CustomQuestionsRequestBuilder } from './customQuestions/customQuestionsRequestBuilder';
+import { GetStaffAvailabilityRequestBuilder } from './getStaffAvailability/getStaffAvailabilityRequestBuilder';
+import { PublishRequestBuilder } from './publish/publishRequestBuilder';
+import { ServicesRequestBuilder } from './services/servicesRequestBuilder';
+import { StaffMembersRequestBuilder } from './staffMembers/staffMembersRequestBuilder';
+import { UnpublishRequestBuilder } from './unpublish/unpublishRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.

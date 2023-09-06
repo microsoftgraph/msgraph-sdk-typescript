@@ -1,8 +1,8 @@
-import type {AttributeMapping} from './attributeMapping';
-import type {Filter} from './filter';
-import {ObjectFlowTypes} from './objectFlowTypes';
-import type {ObjectMappingMetadataEntry} from './objectMappingMetadataEntry';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AttributeMapping } from './attributeMapping';
+import { type Filter } from './filter';
+import { ObjectFlowTypes } from './objectFlowTypes';
+import { type ObjectMappingMetadataEntry } from './objectMappingMetadataEntry';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ObjectMapping extends AdditionalDataHolder, Parsable {
     /**
@@ -20,7 +20,7 @@ export interface ObjectMapping extends AdditionalDataHolder, Parsable {
     /**
      * The flowTypes property
      */
-    flowTypes?: ObjectFlowTypes | undefined;
+    flowTypes?: ObjectFlowTypes[] | undefined;
     /**
      * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
      */

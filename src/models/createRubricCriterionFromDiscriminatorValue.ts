@@ -1,6 +1,6 @@
-import {deserializeIntoRubricCriterion} from './deserializeIntoRubricCriterion';
-import {RubricCriterion} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoRubricCriterion } from './deserializeIntoRubricCriterion';
+import { type RubricCriterion } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createRubricCriterionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

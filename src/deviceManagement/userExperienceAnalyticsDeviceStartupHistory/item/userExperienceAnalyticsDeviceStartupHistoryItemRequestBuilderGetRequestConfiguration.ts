@@ -1,5 +1,5 @@
-import {UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderGetQueryParameters} from './userExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderGetQueryParameters } from './userExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderGetRequestConfiguration {
     /**

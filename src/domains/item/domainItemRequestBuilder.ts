@@ -1,23 +1,22 @@
-import {createDomainFromDiscriminatorValue} from '../../models/createDomainFromDiscriminatorValue';
-import {deserializeIntoDomain} from '../../models/deserializeIntoDomain';
-import type {Domain} from '../../models/domain';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeDomain} from '../../models/serializeDomain';
-import {DomainItemRequestBuilderDeleteRequestConfiguration} from './domainItemRequestBuilderDeleteRequestConfiguration';
-import {DomainItemRequestBuilderGetRequestConfiguration} from './domainItemRequestBuilderGetRequestConfiguration';
-import {DomainItemRequestBuilderPatchRequestConfiguration} from './domainItemRequestBuilderPatchRequestConfiguration';
-import {DomainNameReferencesRequestBuilder} from './domainNameReferences/domainNameReferencesRequestBuilder';
-import {FederationConfigurationRequestBuilder} from './federationConfiguration/federationConfigurationRequestBuilder';
-import {ForceDeleteRequestBuilder} from './forceDelete/forceDeleteRequestBuilder';
-import {PromoteRequestBuilder} from './promote/promoteRequestBuilder';
-import {ServiceConfigurationRecordsRequestBuilder} from './serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
-import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/verificationDnsRecordsRequestBuilder';
-import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDomainFromDiscriminatorValue } from '../../models/createDomainFromDiscriminatorValue';
+import { deserializeIntoDomain } from '../../models/deserializeIntoDomain';
+import { type Domain } from '../../models/domain';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeDomain } from '../../models/serializeDomain';
+import { type DomainItemRequestBuilderDeleteRequestConfiguration } from './domainItemRequestBuilderDeleteRequestConfiguration';
+import { type DomainItemRequestBuilderGetRequestConfiguration } from './domainItemRequestBuilderGetRequestConfiguration';
+import { type DomainItemRequestBuilderPatchRequestConfiguration } from './domainItemRequestBuilderPatchRequestConfiguration';
+import { DomainNameReferencesRequestBuilder } from './domainNameReferences/domainNameReferencesRequestBuilder';
+import { FederationConfigurationRequestBuilder } from './federationConfiguration/federationConfigurationRequestBuilder';
+import { ForceDeleteRequestBuilder } from './forceDelete/forceDeleteRequestBuilder';
+import { PromoteRequestBuilder } from './promote/promoteRequestBuilder';
+import { ServiceConfigurationRecordsRequestBuilder } from './serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
+import { VerificationDnsRecordsRequestBuilder } from './verificationDnsRecords/verificationDnsRecordsRequestBuilder';
+import { VerifyRequestBuilder } from './verify/verifyRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of domain entities.

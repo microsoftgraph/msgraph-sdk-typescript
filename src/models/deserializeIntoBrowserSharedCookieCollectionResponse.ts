@@ -1,9 +1,9 @@
-import type {BrowserSharedCookie} from './browserSharedCookie';
-import type {BrowserSharedCookieCollectionResponse} from './browserSharedCookieCollectionResponse';
-import {createBrowserSharedCookieFromDiscriminatorValue} from './createBrowserSharedCookieFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeBrowserSharedCookie} from './serializeBrowserSharedCookie';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BrowserSharedCookie } from './browserSharedCookie';
+import { type BrowserSharedCookieCollectionResponse } from './browserSharedCookieCollectionResponse';
+import { createBrowserSharedCookieFromDiscriminatorValue } from './createBrowserSharedCookieFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeBrowserSharedCookie } from './serializeBrowserSharedCookie';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBrowserSharedCookieCollectionResponse(browserSharedCookieCollectionResponse: BrowserSharedCookieCollectionResponse | undefined = {} as BrowserSharedCookieCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

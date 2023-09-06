@@ -1,16 +1,15 @@
-import {createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue} from '../../../models/createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue';
-import {deserializeIntoWindowsInformationProtectionNetworkLearningSummary} from '../../../models/deserializeIntoWindowsInformationProtectionNetworkLearningSummary';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeWindowsInformationProtectionNetworkLearningSummary} from '../../../models/serializeWindowsInformationProtectionNetworkLearningSummary';
-import type {WindowsInformationProtectionNetworkLearningSummary} from '../../../models/windowsInformationProtectionNetworkLearningSummary';
-import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderDeleteRequestConfiguration';
-import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration';
-import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue } from '../../../models/createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue';
+import { deserializeIntoWindowsInformationProtectionNetworkLearningSummary } from '../../../models/deserializeIntoWindowsInformationProtectionNetworkLearningSummary';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeWindowsInformationProtectionNetworkLearningSummary } from '../../../models/serializeWindowsInformationProtectionNetworkLearningSummary';
+import { type WindowsInformationProtectionNetworkLearningSummary } from '../../../models/windowsInformationProtectionNetworkLearningSummary';
+import { type WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderDeleteRequestConfiguration } from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderDeleteRequestConfiguration';
+import { type WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration } from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration';
+import { type WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderPatchRequestConfiguration } from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.

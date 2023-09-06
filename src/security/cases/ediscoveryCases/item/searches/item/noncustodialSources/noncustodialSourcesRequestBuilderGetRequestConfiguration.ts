@@ -1,5 +1,5 @@
-import {NoncustodialSourcesRequestBuilderGetQueryParameters} from './noncustodialSourcesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type NoncustodialSourcesRequestBuilderGetQueryParameters } from './noncustodialSourcesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface NoncustodialSourcesRequestBuilderGetRequestConfiguration {
     /**

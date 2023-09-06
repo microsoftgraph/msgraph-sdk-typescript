@@ -1,9 +1,9 @@
-import {createTodoTaskFromDiscriminatorValue} from './createTodoTaskFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeTodoTask} from './serializeTodoTask';
-import type {TodoTask} from './todoTask';
-import type {TodoTaskCollectionResponse} from './todoTaskCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTodoTaskFromDiscriminatorValue } from './createTodoTaskFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeTodoTask } from './serializeTodoTask';
+import { type TodoTask } from './todoTask';
+import { type TodoTaskCollectionResponse } from './todoTaskCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTodoTaskCollectionResponse(todoTaskCollectionResponse: TodoTaskCollectionResponse | undefined = {} as TodoTaskCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

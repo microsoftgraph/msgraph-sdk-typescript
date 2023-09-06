@@ -1,5 +1,5 @@
-import type {MacOSMinimumOperatingSystem} from './macOSMinimumOperatingSystem';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MacOSMinimumOperatingSystem } from './macOSMinimumOperatingSystem';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMacOSMinimumOperatingSystem(writer: SerializationWriter, macOSMinimumOperatingSystem: MacOSMinimumOperatingSystem | undefined = {} as MacOSMinimumOperatingSystem) : void {
         writer.writeStringValue("@odata.type", macOSMinimumOperatingSystem.odataType);

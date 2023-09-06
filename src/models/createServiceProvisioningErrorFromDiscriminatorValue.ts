@@ -1,7 +1,7 @@
-import {deserializeIntoServiceProvisioningError} from './deserializeIntoServiceProvisioningError';
-import {deserializeIntoServiceProvisioningXmlError} from './deserializeIntoServiceProvisioningXmlError';
-import {ServiceProvisioningError, ServiceProvisioningXmlError} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoServiceProvisioningError } from './deserializeIntoServiceProvisioningError';
+import { deserializeIntoServiceProvisioningXmlError } from './deserializeIntoServiceProvisioningXmlError';
+import { type ServiceProvisioningError, type ServiceProvisioningXmlError } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createServiceProvisioningErrorFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

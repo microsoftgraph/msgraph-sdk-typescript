@@ -1,7 +1,7 @@
-import type {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
-import {Enablement} from './enablement';
-import {WindowsHelloForBusinessPinUsage} from './windowsHelloForBusinessPinUsage';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DeviceEnrollmentConfiguration } from './deviceEnrollmentConfiguration';
+import { Enablement } from './enablement';
+import { WindowsHelloForBusinessPinUsage } from './windowsHelloForBusinessPinUsage';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollmentConfiguration, Parsable {
     /**

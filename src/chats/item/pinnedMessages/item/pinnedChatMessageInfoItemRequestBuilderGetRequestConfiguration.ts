@@ -1,5 +1,5 @@
-import {PinnedChatMessageInfoItemRequestBuilderGetQueryParameters} from './pinnedChatMessageInfoItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PinnedChatMessageInfoItemRequestBuilderGetQueryParameters } from './pinnedChatMessageInfoItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PinnedChatMessageInfoItemRequestBuilderGetRequestConfiguration {
     /**

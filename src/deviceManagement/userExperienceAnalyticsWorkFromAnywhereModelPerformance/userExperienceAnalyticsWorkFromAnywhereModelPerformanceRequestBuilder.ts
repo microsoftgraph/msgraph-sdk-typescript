@@ -1,19 +1,18 @@
-import {UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse} from '../../models/';
-import {createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponseFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponseFromDiscriminatorValue';
-import {createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsWorkFromAnywhereModelPerformance} from '../../models/deserializeIntoUserExperienceAnalyticsWorkFromAnywhereModelPerformance';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance} from '../../models/serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance';
-import type {UserExperienceAnalyticsWorkFromAnywhereModelPerformance} from '../../models/userExperienceAnalyticsWorkFromAnywhereModelPerformance';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder} from './item/userExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder';
-import {UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse } from '../../models/';
+import { createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponseFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponseFromDiscriminatorValue';
+import { createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsWorkFromAnywhereModelPerformance } from '../../models/deserializeIntoUserExperienceAnalyticsWorkFromAnywhereModelPerformance';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance } from '../../models/serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance';
+import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformance } from '../../models/userExperienceAnalyticsWorkFromAnywhereModelPerformance';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder } from './item/userExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder';
+import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderPostRequestConfiguration } from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereModelPerformance property of the microsoft.graph.deviceManagement entity.

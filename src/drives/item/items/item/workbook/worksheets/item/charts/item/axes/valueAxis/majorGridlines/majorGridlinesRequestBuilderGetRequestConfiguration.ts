@@ -1,5 +1,5 @@
-import {MajorGridlinesRequestBuilderGetQueryParameters} from './majorGridlinesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type MajorGridlinesRequestBuilderGetQueryParameters } from './majorGridlinesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MajorGridlinesRequestBuilderGetRequestConfiguration {
     /**

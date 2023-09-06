@@ -1,8 +1,8 @@
-import type {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
-import type {CertificateBasedAuthConfigurationCollectionResponse} from './certificateBasedAuthConfigurationCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeCertificateBasedAuthConfiguration} from './serializeCertificateBasedAuthConfiguration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CertificateBasedAuthConfiguration } from './certificateBasedAuthConfiguration';
+import { type CertificateBasedAuthConfigurationCollectionResponse } from './certificateBasedAuthConfigurationCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeCertificateBasedAuthConfiguration } from './serializeCertificateBasedAuthConfiguration';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCertificateBasedAuthConfigurationCollectionResponse(writer: SerializationWriter, certificateBasedAuthConfigurationCollectionResponse: CertificateBasedAuthConfigurationCollectionResponse | undefined = {} as CertificateBasedAuthConfigurationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, certificateBasedAuthConfigurationCollectionResponse)

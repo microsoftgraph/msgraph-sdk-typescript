@@ -1,17 +1,16 @@
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {createIncidentFromDiscriminatorValue} from '../../../models/security/createIncidentFromDiscriminatorValue';
-import {deserializeIntoIncident} from '../../../models/security/deserializeIntoIncident';
-import type {Incident} from '../../../models/security/incident';
-import {serializeIncident} from '../../../models/security/serializeIncident';
-import {AlertsRequestBuilder} from './alerts/alertsRequestBuilder';
-import {IncidentItemRequestBuilderDeleteRequestConfiguration} from './incidentItemRequestBuilderDeleteRequestConfiguration';
-import {IncidentItemRequestBuilderGetRequestConfiguration} from './incidentItemRequestBuilderGetRequestConfiguration';
-import {IncidentItemRequestBuilderPatchRequestConfiguration} from './incidentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createIncidentFromDiscriminatorValue } from '../../../models/security/createIncidentFromDiscriminatorValue';
+import { deserializeIntoIncident } from '../../../models/security/deserializeIntoIncident';
+import { type Incident } from '../../../models/security/incident';
+import { serializeIncident } from '../../../models/security/serializeIncident';
+import { AlertsRequestBuilder } from './alerts/alertsRequestBuilder';
+import { type IncidentItemRequestBuilderDeleteRequestConfiguration } from './incidentItemRequestBuilderDeleteRequestConfiguration';
+import { type IncidentItemRequestBuilderGetRequestConfiguration } from './incidentItemRequestBuilderGetRequestConfiguration';
+import { type IncidentItemRequestBuilderPatchRequestConfiguration } from './incidentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incidents property of the microsoft.graph.security entity.

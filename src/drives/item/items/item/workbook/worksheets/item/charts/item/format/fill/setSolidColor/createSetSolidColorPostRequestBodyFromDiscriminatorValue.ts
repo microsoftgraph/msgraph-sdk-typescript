@@ -1,6 +1,6 @@
-import {deserializeIntoSetSolidColorPostRequestBody} from './deserializeIntoSetSolidColorPostRequestBody';
-import {SetSolidColorPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoSetSolidColorPostRequestBody } from './deserializeIntoSetSolidColorPostRequestBody';
+import { type SetSolidColorPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createSetSolidColorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

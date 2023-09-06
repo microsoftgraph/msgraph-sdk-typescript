@@ -1,19 +1,18 @@
-import {ColumnLinkCollectionResponse} from '../../../../../../models/';
-import type {ColumnLink} from '../../../../../../models/columnLink';
-import {createColumnLinkCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createColumnLinkCollectionResponseFromDiscriminatorValue';
-import {createColumnLinkFromDiscriminatorValue} from '../../../../../../models/createColumnLinkFromDiscriminatorValue';
-import {deserializeIntoColumnLink} from '../../../../../../models/deserializeIntoColumnLink';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeColumnLink} from '../../../../../../models/serializeColumnLink';
-import {ColumnLinksRequestBuilderGetRequestConfiguration} from './columnLinksRequestBuilderGetRequestConfiguration';
-import {ColumnLinksRequestBuilderPostRequestConfiguration} from './columnLinksRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ColumnLinkItemRequestBuilder} from './item/columnLinkItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ColumnLinkCollectionResponse } from '../../../../../../models/';
+import { type ColumnLink } from '../../../../../../models/columnLink';
+import { createColumnLinkCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createColumnLinkCollectionResponseFromDiscriminatorValue';
+import { createColumnLinkFromDiscriminatorValue } from '../../../../../../models/createColumnLinkFromDiscriminatorValue';
+import { deserializeIntoColumnLink } from '../../../../../../models/deserializeIntoColumnLink';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeColumnLink } from '../../../../../../models/serializeColumnLink';
+import { type ColumnLinksRequestBuilderGetRequestConfiguration } from './columnLinksRequestBuilderGetRequestConfiguration';
+import { type ColumnLinksRequestBuilderPostRequestConfiguration } from './columnLinksRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ColumnLinkItemRequestBuilder } from './item/columnLinkItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.

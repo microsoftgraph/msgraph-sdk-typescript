@@ -1,9 +1,9 @@
-import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
-import type {EmailAuthenticationMethodConfiguration} from './emailAuthenticationMethodConfiguration';
-import {ExternalEmailOtpState} from './externalEmailOtpState';
-import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticationMethodConfiguration';
-import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodTarget } from './authenticationMethodTarget';
+import { type EmailAuthenticationMethodConfiguration } from './emailAuthenticationMethodConfiguration';
+import { ExternalEmailOtpState } from './externalEmailOtpState';
+import { serializeAuthenticationMethodConfiguration } from './serializeAuthenticationMethodConfiguration';
+import { serializeAuthenticationMethodTarget } from './serializeAuthenticationMethodTarget';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEmailAuthenticationMethodConfiguration(writer: SerializationWriter, emailAuthenticationMethodConfiguration: EmailAuthenticationMethodConfiguration | undefined = {} as EmailAuthenticationMethodConfiguration) : void {
         serializeAuthenticationMethodConfiguration(writer, emailAuthenticationMethodConfiguration)

@@ -1,7 +1,7 @@
-import {deserializeIntoDeviceAndAppManagementRoleAssignment} from './deserializeIntoDeviceAndAppManagementRoleAssignment';
-import {deserializeIntoRoleAssignment} from './deserializeIntoRoleAssignment';
-import {DeviceAndAppManagementRoleAssignment, RoleAssignment} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceAndAppManagementRoleAssignment } from './deserializeIntoDeviceAndAppManagementRoleAssignment';
+import { deserializeIntoRoleAssignment } from './deserializeIntoRoleAssignment';
+import { type DeviceAndAppManagementRoleAssignment, type RoleAssignment } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createRoleAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

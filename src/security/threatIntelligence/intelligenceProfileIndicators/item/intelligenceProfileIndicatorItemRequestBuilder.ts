@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {createIntelligenceProfileIndicatorFromDiscriminatorValue} from '../../../../models/security/createIntelligenceProfileIndicatorFromDiscriminatorValue';
-import {deserializeIntoIntelligenceProfileIndicator} from '../../../../models/security/deserializeIntoIntelligenceProfileIndicator';
-import type {IntelligenceProfileIndicator} from '../../../../models/security/intelligenceProfileIndicator';
-import {serializeIntelligenceProfileIndicator} from '../../../../models/security/serializeIntelligenceProfileIndicator';
-import {ArtifactRequestBuilder} from './artifact/artifactRequestBuilder';
-import {IntelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration';
-import {IntelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration';
-import {IntelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createIntelligenceProfileIndicatorFromDiscriminatorValue } from '../../../../models/security/createIntelligenceProfileIndicatorFromDiscriminatorValue';
+import { deserializeIntoIntelligenceProfileIndicator } from '../../../../models/security/deserializeIntoIntelligenceProfileIndicator';
+import { type IntelligenceProfileIndicator } from '../../../../models/security/intelligenceProfileIndicator';
+import { serializeIntelligenceProfileIndicator } from '../../../../models/security/serializeIntelligenceProfileIndicator';
+import { ArtifactRequestBuilder } from './artifact/artifactRequestBuilder';
+import { type IntelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration } from './intelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration';
+import { type IntelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration } from './intelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration';
+import { type IntelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration } from './intelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.

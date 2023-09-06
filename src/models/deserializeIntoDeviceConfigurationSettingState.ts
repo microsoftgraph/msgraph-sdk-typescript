@@ -1,9 +1,9 @@
-import {ComplianceStatus} from './complianceStatus';
-import {createSettingSourceFromDiscriminatorValue} from './createSettingSourceFromDiscriminatorValue';
-import type {DeviceConfigurationSettingState} from './deviceConfigurationSettingState';
-import {serializeSettingSource} from './serializeSettingSource';
-import type {SettingSource} from './settingSource';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ComplianceStatus } from './complianceStatus';
+import { createSettingSourceFromDiscriminatorValue } from './createSettingSourceFromDiscriminatorValue';
+import { type DeviceConfigurationSettingState } from './deviceConfigurationSettingState';
+import { serializeSettingSource } from './serializeSettingSource';
+import { type SettingSource } from './settingSource';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceConfigurationSettingState(deviceConfigurationSettingState: DeviceConfigurationSettingState | undefined = {} as DeviceConfigurationSettingState) : Record<string, (node: ParseNode) => void> {
     return {

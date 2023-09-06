@@ -1,19 +1,18 @@
-import {PrintUsageByPrinterCollectionResponse} from '../../models/';
-import {createPrintUsageByPrinterCollectionResponseFromDiscriminatorValue} from '../../models/createPrintUsageByPrinterCollectionResponseFromDiscriminatorValue';
-import {createPrintUsageByPrinterFromDiscriminatorValue} from '../../models/createPrintUsageByPrinterFromDiscriminatorValue';
-import {deserializeIntoPrintUsageByPrinter} from '../../models/deserializeIntoPrintUsageByPrinter';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {PrintUsageByPrinter} from '../../models/printUsageByPrinter';
-import {serializePrintUsageByPrinter} from '../../models/serializePrintUsageByPrinter';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration} from './dailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration';
-import {DailyPrintUsageByPrinterRequestBuilderPostRequestConfiguration} from './dailyPrintUsageByPrinterRequestBuilderPostRequestConfiguration';
-import {PrintUsageByPrinterItemRequestBuilder} from './item/printUsageByPrinterItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PrintUsageByPrinterCollectionResponse } from '../../models/';
+import { createPrintUsageByPrinterCollectionResponseFromDiscriminatorValue } from '../../models/createPrintUsageByPrinterCollectionResponseFromDiscriminatorValue';
+import { createPrintUsageByPrinterFromDiscriminatorValue } from '../../models/createPrintUsageByPrinterFromDiscriminatorValue';
+import { deserializeIntoPrintUsageByPrinter } from '../../models/deserializeIntoPrintUsageByPrinter';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type PrintUsageByPrinter } from '../../models/printUsageByPrinter';
+import { serializePrintUsageByPrinter } from '../../models/serializePrintUsageByPrinter';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration } from './dailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration';
+import { type DailyPrintUsageByPrinterRequestBuilderPostRequestConfiguration } from './dailyPrintUsageByPrinterRequestBuilderPostRequestConfiguration';
+import { PrintUsageByPrinterItemRequestBuilder } from './item/printUsageByPrinterItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.

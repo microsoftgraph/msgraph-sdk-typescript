@@ -1,21 +1,20 @@
-import {createPrinterFromDiscriminatorValue} from '../../../models/createPrinterFromDiscriminatorValue';
-import {deserializeIntoPrinter} from '../../../models/deserializeIntoPrinter';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {Printer} from '../../../models/printer';
-import {serializePrinter} from '../../../models/serializePrinter';
-import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
-import {JobsRequestBuilder} from './jobs/jobsRequestBuilder';
-import {PrinterItemRequestBuilderDeleteRequestConfiguration} from './printerItemRequestBuilderDeleteRequestConfiguration';
-import {PrinterItemRequestBuilderGetRequestConfiguration} from './printerItemRequestBuilderGetRequestConfiguration';
-import {PrinterItemRequestBuilderPatchRequestConfiguration} from './printerItemRequestBuilderPatchRequestConfiguration';
-import {RestoreFactoryDefaultsRequestBuilder} from './restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
-import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
-import {TaskTriggersRequestBuilder} from './taskTriggers/taskTriggersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPrinterFromDiscriminatorValue } from '../../../models/createPrinterFromDiscriminatorValue';
+import { deserializeIntoPrinter } from '../../../models/deserializeIntoPrinter';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type Printer } from '../../../models/printer';
+import { serializePrinter } from '../../../models/serializePrinter';
+import { ConnectorsRequestBuilder } from './connectors/connectorsRequestBuilder';
+import { JobsRequestBuilder } from './jobs/jobsRequestBuilder';
+import { type PrinterItemRequestBuilderDeleteRequestConfiguration } from './printerItemRequestBuilderDeleteRequestConfiguration';
+import { type PrinterItemRequestBuilderGetRequestConfiguration } from './printerItemRequestBuilderGetRequestConfiguration';
+import { type PrinterItemRequestBuilderPatchRequestConfiguration } from './printerItemRequestBuilderPatchRequestConfiguration';
+import { RestoreFactoryDefaultsRequestBuilder } from './restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
+import { SharesRequestBuilder } from './shares/sharesRequestBuilder';
+import { TaskTriggersRequestBuilder } from './taskTriggers/taskTriggersRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the printers property of the microsoft.graph.print entity.

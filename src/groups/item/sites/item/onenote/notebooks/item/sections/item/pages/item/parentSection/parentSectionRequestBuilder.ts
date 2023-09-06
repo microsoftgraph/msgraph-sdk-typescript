@@ -1,12 +1,11 @@
-import {OnenoteSection} from '../../../../../../../../../../../../models/';
-import {createOnenoteSectionFromDiscriminatorValue} from '../../../../../../../../../../../../models/createOnenoteSectionFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {ParentSectionRequestBuilderGetRequestConfiguration} from './parentSectionRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OnenoteSection } from '../../../../../../../../../../../../models/';
+import { createOnenoteSectionFromDiscriminatorValue } from '../../../../../../../../../../../../models/createOnenoteSectionFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { type ParentSectionRequestBuilderGetRequestConfiguration } from './parentSectionRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the parentSection property of the microsoft.graph.onenotePage entity.

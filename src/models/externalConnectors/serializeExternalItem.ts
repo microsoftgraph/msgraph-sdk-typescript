@@ -1,14 +1,14 @@
-import {serializeEntity} from '../serializeEntity';
-import type {Acl} from './acl';
-import type {ExternalActivity} from './externalActivity';
-import type {ExternalItem} from './externalItem';
-import type {ExternalItemContent} from './externalItemContent';
-import type {Properties} from './properties';
-import {serializeAcl} from './serializeAcl';
-import {serializeExternalActivity} from './serializeExternalActivity';
-import {serializeExternalItemContent} from './serializeExternalItemContent';
-import {serializeProperties} from './serializeProperties';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from '../serializeEntity';
+import { type Acl } from './acl';
+import { type ExternalActivity } from './externalActivity';
+import { type ExternalItem } from './externalItem';
+import { type ExternalItemContent } from './externalItemContent';
+import { type Properties } from './properties';
+import { serializeAcl } from './serializeAcl';
+import { serializeExternalActivity } from './serializeExternalActivity';
+import { serializeExternalItemContent } from './serializeExternalItemContent';
+import { serializeProperties } from './serializeProperties';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeExternalItem(writer: SerializationWriter, externalItem: ExternalItem | undefined = {} as ExternalItem) : void {
         serializeEntity(writer, externalItem)

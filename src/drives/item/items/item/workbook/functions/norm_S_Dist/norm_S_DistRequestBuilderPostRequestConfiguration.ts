@@ -1,4 +1,4 @@
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface Norm_S_DistRequestBuilderPostRequestConfiguration {
     /**

@@ -1,9 +1,9 @@
-import type {CalendarPermission} from './calendarPermission';
-import {CalendarRoleType} from './calendarRoleType';
-import type {EmailAddress} from './emailAddress';
-import {serializeEmailAddress} from './serializeEmailAddress';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CalendarPermission } from './calendarPermission';
+import { CalendarRoleType } from './calendarRoleType';
+import { type EmailAddress } from './emailAddress';
+import { serializeEmailAddress } from './serializeEmailAddress';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCalendarPermission(writer: SerializationWriter, calendarPermission: CalendarPermission | undefined = {} as CalendarPermission) : void {
         serializeEntity(writer, calendarPermission)

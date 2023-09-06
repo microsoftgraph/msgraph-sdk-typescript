@@ -1,6 +1,6 @@
-import {ObjectDefinitionMetadata} from './objectDefinitionMetadata';
-import type {ObjectDefinitionMetadataEntry} from './objectDefinitionMetadataEntry';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ObjectDefinitionMetadata } from './objectDefinitionMetadata';
+import { type ObjectDefinitionMetadataEntry } from './objectDefinitionMetadataEntry';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoObjectDefinitionMetadataEntry(objectDefinitionMetadataEntry: ObjectDefinitionMetadataEntry | undefined = {} as ObjectDefinitionMetadataEntry) : Record<string, (node: ParseNode) => void> {
     return {

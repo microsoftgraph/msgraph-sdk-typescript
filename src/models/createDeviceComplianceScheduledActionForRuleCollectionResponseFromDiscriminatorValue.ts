@@ -1,6 +1,6 @@
-import {deserializeIntoDeviceComplianceScheduledActionForRuleCollectionResponse} from './deserializeIntoDeviceComplianceScheduledActionForRuleCollectionResponse';
-import {DeviceComplianceScheduledActionForRuleCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceComplianceScheduledActionForRuleCollectionResponse } from './deserializeIntoDeviceComplianceScheduledActionForRuleCollectionResponse';
+import { type DeviceComplianceScheduledActionForRuleCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

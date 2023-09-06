@@ -1,16 +1,15 @@
-import {createDeviceConfigurationAssignmentFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationAssignmentFromDiscriminatorValue';
-import {deserializeIntoDeviceConfigurationAssignment} from '../../../../../models/deserializeIntoDeviceConfigurationAssignment';
-import type {DeviceConfigurationAssignment} from '../../../../../models/deviceConfigurationAssignment';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceConfigurationAssignment} from '../../../../../models/serializeDeviceConfigurationAssignment';
-import {DeviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
-import {DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceConfigurationAssignmentFromDiscriminatorValue } from '../../../../../models/createDeviceConfigurationAssignmentFromDiscriminatorValue';
+import { deserializeIntoDeviceConfigurationAssignment } from '../../../../../models/deserializeIntoDeviceConfigurationAssignment';
+import { type DeviceConfigurationAssignment } from '../../../../../models/deviceConfigurationAssignment';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceConfigurationAssignment } from '../../../../../models/serializeDeviceConfigurationAssignment';
+import { type DeviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration } from './deviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration } from './deviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration } from './deviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.

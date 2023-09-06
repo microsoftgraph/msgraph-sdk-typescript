@@ -1,7 +1,7 @@
-import {deserializeIntoRiskyUser} from './deserializeIntoRiskyUser';
-import {deserializeIntoRiskyUserHistoryItem} from './deserializeIntoRiskyUserHistoryItem';
-import {RiskyUser, RiskyUserHistoryItem} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoRiskyUser } from './deserializeIntoRiskyUser';
+import { deserializeIntoRiskyUserHistoryItem } from './deserializeIntoRiskyUserHistoryItem';
+import { type RiskyUser, type RiskyUserHistoryItem } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createRiskyUserFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

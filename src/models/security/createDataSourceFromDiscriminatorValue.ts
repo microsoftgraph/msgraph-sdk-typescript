@@ -1,9 +1,9 @@
-import {deserializeIntoDataSource} from './deserializeIntoDataSource';
-import {deserializeIntoSiteSource} from './deserializeIntoSiteSource';
-import {deserializeIntoUnifiedGroupSource} from './deserializeIntoUnifiedGroupSource';
-import {deserializeIntoUserSource} from './deserializeIntoUserSource';
-import {DataSource, SiteSource, UnifiedGroupSource, UserSource} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDataSource } from './deserializeIntoDataSource';
+import { deserializeIntoSiteSource } from './deserializeIntoSiteSource';
+import { deserializeIntoUnifiedGroupSource } from './deserializeIntoUnifiedGroupSource';
+import { deserializeIntoUserSource } from './deserializeIntoUserSource';
+import { type DataSource, type SiteSource, type UnifiedGroupSource, type UserSource } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDataSourceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

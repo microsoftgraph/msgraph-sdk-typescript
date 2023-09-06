@@ -1,20 +1,19 @@
-import {OAuth2PermissionGrantCollectionResponse} from '../models/';
-import {createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue} from '../models/createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue';
-import {createOAuth2PermissionGrantFromDiscriminatorValue} from '../models/createOAuth2PermissionGrantFromDiscriminatorValue';
-import {deserializeIntoOAuth2PermissionGrant} from '../models/deserializeIntoOAuth2PermissionGrant';
-import type {OAuth2PermissionGrant} from '../models/oAuth2PermissionGrant';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeOAuth2PermissionGrant} from '../models/serializeOAuth2PermissionGrant';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {OAuth2PermissionGrantItemRequestBuilder} from './item/oAuth2PermissionGrantItemRequestBuilder';
-import {Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration} from './oauth2PermissionGrantsRequestBuilderGetRequestConfiguration';
-import {Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration} from './oauth2PermissionGrantsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OAuth2PermissionGrantCollectionResponse } from '../models/';
+import { createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue } from '../models/createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue';
+import { createOAuth2PermissionGrantFromDiscriminatorValue } from '../models/createOAuth2PermissionGrantFromDiscriminatorValue';
+import { deserializeIntoOAuth2PermissionGrant } from '../models/deserializeIntoOAuth2PermissionGrant';
+import { type OAuth2PermissionGrant } from '../models/oAuth2PermissionGrant';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeOAuth2PermissionGrant } from '../models/serializeOAuth2PermissionGrant';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { OAuth2PermissionGrantItemRequestBuilder } from './item/oAuth2PermissionGrantItemRequestBuilder';
+import { type Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration } from './oauth2PermissionGrantsRequestBuilderGetRequestConfiguration';
+import { type Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration } from './oauth2PermissionGrantsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of oAuth2PermissionGrant entities.

@@ -1,7 +1,7 @@
-import type {AppConsentRequestScope} from './appConsentRequestScope';
-import type {Entity} from './entity';
-import type {UserConsentRequest} from './userConsentRequest';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AppConsentRequestScope } from './appConsentRequestScope';
+import { type Entity } from './entity';
+import { type UserConsentRequest } from './userConsentRequest';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AppConsentRequest extends Entity, Parsable {
     /**

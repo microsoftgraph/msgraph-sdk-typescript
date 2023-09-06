@@ -1,26 +1,25 @@
-import {createScheduleFromDiscriminatorValue} from '../../../../models/createScheduleFromDiscriminatorValue';
-import {deserializeIntoSchedule} from '../../../../models/deserializeIntoSchedule';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {Schedule} from '../../../../models/schedule';
-import {serializeSchedule} from '../../../../models/serializeSchedule';
-import {OfferShiftRequestsRequestBuilder} from './offerShiftRequests/offerShiftRequestsRequestBuilder';
-import {OpenShiftChangeRequestsRequestBuilder} from './openShiftChangeRequests/openShiftChangeRequestsRequestBuilder';
-import {OpenShiftsRequestBuilder} from './openShifts/openShiftsRequestBuilder';
-import {ScheduleRequestBuilderDeleteRequestConfiguration} from './scheduleRequestBuilderDeleteRequestConfiguration';
-import {ScheduleRequestBuilderGetRequestConfiguration} from './scheduleRequestBuilderGetRequestConfiguration';
-import {ScheduleRequestBuilderPutRequestConfiguration} from './scheduleRequestBuilderPutRequestConfiguration';
-import {SchedulingGroupsRequestBuilder} from './schedulingGroups/schedulingGroupsRequestBuilder';
-import {ShareRequestBuilder} from './share/shareRequestBuilder';
-import {ShiftsRequestBuilder} from './shifts/shiftsRequestBuilder';
-import {SwapShiftsChangeRequestsRequestBuilder} from './swapShiftsChangeRequests/swapShiftsChangeRequestsRequestBuilder';
-import {TimeOffReasonsRequestBuilder} from './timeOffReasons/timeOffReasonsRequestBuilder';
-import {TimeOffRequestsRequestBuilder} from './timeOffRequests/timeOffRequestsRequestBuilder';
-import {TimesOffRequestBuilder} from './timesOff/timesOffRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createScheduleFromDiscriminatorValue } from '../../../../models/createScheduleFromDiscriminatorValue';
+import { deserializeIntoSchedule } from '../../../../models/deserializeIntoSchedule';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type Schedule } from '../../../../models/schedule';
+import { serializeSchedule } from '../../../../models/serializeSchedule';
+import { OfferShiftRequestsRequestBuilder } from './offerShiftRequests/offerShiftRequestsRequestBuilder';
+import { OpenShiftChangeRequestsRequestBuilder } from './openShiftChangeRequests/openShiftChangeRequestsRequestBuilder';
+import { OpenShiftsRequestBuilder } from './openShifts/openShiftsRequestBuilder';
+import { type ScheduleRequestBuilderDeleteRequestConfiguration } from './scheduleRequestBuilderDeleteRequestConfiguration';
+import { type ScheduleRequestBuilderGetRequestConfiguration } from './scheduleRequestBuilderGetRequestConfiguration';
+import { type ScheduleRequestBuilderPutRequestConfiguration } from './scheduleRequestBuilderPutRequestConfiguration';
+import { SchedulingGroupsRequestBuilder } from './schedulingGroups/schedulingGroupsRequestBuilder';
+import { ShareRequestBuilder } from './share/shareRequestBuilder';
+import { ShiftsRequestBuilder } from './shifts/shiftsRequestBuilder';
+import { SwapShiftsChangeRequestsRequestBuilder } from './swapShiftsChangeRequests/swapShiftsChangeRequestsRequestBuilder';
+import { TimeOffReasonsRequestBuilder } from './timeOffReasons/timeOffReasonsRequestBuilder';
+import { TimeOffRequestsRequestBuilder } from './timeOffRequests/timeOffRequestsRequestBuilder';
+import { TimesOffRequestBuilder } from './timesOff/timesOffRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schedule property of the microsoft.graph.team entity.

@@ -1,6 +1,6 @@
-import {deserializeIntoLoggedOnUser} from './deserializeIntoLoggedOnUser';
-import {LoggedOnUser} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoLoggedOnUser } from './deserializeIntoLoggedOnUser';
+import { type LoggedOnUser } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createLoggedOnUserFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

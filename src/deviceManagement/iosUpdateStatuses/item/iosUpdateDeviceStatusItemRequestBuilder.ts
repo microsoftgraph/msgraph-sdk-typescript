@@ -1,16 +1,15 @@
-import {createIosUpdateDeviceStatusFromDiscriminatorValue} from '../../../models/createIosUpdateDeviceStatusFromDiscriminatorValue';
-import {deserializeIntoIosUpdateDeviceStatus} from '../../../models/deserializeIntoIosUpdateDeviceStatus';
-import type {IosUpdateDeviceStatus} from '../../../models/iosUpdateDeviceStatus';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeIosUpdateDeviceStatus} from '../../../models/serializeIosUpdateDeviceStatus';
-import {IosUpdateDeviceStatusItemRequestBuilderDeleteRequestConfiguration} from './iosUpdateDeviceStatusItemRequestBuilderDeleteRequestConfiguration';
-import {IosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration} from './iosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration';
-import {IosUpdateDeviceStatusItemRequestBuilderPatchRequestConfiguration} from './iosUpdateDeviceStatusItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createIosUpdateDeviceStatusFromDiscriminatorValue } from '../../../models/createIosUpdateDeviceStatusFromDiscriminatorValue';
+import { deserializeIntoIosUpdateDeviceStatus } from '../../../models/deserializeIntoIosUpdateDeviceStatus';
+import { type IosUpdateDeviceStatus } from '../../../models/iosUpdateDeviceStatus';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeIosUpdateDeviceStatus } from '../../../models/serializeIosUpdateDeviceStatus';
+import { type IosUpdateDeviceStatusItemRequestBuilderDeleteRequestConfiguration } from './iosUpdateDeviceStatusItemRequestBuilderDeleteRequestConfiguration';
+import { type IosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration } from './iosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration';
+import { type IosUpdateDeviceStatusItemRequestBuilderPatchRequestConfiguration } from './iosUpdateDeviceStatusItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.

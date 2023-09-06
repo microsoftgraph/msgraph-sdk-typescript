@@ -1,6 +1,6 @@
-import {deserializeIntoInviteResponse} from './deserializeIntoInviteResponse';
-import {InviteResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoInviteResponse } from './deserializeIntoInviteResponse';
+import { type InviteResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createInviteResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

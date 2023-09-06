@@ -1,14 +1,14 @@
-import type {ManagedAppPolicy} from './managedAppPolicy';
-import type {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
-import type {WindowsInformationProtectionApp} from './windowsInformationProtectionApp';
-import type {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
-import type {WindowsInformationProtectionDataRecoveryCertificate} from './windowsInformationProtectionDataRecoveryCertificate';
-import {WindowsInformationProtectionEnforcementLevel} from './windowsInformationProtectionEnforcementLevel';
-import type {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
-import type {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
-import type {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
-import type {Parsable} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type ManagedAppPolicy } from './managedAppPolicy';
+import { type TargetedManagedAppPolicyAssignment } from './targetedManagedAppPolicyAssignment';
+import { type WindowsInformationProtectionApp } from './windowsInformationProtectionApp';
+import { type WindowsInformationProtectionAppLockerFile } from './windowsInformationProtectionAppLockerFile';
+import { type WindowsInformationProtectionDataRecoveryCertificate } from './windowsInformationProtectionDataRecoveryCertificate';
+import { WindowsInformationProtectionEnforcementLevel } from './windowsInformationProtectionEnforcementLevel';
+import { type WindowsInformationProtectionIPRangeCollection } from './windowsInformationProtectionIPRangeCollection';
+import { type WindowsInformationProtectionProxiedDomainCollection } from './windowsInformationProtectionProxiedDomainCollection';
+import { type WindowsInformationProtectionResourceCollection } from './windowsInformationProtectionResourceCollection';
+import { type Parsable } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export interface WindowsInformationProtection extends ManagedAppPolicy, Parsable {
     /**

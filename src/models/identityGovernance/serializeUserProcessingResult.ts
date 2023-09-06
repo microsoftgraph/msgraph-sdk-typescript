@@ -1,12 +1,12 @@
-import {serializeEntity} from '../serializeEntity';
-import {serializeUser} from '../serializeUser';
-import type {User} from '../user';
-import {LifecycleWorkflowProcessingStatus} from './lifecycleWorkflowProcessingStatus';
-import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
-import type {TaskProcessingResult} from './taskProcessingResult';
-import type {UserProcessingResult} from './userProcessingResult';
-import {WorkflowExecutionType} from './workflowExecutionType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from '../serializeEntity';
+import { serializeUser } from '../serializeUser';
+import { type User } from '../user';
+import { LifecycleWorkflowProcessingStatus } from './lifecycleWorkflowProcessingStatus';
+import { serializeTaskProcessingResult } from './serializeTaskProcessingResult';
+import { type TaskProcessingResult } from './taskProcessingResult';
+import { type UserProcessingResult } from './userProcessingResult';
+import { WorkflowExecutionType } from './workflowExecutionType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserProcessingResult(writer: SerializationWriter, userProcessingResult: UserProcessingResult | undefined = {} as UserProcessingResult) : void {
         serializeEntity(writer, userProcessingResult)

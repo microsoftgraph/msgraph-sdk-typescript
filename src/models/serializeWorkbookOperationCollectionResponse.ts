@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeWorkbookOperation} from './serializeWorkbookOperation';
-import type {WorkbookOperation} from './workbookOperation';
-import type {WorkbookOperationCollectionResponse} from './workbookOperationCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeWorkbookOperation } from './serializeWorkbookOperation';
+import { type WorkbookOperation } from './workbookOperation';
+import { type WorkbookOperationCollectionResponse } from './workbookOperationCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookOperationCollectionResponse(writer: SerializationWriter, workbookOperationCollectionResponse: WorkbookOperationCollectionResponse | undefined = {} as WorkbookOperationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, workbookOperationCollectionResponse)

@@ -1,17 +1,16 @@
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {createGetMemberGroupsResponseFromDiscriminatorValue} from './createGetMemberGroupsResponseFromDiscriminatorValue';
-import {deserializeIntoGetMemberGroupsPostRequestBody} from './deserializeIntoGetMemberGroupsPostRequestBody';
-import {deserializeIntoGetMemberGroupsResponse} from './deserializeIntoGetMemberGroupsResponse';
-import type {GetMemberGroupsPostRequestBody} from './getMemberGroupsPostRequestBody';
-import {GetMemberGroupsRequestBuilderPostRequestConfiguration} from './getMemberGroupsRequestBuilderPostRequestConfiguration';
-import type {GetMemberGroupsResponse} from './getMemberGroupsResponse';
-import {serializeGetMemberGroupsPostRequestBody} from './serializeGetMemberGroupsPostRequestBody';
-import {serializeGetMemberGroupsResponse} from './serializeGetMemberGroupsResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createGetMemberGroupsResponseFromDiscriminatorValue } from './createGetMemberGroupsResponseFromDiscriminatorValue';
+import { deserializeIntoGetMemberGroupsPostRequestBody } from './deserializeIntoGetMemberGroupsPostRequestBody';
+import { deserializeIntoGetMemberGroupsResponse } from './deserializeIntoGetMemberGroupsResponse';
+import { type GetMemberGroupsPostRequestBody } from './getMemberGroupsPostRequestBody';
+import { type GetMemberGroupsRequestBuilderPostRequestConfiguration } from './getMemberGroupsRequestBuilderPostRequestConfiguration';
+import { type GetMemberGroupsResponse } from './getMemberGroupsResponse';
+import { serializeGetMemberGroupsPostRequestBody } from './serializeGetMemberGroupsPostRequestBody';
+import { serializeGetMemberGroupsResponse } from './serializeGetMemberGroupsResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getMemberGroups method.

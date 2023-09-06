@@ -1,7 +1,7 @@
-import {CertificateStatus} from './certificateStatus';
-import type {EnterpriseCodeSigningCertificate} from './enterpriseCodeSigningCertificate';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { CertificateStatus } from './certificateStatus';
+import { type EnterpriseCodeSigningCertificate } from './enterpriseCodeSigningCertificate';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEnterpriseCodeSigningCertificate(writer: SerializationWriter, enterpriseCodeSigningCertificate: EnterpriseCodeSigningCertificate | undefined = {} as EnterpriseCodeSigningCertificate) : void {
         serializeEntity(writer, enterpriseCodeSigningCertificate)

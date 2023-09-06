@@ -1,9 +1,9 @@
-import type {AppRoleAssignment} from './appRoleAssignment';
-import type {AppRoleAssignmentCollectionResponse} from './appRoleAssignmentCollectionResponse';
-import {createAppRoleAssignmentFromDiscriminatorValue} from './createAppRoleAssignmentFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeAppRoleAssignment} from './serializeAppRoleAssignment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppRoleAssignment } from './appRoleAssignment';
+import { type AppRoleAssignmentCollectionResponse } from './appRoleAssignmentCollectionResponse';
+import { createAppRoleAssignmentFromDiscriminatorValue } from './createAppRoleAssignmentFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeAppRoleAssignment } from './serializeAppRoleAssignment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppRoleAssignmentCollectionResponse(appRoleAssignmentCollectionResponse: AppRoleAssignmentCollectionResponse | undefined = {} as AppRoleAssignmentCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

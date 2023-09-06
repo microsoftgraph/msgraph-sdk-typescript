@@ -1,8 +1,8 @@
-import {deserializeIntoEdiscoveryReviewSetQuery} from './deserializeIntoEdiscoveryReviewSetQuery';
-import {deserializeIntoEdiscoverySearch} from './deserializeIntoEdiscoverySearch';
-import {deserializeIntoSearch} from './deserializeIntoSearch';
-import {EdiscoveryReviewSetQuery, EdiscoverySearch, Search} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEdiscoveryReviewSetQuery } from './deserializeIntoEdiscoveryReviewSetQuery';
+import { deserializeIntoEdiscoverySearch } from './deserializeIntoEdiscoverySearch';
+import { deserializeIntoSearch } from './deserializeIntoSearch';
+import { type EdiscoveryReviewSetQuery, type EdiscoverySearch, type Search } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createSearchFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

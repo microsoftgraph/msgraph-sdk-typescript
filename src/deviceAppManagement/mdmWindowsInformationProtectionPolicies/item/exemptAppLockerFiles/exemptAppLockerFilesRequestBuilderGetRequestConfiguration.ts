@@ -1,5 +1,5 @@
-import {ExemptAppLockerFilesRequestBuilderGetQueryParameters} from './exemptAppLockerFilesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExemptAppLockerFilesRequestBuilderGetQueryParameters } from './exemptAppLockerFilesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ExemptAppLockerFilesRequestBuilderGetRequestConfiguration {
     /**

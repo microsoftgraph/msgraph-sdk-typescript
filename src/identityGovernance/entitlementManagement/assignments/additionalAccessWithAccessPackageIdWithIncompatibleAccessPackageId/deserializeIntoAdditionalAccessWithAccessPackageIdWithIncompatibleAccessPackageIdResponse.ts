@@ -1,9 +1,9 @@
-import type {AccessPackageAssignment} from '../../../../models/accessPackageAssignment';
-import {createAccessPackageAssignmentFromDiscriminatorValue} from '../../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeAccessPackageAssignment} from '../../../../models/serializeAccessPackageAssignment';
-import type {AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse} from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignment } from '../../../../models/accessPackageAssignment';
+import { createAccessPackageAssignmentFromDiscriminatorValue } from '../../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeAccessPackageAssignment } from '../../../../models/serializeAccessPackageAssignment';
+import { type AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse } from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse(additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse: AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse | undefined = {} as AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse) : Record<string, (node: ParseNode) => void> {
     return {

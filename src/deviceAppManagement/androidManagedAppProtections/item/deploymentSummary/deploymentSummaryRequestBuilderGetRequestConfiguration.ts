@@ -1,5 +1,5 @@
-import {DeploymentSummaryRequestBuilderGetQueryParameters} from './deploymentSummaryRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeploymentSummaryRequestBuilderGetQueryParameters } from './deploymentSummaryRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeploymentSummaryRequestBuilderGetRequestConfiguration {
     /**

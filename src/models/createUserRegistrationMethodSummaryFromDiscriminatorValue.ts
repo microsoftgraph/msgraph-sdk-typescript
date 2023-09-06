@@ -1,6 +1,6 @@
-import {deserializeIntoUserRegistrationMethodSummary} from './deserializeIntoUserRegistrationMethodSummary';
-import {UserRegistrationMethodSummary} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUserRegistrationMethodSummary } from './deserializeIntoUserRegistrationMethodSummary';
+import { type UserRegistrationMethodSummary } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUserRegistrationMethodSummaryFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

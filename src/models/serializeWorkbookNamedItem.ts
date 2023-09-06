@@ -1,10 +1,10 @@
-import type {Json} from './json';
-import {serializeEntity} from './serializeEntity';
-import {serializeJson} from './serializeJson';
-import {serializeWorkbookWorksheet} from './serializeWorkbookWorksheet';
-import type {WorkbookNamedItem} from './workbookNamedItem';
-import type {WorkbookWorksheet} from './workbookWorksheet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from './json';
+import { serializeEntity } from './serializeEntity';
+import { serializeJson } from './serializeJson';
+import { serializeWorkbookWorksheet } from './serializeWorkbookWorksheet';
+import { type WorkbookNamedItem } from './workbookNamedItem';
+import { type WorkbookWorksheet } from './workbookWorksheet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookNamedItem(writer: SerializationWriter, workbookNamedItem: WorkbookNamedItem | undefined = {} as WorkbookNamedItem) : void {
         serializeEntity(writer, workbookNamedItem)

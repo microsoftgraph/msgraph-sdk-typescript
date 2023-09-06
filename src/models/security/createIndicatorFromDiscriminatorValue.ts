@@ -1,8 +1,8 @@
-import {deserializeIntoArticleIndicator} from './deserializeIntoArticleIndicator';
-import {deserializeIntoIndicator} from './deserializeIntoIndicator';
-import {deserializeIntoIntelligenceProfileIndicator} from './deserializeIntoIntelligenceProfileIndicator';
-import {ArticleIndicator, Indicator, IntelligenceProfileIndicator} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoArticleIndicator } from './deserializeIntoArticleIndicator';
+import { deserializeIntoIndicator } from './deserializeIntoIndicator';
+import { deserializeIntoIntelligenceProfileIndicator } from './deserializeIntoIntelligenceProfileIndicator';
+import { type ArticleIndicator, type Indicator, type IntelligenceProfileIndicator } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIndicatorFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

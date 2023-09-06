@@ -1,10 +1,10 @@
-import {createPublicErrorFromDiscriminatorValue} from './createPublicErrorFromDiscriminatorValue';
-import type {PublicError} from './publicError';
-import {serializePublicError} from './serializePublicError';
-import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
-import type {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
-import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPublicErrorFromDiscriminatorValue } from './createPublicErrorFromDiscriminatorValue';
+import { type PublicError } from './publicError';
+import { serializePublicError } from './serializePublicError';
+import { SubjectRightsRequestStage } from './subjectRightsRequestStage';
+import { type SubjectRightsRequestStageDetail } from './subjectRightsRequestStageDetail';
+import { SubjectRightsRequestStageStatus } from './subjectRightsRequestStageStatus';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSubjectRightsRequestStageDetail(subjectRightsRequestStageDetail: SubjectRightsRequestStageDetail | undefined = {} as SubjectRightsRequestStageDetail) : Record<string, (node: ParseNode) => void> {
     return {

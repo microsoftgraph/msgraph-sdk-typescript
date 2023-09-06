@@ -1,10 +1,10 @@
-import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DirectoryObject} from './directoryObject';
-import type {FeatureRolloutPolicy} from './featureRolloutPolicy';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {StagedFeatureName} from './stagedFeatureName';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDirectoryObjectFromDiscriminatorValue } from './createDirectoryObjectFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DirectoryObject } from './directoryObject';
+import { type FeatureRolloutPolicy } from './featureRolloutPolicy';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { StagedFeatureName } from './stagedFeatureName';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFeatureRolloutPolicy(featureRolloutPolicy: FeatureRolloutPolicy | undefined = {} as FeatureRolloutPolicy) : Record<string, (node: ParseNode) => void> {
     return {

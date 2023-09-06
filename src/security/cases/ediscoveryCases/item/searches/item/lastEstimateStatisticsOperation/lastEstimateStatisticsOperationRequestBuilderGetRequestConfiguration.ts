@@ -1,5 +1,5 @@
-import {LastEstimateStatisticsOperationRequestBuilderGetQueryParameters} from './lastEstimateStatisticsOperationRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LastEstimateStatisticsOperationRequestBuilderGetQueryParameters } from './lastEstimateStatisticsOperationRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration {
     /**

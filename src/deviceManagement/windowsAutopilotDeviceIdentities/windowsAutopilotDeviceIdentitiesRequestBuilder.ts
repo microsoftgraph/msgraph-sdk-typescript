@@ -1,19 +1,18 @@
-import {WindowsAutopilotDeviceIdentityCollectionResponse} from '../../models/';
-import {createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue} from '../../models/createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue';
-import {createWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../models/createWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
-import {deserializeIntoWindowsAutopilotDeviceIdentity} from '../../models/deserializeIntoWindowsAutopilotDeviceIdentity';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeWindowsAutopilotDeviceIdentity} from '../../models/serializeWindowsAutopilotDeviceIdentity';
-import type {WindowsAutopilotDeviceIdentity} from '../../models/windowsAutopilotDeviceIdentity';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WindowsAutopilotDeviceIdentityItemRequestBuilder} from './item/windowsAutopilotDeviceIdentityItemRequestBuilder';
-import {WindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration} from './windowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
-import {WindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration} from './windowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WindowsAutopilotDeviceIdentityCollectionResponse } from '../../models/';
+import { createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue } from '../../models/createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue';
+import { createWindowsAutopilotDeviceIdentityFromDiscriminatorValue } from '../../models/createWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
+import { deserializeIntoWindowsAutopilotDeviceIdentity } from '../../models/deserializeIntoWindowsAutopilotDeviceIdentity';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeWindowsAutopilotDeviceIdentity } from '../../models/serializeWindowsAutopilotDeviceIdentity';
+import { type WindowsAutopilotDeviceIdentity } from '../../models/windowsAutopilotDeviceIdentity';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WindowsAutopilotDeviceIdentityItemRequestBuilder } from './item/windowsAutopilotDeviceIdentityItemRequestBuilder';
+import { type WindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration } from './windowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
+import { type WindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration } from './windowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.

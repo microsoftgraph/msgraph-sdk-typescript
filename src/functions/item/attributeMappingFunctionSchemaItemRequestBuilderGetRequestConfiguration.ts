@@ -1,5 +1,5 @@
-import {AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters} from './attributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters } from './attributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration {
     /**

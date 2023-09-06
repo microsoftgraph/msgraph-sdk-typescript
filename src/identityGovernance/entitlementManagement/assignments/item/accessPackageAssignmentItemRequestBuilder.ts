@@ -1,20 +1,19 @@
-import type {AccessPackageAssignment} from '../../../../models/accessPackageAssignment';
-import {createAccessPackageAssignmentFromDiscriminatorValue} from '../../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
-import {deserializeIntoAccessPackageAssignment} from '../../../../models/deserializeIntoAccessPackageAssignment';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackageAssignment} from '../../../../models/serializeAccessPackageAssignment';
-import {AccessPackageRequestBuilder} from './accessPackage/accessPackageRequestBuilder';
-import {AccessPackageAssignmentItemRequestBuilderDeleteRequestConfiguration} from './accessPackageAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {AccessPackageAssignmentItemRequestBuilderGetRequestConfiguration} from './accessPackageAssignmentItemRequestBuilderGetRequestConfiguration';
-import {AccessPackageAssignmentItemRequestBuilderPatchRequestConfiguration} from './accessPackageAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {AssignmentPolicyRequestBuilder} from './assignmentPolicy/assignmentPolicyRequestBuilder';
-import {ReprocessRequestBuilder} from './reprocess/reprocessRequestBuilder';
-import {TargetRequestBuilder} from './target/targetRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignment } from '../../../../models/accessPackageAssignment';
+import { createAccessPackageAssignmentFromDiscriminatorValue } from '../../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
+import { deserializeIntoAccessPackageAssignment } from '../../../../models/deserializeIntoAccessPackageAssignment';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackageAssignment } from '../../../../models/serializeAccessPackageAssignment';
+import { AccessPackageRequestBuilder } from './accessPackage/accessPackageRequestBuilder';
+import { type AccessPackageAssignmentItemRequestBuilderDeleteRequestConfiguration } from './accessPackageAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type AccessPackageAssignmentItemRequestBuilderGetRequestConfiguration } from './accessPackageAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type AccessPackageAssignmentItemRequestBuilderPatchRequestConfiguration } from './accessPackageAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { AssignmentPolicyRequestBuilder } from './assignmentPolicy/assignmentPolicyRequestBuilder';
+import { ReprocessRequestBuilder } from './reprocess/reprocessRequestBuilder';
+import { TargetRequestBuilder } from './target/targetRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.

@@ -1,7 +1,7 @@
-import type {MacOSMicrosoftEdgeApp} from './macOSMicrosoftEdgeApp';
-import {MicrosoftEdgeChannel} from './microsoftEdgeChannel';
-import {serializeMobileApp} from './serializeMobileApp';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MacOSMicrosoftEdgeApp } from './macOSMicrosoftEdgeApp';
+import { MicrosoftEdgeChannel } from './microsoftEdgeChannel';
+import { serializeMobileApp } from './serializeMobileApp';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMacOSMicrosoftEdgeApp(writer: SerializationWriter, macOSMicrosoftEdgeApp: MacOSMicrosoftEdgeApp | undefined = {} as MacOSMicrosoftEdgeApp) : void {
         serializeMobileApp(writer, macOSMicrosoftEdgeApp)

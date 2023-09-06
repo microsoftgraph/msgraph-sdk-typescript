@@ -1,5 +1,5 @@
-import {RetentionEventItemRequestBuilderGetQueryParameters} from './retentionEventItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RetentionEventItemRequestBuilderGetQueryParameters } from './retentionEventItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RetentionEventItemRequestBuilderGetRequestConfiguration {
     /**

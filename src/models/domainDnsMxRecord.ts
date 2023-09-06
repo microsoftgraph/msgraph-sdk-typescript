@@ -1,5 +1,5 @@
-import type {DomainDnsRecord} from './domainDnsRecord';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DomainDnsRecord } from './domainDnsRecord';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DomainDnsMxRecord extends DomainDnsRecord, Parsable {
     /**

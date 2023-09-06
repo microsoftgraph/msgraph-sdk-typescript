@@ -1,5 +1,5 @@
-import {EmployeeExperienceRequestBuilderGetQueryParameters} from './employeeExperienceRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EmployeeExperienceRequestBuilderGetQueryParameters } from './employeeExperienceRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EmployeeExperienceRequestBuilderGetRequestConfiguration {
     /**

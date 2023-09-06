@@ -1,7 +1,6 @@
-import {EducationGender} from './educationGender';
-import type {EducationStudent} from './educationStudent';
-import {DateOnly} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { EducationGender } from './educationGender';
+import { type EducationStudent } from './educationStudent';
+import { DateOnly, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEducationStudent(writer: SerializationWriter, educationStudent: EducationStudent | undefined = {} as EducationStudent) : void {
         writer.writeDateOnlyValue("birthDate", educationStudent.birthDate);

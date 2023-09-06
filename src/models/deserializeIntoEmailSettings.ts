@@ -1,5 +1,5 @@
-import type {EmailSettings} from './emailSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EmailSettings } from './emailSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEmailSettings(emailSettings: EmailSettings | undefined = {} as EmailSettings) : Record<string, (node: ParseNode) => void> {
     return {

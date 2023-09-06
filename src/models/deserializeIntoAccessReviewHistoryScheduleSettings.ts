@@ -1,8 +1,8 @@
-import type {AccessReviewHistoryScheduleSettings} from './accessReviewHistoryScheduleSettings';
-import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
-import type {PatternedRecurrence} from './patternedRecurrence';
-import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessReviewHistoryScheduleSettings } from './accessReviewHistoryScheduleSettings';
+import { createPatternedRecurrenceFromDiscriminatorValue } from './createPatternedRecurrenceFromDiscriminatorValue';
+import { type PatternedRecurrence } from './patternedRecurrence';
+import { serializePatternedRecurrence } from './serializePatternedRecurrence';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewHistoryScheduleSettings(accessReviewHistoryScheduleSettings: AccessReviewHistoryScheduleSettings | undefined = {} as AccessReviewHistoryScheduleSettings) : Record<string, (node: ParseNode) => void> {
     return {

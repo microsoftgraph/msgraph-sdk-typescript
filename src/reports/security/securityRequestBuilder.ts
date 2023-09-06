@@ -1,19 +1,18 @@
-import {createSecurityReportsRootFromDiscriminatorValue} from '../../models/createSecurityReportsRootFromDiscriminatorValue';
-import {deserializeIntoSecurityReportsRoot} from '../../models/deserializeIntoSecurityReportsRoot';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {SecurityReportsRoot} from '../../models/securityReportsRoot';
-import {serializeSecurityReportsRoot} from '../../models/serializeSecurityReportsRoot';
-import {GetAttackSimulationRepeatOffendersRequestBuilder} from './getAttackSimulationRepeatOffenders/getAttackSimulationRepeatOffendersRequestBuilder';
-import {GetAttackSimulationSimulationUserCoverageRequestBuilder} from './getAttackSimulationSimulationUserCoverage/getAttackSimulationSimulationUserCoverageRequestBuilder';
-import {GetAttackSimulationTrainingUserCoverageRequestBuilder} from './getAttackSimulationTrainingUserCoverage/getAttackSimulationTrainingUserCoverageRequestBuilder';
-import {SecurityRequestBuilderDeleteRequestConfiguration} from './securityRequestBuilderDeleteRequestConfiguration';
-import {SecurityRequestBuilderGetRequestConfiguration} from './securityRequestBuilderGetRequestConfiguration';
-import {SecurityRequestBuilderPatchRequestConfiguration} from './securityRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSecurityReportsRootFromDiscriminatorValue } from '../../models/createSecurityReportsRootFromDiscriminatorValue';
+import { deserializeIntoSecurityReportsRoot } from '../../models/deserializeIntoSecurityReportsRoot';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type SecurityReportsRoot } from '../../models/securityReportsRoot';
+import { serializeSecurityReportsRoot } from '../../models/serializeSecurityReportsRoot';
+import { GetAttackSimulationRepeatOffendersRequestBuilder } from './getAttackSimulationRepeatOffenders/getAttackSimulationRepeatOffendersRequestBuilder';
+import { GetAttackSimulationSimulationUserCoverageRequestBuilder } from './getAttackSimulationSimulationUserCoverage/getAttackSimulationSimulationUserCoverageRequestBuilder';
+import { GetAttackSimulationTrainingUserCoverageRequestBuilder } from './getAttackSimulationTrainingUserCoverage/getAttackSimulationTrainingUserCoverageRequestBuilder';
+import { type SecurityRequestBuilderDeleteRequestConfiguration } from './securityRequestBuilderDeleteRequestConfiguration';
+import { type SecurityRequestBuilderGetRequestConfiguration } from './securityRequestBuilderGetRequestConfiguration';
+import { type SecurityRequestBuilderPatchRequestConfiguration } from './securityRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the security property of the microsoft.graph.reportRoot entity.

@@ -1,7 +1,7 @@
-import {serializeSynchronizationSecretKeyStringValuePair} from '../../../../../../models/serializeSynchronizationSecretKeyStringValuePair';
-import type {SynchronizationSecretKeyStringValuePair} from '../../../../../../models/synchronizationSecretKeyStringValuePair';
-import type {ValidateCredentialsPostRequestBody} from './validateCredentialsPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeSynchronizationSecretKeyStringValuePair } from '../../../../../../models/serializeSynchronizationSecretKeyStringValuePair';
+import { type SynchronizationSecretKeyStringValuePair } from '../../../../../../models/synchronizationSecretKeyStringValuePair';
+import { type ValidateCredentialsPostRequestBody } from './validateCredentialsPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeValidateCredentialsPostRequestBody(writer: SerializationWriter, validateCredentialsPostRequestBody: ValidateCredentialsPostRequestBody | undefined = {} as ValidateCredentialsPostRequestBody) : void {
         writer.writeStringValue("applicationIdentifier", validateCredentialsPostRequestBody.applicationIdentifier);

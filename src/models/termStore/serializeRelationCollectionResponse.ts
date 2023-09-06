@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCollectionPaginationCountResponse';
-import type {Relation} from './relation';
-import type {RelationCollectionResponse} from './relationCollectionResponse';
-import {serializeRelation} from './serializeRelation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from '../serializeBaseCollectionPaginationCountResponse';
+import { type Relation } from './relation';
+import { type RelationCollectionResponse } from './relationCollectionResponse';
+import { serializeRelation } from './serializeRelation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRelationCollectionResponse(writer: SerializationWriter, relationCollectionResponse: RelationCollectionResponse | undefined = {} as RelationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, relationCollectionResponse)

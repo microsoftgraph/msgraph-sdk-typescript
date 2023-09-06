@@ -1,7 +1,7 @@
-import {X509CertificateAuthenticationMode} from './x509CertificateAuthenticationMode';
-import type {X509CertificateRule} from './x509CertificateRule';
-import {X509CertificateRuleType} from './x509CertificateRuleType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { X509CertificateAuthenticationMode } from './x509CertificateAuthenticationMode';
+import { type X509CertificateRule } from './x509CertificateRule';
+import { X509CertificateRuleType } from './x509CertificateRuleType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoX509CertificateRule(x509CertificateRule: X509CertificateRule | undefined = {} as X509CertificateRule) : Record<string, (node: ParseNode) => void> {
     return {

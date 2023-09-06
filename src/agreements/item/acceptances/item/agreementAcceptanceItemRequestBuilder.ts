@@ -1,16 +1,15 @@
-import type {AgreementAcceptance} from '../../../../models/agreementAcceptance';
-import {createAgreementAcceptanceFromDiscriminatorValue} from '../../../../models/createAgreementAcceptanceFromDiscriminatorValue';
-import {deserializeIntoAgreementAcceptance} from '../../../../models/deserializeIntoAgreementAcceptance';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeAgreementAcceptance} from '../../../../models/serializeAgreementAcceptance';
-import {AgreementAcceptanceItemRequestBuilderDeleteRequestConfiguration} from './agreementAcceptanceItemRequestBuilderDeleteRequestConfiguration';
-import {AgreementAcceptanceItemRequestBuilderGetRequestConfiguration} from './agreementAcceptanceItemRequestBuilderGetRequestConfiguration';
-import {AgreementAcceptanceItemRequestBuilderPatchRequestConfiguration} from './agreementAcceptanceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AgreementAcceptance } from '../../../../models/agreementAcceptance';
+import { createAgreementAcceptanceFromDiscriminatorValue } from '../../../../models/createAgreementAcceptanceFromDiscriminatorValue';
+import { deserializeIntoAgreementAcceptance } from '../../../../models/deserializeIntoAgreementAcceptance';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeAgreementAcceptance } from '../../../../models/serializeAgreementAcceptance';
+import { type AgreementAcceptanceItemRequestBuilderDeleteRequestConfiguration } from './agreementAcceptanceItemRequestBuilderDeleteRequestConfiguration';
+import { type AgreementAcceptanceItemRequestBuilderGetRequestConfiguration } from './agreementAcceptanceItemRequestBuilderGetRequestConfiguration';
+import { type AgreementAcceptanceItemRequestBuilderPatchRequestConfiguration } from './agreementAcceptanceItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.

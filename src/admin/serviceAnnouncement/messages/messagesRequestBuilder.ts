@@ -1,25 +1,24 @@
-import {ServiceUpdateMessageCollectionResponse} from '../../../models/';
-import {createServiceUpdateMessageCollectionResponseFromDiscriminatorValue} from '../../../models/createServiceUpdateMessageCollectionResponseFromDiscriminatorValue';
-import {createServiceUpdateMessageFromDiscriminatorValue} from '../../../models/createServiceUpdateMessageFromDiscriminatorValue';
-import {deserializeIntoServiceUpdateMessage} from '../../../models/deserializeIntoServiceUpdateMessage';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeServiceUpdateMessage} from '../../../models/serializeServiceUpdateMessage';
-import type {ServiceUpdateMessage} from '../../../models/serviceUpdateMessage';
-import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FavoriteRequestBuilder} from './favorite/favoriteRequestBuilder';
-import {ServiceUpdateMessageItemRequestBuilder} from './item/serviceUpdateMessageItemRequestBuilder';
-import {MarkReadRequestBuilder} from './markRead/markReadRequestBuilder';
-import {MarkUnreadRequestBuilder} from './markUnread/markUnreadRequestBuilder';
-import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
-import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
-import {UnfavoriteRequestBuilder} from './unfavorite/unfavoriteRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ServiceUpdateMessageCollectionResponse } from '../../../models/';
+import { createServiceUpdateMessageCollectionResponseFromDiscriminatorValue } from '../../../models/createServiceUpdateMessageCollectionResponseFromDiscriminatorValue';
+import { createServiceUpdateMessageFromDiscriminatorValue } from '../../../models/createServiceUpdateMessageFromDiscriminatorValue';
+import { deserializeIntoServiceUpdateMessage } from '../../../models/deserializeIntoServiceUpdateMessage';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeServiceUpdateMessage } from '../../../models/serializeServiceUpdateMessage';
+import { type ServiceUpdateMessage } from '../../../models/serviceUpdateMessage';
+import { ArchiveRequestBuilder } from './archive/archiveRequestBuilder';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { FavoriteRequestBuilder } from './favorite/favoriteRequestBuilder';
+import { ServiceUpdateMessageItemRequestBuilder } from './item/serviceUpdateMessageItemRequestBuilder';
+import { MarkReadRequestBuilder } from './markRead/markReadRequestBuilder';
+import { MarkUnreadRequestBuilder } from './markUnread/markUnreadRequestBuilder';
+import { type MessagesRequestBuilderGetRequestConfiguration } from './messagesRequestBuilderGetRequestConfiguration';
+import { type MessagesRequestBuilderPostRequestConfiguration } from './messagesRequestBuilderPostRequestConfiguration';
+import { UnarchiveRequestBuilder } from './unarchive/unarchiveRequestBuilder';
+import { UnfavoriteRequestBuilder } from './unfavorite/unfavoriteRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.

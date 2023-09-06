@@ -1,16 +1,15 @@
-import {createMobileAppAssignmentFromDiscriminatorValue} from '../../../../../models/createMobileAppAssignmentFromDiscriminatorValue';
-import {deserializeIntoMobileAppAssignment} from '../../../../../models/deserializeIntoMobileAppAssignment';
-import type {MobileAppAssignment} from '../../../../../models/mobileAppAssignment';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeMobileAppAssignment} from '../../../../../models/serializeMobileAppAssignment';
-import {MobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration} from './mobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {MobileAppAssignmentItemRequestBuilderGetRequestConfiguration} from './mobileAppAssignmentItemRequestBuilderGetRequestConfiguration';
-import {MobileAppAssignmentItemRequestBuilderPatchRequestConfiguration} from './mobileAppAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMobileAppAssignmentFromDiscriminatorValue } from '../../../../../models/createMobileAppAssignmentFromDiscriminatorValue';
+import { deserializeIntoMobileAppAssignment } from '../../../../../models/deserializeIntoMobileAppAssignment';
+import { type MobileAppAssignment } from '../../../../../models/mobileAppAssignment';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeMobileAppAssignment } from '../../../../../models/serializeMobileAppAssignment';
+import { type MobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration } from './mobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type MobileAppAssignmentItemRequestBuilderGetRequestConfiguration } from './mobileAppAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type MobileAppAssignmentItemRequestBuilderPatchRequestConfiguration } from './mobileAppAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.

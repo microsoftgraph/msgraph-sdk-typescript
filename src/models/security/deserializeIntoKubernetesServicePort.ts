@@ -1,6 +1,6 @@
-import {ContainerPortProtocol} from './containerPortProtocol';
-import type {KubernetesServicePort} from './kubernetesServicePort';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ContainerPortProtocol } from './containerPortProtocol';
+import { type KubernetesServicePort } from './kubernetesServicePort';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoKubernetesServicePort(kubernetesServicePort: KubernetesServicePort | undefined = {} as KubernetesServicePort) : Record<string, (node: ParseNode) => void> {
     return {

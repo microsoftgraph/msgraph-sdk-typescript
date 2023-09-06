@@ -1,15 +1,15 @@
-import {createSharedInsightFromDiscriminatorValue} from './createSharedInsightFromDiscriminatorValue';
-import {createTrendingFromDiscriminatorValue} from './createTrendingFromDiscriminatorValue';
-import {createUsedInsightFromDiscriminatorValue} from './createUsedInsightFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {OfficeGraphInsights} from './officeGraphInsights';
-import {serializeSharedInsight} from './serializeSharedInsight';
-import {serializeTrending} from './serializeTrending';
-import {serializeUsedInsight} from './serializeUsedInsight';
-import type {SharedInsight} from './sharedInsight';
-import type {Trending} from './trending';
-import type {UsedInsight} from './usedInsight';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSharedInsightFromDiscriminatorValue } from './createSharedInsightFromDiscriminatorValue';
+import { createTrendingFromDiscriminatorValue } from './createTrendingFromDiscriminatorValue';
+import { createUsedInsightFromDiscriminatorValue } from './createUsedInsightFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type OfficeGraphInsights } from './officeGraphInsights';
+import { serializeSharedInsight } from './serializeSharedInsight';
+import { serializeTrending } from './serializeTrending';
+import { serializeUsedInsight } from './serializeUsedInsight';
+import { type SharedInsight } from './sharedInsight';
+import { type Trending } from './trending';
+import { type UsedInsight } from './usedInsight';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOfficeGraphInsights(officeGraphInsights: OfficeGraphInsights | undefined = {} as OfficeGraphInsights) : Record<string, (node: ParseNode) => void> {
     return {

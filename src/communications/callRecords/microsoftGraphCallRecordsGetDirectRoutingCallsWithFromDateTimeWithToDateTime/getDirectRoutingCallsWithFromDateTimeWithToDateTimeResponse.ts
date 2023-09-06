@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
-import type {DirectRoutingLogRow} from '../../../models/callRecords/directRoutingLogRow';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from '../../../models/baseCollectionPaginationCountResponse';
+import { type DirectRoutingLogRow } from '../../../models/callRecords/directRoutingLogRow';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -1,19 +1,18 @@
-import {AuthenticationContextClassReferenceCollectionResponse} from '../../../models/';
-import type {AuthenticationContextClassReference} from '../../../models/authenticationContextClassReference';
-import {createAuthenticationContextClassReferenceCollectionResponseFromDiscriminatorValue} from '../../../models/createAuthenticationContextClassReferenceCollectionResponseFromDiscriminatorValue';
-import {createAuthenticationContextClassReferenceFromDiscriminatorValue} from '../../../models/createAuthenticationContextClassReferenceFromDiscriminatorValue';
-import {deserializeIntoAuthenticationContextClassReference} from '../../../models/deserializeIntoAuthenticationContextClassReference';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAuthenticationContextClassReference} from '../../../models/serializeAuthenticationContextClassReference';
-import {AuthenticationContextClassReferencesRequestBuilderGetRequestConfiguration} from './authenticationContextClassReferencesRequestBuilderGetRequestConfiguration';
-import {AuthenticationContextClassReferencesRequestBuilderPostRequestConfiguration} from './authenticationContextClassReferencesRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AuthenticationContextClassReferenceItemRequestBuilder} from './item/authenticationContextClassReferenceItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationContextClassReferenceCollectionResponse } from '../../../models/';
+import { type AuthenticationContextClassReference } from '../../../models/authenticationContextClassReference';
+import { createAuthenticationContextClassReferenceCollectionResponseFromDiscriminatorValue } from '../../../models/createAuthenticationContextClassReferenceCollectionResponseFromDiscriminatorValue';
+import { createAuthenticationContextClassReferenceFromDiscriminatorValue } from '../../../models/createAuthenticationContextClassReferenceFromDiscriminatorValue';
+import { deserializeIntoAuthenticationContextClassReference } from '../../../models/deserializeIntoAuthenticationContextClassReference';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAuthenticationContextClassReference } from '../../../models/serializeAuthenticationContextClassReference';
+import { type AuthenticationContextClassReferencesRequestBuilderGetRequestConfiguration } from './authenticationContextClassReferencesRequestBuilderGetRequestConfiguration';
+import { type AuthenticationContextClassReferencesRequestBuilderPostRequestConfiguration } from './authenticationContextClassReferencesRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AuthenticationContextClassReferenceItemRequestBuilder } from './item/authenticationContextClassReferenceItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.

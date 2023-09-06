@@ -1,5 +1,5 @@
-import {ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters} from './resourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters } from './resourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration {
     /**

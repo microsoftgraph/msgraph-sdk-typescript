@@ -1,8 +1,8 @@
-import type {DirectoryRoleTemplate} from './directoryRoleTemplate';
-import type {DirectoryRoleTemplateCollectionResponse} from './directoryRoleTemplateCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeDirectoryRoleTemplate} from './serializeDirectoryRoleTemplate';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DirectoryRoleTemplate } from './directoryRoleTemplate';
+import { type DirectoryRoleTemplateCollectionResponse } from './directoryRoleTemplateCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeDirectoryRoleTemplate } from './serializeDirectoryRoleTemplate';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDirectoryRoleTemplateCollectionResponse(writer: SerializationWriter, directoryRoleTemplateCollectionResponse: DirectoryRoleTemplateCollectionResponse | undefined = {} as DirectoryRoleTemplateCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, directoryRoleTemplateCollectionResponse)

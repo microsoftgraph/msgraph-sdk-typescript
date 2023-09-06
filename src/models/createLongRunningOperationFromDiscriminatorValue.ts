@@ -1,7 +1,7 @@
-import {deserializeIntoLongRunningOperation} from './deserializeIntoLongRunningOperation';
-import {deserializeIntoRichLongRunningOperation} from './deserializeIntoRichLongRunningOperation';
-import {LongRunningOperation, RichLongRunningOperation} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoLongRunningOperation } from './deserializeIntoLongRunningOperation';
+import { deserializeIntoRichLongRunningOperation } from './deserializeIntoRichLongRunningOperation';
+import { type LongRunningOperation, type RichLongRunningOperation } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createLongRunningOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

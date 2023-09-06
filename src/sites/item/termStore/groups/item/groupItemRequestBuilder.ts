@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {createGroupFromDiscriminatorValue} from '../../../../../models/termStore/createGroupFromDiscriminatorValue';
-import {deserializeIntoGroup} from '../../../../../models/termStore/deserializeIntoGroup';
-import type {Group} from '../../../../../models/termStore/group';
-import {serializeGroup} from '../../../../../models/termStore/serializeGroup';
-import {GroupItemRequestBuilderDeleteRequestConfiguration} from './groupItemRequestBuilderDeleteRequestConfiguration';
-import {GroupItemRequestBuilderGetRequestConfiguration} from './groupItemRequestBuilderGetRequestConfiguration';
-import {GroupItemRequestBuilderPatchRequestConfiguration} from './groupItemRequestBuilderPatchRequestConfiguration';
-import {SetsRequestBuilder} from './sets/setsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createGroupFromDiscriminatorValue } from '../../../../../models/termStore/createGroupFromDiscriminatorValue';
+import { deserializeIntoGroup } from '../../../../../models/termStore/deserializeIntoGroup';
+import { type Group } from '../../../../../models/termStore/group';
+import { serializeGroup } from '../../../../../models/termStore/serializeGroup';
+import { type GroupItemRequestBuilderDeleteRequestConfiguration } from './groupItemRequestBuilderDeleteRequestConfiguration';
+import { type GroupItemRequestBuilderGetRequestConfiguration } from './groupItemRequestBuilderGetRequestConfiguration';
+import { type GroupItemRequestBuilderPatchRequestConfiguration } from './groupItemRequestBuilderPatchRequestConfiguration';
+import { SetsRequestBuilder } from './sets/setsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.

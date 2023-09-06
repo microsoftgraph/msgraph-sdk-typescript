@@ -1,8 +1,8 @@
-import {deserializeIntoOnDemandExecutionOnly} from './deserializeIntoOnDemandExecutionOnly';
-import {deserializeIntoTriggerAndScopeBasedConditions} from './deserializeIntoTriggerAndScopeBasedConditions';
-import {deserializeIntoWorkflowExecutionConditions} from './deserializeIntoWorkflowExecutionConditions';
-import {OnDemandExecutionOnly, TriggerAndScopeBasedConditions, WorkflowExecutionConditions} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoOnDemandExecutionOnly } from './deserializeIntoOnDemandExecutionOnly';
+import { deserializeIntoTriggerAndScopeBasedConditions } from './deserializeIntoTriggerAndScopeBasedConditions';
+import { deserializeIntoWorkflowExecutionConditions } from './deserializeIntoWorkflowExecutionConditions';
+import { type OnDemandExecutionOnly, type TriggerAndScopeBasedConditions, type WorkflowExecutionConditions } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWorkflowExecutionConditionsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

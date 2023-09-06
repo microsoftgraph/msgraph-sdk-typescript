@@ -1,17 +1,16 @@
-import {createWorkbookChartLineFormatFromDiscriminatorValue} from '../../../../../../../../../../../../../../models/createWorkbookChartLineFormatFromDiscriminatorValue';
-import {deserializeIntoWorkbookChartLineFormat} from '../../../../../../../../../../../../../../models/deserializeIntoWorkbookChartLineFormat';
-import {ODataError} from '../../../../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookChartLineFormat} from '../../../../../../../../../../../../../../models/serializeWorkbookChartLineFormat';
-import type {WorkbookChartLineFormat} from '../../../../../../../../../../../../../../models/workbookChartLineFormat';
-import {ClearRequestBuilder} from './clear/clearRequestBuilder';
-import {LineRequestBuilderDeleteRequestConfiguration} from './lineRequestBuilderDeleteRequestConfiguration';
-import {LineRequestBuilderGetRequestConfiguration} from './lineRequestBuilderGetRequestConfiguration';
-import {LineRequestBuilderPatchRequestConfiguration} from './lineRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartLineFormatFromDiscriminatorValue } from '../../../../../../../../../../../../../../models/createWorkbookChartLineFormatFromDiscriminatorValue';
+import { deserializeIntoWorkbookChartLineFormat } from '../../../../../../../../../../../../../../models/deserializeIntoWorkbookChartLineFormat';
+import { type ODataError } from '../../../../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookChartLineFormat } from '../../../../../../../../../../../../../../models/serializeWorkbookChartLineFormat';
+import { type WorkbookChartLineFormat } from '../../../../../../../../../../../../../../models/workbookChartLineFormat';
+import { ClearRequestBuilder } from './clear/clearRequestBuilder';
+import { type LineRequestBuilderDeleteRequestConfiguration } from './lineRequestBuilderDeleteRequestConfiguration';
+import { type LineRequestBuilderGetRequestConfiguration } from './lineRequestBuilderGetRequestConfiguration';
+import { type LineRequestBuilderPatchRequestConfiguration } from './lineRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the line property of the microsoft.graph.workbookChartGridlinesFormat entity.

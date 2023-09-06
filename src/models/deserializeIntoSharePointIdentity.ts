@@ -1,6 +1,6 @@
-import {deserializeIntoIdentity} from './deserializeIntoIdentity';
-import type {SharePointIdentity} from './sharePointIdentity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIdentity } from './deserializeIntoIdentity';
+import { type SharePointIdentity } from './sharePointIdentity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharePointIdentity(sharePointIdentity: SharePointIdentity | undefined = {} as SharePointIdentity) : Record<string, (node: ParseNode) => void> {
     return {

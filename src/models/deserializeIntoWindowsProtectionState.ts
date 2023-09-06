@@ -1,18 +1,18 @@
-import {createWindowsDeviceMalwareStateFromDiscriminatorValue} from './createWindowsDeviceMalwareStateFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeWindowsDeviceMalwareState} from './serializeWindowsDeviceMalwareState';
-import {WindowsDefenderProductStatus} from './windowsDefenderProductStatus';
-import {WindowsDeviceHealthState} from './windowsDeviceHealthState';
-import type {WindowsDeviceMalwareState} from './windowsDeviceMalwareState';
-import type {WindowsProtectionState} from './windowsProtectionState';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWindowsDeviceMalwareStateFromDiscriminatorValue } from './createWindowsDeviceMalwareStateFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeWindowsDeviceMalwareState } from './serializeWindowsDeviceMalwareState';
+import { WindowsDefenderProductStatus } from './windowsDefenderProductStatus';
+import { WindowsDeviceHealthState } from './windowsDeviceHealthState';
+import { type WindowsDeviceMalwareState } from './windowsDeviceMalwareState';
+import { type WindowsProtectionState } from './windowsProtectionState';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsProtectionState(windowsProtectionState: WindowsProtectionState | undefined = {} as WindowsProtectionState) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(windowsProtectionState),
         "antiMalwareVersion": n => { windowsProtectionState.antiMalwareVersion = n.getStringValue(); },
         "detectedMalwareState": n => { windowsProtectionState.detectedMalwareState = n.getCollectionOfObjectValues<WindowsDeviceMalwareState>(createWindowsDeviceMalwareStateFromDiscriminatorValue); },
-        "deviceState": n => { windowsProtectionState.deviceState = n.getEnumValue<WindowsDeviceHealthState>(WindowsDeviceHealthState); },
+        "deviceState": n => { windowsProtectionState.deviceState = n.getCollectionOfEnumValues<WindowsDeviceHealthState>(WindowsDeviceHealthState); },
         "engineVersion": n => { windowsProtectionState.engineVersion = n.getStringValue(); },
         "fullScanOverdue": n => { windowsProtectionState.fullScanOverdue = n.getBooleanValue(); },
         "fullScanRequired": n => { windowsProtectionState.fullScanRequired = n.getBooleanValue(); },
@@ -24,7 +24,7 @@ export function deserializeIntoWindowsProtectionState(windowsProtectionState: Wi
         "lastReportedDateTime": n => { windowsProtectionState.lastReportedDateTime = n.getDateValue(); },
         "malwareProtectionEnabled": n => { windowsProtectionState.malwareProtectionEnabled = n.getBooleanValue(); },
         "networkInspectionSystemEnabled": n => { windowsProtectionState.networkInspectionSystemEnabled = n.getBooleanValue(); },
-        "productStatus": n => { windowsProtectionState.productStatus = n.getEnumValue<WindowsDefenderProductStatus>(WindowsDefenderProductStatus); },
+        "productStatus": n => { windowsProtectionState.productStatus = n.getCollectionOfEnumValues<WindowsDefenderProductStatus>(WindowsDefenderProductStatus); },
         "quickScanOverdue": n => { windowsProtectionState.quickScanOverdue = n.getBooleanValue(); },
         "realTimeProtectionEnabled": n => { windowsProtectionState.realTimeProtectionEnabled = n.getBooleanValue(); },
         "rebootRequired": n => { windowsProtectionState.rebootRequired = n.getBooleanValue(); },

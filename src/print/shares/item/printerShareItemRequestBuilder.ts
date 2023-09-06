@@ -1,20 +1,19 @@
-import {createPrinterShareFromDiscriminatorValue} from '../../../models/createPrinterShareFromDiscriminatorValue';
-import {deserializeIntoPrinterShare} from '../../../models/deserializeIntoPrinterShare';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {PrinterShare} from '../../../models/printerShare';
-import {serializePrinterShare} from '../../../models/serializePrinterShare';
-import {AllowedGroupsRequestBuilder} from './allowedGroups/allowedGroupsRequestBuilder';
-import {AllowedUsersRequestBuilder} from './allowedUsers/allowedUsersRequestBuilder';
-import {JobsRequestBuilder} from './jobs/jobsRequestBuilder';
-import {PrinterRequestBuilder} from './printer/printerRequestBuilder';
-import {PrinterShareItemRequestBuilderDeleteRequestConfiguration} from './printerShareItemRequestBuilderDeleteRequestConfiguration';
-import {PrinterShareItemRequestBuilderGetRequestConfiguration} from './printerShareItemRequestBuilderGetRequestConfiguration';
-import {PrinterShareItemRequestBuilderPatchRequestConfiguration} from './printerShareItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPrinterShareFromDiscriminatorValue } from '../../../models/createPrinterShareFromDiscriminatorValue';
+import { deserializeIntoPrinterShare } from '../../../models/deserializeIntoPrinterShare';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type PrinterShare } from '../../../models/printerShare';
+import { serializePrinterShare } from '../../../models/serializePrinterShare';
+import { AllowedGroupsRequestBuilder } from './allowedGroups/allowedGroupsRequestBuilder';
+import { AllowedUsersRequestBuilder } from './allowedUsers/allowedUsersRequestBuilder';
+import { JobsRequestBuilder } from './jobs/jobsRequestBuilder';
+import { PrinterRequestBuilder } from './printer/printerRequestBuilder';
+import { type PrinterShareItemRequestBuilderDeleteRequestConfiguration } from './printerShareItemRequestBuilderDeleteRequestConfiguration';
+import { type PrinterShareItemRequestBuilderGetRequestConfiguration } from './printerShareItemRequestBuilderGetRequestConfiguration';
+import { type PrinterShareItemRequestBuilderPatchRequestConfiguration } from './printerShareItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shares property of the microsoft.graph.print entity.

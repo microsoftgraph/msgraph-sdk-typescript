@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {ArticleIndicator} from '../../../../models/security/articleIndicator';
-import {createArticleIndicatorFromDiscriminatorValue} from '../../../../models/security/createArticleIndicatorFromDiscriminatorValue';
-import {deserializeIntoArticleIndicator} from '../../../../models/security/deserializeIntoArticleIndicator';
-import {serializeArticleIndicator} from '../../../../models/security/serializeArticleIndicator';
-import {ArticleIndicatorItemRequestBuilderDeleteRequestConfiguration} from './articleIndicatorItemRequestBuilderDeleteRequestConfiguration';
-import {ArticleIndicatorItemRequestBuilderGetRequestConfiguration} from './articleIndicatorItemRequestBuilderGetRequestConfiguration';
-import {ArticleIndicatorItemRequestBuilderPatchRequestConfiguration} from './articleIndicatorItemRequestBuilderPatchRequestConfiguration';
-import {ArtifactRequestBuilder} from './artifact/artifactRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type ArticleIndicator } from '../../../../models/security/articleIndicator';
+import { createArticleIndicatorFromDiscriminatorValue } from '../../../../models/security/createArticleIndicatorFromDiscriminatorValue';
+import { deserializeIntoArticleIndicator } from '../../../../models/security/deserializeIntoArticleIndicator';
+import { serializeArticleIndicator } from '../../../../models/security/serializeArticleIndicator';
+import { type ArticleIndicatorItemRequestBuilderDeleteRequestConfiguration } from './articleIndicatorItemRequestBuilderDeleteRequestConfiguration';
+import { type ArticleIndicatorItemRequestBuilderGetRequestConfiguration } from './articleIndicatorItemRequestBuilderGetRequestConfiguration';
+import { type ArticleIndicatorItemRequestBuilderPatchRequestConfiguration } from './articleIndicatorItemRequestBuilderPatchRequestConfiguration';
+import { ArtifactRequestBuilder } from './artifact/artifactRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the articleIndicators property of the microsoft.graph.security.threatIntelligence entity.

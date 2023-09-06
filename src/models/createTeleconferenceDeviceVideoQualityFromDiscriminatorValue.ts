@@ -1,7 +1,7 @@
-import {deserializeIntoTeleconferenceDeviceScreenSharingQuality} from './deserializeIntoTeleconferenceDeviceScreenSharingQuality';
-import {deserializeIntoTeleconferenceDeviceVideoQuality} from './deserializeIntoTeleconferenceDeviceVideoQuality';
-import {TeleconferenceDeviceScreenSharingQuality, TeleconferenceDeviceVideoQuality} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoTeleconferenceDeviceScreenSharingQuality } from './deserializeIntoTeleconferenceDeviceScreenSharingQuality';
+import { deserializeIntoTeleconferenceDeviceVideoQuality } from './deserializeIntoTeleconferenceDeviceVideoQuality';
+import { type TeleconferenceDeviceScreenSharingQuality, type TeleconferenceDeviceVideoQuality } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTeleconferenceDeviceVideoQualityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

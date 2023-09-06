@@ -1,5 +1,5 @@
-import {SynchronizationTemplateItemRequestBuilderGetQueryParameters} from './synchronizationTemplateItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SynchronizationTemplateItemRequestBuilderGetQueryParameters } from './synchronizationTemplateItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationTemplateItemRequestBuilderGetRequestConfiguration {
     /**

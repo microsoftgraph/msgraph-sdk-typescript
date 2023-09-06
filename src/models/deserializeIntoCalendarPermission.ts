@@ -1,10 +1,10 @@
-import type {CalendarPermission} from './calendarPermission';
-import {CalendarRoleType} from './calendarRoleType';
-import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {EmailAddress} from './emailAddress';
-import {serializeEmailAddress} from './serializeEmailAddress';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CalendarPermission } from './calendarPermission';
+import { CalendarRoleType } from './calendarRoleType';
+import { createEmailAddressFromDiscriminatorValue } from './createEmailAddressFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type EmailAddress } from './emailAddress';
+import { serializeEmailAddress } from './serializeEmailAddress';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCalendarPermission(calendarPermission: CalendarPermission | undefined = {} as CalendarPermission) : Record<string, (node: ParseNode) => void> {
     return {

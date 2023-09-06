@@ -1,6 +1,6 @@
-import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import type {DirectoryRoleTemplate} from './directoryRoleTemplate';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDirectoryObject } from './deserializeIntoDirectoryObject';
+import { type DirectoryRoleTemplate } from './directoryRoleTemplate';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDirectoryRoleTemplate(directoryRoleTemplate: DirectoryRoleTemplate | undefined = {} as DirectoryRoleTemplate) : Record<string, (node: ParseNode) => void> {
     return {

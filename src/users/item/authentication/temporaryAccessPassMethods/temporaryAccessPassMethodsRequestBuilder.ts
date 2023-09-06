@@ -1,19 +1,18 @@
-import {TemporaryAccessPassAuthenticationMethodCollectionResponse} from '../../../../models/';
-import {createTemporaryAccessPassAuthenticationMethodCollectionResponseFromDiscriminatorValue} from '../../../../models/createTemporaryAccessPassAuthenticationMethodCollectionResponseFromDiscriminatorValue';
-import {createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue} from '../../../../models/createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue';
-import {deserializeIntoTemporaryAccessPassAuthenticationMethod} from '../../../../models/deserializeIntoTemporaryAccessPassAuthenticationMethod';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeTemporaryAccessPassAuthenticationMethod} from '../../../../models/serializeTemporaryAccessPassAuthenticationMethod';
-import type {TemporaryAccessPassAuthenticationMethod} from '../../../../models/temporaryAccessPassAuthenticationMethod';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TemporaryAccessPassAuthenticationMethodItemRequestBuilder} from './item/temporaryAccessPassAuthenticationMethodItemRequestBuilder';
-import {TemporaryAccessPassMethodsRequestBuilderGetRequestConfiguration} from './temporaryAccessPassMethodsRequestBuilderGetRequestConfiguration';
-import {TemporaryAccessPassMethodsRequestBuilderPostRequestConfiguration} from './temporaryAccessPassMethodsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TemporaryAccessPassAuthenticationMethodCollectionResponse } from '../../../../models/';
+import { createTemporaryAccessPassAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../../models/createTemporaryAccessPassAuthenticationMethodCollectionResponseFromDiscriminatorValue';
+import { createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue } from '../../../../models/createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue';
+import { deserializeIntoTemporaryAccessPassAuthenticationMethod } from '../../../../models/deserializeIntoTemporaryAccessPassAuthenticationMethod';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeTemporaryAccessPassAuthenticationMethod } from '../../../../models/serializeTemporaryAccessPassAuthenticationMethod';
+import { type TemporaryAccessPassAuthenticationMethod } from '../../../../models/temporaryAccessPassAuthenticationMethod';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { TemporaryAccessPassAuthenticationMethodItemRequestBuilder } from './item/temporaryAccessPassAuthenticationMethodItemRequestBuilder';
+import { type TemporaryAccessPassMethodsRequestBuilderGetRequestConfiguration } from './temporaryAccessPassMethodsRequestBuilderGetRequestConfiguration';
+import { type TemporaryAccessPassMethodsRequestBuilderPostRequestConfiguration } from './temporaryAccessPassMethodsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.

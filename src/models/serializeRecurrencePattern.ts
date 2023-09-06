@@ -1,8 +1,8 @@
-import {DayOfWeek} from './dayOfWeek';
-import type {RecurrencePattern} from './recurrencePattern';
-import {RecurrencePatternType} from './recurrencePatternType';
-import {WeekIndex} from './weekIndex';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { DayOfWeek } from './dayOfWeek';
+import { type RecurrencePattern } from './recurrencePattern';
+import { RecurrencePatternType } from './recurrencePatternType';
+import { WeekIndex } from './weekIndex';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRecurrencePattern(writer: SerializationWriter, recurrencePattern: RecurrencePattern | undefined = {} as RecurrencePattern) : void {
         writer.writeNumberValue("dayOfMonth", recurrencePattern.dayOfMonth);

@@ -1,5 +1,5 @@
-import {AccessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters} from './accessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters } from './accessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration {
     /**

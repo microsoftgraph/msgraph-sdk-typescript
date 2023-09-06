@@ -1,9 +1,9 @@
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
-import {createHostComponentFromDiscriminatorValue} from './createHostComponentFromDiscriminatorValue';
-import type {HostComponent} from './hostComponent';
-import type {HostComponentCollectionResponse} from './hostComponentCollectionResponse';
-import {serializeHostComponent} from './serializeHostComponent';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../deserializeIntoBaseCollectionPaginationCountResponse';
+import { createHostComponentFromDiscriminatorValue } from './createHostComponentFromDiscriminatorValue';
+import { type HostComponent } from './hostComponent';
+import { type HostComponentCollectionResponse } from './hostComponentCollectionResponse';
+import { serializeHostComponent } from './serializeHostComponent';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHostComponentCollectionResponse(hostComponentCollectionResponse: HostComponentCollectionResponse | undefined = {} as HostComponentCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

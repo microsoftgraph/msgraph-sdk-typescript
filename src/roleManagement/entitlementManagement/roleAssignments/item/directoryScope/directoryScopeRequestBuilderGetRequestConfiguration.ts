@@ -1,5 +1,5 @@
-import {DirectoryScopeRequestBuilderGetQueryParameters} from './directoryScopeRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryScopeRequestBuilderGetQueryParameters } from './directoryScopeRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DirectoryScopeRequestBuilderGetRequestConfiguration {
     /**

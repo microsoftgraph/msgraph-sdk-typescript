@@ -1,8 +1,8 @@
-import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import type {KubernetesSecretEvidence} from './kubernetesSecretEvidence';
-import {serializeAlertEvidence} from './serializeAlertEvidence';
-import {serializeKubernetesNamespaceEvidence} from './serializeKubernetesNamespaceEvidence';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type KubernetesNamespaceEvidence } from './kubernetesNamespaceEvidence';
+import { type KubernetesSecretEvidence } from './kubernetesSecretEvidence';
+import { serializeAlertEvidence } from './serializeAlertEvidence';
+import { serializeKubernetesNamespaceEvidence } from './serializeKubernetesNamespaceEvidence';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeKubernetesSecretEvidence(writer: SerializationWriter, kubernetesSecretEvidence: KubernetesSecretEvidence | undefined = {} as KubernetesSecretEvidence) : void {
         serializeAlertEvidence(writer, kubernetesSecretEvidence)

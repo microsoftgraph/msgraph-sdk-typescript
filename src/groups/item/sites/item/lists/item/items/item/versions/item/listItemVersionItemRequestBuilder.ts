@@ -1,18 +1,17 @@
-import {createListItemVersionFromDiscriminatorValue} from '../../../../../../../../../../models/createListItemVersionFromDiscriminatorValue';
-import {deserializeIntoListItemVersion} from '../../../../../../../../../../models/deserializeIntoListItemVersion';
-import type {ListItemVersion} from '../../../../../../../../../../models/listItemVersion';
-import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeListItemVersion} from '../../../../../../../../../../models/serializeListItemVersion';
-import {FieldsRequestBuilder} from './fields/fieldsRequestBuilder';
-import {ListItemVersionItemRequestBuilderDeleteRequestConfiguration} from './listItemVersionItemRequestBuilderDeleteRequestConfiguration';
-import {ListItemVersionItemRequestBuilderGetRequestConfiguration} from './listItemVersionItemRequestBuilderGetRequestConfiguration';
-import {ListItemVersionItemRequestBuilderPatchRequestConfiguration} from './listItemVersionItemRequestBuilderPatchRequestConfiguration';
-import {RestoreVersionRequestBuilder} from './restoreVersion/restoreVersionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createListItemVersionFromDiscriminatorValue } from '../../../../../../../../../../models/createListItemVersionFromDiscriminatorValue';
+import { deserializeIntoListItemVersion } from '../../../../../../../../../../models/deserializeIntoListItemVersion';
+import { type ListItemVersion } from '../../../../../../../../../../models/listItemVersion';
+import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeListItemVersion } from '../../../../../../../../../../models/serializeListItemVersion';
+import { FieldsRequestBuilder } from './fields/fieldsRequestBuilder';
+import { type ListItemVersionItemRequestBuilderDeleteRequestConfiguration } from './listItemVersionItemRequestBuilderDeleteRequestConfiguration';
+import { type ListItemVersionItemRequestBuilderGetRequestConfiguration } from './listItemVersionItemRequestBuilderGetRequestConfiguration';
+import { type ListItemVersionItemRequestBuilderPatchRequestConfiguration } from './listItemVersionItemRequestBuilderPatchRequestConfiguration';
+import { RestoreVersionRequestBuilder } from './restoreVersion/restoreVersionRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.listItem entity.

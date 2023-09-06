@@ -1,7 +1,7 @@
-import {deserializeIntoDeviceManagementTroubleshootingEvent} from './deserializeIntoDeviceManagementTroubleshootingEvent';
-import {deserializeIntoEnrollmentTroubleshootingEvent} from './deserializeIntoEnrollmentTroubleshootingEvent';
-import {DeviceManagementTroubleshootingEvent, EnrollmentTroubleshootingEvent} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceManagementTroubleshootingEvent } from './deserializeIntoDeviceManagementTroubleshootingEvent';
+import { deserializeIntoEnrollmentTroubleshootingEvent } from './deserializeIntoEnrollmentTroubleshootingEvent';
+import { type DeviceManagementTroubleshootingEvent, type EnrollmentTroubleshootingEvent } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeviceManagementTroubleshootingEventFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

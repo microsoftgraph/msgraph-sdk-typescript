@@ -1,16 +1,15 @@
-import {createTimeOffFromDiscriminatorValue} from '../../../../../models/createTimeOffFromDiscriminatorValue';
-import {deserializeIntoTimeOff} from '../../../../../models/deserializeIntoTimeOff';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeTimeOff} from '../../../../../models/serializeTimeOff';
-import type {TimeOff} from '../../../../../models/timeOff';
-import {TimeOffItemRequestBuilderDeleteRequestConfiguration} from './timeOffItemRequestBuilderDeleteRequestConfiguration';
-import {TimeOffItemRequestBuilderGetRequestConfiguration} from './timeOffItemRequestBuilderGetRequestConfiguration';
-import {TimeOffItemRequestBuilderPatchRequestConfiguration} from './timeOffItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTimeOffFromDiscriminatorValue } from '../../../../../models/createTimeOffFromDiscriminatorValue';
+import { deserializeIntoTimeOff } from '../../../../../models/deserializeIntoTimeOff';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeTimeOff } from '../../../../../models/serializeTimeOff';
+import { type TimeOff } from '../../../../../models/timeOff';
+import { type TimeOffItemRequestBuilderDeleteRequestConfiguration } from './timeOffItemRequestBuilderDeleteRequestConfiguration';
+import { type TimeOffItemRequestBuilderGetRequestConfiguration } from './timeOffItemRequestBuilderGetRequestConfiguration';
+import { type TimeOffItemRequestBuilderPatchRequestConfiguration } from './timeOffItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the timesOff property of the microsoft.graph.schedule entity.

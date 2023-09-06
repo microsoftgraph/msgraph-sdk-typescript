@@ -1,19 +1,18 @@
-import {EmailAuthenticationMethodCollectionResponse} from '../../../models/';
-import {createEmailAuthenticationMethodCollectionResponseFromDiscriminatorValue} from '../../../models/createEmailAuthenticationMethodCollectionResponseFromDiscriminatorValue';
-import {createEmailAuthenticationMethodFromDiscriminatorValue} from '../../../models/createEmailAuthenticationMethodFromDiscriminatorValue';
-import {deserializeIntoEmailAuthenticationMethod} from '../../../models/deserializeIntoEmailAuthenticationMethod';
-import type {EmailAuthenticationMethod} from '../../../models/emailAuthenticationMethod';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeEmailAuthenticationMethod} from '../../../models/serializeEmailAuthenticationMethod';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EmailMethodsRequestBuilderGetRequestConfiguration} from './emailMethodsRequestBuilderGetRequestConfiguration';
-import {EmailMethodsRequestBuilderPostRequestConfiguration} from './emailMethodsRequestBuilderPostRequestConfiguration';
-import {EmailAuthenticationMethodItemRequestBuilder} from './item/emailAuthenticationMethodItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type EmailAuthenticationMethodCollectionResponse } from '../../../models/';
+import { createEmailAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../models/createEmailAuthenticationMethodCollectionResponseFromDiscriminatorValue';
+import { createEmailAuthenticationMethodFromDiscriminatorValue } from '../../../models/createEmailAuthenticationMethodFromDiscriminatorValue';
+import { deserializeIntoEmailAuthenticationMethod } from '../../../models/deserializeIntoEmailAuthenticationMethod';
+import { type EmailAuthenticationMethod } from '../../../models/emailAuthenticationMethod';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeEmailAuthenticationMethod } from '../../../models/serializeEmailAuthenticationMethod';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type EmailMethodsRequestBuilderGetRequestConfiguration } from './emailMethodsRequestBuilderGetRequestConfiguration';
+import { type EmailMethodsRequestBuilderPostRequestConfiguration } from './emailMethodsRequestBuilderPostRequestConfiguration';
+import { EmailAuthenticationMethodItemRequestBuilder } from './item/emailAuthenticationMethodItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.

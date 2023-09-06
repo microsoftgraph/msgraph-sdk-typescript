@@ -1,5 +1,5 @@
-import {PrinterRequestBuilderGetQueryParameters} from './printerRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PrinterRequestBuilderGetQueryParameters } from './printerRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PrinterRequestBuilderGetRequestConfiguration {
     /**

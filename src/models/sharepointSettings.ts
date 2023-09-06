@@ -1,10 +1,10 @@
-import type {Entity} from './entity';
-import type {IdleSessionSignOut} from './idleSessionSignOut';
-import {ImageTaggingChoice} from './imageTaggingChoice';
-import {SharingCapabilities} from './sharingCapabilities';
-import {SharingDomainRestrictionMode} from './sharingDomainRestrictionMode';
-import type {Parsable} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type Entity } from './entity';
+import { type IdleSessionSignOut } from './idleSessionSignOut';
+import { ImageTaggingChoice } from './imageTaggingChoice';
+import { SharingCapabilities } from './sharingCapabilities';
+import { SharingDomainRestrictionMode } from './sharingDomainRestrictionMode';
+import { type Parsable } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export interface SharepointSettings extends Entity, Parsable {
     /**

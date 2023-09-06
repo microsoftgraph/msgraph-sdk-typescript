@@ -1,24 +1,24 @@
-import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createListFromDiscriminatorValue} from './createListFromDiscriminatorValue';
-import {createQuotaFromDiscriminatorValue} from './createQuotaFromDiscriminatorValue';
-import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
-import {createSystemFacetFromDiscriminatorValue} from './createSystemFacetFromDiscriminatorValue';
-import {deserializeIntoBaseItem} from './deserializeIntoBaseItem';
-import type {Drive} from './drive';
-import type {DriveItem} from './driveItem';
-import type {IdentitySet} from './identitySet';
-import type {List} from './list';
-import type {Quota} from './quota';
-import {serializeDriveItem} from './serializeDriveItem';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeList} from './serializeList';
-import {serializeQuota} from './serializeQuota';
-import {serializeSharepointIds} from './serializeSharepointIds';
-import {serializeSystemFacet} from './serializeSystemFacet';
-import type {SharepointIds} from './sharepointIds';
-import type {SystemFacet} from './systemFacet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDriveItemFromDiscriminatorValue } from './createDriveItemFromDiscriminatorValue';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { createListFromDiscriminatorValue } from './createListFromDiscriminatorValue';
+import { createQuotaFromDiscriminatorValue } from './createQuotaFromDiscriminatorValue';
+import { createSharepointIdsFromDiscriminatorValue } from './createSharepointIdsFromDiscriminatorValue';
+import { createSystemFacetFromDiscriminatorValue } from './createSystemFacetFromDiscriminatorValue';
+import { deserializeIntoBaseItem } from './deserializeIntoBaseItem';
+import { type Drive } from './drive';
+import { type DriveItem } from './driveItem';
+import { type IdentitySet } from './identitySet';
+import { type List } from './list';
+import { type Quota } from './quota';
+import { serializeDriveItem } from './serializeDriveItem';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeList } from './serializeList';
+import { serializeQuota } from './serializeQuota';
+import { serializeSharepointIds } from './serializeSharepointIds';
+import { serializeSystemFacet } from './serializeSystemFacet';
+import { type SharepointIds } from './sharepointIds';
+import { type SystemFacet } from './systemFacet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDrive(drive: Drive | undefined = {} as Drive) : Record<string, (node: ParseNode) => void> {
     return {

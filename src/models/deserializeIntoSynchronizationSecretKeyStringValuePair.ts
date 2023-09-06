@@ -1,6 +1,6 @@
-import {SynchronizationSecret} from './synchronizationSecret';
-import type {SynchronizationSecretKeyStringValuePair} from './synchronizationSecretKeyStringValuePair';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { SynchronizationSecret } from './synchronizationSecret';
+import { type SynchronizationSecretKeyStringValuePair } from './synchronizationSecretKeyStringValuePair';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronizationSecretKeyStringValuePair(synchronizationSecretKeyStringValuePair: SynchronizationSecretKeyStringValuePair | undefined = {} as SynchronizationSecretKeyStringValuePair) : Record<string, (node: ParseNode) => void> {
     return {

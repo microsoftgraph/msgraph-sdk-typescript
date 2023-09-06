@@ -1,16 +1,16 @@
-import type {PrintDocument} from './printDocument';
-import type {PrintJob} from './printJob';
-import type {PrintJobConfiguration} from './printJobConfiguration';
-import type {PrintJobStatus} from './printJobStatus';
-import type {PrintTask} from './printTask';
-import {serializeEntity} from './serializeEntity';
-import {serializePrintDocument} from './serializePrintDocument';
-import {serializePrintJobConfiguration} from './serializePrintJobConfiguration';
-import {serializePrintJobStatus} from './serializePrintJobStatus';
-import {serializePrintTask} from './serializePrintTask';
-import {serializeUserIdentity} from './serializeUserIdentity';
-import type {UserIdentity} from './userIdentity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PrintDocument } from './printDocument';
+import { type PrintJob } from './printJob';
+import { type PrintJobConfiguration } from './printJobConfiguration';
+import { type PrintJobStatus } from './printJobStatus';
+import { type PrintTask } from './printTask';
+import { serializeEntity } from './serializeEntity';
+import { serializePrintDocument } from './serializePrintDocument';
+import { serializePrintJobConfiguration } from './serializePrintJobConfiguration';
+import { serializePrintJobStatus } from './serializePrintJobStatus';
+import { serializePrintTask } from './serializePrintTask';
+import { serializeUserIdentity } from './serializeUserIdentity';
+import { type UserIdentity } from './userIdentity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePrintJob(writer: SerializationWriter, printJob: PrintJob | undefined = {} as PrintJob) : void {
         serializeEntity(writer, printJob)

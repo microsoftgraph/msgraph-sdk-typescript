@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import type {WorkbookChartPoint} from './workbookChartPoint';
-import type {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type WorkbookChartPoint } from './workbookChartPoint';
+import { type WorkbookChartSeriesFormat } from './workbookChartSeriesFormat';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartSeries extends Entity, Parsable {
     /**

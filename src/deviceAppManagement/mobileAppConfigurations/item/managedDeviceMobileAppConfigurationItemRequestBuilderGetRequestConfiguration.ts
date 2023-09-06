@@ -1,5 +1,5 @@
-import {ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters} from './managedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters } from './managedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ManagedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,6 +1,6 @@
-import type {DomainDnsCnameRecord} from './domainDnsCnameRecord';
-import {serializeDomainDnsRecord} from './serializeDomainDnsRecord';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DomainDnsCnameRecord } from './domainDnsCnameRecord';
+import { serializeDomainDnsRecord } from './serializeDomainDnsRecord';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDomainDnsCnameRecord(writer: SerializationWriter, domainDnsCnameRecord: DomainDnsCnameRecord | undefined = {} as DomainDnsCnameRecord) : void {
         serializeDomainDnsRecord(writer, domainDnsCnameRecord)

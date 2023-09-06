@@ -1,5 +1,5 @@
-import type {MailTipsError} from './mailTipsError';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MailTipsError } from './mailTipsError';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMailTipsError(writer: SerializationWriter, mailTipsError: MailTipsError | undefined = {} as MailTipsError) : void {
         writer.writeStringValue("code", mailTipsError.code);

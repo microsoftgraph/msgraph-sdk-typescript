@@ -1,6 +1,6 @@
-import {deserializeIntoContainerImageEvidence} from './deserializeIntoContainerImageEvidence';
-import {ContainerImageEvidence} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoContainerImageEvidence } from './deserializeIntoContainerImageEvidence';
+import { type ContainerImageEvidence } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createContainerImageEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

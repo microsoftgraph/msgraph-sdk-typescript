@@ -1,18 +1,18 @@
-import {deserializeIntoEmailIdentity} from './deserializeIntoEmailIdentity';
-import {deserializeIntoIdentity} from './deserializeIntoIdentity';
-import {deserializeIntoInitiator} from './deserializeIntoInitiator';
-import {deserializeIntoProvisionedIdentity} from './deserializeIntoProvisionedIdentity';
-import {deserializeIntoProvisioningServicePrincipal} from './deserializeIntoProvisioningServicePrincipal';
-import {deserializeIntoProvisioningSystem} from './deserializeIntoProvisioningSystem';
-import {deserializeIntoServicePrincipalIdentity} from './deserializeIntoServicePrincipalIdentity';
-import {deserializeIntoSharePointIdentity} from './deserializeIntoSharePointIdentity';
-import {deserializeIntoTeamworkApplicationIdentity} from './deserializeIntoTeamworkApplicationIdentity';
-import {deserializeIntoTeamworkConversationIdentity} from './deserializeIntoTeamworkConversationIdentity';
-import {deserializeIntoTeamworkTagIdentity} from './deserializeIntoTeamworkTagIdentity';
-import {deserializeIntoTeamworkUserIdentity} from './deserializeIntoTeamworkUserIdentity';
-import {deserializeIntoUserIdentity} from './deserializeIntoUserIdentity';
-import {EmailIdentity, Identity, Initiator, ProvisionedIdentity, ProvisioningServicePrincipal, ProvisioningSystem, ServicePrincipalIdentity, SharePointIdentity, TeamworkApplicationIdentity, TeamworkConversationIdentity, TeamworkTagIdentity, TeamworkUserIdentity, UserIdentity} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEmailIdentity } from './deserializeIntoEmailIdentity';
+import { deserializeIntoIdentity } from './deserializeIntoIdentity';
+import { deserializeIntoInitiator } from './deserializeIntoInitiator';
+import { deserializeIntoProvisionedIdentity } from './deserializeIntoProvisionedIdentity';
+import { deserializeIntoProvisioningServicePrincipal } from './deserializeIntoProvisioningServicePrincipal';
+import { deserializeIntoProvisioningSystem } from './deserializeIntoProvisioningSystem';
+import { deserializeIntoServicePrincipalIdentity } from './deserializeIntoServicePrincipalIdentity';
+import { deserializeIntoSharePointIdentity } from './deserializeIntoSharePointIdentity';
+import { deserializeIntoTeamworkApplicationIdentity } from './deserializeIntoTeamworkApplicationIdentity';
+import { deserializeIntoTeamworkConversationIdentity } from './deserializeIntoTeamworkConversationIdentity';
+import { deserializeIntoTeamworkTagIdentity } from './deserializeIntoTeamworkTagIdentity';
+import { deserializeIntoTeamworkUserIdentity } from './deserializeIntoTeamworkUserIdentity';
+import { deserializeIntoUserIdentity } from './deserializeIntoUserIdentity';
+import { type EmailIdentity, type Identity, type Initiator, type ProvisionedIdentity, type ProvisioningServicePrincipal, type ProvisioningSystem, type ServicePrincipalIdentity, type SharePointIdentity, type TeamworkApplicationIdentity, type TeamworkConversationIdentity, type TeamworkTagIdentity, type TeamworkUserIdentity, type UserIdentity } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

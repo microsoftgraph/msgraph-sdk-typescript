@@ -1,14 +1,14 @@
-import type {EmailIdentity} from './emailIdentity';
-import {PayloadDeliveryPlatform} from './payloadDeliveryPlatform';
-import {serializeEmailIdentity} from './serializeEmailIdentity';
-import {serializeEntity} from './serializeEntity';
-import {serializeSimulationReport} from './serializeSimulationReport';
-import type {Simulation} from './simulation';
-import {SimulationAttackTechnique} from './simulationAttackTechnique';
-import {SimulationAttackType} from './simulationAttackType';
-import type {SimulationReport} from './simulationReport';
-import {SimulationStatus} from './simulationStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EmailIdentity } from './emailIdentity';
+import { PayloadDeliveryPlatform } from './payloadDeliveryPlatform';
+import { serializeEmailIdentity } from './serializeEmailIdentity';
+import { serializeEntity } from './serializeEntity';
+import { serializeSimulationReport } from './serializeSimulationReport';
+import { type Simulation } from './simulation';
+import { SimulationAttackTechnique } from './simulationAttackTechnique';
+import { SimulationAttackType } from './simulationAttackType';
+import { type SimulationReport } from './simulationReport';
+import { SimulationStatus } from './simulationStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSimulation(writer: SerializationWriter, simulation: Simulation | undefined = {} as Simulation) : void {
         serializeEntity(writer, simulation)

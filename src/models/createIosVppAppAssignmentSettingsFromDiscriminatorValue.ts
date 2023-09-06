@@ -1,6 +1,6 @@
-import {deserializeIntoIosVppAppAssignmentSettings} from './deserializeIntoIosVppAppAssignmentSettings';
-import {IosVppAppAssignmentSettings} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIosVppAppAssignmentSettings } from './deserializeIntoIosVppAppAssignmentSettings';
+import { type IosVppAppAssignmentSettings } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIosVppAppAssignmentSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

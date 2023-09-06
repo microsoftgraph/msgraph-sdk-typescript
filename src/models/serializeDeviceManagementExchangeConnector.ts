@@ -1,8 +1,8 @@
-import type {DeviceManagementExchangeConnector} from './deviceManagementExchangeConnector';
-import {DeviceManagementExchangeConnectorStatus} from './deviceManagementExchangeConnectorStatus';
-import {DeviceManagementExchangeConnectorType} from './deviceManagementExchangeConnectorType';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceManagementExchangeConnector } from './deviceManagementExchangeConnector';
+import { DeviceManagementExchangeConnectorStatus } from './deviceManagementExchangeConnectorStatus';
+import { DeviceManagementExchangeConnectorType } from './deviceManagementExchangeConnectorType';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceManagementExchangeConnector(writer: SerializationWriter, deviceManagementExchangeConnector: DeviceManagementExchangeConnector | undefined = {} as DeviceManagementExchangeConnector) : void {
         serializeEntity(writer, deviceManagementExchangeConnector)

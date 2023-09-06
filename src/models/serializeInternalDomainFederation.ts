@@ -1,10 +1,10 @@
-import {FederatedIdpMfaBehavior} from './federatedIdpMfaBehavior';
-import type {InternalDomainFederation} from './internalDomainFederation';
-import {PromptLoginBehavior} from './promptLoginBehavior';
-import {serializeSamlOrWsFedProvider} from './serializeSamlOrWsFedProvider';
-import {serializeSigningCertificateUpdateStatus} from './serializeSigningCertificateUpdateStatus';
-import type {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { FederatedIdpMfaBehavior } from './federatedIdpMfaBehavior';
+import { type InternalDomainFederation } from './internalDomainFederation';
+import { PromptLoginBehavior } from './promptLoginBehavior';
+import { serializeSamlOrWsFedProvider } from './serializeSamlOrWsFedProvider';
+import { serializeSigningCertificateUpdateStatus } from './serializeSigningCertificateUpdateStatus';
+import { type SigningCertificateUpdateStatus } from './signingCertificateUpdateStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeInternalDomainFederation(writer: SerializationWriter, internalDomainFederation: InternalDomainFederation | undefined = {} as InternalDomainFederation) : void {
         serializeSamlOrWsFedProvider(writer, internalDomainFederation)

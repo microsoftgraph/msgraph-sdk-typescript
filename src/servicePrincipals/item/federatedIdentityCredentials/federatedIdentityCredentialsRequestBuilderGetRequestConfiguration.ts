@@ -1,5 +1,5 @@
-import {FederatedIdentityCredentialsRequestBuilderGetQueryParameters} from './federatedIdentityCredentialsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type FederatedIdentityCredentialsRequestBuilderGetQueryParameters } from './federatedIdentityCredentialsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration {
     /**

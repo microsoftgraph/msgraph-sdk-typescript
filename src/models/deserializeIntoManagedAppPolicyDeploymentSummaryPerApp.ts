@@ -1,8 +1,8 @@
-import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileAppIdentifierFromDiscriminatorValue';
-import type {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
-import type {MobileAppIdentifier} from './mobileAppIdentifier';
-import {serializeMobileAppIdentifier} from './serializeMobileAppIdentifier';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createMobileAppIdentifierFromDiscriminatorValue } from './createMobileAppIdentifierFromDiscriminatorValue';
+import { type ManagedAppPolicyDeploymentSummaryPerApp } from './managedAppPolicyDeploymentSummaryPerApp';
+import { type MobileAppIdentifier } from './mobileAppIdentifier';
+import { serializeMobileAppIdentifier } from './serializeMobileAppIdentifier';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAppPolicyDeploymentSummaryPerApp(managedAppPolicyDeploymentSummaryPerApp: ManagedAppPolicyDeploymentSummaryPerApp | undefined = {} as ManagedAppPolicyDeploymentSummaryPerApp) : Record<string, (node: ParseNode) => void> {
     return {

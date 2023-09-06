@@ -1,19 +1,18 @@
-import {ConversationCollectionResponse} from '../../../models/';
-import type {Conversation} from '../../../models/conversation';
-import {createConversationCollectionResponseFromDiscriminatorValue} from '../../../models/createConversationCollectionResponseFromDiscriminatorValue';
-import {createConversationFromDiscriminatorValue} from '../../../models/createConversationFromDiscriminatorValue';
-import {deserializeIntoConversation} from '../../../models/deserializeIntoConversation';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeConversation} from '../../../models/serializeConversation';
-import {ConversationsRequestBuilderGetRequestConfiguration} from './conversationsRequestBuilderGetRequestConfiguration';
-import {ConversationsRequestBuilderPostRequestConfiguration} from './conversationsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ConversationItemRequestBuilder} from './item/conversationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConversationCollectionResponse } from '../../../models/';
+import { type Conversation } from '../../../models/conversation';
+import { createConversationCollectionResponseFromDiscriminatorValue } from '../../../models/createConversationCollectionResponseFromDiscriminatorValue';
+import { createConversationFromDiscriminatorValue } from '../../../models/createConversationFromDiscriminatorValue';
+import { deserializeIntoConversation } from '../../../models/deserializeIntoConversation';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeConversation } from '../../../models/serializeConversation';
+import { type ConversationsRequestBuilderGetRequestConfiguration } from './conversationsRequestBuilderGetRequestConfiguration';
+import { type ConversationsRequestBuilderPostRequestConfiguration } from './conversationsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ConversationItemRequestBuilder } from './item/conversationItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conversations property of the microsoft.graph.group entity.
@@ -61,11 +60,11 @@ export class ConversationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationCollectionResponse>(requestInfo, createConversationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. The table in the Permissions section lists the resources that support open extensions.
+     * Use reply thread or reply post to further post to that conversation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Conversation
-     * @see {@link https://learn.microsoft.com/graph/api/opentypeextension-post-opentypeextension?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-post-conversations?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Conversation, requestConfiguration?: ConversationsRequestBuilderPostRequestConfiguration | undefined) : Promise<Conversation | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -96,7 +95,7 @@ export class ConversationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. The table in the Permissions section lists the resources that support open extensions.
+     * Use reply thread or reply post to further post to that conversation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

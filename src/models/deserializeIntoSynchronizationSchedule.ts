@@ -1,7 +1,6 @@
-import type {SynchronizationSchedule} from './synchronizationSchedule';
-import {SynchronizationScheduleState} from './synchronizationScheduleState';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SynchronizationSchedule } from './synchronizationSchedule';
+import { SynchronizationScheduleState } from './synchronizationScheduleState';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronizationSchedule(synchronizationSchedule: SynchronizationSchedule | undefined = {} as SynchronizationSchedule) : Record<string, (node: ParseNode) => void> {
     return {

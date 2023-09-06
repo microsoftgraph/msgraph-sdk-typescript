@@ -1,7 +1,7 @@
-import {deserializeIntoOnenoteOperation} from './deserializeIntoOnenoteOperation';
-import {deserializeIntoOperation} from './deserializeIntoOperation';
-import {OnenoteOperation, Operation} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoOnenoteOperation } from './deserializeIntoOnenoteOperation';
+import { deserializeIntoOperation } from './deserializeIntoOperation';
+import { type OnenoteOperation, type Operation } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

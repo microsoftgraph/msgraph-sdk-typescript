@@ -1,21 +1,20 @@
-import type {AccessPackageCatalog} from '../../../../../models/accessPackageCatalog';
-import {createAccessPackageCatalogFromDiscriminatorValue} from '../../../../../models/createAccessPackageCatalogFromDiscriminatorValue';
-import {deserializeIntoAccessPackageCatalog} from '../../../../../models/deserializeIntoAccessPackageCatalog';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackageCatalog} from '../../../../../models/serializeAccessPackageCatalog';
-import {AccessPackagesRequestBuilder} from './accessPackages/accessPackagesRequestBuilder';
-import {CatalogRequestBuilderDeleteRequestConfiguration} from './catalogRequestBuilderDeleteRequestConfiguration';
-import {CatalogRequestBuilderGetRequestConfiguration} from './catalogRequestBuilderGetRequestConfiguration';
-import {CatalogRequestBuilderPatchRequestConfiguration} from './catalogRequestBuilderPatchRequestConfiguration';
-import {CustomWorkflowExtensionsRequestBuilder} from './customWorkflowExtensions/customWorkflowExtensionsRequestBuilder';
-import {ResourceRolesRequestBuilder} from './resourceRoles/resourceRolesRequestBuilder';
-import {ResourceScopesRequestBuilder} from './resourceScopes/resourceScopesRequestBuilder';
-import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageCatalog } from '../../../../../models/accessPackageCatalog';
+import { createAccessPackageCatalogFromDiscriminatorValue } from '../../../../../models/createAccessPackageCatalogFromDiscriminatorValue';
+import { deserializeIntoAccessPackageCatalog } from '../../../../../models/deserializeIntoAccessPackageCatalog';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackageCatalog } from '../../../../../models/serializeAccessPackageCatalog';
+import { AccessPackagesRequestBuilder } from './accessPackages/accessPackagesRequestBuilder';
+import { type CatalogRequestBuilderDeleteRequestConfiguration } from './catalogRequestBuilderDeleteRequestConfiguration';
+import { type CatalogRequestBuilderGetRequestConfiguration } from './catalogRequestBuilderGetRequestConfiguration';
+import { type CatalogRequestBuilderPatchRequestConfiguration } from './catalogRequestBuilderPatchRequestConfiguration';
+import { CustomWorkflowExtensionsRequestBuilder } from './customWorkflowExtensions/customWorkflowExtensionsRequestBuilder';
+import { ResourceRolesRequestBuilder } from './resourceRoles/resourceRolesRequestBuilder';
+import { ResourcesRequestBuilder } from './resources/resourcesRequestBuilder';
+import { ResourceScopesRequestBuilder } from './resourceScopes/resourceScopesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalog property of the microsoft.graph.accessPackageResourceRequest entity.

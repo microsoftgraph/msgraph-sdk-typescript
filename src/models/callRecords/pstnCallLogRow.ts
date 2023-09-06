@@ -1,5 +1,5 @@
-import {PstnCallDurationSource} from './pstnCallDurationSource';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { PstnCallDurationSource } from './pstnCallDurationSource';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PstnCallLogRow extends AdditionalDataHolder, Parsable {
     /**

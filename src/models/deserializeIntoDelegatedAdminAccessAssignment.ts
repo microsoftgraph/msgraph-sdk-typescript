@@ -1,13 +1,13 @@
-import {createDelegatedAdminAccessContainerFromDiscriminatorValue} from './createDelegatedAdminAccessContainerFromDiscriminatorValue';
-import {createDelegatedAdminAccessDetailsFromDiscriminatorValue} from './createDelegatedAdminAccessDetailsFromDiscriminatorValue';
-import type {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
-import {DelegatedAdminAccessAssignmentStatus} from './delegatedAdminAccessAssignmentStatus';
-import type {DelegatedAdminAccessContainer} from './delegatedAdminAccessContainer';
-import type {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeDelegatedAdminAccessContainer} from './serializeDelegatedAdminAccessContainer';
-import {serializeDelegatedAdminAccessDetails} from './serializeDelegatedAdminAccessDetails';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDelegatedAdminAccessContainerFromDiscriminatorValue } from './createDelegatedAdminAccessContainerFromDiscriminatorValue';
+import { createDelegatedAdminAccessDetailsFromDiscriminatorValue } from './createDelegatedAdminAccessDetailsFromDiscriminatorValue';
+import { type DelegatedAdminAccessAssignment } from './delegatedAdminAccessAssignment';
+import { DelegatedAdminAccessAssignmentStatus } from './delegatedAdminAccessAssignmentStatus';
+import { type DelegatedAdminAccessContainer } from './delegatedAdminAccessContainer';
+import { type DelegatedAdminAccessDetails } from './delegatedAdminAccessDetails';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeDelegatedAdminAccessContainer } from './serializeDelegatedAdminAccessContainer';
+import { serializeDelegatedAdminAccessDetails } from './serializeDelegatedAdminAccessDetails';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDelegatedAdminAccessAssignment(delegatedAdminAccessAssignment: DelegatedAdminAccessAssignment | undefined = {} as DelegatedAdminAccessAssignment) : Record<string, (node: ParseNode) => void> {
     return {

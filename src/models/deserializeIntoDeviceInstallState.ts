@@ -1,7 +1,7 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DeviceInstallState} from './deviceInstallState';
-import {InstallState} from './installState';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DeviceInstallState } from './deviceInstallState';
+import { InstallState } from './installState';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceInstallState(deviceInstallState: DeviceInstallState | undefined = {} as DeviceInstallState) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,9 +1,9 @@
-import type {AutonomousSystem} from './autonomousSystem';
-import {createAutonomousSystemFromDiscriminatorValue} from './createAutonomousSystemFromDiscriminatorValue';
-import {deserializeIntoHost} from './deserializeIntoHost';
-import type {IpAddress} from './ipAddress';
-import {serializeAutonomousSystem} from './serializeAutonomousSystem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AutonomousSystem } from './autonomousSystem';
+import { createAutonomousSystemFromDiscriminatorValue } from './createAutonomousSystemFromDiscriminatorValue';
+import { deserializeIntoHost } from './deserializeIntoHost';
+import { type IpAddress } from './ipAddress';
+import { serializeAutonomousSystem } from './serializeAutonomousSystem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIpAddress(ipAddress: IpAddress | undefined = {} as IpAddress) : Record<string, (node: ParseNode) => void> {
     return {

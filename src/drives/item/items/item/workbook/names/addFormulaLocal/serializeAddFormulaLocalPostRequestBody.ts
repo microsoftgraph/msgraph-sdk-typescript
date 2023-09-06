@@ -1,5 +1,5 @@
-import type {AddFormulaLocalPostRequestBody} from './addFormulaLocalPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AddFormulaLocalPostRequestBody } from './addFormulaLocalPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAddFormulaLocalPostRequestBody(writer: SerializationWriter, addFormulaLocalPostRequestBody: AddFormulaLocalPostRequestBody | undefined = {} as AddFormulaLocalPostRequestBody) : void {
         writer.writeStringValue("comment", addFormulaLocalPostRequestBody.comment);

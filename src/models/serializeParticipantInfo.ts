@@ -1,8 +1,8 @@
-import {EndpointType} from './endpointType';
-import type {IdentitySet} from './identitySet';
-import type {ParticipantInfo} from './participantInfo';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { EndpointType } from './endpointType';
+import { type IdentitySet } from './identitySet';
+import { type ParticipantInfo } from './participantInfo';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeParticipantInfo(writer: SerializationWriter, participantInfo: ParticipantInfo | undefined = {} as ParticipantInfo) : void {
         writer.writeStringValue("countryCode", participantInfo.countryCode);

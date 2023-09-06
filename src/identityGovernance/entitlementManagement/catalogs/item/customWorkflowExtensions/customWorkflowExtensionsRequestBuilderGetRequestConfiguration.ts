@@ -1,5 +1,5 @@
-import {CustomWorkflowExtensionsRequestBuilderGetQueryParameters} from './customWorkflowExtensionsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CustomWorkflowExtensionsRequestBuilderGetQueryParameters } from './customWorkflowExtensionsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CustomWorkflowExtensionsRequestBuilderGetRequestConfiguration {
     /**

@@ -1,9 +1,9 @@
-import {serializeEntity} from '../serializeEntity';
-import type {Group} from './group';
-import {serializeSet} from './serializeSet';
-import type {Set} from './set';
-import {TermGroupScope} from './termGroupScope';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from '../serializeEntity';
+import { type Group } from './group';
+import { serializeSet } from './serializeSet';
+import { type Set } from './set';
+import { TermGroupScope } from './termGroupScope';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeGroup(writer: SerializationWriter, group: Group | undefined = {} as Group) : void {
         serializeEntity(writer, group)

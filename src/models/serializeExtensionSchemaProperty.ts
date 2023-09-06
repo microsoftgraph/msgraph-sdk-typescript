@@ -1,5 +1,5 @@
-import type {ExtensionSchemaProperty} from './extensionSchemaProperty';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ExtensionSchemaProperty } from './extensionSchemaProperty';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeExtensionSchemaProperty(writer: SerializationWriter, extensionSchemaProperty: ExtensionSchemaProperty | undefined = {} as ExtensionSchemaProperty) : void {
         writer.writeStringValue("name", extensionSchemaProperty.name);

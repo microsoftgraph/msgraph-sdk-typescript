@@ -1,5 +1,5 @@
-import type {SynchronizationProgress} from './synchronizationProgress';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SynchronizationProgress } from './synchronizationProgress';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronizationProgress(synchronizationProgress: SynchronizationProgress | undefined = {} as SynchronizationProgress) : Record<string, (node: ParseNode) => void> {
     return {

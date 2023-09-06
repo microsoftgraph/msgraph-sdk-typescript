@@ -1,19 +1,18 @@
-import {WindowsInformationProtectionAppLockerFileCollectionResponse} from '../../../../models/';
-import {createWindowsInformationProtectionAppLockerFileCollectionResponseFromDiscriminatorValue} from '../../../../models/createWindowsInformationProtectionAppLockerFileCollectionResponseFromDiscriminatorValue';
-import {createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue} from '../../../../models/createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue';
-import {deserializeIntoWindowsInformationProtectionAppLockerFile} from '../../../../models/deserializeIntoWindowsInformationProtectionAppLockerFile';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeWindowsInformationProtectionAppLockerFile} from '../../../../models/serializeWindowsInformationProtectionAppLockerFile';
-import type {WindowsInformationProtectionAppLockerFile} from '../../../../models/windowsInformationProtectionAppLockerFile';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WindowsInformationProtectionAppLockerFileItemRequestBuilder} from './item/windowsInformationProtectionAppLockerFileItemRequestBuilder';
-import {ProtectedAppLockerFilesRequestBuilderGetRequestConfiguration} from './protectedAppLockerFilesRequestBuilderGetRequestConfiguration';
-import {ProtectedAppLockerFilesRequestBuilderPostRequestConfiguration} from './protectedAppLockerFilesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WindowsInformationProtectionAppLockerFileCollectionResponse } from '../../../../models/';
+import { createWindowsInformationProtectionAppLockerFileCollectionResponseFromDiscriminatorValue } from '../../../../models/createWindowsInformationProtectionAppLockerFileCollectionResponseFromDiscriminatorValue';
+import { createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue } from '../../../../models/createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue';
+import { deserializeIntoWindowsInformationProtectionAppLockerFile } from '../../../../models/deserializeIntoWindowsInformationProtectionAppLockerFile';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeWindowsInformationProtectionAppLockerFile } from '../../../../models/serializeWindowsInformationProtectionAppLockerFile';
+import { type WindowsInformationProtectionAppLockerFile } from '../../../../models/windowsInformationProtectionAppLockerFile';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WindowsInformationProtectionAppLockerFileItemRequestBuilder } from './item/windowsInformationProtectionAppLockerFileItemRequestBuilder';
+import { type ProtectedAppLockerFilesRequestBuilderGetRequestConfiguration } from './protectedAppLockerFilesRequestBuilderGetRequestConfiguration';
+import { type ProtectedAppLockerFilesRequestBuilderPostRequestConfiguration } from './protectedAppLockerFilesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.

@@ -1,14 +1,14 @@
-import {deserializeIntoArtifact} from './deserializeIntoArtifact';
-import {deserializeIntoHost} from './deserializeIntoHost';
-import {deserializeIntoHostComponent} from './deserializeIntoHostComponent';
-import {deserializeIntoHostCookie} from './deserializeIntoHostCookie';
-import {deserializeIntoHostTracker} from './deserializeIntoHostTracker';
-import {deserializeIntoHostname} from './deserializeIntoHostname';
-import {deserializeIntoIpAddress} from './deserializeIntoIpAddress';
-import {deserializeIntoPassiveDnsRecord} from './deserializeIntoPassiveDnsRecord';
-import {deserializeIntoUnclassifiedArtifact} from './deserializeIntoUnclassifiedArtifact';
-import {Artifact, Host, HostComponent, HostCookie, HostTracker, Hostname, IpAddress, PassiveDnsRecord, UnclassifiedArtifact} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoArtifact } from './deserializeIntoArtifact';
+import { deserializeIntoHost } from './deserializeIntoHost';
+import { deserializeIntoHostComponent } from './deserializeIntoHostComponent';
+import { deserializeIntoHostCookie } from './deserializeIntoHostCookie';
+import { deserializeIntoHostname } from './deserializeIntoHostname';
+import { deserializeIntoHostTracker } from './deserializeIntoHostTracker';
+import { deserializeIntoIpAddress } from './deserializeIntoIpAddress';
+import { deserializeIntoPassiveDnsRecord } from './deserializeIntoPassiveDnsRecord';
+import { deserializeIntoUnclassifiedArtifact } from './deserializeIntoUnclassifiedArtifact';
+import { type Artifact, type Host, type HostComponent, type HostCookie, type Hostname, type HostTracker, type IpAddress, type PassiveDnsRecord, type UnclassifiedArtifact } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createArtifactFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

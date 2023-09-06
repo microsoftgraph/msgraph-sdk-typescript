@@ -1,5 +1,5 @@
-import type {AverageComparativeScore} from './averageComparativeScore';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AverageComparativeScore } from './averageComparativeScore';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAverageComparativeScore(averageComparativeScore: AverageComparativeScore | undefined = {} as AverageComparativeScore) : Record<string, (node: ParseNode) => void> {
     return {

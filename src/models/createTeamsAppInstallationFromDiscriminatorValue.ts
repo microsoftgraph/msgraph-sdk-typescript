@@ -1,7 +1,7 @@
-import {deserializeIntoTeamsAppInstallation} from './deserializeIntoTeamsAppInstallation';
-import {deserializeIntoUserScopeTeamsAppInstallation} from './deserializeIntoUserScopeTeamsAppInstallation';
-import {TeamsAppInstallation, UserScopeTeamsAppInstallation} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoTeamsAppInstallation } from './deserializeIntoTeamsAppInstallation';
+import { deserializeIntoUserScopeTeamsAppInstallation } from './deserializeIntoUserScopeTeamsAppInstallation';
+import { type TeamsAppInstallation, type UserScopeTeamsAppInstallation } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTeamsAppInstallationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

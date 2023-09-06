@@ -1,19 +1,18 @@
-import {ShiftCollectionResponse} from '../../../../../../models/';
-import {createShiftCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createShiftCollectionResponseFromDiscriminatorValue';
-import {createShiftFromDiscriminatorValue} from '../../../../../../models/createShiftFromDiscriminatorValue';
-import {deserializeIntoShift} from '../../../../../../models/deserializeIntoShift';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeShift} from '../../../../../../models/serializeShift';
-import type {Shift} from '../../../../../../models/shift';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ShiftItemRequestBuilder} from './item/shiftItemRequestBuilder';
-import {ShiftsRequestBuilderGetRequestConfiguration} from './shiftsRequestBuilderGetRequestConfiguration';
-import {ShiftsRequestBuilderPostRequestConfiguration} from './shiftsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ShiftCollectionResponse } from '../../../../../../models/';
+import { createShiftCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createShiftCollectionResponseFromDiscriminatorValue';
+import { createShiftFromDiscriminatorValue } from '../../../../../../models/createShiftFromDiscriminatorValue';
+import { deserializeIntoShift } from '../../../../../../models/deserializeIntoShift';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeShift } from '../../../../../../models/serializeShift';
+import { type Shift } from '../../../../../../models/shift';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ShiftItemRequestBuilder } from './item/shiftItemRequestBuilder';
+import { type ShiftsRequestBuilderGetRequestConfiguration } from './shiftsRequestBuilderGetRequestConfiguration';
+import { type ShiftsRequestBuilderPostRequestConfiguration } from './shiftsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.

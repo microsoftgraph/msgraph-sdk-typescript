@@ -1,6 +1,6 @@
-import type {CustomCalloutExtension} from './customCalloutExtension';
-import type {CustomExtensionCallbackConfiguration} from './customExtensionCallbackConfiguration';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type CustomCalloutExtension } from './customCalloutExtension';
+import { type CustomExtensionCallbackConfiguration } from './customExtensionCallbackConfiguration';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentWorkflowExtension extends CustomCalloutExtension, Parsable {
     /**

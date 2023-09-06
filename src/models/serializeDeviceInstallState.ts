@@ -1,7 +1,7 @@
-import type {DeviceInstallState} from './deviceInstallState';
-import {InstallState} from './installState';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceInstallState } from './deviceInstallState';
+import { InstallState } from './installState';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceInstallState(writer: SerializationWriter, deviceInstallState: DeviceInstallState | undefined = {} as DeviceInstallState) : void {
         serializeEntity(writer, deviceInstallState)

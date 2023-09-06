@@ -1,13 +1,13 @@
-import {deserializeIntoAndroidLobApp} from './deserializeIntoAndroidLobApp';
-import {deserializeIntoIosLobApp} from './deserializeIntoIosLobApp';
-import {deserializeIntoMacOSLobApp} from './deserializeIntoMacOSLobApp';
-import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
-import {deserializeIntoWin32LobApp} from './deserializeIntoWin32LobApp';
-import {deserializeIntoWindowsAppX} from './deserializeIntoWindowsAppX';
-import {deserializeIntoWindowsMobileMSI} from './deserializeIntoWindowsMobileMSI';
-import {deserializeIntoWindowsUniversalAppX} from './deserializeIntoWindowsUniversalAppX';
-import {AndroidLobApp, IosLobApp, MacOSLobApp, MobileLobApp, Win32LobApp, WindowsAppX, WindowsMobileMSI, WindowsUniversalAppX} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAndroidLobApp } from './deserializeIntoAndroidLobApp';
+import { deserializeIntoIosLobApp } from './deserializeIntoIosLobApp';
+import { deserializeIntoMacOSLobApp } from './deserializeIntoMacOSLobApp';
+import { deserializeIntoMobileLobApp } from './deserializeIntoMobileLobApp';
+import { deserializeIntoWin32LobApp } from './deserializeIntoWin32LobApp';
+import { deserializeIntoWindowsAppX } from './deserializeIntoWindowsAppX';
+import { deserializeIntoWindowsMobileMSI } from './deserializeIntoWindowsMobileMSI';
+import { deserializeIntoWindowsUniversalAppX } from './deserializeIntoWindowsUniversalAppX';
+import { type AndroidLobApp, type IosLobApp, type MacOSLobApp, type MobileLobApp, type Win32LobApp, type WindowsAppX, type WindowsMobileMSI, type WindowsUniversalAppX } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMobileLobAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,6 +1,6 @@
-import type {ExternalDomainName} from './externalDomainName';
-import type {SamlOrWsFedProvider} from './samlOrWsFedProvider';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ExternalDomainName } from './externalDomainName';
+import { type SamlOrWsFedProvider } from './samlOrWsFedProvider';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SamlOrWsFedExternalDomainFederation extends Parsable, SamlOrWsFedProvider {
     /**

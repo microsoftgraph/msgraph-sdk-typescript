@@ -1,19 +1,18 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {VulnerabilityComponentCollectionResponse} from '../../../../../models/security/';
-import {createVulnerabilityComponentCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createVulnerabilityComponentCollectionResponseFromDiscriminatorValue';
-import {createVulnerabilityComponentFromDiscriminatorValue} from '../../../../../models/security/createVulnerabilityComponentFromDiscriminatorValue';
-import {deserializeIntoVulnerabilityComponent} from '../../../../../models/security/deserializeIntoVulnerabilityComponent';
-import {serializeVulnerabilityComponent} from '../../../../../models/security/serializeVulnerabilityComponent';
-import type {VulnerabilityComponent} from '../../../../../models/security/vulnerabilityComponent';
-import {ComponentsRequestBuilderGetRequestConfiguration} from './componentsRequestBuilderGetRequestConfiguration';
-import {ComponentsRequestBuilderPostRequestConfiguration} from './componentsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {VulnerabilityComponentItemRequestBuilder} from './item/vulnerabilityComponentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type VulnerabilityComponentCollectionResponse } from '../../../../../models/security/';
+import { createVulnerabilityComponentCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createVulnerabilityComponentCollectionResponseFromDiscriminatorValue';
+import { createVulnerabilityComponentFromDiscriminatorValue } from '../../../../../models/security/createVulnerabilityComponentFromDiscriminatorValue';
+import { deserializeIntoVulnerabilityComponent } from '../../../../../models/security/deserializeIntoVulnerabilityComponent';
+import { serializeVulnerabilityComponent } from '../../../../../models/security/serializeVulnerabilityComponent';
+import { type VulnerabilityComponent } from '../../../../../models/security/vulnerabilityComponent';
+import { type ComponentsRequestBuilderGetRequestConfiguration } from './componentsRequestBuilderGetRequestConfiguration';
+import { type ComponentsRequestBuilderPostRequestConfiguration } from './componentsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { VulnerabilityComponentItemRequestBuilder } from './item/vulnerabilityComponentItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the components property of the microsoft.graph.security.vulnerability entity.

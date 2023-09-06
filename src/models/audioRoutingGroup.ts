@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import {RoutingMode} from './routingMode';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { RoutingMode } from './routingMode';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AudioRoutingGroup extends Entity, Parsable {
     /**

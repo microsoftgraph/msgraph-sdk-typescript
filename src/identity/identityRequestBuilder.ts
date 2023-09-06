@@ -1,20 +1,19 @@
-import {createIdentityContainerFromDiscriminatorValue} from '../models/createIdentityContainerFromDiscriminatorValue';
-import {deserializeIntoIdentityContainer} from '../models/deserializeIntoIdentityContainer';
-import type {IdentityContainer} from '../models/identityContainer';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeIdentityContainer} from '../models/serializeIdentityContainer';
-import {ApiConnectorsRequestBuilder} from './apiConnectors/apiConnectorsRequestBuilder';
-import {B2xUserFlowsRequestBuilder} from './b2xUserFlows/b2xUserFlowsRequestBuilder';
-import {ConditionalAccessRequestBuilder} from './conditionalAccess/conditionalAccessRequestBuilder';
-import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvidersRequestBuilder';
-import {IdentityRequestBuilderGetRequestConfiguration} from './identityRequestBuilderGetRequestConfiguration';
-import {IdentityRequestBuilderPatchRequestConfiguration} from './identityRequestBuilderPatchRequestConfiguration';
-import {UserFlowAttributesRequestBuilder} from './userFlowAttributes/userFlowAttributesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createIdentityContainerFromDiscriminatorValue } from '../models/createIdentityContainerFromDiscriminatorValue';
+import { deserializeIntoIdentityContainer } from '../models/deserializeIntoIdentityContainer';
+import { type IdentityContainer } from '../models/identityContainer';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeIdentityContainer } from '../models/serializeIdentityContainer';
+import { ApiConnectorsRequestBuilder } from './apiConnectors/apiConnectorsRequestBuilder';
+import { B2xUserFlowsRequestBuilder } from './b2xUserFlows/b2xUserFlowsRequestBuilder';
+import { ConditionalAccessRequestBuilder } from './conditionalAccess/conditionalAccessRequestBuilder';
+import { IdentityProvidersRequestBuilder } from './identityProviders/identityProvidersRequestBuilder';
+import { type IdentityRequestBuilderGetRequestConfiguration } from './identityRequestBuilderGetRequestConfiguration';
+import { type IdentityRequestBuilderPatchRequestConfiguration } from './identityRequestBuilderPatchRequestConfiguration';
+import { UserFlowAttributesRequestBuilder } from './userFlowAttributes/userFlowAttributesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityContainer singleton.

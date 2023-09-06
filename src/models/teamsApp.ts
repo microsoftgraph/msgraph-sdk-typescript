@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import type {TeamsAppDefinition} from './teamsAppDefinition';
-import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type TeamsAppDefinition } from './teamsAppDefinition';
+import { TeamsAppDistributionMethod } from './teamsAppDistributionMethod';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TeamsApp extends Entity, Parsable {
     /**

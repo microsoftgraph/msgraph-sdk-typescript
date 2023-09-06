@@ -1,6 +1,5 @@
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder} from '@microsoft/kiota-abstractions';
-import type {RequestAdapter} from '@microsoft/kiota-abstractions';
+import { RefRequestBuilder } from './ref/refRequestBuilder';
+import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /identityGovernance/entitlementManagement/connectedOrganizations/{connectedOrganization-id}/externalSponsors/{directoryObject-id}

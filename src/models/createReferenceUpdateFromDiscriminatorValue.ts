@@ -1,6 +1,6 @@
-import {deserializeIntoReferenceUpdate} from './deserializeIntoReferenceUpdate';
-import {ReferenceUpdate} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoReferenceUpdate } from './deserializeIntoReferenceUpdate';
+import { type ReferenceUpdate } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createReferenceUpdateFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

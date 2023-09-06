@@ -1,22 +1,22 @@
-import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
-import {serializeTargetedManagedAppPolicyAssignment} from './serializeTargetedManagedAppPolicyAssignment';
-import {serializeWindowsInformationProtectionApp} from './serializeWindowsInformationProtectionApp';
-import {serializeWindowsInformationProtectionAppLockerFile} from './serializeWindowsInformationProtectionAppLockerFile';
-import {serializeWindowsInformationProtectionDataRecoveryCertificate} from './serializeWindowsInformationProtectionDataRecoveryCertificate';
-import {serializeWindowsInformationProtectionIPRangeCollection} from './serializeWindowsInformationProtectionIPRangeCollection';
-import {serializeWindowsInformationProtectionProxiedDomainCollection} from './serializeWindowsInformationProtectionProxiedDomainCollection';
-import {serializeWindowsInformationProtectionResourceCollection} from './serializeWindowsInformationProtectionResourceCollection';
-import type {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
-import type {WindowsInformationProtection} from './windowsInformationProtection';
-import type {WindowsInformationProtectionApp} from './windowsInformationProtectionApp';
-import type {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
-import type {WindowsInformationProtectionDataRecoveryCertificate} from './windowsInformationProtectionDataRecoveryCertificate';
-import {WindowsInformationProtectionEnforcementLevel} from './windowsInformationProtectionEnforcementLevel';
-import type {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
-import type {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
-import type {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { serializeManagedAppPolicy } from './serializeManagedAppPolicy';
+import { serializeTargetedManagedAppPolicyAssignment } from './serializeTargetedManagedAppPolicyAssignment';
+import { serializeWindowsInformationProtectionApp } from './serializeWindowsInformationProtectionApp';
+import { serializeWindowsInformationProtectionAppLockerFile } from './serializeWindowsInformationProtectionAppLockerFile';
+import { serializeWindowsInformationProtectionDataRecoveryCertificate } from './serializeWindowsInformationProtectionDataRecoveryCertificate';
+import { serializeWindowsInformationProtectionIPRangeCollection } from './serializeWindowsInformationProtectionIPRangeCollection';
+import { serializeWindowsInformationProtectionProxiedDomainCollection } from './serializeWindowsInformationProtectionProxiedDomainCollection';
+import { serializeWindowsInformationProtectionResourceCollection } from './serializeWindowsInformationProtectionResourceCollection';
+import { type TargetedManagedAppPolicyAssignment } from './targetedManagedAppPolicyAssignment';
+import { type WindowsInformationProtection } from './windowsInformationProtection';
+import { type WindowsInformationProtectionApp } from './windowsInformationProtectionApp';
+import { type WindowsInformationProtectionAppLockerFile } from './windowsInformationProtectionAppLockerFile';
+import { type WindowsInformationProtectionDataRecoveryCertificate } from './windowsInformationProtectionDataRecoveryCertificate';
+import { WindowsInformationProtectionEnforcementLevel } from './windowsInformationProtectionEnforcementLevel';
+import { type WindowsInformationProtectionIPRangeCollection } from './windowsInformationProtectionIPRangeCollection';
+import { type WindowsInformationProtectionProxiedDomainCollection } from './windowsInformationProtectionProxiedDomainCollection';
+import { type WindowsInformationProtectionResourceCollection } from './windowsInformationProtectionResourceCollection';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeWindowsInformationProtection(writer: SerializationWriter, windowsInformationProtection: WindowsInformationProtection | undefined = {} as WindowsInformationProtection) : void {
         serializeManagedAppPolicy(writer, windowsInformationProtection)

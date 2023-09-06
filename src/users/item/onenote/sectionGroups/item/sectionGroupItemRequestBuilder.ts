@@ -1,20 +1,19 @@
-import {createSectionGroupFromDiscriminatorValue} from '../../../../../models/createSectionGroupFromDiscriminatorValue';
-import {deserializeIntoSectionGroup} from '../../../../../models/deserializeIntoSectionGroup';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import type {SectionGroup} from '../../../../../models/sectionGroup';
-import {serializeSectionGroup} from '../../../../../models/serializeSectionGroup';
-import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
-import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSectionGroupRequestBuilder';
-import {SectionGroupItemRequestBuilderDeleteRequestConfiguration} from './sectionGroupItemRequestBuilderDeleteRequestConfiguration';
-import {SectionGroupItemRequestBuilderGetRequestConfiguration} from './sectionGroupItemRequestBuilderGetRequestConfiguration';
-import {SectionGroupItemRequestBuilderPatchRequestConfiguration} from './sectionGroupItemRequestBuilderPatchRequestConfiguration';
-import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
-import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSectionGroupFromDiscriminatorValue } from '../../../../../models/createSectionGroupFromDiscriminatorValue';
+import { deserializeIntoSectionGroup } from '../../../../../models/deserializeIntoSectionGroup';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type SectionGroup } from '../../../../../models/sectionGroup';
+import { serializeSectionGroup } from '../../../../../models/serializeSectionGroup';
+import { ParentNotebookRequestBuilder } from './parentNotebook/parentNotebookRequestBuilder';
+import { ParentSectionGroupRequestBuilder } from './parentSectionGroup/parentSectionGroupRequestBuilder';
+import { type SectionGroupItemRequestBuilderDeleteRequestConfiguration } from './sectionGroupItemRequestBuilderDeleteRequestConfiguration';
+import { type SectionGroupItemRequestBuilderGetRequestConfiguration } from './sectionGroupItemRequestBuilderGetRequestConfiguration';
+import { type SectionGroupItemRequestBuilderPatchRequestConfiguration } from './sectionGroupItemRequestBuilderPatchRequestConfiguration';
+import { SectionGroupsRequestBuilder } from './sectionGroups/sectionGroupsRequestBuilder';
+import { SectionsRequestBuilder } from './sections/sectionsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity.

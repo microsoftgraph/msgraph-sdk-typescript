@@ -1,19 +1,18 @@
-import {OnenotePageCollectionResponse} from '../../../../../../../../models/';
-import {createOnenotePageCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createOnenotePageCollectionResponseFromDiscriminatorValue';
-import {createOnenotePageFromDiscriminatorValue} from '../../../../../../../../models/createOnenotePageFromDiscriminatorValue';
-import {deserializeIntoOnenotePage} from '../../../../../../../../models/deserializeIntoOnenotePage';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import type {OnenotePage} from '../../../../../../../../models/onenotePage';
-import {serializeOnenotePage} from '../../../../../../../../models/serializeOnenotePage';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {OnenotePageItemRequestBuilder} from './item/onenotePageItemRequestBuilder';
-import {PagesRequestBuilderGetRequestConfiguration} from './pagesRequestBuilderGetRequestConfiguration';
-import {PagesRequestBuilderPostRequestConfiguration} from './pagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OnenotePageCollectionResponse } from '../../../../../../../../models/';
+import { createOnenotePageCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createOnenotePageCollectionResponseFromDiscriminatorValue';
+import { createOnenotePageFromDiscriminatorValue } from '../../../../../../../../models/createOnenotePageFromDiscriminatorValue';
+import { deserializeIntoOnenotePage } from '../../../../../../../../models/deserializeIntoOnenotePage';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { type OnenotePage } from '../../../../../../../../models/onenotePage';
+import { serializeOnenotePage } from '../../../../../../../../models/serializeOnenotePage';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { OnenotePageItemRequestBuilder } from './item/onenotePageItemRequestBuilder';
+import { type PagesRequestBuilderGetRequestConfiguration } from './pagesRequestBuilderGetRequestConfiguration';
+import { type PagesRequestBuilderPostRequestConfiguration } from './pagesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.

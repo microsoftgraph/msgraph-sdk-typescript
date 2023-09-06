@@ -1,6 +1,6 @@
-import {deserializeIntoDeviceManagement} from './deserializeIntoDeviceManagement';
-import {DeviceManagement} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceManagement } from './deserializeIntoDeviceManagement';
+import { type DeviceManagement } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeviceManagementFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,8 +1,8 @@
-import {RegistryHive} from './registryHive';
-import type {RegistryKeyState} from './registryKeyState';
-import {RegistryOperation} from './registryOperation';
-import {RegistryValueType} from './registryValueType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { RegistryHive } from './registryHive';
+import { type RegistryKeyState } from './registryKeyState';
+import { RegistryOperation } from './registryOperation';
+import { RegistryValueType } from './registryValueType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRegistryKeyState(writer: SerializationWriter, registryKeyState: RegistryKeyState | undefined = {} as RegistryKeyState) : void {
         writer.writeEnumValue<RegistryHive>("hive", registryKeyState.hive);

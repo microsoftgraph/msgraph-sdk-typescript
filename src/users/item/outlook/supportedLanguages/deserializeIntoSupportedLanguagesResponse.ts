@@ -1,9 +1,9 @@
-import {createLocaleInfoFromDiscriminatorValue} from '../../../../models/createLocaleInfoFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import type {LocaleInfo} from '../../../../models/localeInfo';
-import {serializeLocaleInfo} from '../../../../models/serializeLocaleInfo';
-import type {SupportedLanguagesResponse} from './supportedLanguagesResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createLocaleInfoFromDiscriminatorValue } from '../../../../models/createLocaleInfoFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { type LocaleInfo } from '../../../../models/localeInfo';
+import { serializeLocaleInfo } from '../../../../models/serializeLocaleInfo';
+import { type SupportedLanguagesResponse } from './supportedLanguagesResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSupportedLanguagesResponse(supportedLanguagesResponse: SupportedLanguagesResponse | undefined = {} as SupportedLanguagesResponse) : Record<string, (node: ParseNode) => void> {
     return {

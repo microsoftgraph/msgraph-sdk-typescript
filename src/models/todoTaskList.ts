@@ -1,8 +1,8 @@
-import type {Entity} from './entity';
-import type {Extension} from './extension';
-import type {TodoTask} from './todoTask';
-import {WellknownListName} from './wellknownListName';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type Extension } from './extension';
+import { type TodoTask } from './todoTask';
+import { WellknownListName } from './wellknownListName';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TodoTaskList extends Entity, Parsable {
     /**

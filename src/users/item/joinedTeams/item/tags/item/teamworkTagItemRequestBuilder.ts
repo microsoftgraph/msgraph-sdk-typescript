@@ -1,17 +1,16 @@
-import {createTeamworkTagFromDiscriminatorValue} from '../../../../../../models/createTeamworkTagFromDiscriminatorValue';
-import {deserializeIntoTeamworkTag} from '../../../../../../models/deserializeIntoTeamworkTag';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeTeamworkTag} from '../../../../../../models/serializeTeamworkTag';
-import type {TeamworkTag} from '../../../../../../models/teamworkTag';
-import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {TeamworkTagItemRequestBuilderDeleteRequestConfiguration} from './teamworkTagItemRequestBuilderDeleteRequestConfiguration';
-import {TeamworkTagItemRequestBuilderGetRequestConfiguration} from './teamworkTagItemRequestBuilderGetRequestConfiguration';
-import {TeamworkTagItemRequestBuilderPatchRequestConfiguration} from './teamworkTagItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTeamworkTagFromDiscriminatorValue } from '../../../../../../models/createTeamworkTagFromDiscriminatorValue';
+import { deserializeIntoTeamworkTag } from '../../../../../../models/deserializeIntoTeamworkTag';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeTeamworkTag } from '../../../../../../models/serializeTeamworkTag';
+import { type TeamworkTag } from '../../../../../../models/teamworkTag';
+import { MembersRequestBuilder } from './members/membersRequestBuilder';
+import { type TeamworkTagItemRequestBuilderDeleteRequestConfiguration } from './teamworkTagItemRequestBuilderDeleteRequestConfiguration';
+import { type TeamworkTagItemRequestBuilderGetRequestConfiguration } from './teamworkTagItemRequestBuilderGetRequestConfiguration';
+import { type TeamworkTagItemRequestBuilderPatchRequestConfiguration } from './teamworkTagItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tags property of the microsoft.graph.team entity.

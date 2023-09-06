@@ -1,17 +1,16 @@
-import type {AttachmentSession} from '../../../../../../../../models/attachmentSession';
-import {createAttachmentSessionFromDiscriminatorValue} from '../../../../../../../../models/createAttachmentSessionFromDiscriminatorValue';
-import {deserializeIntoAttachmentSession} from '../../../../../../../../models/deserializeIntoAttachmentSession';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAttachmentSession} from '../../../../../../../../models/serializeAttachmentSession';
-import {AttachmentSessionItemRequestBuilderDeleteRequestConfiguration} from './attachmentSessionItemRequestBuilderDeleteRequestConfiguration';
-import {AttachmentSessionItemRequestBuilderGetRequestConfiguration} from './attachmentSessionItemRequestBuilderGetRequestConfiguration';
-import {AttachmentSessionItemRequestBuilderPatchRequestConfiguration} from './attachmentSessionItemRequestBuilderPatchRequestConfiguration';
-import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AttachmentSession } from '../../../../../../../../models/attachmentSession';
+import { createAttachmentSessionFromDiscriminatorValue } from '../../../../../../../../models/createAttachmentSessionFromDiscriminatorValue';
+import { deserializeIntoAttachmentSession } from '../../../../../../../../models/deserializeIntoAttachmentSession';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAttachmentSession } from '../../../../../../../../models/serializeAttachmentSession';
+import { type AttachmentSessionItemRequestBuilderDeleteRequestConfiguration } from './attachmentSessionItemRequestBuilderDeleteRequestConfiguration';
+import { type AttachmentSessionItemRequestBuilderGetRequestConfiguration } from './attachmentSessionItemRequestBuilderGetRequestConfiguration';
+import { type AttachmentSessionItemRequestBuilderPatchRequestConfiguration } from './attachmentSessionItemRequestBuilderPatchRequestConfiguration';
+import { ContentRequestBuilder } from './content/contentRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.

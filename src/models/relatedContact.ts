@@ -1,5 +1,5 @@
-import {ContactRelationship} from './contactRelationship';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ContactRelationship } from './contactRelationship';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RelatedContact extends AdditionalDataHolder, Parsable {
     /**

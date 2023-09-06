@@ -1,19 +1,18 @@
-import {HomeRealmDiscoveryPolicyCollectionResponse} from '../../models/';
-import {createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue';
-import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from '../../models/createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
-import {deserializeIntoHomeRealmDiscoveryPolicy} from '../../models/deserializeIntoHomeRealmDiscoveryPolicy';
-import type {HomeRealmDiscoveryPolicy} from '../../models/homeRealmDiscoveryPolicy';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeHomeRealmDiscoveryPolicy} from '../../models/serializeHomeRealmDiscoveryPolicy';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {HomeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration} from './homeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration';
-import {HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration} from './homeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration';
-import {HomeRealmDiscoveryPolicyItemRequestBuilder} from './item/homeRealmDiscoveryPolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type HomeRealmDiscoveryPolicyCollectionResponse } from '../../models/';
+import { createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue';
+import { createHomeRealmDiscoveryPolicyFromDiscriminatorValue } from '../../models/createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
+import { deserializeIntoHomeRealmDiscoveryPolicy } from '../../models/deserializeIntoHomeRealmDiscoveryPolicy';
+import { type HomeRealmDiscoveryPolicy } from '../../models/homeRealmDiscoveryPolicy';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeHomeRealmDiscoveryPolicy } from '../../models/serializeHomeRealmDiscoveryPolicy';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type HomeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration } from './homeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration';
+import { type HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration } from './homeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration';
+import { HomeRealmDiscoveryPolicyItemRequestBuilder } from './item/homeRealmDiscoveryPolicyItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.

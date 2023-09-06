@@ -1,6 +1,6 @@
-import type {AlertEvidence} from './alertEvidence';
-import {GoogleCloudLocationType} from './googleCloudLocationType';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AlertEvidence } from './alertEvidence';
+import { GoogleCloudLocationType } from './googleCloudLocationType';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface GoogleCloudResourceEvidence extends AlertEvidence, Parsable {
     /**

@@ -1,9 +1,9 @@
-import {createWorkbookCommentReplyFromDiscriminatorValue} from './createWorkbookCommentReplyFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeWorkbookCommentReply} from './serializeWorkbookCommentReply';
-import type {WorkbookComment} from './workbookComment';
-import type {WorkbookCommentReply} from './workbookCommentReply';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookCommentReplyFromDiscriminatorValue } from './createWorkbookCommentReplyFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeWorkbookCommentReply } from './serializeWorkbookCommentReply';
+import { type WorkbookComment } from './workbookComment';
+import { type WorkbookCommentReply } from './workbookCommentReply';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookComment(workbookComment: WorkbookComment | undefined = {} as WorkbookComment) : Record<string, (node: ParseNode) => void> {
     return {

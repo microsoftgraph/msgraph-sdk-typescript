@@ -1,21 +1,21 @@
-import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
-import {createOnPremisesProvisioningErrorFromDiscriminatorValue} from './createOnPremisesProvisioningErrorFromDiscriminatorValue';
-import {createPhoneFromDiscriminatorValue} from './createPhoneFromDiscriminatorValue';
-import {createPhysicalOfficeAddressFromDiscriminatorValue} from './createPhysicalOfficeAddressFromDiscriminatorValue';
-import {createServiceProvisioningErrorFromDiscriminatorValue} from './createServiceProvisioningErrorFromDiscriminatorValue';
-import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import type {DirectoryObject} from './directoryObject';
-import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
-import type {OrgContact} from './orgContact';
-import type {Phone} from './phone';
-import type {PhysicalOfficeAddress} from './physicalOfficeAddress';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeOnPremisesProvisioningError} from './serializeOnPremisesProvisioningError';
-import {serializePhone} from './serializePhone';
-import {serializePhysicalOfficeAddress} from './serializePhysicalOfficeAddress';
-import {serializeServiceProvisioningError} from './serializeServiceProvisioningError';
-import type {ServiceProvisioningError} from './serviceProvisioningError';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDirectoryObjectFromDiscriminatorValue } from './createDirectoryObjectFromDiscriminatorValue';
+import { createOnPremisesProvisioningErrorFromDiscriminatorValue } from './createOnPremisesProvisioningErrorFromDiscriminatorValue';
+import { createPhoneFromDiscriminatorValue } from './createPhoneFromDiscriminatorValue';
+import { createPhysicalOfficeAddressFromDiscriminatorValue } from './createPhysicalOfficeAddressFromDiscriminatorValue';
+import { createServiceProvisioningErrorFromDiscriminatorValue } from './createServiceProvisioningErrorFromDiscriminatorValue';
+import { deserializeIntoDirectoryObject } from './deserializeIntoDirectoryObject';
+import { type DirectoryObject } from './directoryObject';
+import { type OnPremisesProvisioningError } from './onPremisesProvisioningError';
+import { type OrgContact } from './orgContact';
+import { type Phone } from './phone';
+import { type PhysicalOfficeAddress } from './physicalOfficeAddress';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeOnPremisesProvisioningError } from './serializeOnPremisesProvisioningError';
+import { serializePhone } from './serializePhone';
+import { serializePhysicalOfficeAddress } from './serializePhysicalOfficeAddress';
+import { serializeServiceProvisioningError } from './serializeServiceProvisioningError';
+import { type ServiceProvisioningError } from './serviceProvisioningError';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOrgContact(orgContact: OrgContact | undefined = {} as OrgContact) : Record<string, (node: ParseNode) => void> {
     return {

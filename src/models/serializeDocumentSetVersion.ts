@@ -1,10 +1,10 @@
-import type {DocumentSetVersion} from './documentSetVersion';
-import type {DocumentSetVersionItem} from './documentSetVersionItem';
-import type {IdentitySet} from './identitySet';
-import {serializeDocumentSetVersionItem} from './serializeDocumentSetVersionItem';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeListItemVersion} from './serializeListItemVersion';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DocumentSetVersion } from './documentSetVersion';
+import { type DocumentSetVersionItem } from './documentSetVersionItem';
+import { type IdentitySet } from './identitySet';
+import { serializeDocumentSetVersionItem } from './serializeDocumentSetVersionItem';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeListItemVersion } from './serializeListItemVersion';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDocumentSetVersion(writer: SerializationWriter, documentSetVersion: DocumentSetVersion | undefined = {} as DocumentSetVersion) : void {
         serializeListItemVersion(writer, documentSetVersion)

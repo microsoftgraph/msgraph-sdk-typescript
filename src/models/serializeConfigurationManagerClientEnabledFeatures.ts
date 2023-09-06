@@ -1,5 +1,5 @@
-import type {ConfigurationManagerClientEnabledFeatures} from './configurationManagerClientEnabledFeatures';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConfigurationManagerClientEnabledFeatures } from './configurationManagerClientEnabledFeatures';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConfigurationManagerClientEnabledFeatures(writer: SerializationWriter, configurationManagerClientEnabledFeatures: ConfigurationManagerClientEnabledFeatures | undefined = {} as ConfigurationManagerClientEnabledFeatures) : void {
         writer.writeBooleanValue("compliancePolicy", configurationManagerClientEnabledFeatures.compliancePolicy);

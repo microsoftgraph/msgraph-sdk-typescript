@@ -1,19 +1,18 @@
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {EdiscoveryReviewSetQueryCollectionResponse} from '../../../../../../../models/security/';
-import {createEdiscoveryReviewSetQueryCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryReviewSetQueryCollectionResponseFromDiscriminatorValue';
-import {createEdiscoveryReviewSetQueryFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryReviewSetQueryFromDiscriminatorValue';
-import {deserializeIntoEdiscoveryReviewSetQuery} from '../../../../../../../models/security/deserializeIntoEdiscoveryReviewSetQuery';
-import type {EdiscoveryReviewSetQuery} from '../../../../../../../models/security/ediscoveryReviewSetQuery';
-import {serializeEdiscoveryReviewSetQuery} from '../../../../../../../models/security/serializeEdiscoveryReviewSetQuery';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EdiscoveryReviewSetQueryItemRequestBuilder} from './item/ediscoveryReviewSetQueryItemRequestBuilder';
-import {QueriesRequestBuilderGetRequestConfiguration} from './queriesRequestBuilderGetRequestConfiguration';
-import {QueriesRequestBuilderPostRequestConfiguration} from './queriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { type EdiscoveryReviewSetQueryCollectionResponse } from '../../../../../../../models/security/';
+import { createEdiscoveryReviewSetQueryCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/createEdiscoveryReviewSetQueryCollectionResponseFromDiscriminatorValue';
+import { createEdiscoveryReviewSetQueryFromDiscriminatorValue } from '../../../../../../../models/security/createEdiscoveryReviewSetQueryFromDiscriminatorValue';
+import { deserializeIntoEdiscoveryReviewSetQuery } from '../../../../../../../models/security/deserializeIntoEdiscoveryReviewSetQuery';
+import { type EdiscoveryReviewSetQuery } from '../../../../../../../models/security/ediscoveryReviewSetQuery';
+import { serializeEdiscoveryReviewSetQuery } from '../../../../../../../models/security/serializeEdiscoveryReviewSetQuery';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { EdiscoveryReviewSetQueryItemRequestBuilder } from './item/ediscoveryReviewSetQueryItemRequestBuilder';
+import { type QueriesRequestBuilderGetRequestConfiguration } from './queriesRequestBuilderGetRequestConfiguration';
+import { type QueriesRequestBuilderPostRequestConfiguration } from './queriesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.

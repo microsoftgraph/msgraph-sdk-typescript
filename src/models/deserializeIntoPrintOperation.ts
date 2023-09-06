@@ -1,9 +1,9 @@
-import {createPrintOperationStatusFromDiscriminatorValue} from './createPrintOperationStatusFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {PrintOperation} from './printOperation';
-import type {PrintOperationStatus} from './printOperationStatus';
-import {serializePrintOperationStatus} from './serializePrintOperationStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPrintOperationStatusFromDiscriminatorValue } from './createPrintOperationStatusFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type PrintOperation } from './printOperation';
+import { type PrintOperationStatus } from './printOperationStatus';
+import { serializePrintOperationStatus } from './serializePrintOperationStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintOperation(printOperation: PrintOperation | undefined = {} as PrintOperation) : Record<string, (node: ParseNode) => void> {
     return {

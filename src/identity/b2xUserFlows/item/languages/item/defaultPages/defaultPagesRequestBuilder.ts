@@ -1,19 +1,18 @@
-import {UserFlowLanguagePageCollectionResponse} from '../../../../../../models/';
-import {createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue';
-import {createUserFlowLanguagePageFromDiscriminatorValue} from '../../../../../../models/createUserFlowLanguagePageFromDiscriminatorValue';
-import {deserializeIntoUserFlowLanguagePage} from '../../../../../../models/deserializeIntoUserFlowLanguagePage';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeUserFlowLanguagePage} from '../../../../../../models/serializeUserFlowLanguagePage';
-import type {UserFlowLanguagePage} from '../../../../../../models/userFlowLanguagePage';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DefaultPagesRequestBuilderGetRequestConfiguration} from './defaultPagesRequestBuilderGetRequestConfiguration';
-import {DefaultPagesRequestBuilderPostRequestConfiguration} from './defaultPagesRequestBuilderPostRequestConfiguration';
-import {UserFlowLanguagePageItemRequestBuilder} from './item/userFlowLanguagePageItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserFlowLanguagePageCollectionResponse } from '../../../../../../models/';
+import { createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue';
+import { createUserFlowLanguagePageFromDiscriminatorValue } from '../../../../../../models/createUserFlowLanguagePageFromDiscriminatorValue';
+import { deserializeIntoUserFlowLanguagePage } from '../../../../../../models/deserializeIntoUserFlowLanguagePage';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeUserFlowLanguagePage } from '../../../../../../models/serializeUserFlowLanguagePage';
+import { type UserFlowLanguagePage } from '../../../../../../models/userFlowLanguagePage';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DefaultPagesRequestBuilderGetRequestConfiguration } from './defaultPagesRequestBuilderGetRequestConfiguration';
+import { type DefaultPagesRequestBuilderPostRequestConfiguration } from './defaultPagesRequestBuilderPostRequestConfiguration';
+import { UserFlowLanguagePageItemRequestBuilder } from './item/userFlowLanguagePageItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.

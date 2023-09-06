@@ -1,5 +1,5 @@
-import {PersonItemRequestBuilderGetQueryParameters} from './personItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PersonItemRequestBuilderGetQueryParameters } from './personItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PersonItemRequestBuilderGetRequestConfiguration {
     /**

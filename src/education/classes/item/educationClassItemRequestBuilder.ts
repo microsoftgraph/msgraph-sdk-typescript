@@ -1,24 +1,23 @@
-import {createEducationClassFromDiscriminatorValue} from '../../../models/createEducationClassFromDiscriminatorValue';
-import {deserializeIntoEducationClass} from '../../../models/deserializeIntoEducationClass';
-import type {EducationClass} from '../../../models/educationClass';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeEducationClass} from '../../../models/serializeEducationClass';
-import {AssignmentCategoriesRequestBuilder} from './assignmentCategories/assignmentCategoriesRequestBuilder';
-import {AssignmentDefaultsRequestBuilder} from './assignmentDefaults/assignmentDefaultsRequestBuilder';
-import {AssignmentSettingsRequestBuilder} from './assignmentSettings/assignmentSettingsRequestBuilder';
-import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {EducationClassItemRequestBuilderDeleteRequestConfiguration} from './educationClassItemRequestBuilderDeleteRequestConfiguration';
-import {EducationClassItemRequestBuilderGetRequestConfiguration} from './educationClassItemRequestBuilderGetRequestConfiguration';
-import {EducationClassItemRequestBuilderPatchRequestConfiguration} from './educationClassItemRequestBuilderPatchRequestConfiguration';
-import {GroupRequestBuilder} from './group/groupRequestBuilder';
-import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
-import {TeachersRequestBuilder} from './teachers/teachersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEducationClassFromDiscriminatorValue } from '../../../models/createEducationClassFromDiscriminatorValue';
+import { deserializeIntoEducationClass } from '../../../models/deserializeIntoEducationClass';
+import { type EducationClass } from '../../../models/educationClass';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeEducationClass } from '../../../models/serializeEducationClass';
+import { AssignmentCategoriesRequestBuilder } from './assignmentCategories/assignmentCategoriesRequestBuilder';
+import { AssignmentDefaultsRequestBuilder } from './assignmentDefaults/assignmentDefaultsRequestBuilder';
+import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
+import { AssignmentSettingsRequestBuilder } from './assignmentSettings/assignmentSettingsRequestBuilder';
+import { type EducationClassItemRequestBuilderDeleteRequestConfiguration } from './educationClassItemRequestBuilderDeleteRequestConfiguration';
+import { type EducationClassItemRequestBuilderGetRequestConfiguration } from './educationClassItemRequestBuilderGetRequestConfiguration';
+import { type EducationClassItemRequestBuilderPatchRequestConfiguration } from './educationClassItemRequestBuilderPatchRequestConfiguration';
+import { GroupRequestBuilder } from './group/groupRequestBuilder';
+import { MembersRequestBuilder } from './members/membersRequestBuilder';
+import { SchoolsRequestBuilder } from './schools/schoolsRequestBuilder';
+import { TeachersRequestBuilder } from './teachers/teachersRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.

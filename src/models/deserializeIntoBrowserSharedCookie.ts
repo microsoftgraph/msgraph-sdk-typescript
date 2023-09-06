@@ -1,14 +1,14 @@
-import type {BrowserSharedCookie} from './browserSharedCookie';
-import type {BrowserSharedCookieHistory} from './browserSharedCookieHistory';
-import {BrowserSharedCookieSourceEnvironment} from './browserSharedCookieSourceEnvironment';
-import {BrowserSharedCookieStatus} from './browserSharedCookieStatus';
-import {createBrowserSharedCookieHistoryFromDiscriminatorValue} from './createBrowserSharedCookieHistoryFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IdentitySet} from './identitySet';
-import {serializeBrowserSharedCookieHistory} from './serializeBrowserSharedCookieHistory';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BrowserSharedCookie } from './browserSharedCookie';
+import { type BrowserSharedCookieHistory } from './browserSharedCookieHistory';
+import { BrowserSharedCookieSourceEnvironment } from './browserSharedCookieSourceEnvironment';
+import { BrowserSharedCookieStatus } from './browserSharedCookieStatus';
+import { createBrowserSharedCookieHistoryFromDiscriminatorValue } from './createBrowserSharedCookieHistoryFromDiscriminatorValue';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IdentitySet } from './identitySet';
+import { serializeBrowserSharedCookieHistory } from './serializeBrowserSharedCookieHistory';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBrowserSharedCookie(browserSharedCookie: BrowserSharedCookie | undefined = {} as BrowserSharedCookie) : Record<string, (node: ParseNode) => void> {
     return {

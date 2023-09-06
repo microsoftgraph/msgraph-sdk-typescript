@@ -1,5 +1,5 @@
-import {NotificationMessageTemplatesRequestBuilderGetQueryParameters} from './notificationMessageTemplatesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type NotificationMessageTemplatesRequestBuilderGetQueryParameters } from './notificationMessageTemplatesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface NotificationMessageTemplatesRequestBuilderGetRequestConfiguration {
     /**

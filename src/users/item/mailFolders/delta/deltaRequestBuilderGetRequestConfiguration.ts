@@ -1,5 +1,5 @@
-import {DeltaRequestBuilderGetQueryParameters} from './deltaRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeltaRequestBuilderGetQueryParameters } from './deltaRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeltaRequestBuilderGetRequestConfiguration {
     /**

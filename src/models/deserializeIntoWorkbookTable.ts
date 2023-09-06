@@ -1,18 +1,18 @@
-import {createWorkbookTableColumnFromDiscriminatorValue} from './createWorkbookTableColumnFromDiscriminatorValue';
-import {createWorkbookTableRowFromDiscriminatorValue} from './createWorkbookTableRowFromDiscriminatorValue';
-import {createWorkbookTableSortFromDiscriminatorValue} from './createWorkbookTableSortFromDiscriminatorValue';
-import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWorksheetFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeWorkbookTableColumn} from './serializeWorkbookTableColumn';
-import {serializeWorkbookTableRow} from './serializeWorkbookTableRow';
-import {serializeWorkbookTableSort} from './serializeWorkbookTableSort';
-import {serializeWorkbookWorksheet} from './serializeWorkbookWorksheet';
-import type {WorkbookTable} from './workbookTable';
-import type {WorkbookTableColumn} from './workbookTableColumn';
-import type {WorkbookTableRow} from './workbookTableRow';
-import type {WorkbookTableSort} from './workbookTableSort';
-import type {WorkbookWorksheet} from './workbookWorksheet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookTableColumnFromDiscriminatorValue } from './createWorkbookTableColumnFromDiscriminatorValue';
+import { createWorkbookTableRowFromDiscriminatorValue } from './createWorkbookTableRowFromDiscriminatorValue';
+import { createWorkbookTableSortFromDiscriminatorValue } from './createWorkbookTableSortFromDiscriminatorValue';
+import { createWorkbookWorksheetFromDiscriminatorValue } from './createWorkbookWorksheetFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeWorkbookTableColumn } from './serializeWorkbookTableColumn';
+import { serializeWorkbookTableRow } from './serializeWorkbookTableRow';
+import { serializeWorkbookTableSort } from './serializeWorkbookTableSort';
+import { serializeWorkbookWorksheet } from './serializeWorkbookWorksheet';
+import { type WorkbookTable } from './workbookTable';
+import { type WorkbookTableColumn } from './workbookTableColumn';
+import { type WorkbookTableRow } from './workbookTableRow';
+import { type WorkbookTableSort } from './workbookTableSort';
+import { type WorkbookWorksheet } from './workbookWorksheet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookTable(workbookTable: WorkbookTable | undefined = {} as WorkbookTable) : Record<string, (node: ParseNode) => void> {
     return {

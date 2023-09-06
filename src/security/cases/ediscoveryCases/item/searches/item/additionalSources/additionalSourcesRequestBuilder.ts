@@ -1,19 +1,18 @@
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {DataSourceCollectionResponse} from '../../../../../../../models/security/';
-import {createDataSourceCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/security/createDataSourceCollectionResponseFromDiscriminatorValue';
-import {createDataSourceFromDiscriminatorValue} from '../../../../../../../models/security/createDataSourceFromDiscriminatorValue';
-import type {DataSource} from '../../../../../../../models/security/dataSource';
-import {deserializeIntoDataSource} from '../../../../../../../models/security/deserializeIntoDataSource';
-import {serializeDataSource} from '../../../../../../../models/security/serializeDataSource';
-import {AdditionalSourcesRequestBuilderGetRequestConfiguration} from './additionalSourcesRequestBuilderGetRequestConfiguration';
-import {AdditionalSourcesRequestBuilderPostRequestConfiguration} from './additionalSourcesRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DataSourceItemRequestBuilder} from './item/dataSourceItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { type DataSourceCollectionResponse } from '../../../../../../../models/security/';
+import { createDataSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/createDataSourceCollectionResponseFromDiscriminatorValue';
+import { createDataSourceFromDiscriminatorValue } from '../../../../../../../models/security/createDataSourceFromDiscriminatorValue';
+import { type DataSource } from '../../../../../../../models/security/dataSource';
+import { deserializeIntoDataSource } from '../../../../../../../models/security/deserializeIntoDataSource';
+import { serializeDataSource } from '../../../../../../../models/security/serializeDataSource';
+import { type AdditionalSourcesRequestBuilderGetRequestConfiguration } from './additionalSourcesRequestBuilderGetRequestConfiguration';
+import { type AdditionalSourcesRequestBuilderPostRequestConfiguration } from './additionalSourcesRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DataSourceItemRequestBuilder } from './item/dataSourceItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.

@@ -1,5 +1,5 @@
-import {IncompatibleGroupsRequestBuilderGetQueryParameters} from './incompatibleGroupsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IncompatibleGroupsRequestBuilderGetQueryParameters } from './incompatibleGroupsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IncompatibleGroupsRequestBuilderGetRequestConfiguration {
     /**

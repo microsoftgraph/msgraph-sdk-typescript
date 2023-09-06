@@ -1,7 +1,7 @@
-import {CalendarSharingAction} from './calendarSharingAction';
-import {CalendarSharingActionImportance} from './calendarSharingActionImportance';
-import {CalendarSharingActionType} from './calendarSharingActionType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { CalendarSharingAction } from './calendarSharingAction';
+import { CalendarSharingActionImportance } from './calendarSharingActionImportance';
+import { CalendarSharingActionType } from './calendarSharingActionType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CalendarSharingMessageAction extends AdditionalDataHolder, Parsable {
     /**

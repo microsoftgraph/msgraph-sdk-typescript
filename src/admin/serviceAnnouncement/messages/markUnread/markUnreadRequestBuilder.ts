@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {createMarkUnreadResponseFromDiscriminatorValue} from './createMarkUnreadResponseFromDiscriminatorValue';
-import {deserializeIntoMarkUnreadPostRequestBody} from './deserializeIntoMarkUnreadPostRequestBody';
-import {deserializeIntoMarkUnreadResponse} from './deserializeIntoMarkUnreadResponse';
-import type {MarkUnreadPostRequestBody} from './markUnreadPostRequestBody';
-import {MarkUnreadRequestBuilderPostRequestConfiguration} from './markUnreadRequestBuilderPostRequestConfiguration';
-import type {MarkUnreadResponse} from './markUnreadResponse';
-import {serializeMarkUnreadPostRequestBody} from './serializeMarkUnreadPostRequestBody';
-import {serializeMarkUnreadResponse} from './serializeMarkUnreadResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createMarkUnreadResponseFromDiscriminatorValue } from './createMarkUnreadResponseFromDiscriminatorValue';
+import { deserializeIntoMarkUnreadPostRequestBody } from './deserializeIntoMarkUnreadPostRequestBody';
+import { deserializeIntoMarkUnreadResponse } from './deserializeIntoMarkUnreadResponse';
+import { type MarkUnreadPostRequestBody } from './markUnreadPostRequestBody';
+import { type MarkUnreadRequestBuilderPostRequestConfiguration } from './markUnreadRequestBuilderPostRequestConfiguration';
+import { type MarkUnreadResponse } from './markUnreadResponse';
+import { serializeMarkUnreadPostRequestBody } from './serializeMarkUnreadPostRequestBody';
+import { serializeMarkUnreadResponse } from './serializeMarkUnreadResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the markUnread method.

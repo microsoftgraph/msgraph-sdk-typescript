@@ -1,5 +1,5 @@
-import type {ApplyBottomItemsFilterPostRequestBody} from './applyBottomItemsFilterPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ApplyBottomItemsFilterPostRequestBody } from './applyBottomItemsFilterPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeApplyBottomItemsFilterPostRequestBody(writer: SerializationWriter, applyBottomItemsFilterPostRequestBody: ApplyBottomItemsFilterPostRequestBody | undefined = {} as ApplyBottomItemsFilterPostRequestBody) : void {
         writer.writeNumberValue("count", applyBottomItemsFilterPostRequestBody.count);

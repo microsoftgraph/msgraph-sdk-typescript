@@ -1,5 +1,5 @@
-import {IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters} from './identitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters } from './identitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration {
     /**

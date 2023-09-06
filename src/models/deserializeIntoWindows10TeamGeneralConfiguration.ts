@@ -1,9 +1,8 @@
-import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
-import {MiracastChannel} from './miracastChannel';
-import {WelcomeScreenMeetingInformation} from './welcomeScreenMeetingInformation';
-import type {Windows10TeamGeneralConfiguration} from './windows10TeamGeneralConfiguration';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceConfiguration } from './deserializeIntoDeviceConfiguration';
+import { MiracastChannel } from './miracastChannel';
+import { WelcomeScreenMeetingInformation } from './welcomeScreenMeetingInformation';
+import { type Windows10TeamGeneralConfiguration } from './windows10TeamGeneralConfiguration';
+import { TimeOnly, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindows10TeamGeneralConfiguration(windows10TeamGeneralConfiguration: Windows10TeamGeneralConfiguration | undefined = {} as Windows10TeamGeneralConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

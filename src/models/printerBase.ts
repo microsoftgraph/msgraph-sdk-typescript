@@ -1,10 +1,10 @@
-import type {Entity} from './entity';
-import type {PrintJob} from './printJob';
-import type {PrinterCapabilities} from './printerCapabilities';
-import type {PrinterDefaults} from './printerDefaults';
-import type {PrinterLocation} from './printerLocation';
-import type {PrinterStatus} from './printerStatus';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type PrinterCapabilities } from './printerCapabilities';
+import { type PrinterDefaults } from './printerDefaults';
+import { type PrinterLocation } from './printerLocation';
+import { type PrinterStatus } from './printerStatus';
+import { type PrintJob } from './printJob';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PrinterBase extends Entity, Parsable {
     /**

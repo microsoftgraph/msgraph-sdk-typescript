@@ -1,19 +1,18 @@
-import {ListCollectionResponse} from '../../../../../models/';
-import {createListCollectionResponseFromDiscriminatorValue} from '../../../../../models/createListCollectionResponseFromDiscriminatorValue';
-import {createListFromDiscriminatorValue} from '../../../../../models/createListFromDiscriminatorValue';
-import {deserializeIntoList} from '../../../../../models/deserializeIntoList';
-import type {List} from '../../../../../models/list';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeList} from '../../../../../models/serializeList';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ListItemRequestBuilder} from './item/listItemRequestBuilder';
-import {ListsRequestBuilderGetRequestConfiguration} from './listsRequestBuilderGetRequestConfiguration';
-import {ListsRequestBuilderPostRequestConfiguration} from './listsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ListCollectionResponse } from '../../../../../models/';
+import { createListCollectionResponseFromDiscriminatorValue } from '../../../../../models/createListCollectionResponseFromDiscriminatorValue';
+import { createListFromDiscriminatorValue } from '../../../../../models/createListFromDiscriminatorValue';
+import { deserializeIntoList } from '../../../../../models/deserializeIntoList';
+import { type List } from '../../../../../models/list';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeList } from '../../../../../models/serializeList';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ListItemRequestBuilder } from './item/listItemRequestBuilder';
+import { type ListsRequestBuilderGetRequestConfiguration } from './listsRequestBuilderGetRequestConfiguration';
+import { type ListsRequestBuilderPostRequestConfiguration } from './listsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.site entity.

@@ -1,12 +1,12 @@
-import type {AppScope} from './appScope';
-import type {DirectoryObject} from './directoryObject';
-import {serializeAppScope} from './serializeAppScope';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeEntity} from './serializeEntity';
-import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
-import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import type {UnifiedRoleScheduleInstanceBase} from './unifiedRoleScheduleInstanceBase';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppScope } from './appScope';
+import { type DirectoryObject } from './directoryObject';
+import { serializeAppScope } from './serializeAppScope';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeEntity } from './serializeEntity';
+import { serializeUnifiedRoleDefinition } from './serializeUnifiedRoleDefinition';
+import { type UnifiedRoleDefinition } from './unifiedRoleDefinition';
+import { type UnifiedRoleScheduleInstanceBase } from './unifiedRoleScheduleInstanceBase';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleScheduleInstanceBase(writer: SerializationWriter, unifiedRoleScheduleInstanceBase: UnifiedRoleScheduleInstanceBase | undefined = {} as UnifiedRoleScheduleInstanceBase) : void {
         serializeEntity(writer, unifiedRoleScheduleInstanceBase)

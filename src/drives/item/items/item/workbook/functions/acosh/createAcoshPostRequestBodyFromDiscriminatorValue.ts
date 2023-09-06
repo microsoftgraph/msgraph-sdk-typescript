@@ -1,6 +1,6 @@
-import {deserializeIntoAcoshPostRequestBody} from './deserializeIntoAcoshPostRequestBody';
-import {AcoshPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAcoshPostRequestBody } from './deserializeIntoAcoshPostRequestBody';
+import { type AcoshPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAcoshPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

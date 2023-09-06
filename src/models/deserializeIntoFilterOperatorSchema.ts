@@ -1,9 +1,9 @@
-import {AttributeType} from './attributeType';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {FilterOperatorSchema} from './filterOperatorSchema';
-import {ScopeOperatorMultiValuedComparisonType} from './scopeOperatorMultiValuedComparisonType';
-import {ScopeOperatorType} from './scopeOperatorType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AttributeType } from './attributeType';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type FilterOperatorSchema } from './filterOperatorSchema';
+import { ScopeOperatorMultiValuedComparisonType } from './scopeOperatorMultiValuedComparisonType';
+import { ScopeOperatorType } from './scopeOperatorType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFilterOperatorSchema(filterOperatorSchema: FilterOperatorSchema | undefined = {} as FilterOperatorSchema) : Record<string, (node: ParseNode) => void> {
     return {

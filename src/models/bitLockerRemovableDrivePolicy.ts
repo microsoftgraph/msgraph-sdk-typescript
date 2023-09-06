@@ -1,5 +1,5 @@
-import {BitLockerEncryptionMethod} from './bitLockerEncryptionMethod';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { BitLockerEncryptionMethod } from './bitLockerEncryptionMethod';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BitLockerRemovableDrivePolicy extends AdditionalDataHolder, Parsable {
     /**

@@ -1,8 +1,8 @@
-import {OnenoteSourceService} from './onenoteSourceService';
-import type {RecentNotebook} from './recentNotebook';
-import type {RecentNotebookLinks} from './recentNotebookLinks';
-import {serializeRecentNotebookLinks} from './serializeRecentNotebookLinks';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { OnenoteSourceService } from './onenoteSourceService';
+import { type RecentNotebook } from './recentNotebook';
+import { type RecentNotebookLinks } from './recentNotebookLinks';
+import { serializeRecentNotebookLinks } from './serializeRecentNotebookLinks';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRecentNotebook(writer: SerializationWriter, recentNotebook: RecentNotebook | undefined = {} as RecentNotebook) : void {
         writer.writeStringValue("displayName", recentNotebook.displayName);

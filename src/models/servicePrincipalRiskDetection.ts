@@ -1,12 +1,12 @@
-import {ActivityType} from './activityType';
-import type {Entity} from './entity';
-import {RiskDetail} from './riskDetail';
-import {RiskDetectionTimingType} from './riskDetectionTimingType';
-import {RiskLevel} from './riskLevel';
-import {RiskState} from './riskState';
-import type {SignInLocation} from './signInLocation';
-import {TokenIssuerType} from './tokenIssuerType';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { ActivityType } from './activityType';
+import { type Entity } from './entity';
+import { RiskDetail } from './riskDetail';
+import { RiskDetectionTimingType } from './riskDetectionTimingType';
+import { RiskLevel } from './riskLevel';
+import { RiskState } from './riskState';
+import { type SignInLocation } from './signInLocation';
+import { TokenIssuerType } from './tokenIssuerType';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ServicePrincipalRiskDetection extends Entity, Parsable {
     /**

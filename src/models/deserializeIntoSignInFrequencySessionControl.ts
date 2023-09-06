@@ -1,9 +1,9 @@
-import {deserializeIntoConditionalAccessSessionControl} from './deserializeIntoConditionalAccessSessionControl';
-import {SignInFrequencyAuthenticationType} from './signInFrequencyAuthenticationType';
-import {SignInFrequencyInterval} from './signInFrequencyInterval';
-import type {SignInFrequencySessionControl} from './signInFrequencySessionControl';
-import {SigninFrequencyType} from './signinFrequencyType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoConditionalAccessSessionControl } from './deserializeIntoConditionalAccessSessionControl';
+import { SignInFrequencyAuthenticationType } from './signInFrequencyAuthenticationType';
+import { SignInFrequencyInterval } from './signInFrequencyInterval';
+import { type SignInFrequencySessionControl } from './signInFrequencySessionControl';
+import { SigninFrequencyType } from './signinFrequencyType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSignInFrequencySessionControl(signInFrequencySessionControl: SignInFrequencySessionControl | undefined = {} as SignInFrequencySessionControl) : Record<string, (node: ParseNode) => void> {
     return {

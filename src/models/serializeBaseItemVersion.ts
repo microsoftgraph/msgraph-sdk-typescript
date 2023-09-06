@@ -1,10 +1,10 @@
-import type {BaseItemVersion} from './baseItemVersion';
-import type {IdentitySet} from './identitySet';
-import type {PublicationFacet} from './publicationFacet';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializePublicationFacet} from './serializePublicationFacet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BaseItemVersion } from './baseItemVersion';
+import { type IdentitySet } from './identitySet';
+import { type PublicationFacet } from './publicationFacet';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializePublicationFacet } from './serializePublicationFacet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBaseItemVersion(writer: SerializationWriter, baseItemVersion: BaseItemVersion | undefined = {} as BaseItemVersion) : void {
         serializeEntity(writer, baseItemVersion)

@@ -1,19 +1,18 @@
-import {AccessPackageResourceScopeCollectionResponse} from '../../../../../../models/';
-import type {AccessPackageResourceScope} from '../../../../../../models/accessPackageResourceScope';
-import {createAccessPackageResourceScopeCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createAccessPackageResourceScopeCollectionResponseFromDiscriminatorValue';
-import {createAccessPackageResourceScopeFromDiscriminatorValue} from '../../../../../../models/createAccessPackageResourceScopeFromDiscriminatorValue';
-import {deserializeIntoAccessPackageResourceScope} from '../../../../../../models/deserializeIntoAccessPackageResourceScope';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackageResourceScope} from '../../../../../../models/serializeAccessPackageResourceScope';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AccessPackageResourceScopeItemRequestBuilder} from './item/accessPackageResourceScopeItemRequestBuilder';
-import {ResourceScopesRequestBuilderGetRequestConfiguration} from './resourceScopesRequestBuilderGetRequestConfiguration';
-import {ResourceScopesRequestBuilderPostRequestConfiguration} from './resourceScopesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResourceScopeCollectionResponse } from '../../../../../../models/';
+import { type AccessPackageResourceScope } from '../../../../../../models/accessPackageResourceScope';
+import { createAccessPackageResourceScopeCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createAccessPackageResourceScopeCollectionResponseFromDiscriminatorValue';
+import { createAccessPackageResourceScopeFromDiscriminatorValue } from '../../../../../../models/createAccessPackageResourceScopeFromDiscriminatorValue';
+import { deserializeIntoAccessPackageResourceScope } from '../../../../../../models/deserializeIntoAccessPackageResourceScope';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackageResourceScope } from '../../../../../../models/serializeAccessPackageResourceScope';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AccessPackageResourceScopeItemRequestBuilder } from './item/accessPackageResourceScopeItemRequestBuilder';
+import { type ResourceScopesRequestBuilderGetRequestConfiguration } from './resourceScopesRequestBuilderGetRequestConfiguration';
+import { type ResourceScopesRequestBuilderPostRequestConfiguration } from './resourceScopesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceScopes property of the microsoft.graph.accessPackageCatalog entity.

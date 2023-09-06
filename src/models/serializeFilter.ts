@@ -1,7 +1,7 @@
-import type {Filter} from './filter';
-import type {FilterGroup} from './filterGroup';
-import {serializeFilterGroup} from './serializeFilterGroup';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Filter } from './filter';
+import { type FilterGroup } from './filterGroup';
+import { serializeFilterGroup } from './serializeFilterGroup';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeFilter(writer: SerializationWriter, filter: Filter | undefined = {} as Filter) : void {
         writer.writeCollectionOfObjectValues<FilterGroup>("categoryFilterGroups", filter.categoryFilterGroups, serializeFilterGroup);

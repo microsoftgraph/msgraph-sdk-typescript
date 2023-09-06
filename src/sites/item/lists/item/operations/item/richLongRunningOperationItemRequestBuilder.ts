@@ -1,16 +1,15 @@
-import {createRichLongRunningOperationFromDiscriminatorValue} from '../../../../../../models/createRichLongRunningOperationFromDiscriminatorValue';
-import {deserializeIntoRichLongRunningOperation} from '../../../../../../models/deserializeIntoRichLongRunningOperation';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import type {RichLongRunningOperation} from '../../../../../../models/richLongRunningOperation';
-import {serializeRichLongRunningOperation} from '../../../../../../models/serializeRichLongRunningOperation';
-import {RichLongRunningOperationItemRequestBuilderDeleteRequestConfiguration} from './richLongRunningOperationItemRequestBuilderDeleteRequestConfiguration';
-import {RichLongRunningOperationItemRequestBuilderGetRequestConfiguration} from './richLongRunningOperationItemRequestBuilderGetRequestConfiguration';
-import {RichLongRunningOperationItemRequestBuilderPatchRequestConfiguration} from './richLongRunningOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createRichLongRunningOperationFromDiscriminatorValue } from '../../../../../../models/createRichLongRunningOperationFromDiscriminatorValue';
+import { deserializeIntoRichLongRunningOperation } from '../../../../../../models/deserializeIntoRichLongRunningOperation';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type RichLongRunningOperation } from '../../../../../../models/richLongRunningOperation';
+import { serializeRichLongRunningOperation } from '../../../../../../models/serializeRichLongRunningOperation';
+import { type RichLongRunningOperationItemRequestBuilderDeleteRequestConfiguration } from './richLongRunningOperationItemRequestBuilderDeleteRequestConfiguration';
+import { type RichLongRunningOperationItemRequestBuilderGetRequestConfiguration } from './richLongRunningOperationItemRequestBuilderGetRequestConfiguration';
+import { type RichLongRunningOperationItemRequestBuilderPatchRequestConfiguration } from './richLongRunningOperationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.list entity.

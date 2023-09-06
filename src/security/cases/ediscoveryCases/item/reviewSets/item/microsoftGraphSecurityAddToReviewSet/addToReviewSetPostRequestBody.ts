@@ -1,6 +1,6 @@
-import {AdditionalDataOptions} from '../../../../../../../models/security/additionalDataOptions';
-import type {EdiscoverySearch} from '../../../../../../../models/security/ediscoverySearch';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { AdditionalDataOptions } from '../../../../../../../models/security/additionalDataOptions';
+import { type EdiscoverySearch } from '../../../../../../../models/security/ediscoverySearch';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AddToReviewSetPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
@@ -10,7 +10,7 @@ export interface AddToReviewSetPostRequestBody extends AdditionalDataHolder, Par
     /**
      * The additionalDataOptions property
      */
-    additionalDataOptions?: AdditionalDataOptions | undefined;
+    additionalDataOptions?: AdditionalDataOptions[] | undefined;
     /**
      * The search property
      */

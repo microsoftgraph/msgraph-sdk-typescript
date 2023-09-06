@@ -1,15 +1,15 @@
-import type {AverageComparativeScore} from './averageComparativeScore';
-import type {ControlScore} from './controlScore';
-import {createAverageComparativeScoreFromDiscriminatorValue} from './createAverageComparativeScoreFromDiscriminatorValue';
-import {createControlScoreFromDiscriminatorValue} from './createControlScoreFromDiscriminatorValue';
-import {createSecurityVendorInformationFromDiscriminatorValue} from './createSecurityVendorInformationFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {SecureScore} from './secureScore';
-import type {SecurityVendorInformation} from './securityVendorInformation';
-import {serializeAverageComparativeScore} from './serializeAverageComparativeScore';
-import {serializeControlScore} from './serializeControlScore';
-import {serializeSecurityVendorInformation} from './serializeSecurityVendorInformation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AverageComparativeScore } from './averageComparativeScore';
+import { type ControlScore } from './controlScore';
+import { createAverageComparativeScoreFromDiscriminatorValue } from './createAverageComparativeScoreFromDiscriminatorValue';
+import { createControlScoreFromDiscriminatorValue } from './createControlScoreFromDiscriminatorValue';
+import { createSecurityVendorInformationFromDiscriminatorValue } from './createSecurityVendorInformationFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type SecureScore } from './secureScore';
+import { type SecurityVendorInformation } from './securityVendorInformation';
+import { serializeAverageComparativeScore } from './serializeAverageComparativeScore';
+import { serializeControlScore } from './serializeControlScore';
+import { serializeSecurityVendorInformation } from './serializeSecurityVendorInformation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSecureScore(secureScore: SecureScore | undefined = {} as SecureScore) : Record<string, (node: ParseNode) => void> {
     return {

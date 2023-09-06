@@ -1,5 +1,5 @@
-import {ScopesRequestBuilderGetQueryParameters} from './scopesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ScopesRequestBuilderGetQueryParameters } from './scopesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ScopesRequestBuilderGetRequestConfiguration {
     /**

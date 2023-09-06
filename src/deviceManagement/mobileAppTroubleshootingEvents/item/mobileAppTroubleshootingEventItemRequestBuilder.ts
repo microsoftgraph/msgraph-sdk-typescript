@@ -1,17 +1,16 @@
-import {createMobileAppTroubleshootingEventFromDiscriminatorValue} from '../../../models/createMobileAppTroubleshootingEventFromDiscriminatorValue';
-import {deserializeIntoMobileAppTroubleshootingEvent} from '../../../models/deserializeIntoMobileAppTroubleshootingEvent';
-import type {MobileAppTroubleshootingEvent} from '../../../models/mobileAppTroubleshootingEvent';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeMobileAppTroubleshootingEvent} from '../../../models/serializeMobileAppTroubleshootingEvent';
-import {AppLogCollectionRequestsRequestBuilder} from './appLogCollectionRequests/appLogCollectionRequestsRequestBuilder';
-import {MobileAppTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration} from './mobileAppTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration';
-import {MobileAppTroubleshootingEventItemRequestBuilderGetRequestConfiguration} from './mobileAppTroubleshootingEventItemRequestBuilderGetRequestConfiguration';
-import {MobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration} from './mobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMobileAppTroubleshootingEventFromDiscriminatorValue } from '../../../models/createMobileAppTroubleshootingEventFromDiscriminatorValue';
+import { deserializeIntoMobileAppTroubleshootingEvent } from '../../../models/deserializeIntoMobileAppTroubleshootingEvent';
+import { type MobileAppTroubleshootingEvent } from '../../../models/mobileAppTroubleshootingEvent';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeMobileAppTroubleshootingEvent } from '../../../models/serializeMobileAppTroubleshootingEvent';
+import { AppLogCollectionRequestsRequestBuilder } from './appLogCollectionRequests/appLogCollectionRequestsRequestBuilder';
+import { type MobileAppTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration } from './mobileAppTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration';
+import { type MobileAppTroubleshootingEventItemRequestBuilderGetRequestConfiguration } from './mobileAppTroubleshootingEventItemRequestBuilderGetRequestConfiguration';
+import { type MobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration } from './mobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.

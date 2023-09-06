@@ -1,6 +1,6 @@
-import {deserializeIntoSmsAuthenticationMethodConfiguration} from './deserializeIntoSmsAuthenticationMethodConfiguration';
-import {SmsAuthenticationMethodConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoSmsAuthenticationMethodConfiguration } from './deserializeIntoSmsAuthenticationMethodConfiguration';
+import { type SmsAuthenticationMethodConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createSmsAuthenticationMethodConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

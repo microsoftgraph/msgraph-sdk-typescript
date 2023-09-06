@@ -1,9 +1,9 @@
-import type {Entity} from './entity';
-import type {MediaStream} from './mediaStream';
-import type {OnlineMeetingRestricted} from './onlineMeetingRestricted';
-import type {ParticipantInfo} from './participantInfo';
-import type {RecordingInfo} from './recordingInfo';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type MediaStream } from './mediaStream';
+import { type OnlineMeetingRestricted } from './onlineMeetingRestricted';
+import { type ParticipantInfo } from './participantInfo';
+import { type RecordingInfo } from './recordingInfo';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Participant extends Entity, Parsable {
     /**

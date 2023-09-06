@@ -1,6 +1,6 @@
-import type {FileHash} from './fileHash';
-import {FileHashAlgorithm} from './fileHashAlgorithm';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type FileHash } from './fileHash';
+import { FileHashAlgorithm } from './fileHashAlgorithm';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFileHash(fileHash: FileHash | undefined = {} as FileHash) : Record<string, (node: ParseNode) => void> {
     return {

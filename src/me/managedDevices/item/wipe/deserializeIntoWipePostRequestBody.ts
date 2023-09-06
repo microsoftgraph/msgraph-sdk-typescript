@@ -1,5 +1,5 @@
-import type {WipePostRequestBody} from './wipePostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type WipePostRequestBody } from './wipePostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWipePostRequestBody(wipePostRequestBody: WipePostRequestBody | undefined = {} as WipePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

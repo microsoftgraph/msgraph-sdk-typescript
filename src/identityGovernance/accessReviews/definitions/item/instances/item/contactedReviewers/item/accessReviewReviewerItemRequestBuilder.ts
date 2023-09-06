@@ -1,16 +1,15 @@
-import type {AccessReviewReviewer} from '../../../../../../../../models/accessReviewReviewer';
-import {createAccessReviewReviewerFromDiscriminatorValue} from '../../../../../../../../models/createAccessReviewReviewerFromDiscriminatorValue';
-import {deserializeIntoAccessReviewReviewer} from '../../../../../../../../models/deserializeIntoAccessReviewReviewer';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessReviewReviewer} from '../../../../../../../../models/serializeAccessReviewReviewer';
-import {AccessReviewReviewerItemRequestBuilderDeleteRequestConfiguration} from './accessReviewReviewerItemRequestBuilderDeleteRequestConfiguration';
-import {AccessReviewReviewerItemRequestBuilderGetRequestConfiguration} from './accessReviewReviewerItemRequestBuilderGetRequestConfiguration';
-import {AccessReviewReviewerItemRequestBuilderPatchRequestConfiguration} from './accessReviewReviewerItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessReviewReviewer } from '../../../../../../../../models/accessReviewReviewer';
+import { createAccessReviewReviewerFromDiscriminatorValue } from '../../../../../../../../models/createAccessReviewReviewerFromDiscriminatorValue';
+import { deserializeIntoAccessReviewReviewer } from '../../../../../../../../models/deserializeIntoAccessReviewReviewer';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessReviewReviewer } from '../../../../../../../../models/serializeAccessReviewReviewer';
+import { type AccessReviewReviewerItemRequestBuilderDeleteRequestConfiguration } from './accessReviewReviewerItemRequestBuilderDeleteRequestConfiguration';
+import { type AccessReviewReviewerItemRequestBuilderGetRequestConfiguration } from './accessReviewReviewerItemRequestBuilderGetRequestConfiguration';
+import { type AccessReviewReviewerItemRequestBuilderPatchRequestConfiguration } from './accessReviewReviewerItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.

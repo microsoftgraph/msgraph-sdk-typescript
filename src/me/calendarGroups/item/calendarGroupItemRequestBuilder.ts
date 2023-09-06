@@ -1,17 +1,16 @@
-import type {CalendarGroup} from '../../../models/calendarGroup';
-import {createCalendarGroupFromDiscriminatorValue} from '../../../models/createCalendarGroupFromDiscriminatorValue';
-import {deserializeIntoCalendarGroup} from '../../../models/deserializeIntoCalendarGroup';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeCalendarGroup} from '../../../models/serializeCalendarGroup';
-import {CalendarGroupItemRequestBuilderDeleteRequestConfiguration} from './calendarGroupItemRequestBuilderDeleteRequestConfiguration';
-import {CalendarGroupItemRequestBuilderGetRequestConfiguration} from './calendarGroupItemRequestBuilderGetRequestConfiguration';
-import {CalendarGroupItemRequestBuilderPatchRequestConfiguration} from './calendarGroupItemRequestBuilderPatchRequestConfiguration';
-import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CalendarGroup } from '../../../models/calendarGroup';
+import { createCalendarGroupFromDiscriminatorValue } from '../../../models/createCalendarGroupFromDiscriminatorValue';
+import { deserializeIntoCalendarGroup } from '../../../models/deserializeIntoCalendarGroup';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeCalendarGroup } from '../../../models/serializeCalendarGroup';
+import { type CalendarGroupItemRequestBuilderDeleteRequestConfiguration } from './calendarGroupItemRequestBuilderDeleteRequestConfiguration';
+import { type CalendarGroupItemRequestBuilderGetRequestConfiguration } from './calendarGroupItemRequestBuilderGetRequestConfiguration';
+import { type CalendarGroupItemRequestBuilderPatchRequestConfiguration } from './calendarGroupItemRequestBuilderPatchRequestConfiguration';
+import { CalendarsRequestBuilder } from './calendars/calendarsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.

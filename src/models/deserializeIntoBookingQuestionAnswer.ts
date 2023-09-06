@@ -1,6 +1,6 @@
-import {AnswerInputType} from './answerInputType';
-import type {BookingQuestionAnswer} from './bookingQuestionAnswer';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AnswerInputType } from './answerInputType';
+import { type BookingQuestionAnswer } from './bookingQuestionAnswer';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingQuestionAnswer(bookingQuestionAnswer: BookingQuestionAnswer | undefined = {} as BookingQuestionAnswer) : Record<string, (node: ParseNode) => void> {
     return {

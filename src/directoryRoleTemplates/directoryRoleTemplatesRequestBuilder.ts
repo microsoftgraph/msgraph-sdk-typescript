@@ -1,23 +1,22 @@
-import {DirectoryRoleTemplateCollectionResponse} from '../models/';
-import {createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue} from '../models/createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue';
-import {createDirectoryRoleTemplateFromDiscriminatorValue} from '../models/createDirectoryRoleTemplateFromDiscriminatorValue';
-import {deserializeIntoDirectoryRoleTemplate} from '../models/deserializeIntoDirectoryRoleTemplate';
-import type {DirectoryRoleTemplate} from '../models/directoryRoleTemplate';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeDirectoryRoleTemplate} from '../models/serializeDirectoryRoleTemplate';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {DirectoryRoleTemplatesRequestBuilderGetRequestConfiguration} from './directoryRoleTemplatesRequestBuilderGetRequestConfiguration';
-import {DirectoryRoleTemplatesRequestBuilderPostRequestConfiguration} from './directoryRoleTemplatesRequestBuilderPostRequestConfiguration';
-import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
-import {DirectoryRoleTemplateItemRequestBuilder} from './item/directoryRoleTemplateItemRequestBuilder';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryRoleTemplateCollectionResponse } from '../models/';
+import { createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue } from '../models/createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue';
+import { createDirectoryRoleTemplateFromDiscriminatorValue } from '../models/createDirectoryRoleTemplateFromDiscriminatorValue';
+import { deserializeIntoDirectoryRoleTemplate } from '../models/deserializeIntoDirectoryRoleTemplate';
+import { type DirectoryRoleTemplate } from '../models/directoryRoleTemplate';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeDirectoryRoleTemplate } from '../models/serializeDirectoryRoleTemplate';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { type DirectoryRoleTemplatesRequestBuilderGetRequestConfiguration } from './directoryRoleTemplatesRequestBuilderGetRequestConfiguration';
+import { type DirectoryRoleTemplatesRequestBuilderPostRequestConfiguration } from './directoryRoleTemplatesRequestBuilderPostRequestConfiguration';
+import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
+import { DirectoryRoleTemplateItemRequestBuilder } from './item/directoryRoleTemplateItemRequestBuilder';
+import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRoleTemplate entities.

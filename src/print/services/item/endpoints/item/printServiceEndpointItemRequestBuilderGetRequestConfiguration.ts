@@ -1,5 +1,5 @@
-import {PrintServiceEndpointItemRequestBuilderGetQueryParameters} from './printServiceEndpointItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PrintServiceEndpointItemRequestBuilderGetQueryParameters } from './printServiceEndpointItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PrintServiceEndpointItemRequestBuilderGetRequestConfiguration {
     /**

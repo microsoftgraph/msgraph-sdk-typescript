@@ -1,5 +1,5 @@
-import {LayoutTemplateType} from './layoutTemplateType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { LayoutTemplateType } from './layoutTemplateType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface LoginPageLayoutConfiguration extends AdditionalDataHolder, Parsable {
     /**

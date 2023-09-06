@@ -1,5 +1,5 @@
-import {ChartsRequestBuilderGetQueryParameters} from './chartsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ChartsRequestBuilderGetQueryParameters } from './chartsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ChartsRequestBuilderGetRequestConfiguration {
     /**

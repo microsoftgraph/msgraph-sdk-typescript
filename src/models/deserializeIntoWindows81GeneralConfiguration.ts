@@ -1,10 +1,10 @@
-import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
-import {InternetSiteSecurityLevel} from './internetSiteSecurityLevel';
-import {RequiredPasswordType} from './requiredPasswordType';
-import {SiteSecurityLevel} from './siteSecurityLevel';
-import type {Windows81GeneralConfiguration} from './windows81GeneralConfiguration';
-import {WindowsUserAccountControlSettings} from './windowsUserAccountControlSettings';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceConfiguration } from './deserializeIntoDeviceConfiguration';
+import { InternetSiteSecurityLevel } from './internetSiteSecurityLevel';
+import { RequiredPasswordType } from './requiredPasswordType';
+import { SiteSecurityLevel } from './siteSecurityLevel';
+import { type Windows81GeneralConfiguration } from './windows81GeneralConfiguration';
+import { WindowsUserAccountControlSettings } from './windowsUserAccountControlSettings';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindows81GeneralConfiguration(windows81GeneralConfiguration: Windows81GeneralConfiguration | undefined = {} as Windows81GeneralConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,16 +1,15 @@
-import {createUserRegistrationDetailsFromDiscriminatorValue} from '../../../../models/createUserRegistrationDetailsFromDiscriminatorValue';
-import {deserializeIntoUserRegistrationDetails} from '../../../../models/deserializeIntoUserRegistrationDetails';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeUserRegistrationDetails} from '../../../../models/serializeUserRegistrationDetails';
-import type {UserRegistrationDetails} from '../../../../models/userRegistrationDetails';
-import {UserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration';
-import {UserRegistrationDetailsItemRequestBuilderGetRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderGetRequestConfiguration';
-import {UserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUserRegistrationDetailsFromDiscriminatorValue } from '../../../../models/createUserRegistrationDetailsFromDiscriminatorValue';
+import { deserializeIntoUserRegistrationDetails } from '../../../../models/deserializeIntoUserRegistrationDetails';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeUserRegistrationDetails } from '../../../../models/serializeUserRegistrationDetails';
+import { type UserRegistrationDetails } from '../../../../models/userRegistrationDetails';
+import { type UserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration } from './userRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration';
+import { type UserRegistrationDetailsItemRequestBuilderGetRequestConfiguration } from './userRegistrationDetailsItemRequestBuilderGetRequestConfiguration';
+import { type UserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration } from './userRegistrationDetailsItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.

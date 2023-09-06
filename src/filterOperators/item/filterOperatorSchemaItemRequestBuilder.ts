@@ -1,16 +1,15 @@
-import {createFilterOperatorSchemaFromDiscriminatorValue} from '../../models/createFilterOperatorSchemaFromDiscriminatorValue';
-import {deserializeIntoFilterOperatorSchema} from '../../models/deserializeIntoFilterOperatorSchema';
-import type {FilterOperatorSchema} from '../../models/filterOperatorSchema';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeFilterOperatorSchema} from '../../models/serializeFilterOperatorSchema';
-import {FilterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration} from './filterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration';
-import {FilterOperatorSchemaItemRequestBuilderGetRequestConfiguration} from './filterOperatorSchemaItemRequestBuilderGetRequestConfiguration';
-import {FilterOperatorSchemaItemRequestBuilderPatchRequestConfiguration} from './filterOperatorSchemaItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createFilterOperatorSchemaFromDiscriminatorValue } from '../../models/createFilterOperatorSchemaFromDiscriminatorValue';
+import { deserializeIntoFilterOperatorSchema } from '../../models/deserializeIntoFilterOperatorSchema';
+import { type FilterOperatorSchema } from '../../models/filterOperatorSchema';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeFilterOperatorSchema } from '../../models/serializeFilterOperatorSchema';
+import { type FilterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration } from './filterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration';
+import { type FilterOperatorSchemaItemRequestBuilderGetRequestConfiguration } from './filterOperatorSchemaItemRequestBuilderGetRequestConfiguration';
+import { type FilterOperatorSchemaItemRequestBuilderPatchRequestConfiguration } from './filterOperatorSchemaItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of filterOperatorSchema entities.

@@ -1,5 +1,5 @@
-import {AccessPackageResourceRoleItemRequestBuilderGetQueryParameters} from './accessPackageResourceRoleItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResourceRoleItemRequestBuilderGetQueryParameters } from './accessPackageResourceRoleItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageResourceRoleItemRequestBuilderGetRequestConfiguration {
     /**

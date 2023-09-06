@@ -1,20 +1,19 @@
-import {MailFolderCollectionResponse} from '../../models/';
-import {createMailFolderCollectionResponseFromDiscriminatorValue} from '../../models/createMailFolderCollectionResponseFromDiscriminatorValue';
-import {createMailFolderFromDiscriminatorValue} from '../../models/createMailFolderFromDiscriminatorValue';
-import {deserializeIntoMailFolder} from '../../models/deserializeIntoMailFolder';
-import type {MailFolder} from '../../models/mailFolder';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeMailFolder} from '../../models/serializeMailFolder';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {MailFolderItemRequestBuilder} from './item/mailFolderItemRequestBuilder';
-import {MailFoldersRequestBuilderGetRequestConfiguration} from './mailFoldersRequestBuilderGetRequestConfiguration';
-import {MailFoldersRequestBuilderPostRequestConfiguration} from './mailFoldersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type MailFolderCollectionResponse } from '../../models/';
+import { createMailFolderCollectionResponseFromDiscriminatorValue } from '../../models/createMailFolderCollectionResponseFromDiscriminatorValue';
+import { createMailFolderFromDiscriminatorValue } from '../../models/createMailFolderFromDiscriminatorValue';
+import { deserializeIntoMailFolder } from '../../models/deserializeIntoMailFolder';
+import { type MailFolder } from '../../models/mailFolder';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeMailFolder } from '../../models/serializeMailFolder';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { MailFolderItemRequestBuilder } from './item/mailFolderItemRequestBuilder';
+import { type MailFoldersRequestBuilderGetRequestConfiguration } from './mailFoldersRequestBuilderGetRequestConfiguration';
+import { type MailFoldersRequestBuilderPostRequestConfiguration } from './mailFoldersRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.

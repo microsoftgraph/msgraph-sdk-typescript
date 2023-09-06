@@ -1,11 +1,10 @@
-import {BookingPriceType} from './bookingPriceType';
-import type {BookingQuestionAssignment} from './bookingQuestionAssignment';
-import type {BookingReminder} from './bookingReminder';
-import type {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
-import type {Entity} from './entity';
-import type {Location} from './location';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { BookingPriceType } from './bookingPriceType';
+import { type BookingQuestionAssignment } from './bookingQuestionAssignment';
+import { type BookingReminder } from './bookingReminder';
+import { type BookingSchedulingPolicy } from './bookingSchedulingPolicy';
+import { type Entity } from './entity';
+import { type Location } from './location';
+import { Duration, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BookingService extends Entity, Parsable {
     /**

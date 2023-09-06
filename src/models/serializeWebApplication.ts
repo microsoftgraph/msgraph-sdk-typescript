@@ -1,9 +1,9 @@
-import type {ImplicitGrantSettings} from './implicitGrantSettings';
-import type {RedirectUriSettings} from './redirectUriSettings';
-import {serializeImplicitGrantSettings} from './serializeImplicitGrantSettings';
-import {serializeRedirectUriSettings} from './serializeRedirectUriSettings';
-import type {WebApplication} from './webApplication';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ImplicitGrantSettings } from './implicitGrantSettings';
+import { type RedirectUriSettings } from './redirectUriSettings';
+import { serializeImplicitGrantSettings } from './serializeImplicitGrantSettings';
+import { serializeRedirectUriSettings } from './serializeRedirectUriSettings';
+import { type WebApplication } from './webApplication';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWebApplication(writer: SerializationWriter, webApplication: WebApplication | undefined = {} as WebApplication) : void {
         writer.writeStringValue("homePageUrl", webApplication.homePageUrl);

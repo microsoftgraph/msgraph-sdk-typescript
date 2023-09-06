@@ -1,6 +1,6 @@
-import {deserializeIntoIsNumberPostRequestBody} from './deserializeIntoIsNumberPostRequestBody';
-import {IsNumberPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIsNumberPostRequestBody } from './deserializeIntoIsNumberPostRequestBody';
+import { type IsNumberPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIsNumberPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

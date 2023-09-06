@@ -1,5 +1,5 @@
-import {DrivesRequestBuilderGetQueryParameters} from './drivesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DrivesRequestBuilderGetQueryParameters } from './drivesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DrivesRequestBuilderGetRequestConfiguration {
     /**

@@ -1,16 +1,15 @@
-import {createUserExperienceAnalyticsScoreHistoryFromDiscriminatorValue} from '../../../models/createUserExperienceAnalyticsScoreHistoryFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsScoreHistory} from '../../../models/deserializeIntoUserExperienceAnalyticsScoreHistory';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsScoreHistory} from '../../../models/serializeUserExperienceAnalyticsScoreHistory';
-import type {UserExperienceAnalyticsScoreHistory} from '../../../models/userExperienceAnalyticsScoreHistory';
-import {UserExperienceAnalyticsScoreHistoryItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsScoreHistoryItemRequestBuilderDeleteRequestConfiguration';
-import {UserExperienceAnalyticsScoreHistoryItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsScoreHistoryItemRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUserExperienceAnalyticsScoreHistoryFromDiscriminatorValue } from '../../../models/createUserExperienceAnalyticsScoreHistoryFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsScoreHistory } from '../../../models/deserializeIntoUserExperienceAnalyticsScoreHistory';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsScoreHistory } from '../../../models/serializeUserExperienceAnalyticsScoreHistory';
+import { type UserExperienceAnalyticsScoreHistory } from '../../../models/userExperienceAnalyticsScoreHistory';
+import { type UserExperienceAnalyticsScoreHistoryItemRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsScoreHistoryItemRequestBuilderDeleteRequestConfiguration';
+import { type UserExperienceAnalyticsScoreHistoryItemRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsScoreHistoryItemRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsScoreHistory property of the microsoft.graph.deviceManagement entity.

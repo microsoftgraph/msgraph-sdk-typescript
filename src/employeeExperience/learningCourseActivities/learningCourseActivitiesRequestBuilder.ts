@@ -1,19 +1,18 @@
-import {LearningCourseActivityCollectionResponse} from '../../models/';
-import {createLearningCourseActivityCollectionResponseFromDiscriminatorValue} from '../../models/createLearningCourseActivityCollectionResponseFromDiscriminatorValue';
-import {createLearningCourseActivityFromDiscriminatorValue} from '../../models/createLearningCourseActivityFromDiscriminatorValue';
-import {deserializeIntoLearningCourseActivity} from '../../models/deserializeIntoLearningCourseActivity';
-import type {LearningCourseActivity} from '../../models/learningCourseActivity';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeLearningCourseActivity} from '../../models/serializeLearningCourseActivity';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {LearningCourseActivityItemRequestBuilder} from './item/learningCourseActivityItemRequestBuilder';
-import {LearningCourseActivitiesRequestBuilderGetRequestConfiguration} from './learningCourseActivitiesRequestBuilderGetRequestConfiguration';
-import {LearningCourseActivitiesRequestBuilderPostRequestConfiguration} from './learningCourseActivitiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type LearningCourseActivityCollectionResponse } from '../../models/';
+import { createLearningCourseActivityCollectionResponseFromDiscriminatorValue } from '../../models/createLearningCourseActivityCollectionResponseFromDiscriminatorValue';
+import { createLearningCourseActivityFromDiscriminatorValue } from '../../models/createLearningCourseActivityFromDiscriminatorValue';
+import { deserializeIntoLearningCourseActivity } from '../../models/deserializeIntoLearningCourseActivity';
+import { type LearningCourseActivity } from '../../models/learningCourseActivity';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeLearningCourseActivity } from '../../models/serializeLearningCourseActivity';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { LearningCourseActivityItemRequestBuilder } from './item/learningCourseActivityItemRequestBuilder';
+import { type LearningCourseActivitiesRequestBuilderGetRequestConfiguration } from './learningCourseActivitiesRequestBuilderGetRequestConfiguration';
+import { type LearningCourseActivitiesRequestBuilderPostRequestConfiguration } from './learningCourseActivitiesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.

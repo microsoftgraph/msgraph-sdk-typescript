@@ -1,5 +1,5 @@
-import type {HostSecurityState} from './hostSecurityState';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type HostSecurityState } from './hostSecurityState';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeHostSecurityState(writer: SerializationWriter, hostSecurityState: HostSecurityState | undefined = {} as HostSecurityState) : void {
         writer.writeStringValue("fqdn", hostSecurityState.fqdn);

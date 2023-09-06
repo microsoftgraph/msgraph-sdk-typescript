@@ -1,5 +1,5 @@
-import {OnenoteRequestBuilderGetQueryParameters} from './onenoteRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type OnenoteRequestBuilderGetQueryParameters } from './onenoteRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OnenoteRequestBuilderGetRequestConfiguration {
     /**

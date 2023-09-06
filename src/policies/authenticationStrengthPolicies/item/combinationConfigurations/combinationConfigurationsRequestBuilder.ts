@@ -1,19 +1,18 @@
-import {AuthenticationCombinationConfigurationCollectionResponse} from '../../../../models/';
-import type {AuthenticationCombinationConfiguration} from '../../../../models/authenticationCombinationConfiguration';
-import {createAuthenticationCombinationConfigurationCollectionResponseFromDiscriminatorValue} from '../../../../models/createAuthenticationCombinationConfigurationCollectionResponseFromDiscriminatorValue';
-import {createAuthenticationCombinationConfigurationFromDiscriminatorValue} from '../../../../models/createAuthenticationCombinationConfigurationFromDiscriminatorValue';
-import {deserializeIntoAuthenticationCombinationConfiguration} from '../../../../models/deserializeIntoAuthenticationCombinationConfiguration';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeAuthenticationCombinationConfiguration} from '../../../../models/serializeAuthenticationCombinationConfiguration';
-import {CombinationConfigurationsRequestBuilderGetRequestConfiguration} from './combinationConfigurationsRequestBuilderGetRequestConfiguration';
-import {CombinationConfigurationsRequestBuilderPostRequestConfiguration} from './combinationConfigurationsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AuthenticationCombinationConfigurationItemRequestBuilder} from './item/authenticationCombinationConfigurationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationCombinationConfigurationCollectionResponse } from '../../../../models/';
+import { type AuthenticationCombinationConfiguration } from '../../../../models/authenticationCombinationConfiguration';
+import { createAuthenticationCombinationConfigurationCollectionResponseFromDiscriminatorValue } from '../../../../models/createAuthenticationCombinationConfigurationCollectionResponseFromDiscriminatorValue';
+import { createAuthenticationCombinationConfigurationFromDiscriminatorValue } from '../../../../models/createAuthenticationCombinationConfigurationFromDiscriminatorValue';
+import { deserializeIntoAuthenticationCombinationConfiguration } from '../../../../models/deserializeIntoAuthenticationCombinationConfiguration';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeAuthenticationCombinationConfiguration } from '../../../../models/serializeAuthenticationCombinationConfiguration';
+import { type CombinationConfigurationsRequestBuilderGetRequestConfiguration } from './combinationConfigurationsRequestBuilderGetRequestConfiguration';
+import { type CombinationConfigurationsRequestBuilderPostRequestConfiguration } from './combinationConfigurationsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AuthenticationCombinationConfigurationItemRequestBuilder } from './item/authenticationCombinationConfigurationItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.

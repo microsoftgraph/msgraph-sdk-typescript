@@ -1,5 +1,5 @@
-import {SimulationAutomationItemRequestBuilderGetQueryParameters} from './simulationAutomationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SimulationAutomationItemRequestBuilderGetQueryParameters } from './simulationAutomationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SimulationAutomationItemRequestBuilderGetRequestConfiguration {
     /**

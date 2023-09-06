@@ -1,5 +1,5 @@
-import {AcceptanceStatusesRequestBuilderGetQueryParameters} from './acceptanceStatusesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AcceptanceStatusesRequestBuilderGetQueryParameters } from './acceptanceStatusesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AcceptanceStatusesRequestBuilderGetRequestConfiguration {
     /**

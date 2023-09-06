@@ -1,17 +1,16 @@
-import {createDeviceCompliancePolicySettingStateSummaryFromDiscriminatorValue} from '../../../models/createDeviceCompliancePolicySettingStateSummaryFromDiscriminatorValue';
-import {deserializeIntoDeviceCompliancePolicySettingStateSummary} from '../../../models/deserializeIntoDeviceCompliancePolicySettingStateSummary';
-import type {DeviceCompliancePolicySettingStateSummary} from '../../../models/deviceCompliancePolicySettingStateSummary';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceCompliancePolicySettingStateSummary} from '../../../models/serializeDeviceCompliancePolicySettingStateSummary';
-import {DeviceCompliancePolicySettingStateSummaryItemRequestBuilderDeleteRequestConfiguration} from './deviceCompliancePolicySettingStateSummaryItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicySettingStateSummaryItemRequestBuilderGetRequestConfiguration';
-import {DeviceCompliancePolicySettingStateSummaryItemRequestBuilderPatchRequestConfiguration} from './deviceCompliancePolicySettingStateSummaryItemRequestBuilderPatchRequestConfiguration';
-import {DeviceComplianceSettingStatesRequestBuilder} from './deviceComplianceSettingStates/deviceComplianceSettingStatesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceCompliancePolicySettingStateSummaryFromDiscriminatorValue } from '../../../models/createDeviceCompliancePolicySettingStateSummaryFromDiscriminatorValue';
+import { deserializeIntoDeviceCompliancePolicySettingStateSummary } from '../../../models/deserializeIntoDeviceCompliancePolicySettingStateSummary';
+import { type DeviceCompliancePolicySettingStateSummary } from '../../../models/deviceCompliancePolicySettingStateSummary';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceCompliancePolicySettingStateSummary } from '../../../models/serializeDeviceCompliancePolicySettingStateSummary';
+import { type DeviceCompliancePolicySettingStateSummaryItemRequestBuilderDeleteRequestConfiguration } from './deviceCompliancePolicySettingStateSummaryItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetRequestConfiguration } from './deviceCompliancePolicySettingStateSummaryItemRequestBuilderGetRequestConfiguration';
+import { type DeviceCompliancePolicySettingStateSummaryItemRequestBuilderPatchRequestConfiguration } from './deviceCompliancePolicySettingStateSummaryItemRequestBuilderPatchRequestConfiguration';
+import { DeviceComplianceSettingStatesRequestBuilder } from './deviceComplianceSettingStates/deviceComplianceSettingStatesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.

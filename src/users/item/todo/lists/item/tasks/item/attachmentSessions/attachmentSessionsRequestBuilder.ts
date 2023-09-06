@@ -1,14 +1,13 @@
-import {AttachmentSessionCollectionResponse} from '../../../../../../../../models/';
-import {createAttachmentSessionCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createAttachmentSessionCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {AttachmentSessionsRequestBuilderGetRequestConfiguration} from './attachmentSessionsRequestBuilderGetRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AttachmentSessionItemRequestBuilder} from './item/attachmentSessionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AttachmentSessionCollectionResponse } from '../../../../../../../../models/';
+import { createAttachmentSessionCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createAttachmentSessionCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { type AttachmentSessionsRequestBuilderGetRequestConfiguration } from './attachmentSessionsRequestBuilderGetRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AttachmentSessionItemRequestBuilder } from './item/attachmentSessionItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.

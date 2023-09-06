@@ -1,6 +1,6 @@
-import {deserializeIntoManagedAppDiagnosticStatus} from './deserializeIntoManagedAppDiagnosticStatus';
-import {ManagedAppDiagnosticStatus} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoManagedAppDiagnosticStatus } from './deserializeIntoManagedAppDiagnosticStatus';
+import { type ManagedAppDiagnosticStatus } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedAppDiagnosticStatusFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

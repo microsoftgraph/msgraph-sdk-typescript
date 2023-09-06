@@ -1,6 +1,6 @@
-import {deserializeIntoMacOSOfficeSuiteApp} from './deserializeIntoMacOSOfficeSuiteApp';
-import {MacOSOfficeSuiteApp} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoMacOSOfficeSuiteApp } from './deserializeIntoMacOSOfficeSuiteApp';
+import { type MacOSOfficeSuiteApp } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMacOSOfficeSuiteAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

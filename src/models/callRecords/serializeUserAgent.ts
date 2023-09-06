@@ -1,5 +1,5 @@
-import type {UserAgent} from './userAgent';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type UserAgent } from './userAgent';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserAgent(writer: SerializationWriter, userAgent: UserAgent | undefined = {} as UserAgent) : void {
         writer.writeStringValue("applicationVersion", userAgent.applicationVersion);

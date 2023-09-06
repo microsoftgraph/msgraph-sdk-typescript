@@ -1,14 +1,14 @@
-import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticationMethod';
-import {deserializeIntoEmailAuthenticationMethod} from './deserializeIntoEmailAuthenticationMethod';
-import {deserializeIntoFido2AuthenticationMethod} from './deserializeIntoFido2AuthenticationMethod';
-import {deserializeIntoMicrosoftAuthenticatorAuthenticationMethod} from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethod';
-import {deserializeIntoPasswordAuthenticationMethod} from './deserializeIntoPasswordAuthenticationMethod';
-import {deserializeIntoPhoneAuthenticationMethod} from './deserializeIntoPhoneAuthenticationMethod';
-import {deserializeIntoSoftwareOathAuthenticationMethod} from './deserializeIntoSoftwareOathAuthenticationMethod';
-import {deserializeIntoTemporaryAccessPassAuthenticationMethod} from './deserializeIntoTemporaryAccessPassAuthenticationMethod';
-import {deserializeIntoWindowsHelloForBusinessAuthenticationMethod} from './deserializeIntoWindowsHelloForBusinessAuthenticationMethod';
-import {AuthenticationMethod, EmailAuthenticationMethod, Fido2AuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethod, PasswordAuthenticationMethod, PhoneAuthenticationMethod, SoftwareOathAuthenticationMethod, TemporaryAccessPassAuthenticationMethod, WindowsHelloForBusinessAuthenticationMethod} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAuthenticationMethod } from './deserializeIntoAuthenticationMethod';
+import { deserializeIntoEmailAuthenticationMethod } from './deserializeIntoEmailAuthenticationMethod';
+import { deserializeIntoFido2AuthenticationMethod } from './deserializeIntoFido2AuthenticationMethod';
+import { deserializeIntoMicrosoftAuthenticatorAuthenticationMethod } from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethod';
+import { deserializeIntoPasswordAuthenticationMethod } from './deserializeIntoPasswordAuthenticationMethod';
+import { deserializeIntoPhoneAuthenticationMethod } from './deserializeIntoPhoneAuthenticationMethod';
+import { deserializeIntoSoftwareOathAuthenticationMethod } from './deserializeIntoSoftwareOathAuthenticationMethod';
+import { deserializeIntoTemporaryAccessPassAuthenticationMethod } from './deserializeIntoTemporaryAccessPassAuthenticationMethod';
+import { deserializeIntoWindowsHelloForBusinessAuthenticationMethod } from './deserializeIntoWindowsHelloForBusinessAuthenticationMethod';
+import { type AuthenticationMethod, type EmailAuthenticationMethod, type Fido2AuthenticationMethod, type MicrosoftAuthenticatorAuthenticationMethod, type PasswordAuthenticationMethod, type PhoneAuthenticationMethod, type SoftwareOathAuthenticationMethod, type TemporaryAccessPassAuthenticationMethod, type WindowsHelloForBusinessAuthenticationMethod } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAuthenticationMethodFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

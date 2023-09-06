@@ -1,11 +1,11 @@
-import {ComplianceStatus} from './complianceStatus';
-import {createDeviceCompliancePolicySettingStateFromDiscriminatorValue} from './createDeviceCompliancePolicySettingStateFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DeviceCompliancePolicySettingState} from './deviceCompliancePolicySettingState';
-import type {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
-import {PolicyPlatformType} from './policyPlatformType';
-import {serializeDeviceCompliancePolicySettingState} from './serializeDeviceCompliancePolicySettingState';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ComplianceStatus } from './complianceStatus';
+import { createDeviceCompliancePolicySettingStateFromDiscriminatorValue } from './createDeviceCompliancePolicySettingStateFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DeviceCompliancePolicySettingState } from './deviceCompliancePolicySettingState';
+import { type DeviceCompliancePolicyState } from './deviceCompliancePolicyState';
+import { PolicyPlatformType } from './policyPlatformType';
+import { serializeDeviceCompliancePolicySettingState } from './serializeDeviceCompliancePolicySettingState';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceCompliancePolicyState(deviceCompliancePolicyState: DeviceCompliancePolicyState | undefined = {} as DeviceCompliancePolicyState) : Record<string, (node: ParseNode) => void> {
     return {

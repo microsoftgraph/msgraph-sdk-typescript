@@ -1,11 +1,11 @@
-import {deserializeIntoAllDevicesAssignmentTarget} from './deserializeIntoAllDevicesAssignmentTarget';
-import {deserializeIntoAllLicensedUsersAssignmentTarget} from './deserializeIntoAllLicensedUsersAssignmentTarget';
-import {deserializeIntoConfigurationManagerCollectionAssignmentTarget} from './deserializeIntoConfigurationManagerCollectionAssignmentTarget';
-import {deserializeIntoDeviceAndAppManagementAssignmentTarget} from './deserializeIntoDeviceAndAppManagementAssignmentTarget';
-import {deserializeIntoExclusionGroupAssignmentTarget} from './deserializeIntoExclusionGroupAssignmentTarget';
-import {deserializeIntoGroupAssignmentTarget} from './deserializeIntoGroupAssignmentTarget';
-import {AllDevicesAssignmentTarget, AllLicensedUsersAssignmentTarget, ConfigurationManagerCollectionAssignmentTarget, DeviceAndAppManagementAssignmentTarget, ExclusionGroupAssignmentTarget, GroupAssignmentTarget} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAllDevicesAssignmentTarget } from './deserializeIntoAllDevicesAssignmentTarget';
+import { deserializeIntoAllLicensedUsersAssignmentTarget } from './deserializeIntoAllLicensedUsersAssignmentTarget';
+import { deserializeIntoConfigurationManagerCollectionAssignmentTarget } from './deserializeIntoConfigurationManagerCollectionAssignmentTarget';
+import { deserializeIntoDeviceAndAppManagementAssignmentTarget } from './deserializeIntoDeviceAndAppManagementAssignmentTarget';
+import { deserializeIntoExclusionGroupAssignmentTarget } from './deserializeIntoExclusionGroupAssignmentTarget';
+import { deserializeIntoGroupAssignmentTarget } from './deserializeIntoGroupAssignmentTarget';
+import { type AllDevicesAssignmentTarget, type AllLicensedUsersAssignmentTarget, type ConfigurationManagerCollectionAssignmentTarget, type DeviceAndAppManagementAssignmentTarget, type ExclusionGroupAssignmentTarget, type GroupAssignmentTarget } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,20 +1,19 @@
-import {createWorkbookChartAxisFromDiscriminatorValue} from '../../../../../../../../../../../models/createWorkbookChartAxisFromDiscriminatorValue';
-import {deserializeIntoWorkbookChartAxis} from '../../../../../../../../../../../models/deserializeIntoWorkbookChartAxis';
-import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookChartAxis} from '../../../../../../../../../../../models/serializeWorkbookChartAxis';
-import type {WorkbookChartAxis} from '../../../../../../../../../../../models/workbookChartAxis';
-import {CategoryAxisRequestBuilderDeleteRequestConfiguration} from './categoryAxisRequestBuilderDeleteRequestConfiguration';
-import {CategoryAxisRequestBuilderGetRequestConfiguration} from './categoryAxisRequestBuilderGetRequestConfiguration';
-import {CategoryAxisRequestBuilderPatchRequestConfiguration} from './categoryAxisRequestBuilderPatchRequestConfiguration';
-import {FormatRequestBuilder} from './format/formatRequestBuilder';
-import {MajorGridlinesRequestBuilder} from './majorGridlines/majorGridlinesRequestBuilder';
-import {MinorGridlinesRequestBuilder} from './minorGridlines/minorGridlinesRequestBuilder';
-import {TitleRequestBuilder} from './title/titleRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartAxisFromDiscriminatorValue } from '../../../../../../../../../../../models/createWorkbookChartAxisFromDiscriminatorValue';
+import { deserializeIntoWorkbookChartAxis } from '../../../../../../../../../../../models/deserializeIntoWorkbookChartAxis';
+import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookChartAxis } from '../../../../../../../../../../../models/serializeWorkbookChartAxis';
+import { type WorkbookChartAxis } from '../../../../../../../../../../../models/workbookChartAxis';
+import { type CategoryAxisRequestBuilderDeleteRequestConfiguration } from './categoryAxisRequestBuilderDeleteRequestConfiguration';
+import { type CategoryAxisRequestBuilderGetRequestConfiguration } from './categoryAxisRequestBuilderGetRequestConfiguration';
+import { type CategoryAxisRequestBuilderPatchRequestConfiguration } from './categoryAxisRequestBuilderPatchRequestConfiguration';
+import { FormatRequestBuilder } from './format/formatRequestBuilder';
+import { MajorGridlinesRequestBuilder } from './majorGridlines/majorGridlinesRequestBuilder';
+import { MinorGridlinesRequestBuilder } from './minorGridlines/minorGridlinesRequestBuilder';
+import { TitleRequestBuilder } from './title/titleRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the categoryAxis property of the microsoft.graph.workbookChartAxes entity.

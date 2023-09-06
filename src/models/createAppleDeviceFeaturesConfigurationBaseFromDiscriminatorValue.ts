@@ -1,8 +1,8 @@
-import {deserializeIntoAppleDeviceFeaturesConfigurationBase} from './deserializeIntoAppleDeviceFeaturesConfigurationBase';
-import {deserializeIntoIosDeviceFeaturesConfiguration} from './deserializeIntoIosDeviceFeaturesConfiguration';
-import {deserializeIntoMacOSDeviceFeaturesConfiguration} from './deserializeIntoMacOSDeviceFeaturesConfiguration';
-import {AppleDeviceFeaturesConfigurationBase, IosDeviceFeaturesConfiguration, MacOSDeviceFeaturesConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAppleDeviceFeaturesConfigurationBase } from './deserializeIntoAppleDeviceFeaturesConfigurationBase';
+import { deserializeIntoIosDeviceFeaturesConfiguration } from './deserializeIntoIosDeviceFeaturesConfiguration';
+import { deserializeIntoMacOSDeviceFeaturesConfiguration } from './deserializeIntoMacOSDeviceFeaturesConfiguration';
+import { type AppleDeviceFeaturesConfigurationBase, type IosDeviceFeaturesConfiguration, type MacOSDeviceFeaturesConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAppleDeviceFeaturesConfigurationBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

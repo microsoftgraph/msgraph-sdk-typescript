@@ -1,6 +1,6 @@
-import {deserializeIntoResourceSpecificPermissionGrant} from './deserializeIntoResourceSpecificPermissionGrant';
-import {ResourceSpecificPermissionGrant} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoResourceSpecificPermissionGrant } from './deserializeIntoResourceSpecificPermissionGrant';
+import { type ResourceSpecificPermissionGrant } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createResourceSpecificPermissionGrantFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,17 +1,16 @@
-import {createMailFolderFromDiscriminatorValue} from '../../../../../../models/createMailFolderFromDiscriminatorValue';
-import {deserializeIntoMailFolder} from '../../../../../../models/deserializeIntoMailFolder';
-import type {MailFolder} from '../../../../../../models/mailFolder';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeMailFolder} from '../../../../../../models/serializeMailFolder';
-import type {CopyPostRequestBody} from './copyPostRequestBody';
-import {CopyRequestBuilderPostRequestConfiguration} from './copyRequestBuilderPostRequestConfiguration';
-import {deserializeIntoCopyPostRequestBody} from './deserializeIntoCopyPostRequestBody';
-import {serializeCopyPostRequestBody} from './serializeCopyPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMailFolderFromDiscriminatorValue } from '../../../../../../models/createMailFolderFromDiscriminatorValue';
+import { deserializeIntoMailFolder } from '../../../../../../models/deserializeIntoMailFolder';
+import { type MailFolder } from '../../../../../../models/mailFolder';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeMailFolder } from '../../../../../../models/serializeMailFolder';
+import { type CopyPostRequestBody } from './copyPostRequestBody';
+import { type CopyRequestBuilderPostRequestConfiguration } from './copyRequestBuilderPostRequestConfiguration';
+import { deserializeIntoCopyPostRequestBody } from './deserializeIntoCopyPostRequestBody';
+import { serializeCopyPostRequestBody } from './serializeCopyPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the copy method.

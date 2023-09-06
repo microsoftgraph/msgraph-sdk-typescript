@@ -1,8 +1,8 @@
-import {deserializeIntoAndroidMobileAppIdentifier} from './deserializeIntoAndroidMobileAppIdentifier';
-import {deserializeIntoIosMobileAppIdentifier} from './deserializeIntoIosMobileAppIdentifier';
-import {deserializeIntoMobileAppIdentifier} from './deserializeIntoMobileAppIdentifier';
-import {AndroidMobileAppIdentifier, IosMobileAppIdentifier, MobileAppIdentifier} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAndroidMobileAppIdentifier } from './deserializeIntoAndroidMobileAppIdentifier';
+import { deserializeIntoIosMobileAppIdentifier } from './deserializeIntoIosMobileAppIdentifier';
+import { deserializeIntoMobileAppIdentifier } from './deserializeIntoMobileAppIdentifier';
+import { type AndroidMobileAppIdentifier, type IosMobileAppIdentifier, type MobileAppIdentifier } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMobileAppIdentifierFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

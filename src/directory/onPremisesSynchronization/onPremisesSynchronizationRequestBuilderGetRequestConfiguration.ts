@@ -1,5 +1,5 @@
-import {OnPremisesSynchronizationRequestBuilderGetQueryParameters} from './onPremisesSynchronizationRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type OnPremisesSynchronizationRequestBuilderGetQueryParameters } from './onPremisesSynchronizationRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OnPremisesSynchronizationRequestBuilderGetRequestConfiguration {
     /**

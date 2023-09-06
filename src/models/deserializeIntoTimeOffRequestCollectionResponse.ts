@@ -1,9 +1,9 @@
-import {createTimeOffRequestFromDiscriminatorValue} from './createTimeOffRequestFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeTimeOffRequest} from './serializeTimeOffRequest';
-import type {TimeOffRequest} from './timeOffRequest';
-import type {TimeOffRequestCollectionResponse} from './timeOffRequestCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTimeOffRequestFromDiscriminatorValue } from './createTimeOffRequestFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeTimeOffRequest } from './serializeTimeOffRequest';
+import { type TimeOffRequest } from './timeOffRequest';
+import { type TimeOffRequestCollectionResponse } from './timeOffRequestCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeOffRequestCollectionResponse(timeOffRequestCollectionResponse: TimeOffRequestCollectionResponse | undefined = {} as TimeOffRequestCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

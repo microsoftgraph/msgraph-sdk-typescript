@@ -1,8 +1,8 @@
-import {ClientPlatform} from './clientPlatform';
-import type {ClientUserAgent} from './clientUserAgent';
-import {ProductFamily} from './productFamily';
-import {serializeUserAgent} from './serializeUserAgent';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ClientPlatform } from './clientPlatform';
+import { type ClientUserAgent } from './clientUserAgent';
+import { ProductFamily } from './productFamily';
+import { serializeUserAgent } from './serializeUserAgent';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeClientUserAgent(writer: SerializationWriter, clientUserAgent: ClientUserAgent | undefined = {} as ClientUserAgent) : void {
         serializeUserAgent(writer, clientUserAgent)

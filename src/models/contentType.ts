@@ -1,11 +1,11 @@
-import type {ColumnDefinition} from './columnDefinition';
-import type {ColumnLink} from './columnLink';
-import type {ContentTypeOrder} from './contentTypeOrder';
-import type {DocumentSet} from './documentSet';
-import type {DocumentSetContent} from './documentSetContent';
-import type {Entity} from './entity';
-import type {ItemReference} from './itemReference';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ColumnDefinition } from './columnDefinition';
+import { type ColumnLink } from './columnLink';
+import { type ContentTypeOrder } from './contentTypeOrder';
+import { type DocumentSet } from './documentSet';
+import { type DocumentSetContent } from './documentSetContent';
+import { type Entity } from './entity';
+import { type ItemReference } from './itemReference';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ContentType extends Entity, Parsable {
     /**

@@ -1,9 +1,9 @@
-import type {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
-import type {AccessPackageCatalog} from './accessPackageCatalog';
-import type {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
-import type {Entity} from './entity';
-import type {Group} from './group';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentPolicy } from './accessPackageAssignmentPolicy';
+import { type AccessPackageCatalog } from './accessPackageCatalog';
+import { type AccessPackageResourceRoleScope } from './accessPackageResourceRoleScope';
+import { type Entity } from './entity';
+import { type Group } from './group';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackage extends Entity, Parsable {
     /**

@@ -1,9 +1,9 @@
-import type {DataSourceContainer} from './dataSourceContainer';
-import type {EdiscoveryIndexOperation} from './ediscoveryIndexOperation';
-import type {SiteSource} from './siteSource';
-import type {UnifiedGroupSource} from './unifiedGroupSource';
-import type {UserSource} from './userSource';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DataSourceContainer } from './dataSourceContainer';
+import { type EdiscoveryIndexOperation } from './ediscoveryIndexOperation';
+import { type SiteSource } from './siteSource';
+import { type UnifiedGroupSource } from './unifiedGroupSource';
+import { type UserSource } from './userSource';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryCustodian extends DataSourceContainer, Parsable {
     /**

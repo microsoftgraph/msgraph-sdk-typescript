@@ -1,8 +1,8 @@
-import {createSensitivityLabelAssignmentFromDiscriminatorValue} from './createSensitivityLabelAssignmentFromDiscriminatorValue';
-import type {ExtractSensitivityLabelsResult} from './extractSensitivityLabelsResult';
-import type {SensitivityLabelAssignment} from './sensitivityLabelAssignment';
-import {serializeSensitivityLabelAssignment} from './serializeSensitivityLabelAssignment';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSensitivityLabelAssignmentFromDiscriminatorValue } from './createSensitivityLabelAssignmentFromDiscriminatorValue';
+import { type ExtractSensitivityLabelsResult } from './extractSensitivityLabelsResult';
+import { type SensitivityLabelAssignment } from './sensitivityLabelAssignment';
+import { serializeSensitivityLabelAssignment } from './serializeSensitivityLabelAssignment';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExtractSensitivityLabelsResult(extractSensitivityLabelsResult: ExtractSensitivityLabelsResult | undefined = {} as ExtractSensitivityLabelsResult) : Record<string, (node: ParseNode) => void> {
     return {
