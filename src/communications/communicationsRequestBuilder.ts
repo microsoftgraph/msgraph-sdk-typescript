@@ -1,20 +1,19 @@
-import type {CloudCommunications} from '../models/cloudCommunications';
-import {createCloudCommunicationsFromDiscriminatorValue} from '../models/createCloudCommunicationsFromDiscriminatorValue';
-import {deserializeIntoCloudCommunications} from '../models/deserializeIntoCloudCommunications';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeCloudCommunications} from '../models/serializeCloudCommunications';
-import {CallRecordsRequestBuilder} from './callRecords/callRecordsRequestBuilder';
-import {CallsRequestBuilder} from './calls/callsRequestBuilder';
-import {CommunicationsRequestBuilderGetRequestConfiguration} from './communicationsRequestBuilderGetRequestConfiguration';
-import {CommunicationsRequestBuilderPatchRequestConfiguration} from './communicationsRequestBuilderPatchRequestConfiguration';
-import {GetPresencesByUserIdRequestBuilder} from './getPresencesByUserId/getPresencesByUserIdRequestBuilder';
-import {OnlineMeetingsRequestBuilder} from './onlineMeetings/onlineMeetingsRequestBuilder';
-import {PresencesRequestBuilder} from './presences/presencesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CloudCommunications } from '../models/cloudCommunications';
+import { createCloudCommunicationsFromDiscriminatorValue } from '../models/createCloudCommunicationsFromDiscriminatorValue';
+import { deserializeIntoCloudCommunications } from '../models/deserializeIntoCloudCommunications';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeCloudCommunications } from '../models/serializeCloudCommunications';
+import { CallRecordsRequestBuilder } from './callRecords/callRecordsRequestBuilder';
+import { CallsRequestBuilder } from './calls/callsRequestBuilder';
+import { type CommunicationsRequestBuilderGetRequestConfiguration } from './communicationsRequestBuilderGetRequestConfiguration';
+import { type CommunicationsRequestBuilderPatchRequestConfiguration } from './communicationsRequestBuilderPatchRequestConfiguration';
+import { GetPresencesByUserIdRequestBuilder } from './getPresencesByUserId/getPresencesByUserIdRequestBuilder';
+import { OnlineMeetingsRequestBuilder } from './onlineMeetings/onlineMeetingsRequestBuilder';
+import { PresencesRequestBuilder } from './presences/presencesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the cloudCommunications singleton.

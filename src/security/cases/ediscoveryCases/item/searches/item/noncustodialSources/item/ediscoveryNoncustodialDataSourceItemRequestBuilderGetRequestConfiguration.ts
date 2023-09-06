@@ -1,5 +1,5 @@
-import {EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters} from './ediscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters } from './ediscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration {
     /**

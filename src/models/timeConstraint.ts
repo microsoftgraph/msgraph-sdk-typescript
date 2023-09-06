@@ -1,6 +1,6 @@
-import {ActivityDomain} from './activityDomain';
-import type {TimeSlot} from './timeSlot';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ActivityDomain } from './activityDomain';
+import { type TimeSlot } from './timeSlot';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TimeConstraint extends AdditionalDataHolder, Parsable {
     /**

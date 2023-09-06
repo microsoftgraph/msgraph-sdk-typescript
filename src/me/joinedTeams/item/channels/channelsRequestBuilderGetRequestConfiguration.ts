@@ -1,5 +1,5 @@
-import {ChannelsRequestBuilderGetQueryParameters} from './channelsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ChannelsRequestBuilderGetQueryParameters } from './channelsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ChannelsRequestBuilderGetRequestConfiguration {
     /**

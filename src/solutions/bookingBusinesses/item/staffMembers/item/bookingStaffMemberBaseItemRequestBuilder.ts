@@ -1,16 +1,15 @@
-import type {BookingStaffMemberBase} from '../../../../../models/bookingStaffMemberBase';
-import {createBookingStaffMemberBaseFromDiscriminatorValue} from '../../../../../models/createBookingStaffMemberBaseFromDiscriminatorValue';
-import {deserializeIntoBookingStaffMemberBase} from '../../../../../models/deserializeIntoBookingStaffMemberBase';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeBookingStaffMemberBase} from '../../../../../models/serializeBookingStaffMemberBase';
-import {BookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration} from './bookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration';
-import {BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration} from './bookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration';
-import {BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration} from './bookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BookingStaffMemberBase } from '../../../../../models/bookingStaffMemberBase';
+import { createBookingStaffMemberBaseFromDiscriminatorValue } from '../../../../../models/createBookingStaffMemberBaseFromDiscriminatorValue';
+import { deserializeIntoBookingStaffMemberBase } from '../../../../../models/deserializeIntoBookingStaffMemberBase';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeBookingStaffMemberBase } from '../../../../../models/serializeBookingStaffMemberBase';
+import { type BookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration } from './bookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration';
+import { type BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration } from './bookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration';
+import { type BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration } from './bookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.

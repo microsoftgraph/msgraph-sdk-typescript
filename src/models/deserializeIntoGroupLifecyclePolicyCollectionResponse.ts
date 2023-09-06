@@ -1,9 +1,9 @@
-import {createGroupLifecyclePolicyFromDiscriminatorValue} from './createGroupLifecyclePolicyFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {GroupLifecyclePolicy} from './groupLifecyclePolicy';
-import type {GroupLifecyclePolicyCollectionResponse} from './groupLifecyclePolicyCollectionResponse';
-import {serializeGroupLifecyclePolicy} from './serializeGroupLifecyclePolicy';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createGroupLifecyclePolicyFromDiscriminatorValue } from './createGroupLifecyclePolicyFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type GroupLifecyclePolicy } from './groupLifecyclePolicy';
+import { type GroupLifecyclePolicyCollectionResponse } from './groupLifecyclePolicyCollectionResponse';
+import { serializeGroupLifecyclePolicy } from './serializeGroupLifecyclePolicy';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGroupLifecyclePolicyCollectionResponse(groupLifecyclePolicyCollectionResponse: GroupLifecyclePolicyCollectionResponse | undefined = {} as GroupLifecyclePolicyCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

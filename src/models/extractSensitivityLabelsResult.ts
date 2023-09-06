@@ -1,5 +1,5 @@
-import type {SensitivityLabelAssignment} from './sensitivityLabelAssignment';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type SensitivityLabelAssignment } from './sensitivityLabelAssignment';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ExtractSensitivityLabelsResult extends AdditionalDataHolder, Parsable {
     /**

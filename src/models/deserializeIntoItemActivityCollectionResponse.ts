@@ -1,9 +1,9 @@
-import {createItemActivityFromDiscriminatorValue} from './createItemActivityFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {ItemActivity} from './itemActivity';
-import type {ItemActivityCollectionResponse} from './itemActivityCollectionResponse';
-import {serializeItemActivity} from './serializeItemActivity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createItemActivityFromDiscriminatorValue } from './createItemActivityFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type ItemActivity } from './itemActivity';
+import { type ItemActivityCollectionResponse } from './itemActivityCollectionResponse';
+import { serializeItemActivity } from './serializeItemActivity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoItemActivityCollectionResponse(itemActivityCollectionResponse: ItemActivityCollectionResponse | undefined = {} as ItemActivityCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

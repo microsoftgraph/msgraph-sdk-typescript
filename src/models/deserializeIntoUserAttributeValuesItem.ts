@@ -1,5 +1,5 @@
-import type {UserAttributeValuesItem} from './userAttributeValuesItem';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type UserAttributeValuesItem } from './userAttributeValuesItem';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserAttributeValuesItem(userAttributeValuesItem: UserAttributeValuesItem | undefined = {} as UserAttributeValuesItem) : Record<string, (node: ParseNode) => void> {
     return {

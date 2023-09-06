@@ -1,6 +1,6 @@
-import {deserializeIntoIosHomeScreenPage} from './deserializeIntoIosHomeScreenPage';
-import {IosHomeScreenPage} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIosHomeScreenPage } from './deserializeIntoIosHomeScreenPage';
+import { type IosHomeScreenPage } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIosHomeScreenPageFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

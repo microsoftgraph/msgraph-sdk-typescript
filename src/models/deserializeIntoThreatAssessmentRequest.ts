@@ -1,17 +1,17 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createThreatAssessmentResultFromDiscriminatorValue} from './createThreatAssessmentResultFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IdentitySet} from './identitySet';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeThreatAssessmentResult} from './serializeThreatAssessmentResult';
-import {ThreatAssessmentContentType} from './threatAssessmentContentType';
-import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
-import {ThreatAssessmentRequestSource} from './threatAssessmentRequestSource';
-import type {ThreatAssessmentResult} from './threatAssessmentResult';
-import {ThreatAssessmentStatus} from './threatAssessmentStatus';
-import {ThreatCategory} from './threatCategory';
-import {ThreatExpectedAssessment} from './threatExpectedAssessment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { createThreatAssessmentResultFromDiscriminatorValue } from './createThreatAssessmentResultFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IdentitySet } from './identitySet';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeThreatAssessmentResult } from './serializeThreatAssessmentResult';
+import { ThreatAssessmentContentType } from './threatAssessmentContentType';
+import { type ThreatAssessmentRequest } from './threatAssessmentRequest';
+import { ThreatAssessmentRequestSource } from './threatAssessmentRequestSource';
+import { type ThreatAssessmentResult } from './threatAssessmentResult';
+import { ThreatAssessmentStatus } from './threatAssessmentStatus';
+import { ThreatCategory } from './threatCategory';
+import { ThreatExpectedAssessment } from './threatExpectedAssessment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoThreatAssessmentRequest(threatAssessmentRequest: ThreatAssessmentRequest | undefined = {} as ThreatAssessmentRequest) : Record<string, (node: ParseNode) => void> {
     return {

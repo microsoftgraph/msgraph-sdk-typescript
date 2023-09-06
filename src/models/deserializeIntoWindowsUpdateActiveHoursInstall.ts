@@ -1,7 +1,6 @@
-import {deserializeIntoWindowsUpdateInstallScheduleType} from './deserializeIntoWindowsUpdateInstallScheduleType';
-import type {WindowsUpdateActiveHoursInstall} from './windowsUpdateActiveHoursInstall';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWindowsUpdateInstallScheduleType } from './deserializeIntoWindowsUpdateInstallScheduleType';
+import { type WindowsUpdateActiveHoursInstall } from './windowsUpdateActiveHoursInstall';
+import { TimeOnly, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsUpdateActiveHoursInstall(windowsUpdateActiveHoursInstall: WindowsUpdateActiveHoursInstall | undefined = {} as WindowsUpdateActiveHoursInstall) : Record<string, (node: ParseNode) => void> {
     return {

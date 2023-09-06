@@ -1,5 +1,5 @@
-import type {WorkbookSessionInfo} from './workbookSessionInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type WorkbookSessionInfo } from './workbookSessionInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookSessionInfo(workbookSessionInfo: WorkbookSessionInfo | undefined = {} as WorkbookSessionInfo) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
-import {serializeConversationMember} from './serializeConversationMember';
-import type {SkypeForBusinessUserConversationMember} from './skypeForBusinessUserConversationMember';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeConversationMember } from './serializeConversationMember';
+import { type SkypeForBusinessUserConversationMember } from './skypeForBusinessUserConversationMember';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSkypeForBusinessUserConversationMember(writer: SerializationWriter, skypeForBusinessUserConversationMember: SkypeForBusinessUserConversationMember | undefined = {} as SkypeForBusinessUserConversationMember) : void {
         serializeConversationMember(writer, skypeForBusinessUserConversationMember)

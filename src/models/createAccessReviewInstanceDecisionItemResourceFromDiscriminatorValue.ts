@@ -1,9 +1,9 @@
-import {deserializeIntoAccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource} from './deserializeIntoAccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource';
-import {deserializeIntoAccessReviewInstanceDecisionItemAzureRoleResource} from './deserializeIntoAccessReviewInstanceDecisionItemAzureRoleResource';
-import {deserializeIntoAccessReviewInstanceDecisionItemResource} from './deserializeIntoAccessReviewInstanceDecisionItemResource';
-import {deserializeIntoAccessReviewInstanceDecisionItemServicePrincipalResource} from './deserializeIntoAccessReviewInstanceDecisionItemServicePrincipalResource';
-import {AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource, AccessReviewInstanceDecisionItemAzureRoleResource, AccessReviewInstanceDecisionItemResource, AccessReviewInstanceDecisionItemServicePrincipalResource} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource } from './deserializeIntoAccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource';
+import { deserializeIntoAccessReviewInstanceDecisionItemAzureRoleResource } from './deserializeIntoAccessReviewInstanceDecisionItemAzureRoleResource';
+import { deserializeIntoAccessReviewInstanceDecisionItemResource } from './deserializeIntoAccessReviewInstanceDecisionItemResource';
+import { deserializeIntoAccessReviewInstanceDecisionItemServicePrincipalResource } from './deserializeIntoAccessReviewInstanceDecisionItemServicePrincipalResource';
+import { type AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource, type AccessReviewInstanceDecisionItemAzureRoleResource, type AccessReviewInstanceDecisionItemResource, type AccessReviewInstanceDecisionItemServicePrincipalResource } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

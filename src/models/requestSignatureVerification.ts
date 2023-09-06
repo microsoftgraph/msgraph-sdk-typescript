@@ -1,5 +1,5 @@
-import {WeakAlgorithms} from './weakAlgorithms';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { WeakAlgorithms } from './weakAlgorithms';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RequestSignatureVerification extends AdditionalDataHolder, Parsable {
     /**
@@ -9,7 +9,7 @@ export interface RequestSignatureVerification extends AdditionalDataHolder, Pars
     /**
      * Specifies which weak algorithms are allowed.  The possible values are: rsaSha1, unknownFutureValue.
      */
-    allowedWeakAlgorithms?: WeakAlgorithms | undefined;
+    allowedWeakAlgorithms?: WeakAlgorithms[] | undefined;
     /**
      * Specifies whether signed authentication requests for this application should be required.
      */

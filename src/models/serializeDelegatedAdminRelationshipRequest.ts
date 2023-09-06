@@ -1,8 +1,8 @@
-import type {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
-import {DelegatedAdminRelationshipRequestAction} from './delegatedAdminRelationshipRequestAction';
-import {DelegatedAdminRelationshipRequestStatus} from './delegatedAdminRelationshipRequestStatus';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DelegatedAdminRelationshipRequest } from './delegatedAdminRelationshipRequest';
+import { DelegatedAdminRelationshipRequestAction } from './delegatedAdminRelationshipRequestAction';
+import { DelegatedAdminRelationshipRequestStatus } from './delegatedAdminRelationshipRequestStatus';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDelegatedAdminRelationshipRequest(writer: SerializationWriter, delegatedAdminRelationshipRequest: DelegatedAdminRelationshipRequest | undefined = {} as DelegatedAdminRelationshipRequest) : void {
         serializeEntity(writer, delegatedAdminRelationshipRequest)

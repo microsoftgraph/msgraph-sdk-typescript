@@ -1,25 +1,25 @@
-import type {AppScope} from './appScope';
-import {createAppScopeFromDiscriminatorValue} from './createAppScopeFromDiscriminatorValue';
-import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
-import {createRequestScheduleFromDiscriminatorValue} from './createRequestScheduleFromDiscriminatorValue';
-import {createTicketInfoFromDiscriminatorValue} from './createTicketInfoFromDiscriminatorValue';
-import {createUnifiedRoleDefinitionFromDiscriminatorValue} from './createUnifiedRoleDefinitionFromDiscriminatorValue';
-import {createUnifiedRoleEligibilityScheduleFromDiscriminatorValue} from './createUnifiedRoleEligibilityScheduleFromDiscriminatorValue';
-import {deserializeIntoRequest} from './deserializeIntoRequest';
-import type {DirectoryObject} from './directoryObject';
-import type {RequestSchedule} from './requestSchedule';
-import {serializeAppScope} from './serializeAppScope';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeRequestSchedule} from './serializeRequestSchedule';
-import {serializeTicketInfo} from './serializeTicketInfo';
-import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
-import {serializeUnifiedRoleEligibilitySchedule} from './serializeUnifiedRoleEligibilitySchedule';
-import type {TicketInfo} from './ticketInfo';
-import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
-import type {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilityScheduleRequest';
-import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppScope } from './appScope';
+import { createAppScopeFromDiscriminatorValue } from './createAppScopeFromDiscriminatorValue';
+import { createDirectoryObjectFromDiscriminatorValue } from './createDirectoryObjectFromDiscriminatorValue';
+import { createRequestScheduleFromDiscriminatorValue } from './createRequestScheduleFromDiscriminatorValue';
+import { createTicketInfoFromDiscriminatorValue } from './createTicketInfoFromDiscriminatorValue';
+import { createUnifiedRoleDefinitionFromDiscriminatorValue } from './createUnifiedRoleDefinitionFromDiscriminatorValue';
+import { createUnifiedRoleEligibilityScheduleFromDiscriminatorValue } from './createUnifiedRoleEligibilityScheduleFromDiscriminatorValue';
+import { deserializeIntoRequest } from './deserializeIntoRequest';
+import { type DirectoryObject } from './directoryObject';
+import { type RequestSchedule } from './requestSchedule';
+import { serializeAppScope } from './serializeAppScope';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeRequestSchedule } from './serializeRequestSchedule';
+import { serializeTicketInfo } from './serializeTicketInfo';
+import { serializeUnifiedRoleDefinition } from './serializeUnifiedRoleDefinition';
+import { serializeUnifiedRoleEligibilitySchedule } from './serializeUnifiedRoleEligibilitySchedule';
+import { type TicketInfo } from './ticketInfo';
+import { type UnifiedRoleDefinition } from './unifiedRoleDefinition';
+import { type UnifiedRoleEligibilitySchedule } from './unifiedRoleEligibilitySchedule';
+import { type UnifiedRoleEligibilityScheduleRequest } from './unifiedRoleEligibilityScheduleRequest';
+import { UnifiedRoleScheduleRequestActions } from './unifiedRoleScheduleRequestActions';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleEligibilityScheduleRequest(unifiedRoleEligibilityScheduleRequest: UnifiedRoleEligibilityScheduleRequest | undefined = {} as UnifiedRoleEligibilityScheduleRequest) : Record<string, (node: ParseNode) => void> {
     return {

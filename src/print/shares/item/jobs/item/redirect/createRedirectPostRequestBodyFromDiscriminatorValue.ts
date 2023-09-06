@@ -1,6 +1,6 @@
-import {deserializeIntoRedirectPostRequestBody} from './deserializeIntoRedirectPostRequestBody';
-import {RedirectPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoRedirectPostRequestBody } from './deserializeIntoRedirectPostRequestBody';
+import { type RedirectPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createRedirectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

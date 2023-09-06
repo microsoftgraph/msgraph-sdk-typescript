@@ -1,17 +1,16 @@
-import {createStopHoldMusicOperationFromDiscriminatorValue} from '../../../../../../models/createStopHoldMusicOperationFromDiscriminatorValue';
-import {deserializeIntoStopHoldMusicOperation} from '../../../../../../models/deserializeIntoStopHoldMusicOperation';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeStopHoldMusicOperation} from '../../../../../../models/serializeStopHoldMusicOperation';
-import type {StopHoldMusicOperation} from '../../../../../../models/stopHoldMusicOperation';
-import {deserializeIntoStopHoldMusicPostRequestBody} from './deserializeIntoStopHoldMusicPostRequestBody';
-import {serializeStopHoldMusicPostRequestBody} from './serializeStopHoldMusicPostRequestBody';
-import type {StopHoldMusicPostRequestBody} from './stopHoldMusicPostRequestBody';
-import {StopHoldMusicRequestBuilderPostRequestConfiguration} from './stopHoldMusicRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createStopHoldMusicOperationFromDiscriminatorValue } from '../../../../../../models/createStopHoldMusicOperationFromDiscriminatorValue';
+import { deserializeIntoStopHoldMusicOperation } from '../../../../../../models/deserializeIntoStopHoldMusicOperation';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeStopHoldMusicOperation } from '../../../../../../models/serializeStopHoldMusicOperation';
+import { type StopHoldMusicOperation } from '../../../../../../models/stopHoldMusicOperation';
+import { deserializeIntoStopHoldMusicPostRequestBody } from './deserializeIntoStopHoldMusicPostRequestBody';
+import { serializeStopHoldMusicPostRequestBody } from './serializeStopHoldMusicPostRequestBody';
+import { type StopHoldMusicPostRequestBody } from './stopHoldMusicPostRequestBody';
+import { type StopHoldMusicRequestBuilderPostRequestConfiguration } from './stopHoldMusicRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the stopHoldMusic method.

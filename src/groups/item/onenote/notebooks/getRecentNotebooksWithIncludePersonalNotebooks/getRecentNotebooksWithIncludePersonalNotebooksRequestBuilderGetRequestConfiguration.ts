@@ -1,5 +1,5 @@
-import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters} from './getRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters } from './getRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetRequestConfiguration {
     /**

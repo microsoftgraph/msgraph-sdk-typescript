@@ -1,17 +1,16 @@
-import {createRoleAssignmentFromDiscriminatorValue} from '../../../../../models/createRoleAssignmentFromDiscriminatorValue';
-import {deserializeIntoRoleAssignment} from '../../../../../models/deserializeIntoRoleAssignment';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import type {RoleAssignment} from '../../../../../models/roleAssignment';
-import {serializeRoleAssignment} from '../../../../../models/serializeRoleAssignment';
-import {RoleAssignmentItemRequestBuilderDeleteRequestConfiguration} from './roleAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {RoleAssignmentItemRequestBuilderGetRequestConfiguration} from './roleAssignmentItemRequestBuilderGetRequestConfiguration';
-import {RoleAssignmentItemRequestBuilderPatchRequestConfiguration} from './roleAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createRoleAssignmentFromDiscriminatorValue } from '../../../../../models/createRoleAssignmentFromDiscriminatorValue';
+import { deserializeIntoRoleAssignment } from '../../../../../models/deserializeIntoRoleAssignment';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type RoleAssignment } from '../../../../../models/roleAssignment';
+import { serializeRoleAssignment } from '../../../../../models/serializeRoleAssignment';
+import { type RoleAssignmentItemRequestBuilderDeleteRequestConfiguration } from './roleAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type RoleAssignmentItemRequestBuilderGetRequestConfiguration } from './roleAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type RoleAssignmentItemRequestBuilderPatchRequestConfiguration } from './roleAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { RoleDefinitionRequestBuilder } from './roleDefinition/roleDefinitionRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.

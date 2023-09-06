@@ -1,5 +1,5 @@
-import {AttributeSetItemRequestBuilderGetQueryParameters} from './attributeSetItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AttributeSetItemRequestBuilderGetQueryParameters } from './attributeSetItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AttributeSetItemRequestBuilderGetRequestConfiguration {
     /**

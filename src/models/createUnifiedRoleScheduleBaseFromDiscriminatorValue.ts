@@ -1,8 +1,8 @@
-import {deserializeIntoUnifiedRoleAssignmentSchedule} from './deserializeIntoUnifiedRoleAssignmentSchedule';
-import {deserializeIntoUnifiedRoleEligibilitySchedule} from './deserializeIntoUnifiedRoleEligibilitySchedule';
-import {deserializeIntoUnifiedRoleScheduleBase} from './deserializeIntoUnifiedRoleScheduleBase';
-import {UnifiedRoleAssignmentSchedule, UnifiedRoleEligibilitySchedule, UnifiedRoleScheduleBase} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUnifiedRoleAssignmentSchedule } from './deserializeIntoUnifiedRoleAssignmentSchedule';
+import { deserializeIntoUnifiedRoleEligibilitySchedule } from './deserializeIntoUnifiedRoleEligibilitySchedule';
+import { deserializeIntoUnifiedRoleScheduleBase } from './deserializeIntoUnifiedRoleScheduleBase';
+import { type UnifiedRoleAssignmentSchedule, type UnifiedRoleEligibilitySchedule, type UnifiedRoleScheduleBase } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUnifiedRoleScheduleBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

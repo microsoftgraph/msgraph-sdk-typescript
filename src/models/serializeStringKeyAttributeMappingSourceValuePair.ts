@@ -1,7 +1,7 @@
-import type {AttributeMappingSource} from './attributeMappingSource';
-import {serializeAttributeMappingSource} from './serializeAttributeMappingSource';
-import type {StringKeyAttributeMappingSourceValuePair} from './stringKeyAttributeMappingSourceValuePair';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttributeMappingSource } from './attributeMappingSource';
+import { serializeAttributeMappingSource } from './serializeAttributeMappingSource';
+import { type StringKeyAttributeMappingSourceValuePair } from './stringKeyAttributeMappingSourceValuePair';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeStringKeyAttributeMappingSourceValuePair(writer: SerializationWriter, stringKeyAttributeMappingSourceValuePair: StringKeyAttributeMappingSourceValuePair | undefined = {} as StringKeyAttributeMappingSourceValuePair) : void {
         writer.writeStringValue("key", stringKeyAttributeMappingSourceValuePair.key);

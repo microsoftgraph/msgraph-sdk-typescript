@@ -1,6 +1,6 @@
-import {deserializeIntoOnlineMeetingCollectionResponse} from './deserializeIntoOnlineMeetingCollectionResponse';
-import {OnlineMeetingCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoOnlineMeetingCollectionResponse } from './deserializeIntoOnlineMeetingCollectionResponse';
+import { type OnlineMeetingCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createOnlineMeetingCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

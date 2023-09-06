@@ -1,6 +1,6 @@
-import type {FederatedIdentityCredential} from './federatedIdentityCredential';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type FederatedIdentityCredential } from './federatedIdentityCredential';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeFederatedIdentityCredential(writer: SerializationWriter, federatedIdentityCredential: FederatedIdentityCredential | undefined = {} as FederatedIdentityCredential) : void {
         serializeEntity(writer, federatedIdentityCredential)

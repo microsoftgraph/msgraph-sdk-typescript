@@ -1,5 +1,5 @@
-import type {SimulationEvent} from './simulationEvent';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SimulationEvent } from './simulationEvent';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSimulationEvent(simulationEvent: SimulationEvent | undefined = {} as SimulationEvent) : Record<string, (node: ParseNode) => void> {
     return {

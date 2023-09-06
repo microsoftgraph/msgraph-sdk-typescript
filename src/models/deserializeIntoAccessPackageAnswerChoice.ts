@@ -1,8 +1,8 @@
-import type {AccessPackageAnswerChoice} from './accessPackageAnswerChoice';
-import type {AccessPackageLocalizedText} from './accessPackageLocalizedText';
-import {createAccessPackageLocalizedTextFromDiscriminatorValue} from './createAccessPackageLocalizedTextFromDiscriminatorValue';
-import {serializeAccessPackageLocalizedText} from './serializeAccessPackageLocalizedText';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAnswerChoice } from './accessPackageAnswerChoice';
+import { type AccessPackageLocalizedText } from './accessPackageLocalizedText';
+import { createAccessPackageLocalizedTextFromDiscriminatorValue } from './createAccessPackageLocalizedTextFromDiscriminatorValue';
+import { serializeAccessPackageLocalizedText } from './serializeAccessPackageLocalizedText';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageAnswerChoice(accessPackageAnswerChoice: AccessPackageAnswerChoice | undefined = {} as AccessPackageAnswerChoice) : Record<string, (node: ParseNode) => void> {
     return {

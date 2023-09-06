@@ -1,6 +1,6 @@
-import {OnlineMeetingContentSharingDisabledReason} from './onlineMeetingContentSharingDisabledReason';
-import {OnlineMeetingVideoDisabledReason} from './onlineMeetingVideoDisabledReason';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { OnlineMeetingContentSharingDisabledReason } from './onlineMeetingContentSharingDisabledReason';
+import { OnlineMeetingVideoDisabledReason } from './onlineMeetingVideoDisabledReason';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OnlineMeetingRestricted extends AdditionalDataHolder, Parsable {
     /**
@@ -10,7 +10,7 @@ export interface OnlineMeetingRestricted extends AdditionalDataHolder, Parsable 
     /**
      * Specifies the reason shared content from this participant is disabled. Possible values are: watermarkProtection, unknownFutureValue.
      */
-    contentSharingDisabled?: OnlineMeetingContentSharingDisabledReason | undefined;
+    contentSharingDisabled?: OnlineMeetingContentSharingDisabledReason[] | undefined;
     /**
      * The OdataType property
      */
@@ -18,5 +18,5 @@ export interface OnlineMeetingRestricted extends AdditionalDataHolder, Parsable 
     /**
      * Specifies the reason video from this participant is disabled. Possible values are: watermarkProtection, unknownFutureValue.
      */
-    videoDisabled?: OnlineMeetingVideoDisabledReason | undefined;
+    videoDisabled?: OnlineMeetingVideoDisabledReason[] | undefined;
 }

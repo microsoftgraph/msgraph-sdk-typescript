@@ -1,8 +1,8 @@
-import {AllowInvitesFrom} from './allowInvitesFrom';
-import type {DefaultUserRolePermissions} from './defaultUserRolePermissions';
-import type {PolicyBase} from './policyBase';
-import type {Parsable} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { AllowInvitesFrom } from './allowInvitesFrom';
+import { type DefaultUserRolePermissions } from './defaultUserRolePermissions';
+import { type PolicyBase } from './policyBase';
+import { type Parsable } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export interface AuthorizationPolicy extends Parsable, PolicyBase {
     /**

@@ -1,6 +1,6 @@
-import type {AccessPackageAssignment} from '../../../../models/accessPackageAssignment';
-import type {BaseCollectionPaginationCountResponse} from '../../../../models/baseCollectionPaginationCountResponse';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignment } from '../../../../models/accessPackageAssignment';
+import { type BaseCollectionPaginationCountResponse } from '../../../../models/baseCollectionPaginationCountResponse';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

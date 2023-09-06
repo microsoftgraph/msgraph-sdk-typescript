@@ -1,9 +1,9 @@
-import {deserializeIntoEducationAssignmentClassRecipient} from './deserializeIntoEducationAssignmentClassRecipient';
-import {deserializeIntoEducationAssignmentGroupRecipient} from './deserializeIntoEducationAssignmentGroupRecipient';
-import {deserializeIntoEducationAssignmentIndividualRecipient} from './deserializeIntoEducationAssignmentIndividualRecipient';
-import {deserializeIntoEducationAssignmentRecipient} from './deserializeIntoEducationAssignmentRecipient';
-import {EducationAssignmentClassRecipient, EducationAssignmentGroupRecipient, EducationAssignmentIndividualRecipient, EducationAssignmentRecipient} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEducationAssignmentClassRecipient } from './deserializeIntoEducationAssignmentClassRecipient';
+import { deserializeIntoEducationAssignmentGroupRecipient } from './deserializeIntoEducationAssignmentGroupRecipient';
+import { deserializeIntoEducationAssignmentIndividualRecipient } from './deserializeIntoEducationAssignmentIndividualRecipient';
+import { deserializeIntoEducationAssignmentRecipient } from './deserializeIntoEducationAssignmentRecipient';
+import { type EducationAssignmentClassRecipient, type EducationAssignmentGroupRecipient, type EducationAssignmentIndividualRecipient, type EducationAssignmentRecipient } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEducationAssignmentRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

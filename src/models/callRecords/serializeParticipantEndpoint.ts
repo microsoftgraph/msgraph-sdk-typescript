@@ -1,10 +1,10 @@
-import type {IdentitySet} from '../identitySet';
-import {serializeIdentitySet} from '../serializeIdentitySet';
-import type {ParticipantEndpoint} from './participantEndpoint';
-import {serializeEndpoint} from './serializeEndpoint';
-import {serializeUserFeedback} from './serializeUserFeedback';
-import type {UserFeedback} from './userFeedback';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from '../identitySet';
+import { serializeIdentitySet } from '../serializeIdentitySet';
+import { type ParticipantEndpoint } from './participantEndpoint';
+import { serializeEndpoint } from './serializeEndpoint';
+import { serializeUserFeedback } from './serializeUserFeedback';
+import { type UserFeedback } from './userFeedback';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeParticipantEndpoint(writer: SerializationWriter, participantEndpoint: ParticipantEndpoint | undefined = {} as ParticipantEndpoint) : void {
         serializeEndpoint(writer, participantEndpoint)

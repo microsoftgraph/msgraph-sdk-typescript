@@ -1,14 +1,14 @@
-import {serializeEntity} from '../serializeEntity';
-import type {Alert} from './alert';
-import {AlertClassification} from './alertClassification';
-import type {AlertComment} from './alertComment';
-import {AlertDetermination} from './alertDetermination';
-import {AlertSeverity} from './alertSeverity';
-import type {Incident} from './incident';
-import {IncidentStatus} from './incidentStatus';
-import {serializeAlert} from './serializeAlert';
-import {serializeAlertComment} from './serializeAlertComment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from '../serializeEntity';
+import { type Alert } from './alert';
+import { AlertClassification } from './alertClassification';
+import { type AlertComment } from './alertComment';
+import { AlertDetermination } from './alertDetermination';
+import { AlertSeverity } from './alertSeverity';
+import { type Incident } from './incident';
+import { IncidentStatus } from './incidentStatus';
+import { serializeAlert } from './serializeAlert';
+import { serializeAlertComment } from './serializeAlertComment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIncident(writer: SerializationWriter, incident: Incident | undefined = {} as Incident) : void {
         serializeEntity(writer, incident)

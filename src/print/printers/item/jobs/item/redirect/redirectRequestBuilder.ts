@@ -1,17 +1,16 @@
-import {createPrintJobFromDiscriminatorValue} from '../../../../../../models/createPrintJobFromDiscriminatorValue';
-import {deserializeIntoPrintJob} from '../../../../../../models/deserializeIntoPrintJob';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import type {PrintJob} from '../../../../../../models/printJob';
-import {serializePrintJob} from '../../../../../../models/serializePrintJob';
-import {deserializeIntoRedirectPostRequestBody} from './deserializeIntoRedirectPostRequestBody';
-import type {RedirectPostRequestBody} from './redirectPostRequestBody';
-import {RedirectRequestBuilderPostRequestConfiguration} from './redirectRequestBuilderPostRequestConfiguration';
-import {serializeRedirectPostRequestBody} from './serializeRedirectPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPrintJobFromDiscriminatorValue } from '../../../../../../models/createPrintJobFromDiscriminatorValue';
+import { deserializeIntoPrintJob } from '../../../../../../models/deserializeIntoPrintJob';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type PrintJob } from '../../../../../../models/printJob';
+import { serializePrintJob } from '../../../../../../models/serializePrintJob';
+import { deserializeIntoRedirectPostRequestBody } from './deserializeIntoRedirectPostRequestBody';
+import { type RedirectPostRequestBody } from './redirectPostRequestBody';
+import { type RedirectRequestBuilderPostRequestConfiguration } from './redirectRequestBuilderPostRequestConfiguration';
+import { serializeRedirectPostRequestBody } from './serializeRedirectPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the redirect method.

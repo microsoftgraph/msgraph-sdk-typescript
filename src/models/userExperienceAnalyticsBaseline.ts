@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import type {UserExperienceAnalyticsCategory} from './userExperienceAnalyticsCategory';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type UserExperienceAnalyticsCategory } from './userExperienceAnalyticsCategory';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsBaseline extends Entity, Parsable {
     /**

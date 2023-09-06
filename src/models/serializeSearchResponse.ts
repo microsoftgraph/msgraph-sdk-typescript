@@ -1,11 +1,11 @@
-import type {AlterationResponse} from './alterationResponse';
-import type {ResultTemplateDictionary} from './resultTemplateDictionary';
-import type {SearchHitsContainer} from './searchHitsContainer';
-import type {SearchResponse} from './searchResponse';
-import {serializeAlterationResponse} from './serializeAlterationResponse';
-import {serializeResultTemplateDictionary} from './serializeResultTemplateDictionary';
-import {serializeSearchHitsContainer} from './serializeSearchHitsContainer';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AlterationResponse } from './alterationResponse';
+import { type ResultTemplateDictionary } from './resultTemplateDictionary';
+import { type SearchHitsContainer } from './searchHitsContainer';
+import { type SearchResponse } from './searchResponse';
+import { serializeAlterationResponse } from './serializeAlterationResponse';
+import { serializeResultTemplateDictionary } from './serializeResultTemplateDictionary';
+import { serializeSearchHitsContainer } from './serializeSearchHitsContainer';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSearchResponse(writer: SerializationWriter, searchResponse: SearchResponse | undefined = {} as SearchResponse) : void {
         writer.writeCollectionOfObjectValues<SearchHitsContainer>("hitsContainers", searchResponse.hitsContainers, serializeSearchHitsContainer);

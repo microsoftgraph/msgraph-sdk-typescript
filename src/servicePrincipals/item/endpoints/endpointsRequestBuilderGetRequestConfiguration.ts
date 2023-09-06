@@ -1,5 +1,5 @@
-import {EndpointsRequestBuilderGetQueryParameters} from './endpointsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EndpointsRequestBuilderGetQueryParameters } from './endpointsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EndpointsRequestBuilderGetRequestConfiguration {
     /**

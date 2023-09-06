@@ -1,19 +1,18 @@
-import {NamedLocationCollectionResponse} from '../../../models/';
-import {createNamedLocationCollectionResponseFromDiscriminatorValue} from '../../../models/createNamedLocationCollectionResponseFromDiscriminatorValue';
-import {createNamedLocationFromDiscriminatorValue} from '../../../models/createNamedLocationFromDiscriminatorValue';
-import {deserializeIntoNamedLocation} from '../../../models/deserializeIntoNamedLocation';
-import type {NamedLocation} from '../../../models/namedLocation';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeNamedLocation} from '../../../models/serializeNamedLocation';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {NamedLocationItemRequestBuilder} from './item/namedLocationItemRequestBuilder';
-import {NamedLocationsRequestBuilderGetRequestConfiguration} from './namedLocationsRequestBuilderGetRequestConfiguration';
-import {NamedLocationsRequestBuilderPostRequestConfiguration} from './namedLocationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type NamedLocationCollectionResponse } from '../../../models/';
+import { createNamedLocationCollectionResponseFromDiscriminatorValue } from '../../../models/createNamedLocationCollectionResponseFromDiscriminatorValue';
+import { createNamedLocationFromDiscriminatorValue } from '../../../models/createNamedLocationFromDiscriminatorValue';
+import { deserializeIntoNamedLocation } from '../../../models/deserializeIntoNamedLocation';
+import { type NamedLocation } from '../../../models/namedLocation';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeNamedLocation } from '../../../models/serializeNamedLocation';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { NamedLocationItemRequestBuilder } from './item/namedLocationItemRequestBuilder';
+import { type NamedLocationsRequestBuilderGetRequestConfiguration } from './namedLocationsRequestBuilderGetRequestConfiguration';
+import { type NamedLocationsRequestBuilderPostRequestConfiguration } from './namedLocationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.

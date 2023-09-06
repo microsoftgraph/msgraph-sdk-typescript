@@ -1,5 +1,5 @@
-import type {PrintMargin} from './printMargin';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PrintMargin } from './printMargin';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePrintMargin(writer: SerializationWriter, printMargin: PrintMargin | undefined = {} as PrintMargin) : void {
         writer.writeNumberValue("bottom", printMargin.bottom);

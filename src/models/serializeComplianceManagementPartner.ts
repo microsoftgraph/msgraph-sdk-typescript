@@ -1,9 +1,9 @@
-import type {ComplianceManagementPartner} from './complianceManagementPartner';
-import type {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
-import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
-import {serializeComplianceManagementPartnerAssignment} from './serializeComplianceManagementPartnerAssignment';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ComplianceManagementPartner } from './complianceManagementPartner';
+import { type ComplianceManagementPartnerAssignment } from './complianceManagementPartnerAssignment';
+import { DeviceManagementPartnerTenantState } from './deviceManagementPartnerTenantState';
+import { serializeComplianceManagementPartnerAssignment } from './serializeComplianceManagementPartnerAssignment';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeComplianceManagementPartner(writer: SerializationWriter, complianceManagementPartner: ComplianceManagementPartner | undefined = {} as ComplianceManagementPartner) : void {
         serializeEntity(writer, complianceManagementPartner)

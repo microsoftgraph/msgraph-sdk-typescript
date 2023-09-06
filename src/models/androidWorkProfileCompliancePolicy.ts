@@ -1,7 +1,7 @@
-import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
-import type {DeviceCompliancePolicy} from './deviceCompliancePolicy';
-import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { AndroidRequiredPasswordType } from './androidRequiredPasswordType';
+import { type DeviceCompliancePolicy } from './deviceCompliancePolicy';
+import { DeviceThreatProtectionLevel } from './deviceThreatProtectionLevel';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy, Parsable {
     /**

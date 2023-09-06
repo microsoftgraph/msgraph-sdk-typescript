@@ -1,10 +1,10 @@
-import {deserializeIntoOfferShiftRequest} from './deserializeIntoOfferShiftRequest';
-import {deserializeIntoOpenShiftChangeRequest} from './deserializeIntoOpenShiftChangeRequest';
-import {deserializeIntoScheduleChangeRequest} from './deserializeIntoScheduleChangeRequest';
-import {deserializeIntoSwapShiftsChangeRequest} from './deserializeIntoSwapShiftsChangeRequest';
-import {deserializeIntoTimeOffRequest} from './deserializeIntoTimeOffRequest';
-import {OfferShiftRequest, OpenShiftChangeRequest, ScheduleChangeRequest, SwapShiftsChangeRequest, TimeOffRequest} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoOfferShiftRequest } from './deserializeIntoOfferShiftRequest';
+import { deserializeIntoOpenShiftChangeRequest } from './deserializeIntoOpenShiftChangeRequest';
+import { deserializeIntoScheduleChangeRequest } from './deserializeIntoScheduleChangeRequest';
+import { deserializeIntoSwapShiftsChangeRequest } from './deserializeIntoSwapShiftsChangeRequest';
+import { deserializeIntoTimeOffRequest } from './deserializeIntoTimeOffRequest';
+import { type OfferShiftRequest, type OpenShiftChangeRequest, type ScheduleChangeRequest, type SwapShiftsChangeRequest, type TimeOffRequest } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createScheduleChangeRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

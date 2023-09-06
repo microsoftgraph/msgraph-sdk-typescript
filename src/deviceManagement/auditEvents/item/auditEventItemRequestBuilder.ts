@@ -1,16 +1,15 @@
-import type {AuditEvent} from '../../../models/auditEvent';
-import {createAuditEventFromDiscriminatorValue} from '../../../models/createAuditEventFromDiscriminatorValue';
-import {deserializeIntoAuditEvent} from '../../../models/deserializeIntoAuditEvent';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAuditEvent} from '../../../models/serializeAuditEvent';
-import {AuditEventItemRequestBuilderDeleteRequestConfiguration} from './auditEventItemRequestBuilderDeleteRequestConfiguration';
-import {AuditEventItemRequestBuilderGetRequestConfiguration} from './auditEventItemRequestBuilderGetRequestConfiguration';
-import {AuditEventItemRequestBuilderPatchRequestConfiguration} from './auditEventItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuditEvent } from '../../../models/auditEvent';
+import { createAuditEventFromDiscriminatorValue } from '../../../models/createAuditEventFromDiscriminatorValue';
+import { deserializeIntoAuditEvent } from '../../../models/deserializeIntoAuditEvent';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAuditEvent } from '../../../models/serializeAuditEvent';
+import { type AuditEventItemRequestBuilderDeleteRequestConfiguration } from './auditEventItemRequestBuilderDeleteRequestConfiguration';
+import { type AuditEventItemRequestBuilderGetRequestConfiguration } from './auditEventItemRequestBuilderGetRequestConfiguration';
+import { type AuditEventItemRequestBuilderPatchRequestConfiguration } from './auditEventItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.

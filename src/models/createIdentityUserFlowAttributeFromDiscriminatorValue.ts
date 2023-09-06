@@ -1,8 +1,8 @@
-import {deserializeIntoIdentityBuiltInUserFlowAttribute} from './deserializeIntoIdentityBuiltInUserFlowAttribute';
-import {deserializeIntoIdentityCustomUserFlowAttribute} from './deserializeIntoIdentityCustomUserFlowAttribute';
-import {deserializeIntoIdentityUserFlowAttribute} from './deserializeIntoIdentityUserFlowAttribute';
-import {IdentityBuiltInUserFlowAttribute, IdentityCustomUserFlowAttribute, IdentityUserFlowAttribute} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIdentityBuiltInUserFlowAttribute } from './deserializeIntoIdentityBuiltInUserFlowAttribute';
+import { deserializeIntoIdentityCustomUserFlowAttribute } from './deserializeIntoIdentityCustomUserFlowAttribute';
+import { deserializeIntoIdentityUserFlowAttribute } from './deserializeIntoIdentityUserFlowAttribute';
+import { type IdentityBuiltInUserFlowAttribute, type IdentityCustomUserFlowAttribute, type IdentityUserFlowAttribute } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIdentityUserFlowAttributeFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

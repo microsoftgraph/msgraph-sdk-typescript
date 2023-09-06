@@ -1,6 +1,6 @@
-import {deserializeIntoUserSourceCollectionResponse} from './deserializeIntoUserSourceCollectionResponse';
-import {UserSourceCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUserSourceCollectionResponse } from './deserializeIntoUserSourceCollectionResponse';
+import { type UserSourceCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUserSourceCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

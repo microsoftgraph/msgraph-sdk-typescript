@@ -1,19 +1,18 @@
-import {OrganizationalBrandingLocalizationCollectionResponse} from '../../../../models/';
-import {createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue} from '../../../../models/createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue';
-import {createOrganizationalBrandingLocalizationFromDiscriminatorValue} from '../../../../models/createOrganizationalBrandingLocalizationFromDiscriminatorValue';
-import {deserializeIntoOrganizationalBrandingLocalization} from '../../../../models/deserializeIntoOrganizationalBrandingLocalization';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {OrganizationalBrandingLocalization} from '../../../../models/organizationalBrandingLocalization';
-import {serializeOrganizationalBrandingLocalization} from '../../../../models/serializeOrganizationalBrandingLocalization';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {OrganizationalBrandingLocalizationItemRequestBuilder} from './item/organizationalBrandingLocalizationItemRequestBuilder';
-import {LocalizationsRequestBuilderGetRequestConfiguration} from './localizationsRequestBuilderGetRequestConfiguration';
-import {LocalizationsRequestBuilderPostRequestConfiguration} from './localizationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OrganizationalBrandingLocalizationCollectionResponse } from '../../../../models/';
+import { createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue } from '../../../../models/createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue';
+import { createOrganizationalBrandingLocalizationFromDiscriminatorValue } from '../../../../models/createOrganizationalBrandingLocalizationFromDiscriminatorValue';
+import { deserializeIntoOrganizationalBrandingLocalization } from '../../../../models/deserializeIntoOrganizationalBrandingLocalization';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type OrganizationalBrandingLocalization } from '../../../../models/organizationalBrandingLocalization';
+import { serializeOrganizationalBrandingLocalization } from '../../../../models/serializeOrganizationalBrandingLocalization';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { OrganizationalBrandingLocalizationItemRequestBuilder } from './item/organizationalBrandingLocalizationItemRequestBuilder';
+import { type LocalizationsRequestBuilderGetRequestConfiguration } from './localizationsRequestBuilderGetRequestConfiguration';
+import { type LocalizationsRequestBuilderPostRequestConfiguration } from './localizationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.

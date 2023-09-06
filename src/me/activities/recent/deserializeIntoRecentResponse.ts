@@ -1,9 +1,9 @@
-import {createUserActivityFromDiscriminatorValue} from '../../../models/createUserActivityFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeUserActivity} from '../../../models/serializeUserActivity';
-import type {UserActivity} from '../../../models/userActivity';
-import type {RecentResponse} from './recentResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUserActivityFromDiscriminatorValue } from '../../../models/createUserActivityFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeUserActivity } from '../../../models/serializeUserActivity';
+import { type UserActivity } from '../../../models/userActivity';
+import { type RecentResponse } from './recentResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRecentResponse(recentResponse: RecentResponse | undefined = {} as RecentResponse) : Record<string, (node: ParseNode) => void> {
     return {

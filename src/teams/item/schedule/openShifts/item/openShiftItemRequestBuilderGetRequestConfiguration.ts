@@ -1,5 +1,5 @@
-import {OpenShiftItemRequestBuilderGetQueryParameters} from './openShiftItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type OpenShiftItemRequestBuilderGetQueryParameters } from './openShiftItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OpenShiftItemRequestBuilderGetRequestConfiguration {
     /**

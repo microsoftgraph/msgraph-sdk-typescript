@@ -1,5 +1,5 @@
-import type {PhysicalAddress} from './physicalAddress';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PhysicalAddress } from './physicalAddress';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPhysicalAddress(physicalAddress: PhysicalAddress | undefined = {} as PhysicalAddress) : Record<string, (node: ParseNode) => void> {
     return {

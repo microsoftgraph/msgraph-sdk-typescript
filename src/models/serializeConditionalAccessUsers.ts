@@ -1,7 +1,7 @@
-import type {ConditionalAccessGuestsOrExternalUsers} from './conditionalAccessGuestsOrExternalUsers';
-import type {ConditionalAccessUsers} from './conditionalAccessUsers';
-import {serializeConditionalAccessGuestsOrExternalUsers} from './serializeConditionalAccessGuestsOrExternalUsers';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessGuestsOrExternalUsers } from './conditionalAccessGuestsOrExternalUsers';
+import { type ConditionalAccessUsers } from './conditionalAccessUsers';
+import { serializeConditionalAccessGuestsOrExternalUsers } from './serializeConditionalAccessGuestsOrExternalUsers';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessUsers(writer: SerializationWriter, conditionalAccessUsers: ConditionalAccessUsers | undefined = {} as ConditionalAccessUsers) : void {
         writer.writeCollectionOfPrimitiveValues<string>("excludeGroups", conditionalAccessUsers.excludeGroups);

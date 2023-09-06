@@ -1,9 +1,9 @@
-import type {BrowserSiteList} from './browserSiteList';
-import {createBrowserSiteListFromDiscriminatorValue} from './createBrowserSiteListFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {InternetExplorerMode} from './internetExplorerMode';
-import {serializeBrowserSiteList} from './serializeBrowserSiteList';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BrowserSiteList } from './browserSiteList';
+import { createBrowserSiteListFromDiscriminatorValue } from './createBrowserSiteListFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type InternetExplorerMode } from './internetExplorerMode';
+import { serializeBrowserSiteList } from './serializeBrowserSiteList';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInternetExplorerMode(internetExplorerMode: InternetExplorerMode | undefined = {} as InternetExplorerMode) : Record<string, (node: ParseNode) => void> {
     return {

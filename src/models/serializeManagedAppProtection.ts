@@ -1,12 +1,11 @@
-import {ManagedAppClipboardSharingLevel} from './managedAppClipboardSharingLevel';
-import {ManagedAppDataStorageLocation} from './managedAppDataStorageLocation';
-import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
-import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
-import type {ManagedAppProtection} from './managedAppProtection';
-import {ManagedBrowserType} from './managedBrowserType';
-import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ManagedAppClipboardSharingLevel } from './managedAppClipboardSharingLevel';
+import { ManagedAppDataStorageLocation } from './managedAppDataStorageLocation';
+import { ManagedAppDataTransferLevel } from './managedAppDataTransferLevel';
+import { ManagedAppPinCharacterSet } from './managedAppPinCharacterSet';
+import { type ManagedAppProtection } from './managedAppProtection';
+import { ManagedBrowserType } from './managedBrowserType';
+import { serializeManagedAppPolicy } from './serializeManagedAppPolicy';
+import { Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeManagedAppProtection(writer: SerializationWriter, managedAppProtection: ManagedAppProtection | undefined = {} as ManagedAppProtection) : void {
         serializeManagedAppPolicy(writer, managedAppProtection)
@@ -20,7 +19,7 @@ export function serializeManagedAppProtection(writer: SerializationWriter, manag
         writer.writeBooleanValue("deviceComplianceRequired", managedAppProtection.deviceComplianceRequired);
         writer.writeBooleanValue("disableAppPinIfDevicePinIsSet", managedAppProtection.disableAppPinIfDevicePinIsSet);
         writer.writeBooleanValue("fingerprintBlocked", managedAppProtection.fingerprintBlocked);
-        writer.writeEnumValue<ManagedBrowserType>("managedBrowser", managedAppProtection.managedBrowser);
+        writer.writeEnumValue<ManagedBrowserType[]>("managedBrowser", managedAppProtection.managedBrowser);
         writer.writeBooleanValue("managedBrowserToOpenLinksRequired", managedAppProtection.managedBrowserToOpenLinksRequired);
         writer.writeNumberValue("maximumPinRetries", managedAppProtection.maximumPinRetries);
         writer.writeNumberValue("minimumPinLength", managedAppProtection.minimumPinLength);

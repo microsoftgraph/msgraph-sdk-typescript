@@ -1,5 +1,5 @@
-import {AdditionalAccessRequestBuilderGetQueryParameters} from './additionalAccessRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AdditionalAccessRequestBuilderGetQueryParameters } from './additionalAccessRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AdditionalAccessRequestBuilderGetRequestConfiguration {
     /**

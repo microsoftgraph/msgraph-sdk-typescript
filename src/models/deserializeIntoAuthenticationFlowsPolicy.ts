@@ -1,9 +1,9 @@
-import type {AuthenticationFlowsPolicy} from './authenticationFlowsPolicy';
-import {createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue} from './createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
-import {serializeSelfServiceSignUpAuthenticationFlowConfiguration} from './serializeSelfServiceSignUpAuthenticationFlowConfiguration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationFlowsPolicy } from './authenticationFlowsPolicy';
+import { createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue } from './createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type SelfServiceSignUpAuthenticationFlowConfiguration } from './selfServiceSignUpAuthenticationFlowConfiguration';
+import { serializeSelfServiceSignUpAuthenticationFlowConfiguration } from './serializeSelfServiceSignUpAuthenticationFlowConfiguration';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthenticationFlowsPolicy(authenticationFlowsPolicy: AuthenticationFlowsPolicy | undefined = {} as AuthenticationFlowsPolicy) : Record<string, (node: ParseNode) => void> {
     return {

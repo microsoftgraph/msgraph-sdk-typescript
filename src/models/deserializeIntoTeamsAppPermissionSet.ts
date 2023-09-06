@@ -1,8 +1,8 @@
-import {createTeamsAppResourceSpecificPermissionFromDiscriminatorValue} from './createTeamsAppResourceSpecificPermissionFromDiscriminatorValue';
-import {serializeTeamsAppResourceSpecificPermission} from './serializeTeamsAppResourceSpecificPermission';
-import type {TeamsAppPermissionSet} from './teamsAppPermissionSet';
-import type {TeamsAppResourceSpecificPermission} from './teamsAppResourceSpecificPermission';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTeamsAppResourceSpecificPermissionFromDiscriminatorValue } from './createTeamsAppResourceSpecificPermissionFromDiscriminatorValue';
+import { serializeTeamsAppResourceSpecificPermission } from './serializeTeamsAppResourceSpecificPermission';
+import { type TeamsAppPermissionSet } from './teamsAppPermissionSet';
+import { type TeamsAppResourceSpecificPermission } from './teamsAppResourceSpecificPermission';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAppPermissionSet(teamsAppPermissionSet: TeamsAppPermissionSet | undefined = {} as TeamsAppPermissionSet) : Record<string, (node: ParseNode) => void> {
     return {

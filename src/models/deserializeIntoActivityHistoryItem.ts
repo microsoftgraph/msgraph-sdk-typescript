@@ -1,10 +1,10 @@
-import type {ActivityHistoryItem} from './activityHistoryItem';
-import {createUserActivityFromDiscriminatorValue} from './createUserActivityFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeUserActivity} from './serializeUserActivity';
-import {Status} from './status';
-import type {UserActivity} from './userActivity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ActivityHistoryItem } from './activityHistoryItem';
+import { createUserActivityFromDiscriminatorValue } from './createUserActivityFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeUserActivity } from './serializeUserActivity';
+import { Status } from './status';
+import { type UserActivity } from './userActivity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoActivityHistoryItem(activityHistoryItem: ActivityHistoryItem | undefined = {} as ActivityHistoryItem) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,10 +1,10 @@
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import type {Artifact} from './artifact';
-import {createArtifactFromDiscriminatorValue} from './createArtifactFromDiscriminatorValue';
-import type {Indicator} from './indicator';
-import {IndicatorSource} from './indicatorSource';
-import {serializeArtifact} from './serializeArtifact';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { type Artifact } from './artifact';
+import { createArtifactFromDiscriminatorValue } from './createArtifactFromDiscriminatorValue';
+import { type Indicator } from './indicator';
+import { IndicatorSource } from './indicatorSource';
+import { serializeArtifact } from './serializeArtifact';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIndicator(indicator: Indicator | undefined = {} as Indicator) : Record<string, (node: ParseNode) => void> {
     return {

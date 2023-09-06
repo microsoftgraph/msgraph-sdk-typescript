@@ -1,5 +1,5 @@
-import {AppliesToRequestBuilderGetQueryParameters} from './appliesToRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppliesToRequestBuilderGetQueryParameters } from './appliesToRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AppliesToRequestBuilderGetRequestConfiguration {
     /**

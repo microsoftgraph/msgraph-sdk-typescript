@@ -1,5 +1,5 @@
-import {ServiceHealthIssueItemRequestBuilderGetQueryParameters} from './serviceHealthIssueItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ServiceHealthIssueItemRequestBuilderGetQueryParameters } from './serviceHealthIssueItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ServiceHealthIssueItemRequestBuilderGetRequestConfiguration {
     /**

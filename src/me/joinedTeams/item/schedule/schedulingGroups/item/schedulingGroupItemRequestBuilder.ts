@@ -1,16 +1,15 @@
-import {createSchedulingGroupFromDiscriminatorValue} from '../../../../../../models/createSchedulingGroupFromDiscriminatorValue';
-import {deserializeIntoSchedulingGroup} from '../../../../../../models/deserializeIntoSchedulingGroup';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import type {SchedulingGroup} from '../../../../../../models/schedulingGroup';
-import {serializeSchedulingGroup} from '../../../../../../models/serializeSchedulingGroup';
-import {SchedulingGroupItemRequestBuilderDeleteRequestConfiguration} from './schedulingGroupItemRequestBuilderDeleteRequestConfiguration';
-import {SchedulingGroupItemRequestBuilderGetRequestConfiguration} from './schedulingGroupItemRequestBuilderGetRequestConfiguration';
-import {SchedulingGroupItemRequestBuilderPatchRequestConfiguration} from './schedulingGroupItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSchedulingGroupFromDiscriminatorValue } from '../../../../../../models/createSchedulingGroupFromDiscriminatorValue';
+import { deserializeIntoSchedulingGroup } from '../../../../../../models/deserializeIntoSchedulingGroup';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type SchedulingGroup } from '../../../../../../models/schedulingGroup';
+import { serializeSchedulingGroup } from '../../../../../../models/serializeSchedulingGroup';
+import { type SchedulingGroupItemRequestBuilderDeleteRequestConfiguration } from './schedulingGroupItemRequestBuilderDeleteRequestConfiguration';
+import { type SchedulingGroupItemRequestBuilderGetRequestConfiguration } from './schedulingGroupItemRequestBuilderGetRequestConfiguration';
+import { type SchedulingGroupItemRequestBuilderPatchRequestConfiguration } from './schedulingGroupItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.

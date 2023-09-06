@@ -1,12 +1,12 @@
-import {createRiskyServicePrincipalHistoryItemFromDiscriminatorValue} from './createRiskyServicePrincipalHistoryItemFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {RiskDetail} from './riskDetail';
-import {RiskLevel} from './riskLevel';
-import {RiskState} from './riskState';
-import type {RiskyServicePrincipal} from './riskyServicePrincipal';
-import type {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
-import {serializeRiskyServicePrincipalHistoryItem} from './serializeRiskyServicePrincipalHistoryItem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createRiskyServicePrincipalHistoryItemFromDiscriminatorValue } from './createRiskyServicePrincipalHistoryItemFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { RiskDetail } from './riskDetail';
+import { RiskLevel } from './riskLevel';
+import { RiskState } from './riskState';
+import { type RiskyServicePrincipal } from './riskyServicePrincipal';
+import { type RiskyServicePrincipalHistoryItem } from './riskyServicePrincipalHistoryItem';
+import { serializeRiskyServicePrincipalHistoryItem } from './serializeRiskyServicePrincipalHistoryItem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRiskyServicePrincipal(riskyServicePrincipal: RiskyServicePrincipal | undefined = {} as RiskyServicePrincipal) : Record<string, (node: ParseNode) => void> {
     return {

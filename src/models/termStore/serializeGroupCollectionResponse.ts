@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCollectionPaginationCountResponse';
-import type {Group} from './group';
-import type {GroupCollectionResponse} from './groupCollectionResponse';
-import {serializeGroup} from './serializeGroup';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from '../serializeBaseCollectionPaginationCountResponse';
+import { type Group } from './group';
+import { type GroupCollectionResponse } from './groupCollectionResponse';
+import { serializeGroup } from './serializeGroup';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeGroupCollectionResponse(writer: SerializationWriter, groupCollectionResponse: GroupCollectionResponse | undefined = {} as GroupCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, groupCollectionResponse)

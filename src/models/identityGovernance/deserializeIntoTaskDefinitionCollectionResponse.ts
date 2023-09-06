@@ -1,9 +1,9 @@
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
-import {createTaskDefinitionFromDiscriminatorValue} from './createTaskDefinitionFromDiscriminatorValue';
-import {serializeTaskDefinition} from './serializeTaskDefinition';
-import type {TaskDefinition} from './taskDefinition';
-import type {TaskDefinitionCollectionResponse} from './taskDefinitionCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../deserializeIntoBaseCollectionPaginationCountResponse';
+import { createTaskDefinitionFromDiscriminatorValue } from './createTaskDefinitionFromDiscriminatorValue';
+import { serializeTaskDefinition } from './serializeTaskDefinition';
+import { type TaskDefinition } from './taskDefinition';
+import { type TaskDefinitionCollectionResponse } from './taskDefinitionCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTaskDefinitionCollectionResponse(taskDefinitionCollectionResponse: TaskDefinitionCollectionResponse | undefined = {} as TaskDefinitionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,20 +1,19 @@
-import {AttachmentCollectionResponse} from '../../../../../../../models/';
-import type {Attachment} from '../../../../../../../models/attachment';
-import {createAttachmentCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createAttachmentCollectionResponseFromDiscriminatorValue';
-import {createAttachmentFromDiscriminatorValue} from '../../../../../../../models/createAttachmentFromDiscriminatorValue';
-import {deserializeIntoAttachment} from '../../../../../../../models/deserializeIntoAttachment';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAttachment} from '../../../../../../../models/serializeAttachment';
-import {AttachmentsRequestBuilderGetRequestConfiguration} from './attachmentsRequestBuilderGetRequestConfiguration';
-import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
-import {AttachmentItemRequestBuilder} from './item/attachmentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AttachmentCollectionResponse } from '../../../../../../../models/';
+import { type Attachment } from '../../../../../../../models/attachment';
+import { createAttachmentCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createAttachmentCollectionResponseFromDiscriminatorValue';
+import { createAttachmentFromDiscriminatorValue } from '../../../../../../../models/createAttachmentFromDiscriminatorValue';
+import { deserializeIntoAttachment } from '../../../../../../../models/deserializeIntoAttachment';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAttachment } from '../../../../../../../models/serializeAttachment';
+import { type AttachmentsRequestBuilderGetRequestConfiguration } from './attachmentsRequestBuilderGetRequestConfiguration';
+import { type AttachmentsRequestBuilderPostRequestConfiguration } from './attachmentsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { CreateUploadSessionRequestBuilder } from './createUploadSession/createUploadSessionRequestBuilder';
+import { AttachmentItemRequestBuilder } from './item/attachmentItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.event entity.

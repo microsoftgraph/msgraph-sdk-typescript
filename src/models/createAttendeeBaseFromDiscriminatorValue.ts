@@ -1,7 +1,7 @@
-import {deserializeIntoAttendee} from './deserializeIntoAttendee';
-import {deserializeIntoAttendeeBase} from './deserializeIntoAttendeeBase';
-import {Attendee, AttendeeBase} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAttendee } from './deserializeIntoAttendee';
+import { deserializeIntoAttendeeBase } from './deserializeIntoAttendeeBase';
+import { type Attendee, type AttendeeBase } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAttendeeBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

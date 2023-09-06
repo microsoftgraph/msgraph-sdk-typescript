@@ -1,17 +1,16 @@
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {CasesRoot} from '../../models/security/casesRoot';
-import {createCasesRootFromDiscriminatorValue} from '../../models/security/createCasesRootFromDiscriminatorValue';
-import {deserializeIntoCasesRoot} from '../../models/security/deserializeIntoCasesRoot';
-import {serializeCasesRoot} from '../../models/security/serializeCasesRoot';
-import {CasesRequestBuilderDeleteRequestConfiguration} from './casesRequestBuilderDeleteRequestConfiguration';
-import {CasesRequestBuilderGetRequestConfiguration} from './casesRequestBuilderGetRequestConfiguration';
-import {CasesRequestBuilderPatchRequestConfiguration} from './casesRequestBuilderPatchRequestConfiguration';
-import {EdiscoveryCasesRequestBuilder} from './ediscoveryCases/ediscoveryCasesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type CasesRoot } from '../../models/security/casesRoot';
+import { createCasesRootFromDiscriminatorValue } from '../../models/security/createCasesRootFromDiscriminatorValue';
+import { deserializeIntoCasesRoot } from '../../models/security/deserializeIntoCasesRoot';
+import { serializeCasesRoot } from '../../models/security/serializeCasesRoot';
+import { type CasesRequestBuilderDeleteRequestConfiguration } from './casesRequestBuilderDeleteRequestConfiguration';
+import { type CasesRequestBuilderGetRequestConfiguration } from './casesRequestBuilderGetRequestConfiguration';
+import { type CasesRequestBuilderPatchRequestConfiguration } from './casesRequestBuilderPatchRequestConfiguration';
+import { EdiscoveryCasesRequestBuilder } from './ediscoveryCases/ediscoveryCasesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the cases property of the microsoft.graph.security entity.

@@ -1,7 +1,7 @@
-import {deserializeIntoOpenShiftItem} from './deserializeIntoOpenShiftItem';
-import {deserializeIntoShiftItem} from './deserializeIntoShiftItem';
-import {OpenShiftItem, ShiftItem} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoOpenShiftItem } from './deserializeIntoOpenShiftItem';
+import { deserializeIntoShiftItem } from './deserializeIntoShiftItem';
+import { type OpenShiftItem, type ShiftItem } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createShiftItemFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

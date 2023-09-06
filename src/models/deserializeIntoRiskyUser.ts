@@ -1,12 +1,12 @@
-import {createRiskyUserHistoryItemFromDiscriminatorValue} from './createRiskyUserHistoryItemFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {RiskDetail} from './riskDetail';
-import {RiskLevel} from './riskLevel';
-import {RiskState} from './riskState';
-import type {RiskyUser} from './riskyUser';
-import type {RiskyUserHistoryItem} from './riskyUserHistoryItem';
-import {serializeRiskyUserHistoryItem} from './serializeRiskyUserHistoryItem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createRiskyUserHistoryItemFromDiscriminatorValue } from './createRiskyUserHistoryItemFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { RiskDetail } from './riskDetail';
+import { RiskLevel } from './riskLevel';
+import { RiskState } from './riskState';
+import { type RiskyUser } from './riskyUser';
+import { type RiskyUserHistoryItem } from './riskyUserHistoryItem';
+import { serializeRiskyUserHistoryItem } from './serializeRiskyUserHistoryItem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRiskyUser(riskyUser: RiskyUser | undefined = {} as RiskyUser) : Record<string, (node: ParseNode) => void> {
     return {

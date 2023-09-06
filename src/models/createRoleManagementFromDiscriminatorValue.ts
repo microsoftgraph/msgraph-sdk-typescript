@@ -1,6 +1,6 @@
-import {deserializeIntoRoleManagement} from './deserializeIntoRoleManagement';
-import {RoleManagement} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoRoleManagement } from './deserializeIntoRoleManagement';
+import { type RoleManagement } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createRoleManagementFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

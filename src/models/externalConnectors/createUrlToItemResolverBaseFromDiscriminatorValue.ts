@@ -1,7 +1,7 @@
-import {deserializeIntoItemIdResolver} from './deserializeIntoItemIdResolver';
-import {deserializeIntoUrlToItemResolverBase} from './deserializeIntoUrlToItemResolverBase';
-import {ItemIdResolver, UrlToItemResolverBase} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoItemIdResolver } from './deserializeIntoItemIdResolver';
+import { deserializeIntoUrlToItemResolverBase } from './deserializeIntoUrlToItemResolverBase';
+import { type ItemIdResolver, type UrlToItemResolverBase } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUrlToItemResolverBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

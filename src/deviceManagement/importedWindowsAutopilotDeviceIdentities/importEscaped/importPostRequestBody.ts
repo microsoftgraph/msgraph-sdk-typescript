@@ -1,5 +1,5 @@
-import type {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/importedWindowsAutopilotDeviceIdentity';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type ImportedWindowsAutopilotDeviceIdentity } from '../../../models/importedWindowsAutopilotDeviceIdentity';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ImportPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

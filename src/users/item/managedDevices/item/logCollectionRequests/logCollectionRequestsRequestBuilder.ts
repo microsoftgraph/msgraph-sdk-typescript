@@ -1,19 +1,18 @@
-import {DeviceLogCollectionResponseCollectionResponse} from '../../../../../models/';
-import {createDeviceLogCollectionResponseCollectionResponseFromDiscriminatorValue} from '../../../../../models/createDeviceLogCollectionResponseCollectionResponseFromDiscriminatorValue';
-import {createDeviceLogCollectionResponseFromDiscriminatorValue} from '../../../../../models/createDeviceLogCollectionResponseFromDiscriminatorValue';
-import {deserializeIntoDeviceLogCollectionResponse} from '../../../../../models/deserializeIntoDeviceLogCollectionResponse';
-import type {DeviceLogCollectionResponse} from '../../../../../models/deviceLogCollectionResponse';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceLogCollectionResponse} from '../../../../../models/serializeDeviceLogCollectionResponse';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeviceLogCollectionResponseItemRequestBuilder} from './item/deviceLogCollectionResponseItemRequestBuilder';
-import {LogCollectionRequestsRequestBuilderGetRequestConfiguration} from './logCollectionRequestsRequestBuilderGetRequestConfiguration';
-import {LogCollectionRequestsRequestBuilderPostRequestConfiguration} from './logCollectionRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceLogCollectionResponseCollectionResponse } from '../../../../../models/';
+import { createDeviceLogCollectionResponseCollectionResponseFromDiscriminatorValue } from '../../../../../models/createDeviceLogCollectionResponseCollectionResponseFromDiscriminatorValue';
+import { createDeviceLogCollectionResponseFromDiscriminatorValue } from '../../../../../models/createDeviceLogCollectionResponseFromDiscriminatorValue';
+import { deserializeIntoDeviceLogCollectionResponse } from '../../../../../models/deserializeIntoDeviceLogCollectionResponse';
+import { type DeviceLogCollectionResponse } from '../../../../../models/deviceLogCollectionResponse';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceLogCollectionResponse } from '../../../../../models/serializeDeviceLogCollectionResponse';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeviceLogCollectionResponseItemRequestBuilder } from './item/deviceLogCollectionResponseItemRequestBuilder';
+import { type LogCollectionRequestsRequestBuilderGetRequestConfiguration } from './logCollectionRequestsRequestBuilderGetRequestConfiguration';
+import { type LogCollectionRequestsRequestBuilderPostRequestConfiguration } from './logCollectionRequestsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.

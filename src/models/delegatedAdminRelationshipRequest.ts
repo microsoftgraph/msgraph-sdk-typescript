@@ -1,7 +1,7 @@
-import {DelegatedAdminRelationshipRequestAction} from './delegatedAdminRelationshipRequestAction';
-import {DelegatedAdminRelationshipRequestStatus} from './delegatedAdminRelationshipRequestStatus';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { DelegatedAdminRelationshipRequestAction } from './delegatedAdminRelationshipRequestAction';
+import { DelegatedAdminRelationshipRequestStatus } from './delegatedAdminRelationshipRequestStatus';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminRelationshipRequest extends Entity, Parsable {
     /**

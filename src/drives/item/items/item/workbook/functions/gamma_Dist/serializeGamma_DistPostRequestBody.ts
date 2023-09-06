@@ -1,7 +1,7 @@
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {Gamma_DistPostRequestBody} from './gamma_DistPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type Gamma_DistPostRequestBody } from './gamma_DistPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeGamma_DistPostRequestBody(writer: SerializationWriter, gamma_DistPostRequestBody: Gamma_DistPostRequestBody | undefined = {} as Gamma_DistPostRequestBody) : void {
         writer.writeObjectValue<Json>("alpha", gamma_DistPostRequestBody.alpha, serializeJson);

@@ -1,16 +1,16 @@
-import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFromDiscriminatorValue';
-import {createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue} from './createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
-import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobileAppFromDiscriminatorValue';
-import type {DefaultManagedAppProtection} from './defaultManagedAppProtection';
-import {deserializeIntoManagedAppProtection} from './deserializeIntoManagedAppProtection';
-import type {KeyValuePair} from './keyValuePair';
-import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
-import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import type {ManagedMobileApp} from './managedMobileApp';
-import {serializeKeyValuePair} from './serializeKeyValuePair';
-import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
-import {serializeManagedMobileApp} from './serializeManagedMobileApp';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createKeyValuePairFromDiscriminatorValue } from './createKeyValuePairFromDiscriminatorValue';
+import { createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue } from './createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
+import { createManagedMobileAppFromDiscriminatorValue } from './createManagedMobileAppFromDiscriminatorValue';
+import { type DefaultManagedAppProtection } from './defaultManagedAppProtection';
+import { deserializeIntoManagedAppProtection } from './deserializeIntoManagedAppProtection';
+import { type KeyValuePair } from './keyValuePair';
+import { ManagedAppDataEncryptionType } from './managedAppDataEncryptionType';
+import { type ManagedAppPolicyDeploymentSummary } from './managedAppPolicyDeploymentSummary';
+import { type ManagedMobileApp } from './managedMobileApp';
+import { serializeKeyValuePair } from './serializeKeyValuePair';
+import { serializeManagedAppPolicyDeploymentSummary } from './serializeManagedAppPolicyDeploymentSummary';
+import { serializeManagedMobileApp } from './serializeManagedMobileApp';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDefaultManagedAppProtection(defaultManagedAppProtection: DefaultManagedAppProtection | undefined = {} as DefaultManagedAppProtection) : Record<string, (node: ParseNode) => void> {
     return {

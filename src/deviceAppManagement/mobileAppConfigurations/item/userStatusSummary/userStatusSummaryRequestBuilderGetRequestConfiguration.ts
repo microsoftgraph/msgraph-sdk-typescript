@@ -1,5 +1,5 @@
-import {UserStatusSummaryRequestBuilderGetQueryParameters} from './userStatusSummaryRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserStatusSummaryRequestBuilderGetQueryParameters } from './userStatusSummaryRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserStatusSummaryRequestBuilderGetRequestConfiguration {
     /**

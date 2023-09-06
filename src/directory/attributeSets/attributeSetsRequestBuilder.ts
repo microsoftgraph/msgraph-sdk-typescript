@@ -1,19 +1,18 @@
-import {AttributeSetCollectionResponse} from '../../models/';
-import type {AttributeSet} from '../../models/attributeSet';
-import {createAttributeSetCollectionResponseFromDiscriminatorValue} from '../../models/createAttributeSetCollectionResponseFromDiscriminatorValue';
-import {createAttributeSetFromDiscriminatorValue} from '../../models/createAttributeSetFromDiscriminatorValue';
-import {deserializeIntoAttributeSet} from '../../models/deserializeIntoAttributeSet';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeAttributeSet} from '../../models/serializeAttributeSet';
-import {AttributeSetsRequestBuilderGetRequestConfiguration} from './attributeSetsRequestBuilderGetRequestConfiguration';
-import {AttributeSetsRequestBuilderPostRequestConfiguration} from './attributeSetsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AttributeSetItemRequestBuilder} from './item/attributeSetItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AttributeSetCollectionResponse } from '../../models/';
+import { type AttributeSet } from '../../models/attributeSet';
+import { createAttributeSetCollectionResponseFromDiscriminatorValue } from '../../models/createAttributeSetCollectionResponseFromDiscriminatorValue';
+import { createAttributeSetFromDiscriminatorValue } from '../../models/createAttributeSetFromDiscriminatorValue';
+import { deserializeIntoAttributeSet } from '../../models/deserializeIntoAttributeSet';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeAttributeSet } from '../../models/serializeAttributeSet';
+import { type AttributeSetsRequestBuilderGetRequestConfiguration } from './attributeSetsRequestBuilderGetRequestConfiguration';
+import { type AttributeSetsRequestBuilderPostRequestConfiguration } from './attributeSetsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AttributeSetItemRequestBuilder } from './item/attributeSetItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.

@@ -1,8 +1,8 @@
-import {deserializeIntoClientUserAgent} from './deserializeIntoClientUserAgent';
-import {deserializeIntoServiceUserAgent} from './deserializeIntoServiceUserAgent';
-import {deserializeIntoUserAgent} from './deserializeIntoUserAgent';
-import {ClientUserAgent, ServiceUserAgent, UserAgent} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoClientUserAgent } from './deserializeIntoClientUserAgent';
+import { deserializeIntoServiceUserAgent } from './deserializeIntoServiceUserAgent';
+import { deserializeIntoUserAgent } from './deserializeIntoUserAgent';
+import { type ClientUserAgent, type ServiceUserAgent, type UserAgent } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUserAgentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

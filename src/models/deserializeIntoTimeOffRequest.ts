@@ -1,6 +1,6 @@
-import {deserializeIntoScheduleChangeRequest} from './deserializeIntoScheduleChangeRequest';
-import type {TimeOffRequest} from './timeOffRequest';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoScheduleChangeRequest } from './deserializeIntoScheduleChangeRequest';
+import { type TimeOffRequest } from './timeOffRequest';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeOffRequest(timeOffRequest: TimeOffRequest | undefined = {} as TimeOffRequest) : Record<string, (node: ParseNode) => void> {
     return {

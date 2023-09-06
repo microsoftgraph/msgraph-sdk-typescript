@@ -1,18 +1,17 @@
-import {createTermsOfUseContainerFromDiscriminatorValue} from '../../models/createTermsOfUseContainerFromDiscriminatorValue';
-import {deserializeIntoTermsOfUseContainer} from '../../models/deserializeIntoTermsOfUseContainer';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeTermsOfUseContainer} from '../../models/serializeTermsOfUseContainer';
-import type {TermsOfUseContainer} from '../../models/termsOfUseContainer';
-import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
-import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
-import {TermsOfUseRequestBuilderDeleteRequestConfiguration} from './termsOfUseRequestBuilderDeleteRequestConfiguration';
-import {TermsOfUseRequestBuilderGetRequestConfiguration} from './termsOfUseRequestBuilderGetRequestConfiguration';
-import {TermsOfUseRequestBuilderPatchRequestConfiguration} from './termsOfUseRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTermsOfUseContainerFromDiscriminatorValue } from '../../models/createTermsOfUseContainerFromDiscriminatorValue';
+import { deserializeIntoTermsOfUseContainer } from '../../models/deserializeIntoTermsOfUseContainer';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeTermsOfUseContainer } from '../../models/serializeTermsOfUseContainer';
+import { type TermsOfUseContainer } from '../../models/termsOfUseContainer';
+import { AgreementAcceptancesRequestBuilder } from './agreementAcceptances/agreementAcceptancesRequestBuilder';
+import { AgreementsRequestBuilder } from './agreements/agreementsRequestBuilder';
+import { type TermsOfUseRequestBuilderDeleteRequestConfiguration } from './termsOfUseRequestBuilderDeleteRequestConfiguration';
+import { type TermsOfUseRequestBuilderGetRequestConfiguration } from './termsOfUseRequestBuilderGetRequestConfiguration';
+import { type TermsOfUseRequestBuilderPatchRequestConfiguration } from './termsOfUseRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.

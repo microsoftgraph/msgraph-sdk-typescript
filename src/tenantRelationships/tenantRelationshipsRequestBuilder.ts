@@ -1,19 +1,18 @@
-import {createTenantRelationshipFromDiscriminatorValue} from '../models/createTenantRelationshipFromDiscriminatorValue';
-import {deserializeIntoTenantRelationship} from '../models/deserializeIntoTenantRelationship';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeTenantRelationship} from '../models/serializeTenantRelationship';
-import type {TenantRelationship} from '../models/tenantRelationship';
-import {DelegatedAdminCustomersRequestBuilder} from './delegatedAdminCustomers/delegatedAdminCustomersRequestBuilder';
-import {DelegatedAdminRelationshipsRequestBuilder} from './delegatedAdminRelationships/delegatedAdminRelationshipsRequestBuilder';
-import {FindTenantInformationByDomainNameWithDomainNameRequestBuilder} from './findTenantInformationByDomainNameWithDomainName/findTenantInformationByDomainNameWithDomainNameRequestBuilder';
-import {FindTenantInformationByTenantIdWithTenantIdRequestBuilder} from './findTenantInformationByTenantIdWithTenantId/findTenantInformationByTenantIdWithTenantIdRequestBuilder';
-import {TenantRelationshipsRequestBuilderGetRequestConfiguration} from './tenantRelationshipsRequestBuilderGetRequestConfiguration';
-import {TenantRelationshipsRequestBuilderPatchRequestConfiguration} from './tenantRelationshipsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTenantRelationshipFromDiscriminatorValue } from '../models/createTenantRelationshipFromDiscriminatorValue';
+import { deserializeIntoTenantRelationship } from '../models/deserializeIntoTenantRelationship';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeTenantRelationship } from '../models/serializeTenantRelationship';
+import { type TenantRelationship } from '../models/tenantRelationship';
+import { DelegatedAdminCustomersRequestBuilder } from './delegatedAdminCustomers/delegatedAdminCustomersRequestBuilder';
+import { DelegatedAdminRelationshipsRequestBuilder } from './delegatedAdminRelationships/delegatedAdminRelationshipsRequestBuilder';
+import { FindTenantInformationByDomainNameWithDomainNameRequestBuilder } from './findTenantInformationByDomainNameWithDomainName/findTenantInformationByDomainNameWithDomainNameRequestBuilder';
+import { FindTenantInformationByTenantIdWithTenantIdRequestBuilder } from './findTenantInformationByTenantIdWithTenantId/findTenantInformationByTenantIdWithTenantIdRequestBuilder';
+import { type TenantRelationshipsRequestBuilderGetRequestConfiguration } from './tenantRelationshipsRequestBuilderGetRequestConfiguration';
+import { type TenantRelationshipsRequestBuilderPatchRequestConfiguration } from './tenantRelationshipsRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tenantRelationship singleton.

@@ -1,8 +1,8 @@
-import {serializeTeleconferenceDeviceMediaQuality} from './serializeTeleconferenceDeviceMediaQuality';
-import type {TeleconferenceDeviceMediaQuality} from './teleconferenceDeviceMediaQuality';
-import type {TeleconferenceDeviceQuality} from './teleconferenceDeviceQuality';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { serializeTeleconferenceDeviceMediaQuality } from './serializeTeleconferenceDeviceMediaQuality';
+import { type TeleconferenceDeviceMediaQuality } from './teleconferenceDeviceMediaQuality';
+import { type TeleconferenceDeviceQuality } from './teleconferenceDeviceQuality';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeTeleconferenceDeviceQuality(writer: SerializationWriter, teleconferenceDeviceQuality: TeleconferenceDeviceQuality | undefined = {} as TeleconferenceDeviceQuality) : void {
         writer.writeGuidValue("callChainId", teleconferenceDeviceQuality.callChainId);

@@ -1,5 +1,5 @@
-import {MessageRulesRequestBuilderGetQueryParameters} from './messageRulesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type MessageRulesRequestBuilderGetQueryParameters } from './messageRulesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MessageRulesRequestBuilderGetRequestConfiguration {
     /**

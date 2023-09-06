@@ -1,20 +1,19 @@
-import {UnifiedRoleAssignmentScheduleRequestCollectionResponse} from '../../../models/';
-import {createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue} from '../../../models/createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue';
-import {createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue} from '../../../models/createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue';
-import {deserializeIntoUnifiedRoleAssignmentScheduleRequest} from '../../../models/deserializeIntoUnifiedRoleAssignmentScheduleRequest';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeUnifiedRoleAssignmentScheduleRequest} from '../../../models/serializeUnifiedRoleAssignmentScheduleRequest';
-import type {UnifiedRoleAssignmentScheduleRequest} from '../../../models/unifiedRoleAssignmentScheduleRequest';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {UnifiedRoleAssignmentScheduleRequestItemRequestBuilder} from './item/unifiedRoleAssignmentScheduleRequestItemRequestBuilder';
-import {RoleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration} from './roleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration';
-import {RoleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration} from './roleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedRoleAssignmentScheduleRequestCollectionResponse } from '../../../models/';
+import { createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue } from '../../../models/createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue';
+import { createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue } from '../../../models/createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue';
+import { deserializeIntoUnifiedRoleAssignmentScheduleRequest } from '../../../models/deserializeIntoUnifiedRoleAssignmentScheduleRequest';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeUnifiedRoleAssignmentScheduleRequest } from '../../../models/serializeUnifiedRoleAssignmentScheduleRequest';
+import { type UnifiedRoleAssignmentScheduleRequest } from '../../../models/unifiedRoleAssignmentScheduleRequest';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import { UnifiedRoleAssignmentScheduleRequestItemRequestBuilder } from './item/unifiedRoleAssignmentScheduleRequestItemRequestBuilder';
+import { type RoleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration } from './roleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration';
+import { type RoleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration } from './roleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.

@@ -1,11 +1,11 @@
-import {createSigningCertificateUpdateStatusFromDiscriminatorValue} from './createSigningCertificateUpdateStatusFromDiscriminatorValue';
-import {deserializeIntoSamlOrWsFedProvider} from './deserializeIntoSamlOrWsFedProvider';
-import {FederatedIdpMfaBehavior} from './federatedIdpMfaBehavior';
-import type {InternalDomainFederation} from './internalDomainFederation';
-import {PromptLoginBehavior} from './promptLoginBehavior';
-import {serializeSigningCertificateUpdateStatus} from './serializeSigningCertificateUpdateStatus';
-import type {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSigningCertificateUpdateStatusFromDiscriminatorValue } from './createSigningCertificateUpdateStatusFromDiscriminatorValue';
+import { deserializeIntoSamlOrWsFedProvider } from './deserializeIntoSamlOrWsFedProvider';
+import { FederatedIdpMfaBehavior } from './federatedIdpMfaBehavior';
+import { type InternalDomainFederation } from './internalDomainFederation';
+import { PromptLoginBehavior } from './promptLoginBehavior';
+import { serializeSigningCertificateUpdateStatus } from './serializeSigningCertificateUpdateStatus';
+import { type SigningCertificateUpdateStatus } from './signingCertificateUpdateStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInternalDomainFederation(internalDomainFederation: InternalDomainFederation | undefined = {} as InternalDomainFederation) : Record<string, (node: ParseNode) => void> {
     return {

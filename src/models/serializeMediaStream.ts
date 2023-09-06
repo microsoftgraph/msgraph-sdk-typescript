@@ -1,7 +1,7 @@
-import {MediaDirection} from './mediaDirection';
-import type {MediaStream} from './mediaStream';
-import {Modality} from './modality';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { MediaDirection } from './mediaDirection';
+import { type MediaStream } from './mediaStream';
+import { Modality } from './modality';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMediaStream(writer: SerializationWriter, mediaStream: MediaStream | undefined = {} as MediaStream) : void {
         writer.writeEnumValue<MediaDirection>("direction", mediaStream.direction);

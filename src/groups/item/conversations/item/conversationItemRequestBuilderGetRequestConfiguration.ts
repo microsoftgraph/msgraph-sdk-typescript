@@ -1,5 +1,5 @@
-import {ConversationItemRequestBuilderGetQueryParameters} from './conversationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConversationItemRequestBuilderGetQueryParameters } from './conversationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ConversationItemRequestBuilderGetRequestConfiguration {
     /**

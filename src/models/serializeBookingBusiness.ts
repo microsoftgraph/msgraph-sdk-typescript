@@ -1,22 +1,22 @@
-import type {BookingAppointment} from './bookingAppointment';
-import type {BookingBusiness} from './bookingBusiness';
-import type {BookingCustomQuestion} from './bookingCustomQuestion';
-import type {BookingCustomerBase} from './bookingCustomerBase';
-import type {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
-import type {BookingService} from './bookingService';
-import type {BookingStaffMemberBase} from './bookingStaffMemberBase';
-import type {BookingWorkHours} from './bookingWorkHours';
-import type {PhysicalAddress} from './physicalAddress';
-import {serializeBookingAppointment} from './serializeBookingAppointment';
-import {serializeBookingCustomQuestion} from './serializeBookingCustomQuestion';
-import {serializeBookingCustomerBase} from './serializeBookingCustomerBase';
-import {serializeBookingSchedulingPolicy} from './serializeBookingSchedulingPolicy';
-import {serializeBookingService} from './serializeBookingService';
-import {serializeBookingStaffMemberBase} from './serializeBookingStaffMemberBase';
-import {serializeBookingWorkHours} from './serializeBookingWorkHours';
-import {serializeEntity} from './serializeEntity';
-import {serializePhysicalAddress} from './serializePhysicalAddress';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BookingAppointment } from './bookingAppointment';
+import { type BookingBusiness } from './bookingBusiness';
+import { type BookingCustomerBase } from './bookingCustomerBase';
+import { type BookingCustomQuestion } from './bookingCustomQuestion';
+import { type BookingSchedulingPolicy } from './bookingSchedulingPolicy';
+import { type BookingService } from './bookingService';
+import { type BookingStaffMemberBase } from './bookingStaffMemberBase';
+import { type BookingWorkHours } from './bookingWorkHours';
+import { type PhysicalAddress } from './physicalAddress';
+import { serializeBookingAppointment } from './serializeBookingAppointment';
+import { serializeBookingCustomerBase } from './serializeBookingCustomerBase';
+import { serializeBookingCustomQuestion } from './serializeBookingCustomQuestion';
+import { serializeBookingSchedulingPolicy } from './serializeBookingSchedulingPolicy';
+import { serializeBookingService } from './serializeBookingService';
+import { serializeBookingStaffMemberBase } from './serializeBookingStaffMemberBase';
+import { serializeBookingWorkHours } from './serializeBookingWorkHours';
+import { serializeEntity } from './serializeEntity';
+import { serializePhysicalAddress } from './serializePhysicalAddress';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBookingBusiness(writer: SerializationWriter, bookingBusiness: BookingBusiness | undefined = {} as BookingBusiness) : void {
         serializeEntity(writer, bookingBusiness)

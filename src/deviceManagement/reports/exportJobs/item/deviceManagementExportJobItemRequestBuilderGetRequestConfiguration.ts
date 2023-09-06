@@ -1,5 +1,5 @@
-import {DeviceManagementExportJobItemRequestBuilderGetQueryParameters} from './deviceManagementExportJobItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceManagementExportJobItemRequestBuilderGetQueryParameters } from './deviceManagementExportJobItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration {
     /**

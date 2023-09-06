@@ -1,5 +1,5 @@
-import {TransitiveMembersRequestBuilderGetQueryParameters} from './transitiveMembersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TransitiveMembersRequestBuilderGetQueryParameters } from './transitiveMembersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TransitiveMembersRequestBuilderGetRequestConfiguration {
     /**

@@ -1,16 +1,15 @@
-import {createShiftPreferencesFromDiscriminatorValue} from '../../../models/createShiftPreferencesFromDiscriminatorValue';
-import {deserializeIntoShiftPreferences} from '../../../models/deserializeIntoShiftPreferences';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeShiftPreferences} from '../../../models/serializeShiftPreferences';
-import type {ShiftPreferences} from '../../../models/shiftPreferences';
-import {ShiftPreferencesRequestBuilderDeleteRequestConfiguration} from './shiftPreferencesRequestBuilderDeleteRequestConfiguration';
-import {ShiftPreferencesRequestBuilderGetRequestConfiguration} from './shiftPreferencesRequestBuilderGetRequestConfiguration';
-import {ShiftPreferencesRequestBuilderPatchRequestConfiguration} from './shiftPreferencesRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createShiftPreferencesFromDiscriminatorValue } from '../../../models/createShiftPreferencesFromDiscriminatorValue';
+import { deserializeIntoShiftPreferences } from '../../../models/deserializeIntoShiftPreferences';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeShiftPreferences } from '../../../models/serializeShiftPreferences';
+import { type ShiftPreferences } from '../../../models/shiftPreferences';
+import { type ShiftPreferencesRequestBuilderDeleteRequestConfiguration } from './shiftPreferencesRequestBuilderDeleteRequestConfiguration';
+import { type ShiftPreferencesRequestBuilderGetRequestConfiguration } from './shiftPreferencesRequestBuilderGetRequestConfiguration';
+import { type ShiftPreferencesRequestBuilderPatchRequestConfiguration } from './shiftPreferencesRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shiftPreferences property of the microsoft.graph.userSettings entity.

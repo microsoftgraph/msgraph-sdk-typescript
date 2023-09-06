@@ -1,14 +1,14 @@
-import {serializeEntity} from './serializeEntity';
-import {serializeWorkbookFormatProtection} from './serializeWorkbookFormatProtection';
-import {serializeWorkbookRangeBorder} from './serializeWorkbookRangeBorder';
-import {serializeWorkbookRangeFill} from './serializeWorkbookRangeFill';
-import {serializeWorkbookRangeFont} from './serializeWorkbookRangeFont';
-import type {WorkbookFormatProtection} from './workbookFormatProtection';
-import type {WorkbookRangeBorder} from './workbookRangeBorder';
-import type {WorkbookRangeFill} from './workbookRangeFill';
-import type {WorkbookRangeFont} from './workbookRangeFont';
-import type {WorkbookRangeFormat} from './workbookRangeFormat';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { serializeWorkbookFormatProtection } from './serializeWorkbookFormatProtection';
+import { serializeWorkbookRangeBorder } from './serializeWorkbookRangeBorder';
+import { serializeWorkbookRangeFill } from './serializeWorkbookRangeFill';
+import { serializeWorkbookRangeFont } from './serializeWorkbookRangeFont';
+import { type WorkbookFormatProtection } from './workbookFormatProtection';
+import { type WorkbookRangeBorder } from './workbookRangeBorder';
+import { type WorkbookRangeFill } from './workbookRangeFill';
+import { type WorkbookRangeFont } from './workbookRangeFont';
+import { type WorkbookRangeFormat } from './workbookRangeFormat';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookRangeFormat(writer: SerializationWriter, workbookRangeFormat: WorkbookRangeFormat | undefined = {} as WorkbookRangeFormat) : void {
         serializeEntity(writer, workbookRangeFormat)

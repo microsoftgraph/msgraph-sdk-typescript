@@ -1,19 +1,18 @@
-import {MobileAppCategoryCollectionResponse} from '../../models/';
-import {createMobileAppCategoryCollectionResponseFromDiscriminatorValue} from '../../models/createMobileAppCategoryCollectionResponseFromDiscriminatorValue';
-import {createMobileAppCategoryFromDiscriminatorValue} from '../../models/createMobileAppCategoryFromDiscriminatorValue';
-import {deserializeIntoMobileAppCategory} from '../../models/deserializeIntoMobileAppCategory';
-import type {MobileAppCategory} from '../../models/mobileAppCategory';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeMobileAppCategory} from '../../models/serializeMobileAppCategory';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MobileAppCategoryItemRequestBuilder} from './item/mobileAppCategoryItemRequestBuilder';
-import {MobileAppCategoriesRequestBuilderGetRequestConfiguration} from './mobileAppCategoriesRequestBuilderGetRequestConfiguration';
-import {MobileAppCategoriesRequestBuilderPostRequestConfiguration} from './mobileAppCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type MobileAppCategoryCollectionResponse } from '../../models/';
+import { createMobileAppCategoryCollectionResponseFromDiscriminatorValue } from '../../models/createMobileAppCategoryCollectionResponseFromDiscriminatorValue';
+import { createMobileAppCategoryFromDiscriminatorValue } from '../../models/createMobileAppCategoryFromDiscriminatorValue';
+import { deserializeIntoMobileAppCategory } from '../../models/deserializeIntoMobileAppCategory';
+import { type MobileAppCategory } from '../../models/mobileAppCategory';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeMobileAppCategory } from '../../models/serializeMobileAppCategory';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { MobileAppCategoryItemRequestBuilder } from './item/mobileAppCategoryItemRequestBuilder';
+import { type MobileAppCategoriesRequestBuilderGetRequestConfiguration } from './mobileAppCategoriesRequestBuilderGetRequestConfiguration';
+import { type MobileAppCategoriesRequestBuilderPostRequestConfiguration } from './mobileAppCategoriesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.

@@ -1,7 +1,7 @@
-import {deserializeIntoWindowsInformationProtection} from './deserializeIntoWindowsInformationProtection';
-import {WindowsInformationProtectionPinCharacterRequirements} from './windowsInformationProtectionPinCharacterRequirements';
-import type {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWindowsInformationProtection } from './deserializeIntoWindowsInformationProtection';
+import { WindowsInformationProtectionPinCharacterRequirements } from './windowsInformationProtectionPinCharacterRequirements';
+import { type WindowsInformationProtectionPolicy } from './windowsInformationProtectionPolicy';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsInformationProtectionPolicy(windowsInformationProtectionPolicy: WindowsInformationProtectionPolicy | undefined = {} as WindowsInformationProtectionPolicy) : Record<string, (node: ParseNode) => void> {
     return {

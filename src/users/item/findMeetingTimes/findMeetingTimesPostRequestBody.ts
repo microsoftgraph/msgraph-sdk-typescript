@@ -1,8 +1,7 @@
-import type {AttendeeBase} from '../../../models/attendeeBase';
-import type {LocationConstraint} from '../../../models/locationConstraint';
-import type {TimeConstraint} from '../../../models/timeConstraint';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AttendeeBase } from '../../../models/attendeeBase';
+import { type LocationConstraint } from '../../../models/locationConstraint';
+import { type TimeConstraint } from '../../../models/timeConstraint';
+import { Duration, type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface FindMeetingTimesPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

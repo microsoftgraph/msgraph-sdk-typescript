@@ -1,11 +1,11 @@
-import {BrowserSiteCompatibilityMode} from './browserSiteCompatibilityMode';
-import type {BrowserSiteHistory} from './browserSiteHistory';
-import {BrowserSiteMergeType} from './browserSiteMergeType';
-import {BrowserSiteTargetEnvironment} from './browserSiteTargetEnvironment';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import type {IdentitySet} from './identitySet';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { BrowserSiteCompatibilityMode } from './browserSiteCompatibilityMode';
+import { type BrowserSiteHistory } from './browserSiteHistory';
+import { BrowserSiteMergeType } from './browserSiteMergeType';
+import { BrowserSiteTargetEnvironment } from './browserSiteTargetEnvironment';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { type IdentitySet } from './identitySet';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBrowserSiteHistory(browserSiteHistory: BrowserSiteHistory | undefined = {} as BrowserSiteHistory) : Record<string, (node: ParseNode) => void> {
     return {

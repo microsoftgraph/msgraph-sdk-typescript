@@ -1,6 +1,6 @@
-import {RatingIrelandMoviesType} from './ratingIrelandMoviesType';
-import {RatingIrelandTelevisionType} from './ratingIrelandTelevisionType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { RatingIrelandMoviesType } from './ratingIrelandMoviesType';
+import { RatingIrelandTelevisionType } from './ratingIrelandTelevisionType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MediaContentRatingIreland extends AdditionalDataHolder, Parsable {
     /**

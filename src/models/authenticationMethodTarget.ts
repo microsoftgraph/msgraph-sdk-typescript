@@ -1,6 +1,6 @@
-import {AuthenticationMethodTargetType} from './authenticationMethodTargetType';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { AuthenticationMethodTargetType } from './authenticationMethodTargetType';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationMethodTarget extends Entity, Parsable {
     /**

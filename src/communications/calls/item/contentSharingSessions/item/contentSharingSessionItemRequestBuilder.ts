@@ -1,16 +1,15 @@
-import type {ContentSharingSession} from '../../../../../models/contentSharingSession';
-import {createContentSharingSessionFromDiscriminatorValue} from '../../../../../models/createContentSharingSessionFromDiscriminatorValue';
-import {deserializeIntoContentSharingSession} from '../../../../../models/deserializeIntoContentSharingSession';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeContentSharingSession} from '../../../../../models/serializeContentSharingSession';
-import {ContentSharingSessionItemRequestBuilderDeleteRequestConfiguration} from './contentSharingSessionItemRequestBuilderDeleteRequestConfiguration';
-import {ContentSharingSessionItemRequestBuilderGetRequestConfiguration} from './contentSharingSessionItemRequestBuilderGetRequestConfiguration';
-import {ContentSharingSessionItemRequestBuilderPatchRequestConfiguration} from './contentSharingSessionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ContentSharingSession } from '../../../../../models/contentSharingSession';
+import { createContentSharingSessionFromDiscriminatorValue } from '../../../../../models/createContentSharingSessionFromDiscriminatorValue';
+import { deserializeIntoContentSharingSession } from '../../../../../models/deserializeIntoContentSharingSession';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeContentSharingSession } from '../../../../../models/serializeContentSharingSession';
+import { type ContentSharingSessionItemRequestBuilderDeleteRequestConfiguration } from './contentSharingSessionItemRequestBuilderDeleteRequestConfiguration';
+import { type ContentSharingSessionItemRequestBuilderGetRequestConfiguration } from './contentSharingSessionItemRequestBuilderGetRequestConfiguration';
+import { type ContentSharingSessionItemRequestBuilderPatchRequestConfiguration } from './contentSharingSessionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.

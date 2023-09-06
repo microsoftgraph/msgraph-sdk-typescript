@@ -1,7 +1,7 @@
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {IspmtPostRequestBody} from './ispmtPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type IspmtPostRequestBody } from './ispmtPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIspmtPostRequestBody(writer: SerializationWriter, ispmtPostRequestBody: IspmtPostRequestBody | undefined = {} as IspmtPostRequestBody) : void {
         writer.writeObjectValue<Json>("nper", ispmtPostRequestBody.nper, serializeJson);

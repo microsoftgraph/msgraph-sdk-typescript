@@ -1,6 +1,5 @@
-import type {SetPresencePostRequestBody} from './setPresencePostRequestBody';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SetPresencePostRequestBody } from './setPresencePostRequestBody';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSetPresencePostRequestBody(writer: SerializationWriter, setPresencePostRequestBody: SetPresencePostRequestBody | undefined = {} as SetPresencePostRequestBody) : void {
         writer.writeStringValue("activity", setPresencePostRequestBody.activity);

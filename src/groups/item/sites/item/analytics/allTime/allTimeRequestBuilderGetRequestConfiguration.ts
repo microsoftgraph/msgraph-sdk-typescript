@@ -1,5 +1,5 @@
-import {AllTimeRequestBuilderGetQueryParameters} from './allTimeRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AllTimeRequestBuilderGetQueryParameters } from './allTimeRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AllTimeRequestBuilderGetRequestConfiguration {
     /**

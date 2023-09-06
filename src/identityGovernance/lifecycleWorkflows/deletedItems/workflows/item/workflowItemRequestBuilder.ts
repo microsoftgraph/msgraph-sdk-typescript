@@ -1,24 +1,23 @@
-import {Workflow} from '../../../../../models/identityGovernance/';
-import {createWorkflowFromDiscriminatorValue} from '../../../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {CreatedByRequestBuilder} from './createdBy/createdByRequestBuilder';
-import {ExecutionScopeRequestBuilder} from './executionScope/executionScopeRequestBuilder';
-import {LastModifiedByRequestBuilder} from './lastModifiedBy/lastModifiedByRequestBuilder';
-import {MicrosoftGraphIdentityGovernanceActivateRequestBuilder} from './microsoftGraphIdentityGovernanceActivate/microsoftGraphIdentityGovernanceActivateRequestBuilder';
-import {MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder} from './microsoftGraphIdentityGovernanceCreateNewVersion/microsoftGraphIdentityGovernanceCreateNewVersionRequestBuilder';
-import {MicrosoftGraphIdentityGovernanceRestoreRequestBuilder} from './microsoftGraphIdentityGovernanceRestore/microsoftGraphIdentityGovernanceRestoreRequestBuilder';
-import {RunsRequestBuilder} from './runs/runsRequestBuilder';
-import {TaskReportsRequestBuilder} from './taskReports/taskReportsRequestBuilder';
-import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {UserProcessingResultsRequestBuilder} from './userProcessingResults/userProcessingResultsRequestBuilder';
-import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
-import {WorkflowItemRequestBuilderDeleteRequestConfiguration} from './workflowItemRequestBuilderDeleteRequestConfiguration';
-import {WorkflowItemRequestBuilderGetRequestConfiguration} from './workflowItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Workflow } from '../../../../../models/identityGovernance/';
+import { createWorkflowFromDiscriminatorValue } from '../../../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { CreatedByRequestBuilder } from './createdBy/createdByRequestBuilder';
+import { ExecutionScopeRequestBuilder } from './executionScope/executionScopeRequestBuilder';
+import { LastModifiedByRequestBuilder } from './lastModifiedBy/lastModifiedByRequestBuilder';
+import { MicrosoftGraphIdentityGovernanceActivateRequestBuilder } from './microsoftGraphIdentityGovernanceActivate/microsoftGraphIdentityGovernanceActivateRequestBuilder';
+import { MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder } from './microsoftGraphIdentityGovernanceCreateNewVersion/microsoftGraphIdentityGovernanceCreateNewVersionRequestBuilder';
+import { MicrosoftGraphIdentityGovernanceRestoreRequestBuilder } from './microsoftGraphIdentityGovernanceRestore/microsoftGraphIdentityGovernanceRestoreRequestBuilder';
+import { RunsRequestBuilder } from './runs/runsRequestBuilder';
+import { TaskReportsRequestBuilder } from './taskReports/taskReportsRequestBuilder';
+import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
+import { UserProcessingResultsRequestBuilder } from './userProcessingResults/userProcessingResultsRequestBuilder';
+import { VersionsRequestBuilder } from './versions/versionsRequestBuilder';
+import { type WorkflowItemRequestBuilderDeleteRequestConfiguration } from './workflowItemRequestBuilderDeleteRequestConfiguration';
+import { type WorkflowItemRequestBuilderGetRequestConfiguration } from './workflowItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.

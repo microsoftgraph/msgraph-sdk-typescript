@@ -1,11 +1,11 @@
-import {createJsonFromDiscriminatorValue} from '../createJsonFromDiscriminatorValue';
-import type {Json} from '../json';
-import {serializeJson} from '../serializeJson';
-import {createPropertyRuleFromDiscriminatorValue} from './createPropertyRuleFromDiscriminatorValue';
-import type {DisplayTemplate} from './displayTemplate';
-import type {PropertyRule} from './propertyRule';
-import {serializePropertyRule} from './serializePropertyRule';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createJsonFromDiscriminatorValue } from '../createJsonFromDiscriminatorValue';
+import { type Json } from '../json';
+import { serializeJson } from '../serializeJson';
+import { createPropertyRuleFromDiscriminatorValue } from './createPropertyRuleFromDiscriminatorValue';
+import { type DisplayTemplate } from './displayTemplate';
+import { type PropertyRule } from './propertyRule';
+import { serializePropertyRule } from './serializePropertyRule';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDisplayTemplate(displayTemplate: DisplayTemplate | undefined = {} as DisplayTemplate) : Record<string, (node: ParseNode) => void> {
     return {

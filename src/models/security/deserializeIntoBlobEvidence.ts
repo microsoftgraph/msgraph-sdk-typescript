@@ -1,12 +1,12 @@
-import type {BlobContainerEvidence} from './blobContainerEvidence';
-import type {BlobEvidence} from './blobEvidence';
-import {createBlobContainerEvidenceFromDiscriminatorValue} from './createBlobContainerEvidenceFromDiscriminatorValue';
-import {createFileHashFromDiscriminatorValue} from './createFileHashFromDiscriminatorValue';
-import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import type {FileHash} from './fileHash';
-import {serializeBlobContainerEvidence} from './serializeBlobContainerEvidence';
-import {serializeFileHash} from './serializeFileHash';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BlobContainerEvidence } from './blobContainerEvidence';
+import { type BlobEvidence } from './blobEvidence';
+import { createBlobContainerEvidenceFromDiscriminatorValue } from './createBlobContainerEvidenceFromDiscriminatorValue';
+import { createFileHashFromDiscriminatorValue } from './createFileHashFromDiscriminatorValue';
+import { deserializeIntoAlertEvidence } from './deserializeIntoAlertEvidence';
+import { type FileHash } from './fileHash';
+import { serializeBlobContainerEvidence } from './serializeBlobContainerEvidence';
+import { serializeFileHash } from './serializeFileHash';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBlobEvidence(blobEvidence: BlobEvidence | undefined = {} as BlobEvidence) : Record<string, (node: ParseNode) => void> {
     return {

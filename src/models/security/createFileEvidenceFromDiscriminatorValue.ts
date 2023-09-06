@@ -1,6 +1,6 @@
-import {deserializeIntoFileEvidence} from './deserializeIntoFileEvidence';
-import {FileEvidence} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoFileEvidence } from './deserializeIntoFileEvidence';
+import { type FileEvidence } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createFileEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

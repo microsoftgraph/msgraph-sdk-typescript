@@ -1,5 +1,5 @@
-import {VppTokenItemRequestBuilderGetQueryParameters} from './vppTokenItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type VppTokenItemRequestBuilderGetQueryParameters } from './vppTokenItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface VppTokenItemRequestBuilderGetRequestConfiguration {
     /**

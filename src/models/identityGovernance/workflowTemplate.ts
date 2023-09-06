@@ -1,8 +1,8 @@
-import type {Entity} from '../entity';
-import {LifecycleWorkflowCategory} from './lifecycleWorkflowCategory';
-import type {Task} from './task';
-import type {WorkflowExecutionConditions} from './workflowExecutionConditions';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { LifecycleWorkflowCategory } from './lifecycleWorkflowCategory';
+import { type Task } from './task';
+import { type WorkflowExecutionConditions } from './workflowExecutionConditions';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkflowTemplate extends Entity, Parsable {
     /**

@@ -1,6 +1,6 @@
-import type {ExpirationPattern} from './expirationPattern';
-import type {PatternedRecurrence} from './patternedRecurrence';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type ExpirationPattern } from './expirationPattern';
+import { type PatternedRecurrence } from './patternedRecurrence';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EntitlementManagementSchedule extends AdditionalDataHolder, Parsable {
     /**

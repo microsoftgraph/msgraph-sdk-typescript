@@ -1,7 +1,7 @@
-import type {DataPolicyOperation} from './dataPolicyOperation';
-import {DataPolicyOperationStatus} from './dataPolicyOperationStatus';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DataPolicyOperation } from './dataPolicyOperation';
+import { DataPolicyOperationStatus } from './dataPolicyOperationStatus';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDataPolicyOperation(writer: SerializationWriter, dataPolicyOperation: DataPolicyOperation | undefined = {} as DataPolicyOperation) : void {
         serializeEntity(writer, dataPolicyOperation)

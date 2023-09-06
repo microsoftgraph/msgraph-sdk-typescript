@@ -1,17 +1,16 @@
-import {createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue} from '../../../../../models/createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue';
-import {deserializeIntoIdentityUserFlowAttributeAssignment} from '../../../../../models/deserializeIntoIdentityUserFlowAttributeAssignment';
-import type {IdentityUserFlowAttributeAssignment} from '../../../../../models/identityUserFlowAttributeAssignment';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeIdentityUserFlowAttributeAssignment} from '../../../../../models/serializeIdentityUserFlowAttributeAssignment';
-import {IdentityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration} from './identityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {IdentityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration} from './identityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration';
-import {IdentityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration} from './identityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {UserAttributeRequestBuilder} from './userAttribute/userAttributeRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue } from '../../../../../models/createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue';
+import { deserializeIntoIdentityUserFlowAttributeAssignment } from '../../../../../models/deserializeIntoIdentityUserFlowAttributeAssignment';
+import { type IdentityUserFlowAttributeAssignment } from '../../../../../models/identityUserFlowAttributeAssignment';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeIdentityUserFlowAttributeAssignment } from '../../../../../models/serializeIdentityUserFlowAttributeAssignment';
+import { type IdentityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration } from './identityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type IdentityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration } from './identityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type IdentityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration } from './identityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { UserAttributeRequestBuilder } from './userAttribute/userAttributeRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.

@@ -1,8 +1,8 @@
-import type {PublicError} from './publicError';
-import type {RichLongRunningOperation} from './richLongRunningOperation';
-import {serializeLongRunningOperation} from './serializeLongRunningOperation';
-import {serializePublicError} from './serializePublicError';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PublicError } from './publicError';
+import { type RichLongRunningOperation } from './richLongRunningOperation';
+import { serializeLongRunningOperation } from './serializeLongRunningOperation';
+import { serializePublicError } from './serializePublicError';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRichLongRunningOperation(writer: SerializationWriter, richLongRunningOperation: RichLongRunningOperation | undefined = {} as RichLongRunningOperation) : void {
         serializeLongRunningOperation(writer, richLongRunningOperation)

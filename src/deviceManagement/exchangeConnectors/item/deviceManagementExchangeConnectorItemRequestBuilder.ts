@@ -1,17 +1,16 @@
-import {createDeviceManagementExchangeConnectorFromDiscriminatorValue} from '../../../models/createDeviceManagementExchangeConnectorFromDiscriminatorValue';
-import {deserializeIntoDeviceManagementExchangeConnector} from '../../../models/deserializeIntoDeviceManagementExchangeConnector';
-import type {DeviceManagementExchangeConnector} from '../../../models/deviceManagementExchangeConnector';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceManagementExchangeConnector} from '../../../models/serializeDeviceManagementExchangeConnector';
-import {DeviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration';
-import {DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration';
-import {SyncRequestBuilder} from './sync/syncRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceManagementExchangeConnectorFromDiscriminatorValue } from '../../../models/createDeviceManagementExchangeConnectorFromDiscriminatorValue';
+import { deserializeIntoDeviceManagementExchangeConnector } from '../../../models/deserializeIntoDeviceManagementExchangeConnector';
+import { type DeviceManagementExchangeConnector } from '../../../models/deviceManagementExchangeConnector';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceManagementExchangeConnector } from '../../../models/serializeDeviceManagementExchangeConnector';
+import { type DeviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfiguration } from './deviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration } from './deviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration';
+import { type DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration } from './deviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration';
+import { SyncRequestBuilder } from './sync/syncRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.

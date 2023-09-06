@@ -1,17 +1,16 @@
-import {createTeamsAppDefinitionFromDiscriminatorValue} from '../../../../../models/createTeamsAppDefinitionFromDiscriminatorValue';
-import {deserializeIntoTeamsAppDefinition} from '../../../../../models/deserializeIntoTeamsAppDefinition';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeTeamsAppDefinition} from '../../../../../models/serializeTeamsAppDefinition';
-import type {TeamsAppDefinition} from '../../../../../models/teamsAppDefinition';
-import {BotRequestBuilder} from './bot/botRequestBuilder';
-import {TeamsAppDefinitionItemRequestBuilderDeleteRequestConfiguration} from './teamsAppDefinitionItemRequestBuilderDeleteRequestConfiguration';
-import {TeamsAppDefinitionItemRequestBuilderGetRequestConfiguration} from './teamsAppDefinitionItemRequestBuilderGetRequestConfiguration';
-import {TeamsAppDefinitionItemRequestBuilderPatchRequestConfiguration} from './teamsAppDefinitionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTeamsAppDefinitionFromDiscriminatorValue } from '../../../../../models/createTeamsAppDefinitionFromDiscriminatorValue';
+import { deserializeIntoTeamsAppDefinition } from '../../../../../models/deserializeIntoTeamsAppDefinition';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeTeamsAppDefinition } from '../../../../../models/serializeTeamsAppDefinition';
+import { type TeamsAppDefinition } from '../../../../../models/teamsAppDefinition';
+import { BotRequestBuilder } from './bot/botRequestBuilder';
+import { type TeamsAppDefinitionItemRequestBuilderDeleteRequestConfiguration } from './teamsAppDefinitionItemRequestBuilderDeleteRequestConfiguration';
+import { type TeamsAppDefinitionItemRequestBuilderGetRequestConfiguration } from './teamsAppDefinitionItemRequestBuilderGetRequestConfiguration';
+import { type TeamsAppDefinitionItemRequestBuilderPatchRequestConfiguration } from './teamsAppDefinitionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.

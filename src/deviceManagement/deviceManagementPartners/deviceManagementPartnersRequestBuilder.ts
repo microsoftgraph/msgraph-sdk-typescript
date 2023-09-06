@@ -1,19 +1,18 @@
-import {DeviceManagementPartnerCollectionResponse} from '../../models/';
-import {createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue';
-import {createDeviceManagementPartnerFromDiscriminatorValue} from '../../models/createDeviceManagementPartnerFromDiscriminatorValue';
-import {deserializeIntoDeviceManagementPartner} from '../../models/deserializeIntoDeviceManagementPartner';
-import type {DeviceManagementPartner} from '../../models/deviceManagementPartner';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeDeviceManagementPartner} from '../../models/serializeDeviceManagementPartner';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeviceManagementPartnersRequestBuilderGetRequestConfiguration} from './deviceManagementPartnersRequestBuilderGetRequestConfiguration';
-import {DeviceManagementPartnersRequestBuilderPostRequestConfiguration} from './deviceManagementPartnersRequestBuilderPostRequestConfiguration';
-import {DeviceManagementPartnerItemRequestBuilder} from './item/deviceManagementPartnerItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceManagementPartnerCollectionResponse } from '../../models/';
+import { createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue } from '../../models/createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue';
+import { createDeviceManagementPartnerFromDiscriminatorValue } from '../../models/createDeviceManagementPartnerFromDiscriminatorValue';
+import { deserializeIntoDeviceManagementPartner } from '../../models/deserializeIntoDeviceManagementPartner';
+import { type DeviceManagementPartner } from '../../models/deviceManagementPartner';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeDeviceManagementPartner } from '../../models/serializeDeviceManagementPartner';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DeviceManagementPartnersRequestBuilderGetRequestConfiguration } from './deviceManagementPartnersRequestBuilderGetRequestConfiguration';
+import { type DeviceManagementPartnersRequestBuilderPostRequestConfiguration } from './deviceManagementPartnersRequestBuilderPostRequestConfiguration';
+import { DeviceManagementPartnerItemRequestBuilder } from './item/deviceManagementPartnerItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.

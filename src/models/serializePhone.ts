@@ -1,6 +1,6 @@
-import type {Phone} from './phone';
-import {PhoneType} from './phoneType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Phone } from './phone';
+import { PhoneType } from './phoneType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePhone(writer: SerializationWriter, phone: Phone | undefined = {} as Phone) : void {
         writer.writeStringValue("language", phone.language);

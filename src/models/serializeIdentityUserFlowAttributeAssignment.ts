@@ -1,11 +1,11 @@
-import type {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
-import type {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAssignment';
-import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInputType';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentityUserFlowAttribute} from './serializeIdentityUserFlowAttribute';
-import {serializeUserAttributeValuesItem} from './serializeUserAttributeValuesItem';
-import type {UserAttributeValuesItem} from './userAttributeValuesItem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentityUserFlowAttribute } from './identityUserFlowAttribute';
+import { type IdentityUserFlowAttributeAssignment } from './identityUserFlowAttributeAssignment';
+import { IdentityUserFlowAttributeInputType } from './identityUserFlowAttributeInputType';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentityUserFlowAttribute } from './serializeIdentityUserFlowAttribute';
+import { serializeUserAttributeValuesItem } from './serializeUserAttributeValuesItem';
+import { type UserAttributeValuesItem } from './userAttributeValuesItem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIdentityUserFlowAttributeAssignment(writer: SerializationWriter, identityUserFlowAttributeAssignment: IdentityUserFlowAttributeAssignment | undefined = {} as IdentityUserFlowAttributeAssignment) : void {
         serializeEntity(writer, identityUserFlowAttributeAssignment)

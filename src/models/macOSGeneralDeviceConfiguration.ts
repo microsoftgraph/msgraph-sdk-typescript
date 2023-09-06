@@ -1,8 +1,8 @@
-import type {AppListItem} from './appListItem';
-import {AppListType} from './appListType';
-import type {DeviceConfiguration} from './deviceConfiguration';
-import {RequiredPasswordType} from './requiredPasswordType';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AppListItem } from './appListItem';
+import { AppListType } from './appListType';
+import { type DeviceConfiguration } from './deviceConfiguration';
+import { RequiredPasswordType } from './requiredPasswordType';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MacOSGeneralDeviceConfiguration extends DeviceConfiguration, Parsable {
     /**

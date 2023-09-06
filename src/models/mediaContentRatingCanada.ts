@@ -1,6 +1,6 @@
-import {RatingCanadaMoviesType} from './ratingCanadaMoviesType';
-import {RatingCanadaTelevisionType} from './ratingCanadaTelevisionType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { RatingCanadaMoviesType } from './ratingCanadaMoviesType';
+import { RatingCanadaTelevisionType } from './ratingCanadaTelevisionType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MediaContentRatingCanada extends AdditionalDataHolder, Parsable {
     /**

@@ -1,9 +1,9 @@
-import type {DirectoryObject} from './directoryObject';
-import type {DirectoryRole} from './directoryRole';
-import type {ScopedRoleMembership} from './scopedRoleMembership';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeScopedRoleMembership} from './serializeScopedRoleMembership';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DirectoryObject } from './directoryObject';
+import { type DirectoryRole } from './directoryRole';
+import { type ScopedRoleMembership } from './scopedRoleMembership';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeScopedRoleMembership } from './serializeScopedRoleMembership';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDirectoryRole(writer: SerializationWriter, directoryRole: DirectoryRole | undefined = {} as DirectoryRole) : void {
         serializeDirectoryObject(writer, directoryRole)

@@ -1,9 +1,9 @@
-import {createManagedAppPolicyFromDiscriminatorValue} from '../../models/createManagedAppPolicyFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import type {ManagedAppPolicy} from '../../models/managedAppPolicy';
-import {serializeManagedAppPolicy} from '../../models/serializeManagedAppPolicy';
-import type {GetManagedAppPoliciesResponse} from './getManagedAppPoliciesResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createManagedAppPolicyFromDiscriminatorValue } from '../../models/createManagedAppPolicyFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { type ManagedAppPolicy } from '../../models/managedAppPolicy';
+import { serializeManagedAppPolicy } from '../../models/serializeManagedAppPolicy';
+import { type GetManagedAppPoliciesResponse } from './getManagedAppPoliciesResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetManagedAppPoliciesResponse(getManagedAppPoliciesResponse: GetManagedAppPoliciesResponse | undefined = {} as GetManagedAppPoliciesResponse) : Record<string, (node: ParseNode) => void> {
     return {

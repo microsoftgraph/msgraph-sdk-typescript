@@ -1,5 +1,5 @@
-import type {ContentTypeOrder} from './contentTypeOrder';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ContentTypeOrder } from './contentTypeOrder';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeContentTypeOrder(writer: SerializationWriter, contentTypeOrder: ContentTypeOrder | undefined = {} as ContentTypeOrder) : void {
         writer.writeBooleanValue("default", contentTypeOrder.defaultEscaped);

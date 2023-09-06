@@ -1,19 +1,18 @@
-import {DirectoryAuditCollectionResponse} from '../../models/';
-import {createDirectoryAuditCollectionResponseFromDiscriminatorValue} from '../../models/createDirectoryAuditCollectionResponseFromDiscriminatorValue';
-import {createDirectoryAuditFromDiscriminatorValue} from '../../models/createDirectoryAuditFromDiscriminatorValue';
-import {deserializeIntoDirectoryAudit} from '../../models/deserializeIntoDirectoryAudit';
-import type {DirectoryAudit} from '../../models/directoryAudit';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeDirectoryAudit} from '../../models/serializeDirectoryAudit';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DirectoryAuditsRequestBuilderGetRequestConfiguration} from './directoryAuditsRequestBuilderGetRequestConfiguration';
-import {DirectoryAuditsRequestBuilderPostRequestConfiguration} from './directoryAuditsRequestBuilderPostRequestConfiguration';
-import {DirectoryAuditItemRequestBuilder} from './item/directoryAuditItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryAuditCollectionResponse } from '../../models/';
+import { createDirectoryAuditCollectionResponseFromDiscriminatorValue } from '../../models/createDirectoryAuditCollectionResponseFromDiscriminatorValue';
+import { createDirectoryAuditFromDiscriminatorValue } from '../../models/createDirectoryAuditFromDiscriminatorValue';
+import { deserializeIntoDirectoryAudit } from '../../models/deserializeIntoDirectoryAudit';
+import { type DirectoryAudit } from '../../models/directoryAudit';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeDirectoryAudit } from '../../models/serializeDirectoryAudit';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DirectoryAuditsRequestBuilderGetRequestConfiguration } from './directoryAuditsRequestBuilderGetRequestConfiguration';
+import { type DirectoryAuditsRequestBuilderPostRequestConfiguration } from './directoryAuditsRequestBuilderPostRequestConfiguration';
+import { DirectoryAuditItemRequestBuilder } from './item/directoryAuditItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.

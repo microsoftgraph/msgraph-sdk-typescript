@@ -1,5 +1,5 @@
-import type {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceOperatingSystemSummary } from './deviceOperatingSystemSummary';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceOperatingSystemSummary(writer: SerializationWriter, deviceOperatingSystemSummary: DeviceOperatingSystemSummary | undefined = {} as DeviceOperatingSystemSummary) : void {
         writer.writeNumberValue("androidCorporateWorkProfileCount", deviceOperatingSystemSummary.androidCorporateWorkProfileCount);

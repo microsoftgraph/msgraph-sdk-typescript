@@ -1,23 +1,22 @@
-import {ApplicationCollectionResponse} from '../models/';
-import type {Application} from '../models/application';
-import {createApplicationCollectionResponseFromDiscriminatorValue} from '../models/createApplicationCollectionResponseFromDiscriminatorValue';
-import {createApplicationFromDiscriminatorValue} from '../models/createApplicationFromDiscriminatorValue';
-import {deserializeIntoApplication} from '../models/deserializeIntoApplication';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeApplication} from '../models/serializeApplication';
-import {ApplicationsRequestBuilderGetRequestConfiguration} from './applicationsRequestBuilderGetRequestConfiguration';
-import {ApplicationsRequestBuilderPostRequestConfiguration} from './applicationsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
-import {ApplicationItemRequestBuilder} from './item/applicationItemRequestBuilder';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ApplicationCollectionResponse } from '../models/';
+import { type Application } from '../models/application';
+import { createApplicationCollectionResponseFromDiscriminatorValue } from '../models/createApplicationCollectionResponseFromDiscriminatorValue';
+import { createApplicationFromDiscriminatorValue } from '../models/createApplicationFromDiscriminatorValue';
+import { deserializeIntoApplication } from '../models/deserializeIntoApplication';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeApplication } from '../models/serializeApplication';
+import { type ApplicationsRequestBuilderGetRequestConfiguration } from './applicationsRequestBuilderGetRequestConfiguration';
+import { type ApplicationsRequestBuilderPostRequestConfiguration } from './applicationsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
+import { ApplicationItemRequestBuilder } from './item/applicationItemRequestBuilder';
+import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of application entities.

@@ -1,13 +1,13 @@
-import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import {deserializeIntoEventMessage} from './deserializeIntoEventMessage';
-import type {EventMessageRequest} from './eventMessageRequest';
-import type {Location} from './location';
-import {MeetingRequestType} from './meetingRequestType';
-import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {serializeLocation} from './serializeLocation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDateTimeTimeZoneFromDiscriminatorValue } from './createDateTimeTimeZoneFromDiscriminatorValue';
+import { createLocationFromDiscriminatorValue } from './createLocationFromDiscriminatorValue';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { deserializeIntoEventMessage } from './deserializeIntoEventMessage';
+import { type EventMessageRequest } from './eventMessageRequest';
+import { type Location } from './location';
+import { MeetingRequestType } from './meetingRequestType';
+import { serializeDateTimeTimeZone } from './serializeDateTimeTimeZone';
+import { serializeLocation } from './serializeLocation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEventMessageRequest(eventMessageRequest: EventMessageRequest | undefined = {} as EventMessageRequest) : Record<string, (node: ParseNode) => void> {
     return {

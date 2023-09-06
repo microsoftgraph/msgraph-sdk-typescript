@@ -1,5 +1,5 @@
-import {LastMessagePreviewRequestBuilderGetQueryParameters} from './lastMessagePreviewRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LastMessagePreviewRequestBuilderGetQueryParameters } from './lastMessagePreviewRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LastMessagePreviewRequestBuilderGetRequestConfiguration {
     /**

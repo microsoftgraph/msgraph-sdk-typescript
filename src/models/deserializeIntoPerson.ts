@@ -1,21 +1,21 @@
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import {createPersonTypeFromDiscriminatorValue} from './createPersonTypeFromDiscriminatorValue';
-import {createPhoneFromDiscriminatorValue} from './createPhoneFromDiscriminatorValue';
-import {createScoredEmailAddressFromDiscriminatorValue} from './createScoredEmailAddressFromDiscriminatorValue';
-import {createWebsiteFromDiscriminatorValue} from './createWebsiteFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Location} from './location';
-import type {Person} from './person';
-import type {PersonType} from './personType';
-import type {Phone} from './phone';
-import type {ScoredEmailAddress} from './scoredEmailAddress';
-import {serializeLocation} from './serializeLocation';
-import {serializePersonType} from './serializePersonType';
-import {serializePhone} from './serializePhone';
-import {serializeScoredEmailAddress} from './serializeScoredEmailAddress';
-import {serializeWebsite} from './serializeWebsite';
-import type {Website} from './website';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createLocationFromDiscriminatorValue } from './createLocationFromDiscriminatorValue';
+import { createPersonTypeFromDiscriminatorValue } from './createPersonTypeFromDiscriminatorValue';
+import { createPhoneFromDiscriminatorValue } from './createPhoneFromDiscriminatorValue';
+import { createScoredEmailAddressFromDiscriminatorValue } from './createScoredEmailAddressFromDiscriminatorValue';
+import { createWebsiteFromDiscriminatorValue } from './createWebsiteFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Location } from './location';
+import { type Person } from './person';
+import { type PersonType } from './personType';
+import { type Phone } from './phone';
+import { type ScoredEmailAddress } from './scoredEmailAddress';
+import { serializeLocation } from './serializeLocation';
+import { serializePersonType } from './serializePersonType';
+import { serializePhone } from './serializePhone';
+import { serializeScoredEmailAddress } from './serializeScoredEmailAddress';
+import { serializeWebsite } from './serializeWebsite';
+import { type Website } from './website';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPerson(person: Person | undefined = {} as Person) : Record<string, (node: ParseNode) => void> {
     return {

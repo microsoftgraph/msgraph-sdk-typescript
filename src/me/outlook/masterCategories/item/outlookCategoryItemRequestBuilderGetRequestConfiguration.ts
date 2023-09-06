@@ -1,5 +1,5 @@
-import {OutlookCategoryItemRequestBuilderGetQueryParameters} from './outlookCategoryItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type OutlookCategoryItemRequestBuilderGetQueryParameters } from './outlookCategoryItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OutlookCategoryItemRequestBuilderGetRequestConfiguration {
     /**

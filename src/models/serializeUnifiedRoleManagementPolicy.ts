@@ -1,10 +1,10 @@
-import type {Identity} from './identity';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentity} from './serializeIdentity';
-import {serializeUnifiedRoleManagementPolicyRule} from './serializeUnifiedRoleManagementPolicyRule';
-import type {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
-import type {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Identity } from './identity';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentity } from './serializeIdentity';
+import { serializeUnifiedRoleManagementPolicyRule } from './serializeUnifiedRoleManagementPolicyRule';
+import { type UnifiedRoleManagementPolicy } from './unifiedRoleManagementPolicy';
+import { type UnifiedRoleManagementPolicyRule } from './unifiedRoleManagementPolicyRule';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleManagementPolicy(writer: SerializationWriter, unifiedRoleManagementPolicy: UnifiedRoleManagementPolicy | undefined = {} as UnifiedRoleManagementPolicy) : void {
         serializeEntity(writer, unifiedRoleManagementPolicy)

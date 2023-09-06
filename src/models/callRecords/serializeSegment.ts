@@ -1,12 +1,12 @@
-import {serializeEntity} from '../serializeEntity';
-import type {Endpoint} from './endpoint';
-import type {FailureInfo} from './failureInfo';
-import type {Media} from './media';
-import type {Segment} from './segment';
-import {serializeEndpoint} from './serializeEndpoint';
-import {serializeFailureInfo} from './serializeFailureInfo';
-import {serializeMedia} from './serializeMedia';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from '../serializeEntity';
+import { type Endpoint } from './endpoint';
+import { type FailureInfo } from './failureInfo';
+import { type Media } from './media';
+import { type Segment } from './segment';
+import { serializeEndpoint } from './serializeEndpoint';
+import { serializeFailureInfo } from './serializeFailureInfo';
+import { serializeMedia } from './serializeMedia';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSegment(writer: SerializationWriter, segment: Segment | undefined = {} as Segment) : void {
         serializeEntity(writer, segment)

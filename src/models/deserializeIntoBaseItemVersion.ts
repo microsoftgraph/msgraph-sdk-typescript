@@ -1,12 +1,12 @@
-import type {BaseItemVersion} from './baseItemVersion';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createPublicationFacetFromDiscriminatorValue} from './createPublicationFacetFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IdentitySet} from './identitySet';
-import type {PublicationFacet} from './publicationFacet';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializePublicationFacet} from './serializePublicationFacet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BaseItemVersion } from './baseItemVersion';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { createPublicationFacetFromDiscriminatorValue } from './createPublicationFacetFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IdentitySet } from './identitySet';
+import { type PublicationFacet } from './publicationFacet';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializePublicationFacet } from './serializePublicationFacet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBaseItemVersion(baseItemVersion: BaseItemVersion | undefined = {} as BaseItemVersion) : Record<string, (node: ParseNode) => void> {
     return {

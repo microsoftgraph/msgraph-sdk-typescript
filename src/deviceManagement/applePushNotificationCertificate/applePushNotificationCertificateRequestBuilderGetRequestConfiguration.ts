@@ -1,5 +1,5 @@
-import {ApplePushNotificationCertificateRequestBuilderGetQueryParameters} from './applePushNotificationCertificateRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ApplePushNotificationCertificateRequestBuilderGetQueryParameters } from './applePushNotificationCertificateRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration {
     /**

@@ -1,5 +1,5 @@
-import type {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type WindowsInformationProtectionResourceCollection } from './windowsInformationProtectionResourceCollection';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsInformationProtectionResourceCollection(windowsInformationProtectionResourceCollection: WindowsInformationProtectionResourceCollection | undefined = {} as WindowsInformationProtectionResourceCollection) : Record<string, (node: ParseNode) => void> {
     return {

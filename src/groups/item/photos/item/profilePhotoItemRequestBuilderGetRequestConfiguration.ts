@@ -1,5 +1,5 @@
-import {ProfilePhotoItemRequestBuilderGetQueryParameters} from './profilePhotoItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ProfilePhotoItemRequestBuilderGetQueryParameters } from './profilePhotoItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ProfilePhotoItemRequestBuilderGetRequestConfiguration {
     /**

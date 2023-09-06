@@ -1,5 +1,4 @@
-import {TimeOnly} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { TimeOnly, type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TimeRange extends AdditionalDataHolder, Parsable {
     /**

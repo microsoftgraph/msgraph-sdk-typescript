@@ -1,20 +1,19 @@
-import {UnifiedRoleEligibilityScheduleRequestCollectionResponse} from '../../../models/';
-import {createUnifiedRoleEligibilityScheduleRequestCollectionResponseFromDiscriminatorValue} from '../../../models/createUnifiedRoleEligibilityScheduleRequestCollectionResponseFromDiscriminatorValue';
-import {createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue} from '../../../models/createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue';
-import {deserializeIntoUnifiedRoleEligibilityScheduleRequest} from '../../../models/deserializeIntoUnifiedRoleEligibilityScheduleRequest';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeUnifiedRoleEligibilityScheduleRequest} from '../../../models/serializeUnifiedRoleEligibilityScheduleRequest';
-import type {UnifiedRoleEligibilityScheduleRequest} from '../../../models/unifiedRoleEligibilityScheduleRequest';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilder} from './item/unifiedRoleEligibilityScheduleRequestItemRequestBuilder';
-import {RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration} from './roleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration';
-import {RoleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration} from './roleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedRoleEligibilityScheduleRequestCollectionResponse } from '../../../models/';
+import { createUnifiedRoleEligibilityScheduleRequestCollectionResponseFromDiscriminatorValue } from '../../../models/createUnifiedRoleEligibilityScheduleRequestCollectionResponseFromDiscriminatorValue';
+import { createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue } from '../../../models/createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue';
+import { deserializeIntoUnifiedRoleEligibilityScheduleRequest } from '../../../models/deserializeIntoUnifiedRoleEligibilityScheduleRequest';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeUnifiedRoleEligibilityScheduleRequest } from '../../../models/serializeUnifiedRoleEligibilityScheduleRequest';
+import { type UnifiedRoleEligibilityScheduleRequest } from '../../../models/unifiedRoleEligibilityScheduleRequest';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import { UnifiedRoleEligibilityScheduleRequestItemRequestBuilder } from './item/unifiedRoleEligibilityScheduleRequestItemRequestBuilder';
+import { type RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration } from './roleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration';
+import { type RoleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration } from './roleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.

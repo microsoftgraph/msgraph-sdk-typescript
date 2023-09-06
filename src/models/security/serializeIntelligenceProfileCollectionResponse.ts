@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCollectionPaginationCountResponse';
-import type {IntelligenceProfile} from './intelligenceProfile';
-import type {IntelligenceProfileCollectionResponse} from './intelligenceProfileCollectionResponse';
-import {serializeIntelligenceProfile} from './serializeIntelligenceProfile';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from '../serializeBaseCollectionPaginationCountResponse';
+import { type IntelligenceProfile } from './intelligenceProfile';
+import { type IntelligenceProfileCollectionResponse } from './intelligenceProfileCollectionResponse';
+import { serializeIntelligenceProfile } from './serializeIntelligenceProfile';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIntelligenceProfileCollectionResponse(writer: SerializationWriter, intelligenceProfileCollectionResponse: IntelligenceProfileCollectionResponse | undefined = {} as IntelligenceProfileCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, intelligenceProfileCollectionResponse)

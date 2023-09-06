@@ -1,17 +1,16 @@
-import {createEdgeFromDiscriminatorValue} from '../../models/createEdgeFromDiscriminatorValue';
-import {deserializeIntoEdge} from '../../models/deserializeIntoEdge';
-import type {Edge} from '../../models/edge';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeEdge} from '../../models/serializeEdge';
-import {EdgeRequestBuilderDeleteRequestConfiguration} from './edgeRequestBuilderDeleteRequestConfiguration';
-import {EdgeRequestBuilderGetRequestConfiguration} from './edgeRequestBuilderGetRequestConfiguration';
-import {EdgeRequestBuilderPatchRequestConfiguration} from './edgeRequestBuilderPatchRequestConfiguration';
-import {InternetExplorerModeRequestBuilder} from './internetExplorerMode/internetExplorerModeRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEdgeFromDiscriminatorValue } from '../../models/createEdgeFromDiscriminatorValue';
+import { deserializeIntoEdge } from '../../models/deserializeIntoEdge';
+import { type Edge } from '../../models/edge';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeEdge } from '../../models/serializeEdge';
+import { type EdgeRequestBuilderDeleteRequestConfiguration } from './edgeRequestBuilderDeleteRequestConfiguration';
+import { type EdgeRequestBuilderGetRequestConfiguration } from './edgeRequestBuilderGetRequestConfiguration';
+import { type EdgeRequestBuilderPatchRequestConfiguration } from './edgeRequestBuilderPatchRequestConfiguration';
+import { InternetExplorerModeRequestBuilder } from './internetExplorerMode/internetExplorerModeRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the edge property of the microsoft.graph.admin entity.

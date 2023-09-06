@@ -1,11 +1,11 @@
-import type {LicenseUnitsDetail} from './licenseUnitsDetail';
-import {serializeEntity} from './serializeEntity';
-import {serializeLicenseUnitsDetail} from './serializeLicenseUnitsDetail';
-import {serializeServicePlanInfo} from './serializeServicePlanInfo';
-import type {ServicePlanInfo} from './servicePlanInfo';
-import type {SubscribedSku} from './subscribedSku';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type LicenseUnitsDetail } from './licenseUnitsDetail';
+import { serializeEntity } from './serializeEntity';
+import { serializeLicenseUnitsDetail } from './serializeLicenseUnitsDetail';
+import { serializeServicePlanInfo } from './serializeServicePlanInfo';
+import { type ServicePlanInfo } from './servicePlanInfo';
+import { type SubscribedSku } from './subscribedSku';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeSubscribedSku(writer: SerializationWriter, subscribedSku: SubscribedSku | undefined = {} as SubscribedSku) : void {
         serializeEntity(writer, subscribedSku)

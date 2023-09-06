@@ -1,12 +1,12 @@
-import type {AccessPackage} from './accessPackage';
-import {AccessPackageCatalogState} from './accessPackageCatalogState';
-import {AccessPackageCatalogType} from './accessPackageCatalogType';
-import type {AccessPackageResource} from './accessPackageResource';
-import type {AccessPackageResourceRole} from './accessPackageResourceRole';
-import type {AccessPackageResourceScope} from './accessPackageResourceScope';
-import type {CustomCalloutExtension} from './customCalloutExtension';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessPackage } from './accessPackage';
+import { AccessPackageCatalogState } from './accessPackageCatalogState';
+import { AccessPackageCatalogType } from './accessPackageCatalogType';
+import { type AccessPackageResource } from './accessPackageResource';
+import { type AccessPackageResourceRole } from './accessPackageResourceRole';
+import { type AccessPackageResourceScope } from './accessPackageResourceScope';
+import { type CustomCalloutExtension } from './customCalloutExtension';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageCatalog extends Entity, Parsable {
     /**

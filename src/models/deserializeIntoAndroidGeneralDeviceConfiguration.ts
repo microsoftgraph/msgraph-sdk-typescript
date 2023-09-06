@@ -1,12 +1,12 @@
-import type {AndroidGeneralDeviceConfiguration} from './androidGeneralDeviceConfiguration';
-import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
-import type {AppListItem} from './appListItem';
-import {AppListType} from './appListType';
-import {createAppListItemFromDiscriminatorValue} from './createAppListItemFromDiscriminatorValue';
-import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
-import {serializeAppListItem} from './serializeAppListItem';
-import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AndroidGeneralDeviceConfiguration } from './androidGeneralDeviceConfiguration';
+import { AndroidRequiredPasswordType } from './androidRequiredPasswordType';
+import { type AppListItem } from './appListItem';
+import { AppListType } from './appListType';
+import { createAppListItemFromDiscriminatorValue } from './createAppListItemFromDiscriminatorValue';
+import { deserializeIntoDeviceConfiguration } from './deserializeIntoDeviceConfiguration';
+import { serializeAppListItem } from './serializeAppListItem';
+import { WebBrowserCookieSettings } from './webBrowserCookieSettings';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAndroidGeneralDeviceConfiguration(androidGeneralDeviceConfiguration: AndroidGeneralDeviceConfiguration | undefined = {} as AndroidGeneralDeviceConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

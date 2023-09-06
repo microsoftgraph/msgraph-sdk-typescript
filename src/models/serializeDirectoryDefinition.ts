@@ -1,13 +1,13 @@
-import type {DirectoryDefinition} from './directoryDefinition';
-import {DirectoryDefinitionDiscoverabilities} from './directoryDefinitionDiscoverabilities';
-import type {ObjectDefinition} from './objectDefinition';
-import {serializeEntity} from './serializeEntity';
-import {serializeObjectDefinition} from './serializeObjectDefinition';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DirectoryDefinition } from './directoryDefinition';
+import { DirectoryDefinitionDiscoverabilities } from './directoryDefinitionDiscoverabilities';
+import { type ObjectDefinition } from './objectDefinition';
+import { serializeEntity } from './serializeEntity';
+import { serializeObjectDefinition } from './serializeObjectDefinition';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDirectoryDefinition(writer: SerializationWriter, directoryDefinition: DirectoryDefinition | undefined = {} as DirectoryDefinition) : void {
         serializeEntity(writer, directoryDefinition)
-        writer.writeEnumValue<DirectoryDefinitionDiscoverabilities>("discoverabilities", directoryDefinition.discoverabilities);
+        writer.writeEnumValue<DirectoryDefinitionDiscoverabilities[]>("discoverabilities", directoryDefinition.discoverabilities);
         writer.writeDateValue("discoveryDateTime", directoryDefinition.discoveryDateTime);
         writer.writeStringValue("name", directoryDefinition.name);
         writer.writeCollectionOfObjectValues<ObjectDefinition>("objects", directoryDefinition.objects, serializeObjectDefinition);

@@ -1,5 +1,5 @@
-import {ApplicationItemRequestBuilderGetQueryParameters} from './applicationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ApplicationItemRequestBuilderGetQueryParameters } from './applicationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ApplicationItemRequestBuilderGetRequestConfiguration {
     /**

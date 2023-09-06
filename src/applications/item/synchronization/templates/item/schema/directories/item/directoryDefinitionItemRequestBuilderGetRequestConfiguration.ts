@@ -1,5 +1,5 @@
-import {DirectoryDefinitionItemRequestBuilderGetQueryParameters} from './directoryDefinitionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryDefinitionItemRequestBuilderGetQueryParameters } from './directoryDefinitionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DirectoryDefinitionItemRequestBuilderGetRequestConfiguration {
     /**

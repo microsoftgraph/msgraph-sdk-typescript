@@ -1,8 +1,8 @@
-import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {ChiSq_Dist_RTPostRequestBody} from './chiSq_Dist_RTPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createJsonFromDiscriminatorValue } from '../../../../../../../models/createJsonFromDiscriminatorValue';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type ChiSq_Dist_RTPostRequestBody } from './chiSq_Dist_RTPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChiSq_Dist_RTPostRequestBody(chiSq_Dist_RTPostRequestBody: ChiSq_Dist_RTPostRequestBody | undefined = {} as ChiSq_Dist_RTPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

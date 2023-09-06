@@ -1,8 +1,8 @@
-import type {ApplicationEnforcedRestrictionsSessionControl} from './applicationEnforcedRestrictionsSessionControl';
-import type {CloudAppSecuritySessionControl} from './cloudAppSecuritySessionControl';
-import type {PersistentBrowserSessionControl} from './persistentBrowserSessionControl';
-import type {SignInFrequencySessionControl} from './signInFrequencySessionControl';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type ApplicationEnforcedRestrictionsSessionControl } from './applicationEnforcedRestrictionsSessionControl';
+import { type CloudAppSecuritySessionControl } from './cloudAppSecuritySessionControl';
+import { type PersistentBrowserSessionControl } from './persistentBrowserSessionControl';
+import { type SignInFrequencySessionControl } from './signInFrequencySessionControl';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessSessionControls extends AdditionalDataHolder, Parsable {
     /**

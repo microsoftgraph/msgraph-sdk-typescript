@@ -1,5 +1,5 @@
-import type {AlertEvidence} from './alertEvidence';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AlertEvidence } from './alertEvidence';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RegistryKeyEvidence extends AlertEvidence, Parsable {
     /**

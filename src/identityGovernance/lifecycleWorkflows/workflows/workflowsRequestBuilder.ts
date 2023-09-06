@@ -1,19 +1,18 @@
-import {WorkflowCollectionResponse} from '../../../models/identityGovernance/';
-import {createWorkflowCollectionResponseFromDiscriminatorValue} from '../../../models/identityGovernance/createWorkflowCollectionResponseFromDiscriminatorValue';
-import {createWorkflowFromDiscriminatorValue} from '../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
-import {deserializeIntoWorkflow} from '../../../models/identityGovernance/deserializeIntoWorkflow';
-import {serializeWorkflow} from '../../../models/identityGovernance/serializeWorkflow';
-import type {Workflow} from '../../../models/identityGovernance/workflow';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WorkflowItemRequestBuilder} from './item/workflowItemRequestBuilder';
-import {WorkflowsRequestBuilderGetRequestConfiguration} from './workflowsRequestBuilderGetRequestConfiguration';
-import {WorkflowsRequestBuilderPostRequestConfiguration} from './workflowsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkflowCollectionResponse } from '../../../models/identityGovernance/';
+import { createWorkflowCollectionResponseFromDiscriminatorValue } from '../../../models/identityGovernance/createWorkflowCollectionResponseFromDiscriminatorValue';
+import { createWorkflowFromDiscriminatorValue } from '../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
+import { deserializeIntoWorkflow } from '../../../models/identityGovernance/deserializeIntoWorkflow';
+import { serializeWorkflow } from '../../../models/identityGovernance/serializeWorkflow';
+import { type Workflow } from '../../../models/identityGovernance/workflow';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WorkflowItemRequestBuilder } from './item/workflowItemRequestBuilder';
+import { type WorkflowsRequestBuilderGetRequestConfiguration } from './workflowsRequestBuilderGetRequestConfiguration';
+import { type WorkflowsRequestBuilderPostRequestConfiguration } from './workflowsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.

@@ -1,17 +1,16 @@
-import {createMuteParticipantOperationFromDiscriminatorValue} from '../../../../models/createMuteParticipantOperationFromDiscriminatorValue';
-import {deserializeIntoMuteParticipantOperation} from '../../../../models/deserializeIntoMuteParticipantOperation';
-import type {MuteParticipantOperation} from '../../../../models/muteParticipantOperation';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeMuteParticipantOperation} from '../../../../models/serializeMuteParticipantOperation';
-import {deserializeIntoMutePostRequestBody} from './deserializeIntoMutePostRequestBody';
-import type {MutePostRequestBody} from './mutePostRequestBody';
-import {MuteRequestBuilderPostRequestConfiguration} from './muteRequestBuilderPostRequestConfiguration';
-import {serializeMutePostRequestBody} from './serializeMutePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMuteParticipantOperationFromDiscriminatorValue } from '../../../../models/createMuteParticipantOperationFromDiscriminatorValue';
+import { deserializeIntoMuteParticipantOperation } from '../../../../models/deserializeIntoMuteParticipantOperation';
+import { type MuteParticipantOperation } from '../../../../models/muteParticipantOperation';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeMuteParticipantOperation } from '../../../../models/serializeMuteParticipantOperation';
+import { deserializeIntoMutePostRequestBody } from './deserializeIntoMutePostRequestBody';
+import { type MutePostRequestBody } from './mutePostRequestBody';
+import { type MuteRequestBuilderPostRequestConfiguration } from './muteRequestBuilderPostRequestConfiguration';
+import { serializeMutePostRequestBody } from './serializeMutePostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the mute method.

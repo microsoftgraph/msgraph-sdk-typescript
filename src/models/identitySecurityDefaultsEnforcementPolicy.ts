@@ -1,5 +1,5 @@
-import type {PolicyBase} from './policyBase';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type PolicyBase } from './policyBase';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IdentitySecurityDefaultsEnforcementPolicy extends Parsable, PolicyBase {
     /**

@@ -1,6 +1,6 @@
-import type {PolicyBase} from './policyBase';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PolicyBase } from './policyBase';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePolicyBase(writer: SerializationWriter, policyBase: PolicyBase | undefined = {} as PolicyBase) : void {
         serializeDirectoryObject(writer, policyBase)

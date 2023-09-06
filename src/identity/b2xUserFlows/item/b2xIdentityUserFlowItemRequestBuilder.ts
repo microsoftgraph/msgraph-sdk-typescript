@@ -1,21 +1,20 @@
-import type {B2xIdentityUserFlow} from '../../../models/b2xIdentityUserFlow';
-import {createB2xIdentityUserFlowFromDiscriminatorValue} from '../../../models/createB2xIdentityUserFlowFromDiscriminatorValue';
-import {deserializeIntoB2xIdentityUserFlow} from '../../../models/deserializeIntoB2xIdentityUserFlow';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeB2xIdentityUserFlow} from '../../../models/serializeB2xIdentityUserFlow';
-import {ApiConnectorConfigurationRequestBuilder} from './apiConnectorConfiguration/apiConnectorConfigurationRequestBuilder';
-import {B2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration} from './b2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration';
-import {B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration} from './b2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration';
-import {B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration} from './b2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration';
-import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvidersRequestBuilder';
-import {LanguagesRequestBuilder} from './languages/languagesRequestBuilder';
-import {UserAttributeAssignmentsRequestBuilder} from './userAttributeAssignments/userAttributeAssignmentsRequestBuilder';
-import {UserFlowIdentityProvidersRequestBuilder} from './userFlowIdentityProviders/userFlowIdentityProvidersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type B2xIdentityUserFlow } from '../../../models/b2xIdentityUserFlow';
+import { createB2xIdentityUserFlowFromDiscriminatorValue } from '../../../models/createB2xIdentityUserFlowFromDiscriminatorValue';
+import { deserializeIntoB2xIdentityUserFlow } from '../../../models/deserializeIntoB2xIdentityUserFlow';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeB2xIdentityUserFlow } from '../../../models/serializeB2xIdentityUserFlow';
+import { ApiConnectorConfigurationRequestBuilder } from './apiConnectorConfiguration/apiConnectorConfigurationRequestBuilder';
+import { type B2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration } from './b2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration';
+import { type B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration } from './b2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration';
+import { type B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration } from './b2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration';
+import { IdentityProvidersRequestBuilder } from './identityProviders/identityProvidersRequestBuilder';
+import { LanguagesRequestBuilder } from './languages/languagesRequestBuilder';
+import { UserAttributeAssignmentsRequestBuilder } from './userAttributeAssignments/userAttributeAssignmentsRequestBuilder';
+import { UserFlowIdentityProvidersRequestBuilder } from './userFlowIdentityProviders/userFlowIdentityProvidersRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.

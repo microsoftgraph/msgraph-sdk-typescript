@@ -1,12 +1,12 @@
-import {createMessageRuleActionsFromDiscriminatorValue} from './createMessageRuleActionsFromDiscriminatorValue';
-import {createMessageRulePredicatesFromDiscriminatorValue} from './createMessageRulePredicatesFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {MessageRule} from './messageRule';
-import type {MessageRuleActions} from './messageRuleActions';
-import type {MessageRulePredicates} from './messageRulePredicates';
-import {serializeMessageRuleActions} from './serializeMessageRuleActions';
-import {serializeMessageRulePredicates} from './serializeMessageRulePredicates';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createMessageRuleActionsFromDiscriminatorValue } from './createMessageRuleActionsFromDiscriminatorValue';
+import { createMessageRulePredicatesFromDiscriminatorValue } from './createMessageRulePredicatesFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type MessageRule } from './messageRule';
+import { type MessageRuleActions } from './messageRuleActions';
+import { type MessageRulePredicates } from './messageRulePredicates';
+import { serializeMessageRuleActions } from './serializeMessageRuleActions';
+import { serializeMessageRulePredicates } from './serializeMessageRulePredicates';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMessageRule(messageRule: MessageRule | undefined = {} as MessageRule) : Record<string, (node: ParseNode) => void> {
     return {

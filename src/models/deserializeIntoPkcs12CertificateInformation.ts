@@ -1,5 +1,5 @@
-import type {Pkcs12CertificateInformation} from './pkcs12CertificateInformation';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Pkcs12CertificateInformation } from './pkcs12CertificateInformation';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPkcs12CertificateInformation(pkcs12CertificateInformation: Pkcs12CertificateInformation | undefined = {} as Pkcs12CertificateInformation) : Record<string, (node: ParseNode) => void> {
     return {

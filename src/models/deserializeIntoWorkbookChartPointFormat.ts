@@ -1,9 +1,9 @@
-import {createWorkbookChartFillFromDiscriminatorValue} from './createWorkbookChartFillFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeWorkbookChartFill} from './serializeWorkbookChartFill';
-import type {WorkbookChartFill} from './workbookChartFill';
-import type {WorkbookChartPointFormat} from './workbookChartPointFormat';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartFillFromDiscriminatorValue } from './createWorkbookChartFillFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeWorkbookChartFill } from './serializeWorkbookChartFill';
+import { type WorkbookChartFill } from './workbookChartFill';
+import { type WorkbookChartPointFormat } from './workbookChartPointFormat';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartPointFormat(workbookChartPointFormat: WorkbookChartPointFormat | undefined = {} as WorkbookChartPointFormat) : Record<string, (node: ParseNode) => void> {
     return {

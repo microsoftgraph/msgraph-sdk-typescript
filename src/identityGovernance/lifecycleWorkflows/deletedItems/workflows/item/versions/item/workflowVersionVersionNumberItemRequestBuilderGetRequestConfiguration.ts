@@ -1,5 +1,5 @@
-import {WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters} from './workflowVersionVersionNumberItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters } from './workflowVersionVersionNumberItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WorkflowVersionVersionNumberItemRequestBuilderGetRequestConfiguration {
     /**

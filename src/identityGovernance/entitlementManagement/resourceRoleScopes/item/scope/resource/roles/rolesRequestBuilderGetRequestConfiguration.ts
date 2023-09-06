@@ -1,5 +1,5 @@
-import {RolesRequestBuilderGetQueryParameters} from './rolesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RolesRequestBuilderGetQueryParameters } from './rolesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RolesRequestBuilderGetRequestConfiguration {
     /**

@@ -1,6 +1,6 @@
-import {deserializeIntoAveDevPostRequestBody} from './deserializeIntoAveDevPostRequestBody';
-import {AveDevPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAveDevPostRequestBody } from './deserializeIntoAveDevPostRequestBody';
+import { type AveDevPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAveDevPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

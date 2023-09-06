@@ -1,8 +1,7 @@
-import {DayOfWeek} from './dayOfWeek';
-import type {IosUpdateConfiguration} from './iosUpdateConfiguration';
-import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { DayOfWeek } from './dayOfWeek';
+import { type IosUpdateConfiguration } from './iosUpdateConfiguration';
+import { serializeDeviceConfiguration } from './serializeDeviceConfiguration';
+import { TimeOnly, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIosUpdateConfiguration(writer: SerializationWriter, iosUpdateConfiguration: IosUpdateConfiguration | undefined = {} as IosUpdateConfiguration) : void {
         serializeDeviceConfiguration(writer, iosUpdateConfiguration)

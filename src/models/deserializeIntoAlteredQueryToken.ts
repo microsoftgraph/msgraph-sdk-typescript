@@ -1,5 +1,5 @@
-import type {AlteredQueryToken} from './alteredQueryToken';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AlteredQueryToken } from './alteredQueryToken';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlteredQueryToken(alteredQueryToken: AlteredQueryToken | undefined = {} as AlteredQueryToken) : Record<string, (node: ParseNode) => void> {
     return {

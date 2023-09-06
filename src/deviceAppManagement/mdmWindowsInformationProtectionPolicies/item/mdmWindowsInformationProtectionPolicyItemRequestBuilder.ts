@@ -1,19 +1,18 @@
-import {createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue} from '../../../models/createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue';
-import {deserializeIntoMdmWindowsInformationProtectionPolicy} from '../../../models/deserializeIntoMdmWindowsInformationProtectionPolicy';
-import type {MdmWindowsInformationProtectionPolicy} from '../../../models/mdmWindowsInformationProtectionPolicy';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeMdmWindowsInformationProtectionPolicy} from '../../../models/serializeMdmWindowsInformationProtectionPolicy';
-import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {ExemptAppLockerFilesRequestBuilder} from './exemptAppLockerFiles/exemptAppLockerFilesRequestBuilder';
-import {MdmWindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration';
-import {MdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration';
-import {MdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration';
-import {ProtectedAppLockerFilesRequestBuilder} from './protectedAppLockerFiles/protectedAppLockerFilesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue } from '../../../models/createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue';
+import { deserializeIntoMdmWindowsInformationProtectionPolicy } from '../../../models/deserializeIntoMdmWindowsInformationProtectionPolicy';
+import { type MdmWindowsInformationProtectionPolicy } from '../../../models/mdmWindowsInformationProtectionPolicy';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeMdmWindowsInformationProtectionPolicy } from '../../../models/serializeMdmWindowsInformationProtectionPolicy';
+import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
+import { ExemptAppLockerFilesRequestBuilder } from './exemptAppLockerFiles/exemptAppLockerFilesRequestBuilder';
+import { type MdmWindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration } from './mdmWindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration';
+import { type MdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration } from './mdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration';
+import { type MdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration } from './mdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration';
+import { ProtectedAppLockerFilesRequestBuilder } from './protectedAppLockerFiles/protectedAppLockerFilesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.

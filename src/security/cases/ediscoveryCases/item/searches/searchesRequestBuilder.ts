@@ -1,19 +1,18 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {EdiscoverySearchCollectionResponse} from '../../../../../models/security/';
-import {createEdiscoverySearchCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoverySearchCollectionResponseFromDiscriminatorValue';
-import {createEdiscoverySearchFromDiscriminatorValue} from '../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
-import {deserializeIntoEdiscoverySearch} from '../../../../../models/security/deserializeIntoEdiscoverySearch';
-import type {EdiscoverySearch} from '../../../../../models/security/ediscoverySearch';
-import {serializeEdiscoverySearch} from '../../../../../models/security/serializeEdiscoverySearch';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EdiscoverySearchItemRequestBuilder} from './item/ediscoverySearchItemRequestBuilder';
-import {SearchesRequestBuilderGetRequestConfiguration} from './searchesRequestBuilderGetRequestConfiguration';
-import {SearchesRequestBuilderPostRequestConfiguration} from './searchesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type EdiscoverySearchCollectionResponse } from '../../../../../models/security/';
+import { createEdiscoverySearchCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createEdiscoverySearchCollectionResponseFromDiscriminatorValue';
+import { createEdiscoverySearchFromDiscriminatorValue } from '../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
+import { deserializeIntoEdiscoverySearch } from '../../../../../models/security/deserializeIntoEdiscoverySearch';
+import { type EdiscoverySearch } from '../../../../../models/security/ediscoverySearch';
+import { serializeEdiscoverySearch } from '../../../../../models/security/serializeEdiscoverySearch';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { EdiscoverySearchItemRequestBuilder } from './item/ediscoverySearchItemRequestBuilder';
+import { type SearchesRequestBuilderGetRequestConfiguration } from './searchesRequestBuilderGetRequestConfiguration';
+import { type SearchesRequestBuilderPostRequestConfiguration } from './searchesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.

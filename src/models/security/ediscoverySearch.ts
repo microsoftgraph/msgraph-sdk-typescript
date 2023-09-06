@@ -1,10 +1,10 @@
-import type {DataSource} from './dataSource';
-import {DataSourceScopes} from './dataSourceScopes';
-import type {EdiscoveryAddToReviewSetOperation} from './ediscoveryAddToReviewSetOperation';
-import type {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
-import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
-import type {Search} from './search';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DataSource } from './dataSource';
+import { DataSourceScopes } from './dataSourceScopes';
+import { type EdiscoveryAddToReviewSetOperation } from './ediscoveryAddToReviewSetOperation';
+import { type EdiscoveryEstimateOperation } from './ediscoveryEstimateOperation';
+import { type EdiscoveryNoncustodialDataSource } from './ediscoveryNoncustodialDataSource';
+import { type Search } from './search';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EdiscoverySearch extends Parsable, Search {
     /**
@@ -22,7 +22,7 @@ export interface EdiscoverySearch extends Parsable, Search {
     /**
      * When specified, the collection will span across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
      */
-    dataSourceScopes?: DataSourceScopes | undefined;
+    dataSourceScopes?: DataSourceScopes[] | undefined;
     /**
      * The last estimate operation associated with the eDiscovery search.
      */

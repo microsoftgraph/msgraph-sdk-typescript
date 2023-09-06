@@ -1,17 +1,16 @@
-import type {AccessPackageResourceRole} from '../../../../../../../models/accessPackageResourceRole';
-import {createAccessPackageResourceRoleFromDiscriminatorValue} from '../../../../../../../models/createAccessPackageResourceRoleFromDiscriminatorValue';
-import {deserializeIntoAccessPackageResourceRole} from '../../../../../../../models/deserializeIntoAccessPackageResourceRole';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackageResourceRole} from '../../../../../../../models/serializeAccessPackageResourceRole';
-import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
-import {RoleRequestBuilderDeleteRequestConfiguration} from './roleRequestBuilderDeleteRequestConfiguration';
-import {RoleRequestBuilderGetRequestConfiguration} from './roleRequestBuilderGetRequestConfiguration';
-import {RoleRequestBuilderPatchRequestConfiguration} from './roleRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResourceRole } from '../../../../../../../models/accessPackageResourceRole';
+import { createAccessPackageResourceRoleFromDiscriminatorValue } from '../../../../../../../models/createAccessPackageResourceRoleFromDiscriminatorValue';
+import { deserializeIntoAccessPackageResourceRole } from '../../../../../../../models/deserializeIntoAccessPackageResourceRole';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackageResourceRole } from '../../../../../../../models/serializeAccessPackageResourceRole';
+import { ResourceRequestBuilder } from './resource/resourceRequestBuilder';
+import { type RoleRequestBuilderDeleteRequestConfiguration } from './roleRequestBuilderDeleteRequestConfiguration';
+import { type RoleRequestBuilderGetRequestConfiguration } from './roleRequestBuilderGetRequestConfiguration';
+import { type RoleRequestBuilderPatchRequestConfiguration } from './roleRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the role property of the microsoft.graph.accessPackageResourceRoleScope entity.

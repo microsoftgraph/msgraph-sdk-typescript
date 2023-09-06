@@ -1,5 +1,5 @@
-import {MeetingAttendanceReportItemRequestBuilderGetQueryParameters} from './meetingAttendanceReportItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type MeetingAttendanceReportItemRequestBuilderGetQueryParameters } from './meetingAttendanceReportItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MeetingAttendanceReportItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,12 +1,11 @@
-import {ExtractSensitivityLabelsResult} from '../../../../../models/';
-import {createExtractSensitivityLabelsResultFromDiscriminatorValue} from '../../../../../models/createExtractSensitivityLabelsResultFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {ExtractSensitivityLabelsRequestBuilderPostRequestConfiguration} from './extractSensitivityLabelsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExtractSensitivityLabelsResult } from '../../../../../models/';
+import { createExtractSensitivityLabelsResultFromDiscriminatorValue } from '../../../../../models/createExtractSensitivityLabelsResultFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type ExtractSensitivityLabelsRequestBuilderPostRequestConfiguration } from './extractSensitivityLabelsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the extractSensitivityLabels method.

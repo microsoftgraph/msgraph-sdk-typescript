@@ -1,6 +1,6 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {TeamsAppSettings} from './teamsAppSettings';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type TeamsAppSettings } from './teamsAppSettings';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAppSettings(teamsAppSettings: TeamsAppSettings | undefined = {} as TeamsAppSettings) : Record<string, (node: ParseNode) => void> {
     return {

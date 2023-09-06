@@ -1,8 +1,8 @@
-import type {ConditionalAccessGuestsOrExternalUsers} from './conditionalAccessGuestsOrExternalUsers';
-import type {ConditionalAccessUsers} from './conditionalAccessUsers';
-import {createConditionalAccessGuestsOrExternalUsersFromDiscriminatorValue} from './createConditionalAccessGuestsOrExternalUsersFromDiscriminatorValue';
-import {serializeConditionalAccessGuestsOrExternalUsers} from './serializeConditionalAccessGuestsOrExternalUsers';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessGuestsOrExternalUsers } from './conditionalAccessGuestsOrExternalUsers';
+import { type ConditionalAccessUsers } from './conditionalAccessUsers';
+import { createConditionalAccessGuestsOrExternalUsersFromDiscriminatorValue } from './createConditionalAccessGuestsOrExternalUsersFromDiscriminatorValue';
+import { serializeConditionalAccessGuestsOrExternalUsers } from './serializeConditionalAccessGuestsOrExternalUsers';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessUsers(conditionalAccessUsers: ConditionalAccessUsers | undefined = {} as ConditionalAccessUsers) : Record<string, (node: ParseNode) => void> {
     return {

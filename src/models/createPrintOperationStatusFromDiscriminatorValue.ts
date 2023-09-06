@@ -1,6 +1,6 @@
-import {deserializeIntoPrintOperationStatus} from './deserializeIntoPrintOperationStatus';
-import {PrintOperationStatus} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPrintOperationStatus } from './deserializeIntoPrintOperationStatus';
+import { type PrintOperationStatus } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPrintOperationStatusFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

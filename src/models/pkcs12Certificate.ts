@@ -1,5 +1,5 @@
-import type {ApiAuthenticationConfigurationBase} from './apiAuthenticationConfigurationBase';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ApiAuthenticationConfigurationBase } from './apiAuthenticationConfigurationBase';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Pkcs12Certificate extends ApiAuthenticationConfigurationBase, Parsable {
     /**

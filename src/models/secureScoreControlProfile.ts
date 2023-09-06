@@ -1,8 +1,8 @@
-import type {ComplianceInformation} from './complianceInformation';
-import type {Entity} from './entity';
-import type {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
-import type {SecurityVendorInformation} from './securityVendorInformation';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ComplianceInformation } from './complianceInformation';
+import { type Entity } from './entity';
+import { type SecureScoreControlStateUpdate } from './secureScoreControlStateUpdate';
+import { type SecurityVendorInformation } from './securityVendorInformation';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SecureScoreControlProfile extends Entity, Parsable {
     /**

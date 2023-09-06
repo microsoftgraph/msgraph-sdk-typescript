@@ -1,5 +1,5 @@
-import type {UnifiedApprovalStage} from './unifiedApprovalStage';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type UnifiedApprovalStage } from './unifiedApprovalStage';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ApprovalSettings extends AdditionalDataHolder, Parsable {
     /**

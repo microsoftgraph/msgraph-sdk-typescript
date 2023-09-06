@@ -1,17 +1,16 @@
-import {createPasswordCredentialFromDiscriminatorValue} from '../../../models/createPasswordCredentialFromDiscriminatorValue';
-import {deserializeIntoPasswordCredential} from '../../../models/deserializeIntoPasswordCredential';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {PasswordCredential} from '../../../models/passwordCredential';
-import {serializePasswordCredential} from '../../../models/serializePasswordCredential';
-import type {AddPasswordPostRequestBody} from './addPasswordPostRequestBody';
-import {AddPasswordRequestBuilderPostRequestConfiguration} from './addPasswordRequestBuilderPostRequestConfiguration';
-import {deserializeIntoAddPasswordPostRequestBody} from './deserializeIntoAddPasswordPostRequestBody';
-import {serializeAddPasswordPostRequestBody} from './serializeAddPasswordPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPasswordCredentialFromDiscriminatorValue } from '../../../models/createPasswordCredentialFromDiscriminatorValue';
+import { deserializeIntoPasswordCredential } from '../../../models/deserializeIntoPasswordCredential';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type PasswordCredential } from '../../../models/passwordCredential';
+import { serializePasswordCredential } from '../../../models/serializePasswordCredential';
+import { type AddPasswordPostRequestBody } from './addPasswordPostRequestBody';
+import { type AddPasswordRequestBuilderPostRequestConfiguration } from './addPasswordRequestBuilderPostRequestConfiguration';
+import { deserializeIntoAddPasswordPostRequestBody } from './deserializeIntoAddPasswordPostRequestBody';
+import { serializeAddPasswordPostRequestBody } from './serializeAddPasswordPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addPassword method.

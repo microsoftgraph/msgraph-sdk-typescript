@@ -1,16 +1,16 @@
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscriminatorValue';
-import {createFailureInfoFromDiscriminatorValue} from './createFailureInfoFromDiscriminatorValue';
-import {createSegmentFromDiscriminatorValue} from './createSegmentFromDiscriminatorValue';
-import type {Endpoint} from './endpoint';
-import type {FailureInfo} from './failureInfo';
-import {Modality} from './modality';
-import type {Segment} from './segment';
-import {serializeEndpoint} from './serializeEndpoint';
-import {serializeFailureInfo} from './serializeFailureInfo';
-import {serializeSegment} from './serializeSegment';
-import type {Session} from './session';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { createEndpointFromDiscriminatorValue } from './createEndpointFromDiscriminatorValue';
+import { createFailureInfoFromDiscriminatorValue } from './createFailureInfoFromDiscriminatorValue';
+import { createSegmentFromDiscriminatorValue } from './createSegmentFromDiscriminatorValue';
+import { type Endpoint } from './endpoint';
+import { type FailureInfo } from './failureInfo';
+import { Modality } from './modality';
+import { type Segment } from './segment';
+import { serializeEndpoint } from './serializeEndpoint';
+import { serializeFailureInfo } from './serializeFailureInfo';
+import { serializeSegment } from './serializeSegment';
+import { type Session } from './session';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSession(session: Session | undefined = {} as Session) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,15 +1,15 @@
-import type {Attachment} from './attachment';
-import type {Extension} from './extension';
-import type {FollowupFlag} from './followupFlag';
-import {Importance} from './importance';
-import {InferenceClassificationType} from './inferenceClassificationType';
-import type {InternetMessageHeader} from './internetMessageHeader';
-import type {ItemBody} from './itemBody';
-import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import type {OutlookItem} from './outlookItem';
-import type {Recipient} from './recipient';
-import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Attachment } from './attachment';
+import { type Extension } from './extension';
+import { type FollowupFlag } from './followupFlag';
+import { Importance } from './importance';
+import { InferenceClassificationType } from './inferenceClassificationType';
+import { type InternetMessageHeader } from './internetMessageHeader';
+import { type ItemBody } from './itemBody';
+import { type MultiValueLegacyExtendedProperty } from './multiValueLegacyExtendedProperty';
+import { type OutlookItem } from './outlookItem';
+import { type Recipient } from './recipient';
+import { type SingleValueLegacyExtendedProperty } from './singleValueLegacyExtendedProperty';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Message extends OutlookItem, Parsable {
     /**

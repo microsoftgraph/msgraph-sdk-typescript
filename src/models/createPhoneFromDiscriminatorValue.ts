@@ -1,6 +1,6 @@
-import {deserializeIntoPhone} from './deserializeIntoPhone';
-import {Phone} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPhone } from './deserializeIntoPhone';
+import { type Phone } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPhoneFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

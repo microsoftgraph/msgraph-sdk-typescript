@@ -1,25 +1,25 @@
-import type {OfferShiftRequest} from './offerShiftRequest';
-import type {OpenShift} from './openShift';
-import type {OpenShiftChangeRequest} from './openShiftChangeRequest';
-import {OperationStatus} from './operationStatus';
-import type {Schedule} from './schedule';
-import type {SchedulingGroup} from './schedulingGroup';
-import {serializeEntity} from './serializeEntity';
-import {serializeOfferShiftRequest} from './serializeOfferShiftRequest';
-import {serializeOpenShift} from './serializeOpenShift';
-import {serializeOpenShiftChangeRequest} from './serializeOpenShiftChangeRequest';
-import {serializeSchedulingGroup} from './serializeSchedulingGroup';
-import {serializeShift} from './serializeShift';
-import {serializeSwapShiftsChangeRequest} from './serializeSwapShiftsChangeRequest';
-import {serializeTimeOff} from './serializeTimeOff';
-import {serializeTimeOffReason} from './serializeTimeOffReason';
-import {serializeTimeOffRequest} from './serializeTimeOffRequest';
-import type {Shift} from './shift';
-import type {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
-import type {TimeOff} from './timeOff';
-import type {TimeOffReason} from './timeOffReason';
-import type {TimeOffRequest} from './timeOffRequest';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type OfferShiftRequest } from './offerShiftRequest';
+import { type OpenShift } from './openShift';
+import { type OpenShiftChangeRequest } from './openShiftChangeRequest';
+import { OperationStatus } from './operationStatus';
+import { type Schedule } from './schedule';
+import { type SchedulingGroup } from './schedulingGroup';
+import { serializeEntity } from './serializeEntity';
+import { serializeOfferShiftRequest } from './serializeOfferShiftRequest';
+import { serializeOpenShift } from './serializeOpenShift';
+import { serializeOpenShiftChangeRequest } from './serializeOpenShiftChangeRequest';
+import { serializeSchedulingGroup } from './serializeSchedulingGroup';
+import { serializeShift } from './serializeShift';
+import { serializeSwapShiftsChangeRequest } from './serializeSwapShiftsChangeRequest';
+import { serializeTimeOff } from './serializeTimeOff';
+import { serializeTimeOffReason } from './serializeTimeOffReason';
+import { serializeTimeOffRequest } from './serializeTimeOffRequest';
+import { type Shift } from './shift';
+import { type SwapShiftsChangeRequest } from './swapShiftsChangeRequest';
+import { type TimeOff } from './timeOff';
+import { type TimeOffReason } from './timeOffReason';
+import { type TimeOffRequest } from './timeOffRequest';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSchedule(writer: SerializationWriter, schedule: Schedule | undefined = {} as Schedule) : void {
         serializeEntity(writer, schedule)

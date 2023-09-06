@@ -1,8 +1,8 @@
-import {deserializeIntoIosHomeScreenApp} from './deserializeIntoIosHomeScreenApp';
-import {deserializeIntoIosHomeScreenFolder} from './deserializeIntoIosHomeScreenFolder';
-import {deserializeIntoIosHomeScreenItem} from './deserializeIntoIosHomeScreenItem';
-import {IosHomeScreenApp, IosHomeScreenFolder, IosHomeScreenItem} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIosHomeScreenApp } from './deserializeIntoIosHomeScreenApp';
+import { deserializeIntoIosHomeScreenFolder } from './deserializeIntoIosHomeScreenFolder';
+import { deserializeIntoIosHomeScreenItem } from './deserializeIntoIosHomeScreenItem';
+import { type IosHomeScreenApp, type IosHomeScreenFolder, type IosHomeScreenItem } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIosHomeScreenItemFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

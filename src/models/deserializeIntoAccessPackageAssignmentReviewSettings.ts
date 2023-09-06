@@ -1,12 +1,12 @@
-import type {AccessPackageAssignmentReviewSettings} from './accessPackageAssignmentReviewSettings';
-import {AccessReviewExpirationBehavior} from './accessReviewExpirationBehavior';
-import {createEntitlementManagementScheduleFromDiscriminatorValue} from './createEntitlementManagementScheduleFromDiscriminatorValue';
-import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDiscriminatorValue';
-import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
-import {serializeEntitlementManagementSchedule} from './serializeEntitlementManagementSchedule';
-import {serializeSubjectSet} from './serializeSubjectSet';
-import type {SubjectSet} from './subjectSet';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentReviewSettings } from './accessPackageAssignmentReviewSettings';
+import { AccessReviewExpirationBehavior } from './accessReviewExpirationBehavior';
+import { createEntitlementManagementScheduleFromDiscriminatorValue } from './createEntitlementManagementScheduleFromDiscriminatorValue';
+import { createSubjectSetFromDiscriminatorValue } from './createSubjectSetFromDiscriminatorValue';
+import { type EntitlementManagementSchedule } from './entitlementManagementSchedule';
+import { serializeEntitlementManagementSchedule } from './serializeEntitlementManagementSchedule';
+import { serializeSubjectSet } from './serializeSubjectSet';
+import { type SubjectSet } from './subjectSet';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageAssignmentReviewSettings(accessPackageAssignmentReviewSettings: AccessPackageAssignmentReviewSettings | undefined = {} as AccessPackageAssignmentReviewSettings) : Record<string, (node: ParseNode) => void> {
     return {

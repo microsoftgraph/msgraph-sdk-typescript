@@ -1,7 +1,7 @@
-import type {AudioRoutingGroup} from './audioRoutingGroup';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {RoutingMode} from './routingMode';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AudioRoutingGroup } from './audioRoutingGroup';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { RoutingMode } from './routingMode';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAudioRoutingGroup(audioRoutingGroup: AudioRoutingGroup | undefined = {} as AudioRoutingGroup) : Record<string, (node: ParseNode) => void> {
     return {

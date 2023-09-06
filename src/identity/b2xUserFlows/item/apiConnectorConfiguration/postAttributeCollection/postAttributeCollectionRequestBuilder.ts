@@ -1,18 +1,17 @@
-import {createIdentityApiConnectorFromDiscriminatorValue} from '../../../../../models/createIdentityApiConnectorFromDiscriminatorValue';
-import {deserializeIntoIdentityApiConnector} from '../../../../../models/deserializeIntoIdentityApiConnector';
-import type {IdentityApiConnector} from '../../../../../models/identityApiConnector';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeIdentityApiConnector} from '../../../../../models/serializeIdentityApiConnector';
-import {PostAttributeCollectionRequestBuilderDeleteRequestConfiguration} from './postAttributeCollectionRequestBuilderDeleteRequestConfiguration';
-import {PostAttributeCollectionRequestBuilderGetRequestConfiguration} from './postAttributeCollectionRequestBuilderGetRequestConfiguration';
-import {PostAttributeCollectionRequestBuilderPatchRequestConfiguration} from './postAttributeCollectionRequestBuilderPatchRequestConfiguration';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {UploadClientCertificateRequestBuilder} from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createIdentityApiConnectorFromDiscriminatorValue } from '../../../../../models/createIdentityApiConnectorFromDiscriminatorValue';
+import { deserializeIntoIdentityApiConnector } from '../../../../../models/deserializeIntoIdentityApiConnector';
+import { type IdentityApiConnector } from '../../../../../models/identityApiConnector';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeIdentityApiConnector } from '../../../../../models/serializeIdentityApiConnector';
+import { type PostAttributeCollectionRequestBuilderDeleteRequestConfiguration } from './postAttributeCollectionRequestBuilderDeleteRequestConfiguration';
+import { type PostAttributeCollectionRequestBuilderGetRequestConfiguration } from './postAttributeCollectionRequestBuilderGetRequestConfiguration';
+import { type PostAttributeCollectionRequestBuilderPatchRequestConfiguration } from './postAttributeCollectionRequestBuilderPatchRequestConfiguration';
+import { RefRequestBuilder } from './ref/refRequestBuilder';
+import { UploadClientCertificateRequestBuilder } from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the postAttributeCollection property of the microsoft.graph.userFlowApiConnectorConfiguration entity.

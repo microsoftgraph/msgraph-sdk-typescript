@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import type {UserProcessingResult} from './userProcessingResult';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from '../baseCollectionPaginationCountResponse';
+import { type UserProcessingResult } from './userProcessingResult';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserProcessingResultCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

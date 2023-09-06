@@ -1,17 +1,16 @@
-import {createWorkflowFromDiscriminatorValue} from '../../../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
-import {deserializeIntoWorkflow} from '../../../../../models/identityGovernance/deserializeIntoWorkflow';
-import {serializeWorkflow} from '../../../../../models/identityGovernance/serializeWorkflow';
-import type {Workflow} from '../../../../../models/identityGovernance/workflow';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import type {CreateNewVersionPostRequestBody} from './createNewVersionPostRequestBody';
-import {deserializeIntoCreateNewVersionPostRequestBody} from './deserializeIntoCreateNewVersionPostRequestBody';
-import {MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration} from './microsoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration';
-import {serializeCreateNewVersionPostRequestBody} from './serializeCreateNewVersionPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkflowFromDiscriminatorValue } from '../../../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
+import { deserializeIntoWorkflow } from '../../../../../models/identityGovernance/deserializeIntoWorkflow';
+import { serializeWorkflow } from '../../../../../models/identityGovernance/serializeWorkflow';
+import { type Workflow } from '../../../../../models/identityGovernance/workflow';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type CreateNewVersionPostRequestBody } from './createNewVersionPostRequestBody';
+import { deserializeIntoCreateNewVersionPostRequestBody } from './deserializeIntoCreateNewVersionPostRequestBody';
+import { type MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration } from './microsoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration';
+import { serializeCreateNewVersionPostRequestBody } from './serializeCreateNewVersionPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the createNewVersion method.

@@ -1,7 +1,7 @@
-import {deserializeIntoExternalActivity} from './deserializeIntoExternalActivity';
-import {deserializeIntoExternalActivityResult} from './deserializeIntoExternalActivityResult';
-import {ExternalActivity, ExternalActivityResult} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoExternalActivity } from './deserializeIntoExternalActivity';
+import { deserializeIntoExternalActivityResult } from './deserializeIntoExternalActivityResult';
+import { type ExternalActivity, type ExternalActivityResult } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createExternalActivityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,8 +1,8 @@
-import {createOptionalClaimFromDiscriminatorValue} from './createOptionalClaimFromDiscriminatorValue';
-import type {OptionalClaim} from './optionalClaim';
-import type {OptionalClaims} from './optionalClaims';
-import {serializeOptionalClaim} from './serializeOptionalClaim';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createOptionalClaimFromDiscriminatorValue } from './createOptionalClaimFromDiscriminatorValue';
+import { type OptionalClaim } from './optionalClaim';
+import { type OptionalClaims } from './optionalClaims';
+import { serializeOptionalClaim } from './serializeOptionalClaim';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOptionalClaims(optionalClaims: OptionalClaims | undefined = {} as OptionalClaims) : Record<string, (node: ParseNode) => void> {
     return {

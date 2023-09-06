@@ -1,8 +1,8 @@
-import {deserializeIntoEndpoint} from './deserializeIntoEndpoint';
-import {deserializeIntoParticipantEndpoint} from './deserializeIntoParticipantEndpoint';
-import {deserializeIntoServiceEndpoint} from './deserializeIntoServiceEndpoint';
-import {Endpoint, ParticipantEndpoint, ServiceEndpoint} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEndpoint } from './deserializeIntoEndpoint';
+import { deserializeIntoParticipantEndpoint } from './deserializeIntoParticipantEndpoint';
+import { deserializeIntoServiceEndpoint } from './deserializeIntoServiceEndpoint';
+import { type Endpoint, type ParticipantEndpoint, type ServiceEndpoint } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEndpointFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

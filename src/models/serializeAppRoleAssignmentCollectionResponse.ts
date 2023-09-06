@@ -1,8 +1,8 @@
-import type {AppRoleAssignment} from './appRoleAssignment';
-import type {AppRoleAssignmentCollectionResponse} from './appRoleAssignmentCollectionResponse';
-import {serializeAppRoleAssignment} from './serializeAppRoleAssignment';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppRoleAssignment } from './appRoleAssignment';
+import { type AppRoleAssignmentCollectionResponse } from './appRoleAssignmentCollectionResponse';
+import { serializeAppRoleAssignment } from './serializeAppRoleAssignment';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAppRoleAssignmentCollectionResponse(writer: SerializationWriter, appRoleAssignmentCollectionResponse: AppRoleAssignmentCollectionResponse | undefined = {} as AppRoleAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, appRoleAssignmentCollectionResponse)

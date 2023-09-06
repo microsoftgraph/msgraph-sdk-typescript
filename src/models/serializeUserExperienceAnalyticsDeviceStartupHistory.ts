@@ -1,7 +1,7 @@
-import {serializeEntity} from './serializeEntity';
-import type {UserExperienceAnalyticsDeviceStartupHistory} from './userExperienceAnalyticsDeviceStartupHistory';
-import {UserExperienceAnalyticsOperatingSystemRestartCategory} from './userExperienceAnalyticsOperatingSystemRestartCategory';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { type UserExperienceAnalyticsDeviceStartupHistory } from './userExperienceAnalyticsDeviceStartupHistory';
+import { UserExperienceAnalyticsOperatingSystemRestartCategory } from './userExperienceAnalyticsOperatingSystemRestartCategory';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsDeviceStartupHistory(writer: SerializationWriter, userExperienceAnalyticsDeviceStartupHistory: UserExperienceAnalyticsDeviceStartupHistory | undefined = {} as UserExperienceAnalyticsDeviceStartupHistory) : void {
         serializeEntity(writer, userExperienceAnalyticsDeviceStartupHistory)

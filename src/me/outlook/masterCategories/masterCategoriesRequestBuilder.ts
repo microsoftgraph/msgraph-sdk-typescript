@@ -1,19 +1,18 @@
-import {OutlookCategoryCollectionResponse} from '../../../models/';
-import {createOutlookCategoryCollectionResponseFromDiscriminatorValue} from '../../../models/createOutlookCategoryCollectionResponseFromDiscriminatorValue';
-import {createOutlookCategoryFromDiscriminatorValue} from '../../../models/createOutlookCategoryFromDiscriminatorValue';
-import {deserializeIntoOutlookCategory} from '../../../models/deserializeIntoOutlookCategory';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {OutlookCategory} from '../../../models/outlookCategory';
-import {serializeOutlookCategory} from '../../../models/serializeOutlookCategory';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {OutlookCategoryItemRequestBuilder} from './item/outlookCategoryItemRequestBuilder';
-import {MasterCategoriesRequestBuilderGetRequestConfiguration} from './masterCategoriesRequestBuilderGetRequestConfiguration';
-import {MasterCategoriesRequestBuilderPostRequestConfiguration} from './masterCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OutlookCategoryCollectionResponse } from '../../../models/';
+import { createOutlookCategoryCollectionResponseFromDiscriminatorValue } from '../../../models/createOutlookCategoryCollectionResponseFromDiscriminatorValue';
+import { createOutlookCategoryFromDiscriminatorValue } from '../../../models/createOutlookCategoryFromDiscriminatorValue';
+import { deserializeIntoOutlookCategory } from '../../../models/deserializeIntoOutlookCategory';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type OutlookCategory } from '../../../models/outlookCategory';
+import { serializeOutlookCategory } from '../../../models/serializeOutlookCategory';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { OutlookCategoryItemRequestBuilder } from './item/outlookCategoryItemRequestBuilder';
+import { type MasterCategoriesRequestBuilderGetRequestConfiguration } from './masterCategoriesRequestBuilderGetRequestConfiguration';
+import { type MasterCategoriesRequestBuilderPostRequestConfiguration } from './masterCategoriesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.

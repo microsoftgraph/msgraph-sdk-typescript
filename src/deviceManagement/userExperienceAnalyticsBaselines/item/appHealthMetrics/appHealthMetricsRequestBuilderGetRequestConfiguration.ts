@@ -1,5 +1,5 @@
-import {AppHealthMetricsRequestBuilderGetQueryParameters} from './appHealthMetricsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppHealthMetricsRequestBuilderGetQueryParameters } from './appHealthMetricsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AppHealthMetricsRequestBuilderGetRequestConfiguration {
     /**

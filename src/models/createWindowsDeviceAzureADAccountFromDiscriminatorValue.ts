@@ -1,6 +1,6 @@
-import {deserializeIntoWindowsDeviceAzureADAccount} from './deserializeIntoWindowsDeviceAzureADAccount';
-import {WindowsDeviceAzureADAccount} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWindowsDeviceAzureADAccount } from './deserializeIntoWindowsDeviceAzureADAccount';
+import { type WindowsDeviceAzureADAccount } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWindowsDeviceAzureADAccountFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

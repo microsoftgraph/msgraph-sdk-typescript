@@ -1,5 +1,5 @@
-import {AxesRequestBuilderGetQueryParameters} from './axesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AxesRequestBuilderGetQueryParameters } from './axesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AxesRequestBuilderGetRequestConfiguration {
     /**

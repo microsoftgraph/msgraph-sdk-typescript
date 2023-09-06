@@ -1,5 +1,5 @@
-import type {DeviceManagementSettings} from './deviceManagementSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceManagementSettings } from './deviceManagementSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceManagementSettings(writer: SerializationWriter, deviceManagementSettings: DeviceManagementSettings | undefined = {} as DeviceManagementSettings) : void {
         writer.writeNumberValue("deviceComplianceCheckinThresholdDays", deviceManagementSettings.deviceComplianceCheckinThresholdDays);

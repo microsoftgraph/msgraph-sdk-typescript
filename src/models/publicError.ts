@@ -1,6 +1,6 @@
-import type {PublicErrorDetail} from './publicErrorDetail';
-import type {PublicInnerError} from './publicInnerError';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type PublicErrorDetail } from './publicErrorDetail';
+import { type PublicInnerError } from './publicInnerError';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PublicError extends AdditionalDataHolder, Parsable {
     /**

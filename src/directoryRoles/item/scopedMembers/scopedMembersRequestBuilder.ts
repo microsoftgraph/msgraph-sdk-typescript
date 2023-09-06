@@ -1,19 +1,18 @@
-import {ScopedRoleMembershipCollectionResponse} from '../../../models/';
-import {createScopedRoleMembershipCollectionResponseFromDiscriminatorValue} from '../../../models/createScopedRoleMembershipCollectionResponseFromDiscriminatorValue';
-import {createScopedRoleMembershipFromDiscriminatorValue} from '../../../models/createScopedRoleMembershipFromDiscriminatorValue';
-import {deserializeIntoScopedRoleMembership} from '../../../models/deserializeIntoScopedRoleMembership';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {ScopedRoleMembership} from '../../../models/scopedRoleMembership';
-import {serializeScopedRoleMembership} from '../../../models/serializeScopedRoleMembership';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ScopedRoleMembershipItemRequestBuilder} from './item/scopedRoleMembershipItemRequestBuilder';
-import {ScopedMembersRequestBuilderGetRequestConfiguration} from './scopedMembersRequestBuilderGetRequestConfiguration';
-import {ScopedMembersRequestBuilderPostRequestConfiguration} from './scopedMembersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ScopedRoleMembershipCollectionResponse } from '../../../models/';
+import { createScopedRoleMembershipCollectionResponseFromDiscriminatorValue } from '../../../models/createScopedRoleMembershipCollectionResponseFromDiscriminatorValue';
+import { createScopedRoleMembershipFromDiscriminatorValue } from '../../../models/createScopedRoleMembershipFromDiscriminatorValue';
+import { deserializeIntoScopedRoleMembership } from '../../../models/deserializeIntoScopedRoleMembership';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type ScopedRoleMembership } from '../../../models/scopedRoleMembership';
+import { serializeScopedRoleMembership } from '../../../models/serializeScopedRoleMembership';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ScopedRoleMembershipItemRequestBuilder } from './item/scopedRoleMembershipItemRequestBuilder';
+import { type ScopedMembersRequestBuilderGetRequestConfiguration } from './scopedMembersRequestBuilderGetRequestConfiguration';
+import { type ScopedMembersRequestBuilderPostRequestConfiguration } from './scopedMembersRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scopedMembers property of the microsoft.graph.directoryRole entity.

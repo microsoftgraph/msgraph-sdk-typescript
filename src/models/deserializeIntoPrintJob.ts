@@ -1,21 +1,21 @@
-import {createPrintDocumentFromDiscriminatorValue} from './createPrintDocumentFromDiscriminatorValue';
-import {createPrintJobConfigurationFromDiscriminatorValue} from './createPrintJobConfigurationFromDiscriminatorValue';
-import {createPrintJobStatusFromDiscriminatorValue} from './createPrintJobStatusFromDiscriminatorValue';
-import {createPrintTaskFromDiscriminatorValue} from './createPrintTaskFromDiscriminatorValue';
-import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {PrintDocument} from './printDocument';
-import type {PrintJob} from './printJob';
-import type {PrintJobConfiguration} from './printJobConfiguration';
-import type {PrintJobStatus} from './printJobStatus';
-import type {PrintTask} from './printTask';
-import {serializePrintDocument} from './serializePrintDocument';
-import {serializePrintJobConfiguration} from './serializePrintJobConfiguration';
-import {serializePrintJobStatus} from './serializePrintJobStatus';
-import {serializePrintTask} from './serializePrintTask';
-import {serializeUserIdentity} from './serializeUserIdentity';
-import type {UserIdentity} from './userIdentity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPrintDocumentFromDiscriminatorValue } from './createPrintDocumentFromDiscriminatorValue';
+import { createPrintJobConfigurationFromDiscriminatorValue } from './createPrintJobConfigurationFromDiscriminatorValue';
+import { createPrintJobStatusFromDiscriminatorValue } from './createPrintJobStatusFromDiscriminatorValue';
+import { createPrintTaskFromDiscriminatorValue } from './createPrintTaskFromDiscriminatorValue';
+import { createUserIdentityFromDiscriminatorValue } from './createUserIdentityFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type PrintDocument } from './printDocument';
+import { type PrintJob } from './printJob';
+import { type PrintJobConfiguration } from './printJobConfiguration';
+import { type PrintJobStatus } from './printJobStatus';
+import { type PrintTask } from './printTask';
+import { serializePrintDocument } from './serializePrintDocument';
+import { serializePrintJobConfiguration } from './serializePrintJobConfiguration';
+import { serializePrintJobStatus } from './serializePrintJobStatus';
+import { serializePrintTask } from './serializePrintTask';
+import { serializeUserIdentity } from './serializeUserIdentity';
+import { type UserIdentity } from './userIdentity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintJob(printJob: PrintJob | undefined = {} as PrintJob) : Record<string, (node: ParseNode) => void> {
     return {

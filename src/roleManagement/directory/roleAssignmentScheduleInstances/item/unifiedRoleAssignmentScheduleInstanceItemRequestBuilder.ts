@@ -1,21 +1,20 @@
-import {createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue} from '../../../../models/createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue';
-import {deserializeIntoUnifiedRoleAssignmentScheduleInstance} from '../../../../models/deserializeIntoUnifiedRoleAssignmentScheduleInstance';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeUnifiedRoleAssignmentScheduleInstance} from '../../../../models/serializeUnifiedRoleAssignmentScheduleInstance';
-import type {UnifiedRoleAssignmentScheduleInstance} from '../../../../models/unifiedRoleAssignmentScheduleInstance';
-import {ActivatedUsingRequestBuilder} from './activatedUsing/activatedUsingRequestBuilder';
-import {AppScopeRequestBuilder} from './appScope/appScopeRequestBuilder';
-import {DirectoryScopeRequestBuilder} from './directoryScope/directoryScopeRequestBuilder';
-import {PrincipalRequestBuilder} from './principal/principalRequestBuilder';
-import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionRequestBuilder';
-import {UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderDeleteRequestConfiguration';
-import {UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration} from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration';
-import {UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue } from '../../../../models/createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue';
+import { deserializeIntoUnifiedRoleAssignmentScheduleInstance } from '../../../../models/deserializeIntoUnifiedRoleAssignmentScheduleInstance';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeUnifiedRoleAssignmentScheduleInstance } from '../../../../models/serializeUnifiedRoleAssignmentScheduleInstance';
+import { type UnifiedRoleAssignmentScheduleInstance } from '../../../../models/unifiedRoleAssignmentScheduleInstance';
+import { ActivatedUsingRequestBuilder } from './activatedUsing/activatedUsingRequestBuilder';
+import { AppScopeRequestBuilder } from './appScope/appScopeRequestBuilder';
+import { DirectoryScopeRequestBuilder } from './directoryScope/directoryScopeRequestBuilder';
+import { PrincipalRequestBuilder } from './principal/principalRequestBuilder';
+import { RoleDefinitionRequestBuilder } from './roleDefinition/roleDefinitionRequestBuilder';
+import { type UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderDeleteRequestConfiguration } from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderDeleteRequestConfiguration';
+import { type UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration } from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration';
+import { type UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderPatchRequestConfiguration } from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity.

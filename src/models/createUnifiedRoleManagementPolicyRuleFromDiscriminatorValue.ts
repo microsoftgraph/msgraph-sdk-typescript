@@ -1,11 +1,11 @@
-import {deserializeIntoUnifiedRoleManagementPolicyApprovalRule} from './deserializeIntoUnifiedRoleManagementPolicyApprovalRule';
-import {deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule} from './deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule';
-import {deserializeIntoUnifiedRoleManagementPolicyEnablementRule} from './deserializeIntoUnifiedRoleManagementPolicyEnablementRule';
-import {deserializeIntoUnifiedRoleManagementPolicyExpirationRule} from './deserializeIntoUnifiedRoleManagementPolicyExpirationRule';
-import {deserializeIntoUnifiedRoleManagementPolicyNotificationRule} from './deserializeIntoUnifiedRoleManagementPolicyNotificationRule';
-import {deserializeIntoUnifiedRoleManagementPolicyRule} from './deserializeIntoUnifiedRoleManagementPolicyRule';
-import {UnifiedRoleManagementPolicyApprovalRule, UnifiedRoleManagementPolicyAuthenticationContextRule, UnifiedRoleManagementPolicyEnablementRule, UnifiedRoleManagementPolicyExpirationRule, UnifiedRoleManagementPolicyNotificationRule, UnifiedRoleManagementPolicyRule} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUnifiedRoleManagementPolicyApprovalRule } from './deserializeIntoUnifiedRoleManagementPolicyApprovalRule';
+import { deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule } from './deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule';
+import { deserializeIntoUnifiedRoleManagementPolicyEnablementRule } from './deserializeIntoUnifiedRoleManagementPolicyEnablementRule';
+import { deserializeIntoUnifiedRoleManagementPolicyExpirationRule } from './deserializeIntoUnifiedRoleManagementPolicyExpirationRule';
+import { deserializeIntoUnifiedRoleManagementPolicyNotificationRule } from './deserializeIntoUnifiedRoleManagementPolicyNotificationRule';
+import { deserializeIntoUnifiedRoleManagementPolicyRule } from './deserializeIntoUnifiedRoleManagementPolicyRule';
+import { type UnifiedRoleManagementPolicyApprovalRule, type UnifiedRoleManagementPolicyAuthenticationContextRule, type UnifiedRoleManagementPolicyEnablementRule, type UnifiedRoleManagementPolicyExpirationRule, type UnifiedRoleManagementPolicyNotificationRule, type UnifiedRoleManagementPolicyRule } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

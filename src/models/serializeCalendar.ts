@@ -1,18 +1,18 @@
-import type {Calendar} from './calendar';
-import {CalendarColor} from './calendarColor';
-import type {CalendarPermission} from './calendarPermission';
-import type {EmailAddress} from './emailAddress';
-import type {Event} from './event';
-import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
-import {serializeCalendarPermission} from './serializeCalendarPermission';
-import {serializeEmailAddress} from './serializeEmailAddress';
-import {serializeEntity} from './serializeEntity';
-import {serializeEvent} from './serializeEvent';
-import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLegacyExtendedProperty';
-import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
-import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Calendar } from './calendar';
+import { CalendarColor } from './calendarColor';
+import { type CalendarPermission } from './calendarPermission';
+import { type EmailAddress } from './emailAddress';
+import { type Event } from './event';
+import { type MultiValueLegacyExtendedProperty } from './multiValueLegacyExtendedProperty';
+import { OnlineMeetingProviderType } from './onlineMeetingProviderType';
+import { serializeCalendarPermission } from './serializeCalendarPermission';
+import { serializeEmailAddress } from './serializeEmailAddress';
+import { serializeEntity } from './serializeEntity';
+import { serializeEvent } from './serializeEvent';
+import { serializeMultiValueLegacyExtendedProperty } from './serializeMultiValueLegacyExtendedProperty';
+import { serializeSingleValueLegacyExtendedProperty } from './serializeSingleValueLegacyExtendedProperty';
+import { type SingleValueLegacyExtendedProperty } from './singleValueLegacyExtendedProperty';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCalendar(writer: SerializationWriter, calendar: Calendar | undefined = {} as Calendar) : void {
         serializeEntity(writer, calendar)

@@ -1,5 +1,5 @@
-import {MailTipsType} from '../../../models/mailTipsType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { MailTipsType } from '../../../models/mailTipsType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface GetMailTipsPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
@@ -13,5 +13,5 @@ export interface GetMailTipsPostRequestBody extends AdditionalDataHolder, Parsab
     /**
      * The MailTipsOptions property
      */
-    mailTipsOptions?: MailTipsType | undefined;
+    mailTipsOptions?: MailTipsType[] | undefined;
 }

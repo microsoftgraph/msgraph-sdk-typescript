@@ -1,5 +1,5 @@
-import {WindowsHelloForBusinessMethodsRequestBuilderGetQueryParameters} from './windowsHelloForBusinessMethodsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WindowsHelloForBusinessMethodsRequestBuilderGetQueryParameters } from './windowsHelloForBusinessMethodsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WindowsHelloForBusinessMethodsRequestBuilderGetRequestConfiguration {
     /**

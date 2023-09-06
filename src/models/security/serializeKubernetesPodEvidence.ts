@@ -1,18 +1,18 @@
-import type {ContainerEvidence} from './containerEvidence';
-import type {Dictionary} from './dictionary';
-import type {IpEvidence} from './ipEvidence';
-import type {KubernetesControllerEvidence} from './kubernetesControllerEvidence';
-import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import type {KubernetesPodEvidence} from './kubernetesPodEvidence';
-import type {KubernetesServiceAccountEvidence} from './kubernetesServiceAccountEvidence';
-import {serializeAlertEvidence} from './serializeAlertEvidence';
-import {serializeContainerEvidence} from './serializeContainerEvidence';
-import {serializeDictionary} from './serializeDictionary';
-import {serializeIpEvidence} from './serializeIpEvidence';
-import {serializeKubernetesControllerEvidence} from './serializeKubernetesControllerEvidence';
-import {serializeKubernetesNamespaceEvidence} from './serializeKubernetesNamespaceEvidence';
-import {serializeKubernetesServiceAccountEvidence} from './serializeKubernetesServiceAccountEvidence';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ContainerEvidence } from './containerEvidence';
+import { type Dictionary } from './dictionary';
+import { type IpEvidence } from './ipEvidence';
+import { type KubernetesControllerEvidence } from './kubernetesControllerEvidence';
+import { type KubernetesNamespaceEvidence } from './kubernetesNamespaceEvidence';
+import { type KubernetesPodEvidence } from './kubernetesPodEvidence';
+import { type KubernetesServiceAccountEvidence } from './kubernetesServiceAccountEvidence';
+import { serializeAlertEvidence } from './serializeAlertEvidence';
+import { serializeContainerEvidence } from './serializeContainerEvidence';
+import { serializeDictionary } from './serializeDictionary';
+import { serializeIpEvidence } from './serializeIpEvidence';
+import { serializeKubernetesControllerEvidence } from './serializeKubernetesControllerEvidence';
+import { serializeKubernetesNamespaceEvidence } from './serializeKubernetesNamespaceEvidence';
+import { serializeKubernetesServiceAccountEvidence } from './serializeKubernetesServiceAccountEvidence';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeKubernetesPodEvidence(writer: SerializationWriter, kubernetesPodEvidence: KubernetesPodEvidence | undefined = {} as KubernetesPodEvidence) : void {
         serializeAlertEvidence(writer, kubernetesPodEvidence)

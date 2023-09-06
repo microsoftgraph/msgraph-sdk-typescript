@@ -1,8 +1,8 @@
-import type {Group} from '../../models/group';
-import {serializeBaseDeltaFunctionResponse} from '../../models/serializeBaseDeltaFunctionResponse';
-import {serializeGroup} from '../../models/serializeGroup';
-import type {DeltaResponse} from './deltaResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Group } from '../../models/group';
+import { serializeBaseDeltaFunctionResponse } from '../../models/serializeBaseDeltaFunctionResponse';
+import { serializeGroup } from '../../models/serializeGroup';
+import { type DeltaResponse } from './deltaResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeltaResponse(writer: SerializationWriter, deltaResponse: DeltaResponse | undefined = {} as DeltaResponse) : void {
         serializeBaseDeltaFunctionResponse(writer, deltaResponse)

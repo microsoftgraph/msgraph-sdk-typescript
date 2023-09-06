@@ -1,16 +1,15 @@
-import {createDeviceManagementExportJobFromDiscriminatorValue} from '../../../../models/createDeviceManagementExportJobFromDiscriminatorValue';
-import {deserializeIntoDeviceManagementExportJob} from '../../../../models/deserializeIntoDeviceManagementExportJob';
-import type {DeviceManagementExportJob} from '../../../../models/deviceManagementExportJob';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceManagementExportJob} from '../../../../models/serializeDeviceManagementExportJob';
-import {DeviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration} from './deviceManagementExportJobItemRequestBuilderGetRequestConfiguration';
-import {DeviceManagementExportJobItemRequestBuilderPatchRequestConfiguration} from './deviceManagementExportJobItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceManagementExportJobFromDiscriminatorValue } from '../../../../models/createDeviceManagementExportJobFromDiscriminatorValue';
+import { deserializeIntoDeviceManagementExportJob } from '../../../../models/deserializeIntoDeviceManagementExportJob';
+import { type DeviceManagementExportJob } from '../../../../models/deviceManagementExportJob';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceManagementExportJob } from '../../../../models/serializeDeviceManagementExportJob';
+import { type DeviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration } from './deviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration } from './deviceManagementExportJobItemRequestBuilderGetRequestConfiguration';
+import { type DeviceManagementExportJobItemRequestBuilderPatchRequestConfiguration } from './deviceManagementExportJobItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.

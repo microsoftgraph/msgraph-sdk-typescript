@@ -1,6 +1,6 @@
-import {RatingFranceMoviesType} from './ratingFranceMoviesType';
-import {RatingFranceTelevisionType} from './ratingFranceTelevisionType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { RatingFranceMoviesType } from './ratingFranceMoviesType';
+import { RatingFranceTelevisionType } from './ratingFranceTelevisionType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MediaContentRatingFrance extends AdditionalDataHolder, Parsable {
     /**

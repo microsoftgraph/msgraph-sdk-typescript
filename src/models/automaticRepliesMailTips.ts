@@ -1,6 +1,6 @@
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import type {LocaleInfo} from './localeInfo';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { type LocaleInfo } from './localeInfo';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AutomaticRepliesMailTips extends AdditionalDataHolder, Parsable {
     /**

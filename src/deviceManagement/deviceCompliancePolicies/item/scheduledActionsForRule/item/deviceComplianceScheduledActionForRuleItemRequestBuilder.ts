@@ -1,17 +1,16 @@
-import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from '../../../../../models/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
-import {deserializeIntoDeviceComplianceScheduledActionForRule} from '../../../../../models/deserializeIntoDeviceComplianceScheduledActionForRule';
-import type {DeviceComplianceScheduledActionForRule} from '../../../../../models/deviceComplianceScheduledActionForRule';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceComplianceScheduledActionForRule} from '../../../../../models/serializeDeviceComplianceScheduledActionForRule';
-import {DeviceComplianceScheduledActionForRuleItemRequestBuilderDeleteRequestConfiguration} from './deviceComplianceScheduledActionForRuleItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration} from './deviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration';
-import {DeviceComplianceScheduledActionForRuleItemRequestBuilderPatchRequestConfiguration} from './deviceComplianceScheduledActionForRuleItemRequestBuilderPatchRequestConfiguration';
-import {ScheduledActionConfigurationsRequestBuilder} from './scheduledActionConfigurations/scheduledActionConfigurationsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue } from '../../../../../models/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
+import { deserializeIntoDeviceComplianceScheduledActionForRule } from '../../../../../models/deserializeIntoDeviceComplianceScheduledActionForRule';
+import { type DeviceComplianceScheduledActionForRule } from '../../../../../models/deviceComplianceScheduledActionForRule';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceComplianceScheduledActionForRule } from '../../../../../models/serializeDeviceComplianceScheduledActionForRule';
+import { type DeviceComplianceScheduledActionForRuleItemRequestBuilderDeleteRequestConfiguration } from './deviceComplianceScheduledActionForRuleItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration } from './deviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration';
+import { type DeviceComplianceScheduledActionForRuleItemRequestBuilderPatchRequestConfiguration } from './deviceComplianceScheduledActionForRuleItemRequestBuilderPatchRequestConfiguration';
+import { ScheduledActionConfigurationsRequestBuilder } from './scheduledActionConfigurations/scheduledActionConfigurationsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.

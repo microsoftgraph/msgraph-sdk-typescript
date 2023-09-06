@@ -1,25 +1,25 @@
-import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
-import {EducationAddedStudentAction} from './educationAddedStudentAction';
-import type {EducationAssignment} from './educationAssignment';
-import type {EducationAssignmentGradeType} from './educationAssignmentGradeType';
-import type {EducationAssignmentRecipient} from './educationAssignmentRecipient';
-import type {EducationAssignmentResource} from './educationAssignmentResource';
-import {EducationAssignmentStatus} from './educationAssignmentStatus';
-import type {EducationCategory} from './educationCategory';
-import type {EducationItemBody} from './educationItemBody';
-import type {EducationRubric} from './educationRubric';
-import type {EducationSubmission} from './educationSubmission';
-import type {IdentitySet} from './identitySet';
-import {serializeEducationAssignmentGradeType} from './serializeEducationAssignmentGradeType';
-import {serializeEducationAssignmentRecipient} from './serializeEducationAssignmentRecipient';
-import {serializeEducationAssignmentResource} from './serializeEducationAssignmentResource';
-import {serializeEducationCategory} from './serializeEducationCategory';
-import {serializeEducationItemBody} from './serializeEducationItemBody';
-import {serializeEducationRubric} from './serializeEducationRubric';
-import {serializeEducationSubmission} from './serializeEducationSubmission';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { EducationAddedStudentAction } from './educationAddedStudentAction';
+import { EducationAddToCalendarOptions } from './educationAddToCalendarOptions';
+import { type EducationAssignment } from './educationAssignment';
+import { type EducationAssignmentGradeType } from './educationAssignmentGradeType';
+import { type EducationAssignmentRecipient } from './educationAssignmentRecipient';
+import { type EducationAssignmentResource } from './educationAssignmentResource';
+import { EducationAssignmentStatus } from './educationAssignmentStatus';
+import { type EducationCategory } from './educationCategory';
+import { type EducationItemBody } from './educationItemBody';
+import { type EducationRubric } from './educationRubric';
+import { type EducationSubmission } from './educationSubmission';
+import { type IdentitySet } from './identitySet';
+import { serializeEducationAssignmentGradeType } from './serializeEducationAssignmentGradeType';
+import { serializeEducationAssignmentRecipient } from './serializeEducationAssignmentRecipient';
+import { serializeEducationAssignmentResource } from './serializeEducationAssignmentResource';
+import { serializeEducationCategory } from './serializeEducationCategory';
+import { serializeEducationItemBody } from './serializeEducationItemBody';
+import { serializeEducationRubric } from './serializeEducationRubric';
+import { serializeEducationSubmission } from './serializeEducationSubmission';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEducationAssignment(writer: SerializationWriter, educationAssignment: EducationAssignment | undefined = {} as EducationAssignment) : void {
         serializeEntity(writer, educationAssignment)

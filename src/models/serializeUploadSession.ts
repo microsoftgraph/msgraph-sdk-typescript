@@ -1,5 +1,5 @@
-import type {UploadSession} from './uploadSession';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type UploadSession } from './uploadSession';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUploadSession(writer: SerializationWriter, uploadSession: UploadSession | undefined = {} as UploadSession) : void {
         writer.writeDateValue("expirationDateTime", uploadSession.expirationDateTime);

@@ -1,5 +1,5 @@
-import {GroupSettingTemplatesRequestBuilderGetQueryParameters} from './groupSettingTemplatesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GroupSettingTemplatesRequestBuilderGetQueryParameters } from './groupSettingTemplatesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GroupSettingTemplatesRequestBuilderGetRequestConfiguration {
     /**

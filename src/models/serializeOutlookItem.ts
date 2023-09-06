@@ -1,6 +1,6 @@
-import type {OutlookItem} from './outlookItem';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type OutlookItem } from './outlookItem';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOutlookItem(writer: SerializationWriter, outlookItem: OutlookItem | undefined = {} as OutlookItem) : void {
         serializeEntity(writer, outlookItem)

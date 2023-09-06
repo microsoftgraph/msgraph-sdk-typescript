@@ -1,14 +1,14 @@
-import {deserializeIntoIosLobAppAssignmentSettings} from './deserializeIntoIosLobAppAssignmentSettings';
-import {deserializeIntoIosStoreAppAssignmentSettings} from './deserializeIntoIosStoreAppAssignmentSettings';
-import {deserializeIntoIosVppAppAssignmentSettings} from './deserializeIntoIosVppAppAssignmentSettings';
-import {deserializeIntoMacOsLobAppAssignmentSettings} from './deserializeIntoMacOsLobAppAssignmentSettings';
-import {deserializeIntoMicrosoftStoreForBusinessAppAssignmentSettings} from './deserializeIntoMicrosoftStoreForBusinessAppAssignmentSettings';
-import {deserializeIntoMobileAppAssignmentSettings} from './deserializeIntoMobileAppAssignmentSettings';
-import {deserializeIntoWin32LobAppAssignmentSettings} from './deserializeIntoWin32LobAppAssignmentSettings';
-import {deserializeIntoWindowsAppXAppAssignmentSettings} from './deserializeIntoWindowsAppXAppAssignmentSettings';
-import {deserializeIntoWindowsUniversalAppXAppAssignmentSettings} from './deserializeIntoWindowsUniversalAppXAppAssignmentSettings';
-import {IosLobAppAssignmentSettings, IosStoreAppAssignmentSettings, IosVppAppAssignmentSettings, MacOsLobAppAssignmentSettings, MicrosoftStoreForBusinessAppAssignmentSettings, MobileAppAssignmentSettings, Win32LobAppAssignmentSettings, WindowsAppXAppAssignmentSettings, WindowsUniversalAppXAppAssignmentSettings} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIosLobAppAssignmentSettings } from './deserializeIntoIosLobAppAssignmentSettings';
+import { deserializeIntoIosStoreAppAssignmentSettings } from './deserializeIntoIosStoreAppAssignmentSettings';
+import { deserializeIntoIosVppAppAssignmentSettings } from './deserializeIntoIosVppAppAssignmentSettings';
+import { deserializeIntoMacOsLobAppAssignmentSettings } from './deserializeIntoMacOsLobAppAssignmentSettings';
+import { deserializeIntoMicrosoftStoreForBusinessAppAssignmentSettings } from './deserializeIntoMicrosoftStoreForBusinessAppAssignmentSettings';
+import { deserializeIntoMobileAppAssignmentSettings } from './deserializeIntoMobileAppAssignmentSettings';
+import { deserializeIntoWin32LobAppAssignmentSettings } from './deserializeIntoWin32LobAppAssignmentSettings';
+import { deserializeIntoWindowsAppXAppAssignmentSettings } from './deserializeIntoWindowsAppXAppAssignmentSettings';
+import { deserializeIntoWindowsUniversalAppXAppAssignmentSettings } from './deserializeIntoWindowsUniversalAppXAppAssignmentSettings';
+import { type IosLobAppAssignmentSettings, type IosStoreAppAssignmentSettings, type IosVppAppAssignmentSettings, type MacOsLobAppAssignmentSettings, type MicrosoftStoreForBusinessAppAssignmentSettings, type MobileAppAssignmentSettings, type Win32LobAppAssignmentSettings, type WindowsAppXAppAssignmentSettings, type WindowsUniversalAppXAppAssignmentSettings } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMobileAppAssignmentSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,18 +1,18 @@
-import {deserializeIntoAttributeRuleMembers} from './deserializeIntoAttributeRuleMembers';
-import {deserializeIntoConnectedOrganizationMembers} from './deserializeIntoConnectedOrganizationMembers';
-import {deserializeIntoExternalSponsors} from './deserializeIntoExternalSponsors';
-import {deserializeIntoGroupMembers} from './deserializeIntoGroupMembers';
-import {deserializeIntoInternalSponsors} from './deserializeIntoInternalSponsors';
-import {deserializeIntoRequestorManager} from './deserializeIntoRequestorManager';
-import {deserializeIntoSingleServicePrincipal} from './deserializeIntoSingleServicePrincipal';
-import {deserializeIntoSingleUser} from './deserializeIntoSingleUser';
-import {deserializeIntoSubjectSet} from './deserializeIntoSubjectSet';
-import {deserializeIntoTargetApplicationOwners} from './deserializeIntoTargetApplicationOwners';
-import {deserializeIntoTargetManager} from './deserializeIntoTargetManager';
-import {RuleBasedSubjectSet} from './identityGovernance/';
-import {deserializeIntoRuleBasedSubjectSet} from './identityGovernance/deserializeIntoRuleBasedSubjectSet';
-import {AttributeRuleMembers, ConnectedOrganizationMembers, ExternalSponsors, GroupMembers, InternalSponsors, RequestorManager, SingleServicePrincipal, SingleUser, SubjectSet, TargetApplicationOwners, TargetManager} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAttributeRuleMembers } from './deserializeIntoAttributeRuleMembers';
+import { deserializeIntoConnectedOrganizationMembers } from './deserializeIntoConnectedOrganizationMembers';
+import { deserializeIntoExternalSponsors } from './deserializeIntoExternalSponsors';
+import { deserializeIntoGroupMembers } from './deserializeIntoGroupMembers';
+import { deserializeIntoInternalSponsors } from './deserializeIntoInternalSponsors';
+import { deserializeIntoRequestorManager } from './deserializeIntoRequestorManager';
+import { deserializeIntoSingleServicePrincipal } from './deserializeIntoSingleServicePrincipal';
+import { deserializeIntoSingleUser } from './deserializeIntoSingleUser';
+import { deserializeIntoSubjectSet } from './deserializeIntoSubjectSet';
+import { deserializeIntoTargetApplicationOwners } from './deserializeIntoTargetApplicationOwners';
+import { deserializeIntoTargetManager } from './deserializeIntoTargetManager';
+import { type RuleBasedSubjectSet } from './identityGovernance/';
+import { deserializeIntoRuleBasedSubjectSet } from './identityGovernance/deserializeIntoRuleBasedSubjectSet';
+import { type AttributeRuleMembers, type ConnectedOrganizationMembers, type ExternalSponsors, type GroupMembers, type InternalSponsors, type RequestorManager, type SingleServicePrincipal, type SingleUser, type SubjectSet, type TargetApplicationOwners, type TargetManager } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createSubjectSetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

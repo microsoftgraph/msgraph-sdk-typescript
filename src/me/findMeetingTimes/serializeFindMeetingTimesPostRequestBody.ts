@@ -1,12 +1,11 @@
-import type {AttendeeBase} from '../../models/attendeeBase';
-import type {LocationConstraint} from '../../models/locationConstraint';
-import {serializeAttendeeBase} from '../../models/serializeAttendeeBase';
-import {serializeLocationConstraint} from '../../models/serializeLocationConstraint';
-import {serializeTimeConstraint} from '../../models/serializeTimeConstraint';
-import type {TimeConstraint} from '../../models/timeConstraint';
-import type {FindMeetingTimesPostRequestBody} from './findMeetingTimesPostRequestBody';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttendeeBase } from '../../models/attendeeBase';
+import { type LocationConstraint } from '../../models/locationConstraint';
+import { serializeAttendeeBase } from '../../models/serializeAttendeeBase';
+import { serializeLocationConstraint } from '../../models/serializeLocationConstraint';
+import { serializeTimeConstraint } from '../../models/serializeTimeConstraint';
+import { type TimeConstraint } from '../../models/timeConstraint';
+import { type FindMeetingTimesPostRequestBody } from './findMeetingTimesPostRequestBody';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeFindMeetingTimesPostRequestBody(writer: SerializationWriter, findMeetingTimesPostRequestBody: FindMeetingTimesPostRequestBody | undefined = {} as FindMeetingTimesPostRequestBody) : void {
         writer.writeCollectionOfObjectValues<AttendeeBase>("attendees", findMeetingTimesPostRequestBody.attendees, serializeAttendeeBase);

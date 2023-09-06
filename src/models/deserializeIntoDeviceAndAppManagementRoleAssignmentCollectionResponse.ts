@@ -1,9 +1,9 @@
-import {createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue} from './createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {DeviceAndAppManagementRoleAssignment} from './deviceAndAppManagementRoleAssignment';
-import type {DeviceAndAppManagementRoleAssignmentCollectionResponse} from './deviceAndAppManagementRoleAssignmentCollectionResponse';
-import {serializeDeviceAndAppManagementRoleAssignment} from './serializeDeviceAndAppManagementRoleAssignment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue } from './createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type DeviceAndAppManagementRoleAssignment } from './deviceAndAppManagementRoleAssignment';
+import { type DeviceAndAppManagementRoleAssignmentCollectionResponse } from './deviceAndAppManagementRoleAssignmentCollectionResponse';
+import { serializeDeviceAndAppManagementRoleAssignment } from './serializeDeviceAndAppManagementRoleAssignment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceAndAppManagementRoleAssignmentCollectionResponse(deviceAndAppManagementRoleAssignmentCollectionResponse: DeviceAndAppManagementRoleAssignmentCollectionResponse | undefined = {} as DeviceAndAppManagementRoleAssignmentCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

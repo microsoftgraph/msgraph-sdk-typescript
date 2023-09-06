@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {createUnifiedGroupSourceFromDiscriminatorValue} from '../../../../../../../../models/security/createUnifiedGroupSourceFromDiscriminatorValue';
-import {deserializeIntoUnifiedGroupSource} from '../../../../../../../../models/security/deserializeIntoUnifiedGroupSource';
-import {serializeUnifiedGroupSource} from '../../../../../../../../models/security/serializeUnifiedGroupSource';
-import type {UnifiedGroupSource} from '../../../../../../../../models/security/unifiedGroupSource';
-import {GroupRequestBuilder} from './group/groupRequestBuilder';
-import {UnifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration} from './unifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration';
-import {UnifiedGroupSourceItemRequestBuilderGetRequestConfiguration} from './unifiedGroupSourceItemRequestBuilderGetRequestConfiguration';
-import {UnifiedGroupSourceItemRequestBuilderPatchRequestConfiguration} from './unifiedGroupSourceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { createUnifiedGroupSourceFromDiscriminatorValue } from '../../../../../../../../models/security/createUnifiedGroupSourceFromDiscriminatorValue';
+import { deserializeIntoUnifiedGroupSource } from '../../../../../../../../models/security/deserializeIntoUnifiedGroupSource';
+import { serializeUnifiedGroupSource } from '../../../../../../../../models/security/serializeUnifiedGroupSource';
+import { type UnifiedGroupSource } from '../../../../../../../../models/security/unifiedGroupSource';
+import { GroupRequestBuilder } from './group/groupRequestBuilder';
+import { type UnifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration } from './unifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration';
+import { type UnifiedGroupSourceItemRequestBuilderGetRequestConfiguration } from './unifiedGroupSourceItemRequestBuilderGetRequestConfiguration';
+import { type UnifiedGroupSourceItemRequestBuilderPatchRequestConfiguration } from './unifiedGroupSourceItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.

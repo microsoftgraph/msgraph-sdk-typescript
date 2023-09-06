@@ -1,5 +1,5 @@
-import {TelecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters} from './telecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TelecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters } from './telecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TelecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration {
     /**

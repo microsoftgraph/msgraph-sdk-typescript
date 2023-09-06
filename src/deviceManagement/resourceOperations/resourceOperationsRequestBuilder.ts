@@ -1,19 +1,18 @@
-import {ResourceOperationCollectionResponse} from '../../models/';
-import {createResourceOperationCollectionResponseFromDiscriminatorValue} from '../../models/createResourceOperationCollectionResponseFromDiscriminatorValue';
-import {createResourceOperationFromDiscriminatorValue} from '../../models/createResourceOperationFromDiscriminatorValue';
-import {deserializeIntoResourceOperation} from '../../models/deserializeIntoResourceOperation';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {ResourceOperation} from '../../models/resourceOperation';
-import {serializeResourceOperation} from '../../models/serializeResourceOperation';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ResourceOperationItemRequestBuilder} from './item/resourceOperationItemRequestBuilder';
-import {ResourceOperationsRequestBuilderGetRequestConfiguration} from './resourceOperationsRequestBuilderGetRequestConfiguration';
-import {ResourceOperationsRequestBuilderPostRequestConfiguration} from './resourceOperationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ResourceOperationCollectionResponse } from '../../models/';
+import { createResourceOperationCollectionResponseFromDiscriminatorValue } from '../../models/createResourceOperationCollectionResponseFromDiscriminatorValue';
+import { createResourceOperationFromDiscriminatorValue } from '../../models/createResourceOperationFromDiscriminatorValue';
+import { deserializeIntoResourceOperation } from '../../models/deserializeIntoResourceOperation';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type ResourceOperation } from '../../models/resourceOperation';
+import { serializeResourceOperation } from '../../models/serializeResourceOperation';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ResourceOperationItemRequestBuilder } from './item/resourceOperationItemRequestBuilder';
+import { type ResourceOperationsRequestBuilderGetRequestConfiguration } from './resourceOperationsRequestBuilderGetRequestConfiguration';
+import { type ResourceOperationsRequestBuilderPostRequestConfiguration } from './resourceOperationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity.

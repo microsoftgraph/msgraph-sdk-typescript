@@ -1,5 +1,5 @@
-import {AssignmentsRequestBuilderGetQueryParameters} from './assignmentsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AssignmentsRequestBuilderGetQueryParameters } from './assignmentsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AssignmentsRequestBuilderGetRequestConfiguration {
     /**

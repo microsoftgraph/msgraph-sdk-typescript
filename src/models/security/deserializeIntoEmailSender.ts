@@ -1,5 +1,5 @@
-import type {EmailSender} from './emailSender';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EmailSender } from './emailSender';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEmailSender(emailSender: EmailSender | undefined = {} as EmailSender) : Record<string, (node: ParseNode) => void> {
     return {

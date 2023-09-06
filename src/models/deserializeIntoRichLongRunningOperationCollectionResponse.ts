@@ -1,9 +1,9 @@
-import {createRichLongRunningOperationFromDiscriminatorValue} from './createRichLongRunningOperationFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {RichLongRunningOperation} from './richLongRunningOperation';
-import type {RichLongRunningOperationCollectionResponse} from './richLongRunningOperationCollectionResponse';
-import {serializeRichLongRunningOperation} from './serializeRichLongRunningOperation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createRichLongRunningOperationFromDiscriminatorValue } from './createRichLongRunningOperationFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type RichLongRunningOperation } from './richLongRunningOperation';
+import { type RichLongRunningOperationCollectionResponse } from './richLongRunningOperationCollectionResponse';
+import { serializeRichLongRunningOperation } from './serializeRichLongRunningOperation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRichLongRunningOperationCollectionResponse(richLongRunningOperationCollectionResponse: RichLongRunningOperationCollectionResponse | undefined = {} as RichLongRunningOperationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

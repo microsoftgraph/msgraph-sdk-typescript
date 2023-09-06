@@ -1,7 +1,7 @@
-import {CalendarRoleType} from '../../../../../models/calendarRoleType';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import type {AllowedCalendarSharingRolesWithUserResponse} from './allowedCalendarSharingRolesWithUserResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { CalendarRoleType } from '../../../../../models/calendarRoleType';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { type AllowedCalendarSharingRolesWithUserResponse } from './allowedCalendarSharingRolesWithUserResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAllowedCalendarSharingRolesWithUserResponse(allowedCalendarSharingRolesWithUserResponse: AllowedCalendarSharingRolesWithUserResponse | undefined = {} as AllowedCalendarSharingRolesWithUserResponse) : Record<string, (node: ParseNode) => void> {
     return {

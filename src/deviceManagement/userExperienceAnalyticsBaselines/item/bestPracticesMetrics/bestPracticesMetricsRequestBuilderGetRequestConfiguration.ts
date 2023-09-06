@@ -1,5 +1,5 @@
-import {BestPracticesMetricsRequestBuilderGetQueryParameters} from './bestPracticesMetricsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BestPracticesMetricsRequestBuilderGetQueryParameters } from './bestPracticesMetricsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BestPracticesMetricsRequestBuilderGetRequestConfiguration {
     /**

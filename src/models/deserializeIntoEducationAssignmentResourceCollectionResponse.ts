@@ -1,9 +1,9 @@
-import {createEducationAssignmentResourceFromDiscriminatorValue} from './createEducationAssignmentResourceFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {EducationAssignmentResource} from './educationAssignmentResource';
-import type {EducationAssignmentResourceCollectionResponse} from './educationAssignmentResourceCollectionResponse';
-import {serializeEducationAssignmentResource} from './serializeEducationAssignmentResource';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createEducationAssignmentResourceFromDiscriminatorValue } from './createEducationAssignmentResourceFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type EducationAssignmentResource } from './educationAssignmentResource';
+import { type EducationAssignmentResourceCollectionResponse } from './educationAssignmentResourceCollectionResponse';
+import { serializeEducationAssignmentResource } from './serializeEducationAssignmentResource';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationAssignmentResourceCollectionResponse(educationAssignmentResourceCollectionResponse: EducationAssignmentResourceCollectionResponse | undefined = {} as EducationAssignmentResourceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

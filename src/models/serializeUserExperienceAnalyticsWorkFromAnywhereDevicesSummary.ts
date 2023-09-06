@@ -1,13 +1,13 @@
-import {serializeUserExperienceAnalyticsAutopilotDevicesSummary} from './serializeUserExperienceAnalyticsAutopilotDevicesSummary';
-import {serializeUserExperienceAnalyticsCloudIdentityDevicesSummary} from './serializeUserExperienceAnalyticsCloudIdentityDevicesSummary';
-import {serializeUserExperienceAnalyticsCloudManagementDevicesSummary} from './serializeUserExperienceAnalyticsCloudManagementDevicesSummary';
-import {serializeUserExperienceAnalyticsWindows10DevicesSummary} from './serializeUserExperienceAnalyticsWindows10DevicesSummary';
-import type {UserExperienceAnalyticsAutopilotDevicesSummary} from './userExperienceAnalyticsAutopilotDevicesSummary';
-import type {UserExperienceAnalyticsCloudIdentityDevicesSummary} from './userExperienceAnalyticsCloudIdentityDevicesSummary';
-import type {UserExperienceAnalyticsCloudManagementDevicesSummary} from './userExperienceAnalyticsCloudManagementDevicesSummary';
-import type {UserExperienceAnalyticsWindows10DevicesSummary} from './userExperienceAnalyticsWindows10DevicesSummary';
-import type {UserExperienceAnalyticsWorkFromAnywhereDevicesSummary} from './userExperienceAnalyticsWorkFromAnywhereDevicesSummary';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeUserExperienceAnalyticsAutopilotDevicesSummary } from './serializeUserExperienceAnalyticsAutopilotDevicesSummary';
+import { serializeUserExperienceAnalyticsCloudIdentityDevicesSummary } from './serializeUserExperienceAnalyticsCloudIdentityDevicesSummary';
+import { serializeUserExperienceAnalyticsCloudManagementDevicesSummary } from './serializeUserExperienceAnalyticsCloudManagementDevicesSummary';
+import { serializeUserExperienceAnalyticsWindows10DevicesSummary } from './serializeUserExperienceAnalyticsWindows10DevicesSummary';
+import { type UserExperienceAnalyticsAutopilotDevicesSummary } from './userExperienceAnalyticsAutopilotDevicesSummary';
+import { type UserExperienceAnalyticsCloudIdentityDevicesSummary } from './userExperienceAnalyticsCloudIdentityDevicesSummary';
+import { type UserExperienceAnalyticsCloudManagementDevicesSummary } from './userExperienceAnalyticsCloudManagementDevicesSummary';
+import { type UserExperienceAnalyticsWindows10DevicesSummary } from './userExperienceAnalyticsWindows10DevicesSummary';
+import { type UserExperienceAnalyticsWorkFromAnywhereDevicesSummary } from './userExperienceAnalyticsWorkFromAnywhereDevicesSummary';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsWorkFromAnywhereDevicesSummary(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereDevicesSummary: UserExperienceAnalyticsWorkFromAnywhereDevicesSummary | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereDevicesSummary) : void {
         writer.writeObjectValue<UserExperienceAnalyticsAutopilotDevicesSummary>("autopilotDevicesSummary", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.autopilotDevicesSummary, serializeUserExperienceAnalyticsAutopilotDevicesSummary);

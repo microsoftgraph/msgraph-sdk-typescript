@@ -1,12 +1,12 @@
-import {createLoginPageLayoutConfigurationFromDiscriminatorValue} from './createLoginPageLayoutConfigurationFromDiscriminatorValue';
-import {createLoginPageTextVisibilitySettingsFromDiscriminatorValue} from './createLoginPageTextVisibilitySettingsFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {LoginPageLayoutConfiguration} from './loginPageLayoutConfiguration';
-import type {LoginPageTextVisibilitySettings} from './loginPageTextVisibilitySettings';
-import type {OrganizationalBrandingProperties} from './organizationalBrandingProperties';
-import {serializeLoginPageLayoutConfiguration} from './serializeLoginPageLayoutConfiguration';
-import {serializeLoginPageTextVisibilitySettings} from './serializeLoginPageTextVisibilitySettings';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createLoginPageLayoutConfigurationFromDiscriminatorValue } from './createLoginPageLayoutConfigurationFromDiscriminatorValue';
+import { createLoginPageTextVisibilitySettingsFromDiscriminatorValue } from './createLoginPageTextVisibilitySettingsFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type LoginPageLayoutConfiguration } from './loginPageLayoutConfiguration';
+import { type LoginPageTextVisibilitySettings } from './loginPageTextVisibilitySettings';
+import { type OrganizationalBrandingProperties } from './organizationalBrandingProperties';
+import { serializeLoginPageLayoutConfiguration } from './serializeLoginPageLayoutConfiguration';
+import { serializeLoginPageTextVisibilitySettings } from './serializeLoginPageTextVisibilitySettings';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOrganizationalBrandingProperties(organizationalBrandingProperties: OrganizationalBrandingProperties | undefined = {} as OrganizationalBrandingProperties) : Record<string, (node: ParseNode) => void> {
     return {

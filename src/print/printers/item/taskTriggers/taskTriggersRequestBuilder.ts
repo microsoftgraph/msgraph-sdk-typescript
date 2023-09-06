@@ -1,19 +1,18 @@
-import {PrintTaskTriggerCollectionResponse} from '../../../../models/';
-import {createPrintTaskTriggerCollectionResponseFromDiscriminatorValue} from '../../../../models/createPrintTaskTriggerCollectionResponseFromDiscriminatorValue';
-import {createPrintTaskTriggerFromDiscriminatorValue} from '../../../../models/createPrintTaskTriggerFromDiscriminatorValue';
-import {deserializeIntoPrintTaskTrigger} from '../../../../models/deserializeIntoPrintTaskTrigger';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {PrintTaskTrigger} from '../../../../models/printTaskTrigger';
-import {serializePrintTaskTrigger} from '../../../../models/serializePrintTaskTrigger';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {PrintTaskTriggerItemRequestBuilder} from './item/printTaskTriggerItemRequestBuilder';
-import {TaskTriggersRequestBuilderGetRequestConfiguration} from './taskTriggersRequestBuilderGetRequestConfiguration';
-import {TaskTriggersRequestBuilderPostRequestConfiguration} from './taskTriggersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PrintTaskTriggerCollectionResponse } from '../../../../models/';
+import { createPrintTaskTriggerCollectionResponseFromDiscriminatorValue } from '../../../../models/createPrintTaskTriggerCollectionResponseFromDiscriminatorValue';
+import { createPrintTaskTriggerFromDiscriminatorValue } from '../../../../models/createPrintTaskTriggerFromDiscriminatorValue';
+import { deserializeIntoPrintTaskTrigger } from '../../../../models/deserializeIntoPrintTaskTrigger';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type PrintTaskTrigger } from '../../../../models/printTaskTrigger';
+import { serializePrintTaskTrigger } from '../../../../models/serializePrintTaskTrigger';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { PrintTaskTriggerItemRequestBuilder } from './item/printTaskTriggerItemRequestBuilder';
+import { type TaskTriggersRequestBuilderGetRequestConfiguration } from './taskTriggersRequestBuilderGetRequestConfiguration';
+import { type TaskTriggersRequestBuilderPostRequestConfiguration } from './taskTriggersRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.

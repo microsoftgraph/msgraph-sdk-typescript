@@ -1,12 +1,11 @@
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {IntelligenceProfileIndicator} from '../../../../../../models/security/';
-import {createIntelligenceProfileIndicatorFromDiscriminatorValue} from '../../../../../../models/security/createIntelligenceProfileIndicatorFromDiscriminatorValue';
-import {IntelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type IntelligenceProfileIndicator } from '../../../../../../models/security/';
+import { createIntelligenceProfileIndicatorFromDiscriminatorValue } from '../../../../../../models/security/createIntelligenceProfileIndicatorFromDiscriminatorValue';
+import { type IntelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration } from './intelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.

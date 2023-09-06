@@ -1,9 +1,9 @@
-import {createDelegatedAdminRelationshipOperationFromDiscriminatorValue} from './createDelegatedAdminRelationshipOperationFromDiscriminatorValue';
-import type {DelegatedAdminRelationshipOperation} from './delegatedAdminRelationshipOperation';
-import type {DelegatedAdminRelationshipOperationCollectionResponse} from './delegatedAdminRelationshipOperationCollectionResponse';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeDelegatedAdminRelationshipOperation} from './serializeDelegatedAdminRelationshipOperation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDelegatedAdminRelationshipOperationFromDiscriminatorValue } from './createDelegatedAdminRelationshipOperationFromDiscriminatorValue';
+import { type DelegatedAdminRelationshipOperation } from './delegatedAdminRelationshipOperation';
+import { type DelegatedAdminRelationshipOperationCollectionResponse } from './delegatedAdminRelationshipOperationCollectionResponse';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeDelegatedAdminRelationshipOperation } from './serializeDelegatedAdminRelationshipOperation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDelegatedAdminRelationshipOperationCollectionResponse(delegatedAdminRelationshipOperationCollectionResponse: DelegatedAdminRelationshipOperationCollectionResponse | undefined = {} as DelegatedAdminRelationshipOperationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

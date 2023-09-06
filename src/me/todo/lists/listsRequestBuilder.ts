@@ -1,20 +1,19 @@
-import {TodoTaskListCollectionResponse} from '../../../models/';
-import {createTodoTaskListCollectionResponseFromDiscriminatorValue} from '../../../models/createTodoTaskListCollectionResponseFromDiscriminatorValue';
-import {createTodoTaskListFromDiscriminatorValue} from '../../../models/createTodoTaskListFromDiscriminatorValue';
-import {deserializeIntoTodoTaskList} from '../../../models/deserializeIntoTodoTaskList';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeTodoTaskList} from '../../../models/serializeTodoTaskList';
-import type {TodoTaskList} from '../../../models/todoTaskList';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {TodoTaskListItemRequestBuilder} from './item/todoTaskListItemRequestBuilder';
-import {ListsRequestBuilderGetRequestConfiguration} from './listsRequestBuilderGetRequestConfiguration';
-import {ListsRequestBuilderPostRequestConfiguration} from './listsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TodoTaskListCollectionResponse } from '../../../models/';
+import { createTodoTaskListCollectionResponseFromDiscriminatorValue } from '../../../models/createTodoTaskListCollectionResponseFromDiscriminatorValue';
+import { createTodoTaskListFromDiscriminatorValue } from '../../../models/createTodoTaskListFromDiscriminatorValue';
+import { deserializeIntoTodoTaskList } from '../../../models/deserializeIntoTodoTaskList';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeTodoTaskList } from '../../../models/serializeTodoTaskList';
+import { type TodoTaskList } from '../../../models/todoTaskList';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { TodoTaskListItemRequestBuilder } from './item/todoTaskListItemRequestBuilder';
+import { type ListsRequestBuilderGetRequestConfiguration } from './listsRequestBuilderGetRequestConfiguration';
+import { type ListsRequestBuilderPostRequestConfiguration } from './listsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.todo entity.

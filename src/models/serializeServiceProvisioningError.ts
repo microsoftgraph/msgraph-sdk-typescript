@@ -1,5 +1,5 @@
-import type {ServiceProvisioningError} from './serviceProvisioningError';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ServiceProvisioningError } from './serviceProvisioningError';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeServiceProvisioningError(writer: SerializationWriter, serviceProvisioningError: ServiceProvisioningError | undefined = {} as ServiceProvisioningError) : void {
         writer.writeDateValue("createdDateTime", serviceProvisioningError.createdDateTime);

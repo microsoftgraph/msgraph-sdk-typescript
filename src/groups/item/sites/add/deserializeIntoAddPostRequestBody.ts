@@ -1,8 +1,8 @@
-import {createSiteFromDiscriminatorValue} from '../../../../models/createSiteFromDiscriminatorValue';
-import {serializeSite} from '../../../../models/serializeSite';
-import type {Site} from '../../../../models/site';
-import type {AddPostRequestBody} from './addPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSiteFromDiscriminatorValue } from '../../../../models/createSiteFromDiscriminatorValue';
+import { serializeSite } from '../../../../models/serializeSite';
+import { type Site } from '../../../../models/site';
+import { type AddPostRequestBody } from './addPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAddPostRequestBody(addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

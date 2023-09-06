@@ -1,10 +1,10 @@
-import type {Attendee} from './attendee';
-import type {ResponseStatus} from './responseStatus';
-import {serializeAttendeeBase} from './serializeAttendeeBase';
-import {serializeResponseStatus} from './serializeResponseStatus';
-import {serializeTimeSlot} from './serializeTimeSlot';
-import type {TimeSlot} from './timeSlot';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Attendee } from './attendee';
+import { type ResponseStatus } from './responseStatus';
+import { serializeAttendeeBase } from './serializeAttendeeBase';
+import { serializeResponseStatus } from './serializeResponseStatus';
+import { serializeTimeSlot } from './serializeTimeSlot';
+import { type TimeSlot } from './timeSlot';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAttendee(writer: SerializationWriter, attendee: Attendee | undefined = {} as Attendee) : void {
         serializeAttendeeBase(writer, attendee)

@@ -1,16 +1,15 @@
-import type {ApprovalStage} from '../../../../../../models/approvalStage';
-import {createApprovalStageFromDiscriminatorValue} from '../../../../../../models/createApprovalStageFromDiscriminatorValue';
-import {deserializeIntoApprovalStage} from '../../../../../../models/deserializeIntoApprovalStage';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeApprovalStage} from '../../../../../../models/serializeApprovalStage';
-import {ApprovalStageItemRequestBuilderDeleteRequestConfiguration} from './approvalStageItemRequestBuilderDeleteRequestConfiguration';
-import {ApprovalStageItemRequestBuilderGetRequestConfiguration} from './approvalStageItemRequestBuilderGetRequestConfiguration';
-import {ApprovalStageItemRequestBuilderPatchRequestConfiguration} from './approvalStageItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ApprovalStage } from '../../../../../../models/approvalStage';
+import { createApprovalStageFromDiscriminatorValue } from '../../../../../../models/createApprovalStageFromDiscriminatorValue';
+import { deserializeIntoApprovalStage } from '../../../../../../models/deserializeIntoApprovalStage';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeApprovalStage } from '../../../../../../models/serializeApprovalStage';
+import { type ApprovalStageItemRequestBuilderDeleteRequestConfiguration } from './approvalStageItemRequestBuilderDeleteRequestConfiguration';
+import { type ApprovalStageItemRequestBuilderGetRequestConfiguration } from './approvalStageItemRequestBuilderGetRequestConfiguration';
+import { type ApprovalStageItemRequestBuilderPatchRequestConfiguration } from './approvalStageItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.approval entity.

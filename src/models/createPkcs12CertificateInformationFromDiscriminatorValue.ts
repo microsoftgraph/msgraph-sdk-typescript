@@ -1,6 +1,6 @@
-import {deserializeIntoPkcs12CertificateInformation} from './deserializeIntoPkcs12CertificateInformation';
-import {Pkcs12CertificateInformation} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPkcs12CertificateInformation } from './deserializeIntoPkcs12CertificateInformation';
+import { type Pkcs12CertificateInformation } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPkcs12CertificateInformationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,5 +1,5 @@
-import {ExternalGroupItemRequestBuilderGetQueryParameters} from './externalGroupItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExternalGroupItemRequestBuilderGetQueryParameters } from './externalGroupItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ExternalGroupItemRequestBuilderGetRequestConfiguration {
     /**

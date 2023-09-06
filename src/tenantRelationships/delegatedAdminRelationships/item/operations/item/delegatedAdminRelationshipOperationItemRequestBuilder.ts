@@ -1,16 +1,15 @@
-import {createDelegatedAdminRelationshipOperationFromDiscriminatorValue} from '../../../../../models/createDelegatedAdminRelationshipOperationFromDiscriminatorValue';
-import type {DelegatedAdminRelationshipOperation} from '../../../../../models/delegatedAdminRelationshipOperation';
-import {deserializeIntoDelegatedAdminRelationshipOperation} from '../../../../../models/deserializeIntoDelegatedAdminRelationshipOperation';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeDelegatedAdminRelationshipOperation} from '../../../../../models/serializeDelegatedAdminRelationshipOperation';
-import {DelegatedAdminRelationshipOperationItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminRelationshipOperationItemRequestBuilderDeleteRequestConfiguration';
-import {DelegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration} from './delegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration';
-import {DelegatedAdminRelationshipOperationItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminRelationshipOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDelegatedAdminRelationshipOperationFromDiscriminatorValue } from '../../../../../models/createDelegatedAdminRelationshipOperationFromDiscriminatorValue';
+import { type DelegatedAdminRelationshipOperation } from '../../../../../models/delegatedAdminRelationshipOperation';
+import { deserializeIntoDelegatedAdminRelationshipOperation } from '../../../../../models/deserializeIntoDelegatedAdminRelationshipOperation';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeDelegatedAdminRelationshipOperation } from '../../../../../models/serializeDelegatedAdminRelationshipOperation';
+import { type DelegatedAdminRelationshipOperationItemRequestBuilderDeleteRequestConfiguration } from './delegatedAdminRelationshipOperationItemRequestBuilderDeleteRequestConfiguration';
+import { type DelegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration } from './delegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration';
+import { type DelegatedAdminRelationshipOperationItemRequestBuilderPatchRequestConfiguration } from './delegatedAdminRelationshipOperationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.

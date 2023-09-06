@@ -1,5 +1,5 @@
-import {MetricValuesRequestBuilderGetQueryParameters} from './metricValuesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type MetricValuesRequestBuilderGetQueryParameters } from './metricValuesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MetricValuesRequestBuilderGetRequestConfiguration {
     /**

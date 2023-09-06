@@ -1,7 +1,7 @@
-import {PrintJobProcessingState} from './printJobProcessingState';
-import {PrintJobStateDetail} from './printJobStateDetail';
-import type {PrintJobStatus} from './printJobStatus';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { PrintJobProcessingState } from './printJobProcessingState';
+import { PrintJobStateDetail } from './printJobStateDetail';
+import { type PrintJobStatus } from './printJobStatus';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePrintJobStatus(writer: SerializationWriter, printJobStatus: PrintJobStatus | undefined = {} as PrintJobStatus) : void {
         writer.writeStringValue("description", printJobStatus.description);

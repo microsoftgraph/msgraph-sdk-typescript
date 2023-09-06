@@ -1,6 +1,6 @@
-import {Label} from './label';
-import {PropertyType} from './propertyType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { Label } from './label';
+import { PropertyType } from './propertyType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Property extends AdditionalDataHolder, Parsable {
     /**

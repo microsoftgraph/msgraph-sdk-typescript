@@ -1,15 +1,15 @@
-import {createServiceHealthFromDiscriminatorValue} from './createServiceHealthFromDiscriminatorValue';
-import {createServiceHealthIssueFromDiscriminatorValue} from './createServiceHealthIssueFromDiscriminatorValue';
-import {createServiceUpdateMessageFromDiscriminatorValue} from './createServiceUpdateMessageFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeServiceHealth} from './serializeServiceHealth';
-import {serializeServiceHealthIssue} from './serializeServiceHealthIssue';
-import {serializeServiceUpdateMessage} from './serializeServiceUpdateMessage';
-import type {ServiceAnnouncement} from './serviceAnnouncement';
-import type {ServiceHealth} from './serviceHealth';
-import type {ServiceHealthIssue} from './serviceHealthIssue';
-import type {ServiceUpdateMessage} from './serviceUpdateMessage';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createServiceHealthFromDiscriminatorValue } from './createServiceHealthFromDiscriminatorValue';
+import { createServiceHealthIssueFromDiscriminatorValue } from './createServiceHealthIssueFromDiscriminatorValue';
+import { createServiceUpdateMessageFromDiscriminatorValue } from './createServiceUpdateMessageFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeServiceHealth } from './serializeServiceHealth';
+import { serializeServiceHealthIssue } from './serializeServiceHealthIssue';
+import { serializeServiceUpdateMessage } from './serializeServiceUpdateMessage';
+import { type ServiceAnnouncement } from './serviceAnnouncement';
+import { type ServiceHealth } from './serviceHealth';
+import { type ServiceHealthIssue } from './serviceHealthIssue';
+import { type ServiceUpdateMessage } from './serviceUpdateMessage';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceAnnouncement(serviceAnnouncement: ServiceAnnouncement | undefined = {} as ServiceAnnouncement) : Record<string, (node: ParseNode) => void> {
     return {

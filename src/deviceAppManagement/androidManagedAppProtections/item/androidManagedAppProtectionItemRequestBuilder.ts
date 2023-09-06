@@ -1,19 +1,18 @@
-import type {AndroidManagedAppProtection} from '../../../models/androidManagedAppProtection';
-import {createAndroidManagedAppProtectionFromDiscriminatorValue} from '../../../models/createAndroidManagedAppProtectionFromDiscriminatorValue';
-import {deserializeIntoAndroidManagedAppProtection} from '../../../models/deserializeIntoAndroidManagedAppProtection';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAndroidManagedAppProtection} from '../../../models/serializeAndroidManagedAppProtection';
-import {AndroidManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration} from './androidManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration';
-import {AndroidManagedAppProtectionItemRequestBuilderGetRequestConfiguration} from './androidManagedAppProtectionItemRequestBuilderGetRequestConfiguration';
-import {AndroidManagedAppProtectionItemRequestBuilderPatchRequestConfiguration} from './androidManagedAppProtectionItemRequestBuilderPatchRequestConfiguration';
-import {AppsRequestBuilder} from './apps/appsRequestBuilder';
-import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSummaryRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AndroidManagedAppProtection } from '../../../models/androidManagedAppProtection';
+import { createAndroidManagedAppProtectionFromDiscriminatorValue } from '../../../models/createAndroidManagedAppProtectionFromDiscriminatorValue';
+import { deserializeIntoAndroidManagedAppProtection } from '../../../models/deserializeIntoAndroidManagedAppProtection';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAndroidManagedAppProtection } from '../../../models/serializeAndroidManagedAppProtection';
+import { type AndroidManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration } from './androidManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration';
+import { type AndroidManagedAppProtectionItemRequestBuilderGetRequestConfiguration } from './androidManagedAppProtectionItemRequestBuilderGetRequestConfiguration';
+import { type AndroidManagedAppProtectionItemRequestBuilderPatchRequestConfiguration } from './androidManagedAppProtectionItemRequestBuilderPatchRequestConfiguration';
+import { AppsRequestBuilder } from './apps/appsRequestBuilder';
+import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
+import { DeploymentSummaryRequestBuilder } from './deploymentSummary/deploymentSummaryRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.

@@ -1,17 +1,16 @@
-import type {ColumnDefinition} from '../../../../../../models/columnDefinition';
-import {createColumnDefinitionFromDiscriminatorValue} from '../../../../../../models/createColumnDefinitionFromDiscriminatorValue';
-import {deserializeIntoColumnDefinition} from '../../../../../../models/deserializeIntoColumnDefinition';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeColumnDefinition} from '../../../../../../models/serializeColumnDefinition';
-import {ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration} from './columnDefinitionItemRequestBuilderDeleteRequestConfiguration';
-import {ColumnDefinitionItemRequestBuilderGetRequestConfiguration} from './columnDefinitionItemRequestBuilderGetRequestConfiguration';
-import {ColumnDefinitionItemRequestBuilderPatchRequestConfiguration} from './columnDefinitionItemRequestBuilderPatchRequestConfiguration';
-import {SourceColumnRequestBuilder} from './sourceColumn/sourceColumnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ColumnDefinition } from '../../../../../../models/columnDefinition';
+import { createColumnDefinitionFromDiscriminatorValue } from '../../../../../../models/createColumnDefinitionFromDiscriminatorValue';
+import { deserializeIntoColumnDefinition } from '../../../../../../models/deserializeIntoColumnDefinition';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeColumnDefinition } from '../../../../../../models/serializeColumnDefinition';
+import { type ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration } from './columnDefinitionItemRequestBuilderDeleteRequestConfiguration';
+import { type ColumnDefinitionItemRequestBuilderGetRequestConfiguration } from './columnDefinitionItemRequestBuilderGetRequestConfiguration';
+import { type ColumnDefinitionItemRequestBuilderPatchRequestConfiguration } from './columnDefinitionItemRequestBuilderPatchRequestConfiguration';
+import { SourceColumnRequestBuilder } from './sourceColumn/sourceColumnRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columns property of the microsoft.graph.contentType entity.

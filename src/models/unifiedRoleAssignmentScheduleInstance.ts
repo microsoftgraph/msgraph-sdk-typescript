@@ -1,6 +1,6 @@
-import type {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
-import type {UnifiedRoleScheduleInstanceBase} from './unifiedRoleScheduleInstanceBase';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type UnifiedRoleEligibilityScheduleInstance } from './unifiedRoleEligibilityScheduleInstance';
+import { type UnifiedRoleScheduleInstanceBase } from './unifiedRoleScheduleInstanceBase';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleAssignmentScheduleInstance extends Parsable, UnifiedRoleScheduleInstanceBase {
     /**

@@ -1,5 +1,5 @@
-import {TriggersRequestBuilderGetQueryParameters} from './triggersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TriggersRequestBuilderGetQueryParameters } from './triggersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TriggersRequestBuilderGetRequestConfiguration {
     /**

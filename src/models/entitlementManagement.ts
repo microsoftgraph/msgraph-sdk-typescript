@@ -1,17 +1,17 @@
-import type {AccessPackage} from './accessPackage';
-import type {AccessPackageAssignment} from './accessPackageAssignment';
-import type {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
-import type {AccessPackageAssignmentRequest} from './accessPackageAssignmentRequest';
-import type {AccessPackageCatalog} from './accessPackageCatalog';
-import type {AccessPackageResource} from './accessPackageResource';
-import type {AccessPackageResourceEnvironment} from './accessPackageResourceEnvironment';
-import type {AccessPackageResourceRequest} from './accessPackageResourceRequest';
-import type {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
-import type {Approval} from './approval';
-import type {ConnectedOrganization} from './connectedOrganization';
-import type {EntitlementManagementSettings} from './entitlementManagementSettings';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessPackage } from './accessPackage';
+import { type AccessPackageAssignment } from './accessPackageAssignment';
+import { type AccessPackageAssignmentPolicy } from './accessPackageAssignmentPolicy';
+import { type AccessPackageAssignmentRequest } from './accessPackageAssignmentRequest';
+import { type AccessPackageCatalog } from './accessPackageCatalog';
+import { type AccessPackageResource } from './accessPackageResource';
+import { type AccessPackageResourceEnvironment } from './accessPackageResourceEnvironment';
+import { type AccessPackageResourceRequest } from './accessPackageResourceRequest';
+import { type AccessPackageResourceRoleScope } from './accessPackageResourceRoleScope';
+import { type Approval } from './approval';
+import { type ConnectedOrganization } from './connectedOrganization';
+import { type EntitlementManagementSettings } from './entitlementManagementSettings';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EntitlementManagement extends Entity, Parsable {
     /**

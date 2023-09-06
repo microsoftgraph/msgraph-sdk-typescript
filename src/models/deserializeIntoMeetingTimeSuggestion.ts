@@ -1,15 +1,15 @@
-import type {AttendeeAvailability} from './attendeeAvailability';
-import {createAttendeeAvailabilityFromDiscriminatorValue} from './createAttendeeAvailabilityFromDiscriminatorValue';
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import {createTimeSlotFromDiscriminatorValue} from './createTimeSlotFromDiscriminatorValue';
-import {FreeBusyStatus} from './freeBusyStatus';
-import type {Location} from './location';
-import type {MeetingTimeSuggestion} from './meetingTimeSuggestion';
-import {serializeAttendeeAvailability} from './serializeAttendeeAvailability';
-import {serializeLocation} from './serializeLocation';
-import {serializeTimeSlot} from './serializeTimeSlot';
-import type {TimeSlot} from './timeSlot';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttendeeAvailability } from './attendeeAvailability';
+import { createAttendeeAvailabilityFromDiscriminatorValue } from './createAttendeeAvailabilityFromDiscriminatorValue';
+import { createLocationFromDiscriminatorValue } from './createLocationFromDiscriminatorValue';
+import { createTimeSlotFromDiscriminatorValue } from './createTimeSlotFromDiscriminatorValue';
+import { FreeBusyStatus } from './freeBusyStatus';
+import { type Location } from './location';
+import { type MeetingTimeSuggestion } from './meetingTimeSuggestion';
+import { serializeAttendeeAvailability } from './serializeAttendeeAvailability';
+import { serializeLocation } from './serializeLocation';
+import { serializeTimeSlot } from './serializeTimeSlot';
+import { type TimeSlot } from './timeSlot';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMeetingTimeSuggestion(meetingTimeSuggestion: MeetingTimeSuggestion | undefined = {} as MeetingTimeSuggestion) : Record<string, (node: ParseNode) => void> {
     return {

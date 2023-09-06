@@ -1,5 +1,5 @@
-import {DeviceLogCollectionResponseItemRequestBuilderGetQueryParameters} from './deviceLogCollectionResponseItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceLogCollectionResponseItemRequestBuilderGetQueryParameters } from './deviceLogCollectionResponseItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceLogCollectionResponseItemRequestBuilderGetRequestConfiguration {
     /**

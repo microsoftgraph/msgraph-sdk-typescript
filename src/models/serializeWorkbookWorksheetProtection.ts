@@ -1,8 +1,8 @@
-import {serializeEntity} from './serializeEntity';
-import {serializeWorkbookWorksheetProtectionOptions} from './serializeWorkbookWorksheetProtectionOptions';
-import type {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
-import type {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { serializeWorkbookWorksheetProtectionOptions } from './serializeWorkbookWorksheetProtectionOptions';
+import { type WorkbookWorksheetProtection } from './workbookWorksheetProtection';
+import { type WorkbookWorksheetProtectionOptions } from './workbookWorksheetProtectionOptions';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookWorksheetProtection(writer: SerializationWriter, workbookWorksheetProtection: WorkbookWorksheetProtection | undefined = {} as WorkbookWorksheetProtection) : void {
         serializeEntity(writer, workbookWorksheetProtection)

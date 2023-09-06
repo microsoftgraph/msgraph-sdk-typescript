@@ -1,12 +1,12 @@
-import type {AccessPackageResource} from './accessPackageResource';
-import type {AccessPackageResourceEnvironment} from './accessPackageResourceEnvironment';
-import type {AccessPackageResourceRole} from './accessPackageResourceRole';
-import type {AccessPackageResourceScope} from './accessPackageResourceScope';
-import {serializeAccessPackageResourceEnvironment} from './serializeAccessPackageResourceEnvironment';
-import {serializeAccessPackageResourceRole} from './serializeAccessPackageResourceRole';
-import {serializeAccessPackageResourceScope} from './serializeAccessPackageResourceScope';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResource } from './accessPackageResource';
+import { type AccessPackageResourceEnvironment } from './accessPackageResourceEnvironment';
+import { type AccessPackageResourceRole } from './accessPackageResourceRole';
+import { type AccessPackageResourceScope } from './accessPackageResourceScope';
+import { serializeAccessPackageResourceEnvironment } from './serializeAccessPackageResourceEnvironment';
+import { serializeAccessPackageResourceRole } from './serializeAccessPackageResourceRole';
+import { serializeAccessPackageResourceScope } from './serializeAccessPackageResourceScope';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageResource(writer: SerializationWriter, accessPackageResource: AccessPackageResource | undefined = {} as AccessPackageResource) : void {
         serializeEntity(writer, accessPackageResource)

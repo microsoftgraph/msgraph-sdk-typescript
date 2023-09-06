@@ -1,5 +1,5 @@
-import {SortRequestBuilderGetQueryParameters} from './sortRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SortRequestBuilderGetQueryParameters } from './sortRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SortRequestBuilderGetRequestConfiguration {
     /**

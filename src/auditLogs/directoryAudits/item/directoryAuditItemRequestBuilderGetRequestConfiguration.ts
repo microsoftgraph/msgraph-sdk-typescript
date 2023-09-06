@@ -1,5 +1,5 @@
-import {DirectoryAuditItemRequestBuilderGetQueryParameters} from './directoryAuditItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryAuditItemRequestBuilderGetQueryParameters } from './directoryAuditItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DirectoryAuditItemRequestBuilderGetRequestConfiguration {
     /**

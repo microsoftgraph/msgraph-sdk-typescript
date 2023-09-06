@@ -1,8 +1,8 @@
-import {deserializeIntoAccessReviewApplyAction} from './deserializeIntoAccessReviewApplyAction';
-import {deserializeIntoDisableAndDeleteUserApplyAction} from './deserializeIntoDisableAndDeleteUserApplyAction';
-import {deserializeIntoRemoveAccessApplyAction} from './deserializeIntoRemoveAccessApplyAction';
-import {AccessReviewApplyAction, DisableAndDeleteUserApplyAction, RemoveAccessApplyAction} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessReviewApplyAction } from './deserializeIntoAccessReviewApplyAction';
+import { deserializeIntoDisableAndDeleteUserApplyAction } from './deserializeIntoDisableAndDeleteUserApplyAction';
+import { deserializeIntoRemoveAccessApplyAction } from './deserializeIntoRemoveAccessApplyAction';
+import { type AccessReviewApplyAction, type DisableAndDeleteUserApplyAction, type RemoveAccessApplyAction } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAccessReviewApplyActionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

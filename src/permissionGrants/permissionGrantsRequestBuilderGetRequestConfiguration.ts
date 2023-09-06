@@ -1,5 +1,5 @@
-import {PermissionGrantsRequestBuilderGetQueryParameters} from './permissionGrantsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PermissionGrantsRequestBuilderGetQueryParameters } from './permissionGrantsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PermissionGrantsRequestBuilderGetRequestConfiguration {
     /**

@@ -1,15 +1,15 @@
-import type {AttachmentBase} from './attachmentBase';
-import type {AttachmentSession} from './attachmentSession';
-import type {ChecklistItem} from './checklistItem';
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import type {Entity} from './entity';
-import type {Extension} from './extension';
-import {Importance} from './importance';
-import type {ItemBody} from './itemBody';
-import type {LinkedResource} from './linkedResource';
-import type {PatternedRecurrence} from './patternedRecurrence';
-import {TaskStatus} from './taskStatus';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AttachmentBase } from './attachmentBase';
+import { type AttachmentSession } from './attachmentSession';
+import { type ChecklistItem } from './checklistItem';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { type Entity } from './entity';
+import { type Extension } from './extension';
+import { Importance } from './importance';
+import { type ItemBody } from './itemBody';
+import { type LinkedResource } from './linkedResource';
+import { type PatternedRecurrence } from './patternedRecurrence';
+import { TaskStatus } from './taskStatus';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TodoTask extends Entity, Parsable {
     /**

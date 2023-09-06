@@ -1,6 +1,6 @@
-import {deserializeIntoPercentile_ExcPostRequestBody} from './deserializeIntoPercentile_ExcPostRequestBody';
-import {Percentile_ExcPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPercentile_ExcPostRequestBody } from './deserializeIntoPercentile_ExcPostRequestBody';
+import { type Percentile_ExcPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPercentile_ExcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

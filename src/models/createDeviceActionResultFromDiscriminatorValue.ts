@@ -1,11 +1,11 @@
-import {deserializeIntoDeleteUserFromSharedAppleDeviceActionResult} from './deserializeIntoDeleteUserFromSharedAppleDeviceActionResult';
-import {deserializeIntoDeviceActionResult} from './deserializeIntoDeviceActionResult';
-import {deserializeIntoLocateDeviceActionResult} from './deserializeIntoLocateDeviceActionResult';
-import {deserializeIntoRemoteLockActionResult} from './deserializeIntoRemoteLockActionResult';
-import {deserializeIntoResetPasscodeActionResult} from './deserializeIntoResetPasscodeActionResult';
-import {deserializeIntoWindowsDefenderScanActionResult} from './deserializeIntoWindowsDefenderScanActionResult';
-import {DeleteUserFromSharedAppleDeviceActionResult, DeviceActionResult, LocateDeviceActionResult, RemoteLockActionResult, ResetPasscodeActionResult, WindowsDefenderScanActionResult} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeleteUserFromSharedAppleDeviceActionResult } from './deserializeIntoDeleteUserFromSharedAppleDeviceActionResult';
+import { deserializeIntoDeviceActionResult } from './deserializeIntoDeviceActionResult';
+import { deserializeIntoLocateDeviceActionResult } from './deserializeIntoLocateDeviceActionResult';
+import { deserializeIntoRemoteLockActionResult } from './deserializeIntoRemoteLockActionResult';
+import { deserializeIntoResetPasscodeActionResult } from './deserializeIntoResetPasscodeActionResult';
+import { deserializeIntoWindowsDefenderScanActionResult } from './deserializeIntoWindowsDefenderScanActionResult';
+import { type DeleteUserFromSharedAppleDeviceActionResult, type DeviceActionResult, type LocateDeviceActionResult, type RemoteLockActionResult, type ResetPasscodeActionResult, type WindowsDefenderScanActionResult } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeviceActionResultFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

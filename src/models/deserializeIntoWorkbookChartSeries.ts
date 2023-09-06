@@ -1,12 +1,12 @@
-import {createWorkbookChartPointFromDiscriminatorValue} from './createWorkbookChartPointFromDiscriminatorValue';
-import {createWorkbookChartSeriesFormatFromDiscriminatorValue} from './createWorkbookChartSeriesFormatFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeWorkbookChartPoint} from './serializeWorkbookChartPoint';
-import {serializeWorkbookChartSeriesFormat} from './serializeWorkbookChartSeriesFormat';
-import type {WorkbookChartPoint} from './workbookChartPoint';
-import type {WorkbookChartSeries} from './workbookChartSeries';
-import type {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartPointFromDiscriminatorValue } from './createWorkbookChartPointFromDiscriminatorValue';
+import { createWorkbookChartSeriesFormatFromDiscriminatorValue } from './createWorkbookChartSeriesFormatFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeWorkbookChartPoint } from './serializeWorkbookChartPoint';
+import { serializeWorkbookChartSeriesFormat } from './serializeWorkbookChartSeriesFormat';
+import { type WorkbookChartPoint } from './workbookChartPoint';
+import { type WorkbookChartSeries } from './workbookChartSeries';
+import { type WorkbookChartSeriesFormat } from './workbookChartSeriesFormat';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartSeries(workbookChartSeries: WorkbookChartSeries | undefined = {} as WorkbookChartSeries) : Record<string, (node: ParseNode) => void> {
     return {

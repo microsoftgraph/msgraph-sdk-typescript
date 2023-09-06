@@ -1,8 +1,8 @@
-import type {RecentNotebook} from '../../../../models/recentNotebook';
-import {serializeBaseCollectionPaginationCountResponse} from '../../../../models/serializeBaseCollectionPaginationCountResponse';
-import {serializeRecentNotebook} from '../../../../models/serializeRecentNotebook';
-import type {GetRecentNotebooksWithIncludePersonalNotebooksResponse} from './getRecentNotebooksWithIncludePersonalNotebooksResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type RecentNotebook } from '../../../../models/recentNotebook';
+import { serializeBaseCollectionPaginationCountResponse } from '../../../../models/serializeBaseCollectionPaginationCountResponse';
+import { serializeRecentNotebook } from '../../../../models/serializeRecentNotebook';
+import { type GetRecentNotebooksWithIncludePersonalNotebooksResponse } from './getRecentNotebooksWithIncludePersonalNotebooksResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeGetRecentNotebooksWithIncludePersonalNotebooksResponse(writer: SerializationWriter, getRecentNotebooksWithIncludePersonalNotebooksResponse: GetRecentNotebooksWithIncludePersonalNotebooksResponse | undefined = {} as GetRecentNotebooksWithIncludePersonalNotebooksResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getRecentNotebooksWithIncludePersonalNotebooksResponse)

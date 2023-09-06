@@ -1,6 +1,6 @@
-import {deserializeIntoMidbPostRequestBody} from './deserializeIntoMidbPostRequestBody';
-import {MidbPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoMidbPostRequestBody } from './deserializeIntoMidbPostRequestBody';
+import { type MidbPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMidbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,5 +1,5 @@
-import {RiskDetail} from './riskDetail';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { RiskDetail } from './riskDetail';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RiskServicePrincipalActivity extends AdditionalDataHolder, Parsable {
     /**

@@ -1,8 +1,8 @@
-import {createFilterOperandFromDiscriminatorValue} from './createFilterOperandFromDiscriminatorValue';
-import type {FilterClause} from './filterClause';
-import type {FilterOperand} from './filterOperand';
-import {serializeFilterOperand} from './serializeFilterOperand';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createFilterOperandFromDiscriminatorValue } from './createFilterOperandFromDiscriminatorValue';
+import { type FilterClause } from './filterClause';
+import { type FilterOperand } from './filterOperand';
+import { serializeFilterOperand } from './serializeFilterOperand';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFilterClause(filterClause: FilterClause | undefined = {} as FilterClause) : Record<string, (node: ParseNode) => void> {
     return {

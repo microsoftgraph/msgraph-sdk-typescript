@@ -1,7 +1,6 @@
-import {MailboxSettingsRequestBuilder} from './mailboxSettings/mailboxSettingsRequestBuilder';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder} from '@microsoft/kiota-abstractions';
-import type {RequestAdapter} from '@microsoft/kiota-abstractions';
+import { MailboxSettingsRequestBuilder } from './mailboxSettings/mailboxSettingsRequestBuilder';
+import { RefRequestBuilder } from './ref/refRequestBuilder';
+import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /print/shares/{printerShare-id}/allowedUsers/{user-id}

@@ -1,5 +1,5 @@
-import type {DefaultUserRolePermissions} from './defaultUserRolePermissions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DefaultUserRolePermissions } from './defaultUserRolePermissions';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDefaultUserRolePermissions(defaultUserRolePermissions: DefaultUserRolePermissions | undefined = {} as DefaultUserRolePermissions) : Record<string, (node: ParseNode) => void> {
     return {

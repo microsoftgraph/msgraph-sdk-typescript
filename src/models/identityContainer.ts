@@ -1,10 +1,10 @@
-import type {B2xIdentityUserFlow} from './b2xIdentityUserFlow';
-import type {ConditionalAccessRoot} from './conditionalAccessRoot';
-import type {Entity} from './entity';
-import type {IdentityApiConnector} from './identityApiConnector';
-import type {IdentityProviderBase} from './identityProviderBase';
-import type {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type B2xIdentityUserFlow } from './b2xIdentityUserFlow';
+import { type ConditionalAccessRoot } from './conditionalAccessRoot';
+import { type Entity } from './entity';
+import { type IdentityApiConnector } from './identityApiConnector';
+import { type IdentityProviderBase } from './identityProviderBase';
+import { type IdentityUserFlowAttribute } from './identityUserFlowAttribute';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IdentityContainer extends Entity, Parsable {
     /**

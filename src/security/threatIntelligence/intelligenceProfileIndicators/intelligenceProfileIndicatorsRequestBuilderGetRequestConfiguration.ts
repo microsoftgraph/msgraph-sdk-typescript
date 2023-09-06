@@ -1,5 +1,5 @@
-import {IntelligenceProfileIndicatorsRequestBuilderGetQueryParameters} from './intelligenceProfileIndicatorsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IntelligenceProfileIndicatorsRequestBuilderGetQueryParameters } from './intelligenceProfileIndicatorsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IntelligenceProfileIndicatorsRequestBuilderGetRequestConfiguration {
     /**

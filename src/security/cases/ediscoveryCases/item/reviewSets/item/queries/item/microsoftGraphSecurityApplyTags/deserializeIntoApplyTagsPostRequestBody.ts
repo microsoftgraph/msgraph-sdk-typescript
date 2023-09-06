@@ -1,8 +1,8 @@
-import {createEdiscoveryReviewTagFromDiscriminatorValue} from '../../../../../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
-import type {EdiscoveryReviewTag} from '../../../../../../../../../models/security/ediscoveryReviewTag';
-import {serializeEdiscoveryReviewTag} from '../../../../../../../../../models/security/serializeEdiscoveryReviewTag';
-import type {ApplyTagsPostRequestBody} from './applyTagsPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createEdiscoveryReviewTagFromDiscriminatorValue } from '../../../../../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
+import { type EdiscoveryReviewTag } from '../../../../../../../../../models/security/ediscoveryReviewTag';
+import { serializeEdiscoveryReviewTag } from '../../../../../../../../../models/security/serializeEdiscoveryReviewTag';
+import { type ApplyTagsPostRequestBody } from './applyTagsPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoApplyTagsPostRequestBody(applyTagsPostRequestBody: ApplyTagsPostRequestBody | undefined = {} as ApplyTagsPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

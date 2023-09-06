@@ -1,20 +1,19 @@
-import {ContactCollectionResponse} from '../../../models/';
-import type {Contact} from '../../../models/contact';
-import {createContactCollectionResponseFromDiscriminatorValue} from '../../../models/createContactCollectionResponseFromDiscriminatorValue';
-import {createContactFromDiscriminatorValue} from '../../../models/createContactFromDiscriminatorValue';
-import {deserializeIntoContact} from '../../../models/deserializeIntoContact';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeContact} from '../../../models/serializeContact';
-import {ContactsRequestBuilderGetRequestConfiguration} from './contactsRequestBuilderGetRequestConfiguration';
-import {ContactsRequestBuilderPostRequestConfiguration} from './contactsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {ContactItemRequestBuilder} from './item/contactItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ContactCollectionResponse } from '../../../models/';
+import { type Contact } from '../../../models/contact';
+import { createContactCollectionResponseFromDiscriminatorValue } from '../../../models/createContactCollectionResponseFromDiscriminatorValue';
+import { createContactFromDiscriminatorValue } from '../../../models/createContactFromDiscriminatorValue';
+import { deserializeIntoContact } from '../../../models/deserializeIntoContact';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeContact } from '../../../models/serializeContact';
+import { type ContactsRequestBuilderGetRequestConfiguration } from './contactsRequestBuilderGetRequestConfiguration';
+import { type ContactsRequestBuilderPostRequestConfiguration } from './contactsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { ContactItemRequestBuilder } from './item/contactItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contacts property of the microsoft.graph.user entity.

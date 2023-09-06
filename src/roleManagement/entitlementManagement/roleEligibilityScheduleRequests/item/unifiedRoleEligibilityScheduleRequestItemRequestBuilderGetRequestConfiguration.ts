@@ -1,5 +1,5 @@
-import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters} from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters } from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration {
     /**

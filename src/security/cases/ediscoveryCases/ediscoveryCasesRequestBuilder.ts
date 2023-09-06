@@ -1,19 +1,18 @@
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {EdiscoveryCaseCollectionResponse} from '../../../models/security/';
-import {createEdiscoveryCaseCollectionResponseFromDiscriminatorValue} from '../../../models/security/createEdiscoveryCaseCollectionResponseFromDiscriminatorValue';
-import {createEdiscoveryCaseFromDiscriminatorValue} from '../../../models/security/createEdiscoveryCaseFromDiscriminatorValue';
-import {deserializeIntoEdiscoveryCase} from '../../../models/security/deserializeIntoEdiscoveryCase';
-import type {EdiscoveryCase} from '../../../models/security/ediscoveryCase';
-import {serializeEdiscoveryCase} from '../../../models/security/serializeEdiscoveryCase';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EdiscoveryCasesRequestBuilderGetRequestConfiguration} from './ediscoveryCasesRequestBuilderGetRequestConfiguration';
-import {EdiscoveryCasesRequestBuilderPostRequestConfiguration} from './ediscoveryCasesRequestBuilderPostRequestConfiguration';
-import {EdiscoveryCaseItemRequestBuilder} from './item/ediscoveryCaseItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type EdiscoveryCaseCollectionResponse } from '../../../models/security/';
+import { createEdiscoveryCaseCollectionResponseFromDiscriminatorValue } from '../../../models/security/createEdiscoveryCaseCollectionResponseFromDiscriminatorValue';
+import { createEdiscoveryCaseFromDiscriminatorValue } from '../../../models/security/createEdiscoveryCaseFromDiscriminatorValue';
+import { deserializeIntoEdiscoveryCase } from '../../../models/security/deserializeIntoEdiscoveryCase';
+import { type EdiscoveryCase } from '../../../models/security/ediscoveryCase';
+import { serializeEdiscoveryCase } from '../../../models/security/serializeEdiscoveryCase';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type EdiscoveryCasesRequestBuilderGetRequestConfiguration } from './ediscoveryCasesRequestBuilderGetRequestConfiguration';
+import { type EdiscoveryCasesRequestBuilderPostRequestConfiguration } from './ediscoveryCasesRequestBuilderPostRequestConfiguration';
+import { EdiscoveryCaseItemRequestBuilder } from './item/ediscoveryCaseItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.

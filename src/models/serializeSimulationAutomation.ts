@@ -1,11 +1,11 @@
-import type {EmailIdentity} from './emailIdentity';
-import {serializeEmailIdentity} from './serializeEmailIdentity';
-import {serializeEntity} from './serializeEntity';
-import {serializeSimulationAutomationRun} from './serializeSimulationAutomationRun';
-import type {SimulationAutomation} from './simulationAutomation';
-import type {SimulationAutomationRun} from './simulationAutomationRun';
-import {SimulationAutomationStatus} from './simulationAutomationStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EmailIdentity } from './emailIdentity';
+import { serializeEmailIdentity } from './serializeEmailIdentity';
+import { serializeEntity } from './serializeEntity';
+import { serializeSimulationAutomationRun } from './serializeSimulationAutomationRun';
+import { type SimulationAutomation } from './simulationAutomation';
+import { type SimulationAutomationRun } from './simulationAutomationRun';
+import { SimulationAutomationStatus } from './simulationAutomationStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSimulationAutomation(writer: SerializationWriter, simulationAutomation: SimulationAutomation | undefined = {} as SimulationAutomation) : void {
         serializeEntity(writer, simulationAutomation)

@@ -1,17 +1,16 @@
-import {createMeetingTimeSuggestionsResultFromDiscriminatorValue} from '../../../models/createMeetingTimeSuggestionsResultFromDiscriminatorValue';
-import {deserializeIntoMeetingTimeSuggestionsResult} from '../../../models/deserializeIntoMeetingTimeSuggestionsResult';
-import type {MeetingTimeSuggestionsResult} from '../../../models/meetingTimeSuggestionsResult';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeMeetingTimeSuggestionsResult} from '../../../models/serializeMeetingTimeSuggestionsResult';
-import {deserializeIntoFindMeetingTimesPostRequestBody} from './deserializeIntoFindMeetingTimesPostRequestBody';
-import type {FindMeetingTimesPostRequestBody} from './findMeetingTimesPostRequestBody';
-import {FindMeetingTimesRequestBuilderPostRequestConfiguration} from './findMeetingTimesRequestBuilderPostRequestConfiguration';
-import {serializeFindMeetingTimesPostRequestBody} from './serializeFindMeetingTimesPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMeetingTimeSuggestionsResultFromDiscriminatorValue } from '../../../models/createMeetingTimeSuggestionsResultFromDiscriminatorValue';
+import { deserializeIntoMeetingTimeSuggestionsResult } from '../../../models/deserializeIntoMeetingTimeSuggestionsResult';
+import { type MeetingTimeSuggestionsResult } from '../../../models/meetingTimeSuggestionsResult';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeMeetingTimeSuggestionsResult } from '../../../models/serializeMeetingTimeSuggestionsResult';
+import { deserializeIntoFindMeetingTimesPostRequestBody } from './deserializeIntoFindMeetingTimesPostRequestBody';
+import { type FindMeetingTimesPostRequestBody } from './findMeetingTimesPostRequestBody';
+import { type FindMeetingTimesRequestBuilderPostRequestConfiguration } from './findMeetingTimesRequestBuilderPostRequestConfiguration';
+import { serializeFindMeetingTimesPostRequestBody } from './serializeFindMeetingTimesPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the findMeetingTimes method.

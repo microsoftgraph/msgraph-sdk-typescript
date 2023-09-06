@@ -1,5 +1,5 @@
-import type {ChatMessageReactionIdentitySet} from './chatMessageReactionIdentitySet';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type ChatMessageReactionIdentitySet } from './chatMessageReactionIdentitySet';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ChatMessageReaction extends AdditionalDataHolder, Parsable {
     /**

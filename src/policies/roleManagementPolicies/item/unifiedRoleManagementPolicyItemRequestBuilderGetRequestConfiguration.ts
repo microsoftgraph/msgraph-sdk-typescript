@@ -1,5 +1,5 @@
-import {UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters} from './unifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters } from './unifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration {
     /**

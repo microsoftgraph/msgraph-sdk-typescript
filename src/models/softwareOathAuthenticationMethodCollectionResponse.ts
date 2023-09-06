@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {SoftwareOathAuthenticationMethod} from './softwareOathAuthenticationMethod';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type SoftwareOathAuthenticationMethod } from './softwareOathAuthenticationMethod';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SoftwareOathAuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

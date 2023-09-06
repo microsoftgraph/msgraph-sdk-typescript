@@ -1,19 +1,18 @@
-import {ContentSharingSessionCollectionResponse} from '../../../../models/';
-import type {ContentSharingSession} from '../../../../models/contentSharingSession';
-import {createContentSharingSessionCollectionResponseFromDiscriminatorValue} from '../../../../models/createContentSharingSessionCollectionResponseFromDiscriminatorValue';
-import {createContentSharingSessionFromDiscriminatorValue} from '../../../../models/createContentSharingSessionFromDiscriminatorValue';
-import {deserializeIntoContentSharingSession} from '../../../../models/deserializeIntoContentSharingSession';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeContentSharingSession} from '../../../../models/serializeContentSharingSession';
-import {ContentSharingSessionsRequestBuilderGetRequestConfiguration} from './contentSharingSessionsRequestBuilderGetRequestConfiguration';
-import {ContentSharingSessionsRequestBuilderPostRequestConfiguration} from './contentSharingSessionsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ContentSharingSessionItemRequestBuilder} from './item/contentSharingSessionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ContentSharingSessionCollectionResponse } from '../../../../models/';
+import { type ContentSharingSession } from '../../../../models/contentSharingSession';
+import { createContentSharingSessionCollectionResponseFromDiscriminatorValue } from '../../../../models/createContentSharingSessionCollectionResponseFromDiscriminatorValue';
+import { createContentSharingSessionFromDiscriminatorValue } from '../../../../models/createContentSharingSessionFromDiscriminatorValue';
+import { deserializeIntoContentSharingSession } from '../../../../models/deserializeIntoContentSharingSession';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeContentSharingSession } from '../../../../models/serializeContentSharingSession';
+import { type ContentSharingSessionsRequestBuilderGetRequestConfiguration } from './contentSharingSessionsRequestBuilderGetRequestConfiguration';
+import { type ContentSharingSessionsRequestBuilderPostRequestConfiguration } from './contentSharingSessionsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ContentSharingSessionItemRequestBuilder } from './item/contentSharingSessionItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.

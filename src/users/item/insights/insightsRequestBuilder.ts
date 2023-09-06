@@ -1,19 +1,18 @@
-import {createOfficeGraphInsightsFromDiscriminatorValue} from '../../../models/createOfficeGraphInsightsFromDiscriminatorValue';
-import {deserializeIntoOfficeGraphInsights} from '../../../models/deserializeIntoOfficeGraphInsights';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {OfficeGraphInsights} from '../../../models/officeGraphInsights';
-import {serializeOfficeGraphInsights} from '../../../models/serializeOfficeGraphInsights';
-import {InsightsRequestBuilderDeleteRequestConfiguration} from './insightsRequestBuilderDeleteRequestConfiguration';
-import {InsightsRequestBuilderGetRequestConfiguration} from './insightsRequestBuilderGetRequestConfiguration';
-import {InsightsRequestBuilderPatchRequestConfiguration} from './insightsRequestBuilderPatchRequestConfiguration';
-import {SharedRequestBuilder} from './shared/sharedRequestBuilder';
-import {TrendingRequestBuilder} from './trending/trendingRequestBuilder';
-import {UsedRequestBuilder} from './used/usedRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOfficeGraphInsightsFromDiscriminatorValue } from '../../../models/createOfficeGraphInsightsFromDiscriminatorValue';
+import { deserializeIntoOfficeGraphInsights } from '../../../models/deserializeIntoOfficeGraphInsights';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type OfficeGraphInsights } from '../../../models/officeGraphInsights';
+import { serializeOfficeGraphInsights } from '../../../models/serializeOfficeGraphInsights';
+import { type InsightsRequestBuilderDeleteRequestConfiguration } from './insightsRequestBuilderDeleteRequestConfiguration';
+import { type InsightsRequestBuilderGetRequestConfiguration } from './insightsRequestBuilderGetRequestConfiguration';
+import { type InsightsRequestBuilderPatchRequestConfiguration } from './insightsRequestBuilderPatchRequestConfiguration';
+import { SharedRequestBuilder } from './shared/sharedRequestBuilder';
+import { TrendingRequestBuilder } from './trending/trendingRequestBuilder';
+import { UsedRequestBuilder } from './used/usedRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the insights property of the microsoft.graph.user entity.

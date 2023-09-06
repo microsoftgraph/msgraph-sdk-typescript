@@ -1,5 +1,5 @@
-import {ScopedRoleMembershipItemRequestBuilderGetQueryParameters} from './scopedRoleMembershipItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ScopedRoleMembershipItemRequestBuilderGetQueryParameters } from './scopedRoleMembershipItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ScopedRoleMembershipItemRequestBuilderGetRequestConfiguration {
     /**

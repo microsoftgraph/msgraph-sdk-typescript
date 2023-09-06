@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from '../../../../models/baseCollectionPaginationCountResponse';
-import type {StaffAvailabilityItem} from '../../../../models/staffAvailabilityItem';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from '../../../../models/baseCollectionPaginationCountResponse';
+import { type StaffAvailabilityItem } from '../../../../models/staffAvailabilityItem';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface GetStaffAvailabilityResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

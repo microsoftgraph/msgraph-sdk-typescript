@@ -1,8 +1,8 @@
-import type {ExtensionSchemaProperty} from './extensionSchemaProperty';
-import type {SchemaExtension} from './schemaExtension';
-import {serializeEntity} from './serializeEntity';
-import {serializeExtensionSchemaProperty} from './serializeExtensionSchemaProperty';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ExtensionSchemaProperty } from './extensionSchemaProperty';
+import { type SchemaExtension } from './schemaExtension';
+import { serializeEntity } from './serializeEntity';
+import { serializeExtensionSchemaProperty } from './serializeExtensionSchemaProperty';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSchemaExtension(writer: SerializationWriter, schemaExtension: SchemaExtension | undefined = {} as SchemaExtension) : void {
         serializeEntity(writer, schemaExtension)

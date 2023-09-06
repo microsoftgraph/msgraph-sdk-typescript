@@ -1,17 +1,16 @@
-import type {AccessReviewHistoryDefinition} from '../../../../models/accessReviewHistoryDefinition';
-import {createAccessReviewHistoryDefinitionFromDiscriminatorValue} from '../../../../models/createAccessReviewHistoryDefinitionFromDiscriminatorValue';
-import {deserializeIntoAccessReviewHistoryDefinition} from '../../../../models/deserializeIntoAccessReviewHistoryDefinition';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessReviewHistoryDefinition} from '../../../../models/serializeAccessReviewHistoryDefinition';
-import {AccessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguration} from './accessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguration';
-import {AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration} from './accessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration';
-import {AccessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration} from './accessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration';
-import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessReviewHistoryDefinition } from '../../../../models/accessReviewHistoryDefinition';
+import { createAccessReviewHistoryDefinitionFromDiscriminatorValue } from '../../../../models/createAccessReviewHistoryDefinitionFromDiscriminatorValue';
+import { deserializeIntoAccessReviewHistoryDefinition } from '../../../../models/deserializeIntoAccessReviewHistoryDefinition';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessReviewHistoryDefinition } from '../../../../models/serializeAccessReviewHistoryDefinition';
+import { type AccessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguration } from './accessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguration';
+import { type AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration } from './accessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration';
+import { type AccessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration } from './accessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration';
+import { InstancesRequestBuilder } from './instances/instancesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.

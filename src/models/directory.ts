@@ -1,11 +1,11 @@
-import type {AdministrativeUnit} from './administrativeUnit';
-import type {AttributeSet} from './attributeSet';
-import type {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
-import type {DirectoryObject} from './directoryObject';
-import type {Entity} from './entity';
-import type {IdentityProviderBase} from './identityProviderBase';
-import type {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchronization';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AdministrativeUnit } from './administrativeUnit';
+import { type AttributeSet } from './attributeSet';
+import { type CustomSecurityAttributeDefinition } from './customSecurityAttributeDefinition';
+import { type DirectoryObject } from './directoryObject';
+import { type Entity } from './entity';
+import { type IdentityProviderBase } from './identityProviderBase';
+import { type OnPremisesDirectorySynchronization } from './onPremisesDirectorySynchronization';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Directory extends Entity, Parsable {
     /**

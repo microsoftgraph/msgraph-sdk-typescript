@@ -1,19 +1,18 @@
-import {CrossTenantAccessPolicyConfigurationPartnerCollectionResponse} from '../../../models/';
-import {createCrossTenantAccessPolicyConfigurationPartnerCollectionResponseFromDiscriminatorValue} from '../../../models/createCrossTenantAccessPolicyConfigurationPartnerCollectionResponseFromDiscriminatorValue';
-import {createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue} from '../../../models/createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue';
-import type {CrossTenantAccessPolicyConfigurationPartner} from '../../../models/crossTenantAccessPolicyConfigurationPartner';
-import {deserializeIntoCrossTenantAccessPolicyConfigurationPartner} from '../../../models/deserializeIntoCrossTenantAccessPolicyConfigurationPartner';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeCrossTenantAccessPolicyConfigurationPartner} from '../../../models/serializeCrossTenantAccessPolicyConfigurationPartner';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder} from './item/crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder';
-import {PartnersRequestBuilderGetRequestConfiguration} from './partnersRequestBuilderGetRequestConfiguration';
-import {PartnersRequestBuilderPostRequestConfiguration} from './partnersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CrossTenantAccessPolicyConfigurationPartnerCollectionResponse } from '../../../models/';
+import { createCrossTenantAccessPolicyConfigurationPartnerCollectionResponseFromDiscriminatorValue } from '../../../models/createCrossTenantAccessPolicyConfigurationPartnerCollectionResponseFromDiscriminatorValue';
+import { createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue } from '../../../models/createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue';
+import { type CrossTenantAccessPolicyConfigurationPartner } from '../../../models/crossTenantAccessPolicyConfigurationPartner';
+import { deserializeIntoCrossTenantAccessPolicyConfigurationPartner } from '../../../models/deserializeIntoCrossTenantAccessPolicyConfigurationPartner';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeCrossTenantAccessPolicyConfigurationPartner } from '../../../models/serializeCrossTenantAccessPolicyConfigurationPartner';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder } from './item/crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder';
+import { type PartnersRequestBuilderGetRequestConfiguration } from './partnersRequestBuilderGetRequestConfiguration';
+import { type PartnersRequestBuilderPostRequestConfiguration } from './partnersRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.

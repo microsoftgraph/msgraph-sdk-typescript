@@ -1,5 +1,5 @@
-import {ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters} from './reminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters } from './reminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration {
     /**

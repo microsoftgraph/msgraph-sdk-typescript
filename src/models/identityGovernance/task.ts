@@ -1,8 +1,8 @@
-import type {Entity} from '../entity';
-import type {KeyValuePair} from '../keyValuePair';
-import {LifecycleTaskCategory} from './lifecycleTaskCategory';
-import type {TaskProcessingResult} from './taskProcessingResult';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { type KeyValuePair } from '../keyValuePair';
+import { LifecycleTaskCategory } from './lifecycleTaskCategory';
+import { type TaskProcessingResult } from './taskProcessingResult';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Task extends Entity, Parsable {
     /**
@@ -12,7 +12,7 @@ export interface Task extends Entity, Parsable {
     /**
      * The category property
      */
-    category?: LifecycleTaskCategory | undefined;
+    category?: LifecycleTaskCategory[] | undefined;
     /**
      * A boolean value that specifies whether, if this task fails, the workflow will stop, and subsequent tasks will not run. Optional.
      */

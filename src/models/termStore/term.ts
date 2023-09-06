@@ -1,10 +1,10 @@
-import type {Entity} from '../entity';
-import type {KeyValue} from '../keyValue';
-import type {LocalizedDescription} from './localizedDescription';
-import type {LocalizedLabel} from './localizedLabel';
-import type {Relation} from './relation';
-import type {Set} from './set';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { type KeyValue } from '../keyValue';
+import { type LocalizedDescription } from './localizedDescription';
+import { type LocalizedLabel } from './localizedLabel';
+import { type Relation } from './relation';
+import { type Set } from './set';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Term extends Entity, Parsable {
     /**

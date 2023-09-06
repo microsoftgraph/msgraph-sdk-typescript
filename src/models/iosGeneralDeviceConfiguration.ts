@@ -1,20 +1,20 @@
-import type {AppListItem} from './appListItem';
-import {AppListType} from './appListType';
-import type {DeviceConfiguration} from './deviceConfiguration';
-import type {IosNetworkUsageRule} from './iosNetworkUsageRule';
-import type {MediaContentRatingAustralia} from './mediaContentRatingAustralia';
-import type {MediaContentRatingCanada} from './mediaContentRatingCanada';
-import type {MediaContentRatingFrance} from './mediaContentRatingFrance';
-import type {MediaContentRatingGermany} from './mediaContentRatingGermany';
-import type {MediaContentRatingIreland} from './mediaContentRatingIreland';
-import type {MediaContentRatingJapan} from './mediaContentRatingJapan';
-import type {MediaContentRatingNewZealand} from './mediaContentRatingNewZealand';
-import type {MediaContentRatingUnitedKingdom} from './mediaContentRatingUnitedKingdom';
-import type {MediaContentRatingUnitedStates} from './mediaContentRatingUnitedStates';
-import {RatingAppsType} from './ratingAppsType';
-import {RequiredPasswordType} from './requiredPasswordType';
-import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AppListItem } from './appListItem';
+import { AppListType } from './appListType';
+import { type DeviceConfiguration } from './deviceConfiguration';
+import { type IosNetworkUsageRule } from './iosNetworkUsageRule';
+import { type MediaContentRatingAustralia } from './mediaContentRatingAustralia';
+import { type MediaContentRatingCanada } from './mediaContentRatingCanada';
+import { type MediaContentRatingFrance } from './mediaContentRatingFrance';
+import { type MediaContentRatingGermany } from './mediaContentRatingGermany';
+import { type MediaContentRatingIreland } from './mediaContentRatingIreland';
+import { type MediaContentRatingJapan } from './mediaContentRatingJapan';
+import { type MediaContentRatingNewZealand } from './mediaContentRatingNewZealand';
+import { type MediaContentRatingUnitedKingdom } from './mediaContentRatingUnitedKingdom';
+import { type MediaContentRatingUnitedStates } from './mediaContentRatingUnitedStates';
+import { RatingAppsType } from './ratingAppsType';
+import { RequiredPasswordType } from './requiredPasswordType';
+import { WebBrowserCookieSettings } from './webBrowserCookieSettings';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IosGeneralDeviceConfiguration extends DeviceConfiguration, Parsable {
     /**

@@ -1,11 +1,11 @@
-import type {AccessPackageAssignmentRequestRequirements} from './accessPackageAssignmentRequestRequirements';
-import type {AccessPackageQuestion} from './accessPackageQuestion';
-import {createAccessPackageQuestionFromDiscriminatorValue} from './createAccessPackageQuestionFromDiscriminatorValue';
-import {createEntitlementManagementScheduleFromDiscriminatorValue} from './createEntitlementManagementScheduleFromDiscriminatorValue';
-import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
-import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
-import {serializeEntitlementManagementSchedule} from './serializeEntitlementManagementSchedule';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentRequestRequirements } from './accessPackageAssignmentRequestRequirements';
+import { type AccessPackageQuestion } from './accessPackageQuestion';
+import { createAccessPackageQuestionFromDiscriminatorValue } from './createAccessPackageQuestionFromDiscriminatorValue';
+import { createEntitlementManagementScheduleFromDiscriminatorValue } from './createEntitlementManagementScheduleFromDiscriminatorValue';
+import { type EntitlementManagementSchedule } from './entitlementManagementSchedule';
+import { serializeAccessPackageQuestion } from './serializeAccessPackageQuestion';
+import { serializeEntitlementManagementSchedule } from './serializeEntitlementManagementSchedule';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageAssignmentRequestRequirements(accessPackageAssignmentRequestRequirements: AccessPackageAssignmentRequestRequirements | undefined = {} as AccessPackageAssignmentRequestRequirements) : Record<string, (node: ParseNode) => void> {
     return {

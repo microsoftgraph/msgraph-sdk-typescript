@@ -1,6 +1,6 @@
-import type {ConditionalAccessFilter} from './conditionalAccessFilter';
-import {FilterMode} from './filterMode';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessFilter } from './conditionalAccessFilter';
+import { FilterMode } from './filterMode';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessFilter(writer: SerializationWriter, conditionalAccessFilter: ConditionalAccessFilter | undefined = {} as ConditionalAccessFilter) : void {
         writer.writeEnumValue<FilterMode>("mode", conditionalAccessFilter.mode);

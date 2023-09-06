@@ -1,6 +1,6 @@
-import {deserializeIntoThreatAssessmentRequest} from './deserializeIntoThreatAssessmentRequest';
-import type {FileAssessmentRequest} from './fileAssessmentRequest';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoThreatAssessmentRequest } from './deserializeIntoThreatAssessmentRequest';
+import { type FileAssessmentRequest } from './fileAssessmentRequest';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFileAssessmentRequest(fileAssessmentRequest: FileAssessmentRequest | undefined = {} as FileAssessmentRequest) : Record<string, (node: ParseNode) => void> {
     return {

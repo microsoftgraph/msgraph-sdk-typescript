@@ -1,18 +1,17 @@
-import {createWorkbookPivotTableFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookPivotTableFromDiscriminatorValue';
-import {deserializeIntoWorkbookPivotTable} from '../../../../../../../../../models/deserializeIntoWorkbookPivotTable';
-import {ODataError} from '../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookPivotTable} from '../../../../../../../../../models/serializeWorkbookPivotTable';
-import type {WorkbookPivotTable} from '../../../../../../../../../models/workbookPivotTable';
-import {RefreshRequestBuilder} from './refresh/refreshRequestBuilder';
-import {WorkbookPivotTableItemRequestBuilderDeleteRequestConfiguration} from './workbookPivotTableItemRequestBuilderDeleteRequestConfiguration';
-import {WorkbookPivotTableItemRequestBuilderGetRequestConfiguration} from './workbookPivotTableItemRequestBuilderGetRequestConfiguration';
-import {WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration} from './workbookPivotTableItemRequestBuilderPatchRequestConfiguration';
-import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookPivotTableFromDiscriminatorValue } from '../../../../../../../../../models/createWorkbookPivotTableFromDiscriminatorValue';
+import { deserializeIntoWorkbookPivotTable } from '../../../../../../../../../models/deserializeIntoWorkbookPivotTable';
+import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookPivotTable } from '../../../../../../../../../models/serializeWorkbookPivotTable';
+import { type WorkbookPivotTable } from '../../../../../../../../../models/workbookPivotTable';
+import { RefreshRequestBuilder } from './refresh/refreshRequestBuilder';
+import { type WorkbookPivotTableItemRequestBuilderDeleteRequestConfiguration } from './workbookPivotTableItemRequestBuilderDeleteRequestConfiguration';
+import { type WorkbookPivotTableItemRequestBuilderGetRequestConfiguration } from './workbookPivotTableItemRequestBuilderGetRequestConfiguration';
+import { type WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration } from './workbookPivotTableItemRequestBuilderPatchRequestConfiguration';
+import { WorksheetRequestBuilder } from './worksheet/worksheetRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.

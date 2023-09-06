@@ -1,16 +1,15 @@
-import {createPermissionGrantConditionSetFromDiscriminatorValue} from '../../../../../models/createPermissionGrantConditionSetFromDiscriminatorValue';
-import {deserializeIntoPermissionGrantConditionSet} from '../../../../../models/deserializeIntoPermissionGrantConditionSet';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import type {PermissionGrantConditionSet} from '../../../../../models/permissionGrantConditionSet';
-import {serializePermissionGrantConditionSet} from '../../../../../models/serializePermissionGrantConditionSet';
-import {PermissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration} from './permissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration';
-import {PermissionGrantConditionSetItemRequestBuilderGetRequestConfiguration} from './permissionGrantConditionSetItemRequestBuilderGetRequestConfiguration';
-import {PermissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration} from './permissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPermissionGrantConditionSetFromDiscriminatorValue } from '../../../../../models/createPermissionGrantConditionSetFromDiscriminatorValue';
+import { deserializeIntoPermissionGrantConditionSet } from '../../../../../models/deserializeIntoPermissionGrantConditionSet';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type PermissionGrantConditionSet } from '../../../../../models/permissionGrantConditionSet';
+import { serializePermissionGrantConditionSet } from '../../../../../models/serializePermissionGrantConditionSet';
+import { type PermissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration } from './permissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration';
+import { type PermissionGrantConditionSetItemRequestBuilderGetRequestConfiguration } from './permissionGrantConditionSetItemRequestBuilderGetRequestConfiguration';
+import { type PermissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration } from './permissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity.

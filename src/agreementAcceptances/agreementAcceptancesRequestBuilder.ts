@@ -1,18 +1,17 @@
-import {AgreementAcceptanceCollectionResponse} from '../models/';
-import type {AgreementAcceptance} from '../models/agreementAcceptance';
-import {createAgreementAcceptanceCollectionResponseFromDiscriminatorValue} from '../models/createAgreementAcceptanceCollectionResponseFromDiscriminatorValue';
-import {createAgreementAcceptanceFromDiscriminatorValue} from '../models/createAgreementAcceptanceFromDiscriminatorValue';
-import {deserializeIntoAgreementAcceptance} from '../models/deserializeIntoAgreementAcceptance';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeAgreementAcceptance} from '../models/serializeAgreementAcceptance';
-import {AgreementAcceptancesRequestBuilderGetRequestConfiguration} from './agreementAcceptancesRequestBuilderGetRequestConfiguration';
-import {AgreementAcceptancesRequestBuilderPostRequestConfiguration} from './agreementAcceptancesRequestBuilderPostRequestConfiguration';
-import {AgreementAcceptanceItemRequestBuilder} from './item/agreementAcceptanceItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AgreementAcceptanceCollectionResponse } from '../models/';
+import { type AgreementAcceptance } from '../models/agreementAcceptance';
+import { createAgreementAcceptanceCollectionResponseFromDiscriminatorValue } from '../models/createAgreementAcceptanceCollectionResponseFromDiscriminatorValue';
+import { createAgreementAcceptanceFromDiscriminatorValue } from '../models/createAgreementAcceptanceFromDiscriminatorValue';
+import { deserializeIntoAgreementAcceptance } from '../models/deserializeIntoAgreementAcceptance';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeAgreementAcceptance } from '../models/serializeAgreementAcceptance';
+import { type AgreementAcceptancesRequestBuilderGetRequestConfiguration } from './agreementAcceptancesRequestBuilderGetRequestConfiguration';
+import { type AgreementAcceptancesRequestBuilderPostRequestConfiguration } from './agreementAcceptancesRequestBuilderPostRequestConfiguration';
+import { AgreementAcceptanceItemRequestBuilder } from './item/agreementAcceptanceItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of agreementAcceptance entities.

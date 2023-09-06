@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import type {RoleAssignment} from './roleAssignment';
-import type {RolePermission} from './rolePermission';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type RoleAssignment } from './roleAssignment';
+import { type RolePermission } from './rolePermission';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RoleDefinition extends Entity, Parsable {
     /**

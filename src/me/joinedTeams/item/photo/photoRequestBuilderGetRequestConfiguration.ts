@@ -1,5 +1,5 @@
-import {PhotoRequestBuilderGetQueryParameters} from './photoRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PhotoRequestBuilderGetQueryParameters } from './photoRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PhotoRequestBuilderGetRequestConfiguration {
     /**

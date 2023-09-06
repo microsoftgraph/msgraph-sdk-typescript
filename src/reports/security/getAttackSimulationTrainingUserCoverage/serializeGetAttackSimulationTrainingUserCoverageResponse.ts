@@ -1,8 +1,8 @@
-import type {AttackSimulationTrainingUserCoverage} from '../../../models/attackSimulationTrainingUserCoverage';
-import {serializeAttackSimulationTrainingUserCoverage} from '../../../models/serializeAttackSimulationTrainingUserCoverage';
-import {serializeBaseCollectionPaginationCountResponse} from '../../../models/serializeBaseCollectionPaginationCountResponse';
-import type {GetAttackSimulationTrainingUserCoverageResponse} from './getAttackSimulationTrainingUserCoverageResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttackSimulationTrainingUserCoverage } from '../../../models/attackSimulationTrainingUserCoverage';
+import { serializeAttackSimulationTrainingUserCoverage } from '../../../models/serializeAttackSimulationTrainingUserCoverage';
+import { serializeBaseCollectionPaginationCountResponse } from '../../../models/serializeBaseCollectionPaginationCountResponse';
+import { type GetAttackSimulationTrainingUserCoverageResponse } from './getAttackSimulationTrainingUserCoverageResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeGetAttackSimulationTrainingUserCoverageResponse(writer: SerializationWriter, getAttackSimulationTrainingUserCoverageResponse: GetAttackSimulationTrainingUserCoverageResponse | undefined = {} as GetAttackSimulationTrainingUserCoverageResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationTrainingUserCoverageResponse)

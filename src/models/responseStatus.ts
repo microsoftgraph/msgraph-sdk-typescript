@@ -1,5 +1,5 @@
-import {ResponseType} from './responseType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ResponseType } from './responseType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ResponseStatus extends AdditionalDataHolder, Parsable {
     /**

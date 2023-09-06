@@ -1,5 +1,5 @@
-import type {TeamsTabConfiguration} from './teamsTabConfiguration';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type TeamsTabConfiguration } from './teamsTabConfiguration';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsTabConfiguration(teamsTabConfiguration: TeamsTabConfiguration | undefined = {} as TeamsTabConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

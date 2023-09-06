@@ -1,5 +1,5 @@
-import {ServiceUpdateMessageItemRequestBuilderGetQueryParameters} from './serviceUpdateMessageItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ServiceUpdateMessageItemRequestBuilderGetQueryParameters } from './serviceUpdateMessageItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ServiceUpdateMessageItemRequestBuilderGetRequestConfiguration {
     /**

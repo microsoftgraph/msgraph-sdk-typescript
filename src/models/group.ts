@@ -1,25 +1,25 @@
-import type {AppRoleAssignment} from './appRoleAssignment';
-import type {AssignedLabel} from './assignedLabel';
-import type {AssignedLicense} from './assignedLicense';
-import type {Calendar} from './calendar';
-import type {Conversation} from './conversation';
-import type {ConversationThread} from './conversationThread';
-import type {DirectoryObject} from './directoryObject';
-import type {Drive} from './drive';
-import type {Event} from './event';
-import type {Extension} from './extension';
-import type {GroupLifecyclePolicy} from './groupLifecyclePolicy';
-import type {GroupSetting} from './groupSetting';
-import type {LicenseProcessingState} from './licenseProcessingState';
-import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
-import type {Onenote} from './onenote';
-import type {PlannerGroup} from './plannerGroup';
-import type {ProfilePhoto} from './profilePhoto';
-import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
-import type {ServiceProvisioningError} from './serviceProvisioningError';
-import type {Site} from './site';
-import type {Team} from './team';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AppRoleAssignment } from './appRoleAssignment';
+import { type AssignedLabel } from './assignedLabel';
+import { type AssignedLicense } from './assignedLicense';
+import { type Calendar } from './calendar';
+import { type Conversation } from './conversation';
+import { type ConversationThread } from './conversationThread';
+import { type DirectoryObject } from './directoryObject';
+import { type Drive } from './drive';
+import { type Event } from './event';
+import { type Extension } from './extension';
+import { type GroupLifecyclePolicy } from './groupLifecyclePolicy';
+import { type GroupSetting } from './groupSetting';
+import { type LicenseProcessingState } from './licenseProcessingState';
+import { type Onenote } from './onenote';
+import { type OnPremisesProvisioningError } from './onPremisesProvisioningError';
+import { type PlannerGroup } from './plannerGroup';
+import { type ProfilePhoto } from './profilePhoto';
+import { type ResourceSpecificPermissionGrant } from './resourceSpecificPermissionGrant';
+import { type ServiceProvisioningError } from './serviceProvisioningError';
+import { type Site } from './site';
+import { type Team } from './team';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Group extends DirectoryObject, Parsable {
     /**

@@ -1,9 +1,9 @@
-import {createUserScopeTeamsAppInstallationFromDiscriminatorValue} from './createUserScopeTeamsAppInstallationFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeUserScopeTeamsAppInstallation} from './serializeUserScopeTeamsAppInstallation';
-import type {UserScopeTeamsAppInstallation} from './userScopeTeamsAppInstallation';
-import type {UserScopeTeamsAppInstallationCollectionResponse} from './userScopeTeamsAppInstallationCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUserScopeTeamsAppInstallationFromDiscriminatorValue } from './createUserScopeTeamsAppInstallationFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeUserScopeTeamsAppInstallation } from './serializeUserScopeTeamsAppInstallation';
+import { type UserScopeTeamsAppInstallation } from './userScopeTeamsAppInstallation';
+import { type UserScopeTeamsAppInstallationCollectionResponse } from './userScopeTeamsAppInstallationCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserScopeTeamsAppInstallationCollectionResponse(userScopeTeamsAppInstallationCollectionResponse: UserScopeTeamsAppInstallationCollectionResponse | undefined = {} as UserScopeTeamsAppInstallationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

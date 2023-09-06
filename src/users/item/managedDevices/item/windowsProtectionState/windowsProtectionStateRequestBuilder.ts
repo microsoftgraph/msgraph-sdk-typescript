@@ -1,17 +1,16 @@
-import {createWindowsProtectionStateFromDiscriminatorValue} from '../../../../../models/createWindowsProtectionStateFromDiscriminatorValue';
-import {deserializeIntoWindowsProtectionState} from '../../../../../models/deserializeIntoWindowsProtectionState';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeWindowsProtectionState} from '../../../../../models/serializeWindowsProtectionState';
-import type {WindowsProtectionState} from '../../../../../models/windowsProtectionState';
-import {DetectedMalwareStateRequestBuilder} from './detectedMalwareState/detectedMalwareStateRequestBuilder';
-import {WindowsProtectionStateRequestBuilderDeleteRequestConfiguration} from './windowsProtectionStateRequestBuilderDeleteRequestConfiguration';
-import {WindowsProtectionStateRequestBuilderGetRequestConfiguration} from './windowsProtectionStateRequestBuilderGetRequestConfiguration';
-import {WindowsProtectionStateRequestBuilderPatchRequestConfiguration} from './windowsProtectionStateRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWindowsProtectionStateFromDiscriminatorValue } from '../../../../../models/createWindowsProtectionStateFromDiscriminatorValue';
+import { deserializeIntoWindowsProtectionState } from '../../../../../models/deserializeIntoWindowsProtectionState';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeWindowsProtectionState } from '../../../../../models/serializeWindowsProtectionState';
+import { type WindowsProtectionState } from '../../../../../models/windowsProtectionState';
+import { DetectedMalwareStateRequestBuilder } from './detectedMalwareState/detectedMalwareStateRequestBuilder';
+import { type WindowsProtectionStateRequestBuilderDeleteRequestConfiguration } from './windowsProtectionStateRequestBuilderDeleteRequestConfiguration';
+import { type WindowsProtectionStateRequestBuilderGetRequestConfiguration } from './windowsProtectionStateRequestBuilderGetRequestConfiguration';
+import { type WindowsProtectionStateRequestBuilderPatchRequestConfiguration } from './windowsProtectionStateRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsProtectionState property of the microsoft.graph.managedDevice entity.

@@ -1,5 +1,5 @@
-import {CallRecordsRequestBuilderGetQueryParameters} from './callRecordsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CallRecordsRequestBuilderGetQueryParameters } from './callRecordsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CallRecordsRequestBuilderGetRequestConfiguration {
     /**

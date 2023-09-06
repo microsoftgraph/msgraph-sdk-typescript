@@ -1,9 +1,9 @@
-import type {ApiAuthenticationConfigurationBase} from './apiAuthenticationConfigurationBase';
-import {createApiAuthenticationConfigurationBaseFromDiscriminatorValue} from './createApiAuthenticationConfigurationBaseFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IdentityApiConnector} from './identityApiConnector';
-import {serializeApiAuthenticationConfigurationBase} from './serializeApiAuthenticationConfigurationBase';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ApiAuthenticationConfigurationBase } from './apiAuthenticationConfigurationBase';
+import { createApiAuthenticationConfigurationBaseFromDiscriminatorValue } from './createApiAuthenticationConfigurationBaseFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IdentityApiConnector } from './identityApiConnector';
+import { serializeApiAuthenticationConfigurationBase } from './serializeApiAuthenticationConfigurationBase';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityApiConnector(identityApiConnector: IdentityApiConnector | undefined = {} as IdentityApiConnector) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,15 +1,15 @@
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscriminatorValue';
-import {createFailureInfoFromDiscriminatorValue} from './createFailureInfoFromDiscriminatorValue';
-import {createMediaFromDiscriminatorValue} from './createMediaFromDiscriminatorValue';
-import type {Endpoint} from './endpoint';
-import type {FailureInfo} from './failureInfo';
-import type {Media} from './media';
-import type {Segment} from './segment';
-import {serializeEndpoint} from './serializeEndpoint';
-import {serializeFailureInfo} from './serializeFailureInfo';
-import {serializeMedia} from './serializeMedia';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { createEndpointFromDiscriminatorValue } from './createEndpointFromDiscriminatorValue';
+import { createFailureInfoFromDiscriminatorValue } from './createFailureInfoFromDiscriminatorValue';
+import { createMediaFromDiscriminatorValue } from './createMediaFromDiscriminatorValue';
+import { type Endpoint } from './endpoint';
+import { type FailureInfo } from './failureInfo';
+import { type Media } from './media';
+import { type Segment } from './segment';
+import { serializeEndpoint } from './serializeEndpoint';
+import { serializeFailureInfo } from './serializeFailureInfo';
+import { serializeMedia } from './serializeMedia';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSegment(segment: Segment | undefined = {} as Segment) : Record<string, (node: ParseNode) => void> {
     return {

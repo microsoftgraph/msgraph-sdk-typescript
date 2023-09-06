@@ -1,16 +1,15 @@
-import type {BookingCustomerBase} from '../../../../../models/bookingCustomerBase';
-import {createBookingCustomerBaseFromDiscriminatorValue} from '../../../../../models/createBookingCustomerBaseFromDiscriminatorValue';
-import {deserializeIntoBookingCustomerBase} from '../../../../../models/deserializeIntoBookingCustomerBase';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeBookingCustomerBase} from '../../../../../models/serializeBookingCustomerBase';
-import {BookingCustomerBaseItemRequestBuilderDeleteRequestConfiguration} from './bookingCustomerBaseItemRequestBuilderDeleteRequestConfiguration';
-import {BookingCustomerBaseItemRequestBuilderGetRequestConfiguration} from './bookingCustomerBaseItemRequestBuilderGetRequestConfiguration';
-import {BookingCustomerBaseItemRequestBuilderPatchRequestConfiguration} from './bookingCustomerBaseItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BookingCustomerBase } from '../../../../../models/bookingCustomerBase';
+import { createBookingCustomerBaseFromDiscriminatorValue } from '../../../../../models/createBookingCustomerBaseFromDiscriminatorValue';
+import { deserializeIntoBookingCustomerBase } from '../../../../../models/deserializeIntoBookingCustomerBase';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeBookingCustomerBase } from '../../../../../models/serializeBookingCustomerBase';
+import { type BookingCustomerBaseItemRequestBuilderDeleteRequestConfiguration } from './bookingCustomerBaseItemRequestBuilderDeleteRequestConfiguration';
+import { type BookingCustomerBaseItemRequestBuilderGetRequestConfiguration } from './bookingCustomerBaseItemRequestBuilderGetRequestConfiguration';
+import { type BookingCustomerBaseItemRequestBuilderPatchRequestConfiguration } from './bookingCustomerBaseItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.

@@ -1,6 +1,6 @@
-import type {WindowsInformationProtection} from './windowsInformationProtection';
-import {WindowsInformationProtectionPinCharacterRequirements} from './windowsInformationProtectionPinCharacterRequirements';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type WindowsInformationProtection } from './windowsInformationProtection';
+import { WindowsInformationProtectionPinCharacterRequirements } from './windowsInformationProtectionPinCharacterRequirements';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionPolicy extends Parsable, WindowsInformationProtection {
     /**

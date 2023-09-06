@@ -1,10 +1,10 @@
-import type {BookingStaffMember} from './bookingStaffMember';
-import {BookingStaffRole} from './bookingStaffRole';
-import type {BookingWorkHours} from './bookingWorkHours';
-import {createBookingWorkHoursFromDiscriminatorValue} from './createBookingWorkHoursFromDiscriminatorValue';
-import {deserializeIntoBookingStaffMemberBase} from './deserializeIntoBookingStaffMemberBase';
-import {serializeBookingWorkHours} from './serializeBookingWorkHours';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BookingStaffMember } from './bookingStaffMember';
+import { BookingStaffRole } from './bookingStaffRole';
+import { type BookingWorkHours } from './bookingWorkHours';
+import { createBookingWorkHoursFromDiscriminatorValue } from './createBookingWorkHoursFromDiscriminatorValue';
+import { deserializeIntoBookingStaffMemberBase } from './deserializeIntoBookingStaffMemberBase';
+import { serializeBookingWorkHours } from './serializeBookingWorkHours';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingStaffMember(bookingStaffMember: BookingStaffMember | undefined = {} as BookingStaffMember) : Record<string, (node: ParseNode) => void> {
     return {

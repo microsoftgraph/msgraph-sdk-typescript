@@ -1,16 +1,15 @@
-import {createDeviceCompliancePolicyAssignmentFromDiscriminatorValue} from '../../../../../models/createDeviceCompliancePolicyAssignmentFromDiscriminatorValue';
-import {deserializeIntoDeviceCompliancePolicyAssignment} from '../../../../../models/deserializeIntoDeviceCompliancePolicyAssignment';
-import type {DeviceCompliancePolicyAssignment} from '../../../../../models/deviceCompliancePolicyAssignment';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceCompliancePolicyAssignment} from '../../../../../models/serializeDeviceCompliancePolicyAssignment';
-import {DeviceCompliancePolicyAssignmentItemRequestBuilderDeleteRequestConfiguration} from './deviceCompliancePolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceCompliancePolicyAssignmentItemRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicyAssignmentItemRequestBuilderGetRequestConfiguration';
-import {DeviceCompliancePolicyAssignmentItemRequestBuilderPatchRequestConfiguration} from './deviceCompliancePolicyAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceCompliancePolicyAssignmentFromDiscriminatorValue } from '../../../../../models/createDeviceCompliancePolicyAssignmentFromDiscriminatorValue';
+import { deserializeIntoDeviceCompliancePolicyAssignment } from '../../../../../models/deserializeIntoDeviceCompliancePolicyAssignment';
+import { type DeviceCompliancePolicyAssignment } from '../../../../../models/deviceCompliancePolicyAssignment';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceCompliancePolicyAssignment } from '../../../../../models/serializeDeviceCompliancePolicyAssignment';
+import { type DeviceCompliancePolicyAssignmentItemRequestBuilderDeleteRequestConfiguration } from './deviceCompliancePolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceCompliancePolicyAssignmentItemRequestBuilderGetRequestConfiguration } from './deviceCompliancePolicyAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type DeviceCompliancePolicyAssignmentItemRequestBuilderPatchRequestConfiguration } from './deviceCompliancePolicyAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity.

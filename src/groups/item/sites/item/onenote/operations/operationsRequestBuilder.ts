@@ -1,19 +1,18 @@
-import {OnenoteOperationCollectionResponse} from '../../../../../../models/';
-import {createOnenoteOperationCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createOnenoteOperationCollectionResponseFromDiscriminatorValue';
-import {createOnenoteOperationFromDiscriminatorValue} from '../../../../../../models/createOnenoteOperationFromDiscriminatorValue';
-import {deserializeIntoOnenoteOperation} from '../../../../../../models/deserializeIntoOnenoteOperation';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import type {OnenoteOperation} from '../../../../../../models/onenoteOperation';
-import {serializeOnenoteOperation} from '../../../../../../models/serializeOnenoteOperation';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {OnenoteOperationItemRequestBuilder} from './item/onenoteOperationItemRequestBuilder';
-import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
-import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OnenoteOperationCollectionResponse } from '../../../../../../models/';
+import { createOnenoteOperationCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createOnenoteOperationCollectionResponseFromDiscriminatorValue';
+import { createOnenoteOperationFromDiscriminatorValue } from '../../../../../../models/createOnenoteOperationFromDiscriminatorValue';
+import { deserializeIntoOnenoteOperation } from '../../../../../../models/deserializeIntoOnenoteOperation';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type OnenoteOperation } from '../../../../../../models/onenoteOperation';
+import { serializeOnenoteOperation } from '../../../../../../models/serializeOnenoteOperation';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { OnenoteOperationItemRequestBuilder } from './item/onenoteOperationItemRequestBuilder';
+import { type OperationsRequestBuilderGetRequestConfiguration } from './operationsRequestBuilderGetRequestConfiguration';
+import { type OperationsRequestBuilderPostRequestConfiguration } from './operationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.onenote entity.

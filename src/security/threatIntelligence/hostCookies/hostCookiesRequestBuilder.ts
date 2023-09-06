@@ -1,19 +1,18 @@
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {HostCookieCollectionResponse} from '../../../models/security/';
-import {createHostCookieCollectionResponseFromDiscriminatorValue} from '../../../models/security/createHostCookieCollectionResponseFromDiscriminatorValue';
-import {createHostCookieFromDiscriminatorValue} from '../../../models/security/createHostCookieFromDiscriminatorValue';
-import {deserializeIntoHostCookie} from '../../../models/security/deserializeIntoHostCookie';
-import type {HostCookie} from '../../../models/security/hostCookie';
-import {serializeHostCookie} from '../../../models/security/serializeHostCookie';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {HostCookiesRequestBuilderGetRequestConfiguration} from './hostCookiesRequestBuilderGetRequestConfiguration';
-import {HostCookiesRequestBuilderPostRequestConfiguration} from './hostCookiesRequestBuilderPostRequestConfiguration';
-import {HostCookieItemRequestBuilder} from './item/hostCookieItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type HostCookieCollectionResponse } from '../../../models/security/';
+import { createHostCookieCollectionResponseFromDiscriminatorValue } from '../../../models/security/createHostCookieCollectionResponseFromDiscriminatorValue';
+import { createHostCookieFromDiscriminatorValue } from '../../../models/security/createHostCookieFromDiscriminatorValue';
+import { deserializeIntoHostCookie } from '../../../models/security/deserializeIntoHostCookie';
+import { type HostCookie } from '../../../models/security/hostCookie';
+import { serializeHostCookie } from '../../../models/security/serializeHostCookie';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type HostCookiesRequestBuilderGetRequestConfiguration } from './hostCookiesRequestBuilderGetRequestConfiguration';
+import { type HostCookiesRequestBuilderPostRequestConfiguration } from './hostCookiesRequestBuilderPostRequestConfiguration';
+import { HostCookieItemRequestBuilder } from './item/hostCookieItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.

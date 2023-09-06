@@ -1,15 +1,14 @@
-import {AutoRestartNotificationDismissalMethod} from './autoRestartNotificationDismissalMethod';
-import {AutomaticUpdateMode} from './automaticUpdateMode';
-import type {DeviceConfiguration} from './deviceConfiguration';
-import {Enablement} from './enablement';
-import {PrereleaseFeatures} from './prereleaseFeatures';
-import {WindowsDeliveryOptimizationMode} from './windowsDeliveryOptimizationMode';
-import {WindowsUpdateForBusinessUpdateWeeks} from './windowsUpdateForBusinessUpdateWeeks';
-import type {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
-import {WindowsUpdateNotificationDisplayOption} from './windowsUpdateNotificationDisplayOption';
-import {WindowsUpdateType} from './windowsUpdateType';
-import {DateOnly} from '@microsoft/kiota-abstractions';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { AutomaticUpdateMode } from './automaticUpdateMode';
+import { AutoRestartNotificationDismissalMethod } from './autoRestartNotificationDismissalMethod';
+import { type DeviceConfiguration } from './deviceConfiguration';
+import { Enablement } from './enablement';
+import { PrereleaseFeatures } from './prereleaseFeatures';
+import { WindowsDeliveryOptimizationMode } from './windowsDeliveryOptimizationMode';
+import { WindowsUpdateForBusinessUpdateWeeks } from './windowsUpdateForBusinessUpdateWeeks';
+import { type WindowsUpdateInstallScheduleType } from './windowsUpdateInstallScheduleType';
+import { WindowsUpdateNotificationDisplayOption } from './windowsUpdateNotificationDisplayOption';
+import { WindowsUpdateType } from './windowsUpdateType';
+import { DateOnly, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WindowsUpdateForBusinessConfiguration extends DeviceConfiguration, Parsable {
     /**
@@ -147,7 +146,7 @@ export interface WindowsUpdateForBusinessConfiguration extends DeviceConfigurati
     /**
      * Schedule the update installation on the weeks of the month. Possible values are: UserDefined, FirstWeek, SecondWeek, ThirdWeek, FourthWeek, EveryWeek. Returned by default. Query parameters are not supported. Possible values are: userDefined, firstWeek, secondWeek, thirdWeek, fourthWeek, everyWeek, unknownFutureValue.
      */
-    updateWeeks?: WindowsUpdateForBusinessUpdateWeeks | undefined;
+    updateWeeks?: WindowsUpdateForBusinessUpdateWeeks[] | undefined;
     /**
      * Possible values of a property
      */

@@ -1,5 +1,5 @@
-import {ItemActivityStatItemRequestBuilderGetQueryParameters} from './itemActivityStatItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ItemActivityStatItemRequestBuilderGetQueryParameters } from './itemActivityStatItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ItemActivityStatItemRequestBuilderGetRequestConfiguration {
     /**

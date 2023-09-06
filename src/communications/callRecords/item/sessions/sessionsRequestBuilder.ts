@@ -1,19 +1,18 @@
-import {SessionCollectionResponse} from '../../../../models/callRecords/';
-import {createSessionCollectionResponseFromDiscriminatorValue} from '../../../../models/callRecords/createSessionCollectionResponseFromDiscriminatorValue';
-import {createSessionFromDiscriminatorValue} from '../../../../models/callRecords/createSessionFromDiscriminatorValue';
-import {deserializeIntoSession} from '../../../../models/callRecords/deserializeIntoSession';
-import {serializeSession} from '../../../../models/callRecords/serializeSession';
-import type {Session} from '../../../../models/callRecords/session';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {SessionItemRequestBuilder} from './item/sessionItemRequestBuilder';
-import {SessionsRequestBuilderGetRequestConfiguration} from './sessionsRequestBuilderGetRequestConfiguration';
-import {SessionsRequestBuilderPostRequestConfiguration} from './sessionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SessionCollectionResponse } from '../../../../models/callRecords/';
+import { createSessionCollectionResponseFromDiscriminatorValue } from '../../../../models/callRecords/createSessionCollectionResponseFromDiscriminatorValue';
+import { createSessionFromDiscriminatorValue } from '../../../../models/callRecords/createSessionFromDiscriminatorValue';
+import { deserializeIntoSession } from '../../../../models/callRecords/deserializeIntoSession';
+import { serializeSession } from '../../../../models/callRecords/serializeSession';
+import { type Session } from '../../../../models/callRecords/session';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { SessionItemRequestBuilder } from './item/sessionItemRequestBuilder';
+import { type SessionsRequestBuilderGetRequestConfiguration } from './sessionsRequestBuilderGetRequestConfiguration';
+import { type SessionsRequestBuilderPostRequestConfiguration } from './sessionsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.

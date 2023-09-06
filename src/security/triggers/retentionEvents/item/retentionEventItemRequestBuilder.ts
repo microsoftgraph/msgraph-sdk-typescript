@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {createRetentionEventFromDiscriminatorValue} from '../../../../models/security/createRetentionEventFromDiscriminatorValue';
-import {deserializeIntoRetentionEvent} from '../../../../models/security/deserializeIntoRetentionEvent';
-import type {RetentionEvent} from '../../../../models/security/retentionEvent';
-import {serializeRetentionEvent} from '../../../../models/security/serializeRetentionEvent';
-import {RetentionEventItemRequestBuilderDeleteRequestConfiguration} from './retentionEventItemRequestBuilderDeleteRequestConfiguration';
-import {RetentionEventItemRequestBuilderGetRequestConfiguration} from './retentionEventItemRequestBuilderGetRequestConfiguration';
-import {RetentionEventItemRequestBuilderPatchRequestConfiguration} from './retentionEventItemRequestBuilderPatchRequestConfiguration';
-import {RetentionEventTypeRequestBuilder} from './retentionEventType/retentionEventTypeRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createRetentionEventFromDiscriminatorValue } from '../../../../models/security/createRetentionEventFromDiscriminatorValue';
+import { deserializeIntoRetentionEvent } from '../../../../models/security/deserializeIntoRetentionEvent';
+import { type RetentionEvent } from '../../../../models/security/retentionEvent';
+import { serializeRetentionEvent } from '../../../../models/security/serializeRetentionEvent';
+import { type RetentionEventItemRequestBuilderDeleteRequestConfiguration } from './retentionEventItemRequestBuilderDeleteRequestConfiguration';
+import { type RetentionEventItemRequestBuilderGetRequestConfiguration } from './retentionEventItemRequestBuilderGetRequestConfiguration';
+import { type RetentionEventItemRequestBuilderPatchRequestConfiguration } from './retentionEventItemRequestBuilderPatchRequestConfiguration';
+import { RetentionEventTypeRequestBuilder } from './retentionEventType/retentionEventTypeRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.

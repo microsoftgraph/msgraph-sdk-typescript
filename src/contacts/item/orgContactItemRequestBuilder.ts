@@ -1,26 +1,25 @@
-import {createOrgContactFromDiscriminatorValue} from '../../models/createOrgContactFromDiscriminatorValue';
-import {deserializeIntoOrgContact} from '../../models/deserializeIntoOrgContact';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {OrgContact} from '../../models/orgContact';
-import {serializeOrgContact} from '../../models/serializeOrgContact';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {DirectReportsRequestBuilder} from './directReports/directReportsRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {ManagerRequestBuilder} from './manager/managerRequestBuilder';
-import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
-import {OrgContactItemRequestBuilderDeleteRequestConfiguration} from './orgContactItemRequestBuilderDeleteRequestConfiguration';
-import {OrgContactItemRequestBuilderGetRequestConfiguration} from './orgContactItemRequestBuilderGetRequestConfiguration';
-import {OrgContactItemRequestBuilderPatchRequestConfiguration} from './orgContactItemRequestBuilderPatchRequestConfiguration';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {RetryServiceProvisioningRequestBuilder} from './retryServiceProvisioning/retryServiceProvisioningRequestBuilder';
-import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOrgContactFromDiscriminatorValue } from '../../models/createOrgContactFromDiscriminatorValue';
+import { deserializeIntoOrgContact } from '../../models/deserializeIntoOrgContact';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type OrgContact } from '../../models/orgContact';
+import { serializeOrgContact } from '../../models/serializeOrgContact';
+import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
+import { DirectReportsRequestBuilder } from './directReports/directReportsRequestBuilder';
+import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
+import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
+import { ManagerRequestBuilder } from './manager/managerRequestBuilder';
+import { MemberOfRequestBuilder } from './memberOf/memberOfRequestBuilder';
+import { type OrgContactItemRequestBuilderDeleteRequestConfiguration } from './orgContactItemRequestBuilderDeleteRequestConfiguration';
+import { type OrgContactItemRequestBuilderGetRequestConfiguration } from './orgContactItemRequestBuilderGetRequestConfiguration';
+import { type OrgContactItemRequestBuilderPatchRequestConfiguration } from './orgContactItemRequestBuilderPatchRequestConfiguration';
+import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { RetryServiceProvisioningRequestBuilder } from './retryServiceProvisioning/retryServiceProvisioningRequestBuilder';
+import { TransitiveMemberOfRequestBuilder } from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of orgContact entities.

@@ -1,6 +1,6 @@
-import {deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponse} from './deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponse';
-import {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponse } from './deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponse';
+import { type UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

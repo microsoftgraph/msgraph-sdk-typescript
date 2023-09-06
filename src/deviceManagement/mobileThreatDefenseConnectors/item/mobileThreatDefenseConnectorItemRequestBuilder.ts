@@ -1,16 +1,15 @@
-import {createMobileThreatDefenseConnectorFromDiscriminatorValue} from '../../../models/createMobileThreatDefenseConnectorFromDiscriminatorValue';
-import {deserializeIntoMobileThreatDefenseConnector} from '../../../models/deserializeIntoMobileThreatDefenseConnector';
-import type {MobileThreatDefenseConnector} from '../../../models/mobileThreatDefenseConnector';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeMobileThreatDefenseConnector} from '../../../models/serializeMobileThreatDefenseConnector';
-import {MobileThreatDefenseConnectorItemRequestBuilderDeleteRequestConfiguration} from './mobileThreatDefenseConnectorItemRequestBuilderDeleteRequestConfiguration';
-import {MobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration} from './mobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration';
-import {MobileThreatDefenseConnectorItemRequestBuilderPatchRequestConfiguration} from './mobileThreatDefenseConnectorItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMobileThreatDefenseConnectorFromDiscriminatorValue } from '../../../models/createMobileThreatDefenseConnectorFromDiscriminatorValue';
+import { deserializeIntoMobileThreatDefenseConnector } from '../../../models/deserializeIntoMobileThreatDefenseConnector';
+import { type MobileThreatDefenseConnector } from '../../../models/mobileThreatDefenseConnector';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeMobileThreatDefenseConnector } from '../../../models/serializeMobileThreatDefenseConnector';
+import { type MobileThreatDefenseConnectorItemRequestBuilderDeleteRequestConfiguration } from './mobileThreatDefenseConnectorItemRequestBuilderDeleteRequestConfiguration';
+import { type MobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration } from './mobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration';
+import { type MobileThreatDefenseConnectorItemRequestBuilderPatchRequestConfiguration } from './mobileThreatDefenseConnectorItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.

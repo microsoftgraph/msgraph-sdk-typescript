@@ -1,16 +1,15 @@
-import type {AppScope} from '../../../../../models/appScope';
-import {createAppScopeFromDiscriminatorValue} from '../../../../../models/createAppScopeFromDiscriminatorValue';
-import {deserializeIntoAppScope} from '../../../../../models/deserializeIntoAppScope';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeAppScope} from '../../../../../models/serializeAppScope';
-import {AppScopeRequestBuilderDeleteRequestConfiguration} from './appScopeRequestBuilderDeleteRequestConfiguration';
-import {AppScopeRequestBuilderGetRequestConfiguration} from './appScopeRequestBuilderGetRequestConfiguration';
-import {AppScopeRequestBuilderPatchRequestConfiguration} from './appScopeRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppScope } from '../../../../../models/appScope';
+import { createAppScopeFromDiscriminatorValue } from '../../../../../models/createAppScopeFromDiscriminatorValue';
+import { deserializeIntoAppScope } from '../../../../../models/deserializeIntoAppScope';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeAppScope } from '../../../../../models/serializeAppScope';
+import { type AppScopeRequestBuilderDeleteRequestConfiguration } from './appScopeRequestBuilderDeleteRequestConfiguration';
+import { type AppScopeRequestBuilderGetRequestConfiguration } from './appScopeRequestBuilderGetRequestConfiguration';
+import { type AppScopeRequestBuilderPatchRequestConfiguration } from './appScopeRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleAssignment entity.

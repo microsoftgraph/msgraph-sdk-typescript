@@ -1,8 +1,8 @@
-import {deserializeIntoWindowsInformationProtectionApp} from './deserializeIntoWindowsInformationProtectionApp';
-import {deserializeIntoWindowsInformationProtectionDesktopApp} from './deserializeIntoWindowsInformationProtectionDesktopApp';
-import {deserializeIntoWindowsInformationProtectionStoreApp} from './deserializeIntoWindowsInformationProtectionStoreApp';
-import {WindowsInformationProtectionApp, WindowsInformationProtectionDesktopApp, WindowsInformationProtectionStoreApp} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWindowsInformationProtectionApp } from './deserializeIntoWindowsInformationProtectionApp';
+import { deserializeIntoWindowsInformationProtectionDesktopApp } from './deserializeIntoWindowsInformationProtectionDesktopApp';
+import { deserializeIntoWindowsInformationProtectionStoreApp } from './deserializeIntoWindowsInformationProtectionStoreApp';
+import { type WindowsInformationProtectionApp, type WindowsInformationProtectionDesktopApp, type WindowsInformationProtectionStoreApp } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWindowsInformationProtectionAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

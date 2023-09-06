@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import {SignInUserType} from './signInUserType';
-import {UserDefaultAuthenticationMethod} from './userDefaultAuthenticationMethod';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { SignInUserType } from './signInUserType';
+import { UserDefaultAuthenticationMethod } from './userDefaultAuthenticationMethod';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserRegistrationDetails extends Entity, Parsable {
     /**

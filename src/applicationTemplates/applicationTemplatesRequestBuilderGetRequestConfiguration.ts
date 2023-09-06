@@ -1,5 +1,5 @@
-import {ApplicationTemplatesRequestBuilderGetQueryParameters} from './applicationTemplatesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ApplicationTemplatesRequestBuilderGetQueryParameters } from './applicationTemplatesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ApplicationTemplatesRequestBuilderGetRequestConfiguration {
     /**

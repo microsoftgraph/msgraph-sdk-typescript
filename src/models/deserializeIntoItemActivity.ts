@@ -1,15 +1,15 @@
-import type {AccessAction} from './accessAction';
-import {createAccessActionFromDiscriminatorValue} from './createAccessActionFromDiscriminatorValue';
-import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DriveItem} from './driveItem';
-import type {IdentitySet} from './identitySet';
-import type {ItemActivity} from './itemActivity';
-import {serializeAccessAction} from './serializeAccessAction';
-import {serializeDriveItem} from './serializeDriveItem';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessAction } from './accessAction';
+import { createAccessActionFromDiscriminatorValue } from './createAccessActionFromDiscriminatorValue';
+import { createDriveItemFromDiscriminatorValue } from './createDriveItemFromDiscriminatorValue';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DriveItem } from './driveItem';
+import { type IdentitySet } from './identitySet';
+import { type ItemActivity } from './itemActivity';
+import { serializeAccessAction } from './serializeAccessAction';
+import { serializeDriveItem } from './serializeDriveItem';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoItemActivity(itemActivity: ItemActivity | undefined = {} as ItemActivity) : Record<string, (node: ParseNode) => void> {
     return {

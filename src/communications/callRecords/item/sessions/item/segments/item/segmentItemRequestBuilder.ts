@@ -1,16 +1,15 @@
-import {createSegmentFromDiscriminatorValue} from '../../../../../../../models/callRecords/createSegmentFromDiscriminatorValue';
-import {deserializeIntoSegment} from '../../../../../../../models/callRecords/deserializeIntoSegment';
-import type {Segment} from '../../../../../../../models/callRecords/segment';
-import {serializeSegment} from '../../../../../../../models/callRecords/serializeSegment';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {SegmentItemRequestBuilderDeleteRequestConfiguration} from './segmentItemRequestBuilderDeleteRequestConfiguration';
-import {SegmentItemRequestBuilderGetRequestConfiguration} from './segmentItemRequestBuilderGetRequestConfiguration';
-import {SegmentItemRequestBuilderPatchRequestConfiguration} from './segmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSegmentFromDiscriminatorValue } from '../../../../../../../models/callRecords/createSegmentFromDiscriminatorValue';
+import { deserializeIntoSegment } from '../../../../../../../models/callRecords/deserializeIntoSegment';
+import { type Segment } from '../../../../../../../models/callRecords/segment';
+import { serializeSegment } from '../../../../../../../models/callRecords/serializeSegment';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { type SegmentItemRequestBuilderDeleteRequestConfiguration } from './segmentItemRequestBuilderDeleteRequestConfiguration';
+import { type SegmentItemRequestBuilderGetRequestConfiguration } from './segmentItemRequestBuilderGetRequestConfiguration';
+import { type SegmentItemRequestBuilderPatchRequestConfiguration } from './segmentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.

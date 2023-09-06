@@ -1,23 +1,23 @@
-import {createKeyValueFromDiscriminatorValue} from '../createKeyValueFromDiscriminatorValue';
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import type {KeyValue} from '../keyValue';
-import {serializeKeyValue} from '../serializeKeyValue';
-import {createLocalizedDescriptionFromDiscriminatorValue} from './createLocalizedDescriptionFromDiscriminatorValue';
-import {createLocalizedLabelFromDiscriminatorValue} from './createLocalizedLabelFromDiscriminatorValue';
-import {createRelationFromDiscriminatorValue} from './createRelationFromDiscriminatorValue';
-import {createSetFromDiscriminatorValue} from './createSetFromDiscriminatorValue';
-import {createTermFromDiscriminatorValue} from './createTermFromDiscriminatorValue';
-import type {LocalizedDescription} from './localizedDescription';
-import type {LocalizedLabel} from './localizedLabel';
-import type {Relation} from './relation';
-import {serializeLocalizedDescription} from './serializeLocalizedDescription';
-import {serializeLocalizedLabel} from './serializeLocalizedLabel';
-import {serializeRelation} from './serializeRelation';
-import {serializeSet} from './serializeSet';
-import {serializeTerm} from './serializeTerm';
-import type {Set} from './set';
-import type {Term} from './term';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createKeyValueFromDiscriminatorValue } from '../createKeyValueFromDiscriminatorValue';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { type KeyValue } from '../keyValue';
+import { serializeKeyValue } from '../serializeKeyValue';
+import { createLocalizedDescriptionFromDiscriminatorValue } from './createLocalizedDescriptionFromDiscriminatorValue';
+import { createLocalizedLabelFromDiscriminatorValue } from './createLocalizedLabelFromDiscriminatorValue';
+import { createRelationFromDiscriminatorValue } from './createRelationFromDiscriminatorValue';
+import { createSetFromDiscriminatorValue } from './createSetFromDiscriminatorValue';
+import { createTermFromDiscriminatorValue } from './createTermFromDiscriminatorValue';
+import { type LocalizedDescription } from './localizedDescription';
+import { type LocalizedLabel } from './localizedLabel';
+import { type Relation } from './relation';
+import { serializeLocalizedDescription } from './serializeLocalizedDescription';
+import { serializeLocalizedLabel } from './serializeLocalizedLabel';
+import { serializeRelation } from './serializeRelation';
+import { serializeSet } from './serializeSet';
+import { serializeTerm } from './serializeTerm';
+import { type Set } from './set';
+import { type Term } from './term';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTerm(term: Term | undefined = {} as Term) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
-import {deserializeIntoExtension} from './deserializeIntoExtension';
-import {deserializeIntoOpenTypeExtension} from './deserializeIntoOpenTypeExtension';
-import {Extension, OpenTypeExtension} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoExtension } from './deserializeIntoExtension';
+import { deserializeIntoOpenTypeExtension } from './deserializeIntoOpenTypeExtension';
+import { type Extension, type OpenTypeExtension } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createExtensionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

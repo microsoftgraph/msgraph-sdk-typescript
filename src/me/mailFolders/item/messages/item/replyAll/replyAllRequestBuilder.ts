@@ -1,13 +1,12 @@
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {deserializeIntoReplyAllPostRequestBody} from './deserializeIntoReplyAllPostRequestBody';
-import type {ReplyAllPostRequestBody} from './replyAllPostRequestBody';
-import {ReplyAllRequestBuilderPostRequestConfiguration} from './replyAllRequestBuilderPostRequestConfiguration';
-import {serializeReplyAllPostRequestBody} from './serializeReplyAllPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { deserializeIntoReplyAllPostRequestBody } from './deserializeIntoReplyAllPostRequestBody';
+import { type ReplyAllPostRequestBody } from './replyAllPostRequestBody';
+import { type ReplyAllRequestBuilderPostRequestConfiguration } from './replyAllRequestBuilderPostRequestConfiguration';
+import { serializeReplyAllPostRequestBody } from './serializeReplyAllPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the replyAll method.

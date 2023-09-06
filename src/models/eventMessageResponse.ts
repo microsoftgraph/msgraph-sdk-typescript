@@ -1,7 +1,7 @@
-import type {EventMessage} from './eventMessage';
-import {ResponseType} from './responseType';
-import type {TimeSlot} from './timeSlot';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type EventMessage } from './eventMessage';
+import { ResponseType } from './responseType';
+import { type TimeSlot } from './timeSlot';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EventMessageResponse extends EventMessage, Parsable {
     /**

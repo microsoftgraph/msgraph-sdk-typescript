@@ -1,6 +1,6 @@
-import {RatingNewZealandMoviesType} from './ratingNewZealandMoviesType';
-import {RatingNewZealandTelevisionType} from './ratingNewZealandTelevisionType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { RatingNewZealandMoviesType } from './ratingNewZealandMoviesType';
+import { RatingNewZealandTelevisionType } from './ratingNewZealandTelevisionType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MediaContentRatingNewZealand extends AdditionalDataHolder, Parsable {
     /**
