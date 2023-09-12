@@ -1,7 +1,7 @@
-import type {MacOSLobChildApp} from './macOSLobChildApp';
-import type {MacOSMinimumOperatingSystem} from './macOSMinimumOperatingSystem';
-import type {MobileLobApp} from './mobileLobApp';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type MacOSLobChildApp } from './macOSLobChildApp';
+import { type MacOSMinimumOperatingSystem } from './macOSMinimumOperatingSystem';
+import { type MobileLobApp } from './mobileLobApp';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MacOSLobApp extends MobileLobApp, Parsable {
     /**

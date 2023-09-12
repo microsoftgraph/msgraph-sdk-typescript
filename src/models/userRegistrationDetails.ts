@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import {SignInUserType} from './signInUserType';
-import {UserDefaultAuthenticationMethod} from './userDefaultAuthenticationMethod';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { SignInUserType } from './signInUserType';
+import { UserDefaultAuthenticationMethod } from './userDefaultAuthenticationMethod';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserRegistrationDetails extends Entity, Parsable {
     /**
@@ -49,7 +49,7 @@ export interface UserRegistrationDetails extends Entity, Parsable {
      */
     systemPreferredAuthenticationMethods?: string[] | undefined;
     /**
-     * The user display name, such as Adele Vance. Supports $filter (eq, startsWith) and $orderBy.
+     * The user display name, such as Adele Vance. Supports $filter (eq, startsWith) and $orderby.
      */
     userDisplayName?: string | undefined;
     /**
@@ -57,7 +57,7 @@ export interface UserRegistrationDetails extends Entity, Parsable {
      */
     userPreferredMethodForSecondaryAuthentication?: UserDefaultAuthenticationMethod | undefined;
     /**
-     * The user principal name, such as AdeleV@contoso.com. Supports $filter (eq, startsWith) and $orderBy.
+     * The user principal name, such as AdeleV@contoso.com. Supports $filter (eq, startsWith) and $orderby.
      */
     userPrincipalName?: string | undefined;
     /**

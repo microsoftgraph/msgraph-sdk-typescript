@@ -1,18 +1,17 @@
-import type {AccessReviewScheduleDefinition} from '../../../../models/accessReviewScheduleDefinition';
-import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from '../../../../models/createAccessReviewScheduleDefinitionFromDiscriminatorValue';
-import {deserializeIntoAccessReviewScheduleDefinition} from '../../../../models/deserializeIntoAccessReviewScheduleDefinition';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessReviewScheduleDefinition} from '../../../../models/serializeAccessReviewScheduleDefinition';
-import {AccessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration} from './accessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration';
-import {AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration} from './accessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration';
-import {AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration} from './accessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration';
-import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {StopRequestBuilder} from './stop/stopRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessReviewScheduleDefinition } from '../../../../models/accessReviewScheduleDefinition';
+import { createAccessReviewScheduleDefinitionFromDiscriminatorValue } from '../../../../models/createAccessReviewScheduleDefinitionFromDiscriminatorValue';
+import { deserializeIntoAccessReviewScheduleDefinition } from '../../../../models/deserializeIntoAccessReviewScheduleDefinition';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessReviewScheduleDefinition } from '../../../../models/serializeAccessReviewScheduleDefinition';
+import { type AccessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration } from './accessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration';
+import { type AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration } from './accessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration';
+import { type AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration } from './accessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration';
+import { InstancesRequestBuilder } from './instances/instancesRequestBuilder';
+import { StopRequestBuilder } from './stop/stopRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.

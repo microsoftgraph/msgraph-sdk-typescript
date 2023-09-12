@@ -1,18 +1,18 @@
-import type {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
-import type {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDecisionItemResource';
-import {createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue} from './createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue';
-import {createGovernanceInsightFromDiscriminatorValue} from './createGovernanceInsightFromDiscriminatorValue';
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {GovernanceInsight} from './governanceInsight';
-import type {Identity} from './identity';
-import {serializeAccessReviewInstanceDecisionItemResource} from './serializeAccessReviewInstanceDecisionItemResource';
-import {serializeGovernanceInsight} from './serializeGovernanceInsight';
-import {serializeIdentity} from './serializeIdentity';
-import {serializeUserIdentity} from './serializeUserIdentity';
-import type {UserIdentity} from './userIdentity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessReviewInstanceDecisionItem } from './accessReviewInstanceDecisionItem';
+import { type AccessReviewInstanceDecisionItemResource } from './accessReviewInstanceDecisionItemResource';
+import { createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue } from './createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue';
+import { createGovernanceInsightFromDiscriminatorValue } from './createGovernanceInsightFromDiscriminatorValue';
+import { createIdentityFromDiscriminatorValue } from './createIdentityFromDiscriminatorValue';
+import { createUserIdentityFromDiscriminatorValue } from './createUserIdentityFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type GovernanceInsight } from './governanceInsight';
+import { type Identity } from './identity';
+import { serializeAccessReviewInstanceDecisionItemResource } from './serializeAccessReviewInstanceDecisionItemResource';
+import { serializeGovernanceInsight } from './serializeGovernanceInsight';
+import { serializeIdentity } from './serializeIdentity';
+import { serializeUserIdentity } from './serializeUserIdentity';
+import { type UserIdentity } from './userIdentity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewInstanceDecisionItem(accessReviewInstanceDecisionItem: AccessReviewInstanceDecisionItem | undefined = {} as AccessReviewInstanceDecisionItem) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,24 +1,24 @@
-import type {Contact} from './contact';
-import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
-import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
-import {createMultiValueLegacyExtendedPropertyFromDiscriminatorValue} from './createMultiValueLegacyExtendedPropertyFromDiscriminatorValue';
-import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
-import {createProfilePhotoFromDiscriminatorValue} from './createProfilePhotoFromDiscriminatorValue';
-import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
-import {deserializeIntoOutlookItem} from './deserializeIntoOutlookItem';
-import type {EmailAddress} from './emailAddress';
-import type {Extension} from './extension';
-import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import type {PhysicalAddress} from './physicalAddress';
-import type {ProfilePhoto} from './profilePhoto';
-import {serializeEmailAddress} from './serializeEmailAddress';
-import {serializeExtension} from './serializeExtension';
-import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLegacyExtendedProperty';
-import {serializePhysicalAddress} from './serializePhysicalAddress';
-import {serializeProfilePhoto} from './serializeProfilePhoto';
-import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
-import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Contact } from './contact';
+import { createEmailAddressFromDiscriminatorValue } from './createEmailAddressFromDiscriminatorValue';
+import { createExtensionFromDiscriminatorValue } from './createExtensionFromDiscriminatorValue';
+import { createMultiValueLegacyExtendedPropertyFromDiscriminatorValue } from './createMultiValueLegacyExtendedPropertyFromDiscriminatorValue';
+import { createPhysicalAddressFromDiscriminatorValue } from './createPhysicalAddressFromDiscriminatorValue';
+import { createProfilePhotoFromDiscriminatorValue } from './createProfilePhotoFromDiscriminatorValue';
+import { createSingleValueLegacyExtendedPropertyFromDiscriminatorValue } from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
+import { deserializeIntoOutlookItem } from './deserializeIntoOutlookItem';
+import { type EmailAddress } from './emailAddress';
+import { type Extension } from './extension';
+import { type MultiValueLegacyExtendedProperty } from './multiValueLegacyExtendedProperty';
+import { type PhysicalAddress } from './physicalAddress';
+import { type ProfilePhoto } from './profilePhoto';
+import { serializeEmailAddress } from './serializeEmailAddress';
+import { serializeExtension } from './serializeExtension';
+import { serializeMultiValueLegacyExtendedProperty } from './serializeMultiValueLegacyExtendedProperty';
+import { serializePhysicalAddress } from './serializePhysicalAddress';
+import { serializeProfilePhoto } from './serializeProfilePhoto';
+import { serializeSingleValueLegacyExtendedProperty } from './serializeSingleValueLegacyExtendedProperty';
+import { type SingleValueLegacyExtendedProperty } from './singleValueLegacyExtendedProperty';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContact(contact: Contact | undefined = {} as Contact) : Record<string, (node: ParseNode) => void> {
     return {

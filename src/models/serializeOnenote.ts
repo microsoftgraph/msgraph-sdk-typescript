@@ -1,18 +1,18 @@
-import type {Notebook} from './notebook';
-import type {Onenote} from './onenote';
-import type {OnenoteOperation} from './onenoteOperation';
-import type {OnenotePage} from './onenotePage';
-import type {OnenoteResource} from './onenoteResource';
-import type {OnenoteSection} from './onenoteSection';
-import type {SectionGroup} from './sectionGroup';
-import {serializeEntity} from './serializeEntity';
-import {serializeNotebook} from './serializeNotebook';
-import {serializeOnenoteOperation} from './serializeOnenoteOperation';
-import {serializeOnenotePage} from './serializeOnenotePage';
-import {serializeOnenoteResource} from './serializeOnenoteResource';
-import {serializeOnenoteSection} from './serializeOnenoteSection';
-import {serializeSectionGroup} from './serializeSectionGroup';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Notebook } from './notebook';
+import { type Onenote } from './onenote';
+import { type OnenoteOperation } from './onenoteOperation';
+import { type OnenotePage } from './onenotePage';
+import { type OnenoteResource } from './onenoteResource';
+import { type OnenoteSection } from './onenoteSection';
+import { type SectionGroup } from './sectionGroup';
+import { serializeEntity } from './serializeEntity';
+import { serializeNotebook } from './serializeNotebook';
+import { serializeOnenoteOperation } from './serializeOnenoteOperation';
+import { serializeOnenotePage } from './serializeOnenotePage';
+import { serializeOnenoteResource } from './serializeOnenoteResource';
+import { serializeOnenoteSection } from './serializeOnenoteSection';
+import { serializeSectionGroup } from './serializeSectionGroup';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOnenote(writer: SerializationWriter, onenote: Onenote | undefined = {} as Onenote) : void {
         serializeEntity(writer, onenote)

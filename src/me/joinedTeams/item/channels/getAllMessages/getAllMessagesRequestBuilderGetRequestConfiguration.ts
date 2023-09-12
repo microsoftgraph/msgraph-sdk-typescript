@@ -1,5 +1,5 @@
-import {GetAllMessagesRequestBuilderGetQueryParameters} from './getAllMessagesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GetAllMessagesRequestBuilderGetQueryParameters } from './getAllMessagesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetAllMessagesRequestBuilderGetRequestConfiguration {
     /**

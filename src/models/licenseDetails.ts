@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import type {ServicePlanInfo} from './servicePlanInfo';
-import type {Parsable} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type Entity } from './entity';
+import { type ServicePlanInfo } from './servicePlanInfo';
+import { type Parsable } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export interface LicenseDetails extends Entity, Parsable {
     /**

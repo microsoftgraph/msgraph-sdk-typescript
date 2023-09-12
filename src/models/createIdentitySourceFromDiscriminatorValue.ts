@@ -1,10 +1,10 @@
-import {deserializeIntoAzureActiveDirectoryTenant} from './deserializeIntoAzureActiveDirectoryTenant';
-import {deserializeIntoCrossCloudAzureActiveDirectoryTenant} from './deserializeIntoCrossCloudAzureActiveDirectoryTenant';
-import {deserializeIntoDomainIdentitySource} from './deserializeIntoDomainIdentitySource';
-import {deserializeIntoExternalDomainFederation} from './deserializeIntoExternalDomainFederation';
-import {deserializeIntoIdentitySource} from './deserializeIntoIdentitySource';
-import {AzureActiveDirectoryTenant, CrossCloudAzureActiveDirectoryTenant, DomainIdentitySource, ExternalDomainFederation, IdentitySource} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAzureActiveDirectoryTenant } from './deserializeIntoAzureActiveDirectoryTenant';
+import { deserializeIntoCrossCloudAzureActiveDirectoryTenant } from './deserializeIntoCrossCloudAzureActiveDirectoryTenant';
+import { deserializeIntoDomainIdentitySource } from './deserializeIntoDomainIdentitySource';
+import { deserializeIntoExternalDomainFederation } from './deserializeIntoExternalDomainFederation';
+import { deserializeIntoIdentitySource } from './deserializeIntoIdentitySource';
+import { type AzureActiveDirectoryTenant, type CrossCloudAzureActiveDirectoryTenant, type DomainIdentitySource, type ExternalDomainFederation, type IdentitySource } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIdentitySourceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

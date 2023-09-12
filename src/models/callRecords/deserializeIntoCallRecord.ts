@@ -1,14 +1,14 @@
-import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromDiscriminatorValue';
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import type {IdentitySet} from '../identitySet';
-import {serializeIdentitySet} from '../serializeIdentitySet';
-import type {CallRecord} from './callRecord';
-import {CallType} from './callType';
-import {createSessionFromDiscriminatorValue} from './createSessionFromDiscriminatorValue';
-import {Modality} from './modality';
-import {serializeSession} from './serializeSession';
-import type {Session} from './session';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentitySetFromDiscriminatorValue } from '../createIdentitySetFromDiscriminatorValue';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { type IdentitySet } from '../identitySet';
+import { serializeIdentitySet } from '../serializeIdentitySet';
+import { type CallRecord } from './callRecord';
+import { CallType } from './callType';
+import { createSessionFromDiscriminatorValue } from './createSessionFromDiscriminatorValue';
+import { Modality } from './modality';
+import { serializeSession } from './serializeSession';
+import { type Session } from './session';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCallRecord(callRecord: CallRecord | undefined = {} as CallRecord) : Record<string, (node: ParseNode) => void> {
     return {

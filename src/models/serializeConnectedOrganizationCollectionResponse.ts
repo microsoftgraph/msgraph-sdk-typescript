@@ -1,8 +1,8 @@
-import type {ConnectedOrganization} from './connectedOrganization';
-import type {ConnectedOrganizationCollectionResponse} from './connectedOrganizationCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeConnectedOrganization} from './serializeConnectedOrganization';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConnectedOrganization } from './connectedOrganization';
+import { type ConnectedOrganizationCollectionResponse } from './connectedOrganizationCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeConnectedOrganization } from './serializeConnectedOrganization';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConnectedOrganizationCollectionResponse(writer: SerializationWriter, connectedOrganizationCollectionResponse: ConnectedOrganizationCollectionResponse | undefined = {} as ConnectedOrganizationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, connectedOrganizationCollectionResponse)

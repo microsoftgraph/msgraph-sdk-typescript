@@ -1,16 +1,15 @@
-import type {ConversationMember} from '../../../../../../../models/conversationMember';
-import {createConversationMemberFromDiscriminatorValue} from '../../../../../../../models/createConversationMemberFromDiscriminatorValue';
-import {deserializeIntoConversationMember} from '../../../../../../../models/deserializeIntoConversationMember';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeConversationMember} from '../../../../../../../models/serializeConversationMember';
-import {ConversationMemberItemRequestBuilderDeleteRequestConfiguration} from './conversationMemberItemRequestBuilderDeleteRequestConfiguration';
-import {ConversationMemberItemRequestBuilderGetRequestConfiguration} from './conversationMemberItemRequestBuilderGetRequestConfiguration';
-import {ConversationMemberItemRequestBuilderPatchRequestConfiguration} from './conversationMemberItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConversationMember } from '../../../../../../../models/conversationMember';
+import { createConversationMemberFromDiscriminatorValue } from '../../../../../../../models/createConversationMemberFromDiscriminatorValue';
+import { deserializeIntoConversationMember } from '../../../../../../../models/deserializeIntoConversationMember';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeConversationMember } from '../../../../../../../models/serializeConversationMember';
+import { type ConversationMemberItemRequestBuilderDeleteRequestConfiguration } from './conversationMemberItemRequestBuilderDeleteRequestConfiguration';
+import { type ConversationMemberItemRequestBuilderGetRequestConfiguration } from './conversationMemberItemRequestBuilderGetRequestConfiguration';
+import { type ConversationMemberItemRequestBuilderPatchRequestConfiguration } from './conversationMemberItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.channel entity.
@@ -25,9 +24,9 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/primaryChannel/members/{conversationMember%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+     * Delete a conversationMember from a channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/channel-delete-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conversationmember-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConversationMemberItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -73,7 +72,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationMember>(requestInfo, createConversationMemberFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+     * Delete a conversationMember from a channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

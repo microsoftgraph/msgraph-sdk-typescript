@@ -1,5 +1,5 @@
-import type {Audio} from './audio';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Audio } from './audio';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAudio(writer: SerializationWriter, audio: Audio | undefined = {} as Audio) : void {
         writer.writeStringValue("album", audio.album);

@@ -1,12 +1,11 @@
-import {Workflow} from '../../../../../../models/identityGovernance/';
-import {createWorkflowFromDiscriminatorValue} from '../../../../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {MicrosoftGraphIdentityGovernanceRestoreRequestBuilderPostRequestConfiguration} from './microsoftGraphIdentityGovernanceRestoreRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Workflow } from '../../../../../../models/identityGovernance/';
+import { createWorkflowFromDiscriminatorValue } from '../../../../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type MicrosoftGraphIdentityGovernanceRestoreRequestBuilderPostRequestConfiguration } from './microsoftGraphIdentityGovernanceRestoreRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the restore method.

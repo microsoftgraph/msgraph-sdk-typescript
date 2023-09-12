@@ -1,13 +1,12 @@
-import {IdentityProvider} from '../../../../../models/';
-import {createIdentityProviderFromDiscriminatorValue} from '../../../../../models/createIdentityProviderFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {IdentityProviderItemRequestBuilderDeleteRequestConfiguration} from './identityProviderItemRequestBuilderDeleteRequestConfiguration';
-import {IdentityProviderItemRequestBuilderGetRequestConfiguration} from './identityProviderItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentityProvider } from '../../../../../models/';
+import { createIdentityProviderFromDiscriminatorValue } from '../../../../../models/createIdentityProviderFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type IdentityProviderItemRequestBuilderDeleteRequestConfiguration } from './identityProviderItemRequestBuilderDeleteRequestConfiguration';
+import { type IdentityProviderItemRequestBuilderGetRequestConfiguration } from './identityProviderItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityProviders property of the microsoft.graph.b2xIdentityUserFlow entity.

@@ -1,6 +1,6 @@
-import {deserializeIntoChannelDescriptionUpdatedEventMessageDetail} from './deserializeIntoChannelDescriptionUpdatedEventMessageDetail';
-import {ChannelDescriptionUpdatedEventMessageDetail} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoChannelDescriptionUpdatedEventMessageDetail } from './deserializeIntoChannelDescriptionUpdatedEventMessageDetail';
+import { type ChannelDescriptionUpdatedEventMessageDetail } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createChannelDescriptionUpdatedEventMessageDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

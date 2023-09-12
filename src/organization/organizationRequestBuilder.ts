@@ -1,23 +1,22 @@
-import {OrganizationCollectionResponse} from '../models/';
-import {createOrganizationCollectionResponseFromDiscriminatorValue} from '../models/createOrganizationCollectionResponseFromDiscriminatorValue';
-import {createOrganizationFromDiscriminatorValue} from '../models/createOrganizationFromDiscriminatorValue';
-import {deserializeIntoOrganization} from '../models/deserializeIntoOrganization';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import type {Organization} from '../models/organization';
-import {serializeOrganization} from '../models/serializeOrganization';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
-import {OrganizationItemRequestBuilder} from './item/organizationItemRequestBuilder';
-import {OrganizationRequestBuilderGetRequestConfiguration} from './organizationRequestBuilderGetRequestConfiguration';
-import {OrganizationRequestBuilderPostRequestConfiguration} from './organizationRequestBuilderPostRequestConfiguration';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OrganizationCollectionResponse } from '../models/';
+import { createOrganizationCollectionResponseFromDiscriminatorValue } from '../models/createOrganizationCollectionResponseFromDiscriminatorValue';
+import { createOrganizationFromDiscriminatorValue } from '../models/createOrganizationFromDiscriminatorValue';
+import { deserializeIntoOrganization } from '../models/deserializeIntoOrganization';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { type Organization } from '../models/organization';
+import { serializeOrganization } from '../models/serializeOrganization';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
+import { OrganizationItemRequestBuilder } from './item/organizationItemRequestBuilder';
+import { type OrganizationRequestBuilderGetRequestConfiguration } from './organizationRequestBuilderGetRequestConfiguration';
+import { type OrganizationRequestBuilderPostRequestConfiguration } from './organizationRequestBuilderPostRequestConfiguration';
+import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of organization entities.
@@ -73,10 +72,10 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/organization{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the organization objects.
+     * Retrieve a list of organization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OrganizationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-organization-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organization-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OrganizationRequestBuilderGetRequestConfiguration | undefined) : Promise<OrganizationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -105,7 +104,7 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Organization>(requestInfo, createOrganizationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the organization objects.
+     * Retrieve a list of organization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

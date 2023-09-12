@@ -1,19 +1,19 @@
-import {createKeyValuePairFromDiscriminatorValue} from '../createKeyValuePairFromDiscriminatorValue';
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import type {KeyValuePair} from '../keyValuePair';
-import {serializeKeyValuePair} from '../serializeKeyValuePair';
-import {createTaskProcessingResultFromDiscriminatorValue} from './createTaskProcessingResultFromDiscriminatorValue';
-import {LifecycleTaskCategory} from './lifecycleTaskCategory';
-import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
-import type {Task} from './task';
-import type {TaskProcessingResult} from './taskProcessingResult';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createKeyValuePairFromDiscriminatorValue } from '../createKeyValuePairFromDiscriminatorValue';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { type KeyValuePair } from '../keyValuePair';
+import { serializeKeyValuePair } from '../serializeKeyValuePair';
+import { createTaskProcessingResultFromDiscriminatorValue } from './createTaskProcessingResultFromDiscriminatorValue';
+import { LifecycleTaskCategory } from './lifecycleTaskCategory';
+import { serializeTaskProcessingResult } from './serializeTaskProcessingResult';
+import { type Task } from './task';
+import { type TaskProcessingResult } from './taskProcessingResult';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTask(task: Task | undefined = {} as Task) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(task),
         "arguments": n => { task.arguments = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
-        "category": n => { task.category = n.getEnumValue<LifecycleTaskCategory>(LifecycleTaskCategory); },
+        "category": n => { task.category = n.getCollectionOfEnumValues<LifecycleTaskCategory>(LifecycleTaskCategory); },
         "continueOnError": n => { task.continueOnError = n.getBooleanValue(); },
         "description": n => { task.description = n.getStringValue(); },
         "displayName": n => { task.displayName = n.getStringValue(); },

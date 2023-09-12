@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from '../../../../models/baseCollectionPaginationCountResponse';
-import type {LocaleInfo} from '../../../../models/localeInfo';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from '../../../../models/baseCollectionPaginationCountResponse';
+import { type LocaleInfo } from '../../../../models/localeInfo';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SupportedLanguagesResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -1,9 +1,9 @@
-import type {AccessPackageAssignmentRequestWorkflowExtension} from './accessPackageAssignmentRequestWorkflowExtension';
-import {createCustomExtensionCallbackConfigurationFromDiscriminatorValue} from './createCustomExtensionCallbackConfigurationFromDiscriminatorValue';
-import type {CustomExtensionCallbackConfiguration} from './customExtensionCallbackConfiguration';
-import {deserializeIntoCustomCalloutExtension} from './deserializeIntoCustomCalloutExtension';
-import {serializeCustomExtensionCallbackConfiguration} from './serializeCustomExtensionCallbackConfiguration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentRequestWorkflowExtension } from './accessPackageAssignmentRequestWorkflowExtension';
+import { createCustomExtensionCallbackConfigurationFromDiscriminatorValue } from './createCustomExtensionCallbackConfigurationFromDiscriminatorValue';
+import { type CustomExtensionCallbackConfiguration } from './customExtensionCallbackConfiguration';
+import { deserializeIntoCustomCalloutExtension } from './deserializeIntoCustomCalloutExtension';
+import { serializeCustomExtensionCallbackConfiguration } from './serializeCustomExtensionCallbackConfiguration';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageAssignmentRequestWorkflowExtension(accessPackageAssignmentRequestWorkflowExtension: AccessPackageAssignmentRequestWorkflowExtension | undefined = {} as AccessPackageAssignmentRequestWorkflowExtension) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
-import {serializeEntity} from './serializeEntity';
-import type {TelecomExpenseManagementPartner} from './telecomExpenseManagementPartner';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { type TelecomExpenseManagementPartner } from './telecomExpenseManagementPartner';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTelecomExpenseManagementPartner(writer: SerializationWriter, telecomExpenseManagementPartner: TelecomExpenseManagementPartner | undefined = {} as TelecomExpenseManagementPartner) : void {
         serializeEntity(writer, telecomExpenseManagementPartner)

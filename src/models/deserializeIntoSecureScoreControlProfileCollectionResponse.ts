@@ -1,9 +1,9 @@
-import {createSecureScoreControlProfileFromDiscriminatorValue} from './createSecureScoreControlProfileFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {SecureScoreControlProfile} from './secureScoreControlProfile';
-import type {SecureScoreControlProfileCollectionResponse} from './secureScoreControlProfileCollectionResponse';
-import {serializeSecureScoreControlProfile} from './serializeSecureScoreControlProfile';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSecureScoreControlProfileFromDiscriminatorValue } from './createSecureScoreControlProfileFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type SecureScoreControlProfile } from './secureScoreControlProfile';
+import { type SecureScoreControlProfileCollectionResponse } from './secureScoreControlProfileCollectionResponse';
+import { serializeSecureScoreControlProfile } from './serializeSecureScoreControlProfile';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSecureScoreControlProfileCollectionResponse(secureScoreControlProfileCollectionResponse: SecureScoreControlProfileCollectionResponse | undefined = {} as SecureScoreControlProfileCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

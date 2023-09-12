@@ -1,13 +1,13 @@
-import type {Entity} from './entity';
-import type {IdentitySet} from './identitySet';
-import type {PlannerAppliedCategories} from './plannerAppliedCategories';
-import type {PlannerAssignedToTaskBoardTaskFormat} from './plannerAssignedToTaskBoardTaskFormat';
-import type {PlannerAssignments} from './plannerAssignments';
-import type {PlannerBucketTaskBoardTaskFormat} from './plannerBucketTaskBoardTaskFormat';
-import {PlannerPreviewType} from './plannerPreviewType';
-import type {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTaskFormat';
-import type {PlannerTaskDetails} from './plannerTaskDetails';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type IdentitySet } from './identitySet';
+import { type PlannerAppliedCategories } from './plannerAppliedCategories';
+import { type PlannerAssignedToTaskBoardTaskFormat } from './plannerAssignedToTaskBoardTaskFormat';
+import { type PlannerAssignments } from './plannerAssignments';
+import { type PlannerBucketTaskBoardTaskFormat } from './plannerBucketTaskBoardTaskFormat';
+import { PlannerPreviewType } from './plannerPreviewType';
+import { type PlannerProgressTaskBoardTaskFormat } from './plannerProgressTaskBoardTaskFormat';
+import { type PlannerTaskDetails } from './plannerTaskDetails';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PlannerTask extends Entity, Parsable {
     /**

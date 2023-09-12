@@ -1,5 +1,5 @@
-import {GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters} from './getManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters } from './getManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetManagedDevicesWithAppFailuresRequestBuilderGetRequestConfiguration {
     /**

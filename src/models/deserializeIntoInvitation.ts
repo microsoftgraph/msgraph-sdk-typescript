@@ -1,12 +1,12 @@
-import {createInvitedUserMessageInfoFromDiscriminatorValue} from './createInvitedUserMessageInfoFromDiscriminatorValue';
-import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Invitation} from './invitation';
-import type {InvitedUserMessageInfo} from './invitedUserMessageInfo';
-import {serializeInvitedUserMessageInfo} from './serializeInvitedUserMessageInfo';
-import {serializeUser} from './serializeUser';
-import type {User} from './user';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createInvitedUserMessageInfoFromDiscriminatorValue } from './createInvitedUserMessageInfoFromDiscriminatorValue';
+import { createUserFromDiscriminatorValue } from './createUserFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Invitation } from './invitation';
+import { type InvitedUserMessageInfo } from './invitedUserMessageInfo';
+import { serializeInvitedUserMessageInfo } from './serializeInvitedUserMessageInfo';
+import { serializeUser } from './serializeUser';
+import { type User } from './user';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInvitation(invitation: Invitation | undefined = {} as Invitation) : Record<string, (node: ParseNode) => void> {
     return {

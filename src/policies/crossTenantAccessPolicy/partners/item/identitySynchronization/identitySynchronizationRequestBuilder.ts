@@ -1,16 +1,15 @@
-import {createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue} from '../../../../../models/createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue';
-import type {CrossTenantIdentitySyncPolicyPartner} from '../../../../../models/crossTenantIdentitySyncPolicyPartner';
-import {deserializeIntoCrossTenantIdentitySyncPolicyPartner} from '../../../../../models/deserializeIntoCrossTenantIdentitySyncPolicyPartner';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeCrossTenantIdentitySyncPolicyPartner} from '../../../../../models/serializeCrossTenantIdentitySyncPolicyPartner';
-import {IdentitySynchronizationRequestBuilderDeleteRequestConfiguration} from './identitySynchronizationRequestBuilderDeleteRequestConfiguration';
-import {IdentitySynchronizationRequestBuilderGetRequestConfiguration} from './identitySynchronizationRequestBuilderGetRequestConfiguration';
-import {IdentitySynchronizationRequestBuilderPatchRequestConfiguration} from './identitySynchronizationRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue } from '../../../../../models/createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue';
+import { type CrossTenantIdentitySyncPolicyPartner } from '../../../../../models/crossTenantIdentitySyncPolicyPartner';
+import { deserializeIntoCrossTenantIdentitySyncPolicyPartner } from '../../../../../models/deserializeIntoCrossTenantIdentitySyncPolicyPartner';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeCrossTenantIdentitySyncPolicyPartner } from '../../../../../models/serializeCrossTenantIdentitySyncPolicyPartner';
+import { type IdentitySynchronizationRequestBuilderDeleteRequestConfiguration } from './identitySynchronizationRequestBuilderDeleteRequestConfiguration';
+import { type IdentitySynchronizationRequestBuilderGetRequestConfiguration } from './identitySynchronizationRequestBuilderGetRequestConfiguration';
+import { type IdentitySynchronizationRequestBuilderPutRequestConfiguration } from './identitySynchronizationRequestBuilderPutRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identitySynchronization property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.
@@ -56,14 +55,13 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CrossTenantIdentitySyncPolicyPartner>(requestInfo, createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a cross-tenant user synchronization policy for a partner-specific configuration.
+     * Update the navigation property identitySynchronization in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CrossTenantIdentitySyncPolicyPartner
-     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: CrossTenantIdentitySyncPolicyPartner, requestConfiguration?: IdentitySynchronizationRequestBuilderPatchRequestConfiguration | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined> {
-        const requestInfo = this.toPatchRequestInformation(
+    public put(body: CrossTenantIdentitySyncPolicyPartner, requestConfiguration?: IdentitySynchronizationRequestBuilderPutRequestConfiguration | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined> {
+        const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
         const errorMapping = {
@@ -107,17 +105,17 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a cross-tenant user synchronization policy for a partner-specific configuration.
+     * Update the navigation property identitySynchronization in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: CrossTenantIdentitySyncPolicyPartner, requestConfiguration?: IdentitySynchronizationRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: CrossTenantIdentitySyncPolicyPartner, requestConfiguration?: IdentitySynchronizationRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.httpMethod = HttpMethod.PUT;
         requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);

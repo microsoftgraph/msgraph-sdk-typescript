@@ -1,8 +1,8 @@
-import {deserializeIntoCountryNamedLocation} from './deserializeIntoCountryNamedLocation';
-import {deserializeIntoIpNamedLocation} from './deserializeIntoIpNamedLocation';
-import {deserializeIntoNamedLocation} from './deserializeIntoNamedLocation';
-import {CountryNamedLocation, IpNamedLocation, NamedLocation} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCountryNamedLocation } from './deserializeIntoCountryNamedLocation';
+import { deserializeIntoIpNamedLocation } from './deserializeIntoIpNamedLocation';
+import { deserializeIntoNamedLocation } from './deserializeIntoNamedLocation';
+import { type CountryNamedLocation, type IpNamedLocation, type NamedLocation } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createNamedLocationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

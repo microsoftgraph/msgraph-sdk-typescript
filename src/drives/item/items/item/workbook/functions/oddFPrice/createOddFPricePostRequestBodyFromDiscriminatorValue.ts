@@ -1,6 +1,6 @@
-import {deserializeIntoOddFPricePostRequestBody} from './deserializeIntoOddFPricePostRequestBody';
-import {OddFPricePostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoOddFPricePostRequestBody } from './deserializeIntoOddFPricePostRequestBody';
+import { type OddFPricePostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createOddFPricePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

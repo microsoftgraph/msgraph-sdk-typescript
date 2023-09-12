@@ -1,18 +1,18 @@
-import {createWorkbookFormatProtectionFromDiscriminatorValue} from './createWorkbookFormatProtectionFromDiscriminatorValue';
-import {createWorkbookRangeBorderFromDiscriminatorValue} from './createWorkbookRangeBorderFromDiscriminatorValue';
-import {createWorkbookRangeFillFromDiscriminatorValue} from './createWorkbookRangeFillFromDiscriminatorValue';
-import {createWorkbookRangeFontFromDiscriminatorValue} from './createWorkbookRangeFontFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeWorkbookFormatProtection} from './serializeWorkbookFormatProtection';
-import {serializeWorkbookRangeBorder} from './serializeWorkbookRangeBorder';
-import {serializeWorkbookRangeFill} from './serializeWorkbookRangeFill';
-import {serializeWorkbookRangeFont} from './serializeWorkbookRangeFont';
-import type {WorkbookFormatProtection} from './workbookFormatProtection';
-import type {WorkbookRangeBorder} from './workbookRangeBorder';
-import type {WorkbookRangeFill} from './workbookRangeFill';
-import type {WorkbookRangeFont} from './workbookRangeFont';
-import type {WorkbookRangeFormat} from './workbookRangeFormat';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookFormatProtectionFromDiscriminatorValue } from './createWorkbookFormatProtectionFromDiscriminatorValue';
+import { createWorkbookRangeBorderFromDiscriminatorValue } from './createWorkbookRangeBorderFromDiscriminatorValue';
+import { createWorkbookRangeFillFromDiscriminatorValue } from './createWorkbookRangeFillFromDiscriminatorValue';
+import { createWorkbookRangeFontFromDiscriminatorValue } from './createWorkbookRangeFontFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeWorkbookFormatProtection } from './serializeWorkbookFormatProtection';
+import { serializeWorkbookRangeBorder } from './serializeWorkbookRangeBorder';
+import { serializeWorkbookRangeFill } from './serializeWorkbookRangeFill';
+import { serializeWorkbookRangeFont } from './serializeWorkbookRangeFont';
+import { type WorkbookFormatProtection } from './workbookFormatProtection';
+import { type WorkbookRangeBorder } from './workbookRangeBorder';
+import { type WorkbookRangeFill } from './workbookRangeFill';
+import { type WorkbookRangeFont } from './workbookRangeFont';
+import { type WorkbookRangeFormat } from './workbookRangeFormat';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookRangeFormat(workbookRangeFormat: WorkbookRangeFormat | undefined = {} as WorkbookRangeFormat) : Record<string, (node: ParseNode) => void> {
     return {

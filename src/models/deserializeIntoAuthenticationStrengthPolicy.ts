@@ -1,12 +1,12 @@
-import type {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
-import {AuthenticationMethodModes} from './authenticationMethodModes';
-import type {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
-import {AuthenticationStrengthPolicyType} from './authenticationStrengthPolicyType';
-import {AuthenticationStrengthRequirements} from './authenticationStrengthRequirements';
-import {createAuthenticationCombinationConfigurationFromDiscriminatorValue} from './createAuthenticationCombinationConfigurationFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeAuthenticationCombinationConfiguration} from './serializeAuthenticationCombinationConfiguration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationCombinationConfiguration } from './authenticationCombinationConfiguration';
+import { AuthenticationMethodModes } from './authenticationMethodModes';
+import { type AuthenticationStrengthPolicy } from './authenticationStrengthPolicy';
+import { AuthenticationStrengthPolicyType } from './authenticationStrengthPolicyType';
+import { AuthenticationStrengthRequirements } from './authenticationStrengthRequirements';
+import { createAuthenticationCombinationConfigurationFromDiscriminatorValue } from './createAuthenticationCombinationConfigurationFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeAuthenticationCombinationConfiguration } from './serializeAuthenticationCombinationConfiguration';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthenticationStrengthPolicy(authenticationStrengthPolicy: AuthenticationStrengthPolicy | undefined = {} as AuthenticationStrengthPolicy) : Record<string, (node: ParseNode) => void> {
     return {
@@ -18,6 +18,6 @@ export function deserializeIntoAuthenticationStrengthPolicy(authenticationStreng
         "displayName": n => { authenticationStrengthPolicy.displayName = n.getStringValue(); },
         "modifiedDateTime": n => { authenticationStrengthPolicy.modifiedDateTime = n.getDateValue(); },
         "policyType": n => { authenticationStrengthPolicy.policyType = n.getEnumValue<AuthenticationStrengthPolicyType>(AuthenticationStrengthPolicyType); },
-        "requirementsSatisfied": n => { authenticationStrengthPolicy.requirementsSatisfied = n.getEnumValue<AuthenticationStrengthRequirements>(AuthenticationStrengthRequirements); },
+        "requirementsSatisfied": n => { authenticationStrengthPolicy.requirementsSatisfied = n.getCollectionOfEnumValues<AuthenticationStrengthRequirements>(AuthenticationStrengthRequirements); },
     }
 }

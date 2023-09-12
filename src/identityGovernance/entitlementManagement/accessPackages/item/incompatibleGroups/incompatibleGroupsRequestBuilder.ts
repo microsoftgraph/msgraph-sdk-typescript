@@ -1,15 +1,14 @@
-import {GroupCollectionResponse} from '../../../../../models/';
-import {createGroupCollectionResponseFromDiscriminatorValue} from '../../../../../models/createGroupCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {IncompatibleGroupsRequestBuilderGetRequestConfiguration} from './incompatibleGroupsRequestBuilderGetRequestConfiguration';
-import {GroupItemRequestBuilder} from './item/groupItemRequestBuilder';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type GroupCollectionResponse } from '../../../../../models/';
+import { createGroupCollectionResponseFromDiscriminatorValue } from '../../../../../models/createGroupCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type IncompatibleGroupsRequestBuilderGetRequestConfiguration } from './incompatibleGroupsRequestBuilderGetRequestConfiguration';
+import { GroupItemRequestBuilder } from './item/groupItemRequestBuilder';
+import { RefRequestBuilder } from './ref/refRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incompatibleGroups property of the microsoft.graph.accessPackage entity.

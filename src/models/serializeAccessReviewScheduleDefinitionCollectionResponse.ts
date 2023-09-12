@@ -1,8 +1,8 @@
-import type {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
-import type {AccessReviewScheduleDefinitionCollectionResponse} from './accessReviewScheduleDefinitionCollectionResponse';
-import {serializeAccessReviewScheduleDefinition} from './serializeAccessReviewScheduleDefinition';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessReviewScheduleDefinition } from './accessReviewScheduleDefinition';
+import { type AccessReviewScheduleDefinitionCollectionResponse } from './accessReviewScheduleDefinitionCollectionResponse';
+import { serializeAccessReviewScheduleDefinition } from './serializeAccessReviewScheduleDefinition';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewScheduleDefinitionCollectionResponse(writer: SerializationWriter, accessReviewScheduleDefinitionCollectionResponse: AccessReviewScheduleDefinitionCollectionResponse | undefined = {} as AccessReviewScheduleDefinitionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessReviewScheduleDefinitionCollectionResponse)

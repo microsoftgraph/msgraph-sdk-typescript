@@ -1,5 +1,5 @@
-import type {PersonOrGroupColumn} from './personOrGroupColumn';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PersonOrGroupColumn } from './personOrGroupColumn';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePersonOrGroupColumn(writer: SerializationWriter, personOrGroupColumn: PersonOrGroupColumn | undefined = {} as PersonOrGroupColumn) : void {
         writer.writeBooleanValue("allowMultipleSelection", personOrGroupColumn.allowMultipleSelection);

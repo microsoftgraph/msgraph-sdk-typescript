@@ -1,14 +1,14 @@
-import type {BrowserSite} from './browserSite';
-import {BrowserSiteCompatibilityMode} from './browserSiteCompatibilityMode';
-import type {BrowserSiteHistory} from './browserSiteHistory';
-import {BrowserSiteMergeType} from './browserSiteMergeType';
-import {BrowserSiteStatus} from './browserSiteStatus';
-import {BrowserSiteTargetEnvironment} from './browserSiteTargetEnvironment';
-import type {IdentitySet} from './identitySet';
-import {serializeBrowserSiteHistory} from './serializeBrowserSiteHistory';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BrowserSite } from './browserSite';
+import { BrowserSiteCompatibilityMode } from './browserSiteCompatibilityMode';
+import { type BrowserSiteHistory } from './browserSiteHistory';
+import { BrowserSiteMergeType } from './browserSiteMergeType';
+import { BrowserSiteStatus } from './browserSiteStatus';
+import { BrowserSiteTargetEnvironment } from './browserSiteTargetEnvironment';
+import { type IdentitySet } from './identitySet';
+import { serializeBrowserSiteHistory } from './serializeBrowserSiteHistory';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBrowserSite(writer: SerializationWriter, browserSite: BrowserSite | undefined = {} as BrowserSite) : void {
         serializeEntity(writer, browserSite)

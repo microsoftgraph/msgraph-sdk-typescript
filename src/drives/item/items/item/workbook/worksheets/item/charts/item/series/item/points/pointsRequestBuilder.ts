@@ -1,20 +1,19 @@
-import {WorkbookChartPointCollectionResponse} from '../../../../../../../../../../../../models/';
-import {createWorkbookChartPointCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../../../../models/createWorkbookChartPointCollectionResponseFromDiscriminatorValue';
-import {createWorkbookChartPointFromDiscriminatorValue} from '../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
-import {deserializeIntoWorkbookChartPoint} from '../../../../../../../../../../../../models/deserializeIntoWorkbookChartPoint';
-import {ODataError} from '../../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookChartPoint} from '../../../../../../../../../../../../models/serializeWorkbookChartPoint';
-import type {WorkbookChartPoint} from '../../../../../../../../../../../../models/workbookChartPoint';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WorkbookChartPointItemRequestBuilder} from './item/workbookChartPointItemRequestBuilder';
-import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import {PointsRequestBuilderGetRequestConfiguration} from './pointsRequestBuilderGetRequestConfiguration';
-import {PointsRequestBuilderPostRequestConfiguration} from './pointsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookChartPointCollectionResponse } from '../../../../../../../../../../../../models/';
+import { createWorkbookChartPointCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../../models/createWorkbookChartPointCollectionResponseFromDiscriminatorValue';
+import { createWorkbookChartPointFromDiscriminatorValue } from '../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
+import { deserializeIntoWorkbookChartPoint } from '../../../../../../../../../../../../models/deserializeIntoWorkbookChartPoint';
+import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookChartPoint } from '../../../../../../../../../../../../models/serializeWorkbookChartPoint';
+import { type WorkbookChartPoint } from '../../../../../../../../../../../../models/workbookChartPoint';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WorkbookChartPointItemRequestBuilder } from './item/workbookChartPointItemRequestBuilder';
+import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
+import { type PointsRequestBuilderGetRequestConfiguration } from './pointsRequestBuilderGetRequestConfiguration';
+import { type PointsRequestBuilderPostRequestConfiguration } from './pointsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.

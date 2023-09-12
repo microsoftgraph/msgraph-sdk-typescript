@@ -1,13 +1,12 @@
-import {WorkflowTemplate} from '../../../../models/identityGovernance/';
-import {createWorkflowTemplateFromDiscriminatorValue} from '../../../../models/identityGovernance/createWorkflowTemplateFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {WorkflowTemplateItemRequestBuilderGetRequestConfiguration} from './workflowTemplateItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkflowTemplate } from '../../../../models/identityGovernance/';
+import { createWorkflowTemplateFromDiscriminatorValue } from '../../../../models/identityGovernance/createWorkflowTemplateFromDiscriminatorValue';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
+import { type WorkflowTemplateItemRequestBuilderGetRequestConfiguration } from './workflowTemplateItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.

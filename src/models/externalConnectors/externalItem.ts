@@ -1,9 +1,9 @@
-import type {Entity} from '../entity';
-import type {Acl} from './acl';
-import type {ExternalActivity} from './externalActivity';
-import type {ExternalItemContent} from './externalItemContent';
-import type {Properties} from './properties';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { type Acl } from './acl';
+import { type ExternalActivity } from './externalActivity';
+import { type ExternalItemContent } from './externalItemContent';
+import { type Properties } from './properties';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ExternalItem extends Entity, Parsable {
     /**

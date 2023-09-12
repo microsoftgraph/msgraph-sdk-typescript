@@ -1,5 +1,5 @@
-import {BotRequestBuilderGetQueryParameters} from './botRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BotRequestBuilderGetQueryParameters } from './botRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BotRequestBuilderGetRequestConfiguration {
     /**

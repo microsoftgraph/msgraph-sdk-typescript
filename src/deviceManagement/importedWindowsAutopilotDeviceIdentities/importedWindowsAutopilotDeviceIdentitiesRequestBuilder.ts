@@ -1,20 +1,19 @@
-import {ImportedWindowsAutopilotDeviceIdentityCollectionResponse} from '../../models/';
-import {createImportedWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue} from '../../models/createImportedWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue';
-import {createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../models/createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
-import {deserializeIntoImportedWindowsAutopilotDeviceIdentity} from '../../models/deserializeIntoImportedWindowsAutopilotDeviceIdentity';
-import type {ImportedWindowsAutopilotDeviceIdentity} from '../../models/importedWindowsAutopilotDeviceIdentity';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeImportedWindowsAutopilotDeviceIdentity} from '../../models/serializeImportedWindowsAutopilotDeviceIdentity';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ImportRequestBuilder} from './importEscaped/importRequestBuilder';
-import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration} from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
-import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration} from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
-import {ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder} from './item/importedWindowsAutopilotDeviceIdentityItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ImportedWindowsAutopilotDeviceIdentityCollectionResponse } from '../../models/';
+import { createImportedWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue } from '../../models/createImportedWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue';
+import { createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue } from '../../models/createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
+import { deserializeIntoImportedWindowsAutopilotDeviceIdentity } from '../../models/deserializeIntoImportedWindowsAutopilotDeviceIdentity';
+import { type ImportedWindowsAutopilotDeviceIdentity } from '../../models/importedWindowsAutopilotDeviceIdentity';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeImportedWindowsAutopilotDeviceIdentity } from '../../models/serializeImportedWindowsAutopilotDeviceIdentity';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration } from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
+import { type ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration } from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
+import { ImportRequestBuilder } from './importEscaped/importRequestBuilder';
+import { ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder } from './item/importedWindowsAutopilotDeviceIdentityItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.

@@ -1,6 +1,6 @@
-import type {PermissionScope} from './permissionScope';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type PermissionScope } from './permissionScope';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializePermissionScope(writer: SerializationWriter, permissionScope: PermissionScope | undefined = {} as PermissionScope) : void {
         writer.writeStringValue("adminConsentDescription", permissionScope.adminConsentDescription);

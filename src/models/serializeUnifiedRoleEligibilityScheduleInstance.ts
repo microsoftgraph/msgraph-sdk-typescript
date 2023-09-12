@@ -1,6 +1,6 @@
-import {serializeUnifiedRoleScheduleInstanceBase} from './serializeUnifiedRoleScheduleInstanceBase';
-import type {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeUnifiedRoleScheduleInstanceBase } from './serializeUnifiedRoleScheduleInstanceBase';
+import { type UnifiedRoleEligibilityScheduleInstance } from './unifiedRoleEligibilityScheduleInstance';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleEligibilityScheduleInstance(writer: SerializationWriter, unifiedRoleEligibilityScheduleInstance: UnifiedRoleEligibilityScheduleInstance | undefined = {} as UnifiedRoleEligibilityScheduleInstance) : void {
         serializeUnifiedRoleScheduleInstanceBase(writer, unifiedRoleEligibilityScheduleInstance)

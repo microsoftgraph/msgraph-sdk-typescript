@@ -1,16 +1,15 @@
-import {createShiftFromDiscriminatorValue} from '../../../../../../models/createShiftFromDiscriminatorValue';
-import {deserializeIntoShift} from '../../../../../../models/deserializeIntoShift';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeShift} from '../../../../../../models/serializeShift';
-import type {Shift} from '../../../../../../models/shift';
-import {ShiftItemRequestBuilderDeleteRequestConfiguration} from './shiftItemRequestBuilderDeleteRequestConfiguration';
-import {ShiftItemRequestBuilderGetRequestConfiguration} from './shiftItemRequestBuilderGetRequestConfiguration';
-import {ShiftItemRequestBuilderPatchRequestConfiguration} from './shiftItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createShiftFromDiscriminatorValue } from '../../../../../../models/createShiftFromDiscriminatorValue';
+import { deserializeIntoShift } from '../../../../../../models/deserializeIntoShift';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeShift } from '../../../../../../models/serializeShift';
+import { type Shift } from '../../../../../../models/shift';
+import { type ShiftItemRequestBuilderDeleteRequestConfiguration } from './shiftItemRequestBuilderDeleteRequestConfiguration';
+import { type ShiftItemRequestBuilderGetRequestConfiguration } from './shiftItemRequestBuilderGetRequestConfiguration';
+import { type ShiftItemRequestBuilderPatchRequestConfiguration } from './shiftItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
@@ -56,7 +55,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Shift>(requestInfo, createShiftFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Replace an existing shift. If the specified shift doesn't exist, this method returns 404 Not found. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
+     * Replace an existing shift. If the specified shift doesn't exist, this method returns 404 Not found. The duration of a shift can't be less than 1 minute or longer than 24 hours.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Shift
@@ -107,7 +106,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Replace an existing shift. If the specified shift doesn't exist, this method returns 404 Not found. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
+     * Replace an existing shift. If the specified shift doesn't exist, this method returns 404 Not found. The duration of a shift can't be less than 1 minute or longer than 24 hours.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

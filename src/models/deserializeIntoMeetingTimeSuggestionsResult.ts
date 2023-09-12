@@ -1,8 +1,8 @@
-import {createMeetingTimeSuggestionFromDiscriminatorValue} from './createMeetingTimeSuggestionFromDiscriminatorValue';
-import type {MeetingTimeSuggestion} from './meetingTimeSuggestion';
-import type {MeetingTimeSuggestionsResult} from './meetingTimeSuggestionsResult';
-import {serializeMeetingTimeSuggestion} from './serializeMeetingTimeSuggestion';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createMeetingTimeSuggestionFromDiscriminatorValue } from './createMeetingTimeSuggestionFromDiscriminatorValue';
+import { type MeetingTimeSuggestion } from './meetingTimeSuggestion';
+import { type MeetingTimeSuggestionsResult } from './meetingTimeSuggestionsResult';
+import { serializeMeetingTimeSuggestion } from './serializeMeetingTimeSuggestion';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMeetingTimeSuggestionsResult(meetingTimeSuggestionsResult: MeetingTimeSuggestionsResult | undefined = {} as MeetingTimeSuggestionsResult) : Record<string, (node: ParseNode) => void> {
     return {

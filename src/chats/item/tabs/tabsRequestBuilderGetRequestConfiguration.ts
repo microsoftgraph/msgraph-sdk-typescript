@@ -1,5 +1,5 @@
-import {TabsRequestBuilderGetQueryParameters} from './tabsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TabsRequestBuilderGetQueryParameters } from './tabsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TabsRequestBuilderGetRequestConfiguration {
     /**

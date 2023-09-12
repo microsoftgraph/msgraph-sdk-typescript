@@ -1,16 +1,15 @@
-import {createExternalFromDiscriminatorValue} from '../models/externalConnectors/createExternalFromDiscriminatorValue';
-import {deserializeIntoExternal} from '../models/externalConnectors/deserializeIntoExternal';
-import type {External} from '../models/externalConnectors/external';
-import {serializeExternal} from '../models/externalConnectors/serializeExternal';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {ConnectionsRequestBuilder} from './connections/connectionsRequestBuilder';
-import {ExternalRequestBuilderGetRequestConfiguration} from './externalRequestBuilderGetRequestConfiguration';
-import {ExternalRequestBuilderPatchRequestConfiguration} from './externalRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createExternalFromDiscriminatorValue } from '../models/externalConnectors/createExternalFromDiscriminatorValue';
+import { deserializeIntoExternal } from '../models/externalConnectors/deserializeIntoExternal';
+import { type External } from '../models/externalConnectors/external';
+import { serializeExternal } from '../models/externalConnectors/serializeExternal';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { ConnectionsRequestBuilder } from './connections/connectionsRequestBuilder';
+import { type ExternalRequestBuilderGetRequestConfiguration } from './externalRequestBuilderGetRequestConfiguration';
+import { type ExternalRequestBuilderPatchRequestConfiguration } from './externalRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the external singleton.

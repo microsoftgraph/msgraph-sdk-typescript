@@ -1,6 +1,6 @@
-import {deserializeIntoDcountAPostRequestBody} from './deserializeIntoDcountAPostRequestBody';
-import {DcountAPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDcountAPostRequestBody } from './deserializeIntoDcountAPostRequestBody';
+import { type DcountAPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDcountAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

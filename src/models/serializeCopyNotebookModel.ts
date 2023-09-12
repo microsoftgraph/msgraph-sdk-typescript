@@ -1,10 +1,10 @@
-import type {CopyNotebookModel} from './copyNotebookModel';
-import type {IdentitySet} from './identitySet';
-import type {NotebookLinks} from './notebookLinks';
-import {OnenoteUserRole} from './onenoteUserRole';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeNotebookLinks} from './serializeNotebookLinks';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CopyNotebookModel } from './copyNotebookModel';
+import { type IdentitySet } from './identitySet';
+import { type NotebookLinks } from './notebookLinks';
+import { OnenoteUserRole } from './onenoteUserRole';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeNotebookLinks } from './serializeNotebookLinks';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCopyNotebookModel(writer: SerializationWriter, copyNotebookModel: CopyNotebookModel | undefined = {} as CopyNotebookModel) : void {
         writer.writeStringValue("createdBy", copyNotebookModel.createdBy);

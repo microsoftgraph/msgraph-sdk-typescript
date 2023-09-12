@@ -1,5 +1,5 @@
-import {AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters} from './accessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters } from './accessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration {
     /**

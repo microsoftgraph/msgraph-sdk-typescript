@@ -1,8 +1,8 @@
-import {serializeEntity} from './serializeEntity';
-import {serializeTeam} from './serializeTeam';
-import type {Team} from './team';
-import type {TeamInfo} from './teamInfo';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { serializeTeam } from './serializeTeam';
+import { type Team } from './team';
+import { type TeamInfo } from './teamInfo';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTeamInfo(writer: SerializationWriter, teamInfo: TeamInfo | undefined = {} as TeamInfo) : void {
         serializeEntity(writer, teamInfo)

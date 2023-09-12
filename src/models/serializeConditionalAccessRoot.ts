@@ -1,16 +1,16 @@
-import type {AuthenticationContextClassReference} from './authenticationContextClassReference';
-import type {AuthenticationStrengthRoot} from './authenticationStrengthRoot';
-import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
-import type {ConditionalAccessRoot} from './conditionalAccessRoot';
-import type {ConditionalAccessTemplate} from './conditionalAccessTemplate';
-import type {NamedLocation} from './namedLocation';
-import {serializeAuthenticationContextClassReference} from './serializeAuthenticationContextClassReference';
-import {serializeAuthenticationStrengthRoot} from './serializeAuthenticationStrengthRoot';
-import {serializeConditionalAccessPolicy} from './serializeConditionalAccessPolicy';
-import {serializeConditionalAccessTemplate} from './serializeConditionalAccessTemplate';
-import {serializeEntity} from './serializeEntity';
-import {serializeNamedLocation} from './serializeNamedLocation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationContextClassReference } from './authenticationContextClassReference';
+import { type AuthenticationStrengthRoot } from './authenticationStrengthRoot';
+import { type ConditionalAccessPolicy } from './conditionalAccessPolicy';
+import { type ConditionalAccessRoot } from './conditionalAccessRoot';
+import { type ConditionalAccessTemplate } from './conditionalAccessTemplate';
+import { type NamedLocation } from './namedLocation';
+import { serializeAuthenticationContextClassReference } from './serializeAuthenticationContextClassReference';
+import { serializeAuthenticationStrengthRoot } from './serializeAuthenticationStrengthRoot';
+import { serializeConditionalAccessPolicy } from './serializeConditionalAccessPolicy';
+import { serializeConditionalAccessTemplate } from './serializeConditionalAccessTemplate';
+import { serializeEntity } from './serializeEntity';
+import { serializeNamedLocation } from './serializeNamedLocation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessRoot(writer: SerializationWriter, conditionalAccessRoot: ConditionalAccessRoot | undefined = {} as ConditionalAccessRoot) : void {
         serializeEntity(writer, conditionalAccessRoot)

@@ -1,5 +1,5 @@
-import {AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters} from './allowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters } from './allowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AllowedCalendarSharingRolesWithUserRequestBuilderGetRequestConfiguration {
     /**

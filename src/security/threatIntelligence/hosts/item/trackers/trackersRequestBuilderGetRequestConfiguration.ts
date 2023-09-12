@@ -1,5 +1,5 @@
-import {TrackersRequestBuilderGetQueryParameters} from './trackersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TrackersRequestBuilderGetQueryParameters } from './trackersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TrackersRequestBuilderGetRequestConfiguration {
     /**

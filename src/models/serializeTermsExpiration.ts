@@ -1,6 +1,5 @@
-import type {TermsExpiration} from './termsExpiration';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type TermsExpiration } from './termsExpiration';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTermsExpiration(writer: SerializationWriter, termsExpiration: TermsExpiration | undefined = {} as TermsExpiration) : void {
         writer.writeDurationValue("frequency", termsExpiration.frequency);

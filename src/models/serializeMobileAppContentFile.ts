@@ -1,7 +1,7 @@
-import type {MobileAppContentFile} from './mobileAppContentFile';
-import {MobileAppContentFileUploadState} from './mobileAppContentFileUploadState';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MobileAppContentFile } from './mobileAppContentFile';
+import { MobileAppContentFileUploadState } from './mobileAppContentFileUploadState';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMobileAppContentFile(writer: SerializationWriter, mobileAppContentFile: MobileAppContentFile | undefined = {} as MobileAppContentFile) : void {
         serializeEntity(writer, mobileAppContentFile)

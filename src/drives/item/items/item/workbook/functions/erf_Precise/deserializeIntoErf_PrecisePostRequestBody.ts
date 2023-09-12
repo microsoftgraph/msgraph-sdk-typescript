@@ -1,8 +1,8 @@
-import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {Erf_PrecisePostRequestBody} from './erf_PrecisePostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createJsonFromDiscriminatorValue } from '../../../../../../../models/createJsonFromDiscriminatorValue';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type Erf_PrecisePostRequestBody } from './erf_PrecisePostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoErf_PrecisePostRequestBody(erf_PrecisePostRequestBody: Erf_PrecisePostRequestBody | undefined = {} as Erf_PrecisePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

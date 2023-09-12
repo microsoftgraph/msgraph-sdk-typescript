@@ -1,5 +1,5 @@
-import type {AssignmentOrder} from './assignmentOrder';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AssignmentOrder } from './assignmentOrder';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAssignmentOrder(assignmentOrder: AssignmentOrder | undefined = {} as AssignmentOrder) : Record<string, (node: ParseNode) => void> {
     return {

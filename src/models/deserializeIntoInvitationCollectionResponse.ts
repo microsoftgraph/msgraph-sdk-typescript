@@ -1,9 +1,9 @@
-import {createInvitationFromDiscriminatorValue} from './createInvitationFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {Invitation} from './invitation';
-import type {InvitationCollectionResponse} from './invitationCollectionResponse';
-import {serializeInvitation} from './serializeInvitation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createInvitationFromDiscriminatorValue } from './createInvitationFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type Invitation } from './invitation';
+import { type InvitationCollectionResponse } from './invitationCollectionResponse';
+import { serializeInvitation } from './serializeInvitation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInvitationCollectionResponse(invitationCollectionResponse: InvitationCollectionResponse | undefined = {} as InvitationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

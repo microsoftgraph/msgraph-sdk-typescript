@@ -1,8 +1,8 @@
-import {deserializeIntoServiceAnnouncementBase} from './deserializeIntoServiceAnnouncementBase';
-import {deserializeIntoServiceHealthIssue} from './deserializeIntoServiceHealthIssue';
-import {deserializeIntoServiceUpdateMessage} from './deserializeIntoServiceUpdateMessage';
-import {ServiceAnnouncementBase, ServiceHealthIssue, ServiceUpdateMessage} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoServiceAnnouncementBase } from './deserializeIntoServiceAnnouncementBase';
+import { deserializeIntoServiceHealthIssue } from './deserializeIntoServiceHealthIssue';
+import { deserializeIntoServiceUpdateMessage } from './deserializeIntoServiceUpdateMessage';
+import { type ServiceAnnouncementBase, type ServiceHealthIssue, type ServiceUpdateMessage } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createServiceAnnouncementBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

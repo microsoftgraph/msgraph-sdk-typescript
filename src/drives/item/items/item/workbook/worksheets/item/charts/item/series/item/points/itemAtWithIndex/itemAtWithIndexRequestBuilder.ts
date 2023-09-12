@@ -1,12 +1,11 @@
-import {WorkbookChartPoint} from '../../../../../../../../../../../../../models/';
-import {createWorkbookChartPointFromDiscriminatorValue} from '../../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {ItemAtWithIndexRequestBuilderGetRequestConfiguration} from './itemAtWithIndexRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookChartPoint } from '../../../../../../../../../../../../../models/';
+import { createWorkbookChartPointFromDiscriminatorValue } from '../../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { type ItemAtWithIndexRequestBuilderGetRequestConfiguration } from './itemAtWithIndexRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the itemAt method.

@@ -1,55 +1,55 @@
-import type {AgreementAcceptance} from './agreementAcceptance';
-import type {AppRoleAssignment} from './appRoleAssignment';
-import type {AssignedLicense} from './assignedLicense';
-import type {AssignedPlan} from './assignedPlan';
-import type {Authentication} from './authentication';
-import type {AuthorizationInfo} from './authorizationInfo';
-import type {Calendar} from './calendar';
-import type {CalendarGroup} from './calendarGroup';
-import type {Chat} from './chat';
-import type {Contact} from './contact';
-import type {ContactFolder} from './contactFolder';
-import type {CustomSecurityAttributeValue} from './customSecurityAttributeValue';
-import type {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
-import type {DirectoryObject} from './directoryObject';
-import type {Drive} from './drive';
-import type {EmployeeExperienceUser} from './employeeExperienceUser';
-import type {EmployeeOrgData} from './employeeOrgData';
-import type {Event} from './event';
-import type {Extension} from './extension';
-import type {InferenceClassification} from './inferenceClassification';
-import type {LicenseAssignmentState} from './licenseAssignmentState';
-import type {LicenseDetails} from './licenseDetails';
-import type {MailFolder} from './mailFolder';
-import type {MailboxSettings} from './mailboxSettings';
-import type {ManagedAppRegistration} from './managedAppRegistration';
-import type {ManagedDevice} from './managedDevice';
-import type {Message} from './message';
-import type {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
-import type {ObjectIdentity} from './objectIdentity';
-import type {OfficeGraphInsights} from './officeGraphInsights';
-import type {OnPremisesExtensionAttributes} from './onPremisesExtensionAttributes';
-import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
-import type {Onenote} from './onenote';
-import type {OnlineMeeting} from './onlineMeeting';
-import type {OutlookUser} from './outlookUser';
-import type {PasswordProfile} from './passwordProfile';
-import type {Person} from './person';
-import type {PlannerUser} from './plannerUser';
-import type {Presence} from './presence';
-import type {ProfilePhoto} from './profilePhoto';
-import type {ProvisionedPlan} from './provisionedPlan';
-import type {ScopedRoleMembership} from './scopedRoleMembership';
-import type {ServiceProvisioningError} from './serviceProvisioningError';
-import type {SignInActivity} from './signInActivity';
-import type {Site} from './site';
-import type {Team} from './team';
-import type {Todo} from './todo';
-import type {UserActivity} from './userActivity';
-import type {UserPrint} from './userPrint';
-import type {UserSettings} from './userSettings';
-import type {UserTeamwork} from './userTeamwork';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AgreementAcceptance } from './agreementAcceptance';
+import { type AppRoleAssignment } from './appRoleAssignment';
+import { type AssignedLicense } from './assignedLicense';
+import { type AssignedPlan } from './assignedPlan';
+import { type Authentication } from './authentication';
+import { type AuthorizationInfo } from './authorizationInfo';
+import { type Calendar } from './calendar';
+import { type CalendarGroup } from './calendarGroup';
+import { type Chat } from './chat';
+import { type Contact } from './contact';
+import { type ContactFolder } from './contactFolder';
+import { type CustomSecurityAttributeValue } from './customSecurityAttributeValue';
+import { type DeviceManagementTroubleshootingEvent } from './deviceManagementTroubleshootingEvent';
+import { type DirectoryObject } from './directoryObject';
+import { type Drive } from './drive';
+import { type EmployeeExperienceUser } from './employeeExperienceUser';
+import { type EmployeeOrgData } from './employeeOrgData';
+import { type Event } from './event';
+import { type Extension } from './extension';
+import { type InferenceClassification } from './inferenceClassification';
+import { type LicenseAssignmentState } from './licenseAssignmentState';
+import { type LicenseDetails } from './licenseDetails';
+import { type MailboxSettings } from './mailboxSettings';
+import { type MailFolder } from './mailFolder';
+import { type ManagedAppRegistration } from './managedAppRegistration';
+import { type ManagedDevice } from './managedDevice';
+import { type Message } from './message';
+import { type OAuth2PermissionGrant } from './oAuth2PermissionGrant';
+import { type ObjectIdentity } from './objectIdentity';
+import { type OfficeGraphInsights } from './officeGraphInsights';
+import { type Onenote } from './onenote';
+import { type OnlineMeeting } from './onlineMeeting';
+import { type OnPremisesExtensionAttributes } from './onPremisesExtensionAttributes';
+import { type OnPremisesProvisioningError } from './onPremisesProvisioningError';
+import { type OutlookUser } from './outlookUser';
+import { type PasswordProfile } from './passwordProfile';
+import { type Person } from './person';
+import { type PlannerUser } from './plannerUser';
+import { type Presence } from './presence';
+import { type ProfilePhoto } from './profilePhoto';
+import { type ProvisionedPlan } from './provisionedPlan';
+import { type ScopedRoleMembership } from './scopedRoleMembership';
+import { type ServiceProvisioningError } from './serviceProvisioningError';
+import { type SignInActivity } from './signInActivity';
+import { type Site } from './site';
+import { type Team } from './team';
+import { type Todo } from './todo';
+import { type UserActivity } from './userActivity';
+import { type UserPrint } from './userPrint';
+import { type UserSettings } from './userSettings';
+import { type UserTeamwork } from './userTeamwork';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface User extends DirectoryObject, Parsable {
     /**
@@ -65,7 +65,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     activities?: UserActivity[] | undefined;
     /**
-     * Sets the age group of the user. Allowed values: null, Minor, NotAdult and Adult. Refer to the legal age group property definitions for further information. Returned only on $select. Supports $filter (eq, ne, not, and in).
+     * Sets the age group of the user. Allowed values: null, Minor, NotAdult and Adult. For more information, see legal age group property definitions. Returned only on $select. Supports $filter (eq, ne, not, and in).
      */
     ageGroup?: string | undefined;
     /**
@@ -77,7 +77,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     appRoleAssignments?: AppRoleAssignment[] | undefined;
     /**
-     * The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn't differentiate directly-assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly-assigned and inherited licenses.  Not nullable. Returned only on $select. Supports $filter (eq, not, /$count eq 0, /$count ne 0).
+     * The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn't differentiate directly assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly assigned and inherited licenses.  Not nullable. Returned only on $select. Supports $filter (eq, not, /$count eq 0, /$count ne 0).
      */
     assignedLicenses?: AssignedLicense[] | undefined;
     /**
@@ -121,11 +121,11 @@ export interface User extends DirectoryObject, Parsable {
      */
     chats?: Chat[] | undefined;
     /**
-     * The city in which the user is located. Maximum length is 128 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * The city where the user is located. Maximum length is 128 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      */
     city?: string | undefined;
     /**
-     * The company name which the user is associated. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * The name of the company that the user is associated with. This property can be useful for describing the company that an external user comes from. The maximum length is 64 characters.Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      */
     companyName?: string | undefined;
     /**
@@ -141,7 +141,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     contacts?: Contact[] | undefined;
     /**
-     * The country/region in which the user is located; for example, US or UK. Maximum length is 128 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * The country or region where the user is located; for example, US or UK. Maximum length is 128 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      */
     country?: string | undefined;
     /**
@@ -149,7 +149,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     createdDateTime?: Date | undefined;
     /**
-     * Directory objects that were created by the user. Read-only. Nullable.
+     * Directory objects that the user created. Read-only. Nullable.
      */
     createdObjects?: DirectoryObject[] | undefined;
     /**
@@ -177,7 +177,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     directReports?: DirectoryObject[] | undefined;
     /**
-     * The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial and last name. This property is required when a user is created and it cannot be cleared during updates. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values), $orderBy, and $search.
+     * The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial and last name. This property is required when a user is created and it cannot be cleared during updates. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values), $orderby, and $search.
      */
     displayName?: string | undefined;
     /**
@@ -205,7 +205,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     employeeLeaveDateTime?: Date | undefined;
     /**
-     * Represents organization data (e.g. division and costCenter) associated with a user. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).
+     * Represents organization data (for example, division and costCenter) associated with a user. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).
      */
     employeeOrgData?: EmployeeOrgData | undefined;
     /**
@@ -253,7 +253,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     imAddresses?: string[] | undefined;
     /**
-     * Relevance classification of the user's messages based on explicit designations which override inferred relevance or importance.
+     * Relevance classification of the user's messages based on explicit designations that override inferred relevance or importance.
      */
     inferenceClassification?: InferenceClassification | undefined;
     /**
@@ -285,7 +285,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     legalAgeGroupClassification?: string | undefined;
     /**
-     * State of license assignments for this user. Also indicates licenses that are directly-assigned and those that the user has inherited through group memberships. Read-only. Returned only on $select.
+     * State of license assignments for this user. Also indicates licenses that are directly assigned or the user has inherited through group memberships. Read-only. Returned only on $select.
      */
     licenseAssignmentStates?: LicenseAssignmentState[] | undefined;
     /**
@@ -293,7 +293,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     licenseDetails?: LicenseDetails[] | undefined;
     /**
-     * The SMTP address for the user, for example, jeff@contoso.onmicrosoft.com. Changes to this property will also update the user's proxyAddresses collection to include the value as an SMTP address. This property cannot contain accent characters.  NOTE: We do not recommend updating this property for Azure AD B2C user profiles. Use the otherMails property instead. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values).
+     * The SMTP address for the user, for example, jeff@contoso.onmicrosoft.com. Changes to this property will also update the user's proxyAddresses collection to include the value as an SMTP address. This property can't contain accent characters.  NOTE: We don't recommend updating this property for Azure AD B2C user profiles. Use the otherMails property instead. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith, and eq on null values).
      */
     mail?: string | undefined;
     /**
@@ -365,7 +365,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     onPremisesExtensionAttributes?: OnPremisesExtensionAttributes | undefined;
     /**
-     * This property is used to associate an on-premises Active Directory user account to their Azure AD user object. This property must be specified when creating a new user account in the Graph if you are using a federated domain for the user's userPrincipalName (UPN) property. NOTE: The $ and _ characters cannot be used when specifying this property. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in)..
+     * This property is used to associate an on-premises Active Directory user account to their Azure AD user object. This property must be specified when creating a new user account in the Graph if you're using a federated domain for the user's userPrincipalName (UPN) property. NOTE: The $ and _ characters can't be used when specifying this property. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in)..
      */
     onPremisesImmutableId?: string | undefined;
     /**
@@ -393,7 +393,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     onPremisesUserPrincipalName?: string | undefined;
     /**
-     * A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com']. NOTE: This property cannot contain accent characters. Returned only on $select. Supports $filter (eq, not, ge, le, in, startsWith, endsWith, /$count eq 0, /$count ne 0).
+     * A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com']. NOTE: This property can't contain accent characters. Returned only on $select. Supports $filter (eq, not, ge, le, in, startsWith, endsWith, /$count eq 0, /$count ne 0).
      */
     otherMails?: string[] | undefined;
     /**
@@ -409,7 +409,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     ownedObjects?: DirectoryObject[] | undefined;
     /**
-     * Specifies password policies for the user. This value is an enumeration with one possible value being DisableStrongPassword, which allows weaker passwords than the default policy to be specified. DisablePasswordExpiration can also be specified. The two may be specified together; for example: DisablePasswordExpiration, DisableStrongPassword. Returned only on $select. For more information on the default password policies, see Azure AD pasword policies. Supports $filter (ne, not, and eq on null values).
+     * Specifies password policies for the user. This value is an enumeration with one possible value being DisableStrongPassword, which allows weaker passwords than the default policy to be specified. DisablePasswordExpiration can also be specified. The two may be specified together; for example: DisablePasswordExpiration, DisableStrongPassword. Returned only on $select. For more information on the default password policies, see Azure AD password policies. Supports $filter (ne, not, and eq on null values).
      */
     passwordPolicies?: string | undefined;
     /**
@@ -445,7 +445,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     preferredDataLocation?: string | undefined;
     /**
-     * The preferred language for the user. Should follow ISO 639-1 Code; for example en-US. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)
+     * The preferred language for the user. Should follow ISO 639-1 Code; for example, en-US. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)
      */
     preferredLanguage?: string | undefined;
     /**
@@ -465,7 +465,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     provisionedPlans?: ProvisionedPlan[] | undefined;
     /**
-     * For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of ten unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).
+     * For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of 10 unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).
      */
     proxyAddresses?: string[] | undefined;
     /**
@@ -505,7 +505,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     signInActivity?: SignInActivity | undefined;
     /**
-     * Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications will get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset. Returned only on $select.
+     * Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application needs to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset. Returned only on $select.
      */
     signInSessionsValidFromDateTime?: Date | undefined;
     /**
@@ -537,11 +537,11 @@ export interface User extends DirectoryObject, Parsable {
      */
     transitiveMemberOf?: DirectoryObject[] | undefined;
     /**
-     * A two letter country code (ISO standard 3166). Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries.  Examples include: US, JP, and GB. Not nullable. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * A two letter country code (ISO standard 3166). Required for users that are assigned licenses due to legal requirement to check for availability of services in countries.  Examples include: US, JP, and GB. Not nullable. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      */
     usageLocation?: string | undefined;
     /**
-     * The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant's collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization.NOTE: This property cannot contain accent characters. Only the following characters are allowed A - Z, a - z, 0 - 9, ' . - _ ! # ^ ~. For the complete list of allowed characters, see username policies. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith) and $orderBy.
+     * The user principal name (UPN) of the user. The UPN is an Internet-style sign-in name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant's collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization.NOTE: This property can't contain accent characters. Only the following characters are allowed A - Z, a - z, 0 - 9, ' . - _ ! # ^ ~. For the complete list of allowed characters, see username policies. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith) and $orderby.
      */
     userPrincipalName?: string | undefined;
     /**

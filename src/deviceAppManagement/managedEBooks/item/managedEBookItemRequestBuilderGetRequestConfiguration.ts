@@ -1,5 +1,5 @@
-import {ManagedEBookItemRequestBuilderGetQueryParameters} from './managedEBookItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedEBookItemRequestBuilderGetQueryParameters } from './managedEBookItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ManagedEBookItemRequestBuilderGetRequestConfiguration {
     /**

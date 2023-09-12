@@ -1,6 +1,6 @@
-import {serializeUnifiedRoleManagementPolicyRule} from './serializeUnifiedRoleManagementPolicyRule';
-import type {UnifiedRoleManagementPolicyNotificationRule} from './unifiedRoleManagementPolicyNotificationRule';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeUnifiedRoleManagementPolicyRule } from './serializeUnifiedRoleManagementPolicyRule';
+import { type UnifiedRoleManagementPolicyNotificationRule } from './unifiedRoleManagementPolicyNotificationRule';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleManagementPolicyNotificationRule(writer: SerializationWriter, unifiedRoleManagementPolicyNotificationRule: UnifiedRoleManagementPolicyNotificationRule | undefined = {} as UnifiedRoleManagementPolicyNotificationRule) : void {
         serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyNotificationRule)

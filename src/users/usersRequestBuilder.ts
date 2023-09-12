@@ -1,23 +1,22 @@
-import {UserCollectionResponse} from '../models/';
-import {createUserCollectionResponseFromDiscriminatorValue} from '../models/createUserCollectionResponseFromDiscriminatorValue';
-import {createUserFromDiscriminatorValue} from '../models/createUserFromDiscriminatorValue';
-import {deserializeIntoUser} from '../models/deserializeIntoUser';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeUser} from '../models/serializeUser';
-import type {User} from '../models/user';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
-import {UserItemRequestBuilder} from './item/userItemRequestBuilder';
-import {UsersRequestBuilderGetRequestConfiguration} from './usersRequestBuilderGetRequestConfiguration';
-import {UsersRequestBuilderPostRequestConfiguration} from './usersRequestBuilderPostRequestConfiguration';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserCollectionResponse } from '../models/';
+import { createUserCollectionResponseFromDiscriminatorValue } from '../models/createUserCollectionResponseFromDiscriminatorValue';
+import { createUserFromDiscriminatorValue } from '../models/createUserFromDiscriminatorValue';
+import { deserializeIntoUser } from '../models/deserializeIntoUser';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeUser } from '../models/serializeUser';
+import { type User } from '../models/user';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
+import { UserItemRequestBuilder } from './item/userItemRequestBuilder';
+import { type UsersRequestBuilderGetRequestConfiguration } from './usersRequestBuilderGetRequestConfiguration';
+import { type UsersRequestBuilderPostRequestConfiguration } from './usersRequestBuilderPostRequestConfiguration';
+import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of user entities.
@@ -73,10 +72,10 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users{?%24top,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of user objects.
+     * List properties and relationships of the user objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/user-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UsersRequestBuilderGetRequestConfiguration | undefined) : Promise<UserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -106,7 +105,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of user objects.
+     * List properties and relationships of the user objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

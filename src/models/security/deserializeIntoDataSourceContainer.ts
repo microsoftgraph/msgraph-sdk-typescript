@@ -1,8 +1,8 @@
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import type {DataSourceContainer} from './dataSourceContainer';
-import {DataSourceContainerStatus} from './dataSourceContainerStatus';
-import {DataSourceHoldStatus} from './dataSourceHoldStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { type DataSourceContainer } from './dataSourceContainer';
+import { DataSourceContainerStatus } from './dataSourceContainerStatus';
+import { DataSourceHoldStatus } from './dataSourceHoldStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDataSourceContainer(dataSourceContainer: DataSourceContainer | undefined = {} as DataSourceContainer) : Record<string, (node: ParseNode) => void> {
     return {

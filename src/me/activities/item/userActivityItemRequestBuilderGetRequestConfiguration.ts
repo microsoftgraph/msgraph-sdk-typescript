@@ -1,5 +1,5 @@
-import {UserActivityItemRequestBuilderGetQueryParameters} from './userActivityItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserActivityItemRequestBuilderGetQueryParameters } from './userActivityItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserActivityItemRequestBuilderGetRequestConfiguration {
     /**

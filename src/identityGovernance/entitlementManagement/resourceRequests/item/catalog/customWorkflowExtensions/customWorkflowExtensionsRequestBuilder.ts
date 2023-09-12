@@ -1,19 +1,18 @@
-import {CustomCalloutExtensionCollectionResponse} from '../../../../../../models/';
-import {createCustomCalloutExtensionCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createCustomCalloutExtensionCollectionResponseFromDiscriminatorValue';
-import {createCustomCalloutExtensionFromDiscriminatorValue} from '../../../../../../models/createCustomCalloutExtensionFromDiscriminatorValue';
-import type {CustomCalloutExtension} from '../../../../../../models/customCalloutExtension';
-import {deserializeIntoCustomCalloutExtension} from '../../../../../../models/deserializeIntoCustomCalloutExtension';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeCustomCalloutExtension} from '../../../../../../models/serializeCustomCalloutExtension';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CustomWorkflowExtensionsRequestBuilderGetRequestConfiguration} from './customWorkflowExtensionsRequestBuilderGetRequestConfiguration';
-import {CustomWorkflowExtensionsRequestBuilderPostRequestConfiguration} from './customWorkflowExtensionsRequestBuilderPostRequestConfiguration';
-import {CustomCalloutExtensionItemRequestBuilder} from './item/customCalloutExtensionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CustomCalloutExtensionCollectionResponse } from '../../../../../../models/';
+import { createCustomCalloutExtensionCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createCustomCalloutExtensionCollectionResponseFromDiscriminatorValue';
+import { createCustomCalloutExtensionFromDiscriminatorValue } from '../../../../../../models/createCustomCalloutExtensionFromDiscriminatorValue';
+import { type CustomCalloutExtension } from '../../../../../../models/customCalloutExtension';
+import { deserializeIntoCustomCalloutExtension } from '../../../../../../models/deserializeIntoCustomCalloutExtension';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeCustomCalloutExtension } from '../../../../../../models/serializeCustomCalloutExtension';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type CustomWorkflowExtensionsRequestBuilderGetRequestConfiguration } from './customWorkflowExtensionsRequestBuilderGetRequestConfiguration';
+import { type CustomWorkflowExtensionsRequestBuilderPostRequestConfiguration } from './customWorkflowExtensionsRequestBuilderPostRequestConfiguration';
+import { CustomCalloutExtensionItemRequestBuilder } from './item/customCalloutExtensionItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.

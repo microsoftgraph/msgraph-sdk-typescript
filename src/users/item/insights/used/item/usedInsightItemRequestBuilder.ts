@@ -1,17 +1,16 @@
-import {createUsedInsightFromDiscriminatorValue} from '../../../../../models/createUsedInsightFromDiscriminatorValue';
-import {deserializeIntoUsedInsight} from '../../../../../models/deserializeIntoUsedInsight';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeUsedInsight} from '../../../../../models/serializeUsedInsight';
-import type {UsedInsight} from '../../../../../models/usedInsight';
-import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
-import {UsedInsightItemRequestBuilderDeleteRequestConfiguration} from './usedInsightItemRequestBuilderDeleteRequestConfiguration';
-import {UsedInsightItemRequestBuilderGetRequestConfiguration} from './usedInsightItemRequestBuilderGetRequestConfiguration';
-import {UsedInsightItemRequestBuilderPatchRequestConfiguration} from './usedInsightItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUsedInsightFromDiscriminatorValue } from '../../../../../models/createUsedInsightFromDiscriminatorValue';
+import { deserializeIntoUsedInsight } from '../../../../../models/deserializeIntoUsedInsight';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeUsedInsight } from '../../../../../models/serializeUsedInsight';
+import { type UsedInsight } from '../../../../../models/usedInsight';
+import { ResourceRequestBuilder } from './resource/resourceRequestBuilder';
+import { type UsedInsightItemRequestBuilderDeleteRequestConfiguration } from './usedInsightItemRequestBuilderDeleteRequestConfiguration';
+import { type UsedInsightItemRequestBuilderGetRequestConfiguration } from './usedInsightItemRequestBuilderGetRequestConfiguration';
+import { type UsedInsightItemRequestBuilderPatchRequestConfiguration } from './usedInsightItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.

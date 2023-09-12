@@ -1,10 +1,10 @@
-import {deserializeIntoAccessPackageAssignmentRequestCallbackData} from './deserializeIntoAccessPackageAssignmentRequestCallbackData';
-import {deserializeIntoCustomExtensionData} from './deserializeIntoCustomExtensionData';
-import {CustomTaskExtensionCallbackData, CustomTaskExtensionCalloutData} from './identityGovernance/';
-import {deserializeIntoCustomTaskExtensionCallbackData} from './identityGovernance/deserializeIntoCustomTaskExtensionCallbackData';
-import {deserializeIntoCustomTaskExtensionCalloutData} from './identityGovernance/deserializeIntoCustomTaskExtensionCalloutData';
-import {AccessPackageAssignmentRequestCallbackData, CustomExtensionData} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessPackageAssignmentRequestCallbackData } from './deserializeIntoAccessPackageAssignmentRequestCallbackData';
+import { deserializeIntoCustomExtensionData } from './deserializeIntoCustomExtensionData';
+import { type CustomTaskExtensionCallbackData, type CustomTaskExtensionCalloutData } from './identityGovernance/';
+import { deserializeIntoCustomTaskExtensionCallbackData } from './identityGovernance/deserializeIntoCustomTaskExtensionCallbackData';
+import { deserializeIntoCustomTaskExtensionCalloutData } from './identityGovernance/deserializeIntoCustomTaskExtensionCalloutData';
+import { type AccessPackageAssignmentRequestCallbackData, type CustomExtensionData } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCustomExtensionDataFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,16 +1,15 @@
-import type {BookingCustomQuestion} from '../../../../../models/bookingCustomQuestion';
-import {createBookingCustomQuestionFromDiscriminatorValue} from '../../../../../models/createBookingCustomQuestionFromDiscriminatorValue';
-import {deserializeIntoBookingCustomQuestion} from '../../../../../models/deserializeIntoBookingCustomQuestion';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeBookingCustomQuestion} from '../../../../../models/serializeBookingCustomQuestion';
-import {BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration';
-import {BookingCustomQuestionItemRequestBuilderGetRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderGetRequestConfiguration';
-import {BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BookingCustomQuestion } from '../../../../../models/bookingCustomQuestion';
+import { createBookingCustomQuestionFromDiscriminatorValue } from '../../../../../models/createBookingCustomQuestionFromDiscriminatorValue';
+import { deserializeIntoBookingCustomQuestion } from '../../../../../models/deserializeIntoBookingCustomQuestion';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeBookingCustomQuestion } from '../../../../../models/serializeBookingCustomQuestion';
+import { type BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration } from './bookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration';
+import { type BookingCustomQuestionItemRequestBuilderGetRequestConfiguration } from './bookingCustomQuestionItemRequestBuilderGetRequestConfiguration';
+import { type BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration } from './bookingCustomQuestionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.

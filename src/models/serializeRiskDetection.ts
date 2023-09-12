@@ -1,14 +1,14 @@
-import {ActivityType} from './activityType';
-import {RiskDetail} from './riskDetail';
-import type {RiskDetection} from './riskDetection';
-import {RiskDetectionTimingType} from './riskDetectionTimingType';
-import {RiskLevel} from './riskLevel';
-import {RiskState} from './riskState';
-import {serializeEntity} from './serializeEntity';
-import {serializeSignInLocation} from './serializeSignInLocation';
-import type {SignInLocation} from './signInLocation';
-import {TokenIssuerType} from './tokenIssuerType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ActivityType } from './activityType';
+import { RiskDetail } from './riskDetail';
+import { type RiskDetection } from './riskDetection';
+import { RiskDetectionTimingType } from './riskDetectionTimingType';
+import { RiskLevel } from './riskLevel';
+import { RiskState } from './riskState';
+import { serializeEntity } from './serializeEntity';
+import { serializeSignInLocation } from './serializeSignInLocation';
+import { type SignInLocation } from './signInLocation';
+import { TokenIssuerType } from './tokenIssuerType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRiskDetection(writer: SerializationWriter, riskDetection: RiskDetection | undefined = {} as RiskDetection) : void {
         serializeEntity(writer, riskDetection)

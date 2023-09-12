@@ -1,5 +1,5 @@
-import {SitesRequestBuilderGetQueryParameters} from './sitesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SitesRequestBuilderGetQueryParameters } from './sitesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SitesRequestBuilderGetRequestConfiguration {
     /**

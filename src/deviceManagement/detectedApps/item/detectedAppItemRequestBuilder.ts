@@ -1,17 +1,16 @@
-import {createDetectedAppFromDiscriminatorValue} from '../../../models/createDetectedAppFromDiscriminatorValue';
-import {deserializeIntoDetectedApp} from '../../../models/deserializeIntoDetectedApp';
-import type {DetectedApp} from '../../../models/detectedApp';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeDetectedApp} from '../../../models/serializeDetectedApp';
-import {DetectedAppItemRequestBuilderDeleteRequestConfiguration} from './detectedAppItemRequestBuilderDeleteRequestConfiguration';
-import {DetectedAppItemRequestBuilderGetRequestConfiguration} from './detectedAppItemRequestBuilderGetRequestConfiguration';
-import {DetectedAppItemRequestBuilderPatchRequestConfiguration} from './detectedAppItemRequestBuilderPatchRequestConfiguration';
-import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDetectedAppFromDiscriminatorValue } from '../../../models/createDetectedAppFromDiscriminatorValue';
+import { deserializeIntoDetectedApp } from '../../../models/deserializeIntoDetectedApp';
+import { type DetectedApp } from '../../../models/detectedApp';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeDetectedApp } from '../../../models/serializeDetectedApp';
+import { type DetectedAppItemRequestBuilderDeleteRequestConfiguration } from './detectedAppItemRequestBuilderDeleteRequestConfiguration';
+import { type DetectedAppItemRequestBuilderGetRequestConfiguration } from './detectedAppItemRequestBuilderGetRequestConfiguration';
+import { type DetectedAppItemRequestBuilderPatchRequestConfiguration } from './detectedAppItemRequestBuilderPatchRequestConfiguration';
+import { ManagedDevicesRequestBuilder } from './managedDevices/managedDevicesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.

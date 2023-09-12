@@ -1,5 +1,5 @@
-import {TagsRequestBuilderGetQueryParameters} from './tagsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TagsRequestBuilderGetQueryParameters } from './tagsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TagsRequestBuilderGetRequestConfiguration {
     /**

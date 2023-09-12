@@ -1,9 +1,9 @@
-import {createSwapShiftsChangeRequestFromDiscriminatorValue} from './createSwapShiftsChangeRequestFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeSwapShiftsChangeRequest} from './serializeSwapShiftsChangeRequest';
-import type {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
-import type {SwapShiftsChangeRequestCollectionResponse} from './swapShiftsChangeRequestCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSwapShiftsChangeRequestFromDiscriminatorValue } from './createSwapShiftsChangeRequestFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeSwapShiftsChangeRequest } from './serializeSwapShiftsChangeRequest';
+import { type SwapShiftsChangeRequest } from './swapShiftsChangeRequest';
+import { type SwapShiftsChangeRequestCollectionResponse } from './swapShiftsChangeRequestCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSwapShiftsChangeRequestCollectionResponse(swapShiftsChangeRequestCollectionResponse: SwapShiftsChangeRequestCollectionResponse | undefined = {} as SwapShiftsChangeRequestCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

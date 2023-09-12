@@ -1,5 +1,5 @@
-import {UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderGetQueryParameters} from './userExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderGetQueryParameters } from './userExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderGetRequestConfiguration {
     /**

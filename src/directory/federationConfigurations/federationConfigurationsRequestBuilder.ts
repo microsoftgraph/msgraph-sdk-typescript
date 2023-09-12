@@ -1,20 +1,19 @@
-import {IdentityProviderBaseCollectionResponse} from '../../models/';
-import {createIdentityProviderBaseCollectionResponseFromDiscriminatorValue} from '../../models/createIdentityProviderBaseCollectionResponseFromDiscriminatorValue';
-import {createIdentityProviderBaseFromDiscriminatorValue} from '../../models/createIdentityProviderBaseFromDiscriminatorValue';
-import {deserializeIntoIdentityProviderBase} from '../../models/deserializeIntoIdentityProviderBase';
-import type {IdentityProviderBase} from '../../models/identityProviderBase';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeIdentityProviderBase} from '../../models/serializeIdentityProviderBase';
-import {AvailableProviderTypesRequestBuilder} from './availableProviderTypes/availableProviderTypesRequestBuilder';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FederationConfigurationsRequestBuilderGetRequestConfiguration} from './federationConfigurationsRequestBuilderGetRequestConfiguration';
-import {FederationConfigurationsRequestBuilderPostRequestConfiguration} from './federationConfigurationsRequestBuilderPostRequestConfiguration';
-import {IdentityProviderBaseItemRequestBuilder} from './item/identityProviderBaseItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentityProviderBaseCollectionResponse } from '../../models/';
+import { createIdentityProviderBaseCollectionResponseFromDiscriminatorValue } from '../../models/createIdentityProviderBaseCollectionResponseFromDiscriminatorValue';
+import { createIdentityProviderBaseFromDiscriminatorValue } from '../../models/createIdentityProviderBaseFromDiscriminatorValue';
+import { deserializeIntoIdentityProviderBase } from '../../models/deserializeIntoIdentityProviderBase';
+import { type IdentityProviderBase } from '../../models/identityProviderBase';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeIdentityProviderBase } from '../../models/serializeIdentityProviderBase';
+import { AvailableProviderTypesRequestBuilder } from './availableProviderTypes/availableProviderTypesRequestBuilder';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type FederationConfigurationsRequestBuilderGetRequestConfiguration } from './federationConfigurationsRequestBuilderGetRequestConfiguration';
+import { type FederationConfigurationsRequestBuilderPostRequestConfiguration } from './federationConfigurationsRequestBuilderPostRequestConfiguration';
+import { IdentityProviderBaseItemRequestBuilder } from './item/identityProviderBaseItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.

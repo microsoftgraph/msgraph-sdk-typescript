@@ -1,5 +1,5 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBaseCollectionPaginationCountResponse(writer: SerializationWriter, baseCollectionPaginationCountResponse: BaseCollectionPaginationCountResponse | undefined = {} as BaseCollectionPaginationCountResponse) : void {
         writer.writeNumberValue("@odata.count", baseCollectionPaginationCountResponse.odataCount);

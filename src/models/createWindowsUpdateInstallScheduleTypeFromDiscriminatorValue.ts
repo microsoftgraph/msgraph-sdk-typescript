@@ -1,8 +1,8 @@
-import {deserializeIntoWindowsUpdateActiveHoursInstall} from './deserializeIntoWindowsUpdateActiveHoursInstall';
-import {deserializeIntoWindowsUpdateInstallScheduleType} from './deserializeIntoWindowsUpdateInstallScheduleType';
-import {deserializeIntoWindowsUpdateScheduledInstall} from './deserializeIntoWindowsUpdateScheduledInstall';
-import {WindowsUpdateActiveHoursInstall, WindowsUpdateInstallScheduleType, WindowsUpdateScheduledInstall} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWindowsUpdateActiveHoursInstall } from './deserializeIntoWindowsUpdateActiveHoursInstall';
+import { deserializeIntoWindowsUpdateInstallScheduleType } from './deserializeIntoWindowsUpdateInstallScheduleType';
+import { deserializeIntoWindowsUpdateScheduledInstall } from './deserializeIntoWindowsUpdateScheduledInstall';
+import { type WindowsUpdateActiveHoursInstall, type WindowsUpdateInstallScheduleType, type WindowsUpdateScheduledInstall } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWindowsUpdateInstallScheduleTypeFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

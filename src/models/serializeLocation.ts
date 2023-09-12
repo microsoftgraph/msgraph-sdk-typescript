@@ -1,11 +1,11 @@
-import type {Location} from './location';
-import {LocationType} from './locationType';
-import {LocationUniqueIdType} from './locationUniqueIdType';
-import type {OutlookGeoCoordinates} from './outlookGeoCoordinates';
-import type {PhysicalAddress} from './physicalAddress';
-import {serializeOutlookGeoCoordinates} from './serializeOutlookGeoCoordinates';
-import {serializePhysicalAddress} from './serializePhysicalAddress';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Location } from './location';
+import { LocationType } from './locationType';
+import { LocationUniqueIdType } from './locationUniqueIdType';
+import { type OutlookGeoCoordinates } from './outlookGeoCoordinates';
+import { type PhysicalAddress } from './physicalAddress';
+import { serializeOutlookGeoCoordinates } from './serializeOutlookGeoCoordinates';
+import { serializePhysicalAddress } from './serializePhysicalAddress';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeLocation(writer: SerializationWriter, location: Location | undefined = {} as Location) : void {
         writer.writeObjectValue<PhysicalAddress>("address", location.address, serializePhysicalAddress);

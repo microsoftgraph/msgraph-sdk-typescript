@@ -1,5 +1,5 @@
-import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DeviceAndAppManagementAssignmentTarget } from './deviceAndAppManagementAssignmentTarget';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface GroupAssignmentTarget extends DeviceAndAppManagementAssignmentTarget, Parsable {
     /**

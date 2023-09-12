@@ -1,12 +1,11 @@
-import {AccessPackageCatalog} from '../../../../../models/';
-import {createAccessPackageCatalogFromDiscriminatorValue} from '../../../../../models/createAccessPackageCatalogFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {CatalogRequestBuilderGetRequestConfiguration} from './catalogRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageCatalog } from '../../../../../models/';
+import { createAccessPackageCatalogFromDiscriminatorValue } from '../../../../../models/createAccessPackageCatalogFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type CatalogRequestBuilderGetRequestConfiguration } from './catalogRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalog property of the microsoft.graph.accessPackageAssignmentPolicy entity.

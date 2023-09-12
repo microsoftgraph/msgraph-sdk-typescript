@@ -1,16 +1,15 @@
-import {createTeamworkBotFromDiscriminatorValue} from '../../../../../../models/createTeamworkBotFromDiscriminatorValue';
-import {deserializeIntoTeamworkBot} from '../../../../../../models/deserializeIntoTeamworkBot';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeTeamworkBot} from '../../../../../../models/serializeTeamworkBot';
-import type {TeamworkBot} from '../../../../../../models/teamworkBot';
-import {BotRequestBuilderDeleteRequestConfiguration} from './botRequestBuilderDeleteRequestConfiguration';
-import {BotRequestBuilderGetRequestConfiguration} from './botRequestBuilderGetRequestConfiguration';
-import {BotRequestBuilderPatchRequestConfiguration} from './botRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTeamworkBotFromDiscriminatorValue } from '../../../../../../models/createTeamworkBotFromDiscriminatorValue';
+import { deserializeIntoTeamworkBot } from '../../../../../../models/deserializeIntoTeamworkBot';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeTeamworkBot } from '../../../../../../models/serializeTeamworkBot';
+import { type TeamworkBot } from '../../../../../../models/teamworkBot';
+import { type BotRequestBuilderDeleteRequestConfiguration } from './botRequestBuilderDeleteRequestConfiguration';
+import { type BotRequestBuilderGetRequestConfiguration } from './botRequestBuilderGetRequestConfiguration';
+import { type BotRequestBuilderPatchRequestConfiguration } from './botRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bot property of the microsoft.graph.teamsAppDefinition entity.

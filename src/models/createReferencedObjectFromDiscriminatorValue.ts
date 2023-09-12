@@ -1,6 +1,6 @@
-import {deserializeIntoReferencedObject} from './deserializeIntoReferencedObject';
-import {ReferencedObject} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoReferencedObject } from './deserializeIntoReferencedObject';
+import { type ReferencedObject } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createReferencedObjectFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

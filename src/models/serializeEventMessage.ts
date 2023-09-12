@@ -1,16 +1,16 @@
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import type {Event} from './event';
-import type {EventMessage} from './eventMessage';
-import {EventType} from './eventType';
-import type {Location} from './location';
-import {MeetingMessageType} from './meetingMessageType';
-import type {PatternedRecurrence} from './patternedRecurrence';
-import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {serializeEvent} from './serializeEvent';
-import {serializeLocation} from './serializeLocation';
-import {serializeMessage} from './serializeMessage';
-import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { type Event } from './event';
+import { type EventMessage } from './eventMessage';
+import { EventType } from './eventType';
+import { type Location } from './location';
+import { MeetingMessageType } from './meetingMessageType';
+import { type PatternedRecurrence } from './patternedRecurrence';
+import { serializeDateTimeTimeZone } from './serializeDateTimeTimeZone';
+import { serializeEvent } from './serializeEvent';
+import { serializeLocation } from './serializeLocation';
+import { serializeMessage } from './serializeMessage';
+import { serializePatternedRecurrence } from './serializePatternedRecurrence';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEventMessage(writer: SerializationWriter, eventMessage: EventMessage | undefined = {} as EventMessage) : void {
         serializeMessage(writer, eventMessage)

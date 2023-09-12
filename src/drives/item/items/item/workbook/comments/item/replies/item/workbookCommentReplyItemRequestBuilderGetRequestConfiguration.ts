@@ -1,5 +1,5 @@
-import {WorkbookCommentReplyItemRequestBuilderGetQueryParameters} from './workbookCommentReplyItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookCommentReplyItemRequestBuilderGetQueryParameters } from './workbookCommentReplyItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookCommentReplyItemRequestBuilderGetRequestConfiguration {
     /**

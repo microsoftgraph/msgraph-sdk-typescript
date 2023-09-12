@@ -1,5 +1,5 @@
-import type {OutlookGeoCoordinates} from './outlookGeoCoordinates';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type OutlookGeoCoordinates } from './outlookGeoCoordinates';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOutlookGeoCoordinates(writer: SerializationWriter, outlookGeoCoordinates: OutlookGeoCoordinates | undefined = {} as OutlookGeoCoordinates) : void {
         writer.writeNumberValue("accuracy", outlookGeoCoordinates.accuracy);

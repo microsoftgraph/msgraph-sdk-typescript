@@ -1,7 +1,7 @@
-import type {CloudAppSecuritySessionControl} from './cloudAppSecuritySessionControl';
-import {CloudAppSecuritySessionControlType} from './cloudAppSecuritySessionControlType';
-import {serializeConditionalAccessSessionControl} from './serializeConditionalAccessSessionControl';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CloudAppSecuritySessionControl } from './cloudAppSecuritySessionControl';
+import { CloudAppSecuritySessionControlType } from './cloudAppSecuritySessionControlType';
+import { serializeConditionalAccessSessionControl } from './serializeConditionalAccessSessionControl';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCloudAppSecuritySessionControl(writer: SerializationWriter, cloudAppSecuritySessionControl: CloudAppSecuritySessionControl | undefined = {} as CloudAppSecuritySessionControl) : void {
         serializeConditionalAccessSessionControl(writer, cloudAppSecuritySessionControl)

@@ -1,5 +1,5 @@
-import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ThreatAssessmentRequest } from './threatAssessmentRequest';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface FileAssessmentRequest extends Parsable, ThreatAssessmentRequest {
     /**

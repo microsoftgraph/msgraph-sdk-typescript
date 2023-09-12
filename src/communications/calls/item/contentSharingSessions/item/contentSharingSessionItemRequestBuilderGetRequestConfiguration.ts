@@ -1,5 +1,5 @@
-import {ContentSharingSessionItemRequestBuilderGetQueryParameters} from './contentSharingSessionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ContentSharingSessionItemRequestBuilderGetQueryParameters } from './contentSharingSessionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ContentSharingSessionItemRequestBuilderGetRequestConfiguration {
     /**

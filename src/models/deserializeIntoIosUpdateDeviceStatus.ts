@@ -1,8 +1,8 @@
-import {ComplianceStatus} from './complianceStatus';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IosUpdateDeviceStatus} from './iosUpdateDeviceStatus';
-import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ComplianceStatus } from './complianceStatus';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IosUpdateDeviceStatus } from './iosUpdateDeviceStatus';
+import { IosUpdatesInstallStatus } from './iosUpdatesInstallStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosUpdateDeviceStatus(iosUpdateDeviceStatus: IosUpdateDeviceStatus | undefined = {} as IosUpdateDeviceStatus) : Record<string, (node: ParseNode) => void> {
     return {

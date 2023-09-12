@@ -1,16 +1,15 @@
-import {createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue} from '../../../models/createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsDevicePerformance} from '../../../models/deserializeIntoUserExperienceAnalyticsDevicePerformance';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsDevicePerformance} from '../../../models/serializeUserExperienceAnalyticsDevicePerformance';
-import type {UserExperienceAnalyticsDevicePerformance} from '../../../models/userExperienceAnalyticsDevicePerformance';
-import {UserExperienceAnalyticsDevicePerformanceItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceItemRequestBuilderDeleteRequestConfiguration';
-import {UserExperienceAnalyticsDevicePerformanceItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceItemRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsDevicePerformanceItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue } from '../../../models/createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsDevicePerformance } from '../../../models/deserializeIntoUserExperienceAnalyticsDevicePerformance';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsDevicePerformance } from '../../../models/serializeUserExperienceAnalyticsDevicePerformance';
+import { type UserExperienceAnalyticsDevicePerformance } from '../../../models/userExperienceAnalyticsDevicePerformance';
+import { type UserExperienceAnalyticsDevicePerformanceItemRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsDevicePerformanceItemRequestBuilderDeleteRequestConfiguration';
+import { type UserExperienceAnalyticsDevicePerformanceItemRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsDevicePerformanceItemRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsDevicePerformanceItemRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsDevicePerformanceItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.

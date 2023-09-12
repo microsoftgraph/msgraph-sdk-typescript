@@ -1,5 +1,5 @@
-import {DeviceCategoriesRequestBuilderGetQueryParameters} from './deviceCategoriesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceCategoriesRequestBuilderGetQueryParameters } from './deviceCategoriesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceCategoriesRequestBuilderGetRequestConfiguration {
     /**

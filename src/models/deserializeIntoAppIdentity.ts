@@ -1,5 +1,5 @@
-import type {AppIdentity} from './appIdentity';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppIdentity } from './appIdentity';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppIdentity(appIdentity: AppIdentity | undefined = {} as AppIdentity) : Record<string, (node: ParseNode) => void> {
     return {

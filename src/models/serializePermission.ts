@@ -1,16 +1,16 @@
-import type {IdentitySet} from './identitySet';
-import type {ItemReference} from './itemReference';
-import type {Permission} from './permission';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeItemReference} from './serializeItemReference';
-import {serializeSharePointIdentitySet} from './serializeSharePointIdentitySet';
-import {serializeSharingInvitation} from './serializeSharingInvitation';
-import {serializeSharingLink} from './serializeSharingLink';
-import type {SharePointIdentitySet} from './sharePointIdentitySet';
-import type {SharingInvitation} from './sharingInvitation';
-import type {SharingLink} from './sharingLink';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from './identitySet';
+import { type ItemReference } from './itemReference';
+import { type Permission } from './permission';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeItemReference } from './serializeItemReference';
+import { serializeSharePointIdentitySet } from './serializeSharePointIdentitySet';
+import { serializeSharingInvitation } from './serializeSharingInvitation';
+import { serializeSharingLink } from './serializeSharingLink';
+import { type SharePointIdentitySet } from './sharePointIdentitySet';
+import { type SharingInvitation } from './sharingInvitation';
+import { type SharingLink } from './sharingLink';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePermission(writer: SerializationWriter, permission: Permission | undefined = {} as Permission) : void {
         serializeEntity(writer, permission)

@@ -1,13 +1,12 @@
-import {ProfilePhoto} from '../../../../models/';
-import {createProfilePhotoFromDiscriminatorValue} from '../../../../models/createProfilePhotoFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {ProfilePhotoItemRequestBuilderGetRequestConfiguration} from './profilePhotoItemRequestBuilderGetRequestConfiguration';
-import {ContentRequestBuilder} from './value/contentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ProfilePhoto } from '../../../../models/';
+import { createProfilePhotoFromDiscriminatorValue } from '../../../../models/createProfilePhotoFromDiscriminatorValue';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type ProfilePhotoItemRequestBuilderGetRequestConfiguration } from './profilePhotoItemRequestBuilderGetRequestConfiguration';
+import { ContentRequestBuilder } from './value/contentRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the photos property of the microsoft.graph.group entity.

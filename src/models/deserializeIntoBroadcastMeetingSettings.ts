@@ -1,9 +1,9 @@
-import {BroadcastMeetingAudience} from './broadcastMeetingAudience';
-import type {BroadcastMeetingCaptionSettings} from './broadcastMeetingCaptionSettings';
-import type {BroadcastMeetingSettings} from './broadcastMeetingSettings';
-import {createBroadcastMeetingCaptionSettingsFromDiscriminatorValue} from './createBroadcastMeetingCaptionSettingsFromDiscriminatorValue';
-import {serializeBroadcastMeetingCaptionSettings} from './serializeBroadcastMeetingCaptionSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { BroadcastMeetingAudience } from './broadcastMeetingAudience';
+import { type BroadcastMeetingCaptionSettings } from './broadcastMeetingCaptionSettings';
+import { type BroadcastMeetingSettings } from './broadcastMeetingSettings';
+import { createBroadcastMeetingCaptionSettingsFromDiscriminatorValue } from './createBroadcastMeetingCaptionSettingsFromDiscriminatorValue';
+import { serializeBroadcastMeetingCaptionSettings } from './serializeBroadcastMeetingCaptionSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBroadcastMeetingSettings(broadcastMeetingSettings: BroadcastMeetingSettings | undefined = {} as BroadcastMeetingSettings) : Record<string, (node: ParseNode) => void> {
     return {

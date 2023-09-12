@@ -1,6 +1,6 @@
-import type {RiskUserActivity} from './riskUserActivity';
-import type {RiskyUser} from './riskyUser';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type RiskUserActivity } from './riskUserActivity';
+import { type RiskyUser } from './riskyUser';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RiskyUserHistoryItem extends Parsable, RiskyUser {
     /**

@@ -1,19 +1,18 @@
-import {AuthoredNoteCollectionResponse} from '../../../../models/';
-import type {AuthoredNote} from '../../../../models/authoredNote';
-import {createAuthoredNoteCollectionResponseFromDiscriminatorValue} from '../../../../models/createAuthoredNoteCollectionResponseFromDiscriminatorValue';
-import {createAuthoredNoteFromDiscriminatorValue} from '../../../../models/createAuthoredNoteFromDiscriminatorValue';
-import {deserializeIntoAuthoredNote} from '../../../../models/deserializeIntoAuthoredNote';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeAuthoredNote} from '../../../../models/serializeAuthoredNote';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AuthoredNoteItemRequestBuilder} from './item/authoredNoteItemRequestBuilder';
-import {NotesRequestBuilderGetRequestConfiguration} from './notesRequestBuilderGetRequestConfiguration';
-import {NotesRequestBuilderPostRequestConfiguration} from './notesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthoredNoteCollectionResponse } from '../../../../models/';
+import { type AuthoredNote } from '../../../../models/authoredNote';
+import { createAuthoredNoteCollectionResponseFromDiscriminatorValue } from '../../../../models/createAuthoredNoteCollectionResponseFromDiscriminatorValue';
+import { createAuthoredNoteFromDiscriminatorValue } from '../../../../models/createAuthoredNoteFromDiscriminatorValue';
+import { deserializeIntoAuthoredNote } from '../../../../models/deserializeIntoAuthoredNote';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeAuthoredNote } from '../../../../models/serializeAuthoredNote';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AuthoredNoteItemRequestBuilder } from './item/authoredNoteItemRequestBuilder';
+import { type NotesRequestBuilderGetRequestConfiguration } from './notesRequestBuilderGetRequestConfiguration';
+import { type NotesRequestBuilderPostRequestConfiguration } from './notesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
@@ -21,6 +20,7 @@ import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@mi
 export class NotesRequestBuilder extends BaseRequestBuilder {
     /**
      * Provides operations to count the resources in the collection.
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -29,6 +29,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder {
      * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
      * @param authoredNoteId The unique identifier of authoredNote
      * @returns a AuthoredNoteItemRequestBuilder
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
     public byAuthoredNoteId(authoredNoteId: string) : AuthoredNoteItemRequestBuilder {
         if(!authoredNoteId) throw new Error("authoredNoteId cannot be undefined");
@@ -48,6 +49,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder {
      * Get the list of authored notes assoicated with a subject rights request. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthoredNoteCollectionResponse
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-list-notes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NotesRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthoredNoteCollectionResponse | undefined> {
@@ -65,6 +67,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthoredNote
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-post-notes?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AuthoredNote, requestConfiguration?: NotesRequestBuilderPostRequestConfiguration | undefined) : Promise<AuthoredNote | undefined> {
@@ -81,6 +84,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder {
      * Get the list of authored notes assoicated with a subject rights request. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
     public toGetRequestInformation(requestConfiguration?: NotesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
@@ -100,6 +104,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
     public toPostRequestInformation(body: AuthoredNote, requestConfiguration?: NotesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
@@ -119,6 +124,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder {
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param rawUrl The raw URL to use for the request builder.
      * @returns a notesRequestBuilder
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
     public withUrl(rawUrl: string) : NotesRequestBuilder {
         if(!rawUrl) throw new Error("rawUrl cannot be undefined");

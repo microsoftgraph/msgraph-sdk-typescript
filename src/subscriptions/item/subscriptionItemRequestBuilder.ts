@@ -1,17 +1,16 @@
-import {createSubscriptionFromDiscriminatorValue} from '../../models/createSubscriptionFromDiscriminatorValue';
-import {deserializeIntoSubscription} from '../../models/deserializeIntoSubscription';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeSubscription} from '../../models/serializeSubscription';
-import type {Subscription} from '../../models/subscription';
-import {ReauthorizeRequestBuilder} from './reauthorize/reauthorizeRequestBuilder';
-import {SubscriptionItemRequestBuilderDeleteRequestConfiguration} from './subscriptionItemRequestBuilderDeleteRequestConfiguration';
-import {SubscriptionItemRequestBuilderGetRequestConfiguration} from './subscriptionItemRequestBuilderGetRequestConfiguration';
-import {SubscriptionItemRequestBuilderPatchRequestConfiguration} from './subscriptionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSubscriptionFromDiscriminatorValue } from '../../models/createSubscriptionFromDiscriminatorValue';
+import { deserializeIntoSubscription } from '../../models/deserializeIntoSubscription';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeSubscription } from '../../models/serializeSubscription';
+import { type Subscription } from '../../models/subscription';
+import { ReauthorizeRequestBuilder } from './reauthorize/reauthorizeRequestBuilder';
+import { type SubscriptionItemRequestBuilderDeleteRequestConfiguration } from './subscriptionItemRequestBuilderDeleteRequestConfiguration';
+import { type SubscriptionItemRequestBuilderGetRequestConfiguration } from './subscriptionItemRequestBuilderGetRequestConfiguration';
+import { type SubscriptionItemRequestBuilderPatchRequestConfiguration } from './subscriptionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of subscription entities.

@@ -1,10 +1,10 @@
-import type {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DelegatedAdminServiceManagementDetail } from './delegatedAdminServiceManagementDetail';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminCustomer extends Entity, Parsable {
     /**
-     * The Azure AD display name of the customer tenant. Read-only. Supports $orderBy.
+     * The Azure AD display name of the customer tenant. Read-only. Supports $orderby.
      */
     displayName?: string | undefined;
     /**

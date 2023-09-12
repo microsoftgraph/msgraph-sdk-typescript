@@ -1,17 +1,16 @@
-import {createWorkbookChartDataLabelsFromDiscriminatorValue} from '../../../../../../../../../../models/createWorkbookChartDataLabelsFromDiscriminatorValue';
-import {deserializeIntoWorkbookChartDataLabels} from '../../../../../../../../../../models/deserializeIntoWorkbookChartDataLabels';
-import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookChartDataLabels} from '../../../../../../../../../../models/serializeWorkbookChartDataLabels';
-import type {WorkbookChartDataLabels} from '../../../../../../../../../../models/workbookChartDataLabels';
-import {DataLabelsRequestBuilderDeleteRequestConfiguration} from './dataLabelsRequestBuilderDeleteRequestConfiguration';
-import {DataLabelsRequestBuilderGetRequestConfiguration} from './dataLabelsRequestBuilderGetRequestConfiguration';
-import {DataLabelsRequestBuilderPatchRequestConfiguration} from './dataLabelsRequestBuilderPatchRequestConfiguration';
-import {FormatRequestBuilder} from './format/formatRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartDataLabelsFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookChartDataLabelsFromDiscriminatorValue';
+import { deserializeIntoWorkbookChartDataLabels } from '../../../../../../../../../../models/deserializeIntoWorkbookChartDataLabels';
+import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookChartDataLabels } from '../../../../../../../../../../models/serializeWorkbookChartDataLabels';
+import { type WorkbookChartDataLabels } from '../../../../../../../../../../models/workbookChartDataLabels';
+import { type DataLabelsRequestBuilderDeleteRequestConfiguration } from './dataLabelsRequestBuilderDeleteRequestConfiguration';
+import { type DataLabelsRequestBuilderGetRequestConfiguration } from './dataLabelsRequestBuilderGetRequestConfiguration';
+import { type DataLabelsRequestBuilderPatchRequestConfiguration } from './dataLabelsRequestBuilderPatchRequestConfiguration';
+import { FormatRequestBuilder } from './format/formatRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the dataLabels property of the microsoft.graph.workbookChart entity.

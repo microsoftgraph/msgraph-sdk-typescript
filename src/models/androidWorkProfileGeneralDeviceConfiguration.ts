@@ -1,8 +1,8 @@
-import {AndroidWorkProfileCrossProfileDataSharingType} from './androidWorkProfileCrossProfileDataSharingType';
-import {AndroidWorkProfileDefaultAppPermissionPolicyType} from './androidWorkProfileDefaultAppPermissionPolicyType';
-import {AndroidWorkProfileRequiredPasswordType} from './androidWorkProfileRequiredPasswordType';
-import type {DeviceConfiguration} from './deviceConfiguration';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { AndroidWorkProfileCrossProfileDataSharingType } from './androidWorkProfileCrossProfileDataSharingType';
+import { AndroidWorkProfileDefaultAppPermissionPolicyType } from './androidWorkProfileDefaultAppPermissionPolicyType';
+import { AndroidWorkProfileRequiredPasswordType } from './androidWorkProfileRequiredPasswordType';
+import { type DeviceConfiguration } from './deviceConfiguration';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration, Parsable {
     /**

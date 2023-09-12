@@ -1,5 +1,5 @@
-import type {OptionalClaim} from './optionalClaim';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type OptionalClaim } from './optionalClaim';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OptionalClaims extends AdditionalDataHolder, Parsable {
     /**

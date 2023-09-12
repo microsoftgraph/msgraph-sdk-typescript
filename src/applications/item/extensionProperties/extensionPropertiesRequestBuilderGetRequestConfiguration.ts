@@ -1,5 +1,5 @@
-import {ExtensionPropertiesRequestBuilderGetQueryParameters} from './extensionPropertiesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExtensionPropertiesRequestBuilderGetQueryParameters } from './extensionPropertiesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ExtensionPropertiesRequestBuilderGetRequestConfiguration {
     /**

@@ -1,13 +1,13 @@
-import {createFileDetailsFromDiscriminatorValue} from './createFileDetailsFromDiscriminatorValue';
-import {createUserAccountFromDiscriminatorValue} from './createUserAccountFromDiscriminatorValue';
-import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {DetectionStatus} from './detectionStatus';
-import type {FileDetails} from './fileDetails';
-import type {ProcessEvidence} from './processEvidence';
-import {serializeFileDetails} from './serializeFileDetails';
-import {serializeUserAccount} from './serializeUserAccount';
-import type {UserAccount} from './userAccount';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createFileDetailsFromDiscriminatorValue } from './createFileDetailsFromDiscriminatorValue';
+import { createUserAccountFromDiscriminatorValue } from './createUserAccountFromDiscriminatorValue';
+import { deserializeIntoAlertEvidence } from './deserializeIntoAlertEvidence';
+import { DetectionStatus } from './detectionStatus';
+import { type FileDetails } from './fileDetails';
+import { type ProcessEvidence } from './processEvidence';
+import { serializeFileDetails } from './serializeFileDetails';
+import { serializeUserAccount } from './serializeUserAccount';
+import { type UserAccount } from './userAccount';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProcessEvidence(processEvidence: ProcessEvidence | undefined = {} as ProcessEvidence) : Record<string, (node: ParseNode) => void> {
     return {

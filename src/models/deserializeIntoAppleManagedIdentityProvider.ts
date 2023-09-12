@@ -1,6 +1,6 @@
-import type {AppleManagedIdentityProvider} from './appleManagedIdentityProvider';
-import {deserializeIntoIdentityProviderBase} from './deserializeIntoIdentityProviderBase';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppleManagedIdentityProvider } from './appleManagedIdentityProvider';
+import { deserializeIntoIdentityProviderBase } from './deserializeIntoIdentityProviderBase';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppleManagedIdentityProvider(appleManagedIdentityProvider: AppleManagedIdentityProvider | undefined = {} as AppleManagedIdentityProvider) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,12 +1,12 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createTeamworkUserIdentityFromDiscriminatorValue} from './createTeamworkUserIdentityFromDiscriminatorValue';
-import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import type {IdentitySet} from './identitySet';
-import type {MembersLeftEventMessageDetail} from './membersLeftEventMessageDetail';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeTeamworkUserIdentity} from './serializeTeamworkUserIdentity';
-import type {TeamworkUserIdentity} from './teamworkUserIdentity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { createTeamworkUserIdentityFromDiscriminatorValue } from './createTeamworkUserIdentityFromDiscriminatorValue';
+import { deserializeIntoEventMessageDetail } from './deserializeIntoEventMessageDetail';
+import { type IdentitySet } from './identitySet';
+import { type MembersLeftEventMessageDetail } from './membersLeftEventMessageDetail';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeTeamworkUserIdentity } from './serializeTeamworkUserIdentity';
+import { type TeamworkUserIdentity } from './teamworkUserIdentity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMembersLeftEventMessageDetail(membersLeftEventMessageDetail: MembersLeftEventMessageDetail | undefined = {} as MembersLeftEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

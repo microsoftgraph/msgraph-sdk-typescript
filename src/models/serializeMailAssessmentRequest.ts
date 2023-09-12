@@ -1,7 +1,7 @@
-import type {MailAssessmentRequest} from './mailAssessmentRequest';
-import {MailDestinationRoutingReason} from './mailDestinationRoutingReason';
-import {serializeThreatAssessmentRequest} from './serializeThreatAssessmentRequest';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MailAssessmentRequest } from './mailAssessmentRequest';
+import { MailDestinationRoutingReason } from './mailDestinationRoutingReason';
+import { serializeThreatAssessmentRequest } from './serializeThreatAssessmentRequest';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMailAssessmentRequest(writer: SerializationWriter, mailAssessmentRequest: MailAssessmentRequest | undefined = {} as MailAssessmentRequest) : void {
         serializeThreatAssessmentRequest(writer, mailAssessmentRequest)

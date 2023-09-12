@@ -1,9 +1,9 @@
-import type {EducationItemBody} from './educationItemBody';
-import type {RubricCriterion} from './rubricCriterion';
-import type {RubricQuality} from './rubricQuality';
-import {serializeEducationItemBody} from './serializeEducationItemBody';
-import {serializeRubricCriterion} from './serializeRubricCriterion';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EducationItemBody } from './educationItemBody';
+import { type RubricCriterion } from './rubricCriterion';
+import { type RubricQuality } from './rubricQuality';
+import { serializeEducationItemBody } from './serializeEducationItemBody';
+import { serializeRubricCriterion } from './serializeRubricCriterion';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRubricQuality(writer: SerializationWriter, rubricQuality: RubricQuality | undefined = {} as RubricQuality) : void {
         writer.writeCollectionOfObjectValues<RubricCriterion>("criteria", rubricQuality.criteria, serializeRubricCriterion);

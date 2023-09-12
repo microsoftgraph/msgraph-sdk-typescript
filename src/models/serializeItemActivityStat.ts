@@ -1,12 +1,12 @@
-import type {IncompleteData} from './incompleteData';
-import type {ItemActionStat} from './itemActionStat';
-import type {ItemActivity} from './itemActivity';
-import type {ItemActivityStat} from './itemActivityStat';
-import {serializeEntity} from './serializeEntity';
-import {serializeIncompleteData} from './serializeIncompleteData';
-import {serializeItemActionStat} from './serializeItemActionStat';
-import {serializeItemActivity} from './serializeItemActivity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IncompleteData } from './incompleteData';
+import { type ItemActionStat } from './itemActionStat';
+import { type ItemActivity } from './itemActivity';
+import { type ItemActivityStat } from './itemActivityStat';
+import { serializeEntity } from './serializeEntity';
+import { serializeIncompleteData } from './serializeIncompleteData';
+import { serializeItemActionStat } from './serializeItemActionStat';
+import { serializeItemActivity } from './serializeItemActivity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeItemActivityStat(writer: SerializationWriter, itemActivityStat: ItemActivityStat | undefined = {} as ItemActivityStat) : void {
         serializeEntity(writer, itemActivityStat)

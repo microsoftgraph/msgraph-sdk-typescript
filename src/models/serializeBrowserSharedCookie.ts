@@ -1,12 +1,12 @@
-import type {BrowserSharedCookie} from './browserSharedCookie';
-import type {BrowserSharedCookieHistory} from './browserSharedCookieHistory';
-import {BrowserSharedCookieSourceEnvironment} from './browserSharedCookieSourceEnvironment';
-import {BrowserSharedCookieStatus} from './browserSharedCookieStatus';
-import type {IdentitySet} from './identitySet';
-import {serializeBrowserSharedCookieHistory} from './serializeBrowserSharedCookieHistory';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BrowserSharedCookie } from './browserSharedCookie';
+import { type BrowserSharedCookieHistory } from './browserSharedCookieHistory';
+import { BrowserSharedCookieSourceEnvironment } from './browserSharedCookieSourceEnvironment';
+import { BrowserSharedCookieStatus } from './browserSharedCookieStatus';
+import { type IdentitySet } from './identitySet';
+import { serializeBrowserSharedCookieHistory } from './serializeBrowserSharedCookieHistory';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBrowserSharedCookie(writer: SerializationWriter, browserSharedCookie: BrowserSharedCookie | undefined = {} as BrowserSharedCookie) : void {
         serializeEntity(writer, browserSharedCookie)

@@ -1,6 +1,6 @@
-import type {KeyCredential} from '../../../models/keyCredential';
-import type {PasswordCredential} from '../../../models/passwordCredential';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type KeyCredential } from '../../../models/keyCredential';
+import { type PasswordCredential } from '../../../models/passwordCredential';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AddKeyPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

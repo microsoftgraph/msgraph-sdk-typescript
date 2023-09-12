@@ -1,19 +1,18 @@
-import {PermissionCollectionResponse} from '../../../../../models/';
-import {createPermissionCollectionResponseFromDiscriminatorValue} from '../../../../../models/createPermissionCollectionResponseFromDiscriminatorValue';
-import {createPermissionFromDiscriminatorValue} from '../../../../../models/createPermissionFromDiscriminatorValue';
-import {deserializeIntoPermission} from '../../../../../models/deserializeIntoPermission';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import type {Permission} from '../../../../../models/permission';
-import {serializePermission} from '../../../../../models/serializePermission';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {PermissionItemRequestBuilder} from './item/permissionItemRequestBuilder';
-import {PermissionsRequestBuilderGetRequestConfiguration} from './permissionsRequestBuilderGetRequestConfiguration';
-import {PermissionsRequestBuilderPostRequestConfiguration} from './permissionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PermissionCollectionResponse } from '../../../../../models/';
+import { createPermissionCollectionResponseFromDiscriminatorValue } from '../../../../../models/createPermissionCollectionResponseFromDiscriminatorValue';
+import { createPermissionFromDiscriminatorValue } from '../../../../../models/createPermissionFromDiscriminatorValue';
+import { deserializeIntoPermission } from '../../../../../models/deserializeIntoPermission';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type Permission } from '../../../../../models/permission';
+import { serializePermission } from '../../../../../models/serializePermission';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { PermissionItemRequestBuilder } from './item/permissionItemRequestBuilder';
+import { type PermissionsRequestBuilderGetRequestConfiguration } from './permissionsRequestBuilderGetRequestConfiguration';
+import { type PermissionsRequestBuilderPostRequestConfiguration } from './permissionsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissions property of the microsoft.graph.driveItem entity.

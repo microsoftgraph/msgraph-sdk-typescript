@@ -1,16 +1,15 @@
-import {createSecureScoreControlProfileFromDiscriminatorValue} from '../../../models/createSecureScoreControlProfileFromDiscriminatorValue';
-import {deserializeIntoSecureScoreControlProfile} from '../../../models/deserializeIntoSecureScoreControlProfile';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {SecureScoreControlProfile} from '../../../models/secureScoreControlProfile';
-import {serializeSecureScoreControlProfile} from '../../../models/serializeSecureScoreControlProfile';
-import {SecureScoreControlProfileItemRequestBuilderDeleteRequestConfiguration} from './secureScoreControlProfileItemRequestBuilderDeleteRequestConfiguration';
-import {SecureScoreControlProfileItemRequestBuilderGetRequestConfiguration} from './secureScoreControlProfileItemRequestBuilderGetRequestConfiguration';
-import {SecureScoreControlProfileItemRequestBuilderPatchRequestConfiguration} from './secureScoreControlProfileItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSecureScoreControlProfileFromDiscriminatorValue } from '../../../models/createSecureScoreControlProfileFromDiscriminatorValue';
+import { deserializeIntoSecureScoreControlProfile } from '../../../models/deserializeIntoSecureScoreControlProfile';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type SecureScoreControlProfile } from '../../../models/secureScoreControlProfile';
+import { serializeSecureScoreControlProfile } from '../../../models/serializeSecureScoreControlProfile';
+import { type SecureScoreControlProfileItemRequestBuilderDeleteRequestConfiguration } from './secureScoreControlProfileItemRequestBuilderDeleteRequestConfiguration';
+import { type SecureScoreControlProfileItemRequestBuilderGetRequestConfiguration } from './secureScoreControlProfileItemRequestBuilderGetRequestConfiguration';
+import { type SecureScoreControlProfileItemRequestBuilderPatchRequestConfiguration } from './secureScoreControlProfileItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.

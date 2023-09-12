@@ -1,14 +1,13 @@
-import {ManagedDeviceCollectionResponse} from '../../../../models/';
-import {createManagedDeviceCollectionResponseFromDiscriminatorValue} from '../../../../models/createManagedDeviceCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ManagedDeviceItemRequestBuilder} from './item/managedDeviceItemRequestBuilder';
-import {ManagedDevicesRequestBuilderGetRequestConfiguration} from './managedDevicesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedDeviceCollectionResponse } from '../../../../models/';
+import { createManagedDeviceCollectionResponseFromDiscriminatorValue } from '../../../../models/createManagedDeviceCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ManagedDeviceItemRequestBuilder } from './item/managedDeviceItemRequestBuilder';
+import { type ManagedDevicesRequestBuilderGetRequestConfiguration } from './managedDevicesRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.

@@ -1,9 +1,9 @@
-import type {ExpirationPattern} from './expirationPattern';
-import type {PatternedRecurrence} from './patternedRecurrence';
-import type {RequestSchedule} from './requestSchedule';
-import {serializeExpirationPattern} from './serializeExpirationPattern';
-import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ExpirationPattern } from './expirationPattern';
+import { type PatternedRecurrence } from './patternedRecurrence';
+import { type RequestSchedule } from './requestSchedule';
+import { serializeExpirationPattern } from './serializeExpirationPattern';
+import { serializePatternedRecurrence } from './serializePatternedRecurrence';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRequestSchedule(writer: SerializationWriter, requestSchedule: RequestSchedule | undefined = {} as RequestSchedule) : void {
         writer.writeObjectValue<ExpirationPattern>("expiration", requestSchedule.expiration, serializeExpirationPattern);

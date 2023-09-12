@@ -1,6 +1,5 @@
-import type {SetUserPreferredPresencePostRequestBody} from './setUserPreferredPresencePostRequestBody';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SetUserPreferredPresencePostRequestBody } from './setUserPreferredPresencePostRequestBody';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSetUserPreferredPresencePostRequestBody(setUserPreferredPresencePostRequestBody: SetUserPreferredPresencePostRequestBody | undefined = {} as SetUserPreferredPresencePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

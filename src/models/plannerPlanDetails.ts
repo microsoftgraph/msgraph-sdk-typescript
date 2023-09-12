@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import type {PlannerCategoryDescriptions} from './plannerCategoryDescriptions';
-import type {PlannerUserIds} from './plannerUserIds';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type PlannerCategoryDescriptions } from './plannerCategoryDescriptions';
+import { type PlannerUserIds } from './plannerUserIds';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PlannerPlanDetails extends Entity, Parsable {
     /**

@@ -1,6 +1,6 @@
-import {serializeEntity} from './serializeEntity';
-import type {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric} from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { type UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric } from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric: UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric) : void {
         serializeEntity(writer, userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric)

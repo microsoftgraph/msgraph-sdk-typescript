@@ -1,9 +1,9 @@
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
-import type {Alert} from './alert';
-import type {AlertCollectionResponse} from './alertCollectionResponse';
-import {createAlertFromDiscriminatorValue} from './createAlertFromDiscriminatorValue';
-import {serializeAlert} from './serializeAlert';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../deserializeIntoBaseCollectionPaginationCountResponse';
+import { type Alert } from './alert';
+import { type AlertCollectionResponse } from './alertCollectionResponse';
+import { createAlertFromDiscriminatorValue } from './createAlertFromDiscriminatorValue';
+import { serializeAlert } from './serializeAlert';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlertCollectionResponse(alertCollectionResponse: AlertCollectionResponse | undefined = {} as AlertCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

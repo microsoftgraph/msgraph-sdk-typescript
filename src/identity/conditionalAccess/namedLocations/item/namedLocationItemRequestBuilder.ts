@@ -1,16 +1,15 @@
-import {createNamedLocationFromDiscriminatorValue} from '../../../../models/createNamedLocationFromDiscriminatorValue';
-import {deserializeIntoNamedLocation} from '../../../../models/deserializeIntoNamedLocation';
-import type {NamedLocation} from '../../../../models/namedLocation';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeNamedLocation} from '../../../../models/serializeNamedLocation';
-import {NamedLocationItemRequestBuilderDeleteRequestConfiguration} from './namedLocationItemRequestBuilderDeleteRequestConfiguration';
-import {NamedLocationItemRequestBuilderGetRequestConfiguration} from './namedLocationItemRequestBuilderGetRequestConfiguration';
-import {NamedLocationItemRequestBuilderPatchRequestConfiguration} from './namedLocationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createNamedLocationFromDiscriminatorValue } from '../../../../models/createNamedLocationFromDiscriminatorValue';
+import { deserializeIntoNamedLocation } from '../../../../models/deserializeIntoNamedLocation';
+import { type NamedLocation } from '../../../../models/namedLocation';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeNamedLocation } from '../../../../models/serializeNamedLocation';
+import { type NamedLocationItemRequestBuilderDeleteRequestConfiguration } from './namedLocationItemRequestBuilderDeleteRequestConfiguration';
+import { type NamedLocationItemRequestBuilderGetRequestConfiguration } from './namedLocationItemRequestBuilderGetRequestConfiguration';
+import { type NamedLocationItemRequestBuilderPatchRequestConfiguration } from './namedLocationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
@@ -25,9 +24,9 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess/namedLocations/{namedLocation%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a countryNamedLocation object.
+     * Delete a namedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/countrynamedlocation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/namedlocation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: NamedLocationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,11 +55,11 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<NamedLocation>(requestInfo, createNamedLocationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a countryNamedLocation object.
+     * Update the properties of an ipNamedLocation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocation
-     * @see {@link https://learn.microsoft.com/graph/api/countrynamedlocation-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: NamedLocation, requestConfiguration?: NamedLocationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<NamedLocation | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -73,7 +72,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<NamedLocation>(requestInfo, createNamedLocationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a countryNamedLocation object.
+     * Delete a namedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +106,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a countryNamedLocation object.
+     * Update the properties of an ipNamedLocation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

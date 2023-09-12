@@ -1,16 +1,15 @@
-import type {ChecklistItem} from '../../../../../../../../models/checklistItem';
-import {createChecklistItemFromDiscriminatorValue} from '../../../../../../../../models/createChecklistItemFromDiscriminatorValue';
-import {deserializeIntoChecklistItem} from '../../../../../../../../models/deserializeIntoChecklistItem';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeChecklistItem} from '../../../../../../../../models/serializeChecklistItem';
-import {ChecklistItemItemRequestBuilderDeleteRequestConfiguration} from './checklistItemItemRequestBuilderDeleteRequestConfiguration';
-import {ChecklistItemItemRequestBuilderGetRequestConfiguration} from './checklistItemItemRequestBuilderGetRequestConfiguration';
-import {ChecklistItemItemRequestBuilderPatchRequestConfiguration} from './checklistItemItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ChecklistItem } from '../../../../../../../../models/checklistItem';
+import { createChecklistItemFromDiscriminatorValue } from '../../../../../../../../models/createChecklistItemFromDiscriminatorValue';
+import { deserializeIntoChecklistItem } from '../../../../../../../../models/deserializeIntoChecklistItem';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeChecklistItem } from '../../../../../../../../models/serializeChecklistItem';
+import { type ChecklistItemItemRequestBuilderDeleteRequestConfiguration } from './checklistItemItemRequestBuilderDeleteRequestConfiguration';
+import { type ChecklistItemItemRequestBuilderGetRequestConfiguration } from './checklistItemItemRequestBuilderGetRequestConfiguration';
+import { type ChecklistItemItemRequestBuilderPatchRequestConfiguration } from './checklistItemItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.

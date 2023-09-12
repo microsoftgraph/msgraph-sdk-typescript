@@ -1,5 +1,5 @@
-import {ArtifactRequestBuilderGetQueryParameters} from './artifactRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ArtifactRequestBuilderGetQueryParameters } from './artifactRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ArtifactRequestBuilderGetRequestConfiguration {
     /**

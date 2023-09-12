@@ -1,6 +1,6 @@
-import type {AppConfigurationSettingItem} from './appConfigurationSettingItem';
-import {MdmAppConfigKeyType} from './mdmAppConfigKeyType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppConfigurationSettingItem } from './appConfigurationSettingItem';
+import { MdmAppConfigKeyType } from './mdmAppConfigKeyType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppConfigurationSettingItem(appConfigurationSettingItem: AppConfigurationSettingItem | undefined = {} as AppConfigurationSettingItem) : Record<string, (node: ParseNode) => void> {
     return {

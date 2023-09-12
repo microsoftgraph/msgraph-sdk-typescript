@@ -1,5 +1,5 @@
-import type {PrinterLocation} from './printerLocation';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PrinterLocation } from './printerLocation';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePrinterLocation(writer: SerializationWriter, printerLocation: PrinterLocation | undefined = {} as PrinterLocation) : void {
         writer.writeNumberValue("altitudeInMeters", printerLocation.altitudeInMeters);

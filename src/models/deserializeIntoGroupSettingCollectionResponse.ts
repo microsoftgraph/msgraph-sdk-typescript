@@ -1,9 +1,9 @@
-import {createGroupSettingFromDiscriminatorValue} from './createGroupSettingFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {GroupSetting} from './groupSetting';
-import type {GroupSettingCollectionResponse} from './groupSettingCollectionResponse';
-import {serializeGroupSetting} from './serializeGroupSetting';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createGroupSettingFromDiscriminatorValue } from './createGroupSettingFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type GroupSetting } from './groupSetting';
+import { type GroupSettingCollectionResponse } from './groupSettingCollectionResponse';
+import { serializeGroupSetting } from './serializeGroupSetting';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGroupSettingCollectionResponse(groupSettingCollectionResponse: GroupSettingCollectionResponse | undefined = {} as GroupSettingCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

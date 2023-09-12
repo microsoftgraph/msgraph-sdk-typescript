@@ -1,5 +1,5 @@
-import {IntelProfilesRequestBuilderGetQueryParameters} from './intelProfilesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IntelProfilesRequestBuilderGetQueryParameters } from './intelProfilesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IntelProfilesRequestBuilderGetRequestConfiguration {
     /**

@@ -1,17 +1,16 @@
-import {createEmployeeExperienceUserFromDiscriminatorValue} from '../../../models/createEmployeeExperienceUserFromDiscriminatorValue';
-import {deserializeIntoEmployeeExperienceUser} from '../../../models/deserializeIntoEmployeeExperienceUser';
-import type {EmployeeExperienceUser} from '../../../models/employeeExperienceUser';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeEmployeeExperienceUser} from '../../../models/serializeEmployeeExperienceUser';
-import {EmployeeExperienceRequestBuilderDeleteRequestConfiguration} from './employeeExperienceRequestBuilderDeleteRequestConfiguration';
-import {EmployeeExperienceRequestBuilderGetRequestConfiguration} from './employeeExperienceRequestBuilderGetRequestConfiguration';
-import {EmployeeExperienceRequestBuilderPatchRequestConfiguration} from './employeeExperienceRequestBuilderPatchRequestConfiguration';
-import {LearningCourseActivitiesRequestBuilder} from './learningCourseActivities/learningCourseActivitiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEmployeeExperienceUserFromDiscriminatorValue } from '../../../models/createEmployeeExperienceUserFromDiscriminatorValue';
+import { deserializeIntoEmployeeExperienceUser } from '../../../models/deserializeIntoEmployeeExperienceUser';
+import { type EmployeeExperienceUser } from '../../../models/employeeExperienceUser';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeEmployeeExperienceUser } from '../../../models/serializeEmployeeExperienceUser';
+import { type EmployeeExperienceRequestBuilderDeleteRequestConfiguration } from './employeeExperienceRequestBuilderDeleteRequestConfiguration';
+import { type EmployeeExperienceRequestBuilderGetRequestConfiguration } from './employeeExperienceRequestBuilderGetRequestConfiguration';
+import { type EmployeeExperienceRequestBuilderPatchRequestConfiguration } from './employeeExperienceRequestBuilderPatchRequestConfiguration';
+import { LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/learningCourseActivitiesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the employeeExperience property of the microsoft.graph.user entity.

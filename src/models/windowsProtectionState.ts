@@ -1,8 +1,8 @@
-import type {Entity} from './entity';
-import {WindowsDefenderProductStatus} from './windowsDefenderProductStatus';
-import {WindowsDeviceHealthState} from './windowsDeviceHealthState';
-import type {WindowsDeviceMalwareState} from './windowsDeviceMalwareState';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { WindowsDefenderProductStatus } from './windowsDefenderProductStatus';
+import { WindowsDeviceHealthState } from './windowsDeviceHealthState';
+import { type WindowsDeviceMalwareState } from './windowsDeviceMalwareState';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WindowsProtectionState extends Entity, Parsable {
     /**
@@ -16,7 +16,7 @@ export interface WindowsProtectionState extends Entity, Parsable {
     /**
      * Indicates device's health state. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical. Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
      */
-    deviceState?: WindowsDeviceHealthState | undefined;
+    deviceState?: WindowsDeviceHealthState[] | undefined;
     /**
      * Current endpoint protection engine's version
      */
@@ -64,7 +64,7 @@ export interface WindowsProtectionState extends Entity, Parsable {
     /**
      * Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
      */
-    productStatus?: WindowsDefenderProductStatus | undefined;
+    productStatus?: WindowsDefenderProductStatus[] | undefined;
     /**
      * When TRUE indicates quick scan is overdue, when FALSE indicates quick scan is not overdue. Defaults to setting on client device.
      */

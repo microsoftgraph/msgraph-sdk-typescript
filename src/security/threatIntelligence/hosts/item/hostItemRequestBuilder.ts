@@ -1,22 +1,21 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {createHostFromDiscriminatorValue} from '../../../../models/security/createHostFromDiscriminatorValue';
-import {deserializeIntoHost} from '../../../../models/security/deserializeIntoHost';
-import type {Host} from '../../../../models/security/host';
-import {serializeHost} from '../../../../models/security/serializeHost';
-import {ComponentsRequestBuilder} from './components/componentsRequestBuilder';
-import {CookiesRequestBuilder} from './cookies/cookiesRequestBuilder';
-import {HostItemRequestBuilderDeleteRequestConfiguration} from './hostItemRequestBuilderDeleteRequestConfiguration';
-import {HostItemRequestBuilderGetRequestConfiguration} from './hostItemRequestBuilderGetRequestConfiguration';
-import {HostItemRequestBuilderPatchRequestConfiguration} from './hostItemRequestBuilderPatchRequestConfiguration';
-import {PassiveDnsRequestBuilder} from './passiveDns/passiveDnsRequestBuilder';
-import {PassiveDnsReverseRequestBuilder} from './passiveDnsReverse/passiveDnsReverseRequestBuilder';
-import {ReputationRequestBuilder} from './reputation/reputationRequestBuilder';
-import {TrackersRequestBuilder} from './trackers/trackersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createHostFromDiscriminatorValue } from '../../../../models/security/createHostFromDiscriminatorValue';
+import { deserializeIntoHost } from '../../../../models/security/deserializeIntoHost';
+import { type Host } from '../../../../models/security/host';
+import { serializeHost } from '../../../../models/security/serializeHost';
+import { ComponentsRequestBuilder } from './components/componentsRequestBuilder';
+import { CookiesRequestBuilder } from './cookies/cookiesRequestBuilder';
+import { type HostItemRequestBuilderDeleteRequestConfiguration } from './hostItemRequestBuilderDeleteRequestConfiguration';
+import { type HostItemRequestBuilderGetRequestConfiguration } from './hostItemRequestBuilderGetRequestConfiguration';
+import { type HostItemRequestBuilderPatchRequestConfiguration } from './hostItemRequestBuilderPatchRequestConfiguration';
+import { PassiveDnsRequestBuilder } from './passiveDns/passiveDnsRequestBuilder';
+import { PassiveDnsReverseRequestBuilder } from './passiveDnsReverse/passiveDnsReverseRequestBuilder';
+import { ReputationRequestBuilder } from './reputation/reputationRequestBuilder';
+import { TrackersRequestBuilder } from './trackers/trackersRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hosts property of the microsoft.graph.security.threatIntelligence entity.

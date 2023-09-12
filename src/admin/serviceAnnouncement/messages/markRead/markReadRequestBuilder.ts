@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {createMarkReadResponseFromDiscriminatorValue} from './createMarkReadResponseFromDiscriminatorValue';
-import {deserializeIntoMarkReadPostRequestBody} from './deserializeIntoMarkReadPostRequestBody';
-import {deserializeIntoMarkReadResponse} from './deserializeIntoMarkReadResponse';
-import type {MarkReadPostRequestBody} from './markReadPostRequestBody';
-import {MarkReadRequestBuilderPostRequestConfiguration} from './markReadRequestBuilderPostRequestConfiguration';
-import type {MarkReadResponse} from './markReadResponse';
-import {serializeMarkReadPostRequestBody} from './serializeMarkReadPostRequestBody';
-import {serializeMarkReadResponse} from './serializeMarkReadResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createMarkReadResponseFromDiscriminatorValue } from './createMarkReadResponseFromDiscriminatorValue';
+import { deserializeIntoMarkReadPostRequestBody } from './deserializeIntoMarkReadPostRequestBody';
+import { deserializeIntoMarkReadResponse } from './deserializeIntoMarkReadResponse';
+import { type MarkReadPostRequestBody } from './markReadPostRequestBody';
+import { type MarkReadRequestBuilderPostRequestConfiguration } from './markReadRequestBuilderPostRequestConfiguration';
+import { type MarkReadResponse } from './markReadResponse';
+import { serializeMarkReadPostRequestBody } from './serializeMarkReadPostRequestBody';
+import { serializeMarkReadResponse } from './serializeMarkReadResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the markRead method.

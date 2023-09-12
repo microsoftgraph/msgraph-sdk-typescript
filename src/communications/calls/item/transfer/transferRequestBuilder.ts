@@ -1,13 +1,12 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {deserializeIntoTransferPostRequestBody} from './deserializeIntoTransferPostRequestBody';
-import {serializeTransferPostRequestBody} from './serializeTransferPostRequestBody';
-import type {TransferPostRequestBody} from './transferPostRequestBody';
-import {TransferRequestBuilderPostRequestConfiguration} from './transferRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { deserializeIntoTransferPostRequestBody } from './deserializeIntoTransferPostRequestBody';
+import { serializeTransferPostRequestBody } from './serializeTransferPostRequestBody';
+import { type TransferPostRequestBody } from './transferPostRequestBody';
+import { type TransferRequestBuilderPostRequestConfiguration } from './transferRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the transfer method.

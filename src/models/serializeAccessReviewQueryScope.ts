@@ -1,6 +1,6 @@
-import type {AccessReviewQueryScope} from './accessReviewQueryScope';
-import {serializeAccessReviewScope} from './serializeAccessReviewScope';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessReviewQueryScope } from './accessReviewQueryScope';
+import { serializeAccessReviewScope } from './serializeAccessReviewScope';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewQueryScope(writer: SerializationWriter, accessReviewQueryScope: AccessReviewQueryScope | undefined = {} as AccessReviewQueryScope) : void {
         serializeAccessReviewScope(writer, accessReviewQueryScope)

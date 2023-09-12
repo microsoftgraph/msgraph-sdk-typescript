@@ -1,6 +1,6 @@
-import {deserializeIntoAvailableProviderTypesResponse} from './deserializeIntoAvailableProviderTypesResponse';
-import {AvailableProviderTypesResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAvailableProviderTypesResponse } from './deserializeIntoAvailableProviderTypesResponse';
+import { type AvailableProviderTypesResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAvailableProviderTypesResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

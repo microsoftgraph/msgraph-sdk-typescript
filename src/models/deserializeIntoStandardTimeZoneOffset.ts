@@ -1,7 +1,6 @@
-import {DayOfWeek} from './dayOfWeek';
-import type {StandardTimeZoneOffset} from './standardTimeZoneOffset';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { DayOfWeek } from './dayOfWeek';
+import { type StandardTimeZoneOffset } from './standardTimeZoneOffset';
+import { TimeOnly, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoStandardTimeZoneOffset(standardTimeZoneOffset: StandardTimeZoneOffset | undefined = {} as StandardTimeZoneOffset) : Record<string, (node: ParseNode) => void> {
     return {

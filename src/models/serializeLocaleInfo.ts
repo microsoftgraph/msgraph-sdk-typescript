@@ -1,5 +1,5 @@
-import type {LocaleInfo} from './localeInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type LocaleInfo } from './localeInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeLocaleInfo(writer: SerializationWriter, localeInfo: LocaleInfo | undefined = {} as LocaleInfo) : void {
         writer.writeStringValue("displayName", localeInfo.displayName);

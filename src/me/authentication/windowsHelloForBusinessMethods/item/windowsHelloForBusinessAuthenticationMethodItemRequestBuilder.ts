@@ -1,14 +1,13 @@
-import {WindowsHelloForBusinessAuthenticationMethod} from '../../../../models/';
-import {createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue} from '../../../../models/createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {DeviceRequestBuilder} from './device/deviceRequestBuilder';
-import {WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration} from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import {WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WindowsHelloForBusinessAuthenticationMethod } from '../../../../models/';
+import { createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue } from '../../../../models/createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { DeviceRequestBuilder } from './device/deviceRequestBuilder';
+import { type WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
+import { type WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.

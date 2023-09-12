@@ -1,7 +1,7 @@
-import {deserializeIntoDaylightTimeZoneOffset} from './deserializeIntoDaylightTimeZoneOffset';
-import {deserializeIntoStandardTimeZoneOffset} from './deserializeIntoStandardTimeZoneOffset';
-import {DaylightTimeZoneOffset, StandardTimeZoneOffset} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDaylightTimeZoneOffset } from './deserializeIntoDaylightTimeZoneOffset';
+import { deserializeIntoStandardTimeZoneOffset } from './deserializeIntoStandardTimeZoneOffset';
+import { type DaylightTimeZoneOffset, type StandardTimeZoneOffset } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createStandardTimeZoneOffsetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

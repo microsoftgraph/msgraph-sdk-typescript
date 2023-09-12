@@ -1,21 +1,20 @@
-import {MobileAppCollectionResponse} from '../../models/';
-import {createMobileAppCollectionResponseFromDiscriminatorValue} from '../../models/createMobileAppCollectionResponseFromDiscriminatorValue';
-import {createMobileAppFromDiscriminatorValue} from '../../models/createMobileAppFromDiscriminatorValue';
-import {deserializeIntoMobileApp} from '../../models/deserializeIntoMobileApp';
-import type {MobileApp} from '../../models/mobileApp';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeMobileApp} from '../../models/serializeMobileApp';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GraphManagedMobileLobAppRequestBuilder} from './graphManagedMobileLobApp/graphManagedMobileLobAppRequestBuilder';
-import {GraphMobileLobAppRequestBuilder} from './graphMobileLobApp/graphMobileLobAppRequestBuilder';
-import {MobileAppItemRequestBuilder} from './item/mobileAppItemRequestBuilder';
-import {MobileAppsRequestBuilderGetRequestConfiguration} from './mobileAppsRequestBuilderGetRequestConfiguration';
-import {MobileAppsRequestBuilderPostRequestConfiguration} from './mobileAppsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type MobileAppCollectionResponse } from '../../models/';
+import { createMobileAppCollectionResponseFromDiscriminatorValue } from '../../models/createMobileAppCollectionResponseFromDiscriminatorValue';
+import { createMobileAppFromDiscriminatorValue } from '../../models/createMobileAppFromDiscriminatorValue';
+import { deserializeIntoMobileApp } from '../../models/deserializeIntoMobileApp';
+import { type MobileApp } from '../../models/mobileApp';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeMobileApp } from '../../models/serializeMobileApp';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { GraphManagedMobileLobAppRequestBuilder } from './graphManagedMobileLobApp/graphManagedMobileLobAppRequestBuilder';
+import { GraphMobileLobAppRequestBuilder } from './graphMobileLobApp/graphMobileLobAppRequestBuilder';
+import { MobileAppItemRequestBuilder } from './item/mobileAppItemRequestBuilder';
+import { type MobileAppsRequestBuilderGetRequestConfiguration } from './mobileAppsRequestBuilderGetRequestConfiguration';
+import { type MobileAppsRequestBuilderPostRequestConfiguration } from './mobileAppsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
@@ -59,10 +58,10 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the win32LobApp objects.
+     * List properties and relationships of the iosVppApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosvppapp-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppsRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -75,11 +74,11 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileAppCollectionResponse>(requestInfo, createMobileAppCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new webApp object.
+     * Create a new microsoftStoreForBusinessApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-webapp-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-microsoftstoreforbusinessapp-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MobileApp, requestConfiguration?: MobileAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -92,7 +91,7 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the win32LobApp objects.
+     * List properties and relationships of the iosVppApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +109,7 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new webApp object.
+     * Create a new microsoftStoreForBusinessApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

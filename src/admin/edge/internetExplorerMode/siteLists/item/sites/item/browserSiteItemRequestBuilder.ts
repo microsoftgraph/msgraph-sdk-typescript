@@ -1,16 +1,15 @@
-import type {BrowserSite} from '../../../../../../../models/browserSite';
-import {createBrowserSiteFromDiscriminatorValue} from '../../../../../../../models/createBrowserSiteFromDiscriminatorValue';
-import {deserializeIntoBrowserSite} from '../../../../../../../models/deserializeIntoBrowserSite';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeBrowserSite} from '../../../../../../../models/serializeBrowserSite';
-import {BrowserSiteItemRequestBuilderDeleteRequestConfiguration} from './browserSiteItemRequestBuilderDeleteRequestConfiguration';
-import {BrowserSiteItemRequestBuilderGetRequestConfiguration} from './browserSiteItemRequestBuilderGetRequestConfiguration';
-import {BrowserSiteItemRequestBuilderPatchRequestConfiguration} from './browserSiteItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BrowserSite } from '../../../../../../../models/browserSite';
+import { createBrowserSiteFromDiscriminatorValue } from '../../../../../../../models/createBrowserSiteFromDiscriminatorValue';
+import { deserializeIntoBrowserSite } from '../../../../../../../models/deserializeIntoBrowserSite';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeBrowserSite } from '../../../../../../../models/serializeBrowserSite';
+import { type BrowserSiteItemRequestBuilderDeleteRequestConfiguration } from './browserSiteItemRequestBuilderDeleteRequestConfiguration';
+import { type BrowserSiteItemRequestBuilderGetRequestConfiguration } from './browserSiteItemRequestBuilderGetRequestConfiguration';
+import { type BrowserSiteItemRequestBuilderPatchRequestConfiguration } from './browserSiteItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.

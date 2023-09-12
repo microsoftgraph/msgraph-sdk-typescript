@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from '../../../../models/baseCollectionPaginationCountResponse';
-import type {Permission} from '../../../../models/permission';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from '../../../../models/baseCollectionPaginationCountResponse';
+import { type Permission } from '../../../../models/permission';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface GrantResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

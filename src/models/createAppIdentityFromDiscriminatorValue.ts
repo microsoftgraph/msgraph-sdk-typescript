@@ -1,6 +1,6 @@
-import {deserializeIntoAppIdentity} from './deserializeIntoAppIdentity';
-import {AppIdentity} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAppIdentity } from './deserializeIntoAppIdentity';
+import { type AppIdentity } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAppIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

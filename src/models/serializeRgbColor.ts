@@ -1,5 +1,5 @@
-import type {RgbColor} from './rgbColor';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type RgbColor } from './rgbColor';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRgbColor(writer: SerializationWriter, rgbColor: RgbColor | undefined = {} as RgbColor) : void {
         writer.writeNumberValue("b", rgbColor.b);

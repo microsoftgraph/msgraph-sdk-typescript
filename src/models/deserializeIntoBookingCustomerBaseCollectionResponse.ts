@@ -1,9 +1,9 @@
-import type {BookingCustomerBase} from './bookingCustomerBase';
-import type {BookingCustomerBaseCollectionResponse} from './bookingCustomerBaseCollectionResponse';
-import {createBookingCustomerBaseFromDiscriminatorValue} from './createBookingCustomerBaseFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeBookingCustomerBase} from './serializeBookingCustomerBase';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BookingCustomerBase } from './bookingCustomerBase';
+import { type BookingCustomerBaseCollectionResponse } from './bookingCustomerBaseCollectionResponse';
+import { createBookingCustomerBaseFromDiscriminatorValue } from './createBookingCustomerBaseFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeBookingCustomerBase } from './serializeBookingCustomerBase';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingCustomerBaseCollectionResponse(bookingCustomerBaseCollectionResponse: BookingCustomerBaseCollectionResponse | undefined = {} as BookingCustomerBaseCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

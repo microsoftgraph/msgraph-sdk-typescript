@@ -1,8 +1,8 @@
-import type {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
-import type {CustomSecurityAttributeDefinitionCollectionResponse} from './customSecurityAttributeDefinitionCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeCustomSecurityAttributeDefinition} from './serializeCustomSecurityAttributeDefinition';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CustomSecurityAttributeDefinition } from './customSecurityAttributeDefinition';
+import { type CustomSecurityAttributeDefinitionCollectionResponse } from './customSecurityAttributeDefinitionCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeCustomSecurityAttributeDefinition } from './serializeCustomSecurityAttributeDefinition';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCustomSecurityAttributeDefinitionCollectionResponse(writer: SerializationWriter, customSecurityAttributeDefinitionCollectionResponse: CustomSecurityAttributeDefinitionCollectionResponse | undefined = {} as CustomSecurityAttributeDefinitionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, customSecurityAttributeDefinitionCollectionResponse)

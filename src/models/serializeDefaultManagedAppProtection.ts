@@ -1,13 +1,13 @@
-import type {DefaultManagedAppProtection} from './defaultManagedAppProtection';
-import type {KeyValuePair} from './keyValuePair';
-import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
-import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import type {ManagedMobileApp} from './managedMobileApp';
-import {serializeKeyValuePair} from './serializeKeyValuePair';
-import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
-import {serializeManagedAppProtection} from './serializeManagedAppProtection';
-import {serializeManagedMobileApp} from './serializeManagedMobileApp';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DefaultManagedAppProtection } from './defaultManagedAppProtection';
+import { type KeyValuePair } from './keyValuePair';
+import { ManagedAppDataEncryptionType } from './managedAppDataEncryptionType';
+import { type ManagedAppPolicyDeploymentSummary } from './managedAppPolicyDeploymentSummary';
+import { type ManagedMobileApp } from './managedMobileApp';
+import { serializeKeyValuePair } from './serializeKeyValuePair';
+import { serializeManagedAppPolicyDeploymentSummary } from './serializeManagedAppPolicyDeploymentSummary';
+import { serializeManagedAppProtection } from './serializeManagedAppProtection';
+import { serializeManagedMobileApp } from './serializeManagedMobileApp';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDefaultManagedAppProtection(writer: SerializationWriter, defaultManagedAppProtection: DefaultManagedAppProtection | undefined = {} as DefaultManagedAppProtection) : void {
         serializeManagedAppProtection(writer, defaultManagedAppProtection)

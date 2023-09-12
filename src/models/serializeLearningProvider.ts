@@ -1,10 +1,10 @@
-import type {LearningContent} from './learningContent';
-import type {LearningCourseActivity} from './learningCourseActivity';
-import type {LearningProvider} from './learningProvider';
-import {serializeEntity} from './serializeEntity';
-import {serializeLearningContent} from './serializeLearningContent';
-import {serializeLearningCourseActivity} from './serializeLearningCourseActivity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type LearningContent } from './learningContent';
+import { type LearningCourseActivity } from './learningCourseActivity';
+import { type LearningProvider } from './learningProvider';
+import { serializeEntity } from './serializeEntity';
+import { serializeLearningContent } from './serializeLearningContent';
+import { serializeLearningCourseActivity } from './serializeLearningCourseActivity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeLearningProvider(writer: SerializationWriter, learningProvider: LearningProvider | undefined = {} as LearningProvider) : void {
         serializeEntity(writer, learningProvider)

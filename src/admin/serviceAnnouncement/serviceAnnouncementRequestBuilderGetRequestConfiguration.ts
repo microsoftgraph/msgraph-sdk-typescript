@@ -1,5 +1,5 @@
-import {ServiceAnnouncementRequestBuilderGetQueryParameters} from './serviceAnnouncementRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ServiceAnnouncementRequestBuilderGetQueryParameters } from './serviceAnnouncementRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ServiceAnnouncementRequestBuilderGetRequestConfiguration {
     /**

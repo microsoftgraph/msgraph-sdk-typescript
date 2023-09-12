@@ -1,8 +1,8 @@
-import {deserializeIntoDataSourceContainer} from './deserializeIntoDataSourceContainer';
-import {deserializeIntoEdiscoveryCustodian} from './deserializeIntoEdiscoveryCustodian';
-import {deserializeIntoEdiscoveryNoncustodialDataSource} from './deserializeIntoEdiscoveryNoncustodialDataSource';
-import {DataSourceContainer, EdiscoveryCustodian, EdiscoveryNoncustodialDataSource} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDataSourceContainer } from './deserializeIntoDataSourceContainer';
+import { deserializeIntoEdiscoveryCustodian } from './deserializeIntoEdiscoveryCustodian';
+import { deserializeIntoEdiscoveryNoncustodialDataSource } from './deserializeIntoEdiscoveryNoncustodialDataSource';
+import { type DataSourceContainer, type EdiscoveryCustodian, type EdiscoveryNoncustodialDataSource } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDataSourceContainerFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,12 +1,12 @@
-import type {DeviceComplianceDeviceOverview} from './deviceComplianceDeviceOverview';
-import type {DeviceComplianceDeviceStatus} from './deviceComplianceDeviceStatus';
-import type {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicyAssignment';
-import type {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
-import type {DeviceComplianceUserOverview} from './deviceComplianceUserOverview';
-import type {DeviceComplianceUserStatus} from './deviceComplianceUserStatus';
-import type {Entity} from './entity';
-import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DeviceComplianceDeviceOverview } from './deviceComplianceDeviceOverview';
+import { type DeviceComplianceDeviceStatus } from './deviceComplianceDeviceStatus';
+import { type DeviceCompliancePolicyAssignment } from './deviceCompliancePolicyAssignment';
+import { type DeviceComplianceScheduledActionForRule } from './deviceComplianceScheduledActionForRule';
+import { type DeviceComplianceUserOverview } from './deviceComplianceUserOverview';
+import { type DeviceComplianceUserStatus } from './deviceComplianceUserStatus';
+import { type Entity } from './entity';
+import { type SettingStateDeviceSummary } from './settingStateDeviceSummary';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DeviceCompliancePolicy extends Entity, Parsable {
     /**

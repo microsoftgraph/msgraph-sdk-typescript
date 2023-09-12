@@ -1,6 +1,6 @@
-import {SynchronizationMetadata} from './synchronizationMetadata';
-import type {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { SynchronizationMetadata } from './synchronizationMetadata';
+import { type SynchronizationMetadataEntry } from './synchronizationMetadataEntry';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronizationMetadataEntry(synchronizationMetadataEntry: SynchronizationMetadataEntry | undefined = {} as SynchronizationMetadataEntry) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,9 +1,9 @@
-import {createLearningContentFromDiscriminatorValue} from './createLearningContentFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {LearningContent} from './learningContent';
-import type {LearningContentCollectionResponse} from './learningContentCollectionResponse';
-import {serializeLearningContent} from './serializeLearningContent';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createLearningContentFromDiscriminatorValue } from './createLearningContentFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type LearningContent } from './learningContent';
+import { type LearningContentCollectionResponse } from './learningContentCollectionResponse';
+import { serializeLearningContent } from './serializeLearningContent';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLearningContentCollectionResponse(learningContentCollectionResponse: LearningContentCollectionResponse | undefined = {} as LearningContentCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

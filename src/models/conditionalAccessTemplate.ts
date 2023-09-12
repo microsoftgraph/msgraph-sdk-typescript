@@ -1,7 +1,7 @@
-import type {ConditionalAccessPolicyDetail} from './conditionalAccessPolicyDetail';
-import type {Entity} from './entity';
-import {TemplateScenarios} from './templateScenarios';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessPolicyDetail } from './conditionalAccessPolicyDetail';
+import { type Entity } from './entity';
+import { TemplateScenarios } from './templateScenarios';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessTemplate extends Entity, Parsable {
     /**
@@ -19,5 +19,5 @@ export interface ConditionalAccessTemplate extends Entity, Parsable {
     /**
      * The scenarios property
      */
-    scenarios?: TemplateScenarios | undefined;
+    scenarios?: TemplateScenarios[] | undefined;
 }

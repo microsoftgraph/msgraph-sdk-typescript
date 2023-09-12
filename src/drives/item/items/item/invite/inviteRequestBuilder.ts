@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {createInviteResponseFromDiscriminatorValue} from './createInviteResponseFromDiscriminatorValue';
-import {deserializeIntoInvitePostRequestBody} from './deserializeIntoInvitePostRequestBody';
-import {deserializeIntoInviteResponse} from './deserializeIntoInviteResponse';
-import type {InvitePostRequestBody} from './invitePostRequestBody';
-import {InviteRequestBuilderPostRequestConfiguration} from './inviteRequestBuilderPostRequestConfiguration';
-import type {InviteResponse} from './inviteResponse';
-import {serializeInvitePostRequestBody} from './serializeInvitePostRequestBody';
-import {serializeInviteResponse} from './serializeInviteResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createInviteResponseFromDiscriminatorValue } from './createInviteResponseFromDiscriminatorValue';
+import { deserializeIntoInvitePostRequestBody } from './deserializeIntoInvitePostRequestBody';
+import { deserializeIntoInviteResponse } from './deserializeIntoInviteResponse';
+import { type InvitePostRequestBody } from './invitePostRequestBody';
+import { type InviteRequestBuilderPostRequestConfiguration } from './inviteRequestBuilderPostRequestConfiguration';
+import { type InviteResponse } from './inviteResponse';
+import { serializeInvitePostRequestBody } from './serializeInvitePostRequestBody';
+import { serializeInviteResponse } from './serializeInviteResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the invite method.

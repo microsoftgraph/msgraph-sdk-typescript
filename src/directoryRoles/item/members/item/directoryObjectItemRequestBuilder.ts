@@ -1,12 +1,11 @@
-import {GraphApplicationRequestBuilder} from './graphApplication/graphApplicationRequestBuilder';
-import {GraphDeviceRequestBuilder} from './graphDevice/graphDeviceRequestBuilder';
-import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
-import {GraphOrgContactRequestBuilder} from './graphOrgContact/graphOrgContactRequestBuilder';
-import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
-import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder} from '@microsoft/kiota-abstractions';
-import type {RequestAdapter} from '@microsoft/kiota-abstractions';
+import { GraphApplicationRequestBuilder } from './graphApplication/graphApplicationRequestBuilder';
+import { GraphDeviceRequestBuilder } from './graphDevice/graphDeviceRequestBuilder';
+import { GraphGroupRequestBuilder } from './graphGroup/graphGroupRequestBuilder';
+import { GraphOrgContactRequestBuilder } from './graphOrgContact/graphOrgContactRequestBuilder';
+import { GraphServicePrincipalRequestBuilder } from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
+import { GraphUserRequestBuilder } from './graphUser/graphUserRequestBuilder';
+import { RefRequestBuilder } from './ref/refRequestBuilder';
+import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /directoryRoles/{directoryRole-id}/members/{directoryObject-id}

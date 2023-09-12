@@ -1,6 +1,6 @@
-import {deserializeIntoFilterOperatorSchema} from './deserializeIntoFilterOperatorSchema';
-import {FilterOperatorSchema} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoFilterOperatorSchema } from './deserializeIntoFilterOperatorSchema';
+import { type FilterOperatorSchema } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createFilterOperatorSchemaFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

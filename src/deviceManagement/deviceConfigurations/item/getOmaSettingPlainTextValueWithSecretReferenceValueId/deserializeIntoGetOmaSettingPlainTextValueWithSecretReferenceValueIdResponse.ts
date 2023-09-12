@@ -1,5 +1,5 @@
-import type {GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse} from './getOmaSettingPlainTextValueWithSecretReferenceValueIdResponse';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse } from './getOmaSettingPlainTextValueWithSecretReferenceValueIdResponse';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse(getOmaSettingPlainTextValueWithSecretReferenceValueIdResponse: GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse | undefined = {} as GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse) : Record<string, (node: ParseNode) => void> {
     return {

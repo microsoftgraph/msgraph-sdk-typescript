@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {SubjectRightsRequest} from './subjectRightsRequest';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type SubjectRightsRequest } from './subjectRightsRequest';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SubjectRightsRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

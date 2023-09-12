@@ -1,7 +1,7 @@
-import type {Entity} from '../entity';
-import {DataSourceContainerStatus} from './dataSourceContainerStatus';
-import {DataSourceHoldStatus} from './dataSourceHoldStatus';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { DataSourceContainerStatus } from './dataSourceContainerStatus';
+import { DataSourceHoldStatus } from './dataSourceHoldStatus';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DataSourceContainer extends Entity, Parsable {
     /**

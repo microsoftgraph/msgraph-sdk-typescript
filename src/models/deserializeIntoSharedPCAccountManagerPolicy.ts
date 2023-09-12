@@ -1,6 +1,6 @@
-import {SharedPCAccountDeletionPolicyType} from './sharedPCAccountDeletionPolicyType';
-import type {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { SharedPCAccountDeletionPolicyType } from './sharedPCAccountDeletionPolicyType';
+import { type SharedPCAccountManagerPolicy } from './sharedPCAccountManagerPolicy';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharedPCAccountManagerPolicy(sharedPCAccountManagerPolicy: SharedPCAccountManagerPolicy | undefined = {} as SharedPCAccountManagerPolicy) : Record<string, (node: ParseNode) => void> {
     return {

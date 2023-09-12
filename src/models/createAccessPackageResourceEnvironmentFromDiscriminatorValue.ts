@@ -1,6 +1,6 @@
-import {deserializeIntoAccessPackageResourceEnvironment} from './deserializeIntoAccessPackageResourceEnvironment';
-import {AccessPackageResourceEnvironment} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessPackageResourceEnvironment } from './deserializeIntoAccessPackageResourceEnvironment';
+import { type AccessPackageResourceEnvironment } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAccessPackageResourceEnvironmentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

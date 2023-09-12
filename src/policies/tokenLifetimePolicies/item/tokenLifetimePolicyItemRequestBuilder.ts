@@ -1,17 +1,16 @@
-import {createTokenLifetimePolicyFromDiscriminatorValue} from '../../../models/createTokenLifetimePolicyFromDiscriminatorValue';
-import {deserializeIntoTokenLifetimePolicy} from '../../../models/deserializeIntoTokenLifetimePolicy';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeTokenLifetimePolicy} from '../../../models/serializeTokenLifetimePolicy';
-import type {TokenLifetimePolicy} from '../../../models/tokenLifetimePolicy';
-import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
-import {TokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration} from './tokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration';
-import {TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration} from './tokenLifetimePolicyItemRequestBuilderGetRequestConfiguration';
-import {TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration} from './tokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTokenLifetimePolicyFromDiscriminatorValue } from '../../../models/createTokenLifetimePolicyFromDiscriminatorValue';
+import { deserializeIntoTokenLifetimePolicy } from '../../../models/deserializeIntoTokenLifetimePolicy';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeTokenLifetimePolicy } from '../../../models/serializeTokenLifetimePolicy';
+import { type TokenLifetimePolicy } from '../../../models/tokenLifetimePolicy';
+import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
+import { type TokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration } from './tokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration';
+import { type TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration } from './tokenLifetimePolicyItemRequestBuilderGetRequestConfiguration';
+import { type TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration } from './tokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.

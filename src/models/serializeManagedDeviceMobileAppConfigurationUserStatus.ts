@@ -1,7 +1,7 @@
-import {ComplianceStatus} from './complianceStatus';
-import type {ManagedDeviceMobileAppConfigurationUserStatus} from './managedDeviceMobileAppConfigurationUserStatus';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ComplianceStatus } from './complianceStatus';
+import { type ManagedDeviceMobileAppConfigurationUserStatus } from './managedDeviceMobileAppConfigurationUserStatus';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeManagedDeviceMobileAppConfigurationUserStatus(writer: SerializationWriter, managedDeviceMobileAppConfigurationUserStatus: ManagedDeviceMobileAppConfigurationUserStatus | undefined = {} as ManagedDeviceMobileAppConfigurationUserStatus) : void {
         serializeEntity(writer, managedDeviceMobileAppConfigurationUserStatus)

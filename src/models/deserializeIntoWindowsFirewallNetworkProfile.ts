@@ -1,6 +1,6 @@
-import {StateManagementSetting} from './stateManagementSetting';
-import type {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { StateManagementSetting } from './stateManagementSetting';
+import { type WindowsFirewallNetworkProfile } from './windowsFirewallNetworkProfile';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsFirewallNetworkProfile(windowsFirewallNetworkProfile: WindowsFirewallNetworkProfile | undefined = {} as WindowsFirewallNetworkProfile) : Record<string, (node: ParseNode) => void> {
     return {

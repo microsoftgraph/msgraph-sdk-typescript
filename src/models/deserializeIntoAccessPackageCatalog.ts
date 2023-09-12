@@ -1,23 +1,23 @@
-import type {AccessPackage} from './accessPackage';
-import type {AccessPackageCatalog} from './accessPackageCatalog';
-import {AccessPackageCatalogState} from './accessPackageCatalogState';
-import {AccessPackageCatalogType} from './accessPackageCatalogType';
-import type {AccessPackageResource} from './accessPackageResource';
-import type {AccessPackageResourceRole} from './accessPackageResourceRole';
-import type {AccessPackageResourceScope} from './accessPackageResourceScope';
-import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
-import {createAccessPackageResourceFromDiscriminatorValue} from './createAccessPackageResourceFromDiscriminatorValue';
-import {createAccessPackageResourceRoleFromDiscriminatorValue} from './createAccessPackageResourceRoleFromDiscriminatorValue';
-import {createAccessPackageResourceScopeFromDiscriminatorValue} from './createAccessPackageResourceScopeFromDiscriminatorValue';
-import {createCustomCalloutExtensionFromDiscriminatorValue} from './createCustomCalloutExtensionFromDiscriminatorValue';
-import type {CustomCalloutExtension} from './customCalloutExtension';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeAccessPackage} from './serializeAccessPackage';
-import {serializeAccessPackageResource} from './serializeAccessPackageResource';
-import {serializeAccessPackageResourceRole} from './serializeAccessPackageResourceRole';
-import {serializeAccessPackageResourceScope} from './serializeAccessPackageResourceScope';
-import {serializeCustomCalloutExtension} from './serializeCustomCalloutExtension';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackage } from './accessPackage';
+import { type AccessPackageCatalog } from './accessPackageCatalog';
+import { AccessPackageCatalogState } from './accessPackageCatalogState';
+import { AccessPackageCatalogType } from './accessPackageCatalogType';
+import { type AccessPackageResource } from './accessPackageResource';
+import { type AccessPackageResourceRole } from './accessPackageResourceRole';
+import { type AccessPackageResourceScope } from './accessPackageResourceScope';
+import { createAccessPackageFromDiscriminatorValue } from './createAccessPackageFromDiscriminatorValue';
+import { createAccessPackageResourceFromDiscriminatorValue } from './createAccessPackageResourceFromDiscriminatorValue';
+import { createAccessPackageResourceRoleFromDiscriminatorValue } from './createAccessPackageResourceRoleFromDiscriminatorValue';
+import { createAccessPackageResourceScopeFromDiscriminatorValue } from './createAccessPackageResourceScopeFromDiscriminatorValue';
+import { createCustomCalloutExtensionFromDiscriminatorValue } from './createCustomCalloutExtensionFromDiscriminatorValue';
+import { type CustomCalloutExtension } from './customCalloutExtension';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeAccessPackage } from './serializeAccessPackage';
+import { serializeAccessPackageResource } from './serializeAccessPackageResource';
+import { serializeAccessPackageResourceRole } from './serializeAccessPackageResourceRole';
+import { serializeAccessPackageResourceScope } from './serializeAccessPackageResourceScope';
+import { serializeCustomCalloutExtension } from './serializeCustomCalloutExtension';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageCatalog(accessPackageCatalog: AccessPackageCatalog | undefined = {} as AccessPackageCatalog) : Record<string, (node: ParseNode) => void> {
     return {

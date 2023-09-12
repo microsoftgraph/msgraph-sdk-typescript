@@ -1,5 +1,5 @@
-import {CaseOperationItemRequestBuilderGetQueryParameters} from './caseOperationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CaseOperationItemRequestBuilderGetQueryParameters } from './caseOperationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CaseOperationItemRequestBuilderGetRequestConfiguration {
     /**

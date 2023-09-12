@@ -1,5 +1,5 @@
-import type {ConditionalAccessLocations} from './conditionalAccessLocations';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessLocations } from './conditionalAccessLocations';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessLocations(writer: SerializationWriter, conditionalAccessLocations: ConditionalAccessLocations | undefined = {} as ConditionalAccessLocations) : void {
         writer.writeCollectionOfPrimitiveValues<string>("excludeLocations", conditionalAccessLocations.excludeLocations);

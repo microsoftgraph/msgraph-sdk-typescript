@@ -1,8 +1,8 @@
-import {createHashesFromDiscriminatorValue} from './createHashesFromDiscriminatorValue';
-import type {File} from './file';
-import type {Hashes} from './hashes';
-import {serializeHashes} from './serializeHashes';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createHashesFromDiscriminatorValue } from './createHashesFromDiscriminatorValue';
+import { type File } from './file';
+import { type Hashes } from './hashes';
+import { serializeHashes } from './serializeHashes';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFile(file: File | undefined = {} as File) : Record<string, (node: ParseNode) => void> {
     return {

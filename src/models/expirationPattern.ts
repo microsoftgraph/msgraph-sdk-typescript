@@ -1,6 +1,5 @@
-import {ExpirationPatternType} from './expirationPatternType';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ExpirationPatternType } from './expirationPatternType';
+import { Duration, type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ExpirationPattern extends AdditionalDataHolder, Parsable {
     /**

@@ -1,5 +1,5 @@
-import {DefaultManagedAppProtectionItemRequestBuilderGetQueryParameters} from './defaultManagedAppProtectionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DefaultManagedAppProtectionItemRequestBuilderGetQueryParameters } from './defaultManagedAppProtectionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DefaultManagedAppProtectionItemRequestBuilderGetRequestConfiguration {
     /**

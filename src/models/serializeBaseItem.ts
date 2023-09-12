@@ -1,12 +1,12 @@
-import type {BaseItem} from './baseItem';
-import type {IdentitySet} from './identitySet';
-import type {ItemReference} from './itemReference';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeItemReference} from './serializeItemReference';
-import {serializeUser} from './serializeUser';
-import type {User} from './user';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BaseItem } from './baseItem';
+import { type IdentitySet } from './identitySet';
+import { type ItemReference } from './itemReference';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeItemReference } from './serializeItemReference';
+import { serializeUser } from './serializeUser';
+import { type User } from './user';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBaseItem(writer: SerializationWriter, baseItem: BaseItem | undefined = {} as BaseItem) : void {
         serializeEntity(writer, baseItem)

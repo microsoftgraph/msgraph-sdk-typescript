@@ -1,5 +1,5 @@
-import {LogCollectionRequestsRequestBuilderGetQueryParameters} from './logCollectionRequestsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LogCollectionRequestsRequestBuilderGetQueryParameters } from './logCollectionRequestsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LogCollectionRequestsRequestBuilderGetRequestConfiguration {
     /**

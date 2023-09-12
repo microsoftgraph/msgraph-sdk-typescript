@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {UserExperienceAnalyticsWorkFromAnywhereModelPerformance} from './userExperienceAnalyticsWorkFromAnywhereModelPerformance';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformance } from './userExperienceAnalyticsWorkFromAnywhereModelPerformance';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

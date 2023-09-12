@@ -1,6 +1,6 @@
-import {deserializeIntoSimulationAutomation} from './deserializeIntoSimulationAutomation';
-import {SimulationAutomation} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoSimulationAutomation } from './deserializeIntoSimulationAutomation';
+import { type SimulationAutomation } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createSimulationAutomationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

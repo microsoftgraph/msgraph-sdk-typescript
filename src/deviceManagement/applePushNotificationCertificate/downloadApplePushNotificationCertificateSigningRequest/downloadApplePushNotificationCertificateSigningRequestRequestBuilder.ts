@@ -1,12 +1,11 @@
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue} from './createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue';
-import {DownloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration} from './downloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration';
-import {DownloadApplePushNotificationCertificateSigningRequestResponse} from './index';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue } from './createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue';
+import { type DownloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration } from './downloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration';
+import { type DownloadApplePushNotificationCertificateSigningRequestResponse } from './index';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method.

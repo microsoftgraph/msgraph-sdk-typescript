@@ -1,13 +1,13 @@
-import {deserializeIntoNotebook} from './deserializeIntoNotebook';
-import {deserializeIntoOnenoteEntityBaseModel} from './deserializeIntoOnenoteEntityBaseModel';
-import {deserializeIntoOnenoteEntityHierarchyModel} from './deserializeIntoOnenoteEntityHierarchyModel';
-import {deserializeIntoOnenoteEntitySchemaObjectModel} from './deserializeIntoOnenoteEntitySchemaObjectModel';
-import {deserializeIntoOnenotePage} from './deserializeIntoOnenotePage';
-import {deserializeIntoOnenoteResource} from './deserializeIntoOnenoteResource';
-import {deserializeIntoOnenoteSection} from './deserializeIntoOnenoteSection';
-import {deserializeIntoSectionGroup} from './deserializeIntoSectionGroup';
-import {Notebook, OnenoteEntityBaseModel, OnenoteEntityHierarchyModel, OnenoteEntitySchemaObjectModel, OnenotePage, OnenoteResource, OnenoteSection, SectionGroup} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoNotebook } from './deserializeIntoNotebook';
+import { deserializeIntoOnenoteEntityBaseModel } from './deserializeIntoOnenoteEntityBaseModel';
+import { deserializeIntoOnenoteEntityHierarchyModel } from './deserializeIntoOnenoteEntityHierarchyModel';
+import { deserializeIntoOnenoteEntitySchemaObjectModel } from './deserializeIntoOnenoteEntitySchemaObjectModel';
+import { deserializeIntoOnenotePage } from './deserializeIntoOnenotePage';
+import { deserializeIntoOnenoteResource } from './deserializeIntoOnenoteResource';
+import { deserializeIntoOnenoteSection } from './deserializeIntoOnenoteSection';
+import { deserializeIntoSectionGroup } from './deserializeIntoSectionGroup';
+import { type Notebook, type OnenoteEntityBaseModel, type OnenoteEntityHierarchyModel, type OnenoteEntitySchemaObjectModel, type OnenotePage, type OnenoteResource, type OnenoteSection, type SectionGroup } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createOnenoteEntityBaseModelFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

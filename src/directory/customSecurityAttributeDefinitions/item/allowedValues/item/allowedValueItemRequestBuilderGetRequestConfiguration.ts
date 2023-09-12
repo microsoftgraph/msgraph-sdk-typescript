@@ -1,5 +1,5 @@
-import {AllowedValueItemRequestBuilderGetQueryParameters} from './allowedValueItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AllowedValueItemRequestBuilderGetQueryParameters } from './allowedValueItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AllowedValueItemRequestBuilderGetRequestConfiguration {
     /**

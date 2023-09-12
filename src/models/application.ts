@@ -1,29 +1,29 @@
-import type {AddIn} from './addIn';
-import type {ApiApplication} from './apiApplication';
-import type {AppManagementPolicy} from './appManagementPolicy';
-import type {AppRole} from './appRole';
-import type {Certification} from './certification';
-import type {DirectoryObject} from './directoryObject';
-import type {ExtensionProperty} from './extensionProperty';
-import type {FederatedIdentityCredential} from './federatedIdentityCredential';
-import type {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
-import type {InformationalUrl} from './informationalUrl';
-import type {KeyCredential} from './keyCredential';
-import type {OptionalClaims} from './optionalClaims';
-import type {ParentalControlSettings} from './parentalControlSettings';
-import type {PasswordCredential} from './passwordCredential';
-import type {PublicClientApplication} from './publicClientApplication';
-import type {RequestSignatureVerification} from './requestSignatureVerification';
-import type {RequiredResourceAccess} from './requiredResourceAccess';
-import type {ServicePrincipalLockConfiguration} from './servicePrincipalLockConfiguration';
-import type {SpaApplication} from './spaApplication';
-import type {Synchronization} from './synchronization';
-import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
-import type {TokenLifetimePolicy} from './tokenLifetimePolicy';
-import type {VerifiedPublisher} from './verifiedPublisher';
-import type {WebApplication} from './webApplication';
-import type {Parsable} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type AddIn } from './addIn';
+import { type ApiApplication } from './apiApplication';
+import { type AppManagementPolicy } from './appManagementPolicy';
+import { type AppRole } from './appRole';
+import { type Certification } from './certification';
+import { type DirectoryObject } from './directoryObject';
+import { type ExtensionProperty } from './extensionProperty';
+import { type FederatedIdentityCredential } from './federatedIdentityCredential';
+import { type HomeRealmDiscoveryPolicy } from './homeRealmDiscoveryPolicy';
+import { type InformationalUrl } from './informationalUrl';
+import { type KeyCredential } from './keyCredential';
+import { type OptionalClaims } from './optionalClaims';
+import { type ParentalControlSettings } from './parentalControlSettings';
+import { type PasswordCredential } from './passwordCredential';
+import { type PublicClientApplication } from './publicClientApplication';
+import { type RequestSignatureVerification } from './requestSignatureVerification';
+import { type RequiredResourceAccess } from './requiredResourceAccess';
+import { type ServicePrincipalLockConfiguration } from './servicePrincipalLockConfiguration';
+import { type SpaApplication } from './spaApplication';
+import { type Synchronization } from './synchronization';
+import { type TokenIssuancePolicy } from './tokenIssuancePolicy';
+import { type TokenLifetimePolicy } from './tokenLifetimePolicy';
+import { type VerifiedPublisher } from './verifiedPublisher';
+import { type WebApplication } from './webApplication';
+import { type Parsable } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export interface Application extends DirectoryObject, Parsable {
     /**
@@ -55,7 +55,7 @@ export interface Application extends DirectoryObject, Parsable {
      */
     certification?: Certification | undefined;
     /**
-     * The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy.
+     * The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderby.
      */
     createdDateTime?: Date | undefined;
     /**
@@ -75,7 +75,7 @@ export interface Application extends DirectoryObject, Parsable {
      */
     disabledByMicrosoftStatus?: string | undefined;
     /**
-     * The display name for the application. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * The display name for the application. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.
      */
     displayName?: string | undefined;
     /**

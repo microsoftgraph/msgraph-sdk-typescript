@@ -1,20 +1,20 @@
-import {serializeEntity} from './serializeEntity';
-import {serializeWorkbookApplication} from './serializeWorkbookApplication';
-import {serializeWorkbookComment} from './serializeWorkbookComment';
-import {serializeWorkbookFunctions} from './serializeWorkbookFunctions';
-import {serializeWorkbookNamedItem} from './serializeWorkbookNamedItem';
-import {serializeWorkbookOperation} from './serializeWorkbookOperation';
-import {serializeWorkbookTable} from './serializeWorkbookTable';
-import {serializeWorkbookWorksheet} from './serializeWorkbookWorksheet';
-import type {Workbook} from './workbook';
-import type {WorkbookApplication} from './workbookApplication';
-import type {WorkbookComment} from './workbookComment';
-import type {WorkbookFunctions} from './workbookFunctions';
-import type {WorkbookNamedItem} from './workbookNamedItem';
-import type {WorkbookOperation} from './workbookOperation';
-import type {WorkbookTable} from './workbookTable';
-import type {WorkbookWorksheet} from './workbookWorksheet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { serializeWorkbookApplication } from './serializeWorkbookApplication';
+import { serializeWorkbookComment } from './serializeWorkbookComment';
+import { serializeWorkbookFunctions } from './serializeWorkbookFunctions';
+import { serializeWorkbookNamedItem } from './serializeWorkbookNamedItem';
+import { serializeWorkbookOperation } from './serializeWorkbookOperation';
+import { serializeWorkbookTable } from './serializeWorkbookTable';
+import { serializeWorkbookWorksheet } from './serializeWorkbookWorksheet';
+import { type Workbook } from './workbook';
+import { type WorkbookApplication } from './workbookApplication';
+import { type WorkbookComment } from './workbookComment';
+import { type WorkbookFunctions } from './workbookFunctions';
+import { type WorkbookNamedItem } from './workbookNamedItem';
+import { type WorkbookOperation } from './workbookOperation';
+import { type WorkbookTable } from './workbookTable';
+import { type WorkbookWorksheet } from './workbookWorksheet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbook(writer: SerializationWriter, workbook: Workbook | undefined = {} as Workbook) : void {
         serializeEntity(writer, workbook)

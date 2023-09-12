@@ -1,5 +1,5 @@
-import {SwapShiftsChangeRequestsRequestBuilderGetQueryParameters} from './swapShiftsChangeRequestsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SwapShiftsChangeRequestsRequestBuilderGetQueryParameters } from './swapShiftsChangeRequestsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration {
     /**

@@ -1,21 +1,21 @@
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import type {Alert} from './alert';
-import {AlertClassification} from './alertClassification';
-import type {AlertComment} from './alertComment';
-import {AlertDetermination} from './alertDetermination';
-import type {AlertEvidence} from './alertEvidence';
-import {AlertSeverity} from './alertSeverity';
-import {AlertStatus} from './alertStatus';
-import {createAlertCommentFromDiscriminatorValue} from './createAlertCommentFromDiscriminatorValue';
-import {createAlertEvidenceFromDiscriminatorValue} from './createAlertEvidenceFromDiscriminatorValue';
-import {createDictionaryFromDiscriminatorValue} from './createDictionaryFromDiscriminatorValue';
-import {DetectionSource} from './detectionSource';
-import type {Dictionary} from './dictionary';
-import {serializeAlertComment} from './serializeAlertComment';
-import {serializeAlertEvidence} from './serializeAlertEvidence';
-import {serializeDictionary} from './serializeDictionary';
-import {ServiceSource} from './serviceSource';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { type Alert } from './alert';
+import { AlertClassification } from './alertClassification';
+import { type AlertComment } from './alertComment';
+import { AlertDetermination } from './alertDetermination';
+import { type AlertEvidence } from './alertEvidence';
+import { AlertSeverity } from './alertSeverity';
+import { AlertStatus } from './alertStatus';
+import { createAlertCommentFromDiscriminatorValue } from './createAlertCommentFromDiscriminatorValue';
+import { createAlertEvidenceFromDiscriminatorValue } from './createAlertEvidenceFromDiscriminatorValue';
+import { createDictionaryFromDiscriminatorValue } from './createDictionaryFromDiscriminatorValue';
+import { DetectionSource } from './detectionSource';
+import { type Dictionary } from './dictionary';
+import { serializeAlertComment } from './serializeAlertComment';
+import { serializeAlertEvidence } from './serializeAlertEvidence';
+import { serializeDictionary } from './serializeDictionary';
+import { ServiceSource } from './serviceSource';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlert(alert: Alert | undefined = {} as Alert) : Record<string, (node: ParseNode) => void> {
     return {

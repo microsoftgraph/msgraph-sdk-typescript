@@ -1,6 +1,6 @@
-import type {ApplePushNotificationCertificate} from './applePushNotificationCertificate';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ApplePushNotificationCertificate } from './applePushNotificationCertificate';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeApplePushNotificationCertificate(writer: SerializationWriter, applePushNotificationCertificate: ApplePushNotificationCertificate | undefined = {} as ApplePushNotificationCertificate) : void {
         serializeEntity(writer, applePushNotificationCertificate)

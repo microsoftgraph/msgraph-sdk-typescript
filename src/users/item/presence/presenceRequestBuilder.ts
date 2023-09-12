@@ -1,20 +1,20 @@
-import {createPresenceFromDiscriminatorValue} from '../../../models/createPresenceFromDiscriminatorValue';
-import {deserializeIntoPresence} from '../../../models/deserializeIntoPresence';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {Presence} from '../../../models/presence';
-import {serializePresence} from '../../../models/serializePresence';
-import {ClearPresenceRequestBuilder} from './clearPresence/clearPresenceRequestBuilder';
-import {ClearUserPreferredPresenceRequestBuilder} from './clearUserPreferredPresence/clearUserPreferredPresenceRequestBuilder';
-import {PresenceRequestBuilderDeleteRequestConfiguration} from './presenceRequestBuilderDeleteRequestConfiguration';
-import {PresenceRequestBuilderGetRequestConfiguration} from './presenceRequestBuilderGetRequestConfiguration';
-import {PresenceRequestBuilderPatchRequestConfiguration} from './presenceRequestBuilderPatchRequestConfiguration';
-import {SetPresenceRequestBuilder} from './setPresence/setPresenceRequestBuilder';
-import {SetUserPreferredPresenceRequestBuilder} from './setUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPresenceFromDiscriminatorValue } from '../../../models/createPresenceFromDiscriminatorValue';
+import { deserializeIntoPresence } from '../../../models/deserializeIntoPresence';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type Presence } from '../../../models/presence';
+import { serializePresence } from '../../../models/serializePresence';
+import { ClearPresenceRequestBuilder } from './clearPresence/clearPresenceRequestBuilder';
+import { ClearUserPreferredPresenceRequestBuilder } from './clearUserPreferredPresence/clearUserPreferredPresenceRequestBuilder';
+import { type PresenceRequestBuilderDeleteRequestConfiguration } from './presenceRequestBuilderDeleteRequestConfiguration';
+import { type PresenceRequestBuilderGetRequestConfiguration } from './presenceRequestBuilderGetRequestConfiguration';
+import { type PresenceRequestBuilderPatchRequestConfiguration } from './presenceRequestBuilderPatchRequestConfiguration';
+import { SetPresenceRequestBuilder } from './setPresence/setPresenceRequestBuilder';
+import { SetStatusMessageRequestBuilder } from './setStatusMessage/setStatusMessageRequestBuilder';
+import { SetUserPreferredPresenceRequestBuilder } from './setUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the presence property of the microsoft.graph.user entity.
@@ -37,6 +37,12 @@ export class PresenceRequestBuilder extends BaseRequestBuilder {
      */
     public get setPresence(): SetPresenceRequestBuilder {
         return new SetPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to call the setStatusMessage method.
+     */
+    public get setStatusMessage(): SetStatusMessageRequestBuilder {
+        return new SetStatusMessageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to call the setUserPreferredPresence method.

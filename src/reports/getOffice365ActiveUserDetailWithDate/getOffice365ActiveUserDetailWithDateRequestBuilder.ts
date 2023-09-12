@@ -1,10 +1,9 @@
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, DateOnly, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration } from './getOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, DateOnly, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getOffice365ActiveUserDetail method.

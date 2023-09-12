@@ -1,10 +1,10 @@
-import {deserializeIntoAccessPackageAssignmentRequestWorkflowExtension} from './deserializeIntoAccessPackageAssignmentRequestWorkflowExtension';
-import {deserializeIntoAccessPackageAssignmentWorkflowExtension} from './deserializeIntoAccessPackageAssignmentWorkflowExtension';
-import {deserializeIntoCustomCalloutExtension} from './deserializeIntoCustomCalloutExtension';
-import {CustomTaskExtension} from './identityGovernance/';
-import {deserializeIntoCustomTaskExtension} from './identityGovernance/deserializeIntoCustomTaskExtension';
-import {AccessPackageAssignmentRequestWorkflowExtension, AccessPackageAssignmentWorkflowExtension, CustomCalloutExtension} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessPackageAssignmentRequestWorkflowExtension } from './deserializeIntoAccessPackageAssignmentRequestWorkflowExtension';
+import { deserializeIntoAccessPackageAssignmentWorkflowExtension } from './deserializeIntoAccessPackageAssignmentWorkflowExtension';
+import { deserializeIntoCustomCalloutExtension } from './deserializeIntoCustomCalloutExtension';
+import { type CustomTaskExtension } from './identityGovernance/';
+import { deserializeIntoCustomTaskExtension } from './identityGovernance/deserializeIntoCustomTaskExtension';
+import { type AccessPackageAssignmentRequestWorkflowExtension, type AccessPackageAssignmentWorkflowExtension, type CustomCalloutExtension } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCustomCalloutExtensionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

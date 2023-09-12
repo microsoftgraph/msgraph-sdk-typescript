@@ -1,7 +1,7 @@
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {CoupNcdPostRequestBody} from './coupNcdPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type CoupNcdPostRequestBody } from './coupNcdPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCoupNcdPostRequestBody(writer: SerializationWriter, coupNcdPostRequestBody: CoupNcdPostRequestBody | undefined = {} as CoupNcdPostRequestBody) : void {
         writer.writeObjectValue<Json>("basis", coupNcdPostRequestBody.basis, serializeJson);

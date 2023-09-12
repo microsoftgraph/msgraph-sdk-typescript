@@ -1,19 +1,18 @@
-import {TelecomExpenseManagementPartnerCollectionResponse} from '../../models/';
-import {createTelecomExpenseManagementPartnerCollectionResponseFromDiscriminatorValue} from '../../models/createTelecomExpenseManagementPartnerCollectionResponseFromDiscriminatorValue';
-import {createTelecomExpenseManagementPartnerFromDiscriminatorValue} from '../../models/createTelecomExpenseManagementPartnerFromDiscriminatorValue';
-import {deserializeIntoTelecomExpenseManagementPartner} from '../../models/deserializeIntoTelecomExpenseManagementPartner';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeTelecomExpenseManagementPartner} from '../../models/serializeTelecomExpenseManagementPartner';
-import type {TelecomExpenseManagementPartner} from '../../models/telecomExpenseManagementPartner';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TelecomExpenseManagementPartnerItemRequestBuilder} from './item/telecomExpenseManagementPartnerItemRequestBuilder';
-import {TelecomExpenseManagementPartnersRequestBuilderGetRequestConfiguration} from './telecomExpenseManagementPartnersRequestBuilderGetRequestConfiguration';
-import {TelecomExpenseManagementPartnersRequestBuilderPostRequestConfiguration} from './telecomExpenseManagementPartnersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TelecomExpenseManagementPartnerCollectionResponse } from '../../models/';
+import { createTelecomExpenseManagementPartnerCollectionResponseFromDiscriminatorValue } from '../../models/createTelecomExpenseManagementPartnerCollectionResponseFromDiscriminatorValue';
+import { createTelecomExpenseManagementPartnerFromDiscriminatorValue } from '../../models/createTelecomExpenseManagementPartnerFromDiscriminatorValue';
+import { deserializeIntoTelecomExpenseManagementPartner } from '../../models/deserializeIntoTelecomExpenseManagementPartner';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeTelecomExpenseManagementPartner } from '../../models/serializeTelecomExpenseManagementPartner';
+import { type TelecomExpenseManagementPartner } from '../../models/telecomExpenseManagementPartner';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { TelecomExpenseManagementPartnerItemRequestBuilder } from './item/telecomExpenseManagementPartnerItemRequestBuilder';
+import { type TelecomExpenseManagementPartnersRequestBuilderGetRequestConfiguration } from './telecomExpenseManagementPartnersRequestBuilderGetRequestConfiguration';
+import { type TelecomExpenseManagementPartnersRequestBuilderPostRequestConfiguration } from './telecomExpenseManagementPartnersRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.

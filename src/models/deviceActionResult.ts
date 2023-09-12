@@ -1,5 +1,5 @@
-import {ActionState} from './actionState';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ActionState } from './actionState';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DeviceActionResult extends AdditionalDataHolder, Parsable {
     /**

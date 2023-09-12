@@ -1,12 +1,12 @@
-import {createDictionaryFromDiscriminatorValue} from './createDictionaryFromDiscriminatorValue';
-import {createKubernetesNamespaceEvidenceFromDiscriminatorValue} from './createKubernetesNamespaceEvidenceFromDiscriminatorValue';
-import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import type {Dictionary} from './dictionary';
-import type {KubernetesControllerEvidence} from './kubernetesControllerEvidence';
-import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import {serializeDictionary} from './serializeDictionary';
-import {serializeKubernetesNamespaceEvidence} from './serializeKubernetesNamespaceEvidence';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDictionaryFromDiscriminatorValue } from './createDictionaryFromDiscriminatorValue';
+import { createKubernetesNamespaceEvidenceFromDiscriminatorValue } from './createKubernetesNamespaceEvidenceFromDiscriminatorValue';
+import { deserializeIntoAlertEvidence } from './deserializeIntoAlertEvidence';
+import { type Dictionary } from './dictionary';
+import { type KubernetesControllerEvidence } from './kubernetesControllerEvidence';
+import { type KubernetesNamespaceEvidence } from './kubernetesNamespaceEvidence';
+import { serializeDictionary } from './serializeDictionary';
+import { serializeKubernetesNamespaceEvidence } from './serializeKubernetesNamespaceEvidence';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoKubernetesControllerEvidence(kubernetesControllerEvidence: KubernetesControllerEvidence | undefined = {} as KubernetesControllerEvidence) : Record<string, (node: ParseNode) => void> {
     return {

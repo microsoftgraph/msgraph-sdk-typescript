@@ -1,13 +1,13 @@
-import type {Entity} from '../entity';
-import type {ActivitySettings} from './activitySettings';
-import type {Configuration} from './configuration';
-import type {ConnectionOperation} from './connectionOperation';
-import {ConnectionState} from './connectionState';
-import type {ExternalGroup} from './externalGroup';
-import type {ExternalItem} from './externalItem';
-import type {Schema} from './schema';
-import type {SearchSettings} from './searchSettings';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { type ActivitySettings } from './activitySettings';
+import { type Configuration } from './configuration';
+import { type ConnectionOperation } from './connectionOperation';
+import { ConnectionState } from './connectionState';
+import { type ExternalGroup } from './externalGroup';
+import { type ExternalItem } from './externalItem';
+import { type Schema } from './schema';
+import { type SearchSettings } from './searchSettings';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ExternalConnection extends Entity, Parsable {
     /**

@@ -1,5 +1,5 @@
-import type {TenantInformation} from './tenantInformation';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type TenantInformation } from './tenantInformation';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTenantInformation(tenantInformation: TenantInformation | undefined = {} as TenantInformation) : Record<string, (node: ParseNode) => void> {
     return {

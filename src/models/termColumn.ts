@@ -1,6 +1,6 @@
-import type {Set} from './termStore/set';
-import type {Term} from './termStore/term';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type Set } from './termStore/set';
+import { type Term } from './termStore/term';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TermColumn extends AdditionalDataHolder, Parsable {
     /**

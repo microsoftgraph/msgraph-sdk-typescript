@@ -1,17 +1,16 @@
-import {createOnenoteResourceFromDiscriminatorValue} from '../../../../models/createOnenoteResourceFromDiscriminatorValue';
-import {deserializeIntoOnenoteResource} from '../../../../models/deserializeIntoOnenoteResource';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {OnenoteResource} from '../../../../models/onenoteResource';
-import {serializeOnenoteResource} from '../../../../models/serializeOnenoteResource';
-import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {OnenoteResourceItemRequestBuilderDeleteRequestConfiguration} from './onenoteResourceItemRequestBuilderDeleteRequestConfiguration';
-import {OnenoteResourceItemRequestBuilderGetRequestConfiguration} from './onenoteResourceItemRequestBuilderGetRequestConfiguration';
-import {OnenoteResourceItemRequestBuilderPatchRequestConfiguration} from './onenoteResourceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOnenoteResourceFromDiscriminatorValue } from '../../../../models/createOnenoteResourceFromDiscriminatorValue';
+import { deserializeIntoOnenoteResource } from '../../../../models/deserializeIntoOnenoteResource';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type OnenoteResource } from '../../../../models/onenoteResource';
+import { serializeOnenoteResource } from '../../../../models/serializeOnenoteResource';
+import { ContentRequestBuilder } from './content/contentRequestBuilder';
+import { type OnenoteResourceItemRequestBuilderDeleteRequestConfiguration } from './onenoteResourceItemRequestBuilderDeleteRequestConfiguration';
+import { type OnenoteResourceItemRequestBuilderGetRequestConfiguration } from './onenoteResourceItemRequestBuilderGetRequestConfiguration';
+import { type OnenoteResourceItemRequestBuilderPatchRequestConfiguration } from './onenoteResourceItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.onenote entity.

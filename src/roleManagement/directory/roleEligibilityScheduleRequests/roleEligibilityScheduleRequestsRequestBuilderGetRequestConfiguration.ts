@@ -1,5 +1,5 @@
-import {RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters} from './roleEligibilityScheduleRequestsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters } from './roleEligibilityScheduleRequestsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration {
     /**

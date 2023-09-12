@@ -1,6 +1,6 @@
-import {deserializeIntoOmaSetting} from './deserializeIntoOmaSetting';
-import type {OmaSettingFloatingPoint} from './omaSettingFloatingPoint';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoOmaSetting } from './deserializeIntoOmaSetting';
+import { type OmaSettingFloatingPoint } from './omaSettingFloatingPoint';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOmaSettingFloatingPoint(omaSettingFloatingPoint: OmaSettingFloatingPoint | undefined = {} as OmaSettingFloatingPoint) : Record<string, (node: ParseNode) => void> {
     return {

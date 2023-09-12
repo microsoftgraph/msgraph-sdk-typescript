@@ -1,5 +1,5 @@
-import {ComplianceManagementPartnerItemRequestBuilderGetQueryParameters} from './complianceManagementPartnerItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ComplianceManagementPartnerItemRequestBuilderGetQueryParameters } from './complianceManagementPartnerItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,15 +1,15 @@
-import {createNotebookFromDiscriminatorValue} from './createNotebookFromDiscriminatorValue';
-import {createOnenoteSectionFromDiscriminatorValue} from './createOnenoteSectionFromDiscriminatorValue';
-import {createPageLinksFromDiscriminatorValue} from './createPageLinksFromDiscriminatorValue';
-import {deserializeIntoOnenoteEntitySchemaObjectModel} from './deserializeIntoOnenoteEntitySchemaObjectModel';
-import type {Notebook} from './notebook';
-import type {OnenotePage} from './onenotePage';
-import type {OnenoteSection} from './onenoteSection';
-import type {PageLinks} from './pageLinks';
-import {serializeNotebook} from './serializeNotebook';
-import {serializeOnenoteSection} from './serializeOnenoteSection';
-import {serializePageLinks} from './serializePageLinks';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createNotebookFromDiscriminatorValue } from './createNotebookFromDiscriminatorValue';
+import { createOnenoteSectionFromDiscriminatorValue } from './createOnenoteSectionFromDiscriminatorValue';
+import { createPageLinksFromDiscriminatorValue } from './createPageLinksFromDiscriminatorValue';
+import { deserializeIntoOnenoteEntitySchemaObjectModel } from './deserializeIntoOnenoteEntitySchemaObjectModel';
+import { type Notebook } from './notebook';
+import { type OnenotePage } from './onenotePage';
+import { type OnenoteSection } from './onenoteSection';
+import { type PageLinks } from './pageLinks';
+import { serializeNotebook } from './serializeNotebook';
+import { serializeOnenoteSection } from './serializeOnenoteSection';
+import { serializePageLinks } from './serializePageLinks';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnenotePage(onenotePage: OnenotePage | undefined = {} as OnenotePage) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,9 +1,9 @@
-import {createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue} from './createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue';
-import type {CrossTenantAccessPolicyConfigurationPartner} from './crossTenantAccessPolicyConfigurationPartner';
-import type {CrossTenantAccessPolicyConfigurationPartnerCollectionResponse} from './crossTenantAccessPolicyConfigurationPartnerCollectionResponse';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeCrossTenantAccessPolicyConfigurationPartner} from './serializeCrossTenantAccessPolicyConfigurationPartner';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue } from './createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue';
+import { type CrossTenantAccessPolicyConfigurationPartner } from './crossTenantAccessPolicyConfigurationPartner';
+import { type CrossTenantAccessPolicyConfigurationPartnerCollectionResponse } from './crossTenantAccessPolicyConfigurationPartnerCollectionResponse';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeCrossTenantAccessPolicyConfigurationPartner } from './serializeCrossTenantAccessPolicyConfigurationPartner';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCrossTenantAccessPolicyConfigurationPartnerCollectionResponse(crossTenantAccessPolicyConfigurationPartnerCollectionResponse: CrossTenantAccessPolicyConfigurationPartnerCollectionResponse | undefined = {} as CrossTenantAccessPolicyConfigurationPartnerCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

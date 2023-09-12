@@ -1,7 +1,7 @@
-import {deserializeIntoEducationOrganization} from './deserializeIntoEducationOrganization';
-import {deserializeIntoEducationSchool} from './deserializeIntoEducationSchool';
-import {EducationOrganization, EducationSchool} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEducationOrganization } from './deserializeIntoEducationOrganization';
+import { deserializeIntoEducationSchool } from './deserializeIntoEducationSchool';
+import { type EducationOrganization, type EducationSchool } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEducationOrganizationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

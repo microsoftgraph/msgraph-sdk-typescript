@@ -1,8 +1,8 @@
-import type {ActivityBasedTimeoutPolicy} from './activityBasedTimeoutPolicy';
-import type {ActivityBasedTimeoutPolicyCollectionResponse} from './activityBasedTimeoutPolicyCollectionResponse';
-import {serializeActivityBasedTimeoutPolicy} from './serializeActivityBasedTimeoutPolicy';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ActivityBasedTimeoutPolicy } from './activityBasedTimeoutPolicy';
+import { type ActivityBasedTimeoutPolicyCollectionResponse } from './activityBasedTimeoutPolicyCollectionResponse';
+import { serializeActivityBasedTimeoutPolicy } from './serializeActivityBasedTimeoutPolicy';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeActivityBasedTimeoutPolicyCollectionResponse(writer: SerializationWriter, activityBasedTimeoutPolicyCollectionResponse: ActivityBasedTimeoutPolicyCollectionResponse | undefined = {} as ActivityBasedTimeoutPolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, activityBasedTimeoutPolicyCollectionResponse)

@@ -1,8 +1,8 @@
-import {ComplianceStatus} from './complianceStatus';
-import type {DeviceConfigurationSettingState} from './deviceConfigurationSettingState';
-import type {Entity} from './entity';
-import {PolicyPlatformType} from './policyPlatformType';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { ComplianceStatus } from './complianceStatus';
+import { type DeviceConfigurationSettingState } from './deviceConfigurationSettingState';
+import { type Entity } from './entity';
+import { PolicyPlatformType } from './policyPlatformType';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DeviceConfigurationState extends Entity, Parsable {
     /**

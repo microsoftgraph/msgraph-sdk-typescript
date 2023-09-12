@@ -1,13 +1,13 @@
-import type {IdentitySet} from '../identitySet';
-import type {CaseEscaped} from './caseEscaped';
-import type {CaseOperation} from './caseOperation';
-import type {EdiscoveryCaseSettings} from './ediscoveryCaseSettings';
-import type {EdiscoveryCustodian} from './ediscoveryCustodian';
-import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
-import type {EdiscoveryReviewSet} from './ediscoveryReviewSet';
-import type {EdiscoveryReviewTag} from './ediscoveryReviewTag';
-import type {EdiscoverySearch} from './ediscoverySearch';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from '../identitySet';
+import { type CaseEscaped } from './caseEscaped';
+import { type CaseOperation } from './caseOperation';
+import { type EdiscoveryCaseSettings } from './ediscoveryCaseSettings';
+import { type EdiscoveryCustodian } from './ediscoveryCustodian';
+import { type EdiscoveryNoncustodialDataSource } from './ediscoveryNoncustodialDataSource';
+import { type EdiscoveryReviewSet } from './ediscoveryReviewSet';
+import { type EdiscoveryReviewTag } from './ediscoveryReviewTag';
+import { type EdiscoverySearch } from './ediscoverySearch';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryCase extends CaseEscaped, Parsable {
     /**

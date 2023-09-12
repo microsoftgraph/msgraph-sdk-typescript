@@ -1,12 +1,12 @@
-import type {DirectoryObject} from './directoryObject';
-import type {MembershipOutlierInsight} from './membershipOutlierInsight';
-import {OutlierContainerType} from './outlierContainerType';
-import {OutlierMemberType} from './outlierMemberType';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeGovernanceInsight} from './serializeGovernanceInsight';
-import {serializeUser} from './serializeUser';
-import type {User} from './user';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DirectoryObject } from './directoryObject';
+import { type MembershipOutlierInsight } from './membershipOutlierInsight';
+import { OutlierContainerType } from './outlierContainerType';
+import { OutlierMemberType } from './outlierMemberType';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeGovernanceInsight } from './serializeGovernanceInsight';
+import { serializeUser } from './serializeUser';
+import { type User } from './user';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMembershipOutlierInsight(writer: SerializationWriter, membershipOutlierInsight: MembershipOutlierInsight | undefined = {} as MembershipOutlierInsight) : void {
         serializeGovernanceInsight(writer, membershipOutlierInsight)

@@ -1,6 +1,6 @@
-import {deserializeIntoManagedAppOperationCollectionResponse} from './deserializeIntoManagedAppOperationCollectionResponse';
-import {ManagedAppOperationCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoManagedAppOperationCollectionResponse } from './deserializeIntoManagedAppOperationCollectionResponse';
+import { type ManagedAppOperationCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedAppOperationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

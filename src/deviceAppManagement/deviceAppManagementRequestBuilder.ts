@@ -1,30 +1,29 @@
-import {createDeviceAppManagementFromDiscriminatorValue} from '../models/createDeviceAppManagementFromDiscriminatorValue';
-import {deserializeIntoDeviceAppManagement} from '../models/deserializeIntoDeviceAppManagement';
-import type {DeviceAppManagement} from '../models/deviceAppManagement';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeDeviceAppManagement} from '../models/serializeDeviceAppManagement';
-import {AndroidManagedAppProtectionsRequestBuilder} from './androidManagedAppProtections/androidManagedAppProtectionsRequestBuilder';
-import {DefaultManagedAppProtectionsRequestBuilder} from './defaultManagedAppProtections/defaultManagedAppProtectionsRequestBuilder';
-import {DeviceAppManagementRequestBuilderGetRequestConfiguration} from './deviceAppManagementRequestBuilderGetRequestConfiguration';
-import {DeviceAppManagementRequestBuilderPatchRequestConfiguration} from './deviceAppManagementRequestBuilderPatchRequestConfiguration';
-import {IosManagedAppProtectionsRequestBuilder} from './iosManagedAppProtections/iosManagedAppProtectionsRequestBuilder';
-import {ManagedAppPoliciesRequestBuilder} from './managedAppPolicies/managedAppPoliciesRequestBuilder';
-import {ManagedAppRegistrationsRequestBuilder} from './managedAppRegistrations/managedAppRegistrationsRequestBuilder';
-import {ManagedAppStatusesRequestBuilder} from './managedAppStatuses/managedAppStatusesRequestBuilder';
-import {ManagedEBooksRequestBuilder} from './managedEBooks/managedEBooksRequestBuilder';
-import {MdmWindowsInformationProtectionPoliciesRequestBuilder} from './mdmWindowsInformationProtectionPolicies/mdmWindowsInformationProtectionPoliciesRequestBuilder';
-import {MobileAppCategoriesRequestBuilder} from './mobileAppCategories/mobileAppCategoriesRequestBuilder';
-import {MobileAppConfigurationsRequestBuilder} from './mobileAppConfigurations/mobileAppConfigurationsRequestBuilder';
-import {MobileAppsRequestBuilder} from './mobileApps/mobileAppsRequestBuilder';
-import {SyncMicrosoftStoreForBusinessAppsRequestBuilder} from './syncMicrosoftStoreForBusinessApps/syncMicrosoftStoreForBusinessAppsRequestBuilder';
-import {TargetedManagedAppConfigurationsRequestBuilder} from './targetedManagedAppConfigurations/targetedManagedAppConfigurationsRequestBuilder';
-import {VppTokensRequestBuilder} from './vppTokens/vppTokensRequestBuilder';
-import {WindowsInformationProtectionPoliciesRequestBuilder} from './windowsInformationProtectionPolicies/windowsInformationProtectionPoliciesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceAppManagementFromDiscriminatorValue } from '../models/createDeviceAppManagementFromDiscriminatorValue';
+import { deserializeIntoDeviceAppManagement } from '../models/deserializeIntoDeviceAppManagement';
+import { type DeviceAppManagement } from '../models/deviceAppManagement';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeDeviceAppManagement } from '../models/serializeDeviceAppManagement';
+import { AndroidManagedAppProtectionsRequestBuilder } from './androidManagedAppProtections/androidManagedAppProtectionsRequestBuilder';
+import { DefaultManagedAppProtectionsRequestBuilder } from './defaultManagedAppProtections/defaultManagedAppProtectionsRequestBuilder';
+import { type DeviceAppManagementRequestBuilderGetRequestConfiguration } from './deviceAppManagementRequestBuilderGetRequestConfiguration';
+import { type DeviceAppManagementRequestBuilderPatchRequestConfiguration } from './deviceAppManagementRequestBuilderPatchRequestConfiguration';
+import { IosManagedAppProtectionsRequestBuilder } from './iosManagedAppProtections/iosManagedAppProtectionsRequestBuilder';
+import { ManagedAppPoliciesRequestBuilder } from './managedAppPolicies/managedAppPoliciesRequestBuilder';
+import { ManagedAppRegistrationsRequestBuilder } from './managedAppRegistrations/managedAppRegistrationsRequestBuilder';
+import { ManagedAppStatusesRequestBuilder } from './managedAppStatuses/managedAppStatusesRequestBuilder';
+import { ManagedEBooksRequestBuilder } from './managedEBooks/managedEBooksRequestBuilder';
+import { MdmWindowsInformationProtectionPoliciesRequestBuilder } from './mdmWindowsInformationProtectionPolicies/mdmWindowsInformationProtectionPoliciesRequestBuilder';
+import { MobileAppCategoriesRequestBuilder } from './mobileAppCategories/mobileAppCategoriesRequestBuilder';
+import { MobileAppConfigurationsRequestBuilder } from './mobileAppConfigurations/mobileAppConfigurationsRequestBuilder';
+import { MobileAppsRequestBuilder } from './mobileApps/mobileAppsRequestBuilder';
+import { SyncMicrosoftStoreForBusinessAppsRequestBuilder } from './syncMicrosoftStoreForBusinessApps/syncMicrosoftStoreForBusinessAppsRequestBuilder';
+import { TargetedManagedAppConfigurationsRequestBuilder } from './targetedManagedAppConfigurations/targetedManagedAppConfigurationsRequestBuilder';
+import { VppTokensRequestBuilder } from './vppTokens/vppTokensRequestBuilder';
+import { WindowsInformationProtectionPoliciesRequestBuilder } from './windowsInformationProtectionPolicies/windowsInformationProtectionPoliciesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceAppManagement singleton.
@@ -132,7 +131,7 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceAppManagement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAppManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-partnerintegration-deviceappmanagement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-unlock-deviceappmanagement-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceAppManagementRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceAppManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(

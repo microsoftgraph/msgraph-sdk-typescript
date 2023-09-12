@@ -1,8 +1,8 @@
-import {deserializeIntoOrganizationalBranding} from './deserializeIntoOrganizationalBranding';
-import {deserializeIntoOrganizationalBrandingLocalization} from './deserializeIntoOrganizationalBrandingLocalization';
-import {deserializeIntoOrganizationalBrandingProperties} from './deserializeIntoOrganizationalBrandingProperties';
-import {OrganizationalBranding, OrganizationalBrandingLocalization, OrganizationalBrandingProperties} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoOrganizationalBranding } from './deserializeIntoOrganizationalBranding';
+import { deserializeIntoOrganizationalBrandingLocalization } from './deserializeIntoOrganizationalBrandingLocalization';
+import { deserializeIntoOrganizationalBrandingProperties } from './deserializeIntoOrganizationalBrandingProperties';
+import { type OrganizationalBranding, type OrganizationalBrandingLocalization, type OrganizationalBrandingProperties } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createOrganizationalBrandingPropertiesFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

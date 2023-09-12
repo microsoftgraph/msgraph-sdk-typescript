@@ -1,17 +1,16 @@
-import type {CancelMediaProcessingOperation} from '../../../../models/cancelMediaProcessingOperation';
-import {createCancelMediaProcessingOperationFromDiscriminatorValue} from '../../../../models/createCancelMediaProcessingOperationFromDiscriminatorValue';
-import {deserializeIntoCancelMediaProcessingOperation} from '../../../../models/deserializeIntoCancelMediaProcessingOperation';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeCancelMediaProcessingOperation} from '../../../../models/serializeCancelMediaProcessingOperation';
-import type {CancelMediaProcessingPostRequestBody} from './cancelMediaProcessingPostRequestBody';
-import {CancelMediaProcessingRequestBuilderPostRequestConfiguration} from './cancelMediaProcessingRequestBuilderPostRequestConfiguration';
-import {deserializeIntoCancelMediaProcessingPostRequestBody} from './deserializeIntoCancelMediaProcessingPostRequestBody';
-import {serializeCancelMediaProcessingPostRequestBody} from './serializeCancelMediaProcessingPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CancelMediaProcessingOperation } from '../../../../models/cancelMediaProcessingOperation';
+import { createCancelMediaProcessingOperationFromDiscriminatorValue } from '../../../../models/createCancelMediaProcessingOperationFromDiscriminatorValue';
+import { deserializeIntoCancelMediaProcessingOperation } from '../../../../models/deserializeIntoCancelMediaProcessingOperation';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeCancelMediaProcessingOperation } from '../../../../models/serializeCancelMediaProcessingOperation';
+import { type CancelMediaProcessingPostRequestBody } from './cancelMediaProcessingPostRequestBody';
+import { type CancelMediaProcessingRequestBuilderPostRequestConfiguration } from './cancelMediaProcessingRequestBuilderPostRequestConfiguration';
+import { deserializeIntoCancelMediaProcessingPostRequestBody } from './deserializeIntoCancelMediaProcessingPostRequestBody';
+import { serializeCancelMediaProcessingPostRequestBody } from './serializeCancelMediaProcessingPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the cancelMediaProcessing method.

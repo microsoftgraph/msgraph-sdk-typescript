@@ -1,6 +1,6 @@
-import {deserializeIntoServicePrincipalRiskDetection} from './deserializeIntoServicePrincipalRiskDetection';
-import {ServicePrincipalRiskDetection} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoServicePrincipalRiskDetection } from './deserializeIntoServicePrincipalRiskDetection';
+import { type ServicePrincipalRiskDetection } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createServicePrincipalRiskDetectionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

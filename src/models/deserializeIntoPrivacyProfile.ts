@@ -1,5 +1,5 @@
-import type {PrivacyProfile} from './privacyProfile';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PrivacyProfile } from './privacyProfile';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrivacyProfile(privacyProfile: PrivacyProfile | undefined = {} as PrivacyProfile) : Record<string, (node: ParseNode) => void> {
     return {

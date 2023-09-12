@@ -1,9 +1,9 @@
-import {createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceFromDiscriminatorValue} from './createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance} from './serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance';
-import type {UserExperienceAnalyticsWorkFromAnywhereModelPerformance} from './userExperienceAnalyticsWorkFromAnywhereModelPerformance';
-import type {UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse} from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceFromDiscriminatorValue } from './createUserExperienceAnalyticsWorkFromAnywhereModelPerformanceFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance } from './serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance';
+import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformance } from './userExperienceAnalyticsWorkFromAnywhereModelPerformance';
+import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse } from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse(userExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse: UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

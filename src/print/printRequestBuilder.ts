@@ -1,21 +1,20 @@
-import {createPrintFromDiscriminatorValue} from '../models/createPrintFromDiscriminatorValue';
-import {deserializeIntoPrint} from '../models/deserializeIntoPrint';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import type {Print} from '../models/print';
-import {serializePrint} from '../models/serializePrint';
-import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
-import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {PrintRequestBuilderGetRequestConfiguration} from './printRequestBuilderGetRequestConfiguration';
-import {PrintRequestBuilderPatchRequestConfiguration} from './printRequestBuilderPatchRequestConfiguration';
-import {PrintersRequestBuilder} from './printers/printersRequestBuilder';
-import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
-import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
-import {TaskDefinitionsRequestBuilder} from './taskDefinitions/taskDefinitionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPrintFromDiscriminatorValue } from '../models/createPrintFromDiscriminatorValue';
+import { deserializeIntoPrint } from '../models/deserializeIntoPrint';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { type Print } from '../models/print';
+import { serializePrint } from '../models/serializePrint';
+import { ConnectorsRequestBuilder } from './connectors/connectorsRequestBuilder';
+import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
+import { PrintersRequestBuilder } from './printers/printersRequestBuilder';
+import { type PrintRequestBuilderGetRequestConfiguration } from './printRequestBuilderGetRequestConfiguration';
+import { type PrintRequestBuilderPatchRequestConfiguration } from './printRequestBuilderPatchRequestConfiguration';
+import { ServicesRequestBuilder } from './services/servicesRequestBuilder';
+import { SharesRequestBuilder } from './shares/sharesRequestBuilder';
+import { TaskDefinitionsRequestBuilder } from './taskDefinitions/taskDefinitionsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the print singleton.

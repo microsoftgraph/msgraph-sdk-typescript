@@ -1,19 +1,18 @@
-import {ConversationCollectionResponse} from '../../../models/';
-import type {Conversation} from '../../../models/conversation';
-import {createConversationCollectionResponseFromDiscriminatorValue} from '../../../models/createConversationCollectionResponseFromDiscriminatorValue';
-import {createConversationFromDiscriminatorValue} from '../../../models/createConversationFromDiscriminatorValue';
-import {deserializeIntoConversation} from '../../../models/deserializeIntoConversation';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeConversation} from '../../../models/serializeConversation';
-import {ConversationsRequestBuilderGetRequestConfiguration} from './conversationsRequestBuilderGetRequestConfiguration';
-import {ConversationsRequestBuilderPostRequestConfiguration} from './conversationsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ConversationItemRequestBuilder} from './item/conversationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConversationCollectionResponse } from '../../../models/';
+import { type Conversation } from '../../../models/conversation';
+import { createConversationCollectionResponseFromDiscriminatorValue } from '../../../models/createConversationCollectionResponseFromDiscriminatorValue';
+import { createConversationFromDiscriminatorValue } from '../../../models/createConversationFromDiscriminatorValue';
+import { deserializeIntoConversation } from '../../../models/deserializeIntoConversation';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeConversation } from '../../../models/serializeConversation';
+import { type ConversationsRequestBuilderGetRequestConfiguration } from './conversationsRequestBuilderGetRequestConfiguration';
+import { type ConversationsRequestBuilderPostRequestConfiguration } from './conversationsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ConversationItemRequestBuilder } from './item/conversationItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conversations property of the microsoft.graph.group entity.

@@ -1,19 +1,18 @@
-import {ThumbnailSetCollectionResponse} from '../../../../../models/';
-import {createThumbnailSetCollectionResponseFromDiscriminatorValue} from '../../../../../models/createThumbnailSetCollectionResponseFromDiscriminatorValue';
-import {createThumbnailSetFromDiscriminatorValue} from '../../../../../models/createThumbnailSetFromDiscriminatorValue';
-import {deserializeIntoThumbnailSet} from '../../../../../models/deserializeIntoThumbnailSet';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeThumbnailSet} from '../../../../../models/serializeThumbnailSet';
-import type {ThumbnailSet} from '../../../../../models/thumbnailSet';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ThumbnailSetItemRequestBuilder} from './item/thumbnailSetItemRequestBuilder';
-import {ThumbnailsRequestBuilderGetRequestConfiguration} from './thumbnailsRequestBuilderGetRequestConfiguration';
-import {ThumbnailsRequestBuilderPostRequestConfiguration} from './thumbnailsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ThumbnailSetCollectionResponse } from '../../../../../models/';
+import { createThumbnailSetCollectionResponseFromDiscriminatorValue } from '../../../../../models/createThumbnailSetCollectionResponseFromDiscriminatorValue';
+import { createThumbnailSetFromDiscriminatorValue } from '../../../../../models/createThumbnailSetFromDiscriminatorValue';
+import { deserializeIntoThumbnailSet } from '../../../../../models/deserializeIntoThumbnailSet';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeThumbnailSet } from '../../../../../models/serializeThumbnailSet';
+import { type ThumbnailSet } from '../../../../../models/thumbnailSet';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ThumbnailSetItemRequestBuilder } from './item/thumbnailSetItemRequestBuilder';
+import { type ThumbnailsRequestBuilderGetRequestConfiguration } from './thumbnailsRequestBuilderGetRequestConfiguration';
+import { type ThumbnailsRequestBuilderPostRequestConfiguration } from './thumbnailsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity.

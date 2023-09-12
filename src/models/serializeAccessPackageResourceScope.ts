@@ -1,8 +1,8 @@
-import type {AccessPackageResource} from './accessPackageResource';
-import type {AccessPackageResourceScope} from './accessPackageResourceScope';
-import {serializeAccessPackageResource} from './serializeAccessPackageResource';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResource } from './accessPackageResource';
+import { type AccessPackageResourceScope } from './accessPackageResourceScope';
+import { serializeAccessPackageResource } from './serializeAccessPackageResource';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageResourceScope(writer: SerializationWriter, accessPackageResourceScope: AccessPackageResourceScope | undefined = {} as AccessPackageResourceScope) : void {
         serializeEntity(writer, accessPackageResourceScope)

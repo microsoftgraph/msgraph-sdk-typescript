@@ -1,7 +1,7 @@
-import {RunAsAccountType} from './runAsAccountType';
-import type {Win32LobAppInstallExperience} from './win32LobAppInstallExperience';
-import {Win32LobAppRestartBehavior} from './win32LobAppRestartBehavior';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { RunAsAccountType } from './runAsAccountType';
+import { type Win32LobAppInstallExperience } from './win32LobAppInstallExperience';
+import { Win32LobAppRestartBehavior } from './win32LobAppRestartBehavior';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWin32LobAppInstallExperience(writer: SerializationWriter, win32LobAppInstallExperience: Win32LobAppInstallExperience | undefined = {} as Win32LobAppInstallExperience) : void {
         writer.writeEnumValue<Win32LobAppRestartBehavior>("deviceRestartBehavior", win32LobAppInstallExperience.deviceRestartBehavior);

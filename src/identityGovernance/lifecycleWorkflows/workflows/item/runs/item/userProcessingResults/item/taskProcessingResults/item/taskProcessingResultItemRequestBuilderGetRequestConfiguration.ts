@@ -1,5 +1,5 @@
-import {TaskProcessingResultItemRequestBuilderGetQueryParameters} from './taskProcessingResultItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TaskProcessingResultItemRequestBuilderGetQueryParameters } from './taskProcessingResultItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TaskProcessingResultItemRequestBuilderGetRequestConfiguration {
     /**

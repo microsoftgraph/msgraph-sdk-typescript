@@ -1,16 +1,15 @@
-import type {AuthenticationMethodsPolicy} from '../models/authenticationMethodsPolicy';
-import {createAuthenticationMethodsPolicyFromDiscriminatorValue} from '../models/createAuthenticationMethodsPolicyFromDiscriminatorValue';
-import {deserializeIntoAuthenticationMethodsPolicy} from '../models/deserializeIntoAuthenticationMethodsPolicy';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeAuthenticationMethodsPolicy} from '../models/serializeAuthenticationMethodsPolicy';
-import {AuthenticationMethodConfigurationsRequestBuilder} from './authenticationMethodConfigurations/authenticationMethodConfigurationsRequestBuilder';
-import {AuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration} from './authenticationMethodsPolicyRequestBuilderGetRequestConfiguration';
-import {AuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration} from './authenticationMethodsPolicyRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodsPolicy } from '../models/authenticationMethodsPolicy';
+import { createAuthenticationMethodsPolicyFromDiscriminatorValue } from '../models/createAuthenticationMethodsPolicyFromDiscriminatorValue';
+import { deserializeIntoAuthenticationMethodsPolicy } from '../models/deserializeIntoAuthenticationMethodsPolicy';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeAuthenticationMethodsPolicy } from '../models/serializeAuthenticationMethodsPolicy';
+import { AuthenticationMethodConfigurationsRequestBuilder } from './authenticationMethodConfigurations/authenticationMethodConfigurationsRequestBuilder';
+import { type AuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration } from './authenticationMethodsPolicyRequestBuilderGetRequestConfiguration';
+import { type AuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration } from './authenticationMethodsPolicyRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodsPolicy singleton.

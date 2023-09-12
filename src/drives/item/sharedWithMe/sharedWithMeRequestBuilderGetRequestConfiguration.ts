@@ -1,5 +1,5 @@
-import {SharedWithMeRequestBuilderGetQueryParameters} from './sharedWithMeRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SharedWithMeRequestBuilderGetQueryParameters } from './sharedWithMeRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SharedWithMeRequestBuilderGetRequestConfiguration {
     /**

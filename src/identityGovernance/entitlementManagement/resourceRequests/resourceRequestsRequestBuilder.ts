@@ -1,19 +1,18 @@
-import {AccessPackageResourceRequestCollectionResponse} from '../../../models/';
-import type {AccessPackageResourceRequest} from '../../../models/accessPackageResourceRequest';
-import {createAccessPackageResourceRequestCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageResourceRequestCollectionResponseFromDiscriminatorValue';
-import {createAccessPackageResourceRequestFromDiscriminatorValue} from '../../../models/createAccessPackageResourceRequestFromDiscriminatorValue';
-import {deserializeIntoAccessPackageResourceRequest} from '../../../models/deserializeIntoAccessPackageResourceRequest';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackageResourceRequest} from '../../../models/serializeAccessPackageResourceRequest';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AccessPackageResourceRequestItemRequestBuilder} from './item/accessPackageResourceRequestItemRequestBuilder';
-import {ResourceRequestsRequestBuilderGetRequestConfiguration} from './resourceRequestsRequestBuilderGetRequestConfiguration';
-import {ResourceRequestsRequestBuilderPostRequestConfiguration} from './resourceRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResourceRequestCollectionResponse } from '../../../models/';
+import { type AccessPackageResourceRequest } from '../../../models/accessPackageResourceRequest';
+import { createAccessPackageResourceRequestCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageResourceRequestCollectionResponseFromDiscriminatorValue';
+import { createAccessPackageResourceRequestFromDiscriminatorValue } from '../../../models/createAccessPackageResourceRequestFromDiscriminatorValue';
+import { deserializeIntoAccessPackageResourceRequest } from '../../../models/deserializeIntoAccessPackageResourceRequest';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackageResourceRequest } from '../../../models/serializeAccessPackageResourceRequest';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AccessPackageResourceRequestItemRequestBuilder } from './item/accessPackageResourceRequestItemRequestBuilder';
+import { type ResourceRequestsRequestBuilderGetRequestConfiguration } from './resourceRequestsRequestBuilderGetRequestConfiguration';
+import { type ResourceRequestsRequestBuilderPostRequestConfiguration } from './resourceRequestsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRequests property of the microsoft.graph.entitlementManagement entity.
@@ -61,7 +60,7 @@ export class ResourceRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageResourceRequestCollectionResponse>(requestInfo, createAccessPackageResourceRequestCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package. To add an Azure AD group as a resource to a catalog, set the requestType to be adminAdd, and a resource representing the resource. The value of the originSystem property within the resource should be AadGroup and the value of the originId is the identifier of the group.  If using delegated permissions, the user requesting to add a group should be an owner of the group or in a directory role which allows them to modify groups. If using application permissions, the application requesting to add the group should also be assigned the Group.ReadWrite.All permission.
+     * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package. To add an Azure AD group as a resource to a catalog, set the requestType to be adminAdd, and a resource representing the resource. The value of the originSystem property within the resource should be AadGroup and the value of the originId is the identifier of the group. To add an Azure AD application as a resource to a catalog, set the requestType to be adminAdd, and a resource representing the resource. The value of the originSystem property within the resource should be AadApplication and the value of the originId is the identifier of the servicePrincipal. To add a SharePoint Online site an as a resource to a catalog, set the requestType to be adminAdd, and a resource representing the resource. The value of the originSystem property within the resource should be SharePointOnline and the value of the originId is the URI of the site. To remove a resource from a catalog, set the requestType to be adminRemove, and the resource to contain the id of the resource object to be removed.  The resource object can be retrieved using list resources.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRequest
@@ -96,7 +95,7 @@ export class ResourceRequestsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package. To add an Azure AD group as a resource to a catalog, set the requestType to be adminAdd, and a resource representing the resource. The value of the originSystem property within the resource should be AadGroup and the value of the originId is the identifier of the group.  If using delegated permissions, the user requesting to add a group should be an owner of the group or in a directory role which allows them to modify groups. If using application permissions, the application requesting to add the group should also be assigned the Group.ReadWrite.All permission.
+     * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package. To add an Azure AD group as a resource to a catalog, set the requestType to be adminAdd, and a resource representing the resource. The value of the originSystem property within the resource should be AadGroup and the value of the originId is the identifier of the group. To add an Azure AD application as a resource to a catalog, set the requestType to be adminAdd, and a resource representing the resource. The value of the originSystem property within the resource should be AadApplication and the value of the originId is the identifier of the servicePrincipal. To add a SharePoint Online site an as a resource to a catalog, set the requestType to be adminAdd, and a resource representing the resource. The value of the originSystem property within the resource should be SharePointOnline and the value of the originId is the URI of the site. To remove a resource from a catalog, set the requestType to be adminRemove, and the resource to contain the id of the resource object to be removed.  The resource object can be retrieved using list resources.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,16 +1,16 @@
-import {createLoggedOnUserFromDiscriminatorValue} from './createLoggedOnUserFromDiscriminatorValue';
-import {createVmMetadataFromDiscriminatorValue} from './createVmMetadataFromDiscriminatorValue';
-import {DefenderAvStatus} from './defenderAvStatus';
-import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import type {DeviceEvidence} from './deviceEvidence';
-import {DeviceHealthStatus} from './deviceHealthStatus';
-import {DeviceRiskScore} from './deviceRiskScore';
-import type {LoggedOnUser} from './loggedOnUser';
-import {OnboardingStatus} from './onboardingStatus';
-import {serializeLoggedOnUser} from './serializeLoggedOnUser';
-import {serializeVmMetadata} from './serializeVmMetadata';
-import type {VmMetadata} from './vmMetadata';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createLoggedOnUserFromDiscriminatorValue } from './createLoggedOnUserFromDiscriminatorValue';
+import { createVmMetadataFromDiscriminatorValue } from './createVmMetadataFromDiscriminatorValue';
+import { DefenderAvStatus } from './defenderAvStatus';
+import { deserializeIntoAlertEvidence } from './deserializeIntoAlertEvidence';
+import { type DeviceEvidence } from './deviceEvidence';
+import { DeviceHealthStatus } from './deviceHealthStatus';
+import { DeviceRiskScore } from './deviceRiskScore';
+import { type LoggedOnUser } from './loggedOnUser';
+import { OnboardingStatus } from './onboardingStatus';
+import { serializeLoggedOnUser } from './serializeLoggedOnUser';
+import { serializeVmMetadata } from './serializeVmMetadata';
+import { type VmMetadata } from './vmMetadata';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceEvidence(deviceEvidence: DeviceEvidence | undefined = {} as DeviceEvidence) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,9 +1,9 @@
-import {NetworkConnectionType} from './networkConnectionType';
-import {NetworkTransportProtocol} from './networkTransportProtocol';
-import type {TraceRouteHop} from './traceRouteHop';
-import {WifiBand} from './wifiBand';
-import {WifiRadioType} from './wifiRadioType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { NetworkConnectionType } from './networkConnectionType';
+import { NetworkTransportProtocol } from './networkTransportProtocol';
+import { type TraceRouteHop } from './traceRouteHop';
+import { WifiBand } from './wifiBand';
+import { WifiRadioType } from './wifiRadioType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface NetworkInfo extends AdditionalDataHolder, Parsable {
     /**
@@ -39,7 +39,7 @@ export interface NetworkInfo extends AdditionalDataHolder, Parsable {
      */
     linkSpeed?: number | undefined;
     /**
-     * The media access control (MAC) address of the media endpoint's network device.
+     * The media access control (MAC) address of the media endpoint's network device. This value may be missing or shown as 02:00:00:00:00:00 due to operating system privacy policies.
      */
     macAddress?: string | undefined;
     /**

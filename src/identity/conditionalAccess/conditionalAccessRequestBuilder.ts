@@ -1,21 +1,20 @@
-import type {ConditionalAccessRoot} from '../../models/conditionalAccessRoot';
-import {createConditionalAccessRootFromDiscriminatorValue} from '../../models/createConditionalAccessRootFromDiscriminatorValue';
-import {deserializeIntoConditionalAccessRoot} from '../../models/deserializeIntoConditionalAccessRoot';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeConditionalAccessRoot} from '../../models/serializeConditionalAccessRoot';
-import {AuthenticationContextClassReferencesRequestBuilder} from './authenticationContextClassReferences/authenticationContextClassReferencesRequestBuilder';
-import {AuthenticationStrengthRequestBuilder} from './authenticationStrength/authenticationStrengthRequestBuilder';
-import {ConditionalAccessRequestBuilderDeleteRequestConfiguration} from './conditionalAccessRequestBuilderDeleteRequestConfiguration';
-import {ConditionalAccessRequestBuilderGetRequestConfiguration} from './conditionalAccessRequestBuilderGetRequestConfiguration';
-import {ConditionalAccessRequestBuilderPatchRequestConfiguration} from './conditionalAccessRequestBuilderPatchRequestConfiguration';
-import {NamedLocationsRequestBuilder} from './namedLocations/namedLocationsRequestBuilder';
-import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
-import {TemplatesRequestBuilder} from './templates/templatesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessRoot } from '../../models/conditionalAccessRoot';
+import { createConditionalAccessRootFromDiscriminatorValue } from '../../models/createConditionalAccessRootFromDiscriminatorValue';
+import { deserializeIntoConditionalAccessRoot } from '../../models/deserializeIntoConditionalAccessRoot';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeConditionalAccessRoot } from '../../models/serializeConditionalAccessRoot';
+import { AuthenticationContextClassReferencesRequestBuilder } from './authenticationContextClassReferences/authenticationContextClassReferencesRequestBuilder';
+import { AuthenticationStrengthRequestBuilder } from './authenticationStrength/authenticationStrengthRequestBuilder';
+import { type ConditionalAccessRequestBuilderDeleteRequestConfiguration } from './conditionalAccessRequestBuilderDeleteRequestConfiguration';
+import { type ConditionalAccessRequestBuilderGetRequestConfiguration } from './conditionalAccessRequestBuilderGetRequestConfiguration';
+import { type ConditionalAccessRequestBuilderPatchRequestConfiguration } from './conditionalAccessRequestBuilderPatchRequestConfiguration';
+import { NamedLocationsRequestBuilder } from './namedLocations/namedLocationsRequestBuilder';
+import { PoliciesRequestBuilder } from './policies/policiesRequestBuilder';
+import { TemplatesRequestBuilder } from './templates/templatesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.

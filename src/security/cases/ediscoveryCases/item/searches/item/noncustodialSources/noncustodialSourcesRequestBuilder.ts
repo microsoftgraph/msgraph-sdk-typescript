@@ -1,14 +1,13 @@
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {EdiscoveryNoncustodialDataSourceCollectionResponse} from '../../../../../../../models/security/';
-import {createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EdiscoveryNoncustodialDataSourceItemRequestBuilder} from './item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
-import {NoncustodialSourcesRequestBuilderGetRequestConfiguration} from './noncustodialSourcesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { type EdiscoveryNoncustodialDataSourceCollectionResponse } from '../../../../../../../models/security/';
+import { createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { EdiscoveryNoncustodialDataSourceItemRequestBuilder } from './item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
+import { type NoncustodialSourcesRequestBuilderGetRequestConfiguration } from './noncustodialSourcesRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity.

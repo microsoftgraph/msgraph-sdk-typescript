@@ -1,5 +1,5 @@
-import {Alerts_v2RequestBuilderGetQueryParameters} from './alerts_v2RequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type Alerts_v2RequestBuilderGetQueryParameters } from './alerts_v2RequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface Alerts_v2RequestBuilderGetRequestConfiguration {
     /**

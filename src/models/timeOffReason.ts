@@ -1,6 +1,6 @@
-import type {ChangeTrackedEntity} from './changeTrackedEntity';
-import {TimeOffReasonIconType} from './timeOffReasonIconType';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ChangeTrackedEntity } from './changeTrackedEntity';
+import { TimeOffReasonIconType } from './timeOffReasonIconType';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TimeOffReason extends ChangeTrackedEntity, Parsable {
     /**

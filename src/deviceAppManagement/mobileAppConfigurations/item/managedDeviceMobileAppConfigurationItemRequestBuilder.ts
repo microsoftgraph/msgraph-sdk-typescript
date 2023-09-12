@@ -1,22 +1,21 @@
-import {createManagedDeviceMobileAppConfigurationFromDiscriminatorValue} from '../../../models/createManagedDeviceMobileAppConfigurationFromDiscriminatorValue';
-import {deserializeIntoManagedDeviceMobileAppConfiguration} from '../../../models/deserializeIntoManagedDeviceMobileAppConfiguration';
-import type {ManagedDeviceMobileAppConfiguration} from '../../../models/managedDeviceMobileAppConfiguration';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeManagedDeviceMobileAppConfiguration} from '../../../models/serializeManagedDeviceMobileAppConfiguration';
-import {AssignRequestBuilder} from './assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {DeviceStatusSummaryRequestBuilder} from './deviceStatusSummary/deviceStatusSummaryRequestBuilder';
-import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
-import {ManagedDeviceMobileAppConfigurationItemRequestBuilderDeleteRequestConfiguration} from './managedDeviceMobileAppConfigurationItemRequestBuilderDeleteRequestConfiguration';
-import {ManagedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration} from './managedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration';
-import {ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration} from './managedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration';
-import {UserStatusSummaryRequestBuilder} from './userStatusSummary/userStatusSummaryRequestBuilder';
-import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createManagedDeviceMobileAppConfigurationFromDiscriminatorValue } from '../../../models/createManagedDeviceMobileAppConfigurationFromDiscriminatorValue';
+import { deserializeIntoManagedDeviceMobileAppConfiguration } from '../../../models/deserializeIntoManagedDeviceMobileAppConfiguration';
+import { type ManagedDeviceMobileAppConfiguration } from '../../../models/managedDeviceMobileAppConfiguration';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeManagedDeviceMobileAppConfiguration } from '../../../models/serializeManagedDeviceMobileAppConfiguration';
+import { AssignRequestBuilder } from './assign/assignRequestBuilder';
+import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
+import { DeviceStatusesRequestBuilder } from './deviceStatuses/deviceStatusesRequestBuilder';
+import { DeviceStatusSummaryRequestBuilder } from './deviceStatusSummary/deviceStatusSummaryRequestBuilder';
+import { type ManagedDeviceMobileAppConfigurationItemRequestBuilderDeleteRequestConfiguration } from './managedDeviceMobileAppConfigurationItemRequestBuilderDeleteRequestConfiguration';
+import { type ManagedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration } from './managedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration';
+import { type ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration } from './managedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration';
+import { UserStatusesRequestBuilder } from './userStatuses/userStatusesRequestBuilder';
+import { UserStatusSummaryRequestBuilder } from './userStatusSummary/userStatusSummaryRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.

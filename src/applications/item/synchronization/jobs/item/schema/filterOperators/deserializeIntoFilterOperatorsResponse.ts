@@ -1,9 +1,9 @@
-import {createFilterOperatorSchemaFromDiscriminatorValue} from '../../../../../../../models/createFilterOperatorSchemaFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import type {FilterOperatorSchema} from '../../../../../../../models/filterOperatorSchema';
-import {serializeFilterOperatorSchema} from '../../../../../../../models/serializeFilterOperatorSchema';
-import type {FilterOperatorsResponse} from './filterOperatorsResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createFilterOperatorSchemaFromDiscriminatorValue } from '../../../../../../../models/createFilterOperatorSchemaFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { type FilterOperatorSchema } from '../../../../../../../models/filterOperatorSchema';
+import { serializeFilterOperatorSchema } from '../../../../../../../models/serializeFilterOperatorSchema';
+import { type FilterOperatorsResponse } from './filterOperatorsResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFilterOperatorsResponse(filterOperatorsResponse: FilterOperatorsResponse | undefined = {} as FilterOperatorsResponse) : Record<string, (node: ParseNode) => void> {
     return {

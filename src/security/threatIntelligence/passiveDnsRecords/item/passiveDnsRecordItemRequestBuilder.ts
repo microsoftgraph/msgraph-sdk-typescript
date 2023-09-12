@@ -1,18 +1,17 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {createPassiveDnsRecordFromDiscriminatorValue} from '../../../../models/security/createPassiveDnsRecordFromDiscriminatorValue';
-import {deserializeIntoPassiveDnsRecord} from '../../../../models/security/deserializeIntoPassiveDnsRecord';
-import type {PassiveDnsRecord} from '../../../../models/security/passiveDnsRecord';
-import {serializePassiveDnsRecord} from '../../../../models/security/serializePassiveDnsRecord';
-import {ArtifactRequestBuilder} from './artifact/artifactRequestBuilder';
-import {ParentHostRequestBuilder} from './parentHost/parentHostRequestBuilder';
-import {PassiveDnsRecordItemRequestBuilderDeleteRequestConfiguration} from './passiveDnsRecordItemRequestBuilderDeleteRequestConfiguration';
-import {PassiveDnsRecordItemRequestBuilderGetRequestConfiguration} from './passiveDnsRecordItemRequestBuilderGetRequestConfiguration';
-import {PassiveDnsRecordItemRequestBuilderPatchRequestConfiguration} from './passiveDnsRecordItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createPassiveDnsRecordFromDiscriminatorValue } from '../../../../models/security/createPassiveDnsRecordFromDiscriminatorValue';
+import { deserializeIntoPassiveDnsRecord } from '../../../../models/security/deserializeIntoPassiveDnsRecord';
+import { type PassiveDnsRecord } from '../../../../models/security/passiveDnsRecord';
+import { serializePassiveDnsRecord } from '../../../../models/security/serializePassiveDnsRecord';
+import { ArtifactRequestBuilder } from './artifact/artifactRequestBuilder';
+import { ParentHostRequestBuilder } from './parentHost/parentHostRequestBuilder';
+import { type PassiveDnsRecordItemRequestBuilderDeleteRequestConfiguration } from './passiveDnsRecordItemRequestBuilderDeleteRequestConfiguration';
+import { type PassiveDnsRecordItemRequestBuilderGetRequestConfiguration } from './passiveDnsRecordItemRequestBuilderGetRequestConfiguration';
+import { type PassiveDnsRecordItemRequestBuilderPatchRequestConfiguration } from './passiveDnsRecordItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the passiveDnsRecords property of the microsoft.graph.security.threatIntelligence entity.

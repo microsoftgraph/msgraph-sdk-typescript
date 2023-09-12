@@ -1,5 +1,5 @@
-import type {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type WorkbookWorksheetProtectionOptions } from './workbookWorksheetProtectionOptions';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookWorksheetProtectionOptions(writer: SerializationWriter, workbookWorksheetProtectionOptions: WorkbookWorksheetProtectionOptions | undefined = {} as WorkbookWorksheetProtectionOptions) : void {
         writer.writeBooleanValue("allowAutoFilter", workbookWorksheetProtectionOptions.allowAutoFilter);

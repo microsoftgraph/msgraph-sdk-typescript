@@ -1,7 +1,6 @@
-import type {LearningContent} from './learningContent';
-import {serializeEntity} from './serializeEntity';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type LearningContent } from './learningContent';
+import { serializeEntity } from './serializeEntity';
+import { Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeLearningContent(writer: SerializationWriter, learningContent: LearningContent | undefined = {} as LearningContent) : void {
         serializeEntity(writer, learningContent)

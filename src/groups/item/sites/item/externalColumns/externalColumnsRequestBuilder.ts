@@ -1,14 +1,13 @@
-import {ColumnDefinitionCollectionResponse} from '../../../../../models/';
-import {createColumnDefinitionCollectionResponseFromDiscriminatorValue} from '../../../../../models/createColumnDefinitionCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ExternalColumnsRequestBuilderGetRequestConfiguration} from './externalColumnsRequestBuilderGetRequestConfiguration';
-import {ColumnDefinitionItemRequestBuilder} from './item/columnDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ColumnDefinitionCollectionResponse } from '../../../../../models/';
+import { createColumnDefinitionCollectionResponseFromDiscriminatorValue } from '../../../../../models/createColumnDefinitionCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type ExternalColumnsRequestBuilderGetRequestConfiguration } from './externalColumnsRequestBuilderGetRequestConfiguration';
+import { ColumnDefinitionItemRequestBuilder } from './item/columnDefinitionItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the externalColumns property of the microsoft.graph.site entity.

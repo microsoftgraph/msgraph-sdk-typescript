@@ -1,5 +1,5 @@
-import {ScheduledActionsForRuleRequestBuilderGetQueryParameters} from './scheduledActionsForRuleRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ScheduledActionsForRuleRequestBuilderGetQueryParameters } from './scheduledActionsForRuleRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ScheduledActionsForRuleRequestBuilderGetRequestConfiguration {
     /**

@@ -1,9 +1,9 @@
-import type {Entity} from '../entity';
-import {LifecycleWorkflowProcessingStatus} from './lifecycleWorkflowProcessingStatus';
-import type {Task} from './task';
-import type {TaskDefinition} from './taskDefinition';
-import type {TaskProcessingResult} from './taskProcessingResult';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { LifecycleWorkflowProcessingStatus } from './lifecycleWorkflowProcessingStatus';
+import { type Task } from './task';
+import { type TaskDefinition } from './taskDefinition';
+import { type TaskProcessingResult } from './taskProcessingResult';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TaskReport extends Entity, Parsable {
     /**

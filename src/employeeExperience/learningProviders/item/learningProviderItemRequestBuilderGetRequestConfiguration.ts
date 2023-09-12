@@ -1,5 +1,5 @@
-import {LearningProviderItemRequestBuilderGetQueryParameters} from './learningProviderItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LearningProviderItemRequestBuilderGetQueryParameters } from './learningProviderItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LearningProviderItemRequestBuilderGetRequestConfiguration {
     /**

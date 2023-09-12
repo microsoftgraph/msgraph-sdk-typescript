@@ -1,8 +1,8 @@
-import type {ChatMessageHostedContent} from './chatMessageHostedContent';
-import type {ChatMessageHostedContentCollectionResponse} from './chatMessageHostedContentCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeChatMessageHostedContent} from './serializeChatMessageHostedContent';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ChatMessageHostedContent } from './chatMessageHostedContent';
+import { type ChatMessageHostedContentCollectionResponse } from './chatMessageHostedContentCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeChatMessageHostedContent } from './serializeChatMessageHostedContent';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeChatMessageHostedContentCollectionResponse(writer: SerializationWriter, chatMessageHostedContentCollectionResponse: ChatMessageHostedContentCollectionResponse | undefined = {} as ChatMessageHostedContentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, chatMessageHostedContentCollectionResponse)

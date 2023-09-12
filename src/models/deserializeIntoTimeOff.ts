@@ -1,9 +1,9 @@
-import {createTimeOffItemFromDiscriminatorValue} from './createTimeOffItemFromDiscriminatorValue';
-import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTrackedEntity';
-import {serializeTimeOffItem} from './serializeTimeOffItem';
-import type {TimeOff} from './timeOff';
-import type {TimeOffItem} from './timeOffItem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTimeOffItemFromDiscriminatorValue } from './createTimeOffItemFromDiscriminatorValue';
+import { deserializeIntoChangeTrackedEntity } from './deserializeIntoChangeTrackedEntity';
+import { serializeTimeOffItem } from './serializeTimeOffItem';
+import { type TimeOff } from './timeOff';
+import { type TimeOffItem } from './timeOffItem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeOff(timeOff: TimeOff | undefined = {} as TimeOff) : Record<string, (node: ParseNode) => void> {
     return {

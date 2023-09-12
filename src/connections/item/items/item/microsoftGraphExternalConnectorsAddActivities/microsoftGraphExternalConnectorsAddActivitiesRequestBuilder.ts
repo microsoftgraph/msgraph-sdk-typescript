@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import type {AddActivitiesPostRequestBody} from './addActivitiesPostRequestBody';
-import type {AddActivitiesResponse} from './addActivitiesResponse';
-import {createAddActivitiesResponseFromDiscriminatorValue} from './createAddActivitiesResponseFromDiscriminatorValue';
-import {deserializeIntoAddActivitiesPostRequestBody} from './deserializeIntoAddActivitiesPostRequestBody';
-import {deserializeIntoAddActivitiesResponse} from './deserializeIntoAddActivitiesResponse';
-import {MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration} from './microsoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration';
-import {serializeAddActivitiesPostRequestBody} from './serializeAddActivitiesPostRequestBody';
-import {serializeAddActivitiesResponse} from './serializeAddActivitiesResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type AddActivitiesPostRequestBody } from './addActivitiesPostRequestBody';
+import { type AddActivitiesResponse } from './addActivitiesResponse';
+import { createAddActivitiesResponseFromDiscriminatorValue } from './createAddActivitiesResponseFromDiscriminatorValue';
+import { deserializeIntoAddActivitiesPostRequestBody } from './deserializeIntoAddActivitiesPostRequestBody';
+import { deserializeIntoAddActivitiesResponse } from './deserializeIntoAddActivitiesResponse';
+import { type MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration } from './microsoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration';
+import { serializeAddActivitiesPostRequestBody } from './serializeAddActivitiesPostRequestBody';
+import { serializeAddActivitiesResponse } from './serializeAddActivitiesResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addActivities method.

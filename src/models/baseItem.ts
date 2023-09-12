@@ -1,8 +1,8 @@
-import type {Entity} from './entity';
-import type {IdentitySet} from './identitySet';
-import type {ItemReference} from './itemReference';
-import type {User} from './user';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type IdentitySet } from './identitySet';
+import { type ItemReference } from './itemReference';
+import { type User } from './user';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BaseItem extends Entity, Parsable {
     /**

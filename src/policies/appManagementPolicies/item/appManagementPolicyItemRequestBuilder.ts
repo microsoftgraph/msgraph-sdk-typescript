@@ -1,17 +1,16 @@
-import type {AppManagementPolicy} from '../../../models/appManagementPolicy';
-import {createAppManagementPolicyFromDiscriminatorValue} from '../../../models/createAppManagementPolicyFromDiscriminatorValue';
-import {deserializeIntoAppManagementPolicy} from '../../../models/deserializeIntoAppManagementPolicy';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAppManagementPolicy} from '../../../models/serializeAppManagementPolicy';
-import {AppManagementPolicyItemRequestBuilderDeleteRequestConfiguration} from './appManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
-import {AppManagementPolicyItemRequestBuilderGetRequestConfiguration} from './appManagementPolicyItemRequestBuilderGetRequestConfiguration';
-import {AppManagementPolicyItemRequestBuilderPatchRequestConfiguration} from './appManagementPolicyItemRequestBuilderPatchRequestConfiguration';
-import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppManagementPolicy } from '../../../models/appManagementPolicy';
+import { createAppManagementPolicyFromDiscriminatorValue } from '../../../models/createAppManagementPolicyFromDiscriminatorValue';
+import { deserializeIntoAppManagementPolicy } from '../../../models/deserializeIntoAppManagementPolicy';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAppManagementPolicy } from '../../../models/serializeAppManagementPolicy';
+import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
+import { type AppManagementPolicyItemRequestBuilderDeleteRequestConfiguration } from './appManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
+import { type AppManagementPolicyItemRequestBuilderGetRequestConfiguration } from './appManagementPolicyItemRequestBuilderGetRequestConfiguration';
+import { type AppManagementPolicyItemRequestBuilderPatchRequestConfiguration } from './appManagementPolicyItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.

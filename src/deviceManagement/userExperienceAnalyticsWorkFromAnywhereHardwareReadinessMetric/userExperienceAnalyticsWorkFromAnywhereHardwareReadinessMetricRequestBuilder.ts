@@ -1,16 +1,15 @@
-import {createUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric} from '../../models/deserializeIntoUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric} from '../../models/serializeUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
-import type {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric} from '../../models/userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
-import {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderDeleteRequestConfiguration';
-import {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric } from '../../models/deserializeIntoUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric } from '../../models/serializeUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
+import { type UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric } from '../../models/userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
+import { type UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderDeleteRequestConfiguration';
+import { type UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric property of the microsoft.graph.deviceManagement entity.

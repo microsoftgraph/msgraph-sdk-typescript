@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import type {SearchHit} from './searchHit';
-import {serializeEntity} from './serializeEntity';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type SearchHit } from './searchHit';
+import { serializeEntity } from './serializeEntity';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSearchHit(writer: SerializationWriter, searchHit: SearchHit | undefined = {} as SearchHit) : void {
         writer.writeStringValue("contentSource", searchHit.contentSource);

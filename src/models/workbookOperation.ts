@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import type {WorkbookOperationError} from './workbookOperationError';
-import {WorkbookOperationStatus} from './workbookOperationStatus';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type WorkbookOperationError } from './workbookOperationError';
+import { WorkbookOperationStatus } from './workbookOperationStatus';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookOperation extends Entity, Parsable {
     /**

@@ -1,8 +1,8 @@
-import {deserializeIntoAccessReviewRecommendationInsightSetting} from './deserializeIntoAccessReviewRecommendationInsightSetting';
-import {deserializeIntoGroupPeerOutlierRecommendationInsightSettings} from './deserializeIntoGroupPeerOutlierRecommendationInsightSettings';
-import {deserializeIntoUserLastSignInRecommendationInsightSetting} from './deserializeIntoUserLastSignInRecommendationInsightSetting';
-import {AccessReviewRecommendationInsightSetting, GroupPeerOutlierRecommendationInsightSettings, UserLastSignInRecommendationInsightSetting} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessReviewRecommendationInsightSetting } from './deserializeIntoAccessReviewRecommendationInsightSetting';
+import { deserializeIntoGroupPeerOutlierRecommendationInsightSettings } from './deserializeIntoGroupPeerOutlierRecommendationInsightSettings';
+import { deserializeIntoUserLastSignInRecommendationInsightSetting } from './deserializeIntoUserLastSignInRecommendationInsightSetting';
+import { type AccessReviewRecommendationInsightSetting, type GroupPeerOutlierRecommendationInsightSettings, type UserLastSignInRecommendationInsightSetting } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAccessReviewRecommendationInsightSettingFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

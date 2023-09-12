@@ -1,9 +1,9 @@
-import type {Run} from './run';
-import type {TaskReport} from './taskReport';
-import type {UserProcessingResult} from './userProcessingResult';
-import type {WorkflowBase} from './workflowBase';
-import type {WorkflowVersion} from './workflowVersion';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Run } from './run';
+import { type TaskReport } from './taskReport';
+import { type UserProcessingResult } from './userProcessingResult';
+import { type WorkflowBase } from './workflowBase';
+import { type WorkflowVersion } from './workflowVersion';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Workflow extends Parsable, WorkflowBase {
     /**
@@ -19,7 +19,7 @@ export interface Workflow extends Parsable, WorkflowBase {
      */
     id?: string | undefined;
     /**
-     * The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderBy.
+     * The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderby.
      */
     nextScheduleRunDateTime?: Date | undefined;
     /**

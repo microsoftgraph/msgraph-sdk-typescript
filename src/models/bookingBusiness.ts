@@ -1,13 +1,13 @@
-import type {BookingAppointment} from './bookingAppointment';
-import type {BookingCustomQuestion} from './bookingCustomQuestion';
-import type {BookingCustomerBase} from './bookingCustomerBase';
-import type {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
-import type {BookingService} from './bookingService';
-import type {BookingStaffMemberBase} from './bookingStaffMemberBase';
-import type {BookingWorkHours} from './bookingWorkHours';
-import type {Entity} from './entity';
-import type {PhysicalAddress} from './physicalAddress';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BookingAppointment } from './bookingAppointment';
+import { type BookingCustomerBase } from './bookingCustomerBase';
+import { type BookingCustomQuestion } from './bookingCustomQuestion';
+import { type BookingSchedulingPolicy } from './bookingSchedulingPolicy';
+import { type BookingService } from './bookingService';
+import { type BookingStaffMemberBase } from './bookingStaffMemberBase';
+import { type BookingWorkHours } from './bookingWorkHours';
+import { type Entity } from './entity';
+import { type PhysicalAddress } from './physicalAddress';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BookingBusiness extends Entity, Parsable {
     /**

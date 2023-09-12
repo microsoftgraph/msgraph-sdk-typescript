@@ -1,15 +1,15 @@
-import {createPrintConnectorFromDiscriminatorValue} from './createPrintConnectorFromDiscriminatorValue';
-import {createPrintTaskTriggerFromDiscriminatorValue} from './createPrintTaskTriggerFromDiscriminatorValue';
-import {createPrinterShareFromDiscriminatorValue} from './createPrinterShareFromDiscriminatorValue';
-import {deserializeIntoPrinterBase} from './deserializeIntoPrinterBase';
-import type {PrintConnector} from './printConnector';
-import type {PrintTaskTrigger} from './printTaskTrigger';
-import type {Printer} from './printer';
-import type {PrinterShare} from './printerShare';
-import {serializePrintConnector} from './serializePrintConnector';
-import {serializePrintTaskTrigger} from './serializePrintTaskTrigger';
-import {serializePrinterShare} from './serializePrinterShare';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPrintConnectorFromDiscriminatorValue } from './createPrintConnectorFromDiscriminatorValue';
+import { createPrinterShareFromDiscriminatorValue } from './createPrinterShareFromDiscriminatorValue';
+import { createPrintTaskTriggerFromDiscriminatorValue } from './createPrintTaskTriggerFromDiscriminatorValue';
+import { deserializeIntoPrinterBase } from './deserializeIntoPrinterBase';
+import { type PrintConnector } from './printConnector';
+import { type Printer } from './printer';
+import { type PrinterShare } from './printerShare';
+import { type PrintTaskTrigger } from './printTaskTrigger';
+import { serializePrintConnector } from './serializePrintConnector';
+import { serializePrinterShare } from './serializePrinterShare';
+import { serializePrintTaskTrigger } from './serializePrintTaskTrigger';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrinter(printer: Printer | undefined = {} as Printer) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
-import type {AccessPackageAssignmentRequestorSettings} from './accessPackageAssignmentRequestorSettings';
-import {serializeSubjectSet} from './serializeSubjectSet';
-import type {SubjectSet} from './subjectSet';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentRequestorSettings } from './accessPackageAssignmentRequestorSettings';
+import { serializeSubjectSet } from './serializeSubjectSet';
+import { type SubjectSet } from './subjectSet';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentRequestorSettings(writer: SerializationWriter, accessPackageAssignmentRequestorSettings: AccessPackageAssignmentRequestorSettings | undefined = {} as AccessPackageAssignmentRequestorSettings) : void {
         writer.writeBooleanValue("allowCustomAssignmentSchedule", accessPackageAssignmentRequestorSettings.allowCustomAssignmentSchedule);

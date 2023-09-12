@@ -1,19 +1,18 @@
-import {DeviceComplianceUserStatusCollectionResponse} from '../../../../models/';
-import {createDeviceComplianceUserStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/createDeviceComplianceUserStatusCollectionResponseFromDiscriminatorValue';
-import {createDeviceComplianceUserStatusFromDiscriminatorValue} from '../../../../models/createDeviceComplianceUserStatusFromDiscriminatorValue';
-import {deserializeIntoDeviceComplianceUserStatus} from '../../../../models/deserializeIntoDeviceComplianceUserStatus';
-import type {DeviceComplianceUserStatus} from '../../../../models/deviceComplianceUserStatus';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceComplianceUserStatus} from '../../../../models/serializeDeviceComplianceUserStatus';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeviceComplianceUserStatusItemRequestBuilder} from './item/deviceComplianceUserStatusItemRequestBuilder';
-import {UserStatusesRequestBuilderGetRequestConfiguration} from './userStatusesRequestBuilderGetRequestConfiguration';
-import {UserStatusesRequestBuilderPostRequestConfiguration} from './userStatusesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceComplianceUserStatusCollectionResponse } from '../../../../models/';
+import { createDeviceComplianceUserStatusCollectionResponseFromDiscriminatorValue } from '../../../../models/createDeviceComplianceUserStatusCollectionResponseFromDiscriminatorValue';
+import { createDeviceComplianceUserStatusFromDiscriminatorValue } from '../../../../models/createDeviceComplianceUserStatusFromDiscriminatorValue';
+import { deserializeIntoDeviceComplianceUserStatus } from '../../../../models/deserializeIntoDeviceComplianceUserStatus';
+import { type DeviceComplianceUserStatus } from '../../../../models/deviceComplianceUserStatus';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceComplianceUserStatus } from '../../../../models/serializeDeviceComplianceUserStatus';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeviceComplianceUserStatusItemRequestBuilder } from './item/deviceComplianceUserStatusItemRequestBuilder';
+import { type UserStatusesRequestBuilderGetRequestConfiguration } from './userStatusesRequestBuilderGetRequestConfiguration';
+import { type UserStatusesRequestBuilderPostRequestConfiguration } from './userStatusesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.

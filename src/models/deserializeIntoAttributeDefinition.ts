@@ -1,16 +1,16 @@
-import type {AttributeDefinition} from './attributeDefinition';
-import type {AttributeDefinitionMetadataEntry} from './attributeDefinitionMetadataEntry';
-import {AttributeType} from './attributeType';
-import {createAttributeDefinitionMetadataEntryFromDiscriminatorValue} from './createAttributeDefinitionMetadataEntryFromDiscriminatorValue';
-import {createReferencedObjectFromDiscriminatorValue} from './createReferencedObjectFromDiscriminatorValue';
-import {createStringKeyStringValuePairFromDiscriminatorValue} from './createStringKeyStringValuePairFromDiscriminatorValue';
-import {Mutability} from './mutability';
-import type {ReferencedObject} from './referencedObject';
-import {serializeAttributeDefinitionMetadataEntry} from './serializeAttributeDefinitionMetadataEntry';
-import {serializeReferencedObject} from './serializeReferencedObject';
-import {serializeStringKeyStringValuePair} from './serializeStringKeyStringValuePair';
-import type {StringKeyStringValuePair} from './stringKeyStringValuePair';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttributeDefinition } from './attributeDefinition';
+import { type AttributeDefinitionMetadataEntry } from './attributeDefinitionMetadataEntry';
+import { AttributeType } from './attributeType';
+import { createAttributeDefinitionMetadataEntryFromDiscriminatorValue } from './createAttributeDefinitionMetadataEntryFromDiscriminatorValue';
+import { createReferencedObjectFromDiscriminatorValue } from './createReferencedObjectFromDiscriminatorValue';
+import { createStringKeyStringValuePairFromDiscriminatorValue } from './createStringKeyStringValuePairFromDiscriminatorValue';
+import { Mutability } from './mutability';
+import { type ReferencedObject } from './referencedObject';
+import { serializeAttributeDefinitionMetadataEntry } from './serializeAttributeDefinitionMetadataEntry';
+import { serializeReferencedObject } from './serializeReferencedObject';
+import { serializeStringKeyStringValuePair } from './serializeStringKeyStringValuePair';
+import { type StringKeyStringValuePair } from './stringKeyStringValuePair';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttributeDefinition(attributeDefinition: AttributeDefinition | undefined = {} as AttributeDefinition) : Record<string, (node: ParseNode) => void> {
     return {

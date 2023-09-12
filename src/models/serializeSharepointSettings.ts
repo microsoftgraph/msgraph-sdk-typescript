@@ -1,12 +1,12 @@
-import type {IdleSessionSignOut} from './idleSessionSignOut';
-import {ImageTaggingChoice} from './imageTaggingChoice';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdleSessionSignOut} from './serializeIdleSessionSignOut';
-import type {SharepointSettings} from './sharepointSettings';
-import {SharingCapabilities} from './sharingCapabilities';
-import {SharingDomainRestrictionMode} from './sharingDomainRestrictionMode';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type IdleSessionSignOut } from './idleSessionSignOut';
+import { ImageTaggingChoice } from './imageTaggingChoice';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdleSessionSignOut } from './serializeIdleSessionSignOut';
+import { type SharepointSettings } from './sharepointSettings';
+import { SharingCapabilities } from './sharingCapabilities';
+import { SharingDomainRestrictionMode } from './sharingDomainRestrictionMode';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeSharepointSettings(writer: SerializationWriter, sharepointSettings: SharepointSettings | undefined = {} as SharepointSettings) : void {
         serializeEntity(writer, sharepointSettings)

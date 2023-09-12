@@ -1,6 +1,6 @@
-import {deserializeIntoSimulationCollectionResponse} from './deserializeIntoSimulationCollectionResponse';
-import {SimulationCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoSimulationCollectionResponse } from './deserializeIntoSimulationCollectionResponse';
+import { type SimulationCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createSimulationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,5 +1,5 @@
-import type {TeamworkNotificationRecipient} from './teamworkNotificationRecipient';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type TeamworkNotificationRecipient } from './teamworkNotificationRecipient';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ChatMembersNotificationRecipient extends Parsable, TeamworkNotificationRecipient {
     /**

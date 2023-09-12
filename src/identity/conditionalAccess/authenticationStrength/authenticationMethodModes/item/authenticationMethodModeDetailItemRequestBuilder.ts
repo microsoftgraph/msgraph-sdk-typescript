@@ -1,16 +1,15 @@
-import type {AuthenticationMethodModeDetail} from '../../../../../models/authenticationMethodModeDetail';
-import {createAuthenticationMethodModeDetailFromDiscriminatorValue} from '../../../../../models/createAuthenticationMethodModeDetailFromDiscriminatorValue';
-import {deserializeIntoAuthenticationMethodModeDetail} from '../../../../../models/deserializeIntoAuthenticationMethodModeDetail';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeAuthenticationMethodModeDetail} from '../../../../../models/serializeAuthenticationMethodModeDetail';
-import {AuthenticationMethodModeDetailItemRequestBuilderDeleteRequestConfiguration} from './authenticationMethodModeDetailItemRequestBuilderDeleteRequestConfiguration';
-import {AuthenticationMethodModeDetailItemRequestBuilderGetRequestConfiguration} from './authenticationMethodModeDetailItemRequestBuilderGetRequestConfiguration';
-import {AuthenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration} from './authenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodModeDetail } from '../../../../../models/authenticationMethodModeDetail';
+import { createAuthenticationMethodModeDetailFromDiscriminatorValue } from '../../../../../models/createAuthenticationMethodModeDetailFromDiscriminatorValue';
+import { deserializeIntoAuthenticationMethodModeDetail } from '../../../../../models/deserializeIntoAuthenticationMethodModeDetail';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeAuthenticationMethodModeDetail } from '../../../../../models/serializeAuthenticationMethodModeDetail';
+import { type AuthenticationMethodModeDetailItemRequestBuilderDeleteRequestConfiguration } from './authenticationMethodModeDetailItemRequestBuilderDeleteRequestConfiguration';
+import { type AuthenticationMethodModeDetailItemRequestBuilderGetRequestConfiguration } from './authenticationMethodModeDetailItemRequestBuilderGetRequestConfiguration';
+import { type AuthenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration } from './authenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.

@@ -1,13 +1,13 @@
-import type {AccessPackage} from './accessPackage';
-import type {AccessPackageAnswer} from './accessPackageAnswer';
-import type {AccessPackageAssignment} from './accessPackageAssignment';
-import {AccessPackageRequestState} from './accessPackageRequestState';
-import {AccessPackageRequestType} from './accessPackageRequestType';
-import type {AccessPackageSubject} from './accessPackageSubject';
-import type {CustomExtensionCalloutInstance} from './customExtensionCalloutInstance';
-import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessPackage } from './accessPackage';
+import { type AccessPackageAnswer } from './accessPackageAnswer';
+import { type AccessPackageAssignment } from './accessPackageAssignment';
+import { AccessPackageRequestState } from './accessPackageRequestState';
+import { AccessPackageRequestType } from './accessPackageRequestType';
+import { type AccessPackageSubject } from './accessPackageSubject';
+import { type CustomExtensionCalloutInstance } from './customExtensionCalloutInstance';
+import { type EntitlementManagementSchedule } from './entitlementManagementSchedule';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentRequest extends Entity, Parsable {
     /**

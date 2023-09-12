@@ -1,5 +1,5 @@
-import {WindowsInformationProtectionAppLearningSummariesRequestBuilderGetQueryParameters} from './windowsInformationProtectionAppLearningSummariesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WindowsInformationProtectionAppLearningSummariesRequestBuilderGetQueryParameters } from './windowsInformationProtectionAppLearningSummariesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionAppLearningSummariesRequestBuilderGetRequestConfiguration {
     /**

@@ -1,7 +1,7 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IdentityUserFlow} from './identityUserFlow';
-import {UserFlowType} from './userFlowType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IdentityUserFlow } from './identityUserFlow';
+import { UserFlowType } from './userFlowType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityUserFlow(identityUserFlow: IdentityUserFlow | undefined = {} as IdentityUserFlow) : Record<string, (node: ParseNode) => void> {
     return {

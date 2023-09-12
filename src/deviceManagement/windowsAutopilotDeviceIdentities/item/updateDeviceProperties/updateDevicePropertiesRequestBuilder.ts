@@ -1,13 +1,12 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {deserializeIntoUpdateDevicePropertiesPostRequestBody} from './deserializeIntoUpdateDevicePropertiesPostRequestBody';
-import {serializeUpdateDevicePropertiesPostRequestBody} from './serializeUpdateDevicePropertiesPostRequestBody';
-import type {UpdateDevicePropertiesPostRequestBody} from './updateDevicePropertiesPostRequestBody';
-import {UpdateDevicePropertiesRequestBuilderPostRequestConfiguration} from './updateDevicePropertiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { deserializeIntoUpdateDevicePropertiesPostRequestBody } from './deserializeIntoUpdateDevicePropertiesPostRequestBody';
+import { serializeUpdateDevicePropertiesPostRequestBody } from './serializeUpdateDevicePropertiesPostRequestBody';
+import { type UpdateDevicePropertiesPostRequestBody } from './updateDevicePropertiesPostRequestBody';
+import { type UpdateDevicePropertiesRequestBuilderPostRequestConfiguration } from './updateDevicePropertiesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the updateDeviceProperties method.

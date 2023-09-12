@@ -1,19 +1,19 @@
-import type {MobileContainedApp} from './mobileContainedApp';
-import type {MobileLobApp} from './mobileLobApp';
-import {WindowsArchitecture} from './windowsArchitecture';
-import {WindowsDeviceType} from './windowsDeviceType';
-import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type MobileContainedApp } from './mobileContainedApp';
+import { type MobileLobApp } from './mobileLobApp';
+import { WindowsArchitecture } from './windowsArchitecture';
+import { WindowsDeviceType } from './windowsDeviceType';
+import { type WindowsMinimumOperatingSystem } from './windowsMinimumOperatingSystem';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WindowsUniversalAppX extends MobileLobApp, Parsable {
     /**
      * Contains properties for Windows architecture.
      */
-    applicableArchitectures?: WindowsArchitecture | undefined;
+    applicableArchitectures?: WindowsArchitecture[] | undefined;
     /**
-     * Contains properties for Windows device type.
+     * Contains properties for Windows device type. Multiple values can be selected. Default value is `none`.
      */
-    applicableDeviceTypes?: WindowsDeviceType | undefined;
+    applicableDeviceTypes?: WindowsDeviceType[] | undefined;
     /**
      * The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
      */

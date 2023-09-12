@@ -1,8 +1,8 @@
-import type {AccessPackageLocalizedText} from './accessPackageLocalizedText';
-import type {AccessPackageQuestion} from './accessPackageQuestion';
-import {serializeAccessPackageLocalizedText} from './serializeAccessPackageLocalizedText';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageLocalizedText } from './accessPackageLocalizedText';
+import { type AccessPackageQuestion } from './accessPackageQuestion';
+import { serializeAccessPackageLocalizedText } from './serializeAccessPackageLocalizedText';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageQuestion(writer: SerializationWriter, accessPackageQuestion: AccessPackageQuestion | undefined = {} as AccessPackageQuestion) : void {
         serializeEntity(writer, accessPackageQuestion)

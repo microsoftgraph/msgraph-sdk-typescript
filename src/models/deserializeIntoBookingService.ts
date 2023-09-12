@@ -1,20 +1,19 @@
-import {BookingPriceType} from './bookingPriceType';
-import type {BookingQuestionAssignment} from './bookingQuestionAssignment';
-import type {BookingReminder} from './bookingReminder';
-import type {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
-import type {BookingService} from './bookingService';
-import {createBookingQuestionAssignmentFromDiscriminatorValue} from './createBookingQuestionAssignmentFromDiscriminatorValue';
-import {createBookingReminderFromDiscriminatorValue} from './createBookingReminderFromDiscriminatorValue';
-import {createBookingSchedulingPolicyFromDiscriminatorValue} from './createBookingSchedulingPolicyFromDiscriminatorValue';
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Location} from './location';
-import {serializeBookingQuestionAssignment} from './serializeBookingQuestionAssignment';
-import {serializeBookingReminder} from './serializeBookingReminder';
-import {serializeBookingSchedulingPolicy} from './serializeBookingSchedulingPolicy';
-import {serializeLocation} from './serializeLocation';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { BookingPriceType } from './bookingPriceType';
+import { type BookingQuestionAssignment } from './bookingQuestionAssignment';
+import { type BookingReminder } from './bookingReminder';
+import { type BookingSchedulingPolicy } from './bookingSchedulingPolicy';
+import { type BookingService } from './bookingService';
+import { createBookingQuestionAssignmentFromDiscriminatorValue } from './createBookingQuestionAssignmentFromDiscriminatorValue';
+import { createBookingReminderFromDiscriminatorValue } from './createBookingReminderFromDiscriminatorValue';
+import { createBookingSchedulingPolicyFromDiscriminatorValue } from './createBookingSchedulingPolicyFromDiscriminatorValue';
+import { createLocationFromDiscriminatorValue } from './createLocationFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Location } from './location';
+import { serializeBookingQuestionAssignment } from './serializeBookingQuestionAssignment';
+import { serializeBookingReminder } from './serializeBookingReminder';
+import { serializeBookingSchedulingPolicy } from './serializeBookingSchedulingPolicy';
+import { serializeLocation } from './serializeLocation';
+import { Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingService(bookingService: BookingService | undefined = {} as BookingService) : Record<string, (node: ParseNode) => void> {
     return {

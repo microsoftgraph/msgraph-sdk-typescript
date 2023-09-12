@@ -1,17 +1,16 @@
-import type {AppConsentApprovalRoute} from '../../models/appConsentApprovalRoute';
-import {createAppConsentApprovalRouteFromDiscriminatorValue} from '../../models/createAppConsentApprovalRouteFromDiscriminatorValue';
-import {deserializeIntoAppConsentApprovalRoute} from '../../models/deserializeIntoAppConsentApprovalRoute';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeAppConsentApprovalRoute} from '../../models/serializeAppConsentApprovalRoute';
-import {AppConsentRequestBuilderDeleteRequestConfiguration} from './appConsentRequestBuilderDeleteRequestConfiguration';
-import {AppConsentRequestBuilderGetRequestConfiguration} from './appConsentRequestBuilderGetRequestConfiguration';
-import {AppConsentRequestBuilderPatchRequestConfiguration} from './appConsentRequestBuilderPatchRequestConfiguration';
-import {AppConsentRequestsRequestBuilder} from './appConsentRequests/appConsentRequestsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppConsentApprovalRoute } from '../../models/appConsentApprovalRoute';
+import { createAppConsentApprovalRouteFromDiscriminatorValue } from '../../models/createAppConsentApprovalRouteFromDiscriminatorValue';
+import { deserializeIntoAppConsentApprovalRoute } from '../../models/deserializeIntoAppConsentApprovalRoute';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeAppConsentApprovalRoute } from '../../models/serializeAppConsentApprovalRoute';
+import { type AppConsentRequestBuilderDeleteRequestConfiguration } from './appConsentRequestBuilderDeleteRequestConfiguration';
+import { type AppConsentRequestBuilderGetRequestConfiguration } from './appConsentRequestBuilderGetRequestConfiguration';
+import { type AppConsentRequestBuilderPatchRequestConfiguration } from './appConsentRequestBuilderPatchRequestConfiguration';
+import { AppConsentRequestsRequestBuilder } from './appConsentRequests/appConsentRequestsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appConsent property of the microsoft.graph.identityGovernance entity.

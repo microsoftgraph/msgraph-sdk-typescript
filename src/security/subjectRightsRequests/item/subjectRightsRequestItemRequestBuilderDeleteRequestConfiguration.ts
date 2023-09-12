@@ -1,6 +1,6 @@
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface IdentitySynchronizationRequestBuilderPatchRequestConfiguration {
+export interface SubjectRightsRequestItemRequestBuilderDeleteRequestConfiguration {
     /**
      * Request headers
      */

@@ -1,20 +1,19 @@
-import {CallCollectionResponse} from '../../models/';
-import type {Call} from '../../models/call';
-import {createCallCollectionResponseFromDiscriminatorValue} from '../../models/createCallCollectionResponseFromDiscriminatorValue';
-import {createCallFromDiscriminatorValue} from '../../models/createCallFromDiscriminatorValue';
-import {deserializeIntoCall} from '../../models/deserializeIntoCall';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeCall} from '../../models/serializeCall';
-import {CallsRequestBuilderGetRequestConfiguration} from './callsRequestBuilderGetRequestConfiguration';
-import {CallsRequestBuilderPostRequestConfiguration} from './callsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CallItemRequestBuilder} from './item/callItemRequestBuilder';
-import {LogTeleconferenceDeviceQualityRequestBuilder} from './logTeleconferenceDeviceQuality/logTeleconferenceDeviceQualityRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CallCollectionResponse } from '../../models/';
+import { type Call } from '../../models/call';
+import { createCallCollectionResponseFromDiscriminatorValue } from '../../models/createCallCollectionResponseFromDiscriminatorValue';
+import { createCallFromDiscriminatorValue } from '../../models/createCallFromDiscriminatorValue';
+import { deserializeIntoCall } from '../../models/deserializeIntoCall';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeCall } from '../../models/serializeCall';
+import { type CallsRequestBuilderGetRequestConfiguration } from './callsRequestBuilderGetRequestConfiguration';
+import { type CallsRequestBuilderPostRequestConfiguration } from './callsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { CallItemRequestBuilder } from './item/callItemRequestBuilder';
+import { LogTeleconferenceDeviceQualityRequestBuilder } from './logTeleconferenceDeviceQuality/logTeleconferenceDeviceQualityRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.

@@ -1,6 +1,6 @@
-import {deserializeIntoHomeRealmDiscoveryPolicyCollectionResponse} from './deserializeIntoHomeRealmDiscoveryPolicyCollectionResponse';
-import {HomeRealmDiscoveryPolicyCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoHomeRealmDiscoveryPolicyCollectionResponse } from './deserializeIntoHomeRealmDiscoveryPolicyCollectionResponse';
+import { type HomeRealmDiscoveryPolicyCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

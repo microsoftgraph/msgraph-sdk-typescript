@@ -1,19 +1,18 @@
-import {DeviceConfigurationCollectionResponse} from '../../models/';
-import {createDeviceConfigurationCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceConfigurationCollectionResponseFromDiscriminatorValue';
-import {createDeviceConfigurationFromDiscriminatorValue} from '../../models/createDeviceConfigurationFromDiscriminatorValue';
-import {deserializeIntoDeviceConfiguration} from '../../models/deserializeIntoDeviceConfiguration';
-import type {DeviceConfiguration} from '../../models/deviceConfiguration';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeDeviceConfiguration} from '../../models/serializeDeviceConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeviceConfigurationsRequestBuilderGetRequestConfiguration} from './deviceConfigurationsRequestBuilderGetRequestConfiguration';
-import {DeviceConfigurationsRequestBuilderPostRequestConfiguration} from './deviceConfigurationsRequestBuilderPostRequestConfiguration';
-import {DeviceConfigurationItemRequestBuilder} from './item/deviceConfigurationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceConfigurationCollectionResponse } from '../../models/';
+import { createDeviceConfigurationCollectionResponseFromDiscriminatorValue } from '../../models/createDeviceConfigurationCollectionResponseFromDiscriminatorValue';
+import { createDeviceConfigurationFromDiscriminatorValue } from '../../models/createDeviceConfigurationFromDiscriminatorValue';
+import { deserializeIntoDeviceConfiguration } from '../../models/deserializeIntoDeviceConfiguration';
+import { type DeviceConfiguration } from '../../models/deviceConfiguration';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeDeviceConfiguration } from '../../models/serializeDeviceConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DeviceConfigurationsRequestBuilderGetRequestConfiguration } from './deviceConfigurationsRequestBuilderGetRequestConfiguration';
+import { type DeviceConfigurationsRequestBuilderPostRequestConfiguration } from './deviceConfigurationsRequestBuilderPostRequestConfiguration';
+import { DeviceConfigurationItemRequestBuilder } from './item/deviceConfigurationItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
@@ -45,10 +44,10 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the androidWorkProfileGeneralDeviceConfiguration objects.
+     * List properties and relationships of the windows81GeneralConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilegeneraldeviceconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81generalconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceConfigurationsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -61,11 +60,11 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceConfigurationCollectionResponse>(requestInfo, createDeviceConfigurationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new iosUpdateConfiguration object.
+     * Create a new androidWorkProfileGeneralDeviceConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdateconfiguration-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilegeneraldeviceconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceConfiguration, requestConfiguration?: DeviceConfigurationsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceConfiguration | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -78,7 +77,7 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceConfiguration>(requestInfo, createDeviceConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the androidWorkProfileGeneralDeviceConfiguration objects.
+     * List properties and relationships of the windows81GeneralConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +95,7 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new iosUpdateConfiguration object.
+     * Create a new androidWorkProfileGeneralDeviceConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

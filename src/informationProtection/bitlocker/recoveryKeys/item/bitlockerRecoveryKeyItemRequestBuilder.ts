@@ -1,12 +1,11 @@
-import {BitlockerRecoveryKey} from '../../../../models/';
-import {createBitlockerRecoveryKeyFromDiscriminatorValue} from '../../../../models/createBitlockerRecoveryKeyFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {BitlockerRecoveryKeyItemRequestBuilderGetRequestConfiguration} from './bitlockerRecoveryKeyItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BitlockerRecoveryKey } from '../../../../models/';
+import { createBitlockerRecoveryKeyFromDiscriminatorValue } from '../../../../models/createBitlockerRecoveryKeyFromDiscriminatorValue';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type BitlockerRecoveryKeyItemRequestBuilderGetRequestConfiguration } from './bitlockerRecoveryKeyItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.

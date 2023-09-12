@@ -1,5 +1,5 @@
-import type {SpaApplication} from './spaApplication';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SpaApplication } from './spaApplication';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSpaApplication(spaApplication: SpaApplication | undefined = {} as SpaApplication) : Record<string, (node: ParseNode) => void> {
     return {

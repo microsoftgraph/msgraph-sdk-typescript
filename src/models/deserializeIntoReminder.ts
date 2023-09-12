@@ -1,11 +1,11 @@
-import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import type {Location} from './location';
-import type {Reminder} from './reminder';
-import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {serializeLocation} from './serializeLocation';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDateTimeTimeZoneFromDiscriminatorValue } from './createDateTimeTimeZoneFromDiscriminatorValue';
+import { createLocationFromDiscriminatorValue } from './createLocationFromDiscriminatorValue';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { type Location } from './location';
+import { type Reminder } from './reminder';
+import { serializeDateTimeTimeZone } from './serializeDateTimeTimeZone';
+import { serializeLocation } from './serializeLocation';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoReminder(reminder: Reminder | undefined = {} as Reminder) : Record<string, (node: ParseNode) => void> {
     return {

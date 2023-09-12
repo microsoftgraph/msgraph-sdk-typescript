@@ -1,5 +1,5 @@
-import {TermItemRequestBuilderGetQueryParameters} from './termItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TermItemRequestBuilderGetQueryParameters } from './termItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TermItemRequestBuilderGetRequestConfiguration {
     /**

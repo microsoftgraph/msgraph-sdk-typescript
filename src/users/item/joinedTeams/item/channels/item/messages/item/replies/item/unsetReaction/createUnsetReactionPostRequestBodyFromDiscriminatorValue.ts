@@ -1,6 +1,6 @@
-import {deserializeIntoUnsetReactionPostRequestBody} from './deserializeIntoUnsetReactionPostRequestBody';
-import {UnsetReactionPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUnsetReactionPostRequestBody } from './deserializeIntoUnsetReactionPostRequestBody';
+import { type UnsetReactionPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUnsetReactionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

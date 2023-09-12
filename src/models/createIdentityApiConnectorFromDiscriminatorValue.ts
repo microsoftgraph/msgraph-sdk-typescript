@@ -1,6 +1,6 @@
-import {deserializeIntoIdentityApiConnector} from './deserializeIntoIdentityApiConnector';
-import {IdentityApiConnector} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIdentityApiConnector } from './deserializeIntoIdentityApiConnector';
+import { type IdentityApiConnector } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIdentityApiConnectorFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

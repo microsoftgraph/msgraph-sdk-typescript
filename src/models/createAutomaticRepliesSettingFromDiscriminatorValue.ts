@@ -1,6 +1,6 @@
-import {deserializeIntoAutomaticRepliesSetting} from './deserializeIntoAutomaticRepliesSetting';
-import {AutomaticRepliesSetting} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAutomaticRepliesSetting } from './deserializeIntoAutomaticRepliesSetting';
+import { type AutomaticRepliesSetting } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAutomaticRepliesSettingFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

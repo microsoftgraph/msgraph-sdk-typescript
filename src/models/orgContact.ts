@@ -1,9 +1,9 @@
-import type {DirectoryObject} from './directoryObject';
-import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
-import type {Phone} from './phone';
-import type {PhysicalOfficeAddress} from './physicalOfficeAddress';
-import type {ServiceProvisioningError} from './serviceProvisioningError';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DirectoryObject } from './directoryObject';
+import { type OnPremisesProvisioningError } from './onPremisesProvisioningError';
+import { type Phone } from './phone';
+import { type PhysicalOfficeAddress } from './physicalOfficeAddress';
+import { type ServiceProvisioningError } from './serviceProvisioningError';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OrgContact extends DirectoryObject, Parsable {
     /**
@@ -23,7 +23,7 @@ export interface OrgContact extends DirectoryObject, Parsable {
      */
     directReports?: DirectoryObject[] | undefined;
     /**
-     * Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values), $search, and $orderBy.
+     * Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values), $search, and $orderby.
      */
     displayName?: string | undefined;
     /**

@@ -1,6 +1,6 @@
-import type {ServicePlanInfo} from './servicePlanInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type ServicePlanInfo } from './servicePlanInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeServicePlanInfo(writer: SerializationWriter, servicePlanInfo: ServicePlanInfo | undefined = {} as ServicePlanInfo) : void {
         writer.writeStringValue("appliesTo", servicePlanInfo.appliesTo);

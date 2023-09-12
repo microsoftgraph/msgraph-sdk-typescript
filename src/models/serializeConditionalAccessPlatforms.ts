@@ -1,6 +1,6 @@
-import {ConditionalAccessDevicePlatform} from './conditionalAccessDevicePlatform';
-import type {ConditionalAccessPlatforms} from './conditionalAccessPlatforms';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ConditionalAccessDevicePlatform } from './conditionalAccessDevicePlatform';
+import { type ConditionalAccessPlatforms } from './conditionalAccessPlatforms';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessPlatforms(writer: SerializationWriter, conditionalAccessPlatforms: ConditionalAccessPlatforms | undefined = {} as ConditionalAccessPlatforms) : void {
         if(conditionalAccessPlatforms.excludePlatforms)

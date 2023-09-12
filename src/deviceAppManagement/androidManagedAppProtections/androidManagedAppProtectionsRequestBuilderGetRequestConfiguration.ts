@@ -1,5 +1,5 @@
-import {AndroidManagedAppProtectionsRequestBuilderGetQueryParameters} from './androidManagedAppProtectionsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AndroidManagedAppProtectionsRequestBuilderGetQueryParameters } from './androidManagedAppProtectionsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AndroidManagedAppProtectionsRequestBuilderGetRequestConfiguration {
     /**

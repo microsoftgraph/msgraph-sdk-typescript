@@ -1,16 +1,16 @@
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {createTaskDefinitionFromDiscriminatorValue} from './createTaskDefinitionFromDiscriminatorValue';
-import {createTaskFromDiscriminatorValue} from './createTaskFromDiscriminatorValue';
-import {createTaskProcessingResultFromDiscriminatorValue} from './createTaskProcessingResultFromDiscriminatorValue';
-import {LifecycleWorkflowProcessingStatus} from './lifecycleWorkflowProcessingStatus';
-import {serializeTask} from './serializeTask';
-import {serializeTaskDefinition} from './serializeTaskDefinition';
-import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
-import type {Task} from './task';
-import type {TaskDefinition} from './taskDefinition';
-import type {TaskProcessingResult} from './taskProcessingResult';
-import type {TaskReport} from './taskReport';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { createTaskDefinitionFromDiscriminatorValue } from './createTaskDefinitionFromDiscriminatorValue';
+import { createTaskFromDiscriminatorValue } from './createTaskFromDiscriminatorValue';
+import { createTaskProcessingResultFromDiscriminatorValue } from './createTaskProcessingResultFromDiscriminatorValue';
+import { LifecycleWorkflowProcessingStatus } from './lifecycleWorkflowProcessingStatus';
+import { serializeTask } from './serializeTask';
+import { serializeTaskDefinition } from './serializeTaskDefinition';
+import { serializeTaskProcessingResult } from './serializeTaskProcessingResult';
+import { type Task } from './task';
+import { type TaskDefinition } from './taskDefinition';
+import { type TaskProcessingResult } from './taskProcessingResult';
+import { type TaskReport } from './taskReport';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTaskReport(taskReport: TaskReport | undefined = {} as TaskReport) : Record<string, (node: ParseNode) => void> {
     return {

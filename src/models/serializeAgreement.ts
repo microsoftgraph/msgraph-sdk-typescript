@@ -1,15 +1,14 @@
-import type {Agreement} from './agreement';
-import type {AgreementAcceptance} from './agreementAcceptance';
-import type {AgreementFile} from './agreementFile';
-import type {AgreementFileLocalization} from './agreementFileLocalization';
-import {serializeAgreementAcceptance} from './serializeAgreementAcceptance';
-import {serializeAgreementFile} from './serializeAgreementFile';
-import {serializeAgreementFileLocalization} from './serializeAgreementFileLocalization';
-import {serializeEntity} from './serializeEntity';
-import {serializeTermsExpiration} from './serializeTermsExpiration';
-import type {TermsExpiration} from './termsExpiration';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Agreement } from './agreement';
+import { type AgreementAcceptance } from './agreementAcceptance';
+import { type AgreementFile } from './agreementFile';
+import { type AgreementFileLocalization } from './agreementFileLocalization';
+import { serializeAgreementAcceptance } from './serializeAgreementAcceptance';
+import { serializeAgreementFile } from './serializeAgreementFile';
+import { serializeAgreementFileLocalization } from './serializeAgreementFileLocalization';
+import { serializeEntity } from './serializeEntity';
+import { serializeTermsExpiration } from './serializeTermsExpiration';
+import { type TermsExpiration } from './termsExpiration';
+import { Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAgreement(writer: SerializationWriter, agreement: Agreement | undefined = {} as Agreement) : void {
         serializeEntity(writer, agreement)

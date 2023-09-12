@@ -1,6 +1,6 @@
-import {RunAsAccountType} from './runAsAccountType';
-import {Win32LobAppRestartBehavior} from './win32LobAppRestartBehavior';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { RunAsAccountType } from './runAsAccountType';
+import { Win32LobAppRestartBehavior } from './win32LobAppRestartBehavior';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Win32LobAppInstallExperience extends AdditionalDataHolder, Parsable {
     /**

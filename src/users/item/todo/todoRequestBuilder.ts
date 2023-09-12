@@ -1,17 +1,16 @@
-import {createTodoFromDiscriminatorValue} from '../../../models/createTodoFromDiscriminatorValue';
-import {deserializeIntoTodo} from '../../../models/deserializeIntoTodo';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeTodo} from '../../../models/serializeTodo';
-import type {Todo} from '../../../models/todo';
-import {ListsRequestBuilder} from './lists/listsRequestBuilder';
-import {TodoRequestBuilderDeleteRequestConfiguration} from './todoRequestBuilderDeleteRequestConfiguration';
-import {TodoRequestBuilderGetRequestConfiguration} from './todoRequestBuilderGetRequestConfiguration';
-import {TodoRequestBuilderPatchRequestConfiguration} from './todoRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTodoFromDiscriminatorValue } from '../../../models/createTodoFromDiscriminatorValue';
+import { deserializeIntoTodo } from '../../../models/deserializeIntoTodo';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeTodo } from '../../../models/serializeTodo';
+import { type Todo } from '../../../models/todo';
+import { ListsRequestBuilder } from './lists/listsRequestBuilder';
+import { type TodoRequestBuilderDeleteRequestConfiguration } from './todoRequestBuilderDeleteRequestConfiguration';
+import { type TodoRequestBuilderGetRequestConfiguration } from './todoRequestBuilderGetRequestConfiguration';
+import { type TodoRequestBuilderPatchRequestConfiguration } from './todoRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the todo property of the microsoft.graph.user entity.

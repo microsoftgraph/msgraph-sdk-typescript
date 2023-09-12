@@ -1,9 +1,9 @@
-import {createDelegatedAdminCustomerFromDiscriminatorValue} from './createDelegatedAdminCustomerFromDiscriminatorValue';
-import type {DelegatedAdminCustomer} from './delegatedAdminCustomer';
-import type {DelegatedAdminCustomerCollectionResponse} from './delegatedAdminCustomerCollectionResponse';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeDelegatedAdminCustomer} from './serializeDelegatedAdminCustomer';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDelegatedAdminCustomerFromDiscriminatorValue } from './createDelegatedAdminCustomerFromDiscriminatorValue';
+import { type DelegatedAdminCustomer } from './delegatedAdminCustomer';
+import { type DelegatedAdminCustomerCollectionResponse } from './delegatedAdminCustomerCollectionResponse';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeDelegatedAdminCustomer } from './serializeDelegatedAdminCustomer';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDelegatedAdminCustomerCollectionResponse(delegatedAdminCustomerCollectionResponse: DelegatedAdminCustomerCollectionResponse | undefined = {} as DelegatedAdminCustomerCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

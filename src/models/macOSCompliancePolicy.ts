@@ -1,7 +1,7 @@
-import type {DeviceCompliancePolicy} from './deviceCompliancePolicy';
-import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
-import {RequiredPasswordType} from './requiredPasswordType';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DeviceCompliancePolicy } from './deviceCompliancePolicy';
+import { DeviceThreatProtectionLevel } from './deviceThreatProtectionLevel';
+import { RequiredPasswordType } from './requiredPasswordType';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MacOSCompliancePolicy extends DeviceCompliancePolicy, Parsable {
     /**

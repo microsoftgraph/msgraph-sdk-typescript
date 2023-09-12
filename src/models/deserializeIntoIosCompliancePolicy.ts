@@ -1,8 +1,8 @@
-import {deserializeIntoDeviceCompliancePolicy} from './deserializeIntoDeviceCompliancePolicy';
-import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
-import type {IosCompliancePolicy} from './iosCompliancePolicy';
-import {RequiredPasswordType} from './requiredPasswordType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceCompliancePolicy } from './deserializeIntoDeviceCompliancePolicy';
+import { DeviceThreatProtectionLevel } from './deviceThreatProtectionLevel';
+import { type IosCompliancePolicy } from './iosCompliancePolicy';
+import { RequiredPasswordType } from './requiredPasswordType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosCompliancePolicy(iosCompliancePolicy: IosCompliancePolicy | undefined = {} as IosCompliancePolicy) : Record<string, (node: ParseNode) => void> {
     return {

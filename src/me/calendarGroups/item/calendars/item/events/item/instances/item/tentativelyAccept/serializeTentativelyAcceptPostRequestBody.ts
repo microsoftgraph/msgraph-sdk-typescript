@@ -1,7 +1,7 @@
-import {serializeTimeSlot} from '../../../../../../../../../../models/serializeTimeSlot';
-import type {TimeSlot} from '../../../../../../../../../../models/timeSlot';
-import type {TentativelyAcceptPostRequestBody} from './tentativelyAcceptPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeTimeSlot } from '../../../../../../../../../../models/serializeTimeSlot';
+import { type TimeSlot } from '../../../../../../../../../../models/timeSlot';
+import { type TentativelyAcceptPostRequestBody } from './tentativelyAcceptPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTentativelyAcceptPostRequestBody(writer: SerializationWriter, tentativelyAcceptPostRequestBody: TentativelyAcceptPostRequestBody | undefined = {} as TentativelyAcceptPostRequestBody) : void {
         writer.writeStringValue("comment", tentativelyAcceptPostRequestBody.comment);

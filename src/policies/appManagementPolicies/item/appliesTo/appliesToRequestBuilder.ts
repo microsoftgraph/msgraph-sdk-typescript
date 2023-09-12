@@ -1,14 +1,13 @@
-import {DirectoryObjectCollectionResponse} from '../../../../models/';
-import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {AppliesToRequestBuilderGetRequestConfiguration} from './appliesToRequestBuilderGetRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryObjectCollectionResponse } from '../../../../models/';
+import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type AppliesToRequestBuilderGetRequestConfiguration } from './appliesToRequestBuilderGetRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DirectoryObjectItemRequestBuilder } from './item/directoryObjectItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
@@ -43,7 +42,7 @@ export class AppliesToRequestBuilder extends BaseRequestBuilder {
      * List application and service principal objects that are assigned an appManagementPolicy policy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObjectCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/appManagementPolicy-list-appliesTo?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-list-appliesto?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppliesToRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

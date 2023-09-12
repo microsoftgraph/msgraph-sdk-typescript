@@ -1,19 +1,18 @@
-import {DriveItemCollectionResponse} from '../../../../../models/';
-import {createDriveItemCollectionResponseFromDiscriminatorValue} from '../../../../../models/createDriveItemCollectionResponseFromDiscriminatorValue';
-import {createDriveItemFromDiscriminatorValue} from '../../../../../models/createDriveItemFromDiscriminatorValue';
-import {deserializeIntoDriveItem} from '../../../../../models/deserializeIntoDriveItem';
-import type {DriveItem} from '../../../../../models/driveItem';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeDriveItem} from '../../../../../models/serializeDriveItem';
-import {ChildrenRequestBuilderGetRequestConfiguration} from './childrenRequestBuilderGetRequestConfiguration';
-import {ChildrenRequestBuilderPostRequestConfiguration} from './childrenRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DriveItemItemRequestBuilder} from './item/driveItemItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DriveItemCollectionResponse } from '../../../../../models/';
+import { createDriveItemCollectionResponseFromDiscriminatorValue } from '../../../../../models/createDriveItemCollectionResponseFromDiscriminatorValue';
+import { createDriveItemFromDiscriminatorValue } from '../../../../../models/createDriveItemFromDiscriminatorValue';
+import { deserializeIntoDriveItem } from '../../../../../models/deserializeIntoDriveItem';
+import { type DriveItem } from '../../../../../models/driveItem';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeDriveItem } from '../../../../../models/serializeDriveItem';
+import { type ChildrenRequestBuilderGetRequestConfiguration } from './childrenRequestBuilderGetRequestConfiguration';
+import { type ChildrenRequestBuilderPostRequestConfiguration } from './childrenRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DriveItemItemRequestBuilder } from './item/driveItemItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the children property of the microsoft.graph.driveItem entity.

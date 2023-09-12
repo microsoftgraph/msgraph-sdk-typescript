@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import type {Identity} from './identity';
-import type {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type Identity } from './identity';
+import { type UnifiedRoleManagementPolicyRule } from './unifiedRoleManagementPolicyRule';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleManagementPolicy extends Entity, Parsable {
     /**

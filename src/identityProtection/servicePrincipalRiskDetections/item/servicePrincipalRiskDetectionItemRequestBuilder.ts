@@ -1,16 +1,15 @@
-import {createServicePrincipalRiskDetectionFromDiscriminatorValue} from '../../../models/createServicePrincipalRiskDetectionFromDiscriminatorValue';
-import {deserializeIntoServicePrincipalRiskDetection} from '../../../models/deserializeIntoServicePrincipalRiskDetection';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeServicePrincipalRiskDetection} from '../../../models/serializeServicePrincipalRiskDetection';
-import type {ServicePrincipalRiskDetection} from '../../../models/servicePrincipalRiskDetection';
-import {ServicePrincipalRiskDetectionItemRequestBuilderDeleteRequestConfiguration} from './servicePrincipalRiskDetectionItemRequestBuilderDeleteRequestConfiguration';
-import {ServicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration} from './servicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration';
-import {ServicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration} from './servicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createServicePrincipalRiskDetectionFromDiscriminatorValue } from '../../../models/createServicePrincipalRiskDetectionFromDiscriminatorValue';
+import { deserializeIntoServicePrincipalRiskDetection } from '../../../models/deserializeIntoServicePrincipalRiskDetection';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeServicePrincipalRiskDetection } from '../../../models/serializeServicePrincipalRiskDetection';
+import { type ServicePrincipalRiskDetection } from '../../../models/servicePrincipalRiskDetection';
+import { type ServicePrincipalRiskDetectionItemRequestBuilderDeleteRequestConfiguration } from './servicePrincipalRiskDetectionItemRequestBuilderDeleteRequestConfiguration';
+import { type ServicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration } from './servicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration';
+import { type ServicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration } from './servicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.

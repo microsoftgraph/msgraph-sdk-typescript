@@ -1,5 +1,5 @@
-import {ParentGroupRequestBuilderGetQueryParameters} from './parentGroupRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ParentGroupRequestBuilderGetQueryParameters } from './parentGroupRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ParentGroupRequestBuilderGetRequestConfiguration {
     /**

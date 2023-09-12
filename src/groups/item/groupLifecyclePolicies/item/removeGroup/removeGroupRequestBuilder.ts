@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {createRemoveGroupResponseFromDiscriminatorValue} from './createRemoveGroupResponseFromDiscriminatorValue';
-import {deserializeIntoRemoveGroupPostRequestBody} from './deserializeIntoRemoveGroupPostRequestBody';
-import {deserializeIntoRemoveGroupResponse} from './deserializeIntoRemoveGroupResponse';
-import type {RemoveGroupPostRequestBody} from './removeGroupPostRequestBody';
-import {RemoveGroupRequestBuilderPostRequestConfiguration} from './removeGroupRequestBuilderPostRequestConfiguration';
-import type {RemoveGroupResponse} from './removeGroupResponse';
-import {serializeRemoveGroupPostRequestBody} from './serializeRemoveGroupPostRequestBody';
-import {serializeRemoveGroupResponse} from './serializeRemoveGroupResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createRemoveGroupResponseFromDiscriminatorValue } from './createRemoveGroupResponseFromDiscriminatorValue';
+import { deserializeIntoRemoveGroupPostRequestBody } from './deserializeIntoRemoveGroupPostRequestBody';
+import { deserializeIntoRemoveGroupResponse } from './deserializeIntoRemoveGroupResponse';
+import { type RemoveGroupPostRequestBody } from './removeGroupPostRequestBody';
+import { type RemoveGroupRequestBuilderPostRequestConfiguration } from './removeGroupRequestBuilderPostRequestConfiguration';
+import { type RemoveGroupResponse } from './removeGroupResponse';
+import { serializeRemoveGroupPostRequestBody } from './serializeRemoveGroupPostRequestBody';
+import { serializeRemoveGroupResponse } from './serializeRemoveGroupResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the removeGroup method.

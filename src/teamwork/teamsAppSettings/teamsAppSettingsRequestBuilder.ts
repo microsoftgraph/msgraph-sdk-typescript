@@ -1,16 +1,15 @@
-import {createTeamsAppSettingsFromDiscriminatorValue} from '../../models/createTeamsAppSettingsFromDiscriminatorValue';
-import {deserializeIntoTeamsAppSettings} from '../../models/deserializeIntoTeamsAppSettings';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeTeamsAppSettings} from '../../models/serializeTeamsAppSettings';
-import type {TeamsAppSettings} from '../../models/teamsAppSettings';
-import {TeamsAppSettingsRequestBuilderDeleteRequestConfiguration} from './teamsAppSettingsRequestBuilderDeleteRequestConfiguration';
-import {TeamsAppSettingsRequestBuilderGetRequestConfiguration} from './teamsAppSettingsRequestBuilderGetRequestConfiguration';
-import {TeamsAppSettingsRequestBuilderPatchRequestConfiguration} from './teamsAppSettingsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTeamsAppSettingsFromDiscriminatorValue } from '../../models/createTeamsAppSettingsFromDiscriminatorValue';
+import { deserializeIntoTeamsAppSettings } from '../../models/deserializeIntoTeamsAppSettings';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeTeamsAppSettings } from '../../models/serializeTeamsAppSettings';
+import { type TeamsAppSettings } from '../../models/teamsAppSettings';
+import { type TeamsAppSettingsRequestBuilderDeleteRequestConfiguration } from './teamsAppSettingsRequestBuilderDeleteRequestConfiguration';
+import { type TeamsAppSettingsRequestBuilderGetRequestConfiguration } from './teamsAppSettingsRequestBuilderGetRequestConfiguration';
+import { type TeamsAppSettingsRequestBuilderPatchRequestConfiguration } from './teamsAppSettingsRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamsAppSettings property of the microsoft.graph.teamwork entity.

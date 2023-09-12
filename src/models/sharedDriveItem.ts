@@ -1,11 +1,11 @@
-import type {BaseItem} from './baseItem';
-import type {DriveItem} from './driveItem';
-import type {IdentitySet} from './identitySet';
-import type {List} from './list';
-import type {ListItem} from './listItem';
-import type {Permission} from './permission';
-import type {Site} from './site';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseItem } from './baseItem';
+import { type DriveItem } from './driveItem';
+import { type IdentitySet } from './identitySet';
+import { type List } from './list';
+import { type ListItem } from './listItem';
+import { type Permission } from './permission';
+import { type Site } from './site';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SharedDriveItem extends BaseItem, Parsable {
     /**

@@ -1,9 +1,9 @@
-import type {Entity} from './entity';
-import type {MimeContent} from './mimeContent';
-import type {MobileAppAssignment} from './mobileAppAssignment';
-import type {MobileAppCategory} from './mobileAppCategory';
-import {MobileAppPublishingState} from './mobileAppPublishingState';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type MimeContent } from './mimeContent';
+import { type MobileAppAssignment } from './mobileAppAssignment';
+import { type MobileAppCategory } from './mobileAppCategory';
+import { MobileAppPublishingState } from './mobileAppPublishingState';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MobileApp extends Entity, Parsable {
     /**

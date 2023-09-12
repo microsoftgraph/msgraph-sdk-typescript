@@ -1,8 +1,8 @@
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import {FreeBusyStatus} from './freeBusyStatus';
-import type {ScheduleItem} from './scheduleItem';
-import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { FreeBusyStatus } from './freeBusyStatus';
+import { type ScheduleItem } from './scheduleItem';
+import { serializeDateTimeTimeZone } from './serializeDateTimeTimeZone';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeScheduleItem(writer: SerializationWriter, scheduleItem: ScheduleItem | undefined = {} as ScheduleItem) : void {
         writer.writeObjectValue<DateTimeTimeZone>("end", scheduleItem.end, serializeDateTimeTimeZone);

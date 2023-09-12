@@ -1,14 +1,13 @@
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {EdiscoveryReviewTagCollectionResponse} from '../../../../../../../models/security/';
-import {createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue';
-import {ChildTagsRequestBuilderGetRequestConfiguration} from './childTagsRequestBuilderGetRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EdiscoveryReviewTagItemRequestBuilder} from './item/ediscoveryReviewTagItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { type EdiscoveryReviewTagCollectionResponse } from '../../../../../../../models/security/';
+import { createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue';
+import { type ChildTagsRequestBuilderGetRequestConfiguration } from './childTagsRequestBuilderGetRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { EdiscoveryReviewTagItemRequestBuilder } from './item/ediscoveryReviewTagItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.

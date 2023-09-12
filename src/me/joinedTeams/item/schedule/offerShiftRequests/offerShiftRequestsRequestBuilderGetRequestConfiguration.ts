@@ -1,5 +1,5 @@
-import {OfferShiftRequestsRequestBuilderGetQueryParameters} from './offerShiftRequestsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type OfferShiftRequestsRequestBuilderGetQueryParameters } from './offerShiftRequestsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OfferShiftRequestsRequestBuilderGetRequestConfiguration {
     /**

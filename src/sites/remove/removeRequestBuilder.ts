@@ -1,17 +1,16 @@
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {createRemoveResponseFromDiscriminatorValue} from './createRemoveResponseFromDiscriminatorValue';
-import {deserializeIntoRemovePostRequestBody} from './deserializeIntoRemovePostRequestBody';
-import {deserializeIntoRemoveResponse} from './deserializeIntoRemoveResponse';
-import type {RemovePostRequestBody} from './removePostRequestBody';
-import {RemoveRequestBuilderPostRequestConfiguration} from './removeRequestBuilderPostRequestConfiguration';
-import type {RemoveResponse} from './removeResponse';
-import {serializeRemovePostRequestBody} from './serializeRemovePostRequestBody';
-import {serializeRemoveResponse} from './serializeRemoveResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createRemoveResponseFromDiscriminatorValue } from './createRemoveResponseFromDiscriminatorValue';
+import { deserializeIntoRemovePostRequestBody } from './deserializeIntoRemovePostRequestBody';
+import { deserializeIntoRemoveResponse } from './deserializeIntoRemoveResponse';
+import { type RemovePostRequestBody } from './removePostRequestBody';
+import { type RemoveRequestBuilderPostRequestConfiguration } from './removeRequestBuilderPostRequestConfiguration';
+import { type RemoveResponse } from './removeResponse';
+import { serializeRemovePostRequestBody } from './serializeRemovePostRequestBody';
+import { serializeRemoveResponse } from './serializeRemoveResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the remove method.

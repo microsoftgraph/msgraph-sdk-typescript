@@ -1,12 +1,11 @@
-import {PasswordAuthenticationMethod} from '../../../../../models/';
-import {createPasswordAuthenticationMethodFromDiscriminatorValue} from '../../../../../models/createPasswordAuthenticationMethodFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {PasswordAuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './passwordAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PasswordAuthenticationMethod } from '../../../../../models/';
+import { createPasswordAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/createPasswordAuthenticationMethodFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type PasswordAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './passwordAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.

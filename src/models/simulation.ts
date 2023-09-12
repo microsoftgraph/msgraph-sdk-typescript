@@ -1,11 +1,11 @@
-import type {EmailIdentity} from './emailIdentity';
-import type {Entity} from './entity';
-import {PayloadDeliveryPlatform} from './payloadDeliveryPlatform';
-import {SimulationAttackTechnique} from './simulationAttackTechnique';
-import {SimulationAttackType} from './simulationAttackType';
-import type {SimulationReport} from './simulationReport';
-import {SimulationStatus} from './simulationStatus';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type EmailIdentity } from './emailIdentity';
+import { type Entity } from './entity';
+import { PayloadDeliveryPlatform } from './payloadDeliveryPlatform';
+import { SimulationAttackTechnique } from './simulationAttackTechnique';
+import { SimulationAttackType } from './simulationAttackType';
+import { type SimulationReport } from './simulationReport';
+import { SimulationStatus } from './simulationStatus';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Simulation extends Entity, Parsable {
     /**

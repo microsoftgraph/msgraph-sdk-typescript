@@ -1,12 +1,12 @@
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue} from './createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Identity} from './identity';
-import {serializeIdentity} from './serializeIdentity';
-import {serializeUnifiedRoleManagementPolicyRule} from './serializeUnifiedRoleManagementPolicyRule';
-import type {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
-import type {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentityFromDiscriminatorValue } from './createIdentityFromDiscriminatorValue';
+import { createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue } from './createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Identity } from './identity';
+import { serializeIdentity } from './serializeIdentity';
+import { serializeUnifiedRoleManagementPolicyRule } from './serializeUnifiedRoleManagementPolicyRule';
+import { type UnifiedRoleManagementPolicy } from './unifiedRoleManagementPolicy';
+import { type UnifiedRoleManagementPolicyRule } from './unifiedRoleManagementPolicyRule';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleManagementPolicy(unifiedRoleManagementPolicy: UnifiedRoleManagementPolicy | undefined = {} as UnifiedRoleManagementPolicy) : Record<string, (node: ParseNode) => void> {
     return {

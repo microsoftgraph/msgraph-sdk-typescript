@@ -1,19 +1,18 @@
-import {AccessPackageResourceEnvironmentCollectionResponse} from '../../../models/';
-import type {AccessPackageResourceEnvironment} from '../../../models/accessPackageResourceEnvironment';
-import {createAccessPackageResourceEnvironmentCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageResourceEnvironmentCollectionResponseFromDiscriminatorValue';
-import {createAccessPackageResourceEnvironmentFromDiscriminatorValue} from '../../../models/createAccessPackageResourceEnvironmentFromDiscriminatorValue';
-import {deserializeIntoAccessPackageResourceEnvironment} from '../../../models/deserializeIntoAccessPackageResourceEnvironment';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackageResourceEnvironment} from '../../../models/serializeAccessPackageResourceEnvironment';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AccessPackageResourceEnvironmentItemRequestBuilder} from './item/accessPackageResourceEnvironmentItemRequestBuilder';
-import {ResourceEnvironmentsRequestBuilderGetRequestConfiguration} from './resourceEnvironmentsRequestBuilderGetRequestConfiguration';
-import {ResourceEnvironmentsRequestBuilderPostRequestConfiguration} from './resourceEnvironmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResourceEnvironmentCollectionResponse } from '../../../models/';
+import { type AccessPackageResourceEnvironment } from '../../../models/accessPackageResourceEnvironment';
+import { createAccessPackageResourceEnvironmentCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageResourceEnvironmentCollectionResponseFromDiscriminatorValue';
+import { createAccessPackageResourceEnvironmentFromDiscriminatorValue } from '../../../models/createAccessPackageResourceEnvironmentFromDiscriminatorValue';
+import { deserializeIntoAccessPackageResourceEnvironment } from '../../../models/deserializeIntoAccessPackageResourceEnvironment';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackageResourceEnvironment } from '../../../models/serializeAccessPackageResourceEnvironment';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AccessPackageResourceEnvironmentItemRequestBuilder } from './item/accessPackageResourceEnvironmentItemRequestBuilder';
+import { type ResourceEnvironmentsRequestBuilderGetRequestConfiguration } from './resourceEnvironmentsRequestBuilderGetRequestConfiguration';
+import { type ResourceEnvironmentsRequestBuilderPostRequestConfiguration } from './resourceEnvironmentsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.

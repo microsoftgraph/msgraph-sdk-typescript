@@ -1,19 +1,18 @@
-import {UserScopeTeamsAppInstallationCollectionResponse} from '../../../models/';
-import {createUserScopeTeamsAppInstallationCollectionResponseFromDiscriminatorValue} from '../../../models/createUserScopeTeamsAppInstallationCollectionResponseFromDiscriminatorValue';
-import {createUserScopeTeamsAppInstallationFromDiscriminatorValue} from '../../../models/createUserScopeTeamsAppInstallationFromDiscriminatorValue';
-import {deserializeIntoUserScopeTeamsAppInstallation} from '../../../models/deserializeIntoUserScopeTeamsAppInstallation';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeUserScopeTeamsAppInstallation} from '../../../models/serializeUserScopeTeamsAppInstallation';
-import type {UserScopeTeamsAppInstallation} from '../../../models/userScopeTeamsAppInstallation';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {InstalledAppsRequestBuilderGetRequestConfiguration} from './installedAppsRequestBuilderGetRequestConfiguration';
-import {InstalledAppsRequestBuilderPostRequestConfiguration} from './installedAppsRequestBuilderPostRequestConfiguration';
-import {UserScopeTeamsAppInstallationItemRequestBuilder} from './item/userScopeTeamsAppInstallationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserScopeTeamsAppInstallationCollectionResponse } from '../../../models/';
+import { createUserScopeTeamsAppInstallationCollectionResponseFromDiscriminatorValue } from '../../../models/createUserScopeTeamsAppInstallationCollectionResponseFromDiscriminatorValue';
+import { createUserScopeTeamsAppInstallationFromDiscriminatorValue } from '../../../models/createUserScopeTeamsAppInstallationFromDiscriminatorValue';
+import { deserializeIntoUserScopeTeamsAppInstallation } from '../../../models/deserializeIntoUserScopeTeamsAppInstallation';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeUserScopeTeamsAppInstallation } from '../../../models/serializeUserScopeTeamsAppInstallation';
+import { type UserScopeTeamsAppInstallation } from '../../../models/userScopeTeamsAppInstallation';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type InstalledAppsRequestBuilderGetRequestConfiguration } from './installedAppsRequestBuilderGetRequestConfiguration';
+import { type InstalledAppsRequestBuilderPostRequestConfiguration } from './installedAppsRequestBuilderPostRequestConfiguration';
+import { UserScopeTeamsAppInstallationItemRequestBuilder } from './item/userScopeTeamsAppInstallationItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.

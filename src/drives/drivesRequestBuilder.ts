@@ -1,18 +1,17 @@
-import {DriveCollectionResponse} from '../models/';
-import {createDriveCollectionResponseFromDiscriminatorValue} from '../models/createDriveCollectionResponseFromDiscriminatorValue';
-import {createDriveFromDiscriminatorValue} from '../models/createDriveFromDiscriminatorValue';
-import {deserializeIntoDrive} from '../models/deserializeIntoDrive';
-import type {Drive} from '../models/drive';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeDrive} from '../models/serializeDrive';
-import {DrivesRequestBuilderGetRequestConfiguration} from './drivesRequestBuilderGetRequestConfiguration';
-import {DrivesRequestBuilderPostRequestConfiguration} from './drivesRequestBuilderPostRequestConfiguration';
-import {DriveItemRequestBuilder} from './item/driveItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DriveCollectionResponse } from '../models/';
+import { createDriveCollectionResponseFromDiscriminatorValue } from '../models/createDriveCollectionResponseFromDiscriminatorValue';
+import { createDriveFromDiscriminatorValue } from '../models/createDriveFromDiscriminatorValue';
+import { deserializeIntoDrive } from '../models/deserializeIntoDrive';
+import { type Drive } from '../models/drive';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeDrive } from '../models/serializeDrive';
+import { type DrivesRequestBuilderGetRequestConfiguration } from './drivesRequestBuilderGetRequestConfiguration';
+import { type DrivesRequestBuilderPostRequestConfiguration } from './drivesRequestBuilderPostRequestConfiguration';
+import { DriveItemRequestBuilder } from './item/driveItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of drive entities.

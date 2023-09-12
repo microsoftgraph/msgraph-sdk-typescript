@@ -1,5 +1,5 @@
-import {MobileAppItemRequestBuilderGetQueryParameters} from './mobileAppItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type MobileAppItemRequestBuilderGetQueryParameters } from './mobileAppItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MobileAppItemRequestBuilderGetRequestConfiguration {
     /**

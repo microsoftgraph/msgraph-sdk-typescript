@@ -1,5 +1,5 @@
-import type {MeetingParticipantInfo} from './meetingParticipantInfo';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type MeetingParticipantInfo } from './meetingParticipantInfo';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MeetingParticipants extends AdditionalDataHolder, Parsable {
     /**

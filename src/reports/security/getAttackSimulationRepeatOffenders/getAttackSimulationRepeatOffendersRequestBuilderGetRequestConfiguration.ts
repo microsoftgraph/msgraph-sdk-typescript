@@ -1,5 +1,5 @@
-import {GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters} from './getAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters } from './getAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration {
     /**

@@ -1,22 +1,21 @@
-import {createOnenotePageFromDiscriminatorValue} from '../../../../../../../../../../models/createOnenotePageFromDiscriminatorValue';
-import {deserializeIntoOnenotePage} from '../../../../../../../../../../models/deserializeIntoOnenotePage';
-import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import type {OnenotePage} from '../../../../../../../../../../models/onenotePage';
-import {serializeOnenotePage} from '../../../../../../../../../../models/serializeOnenotePage';
-import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {CopyToSectionRequestBuilder} from './copyToSection/copyToSectionRequestBuilder';
-import {OnenotePageItemRequestBuilderDeleteRequestConfiguration} from './onenotePageItemRequestBuilderDeleteRequestConfiguration';
-import {OnenotePageItemRequestBuilderGetRequestConfiguration} from './onenotePageItemRequestBuilderGetRequestConfiguration';
-import {OnenotePageItemRequestBuilderPatchRequestConfiguration} from './onenotePageItemRequestBuilderPatchRequestConfiguration';
-import {OnenotePatchContentRequestBuilder} from './onenotePatchContent/onenotePatchContentRequestBuilder';
-import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
-import {ParentSectionRequestBuilder} from './parentSection/parentSectionRequestBuilder';
-import {PreviewRequestBuilder} from './preview/previewRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOnenotePageFromDiscriminatorValue } from '../../../../../../../../../../models/createOnenotePageFromDiscriminatorValue';
+import { deserializeIntoOnenotePage } from '../../../../../../../../../../models/deserializeIntoOnenotePage';
+import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { type OnenotePage } from '../../../../../../../../../../models/onenotePage';
+import { serializeOnenotePage } from '../../../../../../../../../../models/serializeOnenotePage';
+import { ContentRequestBuilder } from './content/contentRequestBuilder';
+import { CopyToSectionRequestBuilder } from './copyToSection/copyToSectionRequestBuilder';
+import { type OnenotePageItemRequestBuilderDeleteRequestConfiguration } from './onenotePageItemRequestBuilderDeleteRequestConfiguration';
+import { type OnenotePageItemRequestBuilderGetRequestConfiguration } from './onenotePageItemRequestBuilderGetRequestConfiguration';
+import { type OnenotePageItemRequestBuilderPatchRequestConfiguration } from './onenotePageItemRequestBuilderPatchRequestConfiguration';
+import { OnenotePatchContentRequestBuilder } from './onenotePatchContent/onenotePatchContentRequestBuilder';
+import { ParentNotebookRequestBuilder } from './parentNotebook/parentNotebookRequestBuilder';
+import { ParentSectionRequestBuilder } from './parentSection/parentSectionRequestBuilder';
+import { PreviewRequestBuilder } from './preview/previewRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.

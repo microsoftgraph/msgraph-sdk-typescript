@@ -1,16 +1,15 @@
-import type {ConversationMember} from '../../../../../models/conversationMember';
-import {createConversationMemberFromDiscriminatorValue} from '../../../../../models/createConversationMemberFromDiscriminatorValue';
-import {deserializeIntoConversationMember} from '../../../../../models/deserializeIntoConversationMember';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeConversationMember} from '../../../../../models/serializeConversationMember';
-import {ConversationMemberItemRequestBuilderDeleteRequestConfiguration} from './conversationMemberItemRequestBuilderDeleteRequestConfiguration';
-import {ConversationMemberItemRequestBuilderGetRequestConfiguration} from './conversationMemberItemRequestBuilderGetRequestConfiguration';
-import {ConversationMemberItemRequestBuilderPatchRequestConfiguration} from './conversationMemberItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConversationMember } from '../../../../../models/conversationMember';
+import { createConversationMemberFromDiscriminatorValue } from '../../../../../models/createConversationMemberFromDiscriminatorValue';
+import { deserializeIntoConversationMember } from '../../../../../models/deserializeIntoConversationMember';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeConversationMember } from '../../../../../models/serializeConversationMember';
+import { type ConversationMemberItemRequestBuilderDeleteRequestConfiguration } from './conversationMemberItemRequestBuilderDeleteRequestConfiguration';
+import { type ConversationMemberItemRequestBuilderGetRequestConfiguration } from './conversationMemberItemRequestBuilderGetRequestConfiguration';
+import { type ConversationMemberItemRequestBuilderPatchRequestConfiguration } from './conversationMemberItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.chat entity.
@@ -40,10 +39,10 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve a conversationMember from a chat.
+     * Retrieve a conversationMember from a chat or channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
-     * @see {@link https://learn.microsoft.com/graph/api/chat-get-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conversationmember-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConversationMemberItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -88,7 +87,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve a conversationMember from a chat.
+     * Retrieve a conversationMember from a chat or channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

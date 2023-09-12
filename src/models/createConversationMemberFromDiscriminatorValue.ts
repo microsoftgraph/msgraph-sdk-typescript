@@ -1,12 +1,12 @@
-import {deserializeIntoAadUserConversationMember} from './deserializeIntoAadUserConversationMember';
-import {deserializeIntoAnonymousGuestConversationMember} from './deserializeIntoAnonymousGuestConversationMember';
-import {deserializeIntoAzureCommunicationServicesUserConversationMember} from './deserializeIntoAzureCommunicationServicesUserConversationMember';
-import {deserializeIntoConversationMember} from './deserializeIntoConversationMember';
-import {deserializeIntoMicrosoftAccountUserConversationMember} from './deserializeIntoMicrosoftAccountUserConversationMember';
-import {deserializeIntoSkypeForBusinessUserConversationMember} from './deserializeIntoSkypeForBusinessUserConversationMember';
-import {deserializeIntoSkypeUserConversationMember} from './deserializeIntoSkypeUserConversationMember';
-import {AadUserConversationMember, AnonymousGuestConversationMember, AzureCommunicationServicesUserConversationMember, ConversationMember, MicrosoftAccountUserConversationMember, SkypeForBusinessUserConversationMember, SkypeUserConversationMember} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAadUserConversationMember } from './deserializeIntoAadUserConversationMember';
+import { deserializeIntoAnonymousGuestConversationMember } from './deserializeIntoAnonymousGuestConversationMember';
+import { deserializeIntoAzureCommunicationServicesUserConversationMember } from './deserializeIntoAzureCommunicationServicesUserConversationMember';
+import { deserializeIntoConversationMember } from './deserializeIntoConversationMember';
+import { deserializeIntoMicrosoftAccountUserConversationMember } from './deserializeIntoMicrosoftAccountUserConversationMember';
+import { deserializeIntoSkypeForBusinessUserConversationMember } from './deserializeIntoSkypeForBusinessUserConversationMember';
+import { deserializeIntoSkypeUserConversationMember } from './deserializeIntoSkypeUserConversationMember';
+import { type AadUserConversationMember, type AnonymousGuestConversationMember, type AzureCommunicationServicesUserConversationMember, type ConversationMember, type MicrosoftAccountUserConversationMember, type SkypeForBusinessUserConversationMember, type SkypeUserConversationMember } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createConversationMemberFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

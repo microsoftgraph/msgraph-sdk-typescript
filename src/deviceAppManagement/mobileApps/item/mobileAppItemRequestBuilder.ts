@@ -1,21 +1,20 @@
-import {createMobileAppFromDiscriminatorValue} from '../../../models/createMobileAppFromDiscriminatorValue';
-import {deserializeIntoMobileApp} from '../../../models/deserializeIntoMobileApp';
-import type {MobileApp} from '../../../models/mobileApp';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeMobileApp} from '../../../models/serializeMobileApp';
-import {AssignRequestBuilder} from './assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {CategoriesRequestBuilder} from './categories/categoriesRequestBuilder';
-import {GraphManagedMobileLobAppRequestBuilder} from './graphManagedMobileLobApp/graphManagedMobileLobAppRequestBuilder';
-import {GraphMobileLobAppRequestBuilder} from './graphMobileLobApp/graphMobileLobAppRequestBuilder';
-import {MobileAppItemRequestBuilderDeleteRequestConfiguration} from './mobileAppItemRequestBuilderDeleteRequestConfiguration';
-import {MobileAppItemRequestBuilderGetRequestConfiguration} from './mobileAppItemRequestBuilderGetRequestConfiguration';
-import {MobileAppItemRequestBuilderPatchRequestConfiguration} from './mobileAppItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMobileAppFromDiscriminatorValue } from '../../../models/createMobileAppFromDiscriminatorValue';
+import { deserializeIntoMobileApp } from '../../../models/deserializeIntoMobileApp';
+import { type MobileApp } from '../../../models/mobileApp';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeMobileApp } from '../../../models/serializeMobileApp';
+import { AssignRequestBuilder } from './assign/assignRequestBuilder';
+import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
+import { CategoriesRequestBuilder } from './categories/categoriesRequestBuilder';
+import { GraphManagedMobileLobAppRequestBuilder } from './graphManagedMobileLobApp/graphManagedMobileLobAppRequestBuilder';
+import { GraphMobileLobAppRequestBuilder } from './graphMobileLobApp/graphMobileLobAppRequestBuilder';
+import { type MobileAppItemRequestBuilderDeleteRequestConfiguration } from './mobileAppItemRequestBuilderDeleteRequestConfiguration';
+import { type MobileAppItemRequestBuilderGetRequestConfiguration } from './mobileAppItemRequestBuilderGetRequestConfiguration';
+import { type MobileAppItemRequestBuilderPatchRequestConfiguration } from './mobileAppItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
@@ -60,9 +59,9 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a managedIOSLobApp.
+     * Deletes a iosiPadOSWebClip.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedioslobapp-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosipadoswebclip-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MobileAppItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -75,10 +74,10 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the win32LobApp object.
+     * Read properties and relationships of the windowsMicrosoftEdgeApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsmicrosoftedgeapp-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -91,11 +90,11 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a webApp object.
+     * Update the properties of a win32LobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-webapp-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileApp, requestConfiguration?: MobileAppItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -108,7 +107,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a managedIOSLobApp.
+     * Deletes a iosiPadOSWebClip.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -124,7 +123,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the win32LobApp object.
+     * Read properties and relationships of the windowsMicrosoftEdgeApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -142,7 +141,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a webApp object.
+     * Update the properties of a win32LobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
