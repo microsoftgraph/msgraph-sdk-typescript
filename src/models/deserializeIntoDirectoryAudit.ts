@@ -1,16 +1,16 @@
-import type {AuditActivityInitiator} from './auditActivityInitiator';
-import {createAuditActivityInitiatorFromDiscriminatorValue} from './createAuditActivityInitiatorFromDiscriminatorValue';
-import {createKeyValueFromDiscriminatorValue} from './createKeyValueFromDiscriminatorValue';
-import {createTargetResourceFromDiscriminatorValue} from './createTargetResourceFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DirectoryAudit} from './directoryAudit';
-import type {KeyValue} from './keyValue';
-import {OperationResult} from './operationResult';
-import {serializeAuditActivityInitiator} from './serializeAuditActivityInitiator';
-import {serializeKeyValue} from './serializeKeyValue';
-import {serializeTargetResource} from './serializeTargetResource';
-import type {TargetResource} from './targetResource';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuditActivityInitiator } from './auditActivityInitiator';
+import { createAuditActivityInitiatorFromDiscriminatorValue } from './createAuditActivityInitiatorFromDiscriminatorValue';
+import { createKeyValueFromDiscriminatorValue } from './createKeyValueFromDiscriminatorValue';
+import { createTargetResourceFromDiscriminatorValue } from './createTargetResourceFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DirectoryAudit } from './directoryAudit';
+import { type KeyValue } from './keyValue';
+import { OperationResult } from './operationResult';
+import { serializeAuditActivityInitiator } from './serializeAuditActivityInitiator';
+import { serializeKeyValue } from './serializeKeyValue';
+import { serializeTargetResource } from './serializeTargetResource';
+import { type TargetResource } from './targetResource';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDirectoryAudit(directoryAudit: DirectoryAudit | undefined = {} as DirectoryAudit) : Record<string, (node: ParseNode) => void> {
     return {

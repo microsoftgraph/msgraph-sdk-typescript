@@ -1,7 +1,7 @@
-import {deserializeIntoBookingStaffMember} from './deserializeIntoBookingStaffMember';
-import {deserializeIntoBookingStaffMemberBase} from './deserializeIntoBookingStaffMemberBase';
-import {BookingStaffMember, BookingStaffMemberBase} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBookingStaffMember } from './deserializeIntoBookingStaffMember';
+import { deserializeIntoBookingStaffMemberBase } from './deserializeIntoBookingStaffMemberBase';
+import { type BookingStaffMember, type BookingStaffMemberBase } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createBookingStaffMemberBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

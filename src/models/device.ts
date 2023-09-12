@@ -1,7 +1,7 @@
-import type {AlternativeSecurityId} from './alternativeSecurityId';
-import type {DirectoryObject} from './directoryObject';
-import type {Extension} from './extension';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AlternativeSecurityId } from './alternativeSecurityId';
+import { type DirectoryObject } from './directoryObject';
+import { type Extension } from './extension';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Device extends DirectoryObject, Parsable {
     /**
@@ -13,7 +13,7 @@ export interface Device extends DirectoryObject, Parsable {
      */
     alternativeSecurityIds?: AlternativeSecurityId[] | undefined;
     /**
-     * The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderBy.
+     * The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderby.
      */
     approximateLastSignInDateTime?: Date | undefined;
     /**
@@ -41,7 +41,7 @@ export interface Device extends DirectoryObject, Parsable {
      */
     deviceVersion?: number | undefined;
     /**
-     * The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.
      */
     displayName?: string | undefined;
     /**
@@ -113,7 +113,7 @@ export interface Device extends DirectoryObject, Parsable {
      */
     transitiveMemberOf?: DirectoryObject[] | undefined;
     /**
-     * Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+     * Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory.
      */
     trustType?: string | undefined;
 }

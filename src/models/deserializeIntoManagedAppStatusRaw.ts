@@ -1,9 +1,9 @@
-import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
-import {deserializeIntoManagedAppStatus} from './deserializeIntoManagedAppStatus';
-import type {Json} from './json';
-import type {ManagedAppStatusRaw} from './managedAppStatusRaw';
-import {serializeJson} from './serializeJson';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createJsonFromDiscriminatorValue } from './createJsonFromDiscriminatorValue';
+import { deserializeIntoManagedAppStatus } from './deserializeIntoManagedAppStatus';
+import { type Json } from './json';
+import { type ManagedAppStatusRaw } from './managedAppStatusRaw';
+import { serializeJson } from './serializeJson';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAppStatusRaw(managedAppStatusRaw: ManagedAppStatusRaw | undefined = {} as ManagedAppStatusRaw) : Record<string, (node: ParseNode) => void> {
     return {

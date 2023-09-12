@@ -1,5 +1,5 @@
-import {DeviceComplianceUserStatusItemRequestBuilderGetQueryParameters} from './deviceComplianceUserStatusItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceComplianceUserStatusItemRequestBuilderGetQueryParameters } from './deviceComplianceUserStatusItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceComplianceUserStatusItemRequestBuilderGetRequestConfiguration {
     /**

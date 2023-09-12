@@ -1,17 +1,16 @@
-import {createRiskyServicePrincipalFromDiscriminatorValue} from '../../../models/createRiskyServicePrincipalFromDiscriminatorValue';
-import {deserializeIntoRiskyServicePrincipal} from '../../../models/deserializeIntoRiskyServicePrincipal';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {RiskyServicePrincipal} from '../../../models/riskyServicePrincipal';
-import {serializeRiskyServicePrincipal} from '../../../models/serializeRiskyServicePrincipal';
-import {HistoryRequestBuilder} from './history/historyRequestBuilder';
-import {RiskyServicePrincipalItemRequestBuilderDeleteRequestConfiguration} from './riskyServicePrincipalItemRequestBuilderDeleteRequestConfiguration';
-import {RiskyServicePrincipalItemRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalItemRequestBuilderGetRequestConfiguration';
-import {RiskyServicePrincipalItemRequestBuilderPatchRequestConfiguration} from './riskyServicePrincipalItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createRiskyServicePrincipalFromDiscriminatorValue } from '../../../models/createRiskyServicePrincipalFromDiscriminatorValue';
+import { deserializeIntoRiskyServicePrincipal } from '../../../models/deserializeIntoRiskyServicePrincipal';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type RiskyServicePrincipal } from '../../../models/riskyServicePrincipal';
+import { serializeRiskyServicePrincipal } from '../../../models/serializeRiskyServicePrincipal';
+import { HistoryRequestBuilder } from './history/historyRequestBuilder';
+import { type RiskyServicePrincipalItemRequestBuilderDeleteRequestConfiguration } from './riskyServicePrincipalItemRequestBuilderDeleteRequestConfiguration';
+import { type RiskyServicePrincipalItemRequestBuilderGetRequestConfiguration } from './riskyServicePrincipalItemRequestBuilderGetRequestConfiguration';
+import { type RiskyServicePrincipalItemRequestBuilderPatchRequestConfiguration } from './riskyServicePrincipalItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.

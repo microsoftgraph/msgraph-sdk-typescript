@@ -1,22 +1,21 @@
-import {AccessPackageAssignmentCollectionResponse} from '../../../models/';
-import type {AccessPackageAssignment} from '../../../models/accessPackageAssignment';
-import {createAccessPackageAssignmentCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageAssignmentCollectionResponseFromDiscriminatorValue';
-import {createAccessPackageAssignmentFromDiscriminatorValue} from '../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
-import {deserializeIntoAccessPackageAssignment} from '../../../models/deserializeIntoAccessPackageAssignment';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackageAssignment} from '../../../models/serializeAccessPackageAssignment';
-import {AdditionalAccessRequestBuilder} from './additionalAccess/additionalAccessRequestBuilder';
-import {AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder} from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId/additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder';
-import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsRequestBuilderGetRequestConfiguration';
-import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {AccessPackageAssignmentItemRequestBuilder} from './item/accessPackageAssignmentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentCollectionResponse } from '../../../models/';
+import { type AccessPackageAssignment } from '../../../models/accessPackageAssignment';
+import { createAccessPackageAssignmentCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageAssignmentCollectionResponseFromDiscriminatorValue';
+import { createAccessPackageAssignmentFromDiscriminatorValue } from '../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
+import { deserializeIntoAccessPackageAssignment } from '../../../models/deserializeIntoAccessPackageAssignment';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackageAssignment } from '../../../models/serializeAccessPackageAssignment';
+import { AdditionalAccessRequestBuilder } from './additionalAccess/additionalAccessRequestBuilder';
+import { AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder } from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId/additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder';
+import { type AssignmentsRequestBuilderGetRequestConfiguration } from './assignmentsRequestBuilderGetRequestConfiguration';
+import { type AssignmentsRequestBuilderPostRequestConfiguration } from './assignmentsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import { AccessPackageAssignmentItemRequestBuilder } from './item/accessPackageAssignmentItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.

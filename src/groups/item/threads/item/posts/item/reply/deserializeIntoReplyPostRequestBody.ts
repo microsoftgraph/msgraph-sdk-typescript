@@ -1,8 +1,8 @@
-import {createPostFromDiscriminatorValue} from '../../../../../../../models/createPostFromDiscriminatorValue';
-import type {Post} from '../../../../../../../models/post';
-import {serializePost} from '../../../../../../../models/serializePost';
-import type {ReplyPostRequestBody} from './replyPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPostFromDiscriminatorValue } from '../../../../../../../models/createPostFromDiscriminatorValue';
+import { type Post } from '../../../../../../../models/post';
+import { serializePost } from '../../../../../../../models/serializePost';
+import { type ReplyPostRequestBody } from './replyPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoReplyPostRequestBody(replyPostRequestBody: ReplyPostRequestBody | undefined = {} as ReplyPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

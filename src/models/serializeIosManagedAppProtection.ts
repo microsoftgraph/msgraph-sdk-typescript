@@ -1,11 +1,11 @@
-import type {IosManagedAppProtection} from './iosManagedAppProtection';
-import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
-import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import type {ManagedMobileApp} from './managedMobileApp';
-import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
-import {serializeManagedMobileApp} from './serializeManagedMobileApp';
-import {serializeTargetedManagedAppProtection} from './serializeTargetedManagedAppProtection';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IosManagedAppProtection } from './iosManagedAppProtection';
+import { ManagedAppDataEncryptionType } from './managedAppDataEncryptionType';
+import { type ManagedAppPolicyDeploymentSummary } from './managedAppPolicyDeploymentSummary';
+import { type ManagedMobileApp } from './managedMobileApp';
+import { serializeManagedAppPolicyDeploymentSummary } from './serializeManagedAppPolicyDeploymentSummary';
+import { serializeManagedMobileApp } from './serializeManagedMobileApp';
+import { serializeTargetedManagedAppProtection } from './serializeTargetedManagedAppProtection';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIosManagedAppProtection(writer: SerializationWriter, iosManagedAppProtection: IosManagedAppProtection | undefined = {} as IosManagedAppProtection) : void {
         serializeTargetedManagedAppProtection(writer, iosManagedAppProtection)

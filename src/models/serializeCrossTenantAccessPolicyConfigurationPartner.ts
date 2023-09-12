@@ -1,13 +1,13 @@
-import type {CrossTenantAccessPolicyB2BSetting} from './crossTenantAccessPolicyB2BSetting';
-import type {CrossTenantAccessPolicyConfigurationPartner} from './crossTenantAccessPolicyConfigurationPartner';
-import type {CrossTenantAccessPolicyInboundTrust} from './crossTenantAccessPolicyInboundTrust';
-import type {CrossTenantIdentitySyncPolicyPartner} from './crossTenantIdentitySyncPolicyPartner';
-import type {InboundOutboundPolicyConfiguration} from './inboundOutboundPolicyConfiguration';
-import {serializeCrossTenantAccessPolicyB2BSetting} from './serializeCrossTenantAccessPolicyB2BSetting';
-import {serializeCrossTenantAccessPolicyInboundTrust} from './serializeCrossTenantAccessPolicyInboundTrust';
-import {serializeCrossTenantIdentitySyncPolicyPartner} from './serializeCrossTenantIdentitySyncPolicyPartner';
-import {serializeInboundOutboundPolicyConfiguration} from './serializeInboundOutboundPolicyConfiguration';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CrossTenantAccessPolicyB2BSetting } from './crossTenantAccessPolicyB2BSetting';
+import { type CrossTenantAccessPolicyConfigurationPartner } from './crossTenantAccessPolicyConfigurationPartner';
+import { type CrossTenantAccessPolicyInboundTrust } from './crossTenantAccessPolicyInboundTrust';
+import { type CrossTenantIdentitySyncPolicyPartner } from './crossTenantIdentitySyncPolicyPartner';
+import { type InboundOutboundPolicyConfiguration } from './inboundOutboundPolicyConfiguration';
+import { serializeCrossTenantAccessPolicyB2BSetting } from './serializeCrossTenantAccessPolicyB2BSetting';
+import { serializeCrossTenantAccessPolicyInboundTrust } from './serializeCrossTenantAccessPolicyInboundTrust';
+import { serializeCrossTenantIdentitySyncPolicyPartner } from './serializeCrossTenantIdentitySyncPolicyPartner';
+import { serializeInboundOutboundPolicyConfiguration } from './serializeInboundOutboundPolicyConfiguration';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCrossTenantAccessPolicyConfigurationPartner(writer: SerializationWriter, crossTenantAccessPolicyConfigurationPartner: CrossTenantAccessPolicyConfigurationPartner | undefined = {} as CrossTenantAccessPolicyConfigurationPartner) : void {
         writer.writeObjectValue<InboundOutboundPolicyConfiguration>("automaticUserConsentSettings", crossTenantAccessPolicyConfigurationPartner.automaticUserConsentSettings, serializeInboundOutboundPolicyConfiguration);

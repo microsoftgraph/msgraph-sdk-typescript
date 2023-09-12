@@ -1,13 +1,12 @@
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {deserializeIntoGetHistoricalReportPostRequestBody} from './deserializeIntoGetHistoricalReportPostRequestBody';
-import type {GetHistoricalReportPostRequestBody} from './getHistoricalReportPostRequestBody';
-import {GetHistoricalReportRequestBuilderPostRequestConfiguration} from './getHistoricalReportRequestBuilderPostRequestConfiguration';
-import {serializeGetHistoricalReportPostRequestBody} from './serializeGetHistoricalReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { deserializeIntoGetHistoricalReportPostRequestBody } from './deserializeIntoGetHistoricalReportPostRequestBody';
+import { type GetHistoricalReportPostRequestBody } from './getHistoricalReportPostRequestBody';
+import { type GetHistoricalReportRequestBuilderPostRequestConfiguration } from './getHistoricalReportRequestBuilderPostRequestConfiguration';
+import { serializeGetHistoricalReportPostRequestBody } from './serializeGetHistoricalReportPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getHistoricalReport method.

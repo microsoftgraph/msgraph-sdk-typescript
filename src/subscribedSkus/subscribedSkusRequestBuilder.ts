@@ -1,18 +1,17 @@
-import {SubscribedSkuCollectionResponse} from '../models/';
-import {createSubscribedSkuCollectionResponseFromDiscriminatorValue} from '../models/createSubscribedSkuCollectionResponseFromDiscriminatorValue';
-import {createSubscribedSkuFromDiscriminatorValue} from '../models/createSubscribedSkuFromDiscriminatorValue';
-import {deserializeIntoSubscribedSku} from '../models/deserializeIntoSubscribedSku';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeSubscribedSku} from '../models/serializeSubscribedSku';
-import type {SubscribedSku} from '../models/subscribedSku';
-import {SubscribedSkuItemRequestBuilder} from './item/subscribedSkuItemRequestBuilder';
-import {SubscribedSkusRequestBuilderGetRequestConfiguration} from './subscribedSkusRequestBuilderGetRequestConfiguration';
-import {SubscribedSkusRequestBuilderPostRequestConfiguration} from './subscribedSkusRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SubscribedSkuCollectionResponse } from '../models/';
+import { createSubscribedSkuCollectionResponseFromDiscriminatorValue } from '../models/createSubscribedSkuCollectionResponseFromDiscriminatorValue';
+import { createSubscribedSkuFromDiscriminatorValue } from '../models/createSubscribedSkuFromDiscriminatorValue';
+import { deserializeIntoSubscribedSku } from '../models/deserializeIntoSubscribedSku';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeSubscribedSku } from '../models/serializeSubscribedSku';
+import { type SubscribedSku } from '../models/subscribedSku';
+import { SubscribedSkuItemRequestBuilder } from './item/subscribedSkuItemRequestBuilder';
+import { type SubscribedSkusRequestBuilderGetRequestConfiguration } from './subscribedSkusRequestBuilderGetRequestConfiguration';
+import { type SubscribedSkusRequestBuilderPostRequestConfiguration } from './subscribedSkusRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of subscribedSku entities.

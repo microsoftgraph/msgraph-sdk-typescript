@@ -1,9 +1,9 @@
-import {createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue} from '../../../../models/createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeUnifiedRoleEligibilityScheduleInstance} from '../../../../models/serializeUnifiedRoleEligibilityScheduleInstance';
-import type {UnifiedRoleEligibilityScheduleInstance} from '../../../../models/unifiedRoleEligibilityScheduleInstance';
-import type {FilterByCurrentUserWithOnResponse} from './filterByCurrentUserWithOnResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue } from '../../../../models/createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeUnifiedRoleEligibilityScheduleInstance } from '../../../../models/serializeUnifiedRoleEligibilityScheduleInstance';
+import { type UnifiedRoleEligibilityScheduleInstance } from '../../../../models/unifiedRoleEligibilityScheduleInstance';
+import { type FilterByCurrentUserWithOnResponse } from './filterByCurrentUserWithOnResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFilterByCurrentUserWithOnResponse(filterByCurrentUserWithOnResponse: FilterByCurrentUserWithOnResponse | undefined = {} as FilterByCurrentUserWithOnResponse) : Record<string, (node: ParseNode) => void> {
     return {

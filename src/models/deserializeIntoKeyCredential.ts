@@ -1,6 +1,6 @@
-import type {KeyCredential} from './keyCredential';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type KeyCredential } from './keyCredential';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function deserializeIntoKeyCredential(keyCredential: KeyCredential | undefined = {} as KeyCredential) : Record<string, (node: ParseNode) => void> {
     return {

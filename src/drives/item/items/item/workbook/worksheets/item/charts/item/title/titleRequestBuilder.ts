@@ -1,17 +1,16 @@
-import {createWorkbookChartTitleFromDiscriminatorValue} from '../../../../../../../../../../models/createWorkbookChartTitleFromDiscriminatorValue';
-import {deserializeIntoWorkbookChartTitle} from '../../../../../../../../../../models/deserializeIntoWorkbookChartTitle';
-import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookChartTitle} from '../../../../../../../../../../models/serializeWorkbookChartTitle';
-import type {WorkbookChartTitle} from '../../../../../../../../../../models/workbookChartTitle';
-import {FormatRequestBuilder} from './format/formatRequestBuilder';
-import {TitleRequestBuilderDeleteRequestConfiguration} from './titleRequestBuilderDeleteRequestConfiguration';
-import {TitleRequestBuilderGetRequestConfiguration} from './titleRequestBuilderGetRequestConfiguration';
-import {TitleRequestBuilderPatchRequestConfiguration} from './titleRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartTitleFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookChartTitleFromDiscriminatorValue';
+import { deserializeIntoWorkbookChartTitle } from '../../../../../../../../../../models/deserializeIntoWorkbookChartTitle';
+import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookChartTitle } from '../../../../../../../../../../models/serializeWorkbookChartTitle';
+import { type WorkbookChartTitle } from '../../../../../../../../../../models/workbookChartTitle';
+import { FormatRequestBuilder } from './format/formatRequestBuilder';
+import { type TitleRequestBuilderDeleteRequestConfiguration } from './titleRequestBuilderDeleteRequestConfiguration';
+import { type TitleRequestBuilderGetRequestConfiguration } from './titleRequestBuilderGetRequestConfiguration';
+import { type TitleRequestBuilderPatchRequestConfiguration } from './titleRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the title property of the microsoft.graph.workbookChart entity.

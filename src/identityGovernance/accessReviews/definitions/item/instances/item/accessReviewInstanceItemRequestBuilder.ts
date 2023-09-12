@@ -1,25 +1,24 @@
-import type {AccessReviewInstance} from '../../../../../../models/accessReviewInstance';
-import {createAccessReviewInstanceFromDiscriminatorValue} from '../../../../../../models/createAccessReviewInstanceFromDiscriminatorValue';
-import {deserializeIntoAccessReviewInstance} from '../../../../../../models/deserializeIntoAccessReviewInstance';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessReviewInstance} from '../../../../../../models/serializeAccessReviewInstance';
-import {AcceptRecommendationsRequestBuilder} from './acceptRecommendations/acceptRecommendationsRequestBuilder';
-import {AccessReviewInstanceItemRequestBuilderDeleteRequestConfiguration} from './accessReviewInstanceItemRequestBuilderDeleteRequestConfiguration';
-import {AccessReviewInstanceItemRequestBuilderGetRequestConfiguration} from './accessReviewInstanceItemRequestBuilderGetRequestConfiguration';
-import {AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration} from './accessReviewInstanceItemRequestBuilderPatchRequestConfiguration';
-import {ApplyDecisionsRequestBuilder} from './applyDecisions/applyDecisionsRequestBuilder';
-import {BatchRecordDecisionsRequestBuilder} from './batchRecordDecisions/batchRecordDecisionsRequestBuilder';
-import {ContactedReviewersRequestBuilder} from './contactedReviewers/contactedReviewersRequestBuilder';
-import {DecisionsRequestBuilder} from './decisions/decisionsRequestBuilder';
-import {ResetDecisionsRequestBuilder} from './resetDecisions/resetDecisionsRequestBuilder';
-import {SendReminderRequestBuilder} from './sendReminder/sendReminderRequestBuilder';
-import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
-import {StopRequestBuilder} from './stop/stopRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessReviewInstance } from '../../../../../../models/accessReviewInstance';
+import { createAccessReviewInstanceFromDiscriminatorValue } from '../../../../../../models/createAccessReviewInstanceFromDiscriminatorValue';
+import { deserializeIntoAccessReviewInstance } from '../../../../../../models/deserializeIntoAccessReviewInstance';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessReviewInstance } from '../../../../../../models/serializeAccessReviewInstance';
+import { AcceptRecommendationsRequestBuilder } from './acceptRecommendations/acceptRecommendationsRequestBuilder';
+import { type AccessReviewInstanceItemRequestBuilderDeleteRequestConfiguration } from './accessReviewInstanceItemRequestBuilderDeleteRequestConfiguration';
+import { type AccessReviewInstanceItemRequestBuilderGetRequestConfiguration } from './accessReviewInstanceItemRequestBuilderGetRequestConfiguration';
+import { type AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration } from './accessReviewInstanceItemRequestBuilderPatchRequestConfiguration';
+import { ApplyDecisionsRequestBuilder } from './applyDecisions/applyDecisionsRequestBuilder';
+import { BatchRecordDecisionsRequestBuilder } from './batchRecordDecisions/batchRecordDecisionsRequestBuilder';
+import { ContactedReviewersRequestBuilder } from './contactedReviewers/contactedReviewersRequestBuilder';
+import { DecisionsRequestBuilder } from './decisions/decisionsRequestBuilder';
+import { ResetDecisionsRequestBuilder } from './resetDecisions/resetDecisionsRequestBuilder';
+import { SendReminderRequestBuilder } from './sendReminder/sendReminderRequestBuilder';
+import { StagesRequestBuilder } from './stages/stagesRequestBuilder';
+import { StopRequestBuilder } from './stop/stopRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.

@@ -1,5 +1,5 @@
-import type {SharepointIds} from './sharepointIds';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SharepointIds } from './sharepointIds';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharepointIds(sharepointIds: SharepointIds | undefined = {} as SharepointIds) : Record<string, (node: ParseNode) => void> {
     return {

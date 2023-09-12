@@ -1,22 +1,22 @@
-import type {Channel} from './channel';
-import {ChannelMembershipType} from './channelMembershipType';
-import type {ChatMessage} from './chatMessage';
-import type {ConversationMember} from './conversationMember';
-import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDiscriminatorValue';
-import {createConversationMemberFromDiscriminatorValue} from './createConversationMemberFromDiscriminatorValue';
-import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
-import {createSharedWithChannelTeamInfoFromDiscriminatorValue} from './createSharedWithChannelTeamInfoFromDiscriminatorValue';
-import {createTeamsTabFromDiscriminatorValue} from './createTeamsTabFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DriveItem} from './driveItem';
-import {serializeChatMessage} from './serializeChatMessage';
-import {serializeConversationMember} from './serializeConversationMember';
-import {serializeDriveItem} from './serializeDriveItem';
-import {serializeSharedWithChannelTeamInfo} from './serializeSharedWithChannelTeamInfo';
-import {serializeTeamsTab} from './serializeTeamsTab';
-import type {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
-import type {TeamsTab} from './teamsTab';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Channel } from './channel';
+import { ChannelMembershipType } from './channelMembershipType';
+import { type ChatMessage } from './chatMessage';
+import { type ConversationMember } from './conversationMember';
+import { createChatMessageFromDiscriminatorValue } from './createChatMessageFromDiscriminatorValue';
+import { createConversationMemberFromDiscriminatorValue } from './createConversationMemberFromDiscriminatorValue';
+import { createDriveItemFromDiscriminatorValue } from './createDriveItemFromDiscriminatorValue';
+import { createSharedWithChannelTeamInfoFromDiscriminatorValue } from './createSharedWithChannelTeamInfoFromDiscriminatorValue';
+import { createTeamsTabFromDiscriminatorValue } from './createTeamsTabFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DriveItem } from './driveItem';
+import { serializeChatMessage } from './serializeChatMessage';
+import { serializeConversationMember } from './serializeConversationMember';
+import { serializeDriveItem } from './serializeDriveItem';
+import { serializeSharedWithChannelTeamInfo } from './serializeSharedWithChannelTeamInfo';
+import { serializeTeamsTab } from './serializeTeamsTab';
+import { type SharedWithChannelTeamInfo } from './sharedWithChannelTeamInfo';
+import { type TeamsTab } from './teamsTab';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChannel(channel: Channel | undefined = {} as Channel) : Record<string, (node: ParseNode) => void> {
     return {

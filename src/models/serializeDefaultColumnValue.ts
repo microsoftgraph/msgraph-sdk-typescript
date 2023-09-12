@@ -1,5 +1,5 @@
-import type {DefaultColumnValue} from './defaultColumnValue';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DefaultColumnValue } from './defaultColumnValue';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDefaultColumnValue(writer: SerializationWriter, defaultColumnValue: DefaultColumnValue | undefined = {} as DefaultColumnValue) : void {
         writer.writeStringValue("formula", defaultColumnValue.formula);

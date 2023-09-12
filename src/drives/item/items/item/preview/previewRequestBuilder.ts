@@ -1,17 +1,16 @@
-import {createItemPreviewInfoFromDiscriminatorValue} from '../../../../../models/createItemPreviewInfoFromDiscriminatorValue';
-import {deserializeIntoItemPreviewInfo} from '../../../../../models/deserializeIntoItemPreviewInfo';
-import type {ItemPreviewInfo} from '../../../../../models/itemPreviewInfo';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeItemPreviewInfo} from '../../../../../models/serializeItemPreviewInfo';
-import {deserializeIntoPreviewPostRequestBody} from './deserializeIntoPreviewPostRequestBody';
-import type {PreviewPostRequestBody} from './previewPostRequestBody';
-import {PreviewRequestBuilderPostRequestConfiguration} from './previewRequestBuilderPostRequestConfiguration';
-import {serializePreviewPostRequestBody} from './serializePreviewPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createItemPreviewInfoFromDiscriminatorValue } from '../../../../../models/createItemPreviewInfoFromDiscriminatorValue';
+import { deserializeIntoItemPreviewInfo } from '../../../../../models/deserializeIntoItemPreviewInfo';
+import { type ItemPreviewInfo } from '../../../../../models/itemPreviewInfo';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeItemPreviewInfo } from '../../../../../models/serializeItemPreviewInfo';
+import { deserializeIntoPreviewPostRequestBody } from './deserializeIntoPreviewPostRequestBody';
+import { type PreviewPostRequestBody } from './previewPostRequestBody';
+import { type PreviewRequestBuilderPostRequestConfiguration } from './previewRequestBuilderPostRequestConfiguration';
+import { serializePreviewPostRequestBody } from './serializePreviewPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the preview method.

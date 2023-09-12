@@ -1,5 +1,5 @@
-import {UserFlowIdentityProvidersRequestBuilderGetQueryParameters} from './userFlowIdentityProvidersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserFlowIdentityProvidersRequestBuilderGetQueryParameters } from './userFlowIdentityProvidersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserFlowIdentityProvidersRequestBuilderGetRequestConfiguration {
     /**

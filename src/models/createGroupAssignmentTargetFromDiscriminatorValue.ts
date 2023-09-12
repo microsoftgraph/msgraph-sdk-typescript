@@ -1,7 +1,7 @@
-import {deserializeIntoExclusionGroupAssignmentTarget} from './deserializeIntoExclusionGroupAssignmentTarget';
-import {deserializeIntoGroupAssignmentTarget} from './deserializeIntoGroupAssignmentTarget';
-import {ExclusionGroupAssignmentTarget, GroupAssignmentTarget} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoExclusionGroupAssignmentTarget } from './deserializeIntoExclusionGroupAssignmentTarget';
+import { deserializeIntoGroupAssignmentTarget } from './deserializeIntoGroupAssignmentTarget';
+import { type ExclusionGroupAssignmentTarget, type GroupAssignmentTarget } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createGroupAssignmentTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,18 +1,18 @@
-import type {BaseItem} from './baseItem';
-import type {ColumnDefinition} from './columnDefinition';
-import type {ContentType} from './contentType';
-import type {Drive} from './drive';
-import type {ItemAnalytics} from './itemAnalytics';
-import type {List} from './list';
-import type {Onenote} from './onenote';
-import type {Permission} from './permission';
-import type {PublicError} from './publicError';
-import type {RichLongRunningOperation} from './richLongRunningOperation';
-import type {Root} from './root';
-import type {SharepointIds} from './sharepointIds';
-import type {SiteCollection} from './siteCollection';
-import type {Store} from './termStore/store';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseItem } from './baseItem';
+import { type ColumnDefinition } from './columnDefinition';
+import { type ContentType } from './contentType';
+import { type Drive } from './drive';
+import { type ItemAnalytics } from './itemAnalytics';
+import { type List } from './list';
+import { type Onenote } from './onenote';
+import { type Permission } from './permission';
+import { type PublicError } from './publicError';
+import { type RichLongRunningOperation } from './richLongRunningOperation';
+import { type Root } from './root';
+import { type SharepointIds } from './sharepointIds';
+import { type SiteCollection } from './siteCollection';
+import { type Store } from './termStore/store';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Site extends BaseItem, Parsable {
     /**
@@ -47,6 +47,10 @@ export interface Site extends BaseItem, Parsable {
      * The externalColumns property
      */
     externalColumns?: ColumnDefinition[] | undefined;
+    /**
+     * The isPersonalSite property
+     */
+    isPersonalSite?: boolean | undefined;
     /**
      * Used to address any item contained in this site. This collection can't be enumerated.
      */

@@ -1,16 +1,15 @@
-import {createDeviceConfigurationDeviceOverviewFromDiscriminatorValue} from '../../../../models/createDeviceConfigurationDeviceOverviewFromDiscriminatorValue';
-import {deserializeIntoDeviceConfigurationDeviceOverview} from '../../../../models/deserializeIntoDeviceConfigurationDeviceOverview';
-import type {DeviceConfigurationDeviceOverview} from '../../../../models/deviceConfigurationDeviceOverview';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceConfigurationDeviceOverview} from '../../../../models/serializeDeviceConfigurationDeviceOverview';
-import {DeviceStatusOverviewRequestBuilderDeleteRequestConfiguration} from './deviceStatusOverviewRequestBuilderDeleteRequestConfiguration';
-import {DeviceStatusOverviewRequestBuilderGetRequestConfiguration} from './deviceStatusOverviewRequestBuilderGetRequestConfiguration';
-import {DeviceStatusOverviewRequestBuilderPatchRequestConfiguration} from './deviceStatusOverviewRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceConfigurationDeviceOverviewFromDiscriminatorValue } from '../../../../models/createDeviceConfigurationDeviceOverviewFromDiscriminatorValue';
+import { deserializeIntoDeviceConfigurationDeviceOverview } from '../../../../models/deserializeIntoDeviceConfigurationDeviceOverview';
+import { type DeviceConfigurationDeviceOverview } from '../../../../models/deviceConfigurationDeviceOverview';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceConfigurationDeviceOverview } from '../../../../models/serializeDeviceConfigurationDeviceOverview';
+import { type DeviceStatusOverviewRequestBuilderDeleteRequestConfiguration } from './deviceStatusOverviewRequestBuilderDeleteRequestConfiguration';
+import { type DeviceStatusOverviewRequestBuilderGetRequestConfiguration } from './deviceStatusOverviewRequestBuilderGetRequestConfiguration';
+import { type DeviceStatusOverviewRequestBuilderPatchRequestConfiguration } from './deviceStatusOverviewRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStatusOverview property of the microsoft.graph.deviceConfiguration entity.

@@ -1,5 +1,5 @@
-import {InstallSummaryRequestBuilderGetQueryParameters} from './installSummaryRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type InstallSummaryRequestBuilderGetQueryParameters } from './installSummaryRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface InstallSummaryRequestBuilderGetRequestConfiguration {
     /**

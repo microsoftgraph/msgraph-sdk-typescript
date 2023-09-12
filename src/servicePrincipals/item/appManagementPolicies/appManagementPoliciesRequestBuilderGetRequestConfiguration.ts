@@ -1,5 +1,5 @@
-import {AppManagementPoliciesRequestBuilderGetQueryParameters} from './appManagementPoliciesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppManagementPoliciesRequestBuilderGetQueryParameters } from './appManagementPoliciesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AppManagementPoliciesRequestBuilderGetRequestConfiguration {
     /**

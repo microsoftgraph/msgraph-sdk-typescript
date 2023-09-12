@@ -1,7 +1,6 @@
-import {AccessPackageExternalUserLifecycleAction} from './accessPackageExternalUserLifecycleAction';
-import type {Entity} from './entity';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { AccessPackageExternalUserLifecycleAction } from './accessPackageExternalUserLifecycleAction';
+import { type Entity } from './entity';
+import { Duration, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EntitlementManagementSettings extends Entity, Parsable {
     /**

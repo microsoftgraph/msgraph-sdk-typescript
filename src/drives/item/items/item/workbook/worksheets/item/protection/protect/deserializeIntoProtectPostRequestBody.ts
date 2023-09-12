@@ -1,8 +1,8 @@
-import {createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue';
-import {serializeWorkbookWorksheetProtectionOptions} from '../../../../../../../../../models/serializeWorkbookWorksheetProtectionOptions';
-import type {WorkbookWorksheetProtectionOptions} from '../../../../../../../../../models/workbookWorksheetProtectionOptions';
-import type {ProtectPostRequestBody} from './protectPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue } from '../../../../../../../../../models/createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue';
+import { serializeWorkbookWorksheetProtectionOptions } from '../../../../../../../../../models/serializeWorkbookWorksheetProtectionOptions';
+import { type WorkbookWorksheetProtectionOptions } from '../../../../../../../../../models/workbookWorksheetProtectionOptions';
+import { type ProtectPostRequestBody } from './protectPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProtectPostRequestBody(protectPostRequestBody: ProtectPostRequestBody | undefined = {} as ProtectPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

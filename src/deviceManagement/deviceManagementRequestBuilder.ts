@@ -1,74 +1,74 @@
-import {createDeviceManagementFromDiscriminatorValue} from '../models/createDeviceManagementFromDiscriminatorValue';
-import {deserializeIntoDeviceManagement} from '../models/deserializeIntoDeviceManagement';
-import type {DeviceManagement} from '../models/deviceManagement';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeDeviceManagement} from '../models/serializeDeviceManagement';
-import {ApplePushNotificationCertificateRequestBuilder} from './applePushNotificationCertificate/applePushNotificationCertificateRequestBuilder';
-import {AuditEventsRequestBuilder} from './auditEvents/auditEventsRequestBuilder';
-import {ComplianceManagementPartnersRequestBuilder} from './complianceManagementPartners/complianceManagementPartnersRequestBuilder';
-import {ConditionalAccessSettingsRequestBuilder} from './conditionalAccessSettings/conditionalAccessSettingsRequestBuilder';
-import {DetectedAppsRequestBuilder} from './detectedApps/detectedAppsRequestBuilder';
-import {DeviceCategoriesRequestBuilder} from './deviceCategories/deviceCategoriesRequestBuilder';
-import {DeviceCompliancePoliciesRequestBuilder} from './deviceCompliancePolicies/deviceCompliancePoliciesRequestBuilder';
-import {DeviceCompliancePolicyDeviceStateSummaryRequestBuilder} from './deviceCompliancePolicyDeviceStateSummary/deviceCompliancePolicyDeviceStateSummaryRequestBuilder';
-import {DeviceCompliancePolicySettingStateSummariesRequestBuilder} from './deviceCompliancePolicySettingStateSummaries/deviceCompliancePolicySettingStateSummariesRequestBuilder';
-import {DeviceConfigurationDeviceStateSummariesRequestBuilder} from './deviceConfigurationDeviceStateSummaries/deviceConfigurationDeviceStateSummariesRequestBuilder';
-import {DeviceConfigurationsRequestBuilder} from './deviceConfigurations/deviceConfigurationsRequestBuilder';
-import {DeviceEnrollmentConfigurationsRequestBuilder} from './deviceEnrollmentConfigurations/deviceEnrollmentConfigurationsRequestBuilder';
-import {DeviceManagementPartnersRequestBuilder} from './deviceManagementPartners/deviceManagementPartnersRequestBuilder';
-import {DeviceManagementRequestBuilderGetRequestConfiguration} from './deviceManagementRequestBuilderGetRequestConfiguration';
-import {DeviceManagementRequestBuilderPatchRequestConfiguration} from './deviceManagementRequestBuilderPatchRequestConfiguration';
-import {ExchangeConnectorsRequestBuilder} from './exchangeConnectors/exchangeConnectorsRequestBuilder';
-import {GetEffectivePermissionsWithScopeRequestBuilder} from './getEffectivePermissionsWithScope/getEffectivePermissionsWithScopeRequestBuilder';
-import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder} from './importedWindowsAutopilotDeviceIdentities/importedWindowsAutopilotDeviceIdentitiesRequestBuilder';
-import {IosUpdateStatusesRequestBuilder} from './iosUpdateStatuses/iosUpdateStatusesRequestBuilder';
-import {ManagedDeviceOverviewRequestBuilder} from './managedDeviceOverview/managedDeviceOverviewRequestBuilder';
-import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
-import {MobileAppTroubleshootingEventsRequestBuilder} from './mobileAppTroubleshootingEvents/mobileAppTroubleshootingEventsRequestBuilder';
-import {MobileThreatDefenseConnectorsRequestBuilder} from './mobileThreatDefenseConnectors/mobileThreatDefenseConnectorsRequestBuilder';
-import {NotificationMessageTemplatesRequestBuilder} from './notificationMessageTemplates/notificationMessageTemplatesRequestBuilder';
-import {RemoteAssistancePartnersRequestBuilder} from './remoteAssistancePartners/remoteAssistancePartnersRequestBuilder';
-import {ReportsRequestBuilder} from './reports/reportsRequestBuilder';
-import {ResourceOperationsRequestBuilder} from './resourceOperations/resourceOperationsRequestBuilder';
-import {RoleAssignmentsRequestBuilder} from './roleAssignments/roleAssignmentsRequestBuilder';
-import {RoleDefinitionsRequestBuilder} from './roleDefinitions/roleDefinitionsRequestBuilder';
-import {SoftwareUpdateStatusSummaryRequestBuilder} from './softwareUpdateStatusSummary/softwareUpdateStatusSummaryRequestBuilder';
-import {TelecomExpenseManagementPartnersRequestBuilder} from './telecomExpenseManagementPartners/telecomExpenseManagementPartnersRequestBuilder';
-import {TermsAndConditionsRequestBuilder} from './termsAndConditions/termsAndConditionsRequestBuilder';
-import {TroubleshootingEventsRequestBuilder} from './troubleshootingEvents/troubleshootingEventsRequestBuilder';
-import {UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder} from './userExperienceAnalyticsAppHealthApplicationPerformance/userExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder';
-import {UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder} from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails/userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder';
-import {UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder} from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId/userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder';
-import {UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder} from './userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion/userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder';
-import {UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder} from './userExperienceAnalyticsAppHealthDeviceModelPerformance/userExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder';
-import {UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder} from './userExperienceAnalyticsAppHealthDevicePerformance/userExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder';
-import {UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder} from './userExperienceAnalyticsAppHealthDevicePerformanceDetails/userExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder';
-import {UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder} from './userExperienceAnalyticsAppHealthOSVersionPerformance/userExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder';
-import {UserExperienceAnalyticsAppHealthOverviewRequestBuilder} from './userExperienceAnalyticsAppHealthOverview/userExperienceAnalyticsAppHealthOverviewRequestBuilder';
-import {UserExperienceAnalyticsBaselinesRequestBuilder} from './userExperienceAnalyticsBaselines/userExperienceAnalyticsBaselinesRequestBuilder';
-import {UserExperienceAnalyticsCategoriesRequestBuilder} from './userExperienceAnalyticsCategories/userExperienceAnalyticsCategoriesRequestBuilder';
-import {UserExperienceAnalyticsDevicePerformanceRequestBuilder} from './userExperienceAnalyticsDevicePerformance/userExperienceAnalyticsDevicePerformanceRequestBuilder';
-import {UserExperienceAnalyticsDeviceScoresRequestBuilder} from './userExperienceAnalyticsDeviceScores/userExperienceAnalyticsDeviceScoresRequestBuilder';
-import {UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder} from './userExperienceAnalyticsDeviceStartupHistory/userExperienceAnalyticsDeviceStartupHistoryRequestBuilder';
-import {UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder} from './userExperienceAnalyticsDeviceStartupProcesses/userExperienceAnalyticsDeviceStartupProcessesRequestBuilder';
-import {UserExperienceAnalyticsMetricHistoryRequestBuilder} from './userExperienceAnalyticsMetricHistory/userExperienceAnalyticsMetricHistoryRequestBuilder';
-import {UserExperienceAnalyticsModelScoresRequestBuilder} from './userExperienceAnalyticsModelScores/userExperienceAnalyticsModelScoresRequestBuilder';
-import {UserExperienceAnalyticsOverviewRequestBuilder} from './userExperienceAnalyticsOverview/userExperienceAnalyticsOverviewRequestBuilder';
-import {UserExperienceAnalyticsScoreHistoryRequestBuilder} from './userExperienceAnalyticsScoreHistory/userExperienceAnalyticsScoreHistoryRequestBuilder';
-import {UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder} from './userExperienceAnalyticsSummarizeWorkFromAnywhereDevices/userExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder';
-import {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder} from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric/userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder';
-import {UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder} from './userExperienceAnalyticsWorkFromAnywhereMetrics/userExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder';
-import {UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder} from './userExperienceAnalyticsWorkFromAnywhereModelPerformance/userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder';
-import {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder} from './verifyWindowsEnrollmentAutoDiscoveryWithDomainName/verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder';
-import {WindowsAutopilotDeviceIdentitiesRequestBuilder} from './windowsAutopilotDeviceIdentities/windowsAutopilotDeviceIdentitiesRequestBuilder';
-import {WindowsInformationProtectionAppLearningSummariesRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/windowsInformationProtectionAppLearningSummariesRequestBuilder';
-import {WindowsInformationProtectionNetworkLearningSummariesRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/windowsInformationProtectionNetworkLearningSummariesRequestBuilder';
-import {WindowsMalwareInformationRequestBuilder} from './windowsMalwareInformation/windowsMalwareInformationRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceManagementFromDiscriminatorValue } from '../models/createDeviceManagementFromDiscriminatorValue';
+import { deserializeIntoDeviceManagement } from '../models/deserializeIntoDeviceManagement';
+import { type DeviceManagement } from '../models/deviceManagement';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeDeviceManagement } from '../models/serializeDeviceManagement';
+import { ApplePushNotificationCertificateRequestBuilder } from './applePushNotificationCertificate/applePushNotificationCertificateRequestBuilder';
+import { AuditEventsRequestBuilder } from './auditEvents/auditEventsRequestBuilder';
+import { ComplianceManagementPartnersRequestBuilder } from './complianceManagementPartners/complianceManagementPartnersRequestBuilder';
+import { ConditionalAccessSettingsRequestBuilder } from './conditionalAccessSettings/conditionalAccessSettingsRequestBuilder';
+import { DetectedAppsRequestBuilder } from './detectedApps/detectedAppsRequestBuilder';
+import { DeviceCategoriesRequestBuilder } from './deviceCategories/deviceCategoriesRequestBuilder';
+import { DeviceCompliancePoliciesRequestBuilder } from './deviceCompliancePolicies/deviceCompliancePoliciesRequestBuilder';
+import { DeviceCompliancePolicyDeviceStateSummaryRequestBuilder } from './deviceCompliancePolicyDeviceStateSummary/deviceCompliancePolicyDeviceStateSummaryRequestBuilder';
+import { DeviceCompliancePolicySettingStateSummariesRequestBuilder } from './deviceCompliancePolicySettingStateSummaries/deviceCompliancePolicySettingStateSummariesRequestBuilder';
+import { DeviceConfigurationDeviceStateSummariesRequestBuilder } from './deviceConfigurationDeviceStateSummaries/deviceConfigurationDeviceStateSummariesRequestBuilder';
+import { DeviceConfigurationsRequestBuilder } from './deviceConfigurations/deviceConfigurationsRequestBuilder';
+import { DeviceEnrollmentConfigurationsRequestBuilder } from './deviceEnrollmentConfigurations/deviceEnrollmentConfigurationsRequestBuilder';
+import { DeviceManagementPartnersRequestBuilder } from './deviceManagementPartners/deviceManagementPartnersRequestBuilder';
+import { type DeviceManagementRequestBuilderGetRequestConfiguration } from './deviceManagementRequestBuilderGetRequestConfiguration';
+import { type DeviceManagementRequestBuilderPatchRequestConfiguration } from './deviceManagementRequestBuilderPatchRequestConfiguration';
+import { ExchangeConnectorsRequestBuilder } from './exchangeConnectors/exchangeConnectorsRequestBuilder';
+import { GetEffectivePermissionsWithScopeRequestBuilder } from './getEffectivePermissionsWithScope/getEffectivePermissionsWithScopeRequestBuilder';
+import { ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder } from './importedWindowsAutopilotDeviceIdentities/importedWindowsAutopilotDeviceIdentitiesRequestBuilder';
+import { IosUpdateStatusesRequestBuilder } from './iosUpdateStatuses/iosUpdateStatusesRequestBuilder';
+import { ManagedDeviceOverviewRequestBuilder } from './managedDeviceOverview/managedDeviceOverviewRequestBuilder';
+import { ManagedDevicesRequestBuilder } from './managedDevices/managedDevicesRequestBuilder';
+import { MobileAppTroubleshootingEventsRequestBuilder } from './mobileAppTroubleshootingEvents/mobileAppTroubleshootingEventsRequestBuilder';
+import { MobileThreatDefenseConnectorsRequestBuilder } from './mobileThreatDefenseConnectors/mobileThreatDefenseConnectorsRequestBuilder';
+import { NotificationMessageTemplatesRequestBuilder } from './notificationMessageTemplates/notificationMessageTemplatesRequestBuilder';
+import { RemoteAssistancePartnersRequestBuilder } from './remoteAssistancePartners/remoteAssistancePartnersRequestBuilder';
+import { ReportsRequestBuilder } from './reports/reportsRequestBuilder';
+import { ResourceOperationsRequestBuilder } from './resourceOperations/resourceOperationsRequestBuilder';
+import { RoleAssignmentsRequestBuilder } from './roleAssignments/roleAssignmentsRequestBuilder';
+import { RoleDefinitionsRequestBuilder } from './roleDefinitions/roleDefinitionsRequestBuilder';
+import { SoftwareUpdateStatusSummaryRequestBuilder } from './softwareUpdateStatusSummary/softwareUpdateStatusSummaryRequestBuilder';
+import { TelecomExpenseManagementPartnersRequestBuilder } from './telecomExpenseManagementPartners/telecomExpenseManagementPartnersRequestBuilder';
+import { TermsAndConditionsRequestBuilder } from './termsAndConditions/termsAndConditionsRequestBuilder';
+import { TroubleshootingEventsRequestBuilder } from './troubleshootingEvents/troubleshootingEventsRequestBuilder';
+import { UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder } from './userExperienceAnalyticsAppHealthApplicationPerformance/userExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder';
+import { UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder } from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails/userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder';
+import { UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder } from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId/userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder';
+import { UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder } from './userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion/userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder';
+import { UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder } from './userExperienceAnalyticsAppHealthDeviceModelPerformance/userExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder';
+import { UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder } from './userExperienceAnalyticsAppHealthDevicePerformance/userExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder';
+import { UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder } from './userExperienceAnalyticsAppHealthDevicePerformanceDetails/userExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder';
+import { UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder } from './userExperienceAnalyticsAppHealthOSVersionPerformance/userExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder';
+import { UserExperienceAnalyticsAppHealthOverviewRequestBuilder } from './userExperienceAnalyticsAppHealthOverview/userExperienceAnalyticsAppHealthOverviewRequestBuilder';
+import { UserExperienceAnalyticsBaselinesRequestBuilder } from './userExperienceAnalyticsBaselines/userExperienceAnalyticsBaselinesRequestBuilder';
+import { UserExperienceAnalyticsCategoriesRequestBuilder } from './userExperienceAnalyticsCategories/userExperienceAnalyticsCategoriesRequestBuilder';
+import { UserExperienceAnalyticsDevicePerformanceRequestBuilder } from './userExperienceAnalyticsDevicePerformance/userExperienceAnalyticsDevicePerformanceRequestBuilder';
+import { UserExperienceAnalyticsDeviceScoresRequestBuilder } from './userExperienceAnalyticsDeviceScores/userExperienceAnalyticsDeviceScoresRequestBuilder';
+import { UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder } from './userExperienceAnalyticsDeviceStartupHistory/userExperienceAnalyticsDeviceStartupHistoryRequestBuilder';
+import { UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder } from './userExperienceAnalyticsDeviceStartupProcesses/userExperienceAnalyticsDeviceStartupProcessesRequestBuilder';
+import { UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder } from './userExperienceAnalyticsDeviceStartupProcessPerformance/userExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder';
+import { UserExperienceAnalyticsMetricHistoryRequestBuilder } from './userExperienceAnalyticsMetricHistory/userExperienceAnalyticsMetricHistoryRequestBuilder';
+import { UserExperienceAnalyticsModelScoresRequestBuilder } from './userExperienceAnalyticsModelScores/userExperienceAnalyticsModelScoresRequestBuilder';
+import { UserExperienceAnalyticsOverviewRequestBuilder } from './userExperienceAnalyticsOverview/userExperienceAnalyticsOverviewRequestBuilder';
+import { UserExperienceAnalyticsScoreHistoryRequestBuilder } from './userExperienceAnalyticsScoreHistory/userExperienceAnalyticsScoreHistoryRequestBuilder';
+import { UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder } from './userExperienceAnalyticsSummarizeWorkFromAnywhereDevices/userExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder';
+import { UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder } from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric/userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder';
+import { UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder } from './userExperienceAnalyticsWorkFromAnywhereMetrics/userExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder';
+import { UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder } from './userExperienceAnalyticsWorkFromAnywhereModelPerformance/userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder';
+import { VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder } from './verifyWindowsEnrollmentAutoDiscoveryWithDomainName/verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder';
+import { WindowsAutopilotDeviceIdentitiesRequestBuilder } from './windowsAutopilotDeviceIdentities/windowsAutopilotDeviceIdentitiesRequestBuilder';
+import { WindowsInformationProtectionAppLearningSummariesRequestBuilder } from './windowsInformationProtectionAppLearningSummaries/windowsInformationProtectionAppLearningSummariesRequestBuilder';
+import { WindowsInformationProtectionNetworkLearningSummariesRequestBuilder } from './windowsInformationProtectionNetworkLearningSummaries/windowsInformationProtectionNetworkLearningSummariesRequestBuilder';
+import { WindowsMalwareInformationRequestBuilder } from './windowsMalwareInformation/windowsMalwareInformationRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagement singleton.
@@ -345,6 +345,12 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
         return new UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcessPerformance property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsDeviceStartupProcessPerformance(): UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder {
+        return new UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Provides operations to manage the userExperienceAnalyticsMetricHistory property of the microsoft.graph.deviceManagement entity.
      */
     public get userExperienceAnalyticsMetricHistory(): UserExperienceAnalyticsMetricHistoryRequestBuilder {
@@ -428,7 +434,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceManagement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-devicemanagement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagement-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceManagementRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,19 +1,18 @@
-import {TargetedManagedAppConfigurationCollectionResponse} from '../../models/';
-import {createTargetedManagedAppConfigurationCollectionResponseFromDiscriminatorValue} from '../../models/createTargetedManagedAppConfigurationCollectionResponseFromDiscriminatorValue';
-import {createTargetedManagedAppConfigurationFromDiscriminatorValue} from '../../models/createTargetedManagedAppConfigurationFromDiscriminatorValue';
-import {deserializeIntoTargetedManagedAppConfiguration} from '../../models/deserializeIntoTargetedManagedAppConfiguration';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeTargetedManagedAppConfiguration} from '../../models/serializeTargetedManagedAppConfiguration';
-import type {TargetedManagedAppConfiguration} from '../../models/targetedManagedAppConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TargetedManagedAppConfigurationItemRequestBuilder} from './item/targetedManagedAppConfigurationItemRequestBuilder';
-import {TargetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration} from './targetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration';
-import {TargetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration} from './targetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TargetedManagedAppConfigurationCollectionResponse } from '../../models/';
+import { createTargetedManagedAppConfigurationCollectionResponseFromDiscriminatorValue } from '../../models/createTargetedManagedAppConfigurationCollectionResponseFromDiscriminatorValue';
+import { createTargetedManagedAppConfigurationFromDiscriminatorValue } from '../../models/createTargetedManagedAppConfigurationFromDiscriminatorValue';
+import { deserializeIntoTargetedManagedAppConfiguration } from '../../models/deserializeIntoTargetedManagedAppConfiguration';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeTargetedManagedAppConfiguration } from '../../models/serializeTargetedManagedAppConfiguration';
+import { type TargetedManagedAppConfiguration } from '../../models/targetedManagedAppConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { TargetedManagedAppConfigurationItemRequestBuilder } from './item/targetedManagedAppConfigurationItemRequestBuilder';
+import { type TargetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration } from './targetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration';
+import { type TargetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration } from './targetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.

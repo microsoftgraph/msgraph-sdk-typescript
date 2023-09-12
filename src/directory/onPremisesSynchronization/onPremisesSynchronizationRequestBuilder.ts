@@ -1,19 +1,18 @@
-import {OnPremisesDirectorySynchronizationCollectionResponse} from '../../models/';
-import {createOnPremisesDirectorySynchronizationCollectionResponseFromDiscriminatorValue} from '../../models/createOnPremisesDirectorySynchronizationCollectionResponseFromDiscriminatorValue';
-import {createOnPremisesDirectorySynchronizationFromDiscriminatorValue} from '../../models/createOnPremisesDirectorySynchronizationFromDiscriminatorValue';
-import {deserializeIntoOnPremisesDirectorySynchronization} from '../../models/deserializeIntoOnPremisesDirectorySynchronization';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {OnPremisesDirectorySynchronization} from '../../models/onPremisesDirectorySynchronization';
-import {serializeOnPremisesDirectorySynchronization} from '../../models/serializeOnPremisesDirectorySynchronization';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {OnPremisesDirectorySynchronizationItemRequestBuilder} from './item/onPremisesDirectorySynchronizationItemRequestBuilder';
-import {OnPremisesSynchronizationRequestBuilderGetRequestConfiguration} from './onPremisesSynchronizationRequestBuilderGetRequestConfiguration';
-import {OnPremisesSynchronizationRequestBuilderPostRequestConfiguration} from './onPremisesSynchronizationRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OnPremisesDirectorySynchronizationCollectionResponse } from '../../models/';
+import { createOnPremisesDirectorySynchronizationCollectionResponseFromDiscriminatorValue } from '../../models/createOnPremisesDirectorySynchronizationCollectionResponseFromDiscriminatorValue';
+import { createOnPremisesDirectorySynchronizationFromDiscriminatorValue } from '../../models/createOnPremisesDirectorySynchronizationFromDiscriminatorValue';
+import { deserializeIntoOnPremisesDirectorySynchronization } from '../../models/deserializeIntoOnPremisesDirectorySynchronization';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type OnPremisesDirectorySynchronization } from '../../models/onPremisesDirectorySynchronization';
+import { serializeOnPremisesDirectorySynchronization } from '../../models/serializeOnPremisesDirectorySynchronization';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { OnPremisesDirectorySynchronizationItemRequestBuilder } from './item/onPremisesDirectorySynchronizationItemRequestBuilder';
+import { type OnPremisesSynchronizationRequestBuilderGetRequestConfiguration } from './onPremisesSynchronizationRequestBuilderGetRequestConfiguration';
+import { type OnPremisesSynchronizationRequestBuilderPostRequestConfiguration } from './onPremisesSynchronizationRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.

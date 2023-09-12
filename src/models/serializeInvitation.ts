@@ -1,10 +1,10 @@
-import type {Invitation} from './invitation';
-import type {InvitedUserMessageInfo} from './invitedUserMessageInfo';
-import {serializeEntity} from './serializeEntity';
-import {serializeInvitedUserMessageInfo} from './serializeInvitedUserMessageInfo';
-import {serializeUser} from './serializeUser';
-import type {User} from './user';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Invitation } from './invitation';
+import { type InvitedUserMessageInfo } from './invitedUserMessageInfo';
+import { serializeEntity } from './serializeEntity';
+import { serializeInvitedUserMessageInfo } from './serializeInvitedUserMessageInfo';
+import { serializeUser } from './serializeUser';
+import { type User } from './user';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeInvitation(writer: SerializationWriter, invitation: Invitation | undefined = {} as Invitation) : void {
         serializeEntity(writer, invitation)

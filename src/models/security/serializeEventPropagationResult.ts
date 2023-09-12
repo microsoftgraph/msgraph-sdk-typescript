@@ -1,6 +1,6 @@
-import type {EventPropagationResult} from './eventPropagationResult';
-import {EventPropagationStatus} from './eventPropagationStatus';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EventPropagationResult } from './eventPropagationResult';
+import { EventPropagationStatus } from './eventPropagationStatus';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEventPropagationResult(writer: SerializationWriter, eventPropagationResult: EventPropagationResult | undefined = {} as EventPropagationResult) : void {
         writer.writeStringValue("location", eventPropagationResult.location);

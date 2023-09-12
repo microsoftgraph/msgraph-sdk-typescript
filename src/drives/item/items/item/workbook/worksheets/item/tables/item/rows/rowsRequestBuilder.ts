@@ -1,21 +1,20 @@
-import {WorkbookTableRowCollectionResponse} from '../../../../../../../../../../models/';
-import {createWorkbookTableRowCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../../models/createWorkbookTableRowCollectionResponseFromDiscriminatorValue';
-import {createWorkbookTableRowFromDiscriminatorValue} from '../../../../../../../../../../models/createWorkbookTableRowFromDiscriminatorValue';
-import {deserializeIntoWorkbookTableRow} from '../../../../../../../../../../models/deserializeIntoWorkbookTableRow';
-import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookTableRow} from '../../../../../../../../../../models/serializeWorkbookTableRow';
-import type {WorkbookTableRow} from '../../../../../../../../../../models/workbookTableRow';
-import {AddRequestBuilder} from './add/addRequestBuilder';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WorkbookTableRowItemRequestBuilder} from './item/workbookTableRowItemRequestBuilder';
-import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import {RowsRequestBuilderGetRequestConfiguration} from './rowsRequestBuilderGetRequestConfiguration';
-import {RowsRequestBuilderPostRequestConfiguration} from './rowsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookTableRowCollectionResponse } from '../../../../../../../../../../models/';
+import { createWorkbookTableRowCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookTableRowCollectionResponseFromDiscriminatorValue';
+import { createWorkbookTableRowFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookTableRowFromDiscriminatorValue';
+import { deserializeIntoWorkbookTableRow } from '../../../../../../../../../../models/deserializeIntoWorkbookTableRow';
+import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookTableRow } from '../../../../../../../../../../models/serializeWorkbookTableRow';
+import { type WorkbookTableRow } from '../../../../../../../../../../models/workbookTableRow';
+import { AddRequestBuilder } from './add/addRequestBuilder';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WorkbookTableRowItemRequestBuilder } from './item/workbookTableRowItemRequestBuilder';
+import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
+import { type RowsRequestBuilderGetRequestConfiguration } from './rowsRequestBuilderGetRequestConfiguration';
+import { type RowsRequestBuilderPostRequestConfiguration } from './rowsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
@@ -56,7 +55,7 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of tablerow objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableRowCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/table-list-rows?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablerow-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RowsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableRowCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

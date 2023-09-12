@@ -1,6 +1,6 @@
-import type {RecordOperation} from './recordOperation';
-import {serializeCommsOperation} from './serializeCommsOperation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type RecordOperation } from './recordOperation';
+import { serializeCommsOperation } from './serializeCommsOperation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRecordOperation(writer: SerializationWriter, recordOperation: RecordOperation | undefined = {} as RecordOperation) : void {
         serializeCommsOperation(writer, recordOperation)

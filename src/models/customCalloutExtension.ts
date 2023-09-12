@@ -1,8 +1,8 @@
-import type {CustomExtensionAuthenticationConfiguration} from './customExtensionAuthenticationConfiguration';
-import type {CustomExtensionClientConfiguration} from './customExtensionClientConfiguration';
-import type {CustomExtensionEndpointConfiguration} from './customExtensionEndpointConfiguration';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type CustomExtensionAuthenticationConfiguration } from './customExtensionAuthenticationConfiguration';
+import { type CustomExtensionClientConfiguration } from './customExtensionClientConfiguration';
+import { type CustomExtensionEndpointConfiguration } from './customExtensionEndpointConfiguration';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CustomCalloutExtension extends Entity, Parsable {
     /**

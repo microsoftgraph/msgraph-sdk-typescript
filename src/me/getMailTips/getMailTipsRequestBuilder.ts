@@ -1,17 +1,16 @@
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {createGetMailTipsResponseFromDiscriminatorValue} from './createGetMailTipsResponseFromDiscriminatorValue';
-import {deserializeIntoGetMailTipsPostRequestBody} from './deserializeIntoGetMailTipsPostRequestBody';
-import {deserializeIntoGetMailTipsResponse} from './deserializeIntoGetMailTipsResponse';
-import type {GetMailTipsPostRequestBody} from './getMailTipsPostRequestBody';
-import {GetMailTipsRequestBuilderPostRequestConfiguration} from './getMailTipsRequestBuilderPostRequestConfiguration';
-import type {GetMailTipsResponse} from './getMailTipsResponse';
-import {serializeGetMailTipsPostRequestBody} from './serializeGetMailTipsPostRequestBody';
-import {serializeGetMailTipsResponse} from './serializeGetMailTipsResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createGetMailTipsResponseFromDiscriminatorValue } from './createGetMailTipsResponseFromDiscriminatorValue';
+import { deserializeIntoGetMailTipsPostRequestBody } from './deserializeIntoGetMailTipsPostRequestBody';
+import { deserializeIntoGetMailTipsResponse } from './deserializeIntoGetMailTipsResponse';
+import { type GetMailTipsPostRequestBody } from './getMailTipsPostRequestBody';
+import { type GetMailTipsRequestBuilderPostRequestConfiguration } from './getMailTipsRequestBuilderPostRequestConfiguration';
+import { type GetMailTipsResponse } from './getMailTipsResponse';
+import { serializeGetMailTipsPostRequestBody } from './serializeGetMailTipsPostRequestBody';
+import { serializeGetMailTipsResponse } from './serializeGetMailTipsResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getMailTips method.
@@ -26,7 +25,7 @@ export class GetMailTipsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/getMailTips");
     };
     /**
-     * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a POST call to the getMailTips action, you can request specific types of MailTips to be returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
+     * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a POST call to the getMailTips action, you can request specific types of MailTips tobe returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetMailTipsResponse
@@ -43,7 +42,7 @@ export class GetMailTipsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<GetMailTipsResponse>(requestInfo, createGetMailTipsResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a POST call to the getMailTips action, you can request specific types of MailTips to be returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
+     * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a POST call to the getMailTips action, you can request specific types of MailTips tobe returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

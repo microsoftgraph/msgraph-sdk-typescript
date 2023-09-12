@@ -1,27 +1,27 @@
-import type {AddIn} from './addIn';
-import type {AppManagementPolicy} from './appManagementPolicy';
-import type {AppRole} from './appRole';
-import type {AppRoleAssignment} from './appRoleAssignment';
-import type {ClaimsMappingPolicy} from './claimsMappingPolicy';
-import type {CustomSecurityAttributeValue} from './customSecurityAttributeValue';
-import type {DelegatedPermissionClassification} from './delegatedPermissionClassification';
-import type {DirectoryObject} from './directoryObject';
-import type {Endpoint} from './endpoint';
-import type {FederatedIdentityCredential} from './federatedIdentityCredential';
-import type {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
-import type {InformationalUrl} from './informationalUrl';
-import type {KeyCredential} from './keyCredential';
-import type {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
-import type {PasswordCredential} from './passwordCredential';
-import type {PermissionScope} from './permissionScope';
-import type {ResourceSpecificPermission} from './resourceSpecificPermission';
-import type {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
-import type {Synchronization} from './synchronization';
-import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
-import type {TokenLifetimePolicy} from './tokenLifetimePolicy';
-import type {VerifiedPublisher} from './verifiedPublisher';
-import type {Parsable} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type AddIn } from './addIn';
+import { type AppManagementPolicy } from './appManagementPolicy';
+import { type AppRole } from './appRole';
+import { type AppRoleAssignment } from './appRoleAssignment';
+import { type ClaimsMappingPolicy } from './claimsMappingPolicy';
+import { type CustomSecurityAttributeValue } from './customSecurityAttributeValue';
+import { type DelegatedPermissionClassification } from './delegatedPermissionClassification';
+import { type DirectoryObject } from './directoryObject';
+import { type Endpoint } from './endpoint';
+import { type FederatedIdentityCredential } from './federatedIdentityCredential';
+import { type HomeRealmDiscoveryPolicy } from './homeRealmDiscoveryPolicy';
+import { type InformationalUrl } from './informationalUrl';
+import { type KeyCredential } from './keyCredential';
+import { type OAuth2PermissionGrant } from './oAuth2PermissionGrant';
+import { type PasswordCredential } from './passwordCredential';
+import { type PermissionScope } from './permissionScope';
+import { type ResourceSpecificPermission } from './resourceSpecificPermission';
+import { type SamlSingleSignOnSettings } from './samlSingleSignOnSettings';
+import { type Synchronization } from './synchronization';
+import { type TokenIssuancePolicy } from './tokenIssuancePolicy';
+import { type TokenLifetimePolicy } from './tokenLifetimePolicy';
+import { type VerifiedPublisher } from './verifiedPublisher';
+import { type Parsable } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export interface ServicePrincipal extends DirectoryObject, Parsable {
     /**
@@ -101,7 +101,7 @@ export interface ServicePrincipal extends DirectoryObject, Parsable {
      */
     disabledByMicrosoftStatus?: string | undefined;
     /**
-     * The display name for the service principal. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * The display name for the service principal. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.
      */
     displayName?: string | undefined;
     /**

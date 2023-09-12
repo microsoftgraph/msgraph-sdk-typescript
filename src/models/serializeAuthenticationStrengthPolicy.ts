@@ -1,11 +1,11 @@
-import type {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
-import {AuthenticationMethodModes} from './authenticationMethodModes';
-import type {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
-import {AuthenticationStrengthPolicyType} from './authenticationStrengthPolicyType';
-import {AuthenticationStrengthRequirements} from './authenticationStrengthRequirements';
-import {serializeAuthenticationCombinationConfiguration} from './serializeAuthenticationCombinationConfiguration';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationCombinationConfiguration } from './authenticationCombinationConfiguration';
+import { AuthenticationMethodModes } from './authenticationMethodModes';
+import { type AuthenticationStrengthPolicy } from './authenticationStrengthPolicy';
+import { AuthenticationStrengthPolicyType } from './authenticationStrengthPolicyType';
+import { AuthenticationStrengthRequirements } from './authenticationStrengthRequirements';
+import { serializeAuthenticationCombinationConfiguration } from './serializeAuthenticationCombinationConfiguration';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationStrengthPolicy(writer: SerializationWriter, authenticationStrengthPolicy: AuthenticationStrengthPolicy | undefined = {} as AuthenticationStrengthPolicy) : void {
         serializeEntity(writer, authenticationStrengthPolicy)
@@ -17,5 +17,5 @@ export function serializeAuthenticationStrengthPolicy(writer: SerializationWrite
         writer.writeStringValue("displayName", authenticationStrengthPolicy.displayName);
         writer.writeDateValue("modifiedDateTime", authenticationStrengthPolicy.modifiedDateTime);
         writer.writeEnumValue<AuthenticationStrengthPolicyType>("policyType", authenticationStrengthPolicy.policyType);
-        writer.writeEnumValue<AuthenticationStrengthRequirements>("requirementsSatisfied", authenticationStrengthPolicy.requirementsSatisfied);
+        writer.writeEnumValue<AuthenticationStrengthRequirements[]>("requirementsSatisfied", authenticationStrengthPolicy.requirementsSatisfied);
 }

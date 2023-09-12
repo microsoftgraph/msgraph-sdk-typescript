@@ -1,9 +1,9 @@
-import {createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue} from './createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
-import type {MicrosoftAuthenticatorAuthenticationMethodCollectionResponse} from './microsoftAuthenticatorAuthenticationMethodCollectionResponse';
-import {serializeMicrosoftAuthenticatorAuthenticationMethod} from './serializeMicrosoftAuthenticatorAuthenticationMethod';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue } from './createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type MicrosoftAuthenticatorAuthenticationMethod } from './microsoftAuthenticatorAuthenticationMethod';
+import { type MicrosoftAuthenticatorAuthenticationMethodCollectionResponse } from './microsoftAuthenticatorAuthenticationMethodCollectionResponse';
+import { serializeMicrosoftAuthenticatorAuthenticationMethod } from './serializeMicrosoftAuthenticatorAuthenticationMethod';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMicrosoftAuthenticatorAuthenticationMethodCollectionResponse(microsoftAuthenticatorAuthenticationMethodCollectionResponse: MicrosoftAuthenticatorAuthenticationMethodCollectionResponse | undefined = {} as MicrosoftAuthenticatorAuthenticationMethodCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

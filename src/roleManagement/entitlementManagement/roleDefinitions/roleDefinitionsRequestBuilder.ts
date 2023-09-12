@@ -1,19 +1,18 @@
-import {UnifiedRoleDefinitionCollectionResponse} from '../../../models/';
-import {createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue} from '../../../models/createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue';
-import {createUnifiedRoleDefinitionFromDiscriminatorValue} from '../../../models/createUnifiedRoleDefinitionFromDiscriminatorValue';
-import {deserializeIntoUnifiedRoleDefinition} from '../../../models/deserializeIntoUnifiedRoleDefinition';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeUnifiedRoleDefinition} from '../../../models/serializeUnifiedRoleDefinition';
-import type {UnifiedRoleDefinition} from '../../../models/unifiedRoleDefinition';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UnifiedRoleDefinitionItemRequestBuilder} from './item/unifiedRoleDefinitionItemRequestBuilder';
-import {RoleDefinitionsRequestBuilderGetRequestConfiguration} from './roleDefinitionsRequestBuilderGetRequestConfiguration';
-import {RoleDefinitionsRequestBuilderPostRequestConfiguration} from './roleDefinitionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedRoleDefinitionCollectionResponse } from '../../../models/';
+import { createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue } from '../../../models/createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue';
+import { createUnifiedRoleDefinitionFromDiscriminatorValue } from '../../../models/createUnifiedRoleDefinitionFromDiscriminatorValue';
+import { deserializeIntoUnifiedRoleDefinition } from '../../../models/deserializeIntoUnifiedRoleDefinition';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeUnifiedRoleDefinition } from '../../../models/serializeUnifiedRoleDefinition';
+import { type UnifiedRoleDefinition } from '../../../models/unifiedRoleDefinition';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UnifiedRoleDefinitionItemRequestBuilder } from './item/unifiedRoleDefinitionItemRequestBuilder';
+import { type RoleDefinitionsRequestBuilderGetRequestConfiguration } from './roleDefinitionsRequestBuilderGetRequestConfiguration';
+import { type RoleDefinitionsRequestBuilderPostRequestConfiguration } from './roleDefinitionsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.

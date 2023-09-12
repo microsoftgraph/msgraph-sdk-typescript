@@ -1,19 +1,18 @@
-import {UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse} from '../../models/';
-import {createUserExperienceAnalyticsDeviceStartupHistoryCollectionResponseFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsDeviceStartupHistoryCollectionResponseFromDiscriminatorValue';
-import {createUserExperienceAnalyticsDeviceStartupHistoryFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsDeviceStartupHistoryFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsDeviceStartupHistory} from '../../models/deserializeIntoUserExperienceAnalyticsDeviceStartupHistory';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsDeviceStartupHistory} from '../../models/serializeUserExperienceAnalyticsDeviceStartupHistory';
-import type {UserExperienceAnalyticsDeviceStartupHistory} from '../../models/userExperienceAnalyticsDeviceStartupHistory';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder} from './item/userExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder';
-import {UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse } from '../../models/';
+import { createUserExperienceAnalyticsDeviceStartupHistoryCollectionResponseFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsDeviceStartupHistoryCollectionResponseFromDiscriminatorValue';
+import { createUserExperienceAnalyticsDeviceStartupHistoryFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsDeviceStartupHistoryFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsDeviceStartupHistory } from '../../models/deserializeIntoUserExperienceAnalyticsDeviceStartupHistory';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsDeviceStartupHistory } from '../../models/serializeUserExperienceAnalyticsDeviceStartupHistory';
+import { type UserExperienceAnalyticsDeviceStartupHistory } from '../../models/userExperienceAnalyticsDeviceStartupHistory';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder } from './item/userExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder';
+import { type UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration } from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceStartupHistory property of the microsoft.graph.deviceManagement entity.

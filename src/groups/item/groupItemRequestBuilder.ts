@@ -1,58 +1,57 @@
-import {createGroupFromDiscriminatorValue} from '../../models/createGroupFromDiscriminatorValue';
-import {deserializeIntoGroup} from '../../models/deserializeIntoGroup';
-import type {Group} from '../../models/group';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeGroup} from '../../models/serializeGroup';
-import {AcceptedSendersRequestBuilder} from './acceptedSenders/acceptedSendersRequestBuilder';
-import {AddFavoriteRequestBuilder} from './addFavorite/addFavoriteRequestBuilder';
-import {AppRoleAssignmentsRequestBuilder} from './appRoleAssignments/appRoleAssignmentsRequestBuilder';
-import {AssignLicenseRequestBuilder} from './assignLicense/assignLicenseRequestBuilder';
-import {CalendarRequestBuilder} from './calendar/calendarRequestBuilder';
-import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {CheckGrantedPermissionsForAppRequestBuilder} from './checkGrantedPermissionsForApp/checkGrantedPermissionsForAppRequestBuilder';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {ConversationsRequestBuilder} from './conversations/conversationsRequestBuilder';
-import {CreatedOnBehalfOfRequestBuilder} from './createdOnBehalfOf/createdOnBehalfOfRequestBuilder';
-import {DriveRequestBuilder} from './drive/driveRequestBuilder';
-import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
-import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {GroupItemRequestBuilderDeleteRequestConfiguration} from './groupItemRequestBuilderDeleteRequestConfiguration';
-import {GroupItemRequestBuilderGetRequestConfiguration} from './groupItemRequestBuilderGetRequestConfiguration';
-import {GroupItemRequestBuilderPatchRequestConfiguration} from './groupItemRequestBuilderPatchRequestConfiguration';
-import {GroupLifecyclePoliciesRequestBuilder} from './groupLifecyclePolicies/groupLifecyclePoliciesRequestBuilder';
-import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
-import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {MembersWithLicenseErrorsRequestBuilder} from './membersWithLicenseErrors/membersWithLicenseErrorsRequestBuilder';
-import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
-import {OwnersRequestBuilder} from './owners/ownersRequestBuilder';
-import {PermissionGrantsRequestBuilder} from './permissionGrants/permissionGrantsRequestBuilder';
-import {PhotoRequestBuilder} from './photo/photoRequestBuilder';
-import {PhotosRequestBuilder} from './photos/photosRequestBuilder';
-import {PlannerRequestBuilder} from './planner/plannerRequestBuilder';
-import {RejectedSendersRequestBuilder} from './rejectedSenders/rejectedSendersRequestBuilder';
-import {RemoveFavoriteRequestBuilder} from './removeFavorite/removeFavoriteRequestBuilder';
-import {RenewRequestBuilder} from './renew/renewRequestBuilder';
-import {ResetUnseenCountRequestBuilder} from './resetUnseenCount/resetUnseenCountRequestBuilder';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {RetryServiceProvisioningRequestBuilder} from './retryServiceProvisioning/retryServiceProvisioningRequestBuilder';
-import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
-import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
-import {SubscribeByMailRequestBuilder} from './subscribeByMail/subscribeByMailRequestBuilder';
-import {TeamRequestBuilder} from './team/teamRequestBuilder';
-import {ThreadsRequestBuilder} from './threads/threadsRequestBuilder';
-import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import {TransitiveMembersRequestBuilder} from './transitiveMembers/transitiveMembersRequestBuilder';
-import {UnsubscribeByMailRequestBuilder} from './unsubscribeByMail/unsubscribeByMailRequestBuilder';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createGroupFromDiscriminatorValue } from '../../models/createGroupFromDiscriminatorValue';
+import { deserializeIntoGroup } from '../../models/deserializeIntoGroup';
+import { type Group } from '../../models/group';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeGroup } from '../../models/serializeGroup';
+import { AcceptedSendersRequestBuilder } from './acceptedSenders/acceptedSendersRequestBuilder';
+import { AddFavoriteRequestBuilder } from './addFavorite/addFavoriteRequestBuilder';
+import { AppRoleAssignmentsRequestBuilder } from './appRoleAssignments/appRoleAssignmentsRequestBuilder';
+import { AssignLicenseRequestBuilder } from './assignLicense/assignLicenseRequestBuilder';
+import { CalendarRequestBuilder } from './calendar/calendarRequestBuilder';
+import { CalendarViewRequestBuilder } from './calendarView/calendarViewRequestBuilder';
+import { CheckGrantedPermissionsForAppRequestBuilder } from './checkGrantedPermissionsForApp/checkGrantedPermissionsForAppRequestBuilder';
+import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
+import { ConversationsRequestBuilder } from './conversations/conversationsRequestBuilder';
+import { CreatedOnBehalfOfRequestBuilder } from './createdOnBehalfOf/createdOnBehalfOfRequestBuilder';
+import { DriveRequestBuilder } from './drive/driveRequestBuilder';
+import { DrivesRequestBuilder } from './drives/drivesRequestBuilder';
+import { EventsRequestBuilder } from './events/eventsRequestBuilder';
+import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
+import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
+import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
+import { type GroupItemRequestBuilderDeleteRequestConfiguration } from './groupItemRequestBuilderDeleteRequestConfiguration';
+import { type GroupItemRequestBuilderGetRequestConfiguration } from './groupItemRequestBuilderGetRequestConfiguration';
+import { type GroupItemRequestBuilderPatchRequestConfiguration } from './groupItemRequestBuilderPatchRequestConfiguration';
+import { GroupLifecyclePoliciesRequestBuilder } from './groupLifecyclePolicies/groupLifecyclePoliciesRequestBuilder';
+import { MemberOfRequestBuilder } from './memberOf/memberOfRequestBuilder';
+import { MembersRequestBuilder } from './members/membersRequestBuilder';
+import { MembersWithLicenseErrorsRequestBuilder } from './membersWithLicenseErrors/membersWithLicenseErrorsRequestBuilder';
+import { OnenoteRequestBuilder } from './onenote/onenoteRequestBuilder';
+import { OwnersRequestBuilder } from './owners/ownersRequestBuilder';
+import { PermissionGrantsRequestBuilder } from './permissionGrants/permissionGrantsRequestBuilder';
+import { PhotoRequestBuilder } from './photo/photoRequestBuilder';
+import { PhotosRequestBuilder } from './photos/photosRequestBuilder';
+import { PlannerRequestBuilder } from './planner/plannerRequestBuilder';
+import { RejectedSendersRequestBuilder } from './rejectedSenders/rejectedSendersRequestBuilder';
+import { RemoveFavoriteRequestBuilder } from './removeFavorite/removeFavoriteRequestBuilder';
+import { RenewRequestBuilder } from './renew/renewRequestBuilder';
+import { ResetUnseenCountRequestBuilder } from './resetUnseenCount/resetUnseenCountRequestBuilder';
+import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { RetryServiceProvisioningRequestBuilder } from './retryServiceProvisioning/retryServiceProvisioningRequestBuilder';
+import { SettingsRequestBuilder } from './settings/settingsRequestBuilder';
+import { SitesRequestBuilder } from './sites/sitesRequestBuilder';
+import { SubscribeByMailRequestBuilder } from './subscribeByMail/subscribeByMailRequestBuilder';
+import { TeamRequestBuilder } from './team/teamRequestBuilder';
+import { ThreadsRequestBuilder } from './threads/threadsRequestBuilder';
+import { TransitiveMemberOfRequestBuilder } from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
+import { TransitiveMembersRequestBuilder } from './transitiveMembers/transitiveMembersRequestBuilder';
+import { UnsubscribeByMailRequestBuilder } from './unsubscribeByMail/unsubscribeByMailRequestBuilder';
+import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of group entities.
@@ -350,11 +349,11 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Group>(requestInfo, createGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
+     * Update the properties of a group object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Group
-     * @see {@link https://learn.microsoft.com/graph/api/group-post-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Group, requestConfiguration?: GroupItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Group | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -401,7 +400,7 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
+     * Update the properties of a group object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

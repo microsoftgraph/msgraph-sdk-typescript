@@ -1,16 +1,16 @@
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import type {Alert} from './alert';
-import {AlertClassification} from './alertClassification';
-import type {AlertComment} from './alertComment';
-import {AlertDetermination} from './alertDetermination';
-import {AlertSeverity} from './alertSeverity';
-import {createAlertCommentFromDiscriminatorValue} from './createAlertCommentFromDiscriminatorValue';
-import {createAlertFromDiscriminatorValue} from './createAlertFromDiscriminatorValue';
-import type {Incident} from './incident';
-import {IncidentStatus} from './incidentStatus';
-import {serializeAlert} from './serializeAlert';
-import {serializeAlertComment} from './serializeAlertComment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { type Alert } from './alert';
+import { AlertClassification } from './alertClassification';
+import { type AlertComment } from './alertComment';
+import { AlertDetermination } from './alertDetermination';
+import { AlertSeverity } from './alertSeverity';
+import { createAlertCommentFromDiscriminatorValue } from './createAlertCommentFromDiscriminatorValue';
+import { createAlertFromDiscriminatorValue } from './createAlertFromDiscriminatorValue';
+import { type Incident } from './incident';
+import { IncidentStatus } from './incidentStatus';
+import { serializeAlert } from './serializeAlert';
+import { serializeAlertComment } from './serializeAlertComment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIncident(incident: Incident | undefined = {} as Incident) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
-import type {AccessReviewReviewer} from './accessReviewReviewer';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessReviewReviewer } from './accessReviewReviewer';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewReviewer(accessReviewReviewer: AccessReviewReviewer | undefined = {} as AccessReviewReviewer) : Record<string, (node: ParseNode) => void> {
     return {

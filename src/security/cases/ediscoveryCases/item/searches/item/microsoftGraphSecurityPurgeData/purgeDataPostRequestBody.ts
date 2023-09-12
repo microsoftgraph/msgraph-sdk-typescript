@@ -1,6 +1,6 @@
-import {PurgeAreas} from '../../../../../../../models/security/purgeAreas';
-import {PurgeType} from '../../../../../../../models/security/purgeType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { PurgeAreas } from '../../../../../../../models/security/purgeAreas';
+import { PurgeType } from '../../../../../../../models/security/purgeType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PurgeDataPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
@@ -10,7 +10,7 @@ export interface PurgeDataPostRequestBody extends AdditionalDataHolder, Parsable
     /**
      * The purgeAreas property
      */
-    purgeAreas?: PurgeAreas | undefined;
+    purgeAreas?: PurgeAreas[] | undefined;
     /**
      * The purgeType property
      */

@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import type {PrintServiceEndpoint} from './printServiceEndpoint';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type PrintServiceEndpoint } from './printServiceEndpoint';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PrintService extends Entity, Parsable {
     /**

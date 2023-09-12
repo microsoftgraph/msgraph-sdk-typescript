@@ -1,9 +1,9 @@
-import {createLinkedResourceFromDiscriminatorValue} from './createLinkedResourceFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {LinkedResource} from './linkedResource';
-import type {LinkedResourceCollectionResponse} from './linkedResourceCollectionResponse';
-import {serializeLinkedResource} from './serializeLinkedResource';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createLinkedResourceFromDiscriminatorValue } from './createLinkedResourceFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type LinkedResource } from './linkedResource';
+import { type LinkedResourceCollectionResponse } from './linkedResourceCollectionResponse';
+import { serializeLinkedResource } from './serializeLinkedResource';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLinkedResourceCollectionResponse(linkedResourceCollectionResponse: LinkedResourceCollectionResponse | undefined = {} as LinkedResourceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

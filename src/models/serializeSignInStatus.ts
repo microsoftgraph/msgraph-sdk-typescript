@@ -1,5 +1,5 @@
-import type {SignInStatus} from './signInStatus';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SignInStatus } from './signInStatus';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSignInStatus(writer: SerializationWriter, signInStatus: SignInStatus | undefined = {} as SignInStatus) : void {
         writer.writeStringValue("additionalDetails", signInStatus.additionalDetails);

@@ -1,14 +1,14 @@
-import type {AccessPackage} from './accessPackage';
-import type {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
-import type {AccessPackageCatalog} from './accessPackageCatalog';
-import type {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
-import type {Group} from './group';
-import {serializeAccessPackageAssignmentPolicy} from './serializeAccessPackageAssignmentPolicy';
-import {serializeAccessPackageCatalog} from './serializeAccessPackageCatalog';
-import {serializeAccessPackageResourceRoleScope} from './serializeAccessPackageResourceRoleScope';
-import {serializeEntity} from './serializeEntity';
-import {serializeGroup} from './serializeGroup';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackage } from './accessPackage';
+import { type AccessPackageAssignmentPolicy } from './accessPackageAssignmentPolicy';
+import { type AccessPackageCatalog } from './accessPackageCatalog';
+import { type AccessPackageResourceRoleScope } from './accessPackageResourceRoleScope';
+import { type Group } from './group';
+import { serializeAccessPackageAssignmentPolicy } from './serializeAccessPackageAssignmentPolicy';
+import { serializeAccessPackageCatalog } from './serializeAccessPackageCatalog';
+import { serializeAccessPackageResourceRoleScope } from './serializeAccessPackageResourceRoleScope';
+import { serializeEntity } from './serializeEntity';
+import { serializeGroup } from './serializeGroup';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackage(writer: SerializationWriter, accessPackage: AccessPackage | undefined = {} as AccessPackage) : void {
         serializeEntity(writer, accessPackage)

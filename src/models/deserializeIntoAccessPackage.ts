@@ -1,20 +1,20 @@
-import type {AccessPackage} from './accessPackage';
-import type {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
-import type {AccessPackageCatalog} from './accessPackageCatalog';
-import type {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
-import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from './createAccessPackageAssignmentPolicyFromDiscriminatorValue';
-import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPackageCatalogFromDiscriminatorValue';
-import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
-import {createAccessPackageResourceRoleScopeFromDiscriminatorValue} from './createAccessPackageResourceRoleScopeFromDiscriminatorValue';
-import {createGroupFromDiscriminatorValue} from './createGroupFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Group} from './group';
-import {serializeAccessPackage} from './serializeAccessPackage';
-import {serializeAccessPackageAssignmentPolicy} from './serializeAccessPackageAssignmentPolicy';
-import {serializeAccessPackageCatalog} from './serializeAccessPackageCatalog';
-import {serializeAccessPackageResourceRoleScope} from './serializeAccessPackageResourceRoleScope';
-import {serializeGroup} from './serializeGroup';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackage } from './accessPackage';
+import { type AccessPackageAssignmentPolicy } from './accessPackageAssignmentPolicy';
+import { type AccessPackageCatalog } from './accessPackageCatalog';
+import { type AccessPackageResourceRoleScope } from './accessPackageResourceRoleScope';
+import { createAccessPackageAssignmentPolicyFromDiscriminatorValue } from './createAccessPackageAssignmentPolicyFromDiscriminatorValue';
+import { createAccessPackageCatalogFromDiscriminatorValue } from './createAccessPackageCatalogFromDiscriminatorValue';
+import { createAccessPackageFromDiscriminatorValue } from './createAccessPackageFromDiscriminatorValue';
+import { createAccessPackageResourceRoleScopeFromDiscriminatorValue } from './createAccessPackageResourceRoleScopeFromDiscriminatorValue';
+import { createGroupFromDiscriminatorValue } from './createGroupFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Group } from './group';
+import { serializeAccessPackage } from './serializeAccessPackage';
+import { serializeAccessPackageAssignmentPolicy } from './serializeAccessPackageAssignmentPolicy';
+import { serializeAccessPackageCatalog } from './serializeAccessPackageCatalog';
+import { serializeAccessPackageResourceRoleScope } from './serializeAccessPackageResourceRoleScope';
+import { serializeGroup } from './serializeGroup';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackage(accessPackage: AccessPackage | undefined = {} as AccessPackage) : Record<string, (node: ParseNode) => void> {
     return {

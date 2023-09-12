@@ -1,16 +1,15 @@
-import {createPrintConnectorFromDiscriminatorValue} from '../../../models/createPrintConnectorFromDiscriminatorValue';
-import {deserializeIntoPrintConnector} from '../../../models/deserializeIntoPrintConnector';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {PrintConnector} from '../../../models/printConnector';
-import {serializePrintConnector} from '../../../models/serializePrintConnector';
-import {PrintConnectorItemRequestBuilderDeleteRequestConfiguration} from './printConnectorItemRequestBuilderDeleteRequestConfiguration';
-import {PrintConnectorItemRequestBuilderGetRequestConfiguration} from './printConnectorItemRequestBuilderGetRequestConfiguration';
-import {PrintConnectorItemRequestBuilderPatchRequestConfiguration} from './printConnectorItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPrintConnectorFromDiscriminatorValue } from '../../../models/createPrintConnectorFromDiscriminatorValue';
+import { deserializeIntoPrintConnector } from '../../../models/deserializeIntoPrintConnector';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type PrintConnector } from '../../../models/printConnector';
+import { serializePrintConnector } from '../../../models/serializePrintConnector';
+import { type PrintConnectorItemRequestBuilderDeleteRequestConfiguration } from './printConnectorItemRequestBuilderDeleteRequestConfiguration';
+import { type PrintConnectorItemRequestBuilderGetRequestConfiguration } from './printConnectorItemRequestBuilderGetRequestConfiguration';
+import { type PrintConnectorItemRequestBuilderPatchRequestConfiguration } from './printConnectorItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectors property of the microsoft.graph.print entity.

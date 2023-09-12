@@ -1,6 +1,6 @@
-import type {ScoredEmailAddress} from './scoredEmailAddress';
-import {SelectionLikelihoodInfo} from './selectionLikelihoodInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ScoredEmailAddress } from './scoredEmailAddress';
+import { SelectionLikelihoodInfo } from './selectionLikelihoodInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoScoredEmailAddress(scoredEmailAddress: ScoredEmailAddress | undefined = {} as ScoredEmailAddress) : Record<string, (node: ParseNode) => void> {
     return {

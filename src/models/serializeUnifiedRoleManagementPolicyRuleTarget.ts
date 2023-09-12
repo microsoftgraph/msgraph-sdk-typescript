@@ -1,8 +1,8 @@
-import type {DirectoryObject} from './directoryObject';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import type {UnifiedRoleManagementPolicyRuleTarget} from './unifiedRoleManagementPolicyRuleTarget';
-import {UnifiedRoleManagementPolicyRuleTargetOperations} from './unifiedRoleManagementPolicyRuleTargetOperations';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DirectoryObject } from './directoryObject';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { type UnifiedRoleManagementPolicyRuleTarget } from './unifiedRoleManagementPolicyRuleTarget';
+import { UnifiedRoleManagementPolicyRuleTargetOperations } from './unifiedRoleManagementPolicyRuleTargetOperations';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleManagementPolicyRuleTarget(writer: SerializationWriter, unifiedRoleManagementPolicyRuleTarget: UnifiedRoleManagementPolicyRuleTarget | undefined = {} as UnifiedRoleManagementPolicyRuleTarget) : void {
         writer.writeStringValue("caller", unifiedRoleManagementPolicyRuleTarget.caller);

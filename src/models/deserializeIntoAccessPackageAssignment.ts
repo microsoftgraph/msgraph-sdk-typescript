@@ -1,22 +1,22 @@
-import type {AccessPackage} from './accessPackage';
-import type {AccessPackageAssignment} from './accessPackageAssignment';
-import type {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
-import {AccessPackageAssignmentState} from './accessPackageAssignmentState';
-import type {AccessPackageSubject} from './accessPackageSubject';
-import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from './createAccessPackageAssignmentPolicyFromDiscriminatorValue';
-import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
-import {createAccessPackageSubjectFromDiscriminatorValue} from './createAccessPackageSubjectFromDiscriminatorValue';
-import {createCustomExtensionCalloutInstanceFromDiscriminatorValue} from './createCustomExtensionCalloutInstanceFromDiscriminatorValue';
-import {createEntitlementManagementScheduleFromDiscriminatorValue} from './createEntitlementManagementScheduleFromDiscriminatorValue';
-import type {CustomExtensionCalloutInstance} from './customExtensionCalloutInstance';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
-import {serializeAccessPackage} from './serializeAccessPackage';
-import {serializeAccessPackageAssignmentPolicy} from './serializeAccessPackageAssignmentPolicy';
-import {serializeAccessPackageSubject} from './serializeAccessPackageSubject';
-import {serializeCustomExtensionCalloutInstance} from './serializeCustomExtensionCalloutInstance';
-import {serializeEntitlementManagementSchedule} from './serializeEntitlementManagementSchedule';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackage } from './accessPackage';
+import { type AccessPackageAssignment } from './accessPackageAssignment';
+import { type AccessPackageAssignmentPolicy } from './accessPackageAssignmentPolicy';
+import { AccessPackageAssignmentState } from './accessPackageAssignmentState';
+import { type AccessPackageSubject } from './accessPackageSubject';
+import { createAccessPackageAssignmentPolicyFromDiscriminatorValue } from './createAccessPackageAssignmentPolicyFromDiscriminatorValue';
+import { createAccessPackageFromDiscriminatorValue } from './createAccessPackageFromDiscriminatorValue';
+import { createAccessPackageSubjectFromDiscriminatorValue } from './createAccessPackageSubjectFromDiscriminatorValue';
+import { createCustomExtensionCalloutInstanceFromDiscriminatorValue } from './createCustomExtensionCalloutInstanceFromDiscriminatorValue';
+import { createEntitlementManagementScheduleFromDiscriminatorValue } from './createEntitlementManagementScheduleFromDiscriminatorValue';
+import { type CustomExtensionCalloutInstance } from './customExtensionCalloutInstance';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type EntitlementManagementSchedule } from './entitlementManagementSchedule';
+import { serializeAccessPackage } from './serializeAccessPackage';
+import { serializeAccessPackageAssignmentPolicy } from './serializeAccessPackageAssignmentPolicy';
+import { serializeAccessPackageSubject } from './serializeAccessPackageSubject';
+import { serializeCustomExtensionCalloutInstance } from './serializeCustomExtensionCalloutInstance';
+import { serializeEntitlementManagementSchedule } from './serializeEntitlementManagementSchedule';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageAssignment(accessPackageAssignment: AccessPackageAssignment | undefined = {} as AccessPackageAssignment) : Record<string, (node: ParseNode) => void> {
     return {

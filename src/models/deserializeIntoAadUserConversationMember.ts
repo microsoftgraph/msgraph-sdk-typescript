@@ -1,9 +1,9 @@
-import type {AadUserConversationMember} from './aadUserConversationMember';
-import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorValue';
-import {deserializeIntoConversationMember} from './deserializeIntoConversationMember';
-import {serializeUser} from './serializeUser';
-import type {User} from './user';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AadUserConversationMember } from './aadUserConversationMember';
+import { createUserFromDiscriminatorValue } from './createUserFromDiscriminatorValue';
+import { deserializeIntoConversationMember } from './deserializeIntoConversationMember';
+import { serializeUser } from './serializeUser';
+import { type User } from './user';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAadUserConversationMember(aadUserConversationMember: AadUserConversationMember | undefined = {} as AadUserConversationMember) : Record<string, (node: ParseNode) => void> {
     return {

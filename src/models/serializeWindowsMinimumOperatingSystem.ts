@@ -1,5 +1,5 @@
-import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type WindowsMinimumOperatingSystem } from './windowsMinimumOperatingSystem';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsMinimumOperatingSystem(writer: SerializationWriter, windowsMinimumOperatingSystem: WindowsMinimumOperatingSystem | undefined = {} as WindowsMinimumOperatingSystem) : void {
         writer.writeStringValue("@odata.type", windowsMinimumOperatingSystem.odataType);

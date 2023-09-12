@@ -1,5 +1,5 @@
-import {SearchWithQRequestBuilderGetQueryParameters} from './searchWithQRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SearchWithQRequestBuilderGetQueryParameters } from './searchWithQRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SearchWithQRequestBuilderGetRequestConfiguration {
     /**

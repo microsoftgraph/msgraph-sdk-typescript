@@ -1,5 +1,5 @@
-import {AdministrativeUnitItemRequestBuilderGetQueryParameters} from './administrativeUnitItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AdministrativeUnitItemRequestBuilderGetQueryParameters } from './administrativeUnitItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AdministrativeUnitItemRequestBuilderGetRequestConfiguration {
     /**

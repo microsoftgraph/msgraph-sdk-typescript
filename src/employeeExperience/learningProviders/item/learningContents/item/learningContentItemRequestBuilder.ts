@@ -1,16 +1,15 @@
-import {createLearningContentFromDiscriminatorValue} from '../../../../../models/createLearningContentFromDiscriminatorValue';
-import {deserializeIntoLearningContent} from '../../../../../models/deserializeIntoLearningContent';
-import type {LearningContent} from '../../../../../models/learningContent';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeLearningContent} from '../../../../../models/serializeLearningContent';
-import {LearningContentItemRequestBuilderDeleteRequestConfiguration} from './learningContentItemRequestBuilderDeleteRequestConfiguration';
-import {LearningContentItemRequestBuilderGetRequestConfiguration} from './learningContentItemRequestBuilderGetRequestConfiguration';
-import {LearningContentItemRequestBuilderPatchRequestConfiguration} from './learningContentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createLearningContentFromDiscriminatorValue } from '../../../../../models/createLearningContentFromDiscriminatorValue';
+import { deserializeIntoLearningContent } from '../../../../../models/deserializeIntoLearningContent';
+import { type LearningContent } from '../../../../../models/learningContent';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeLearningContent } from '../../../../../models/serializeLearningContent';
+import { type LearningContentItemRequestBuilderDeleteRequestConfiguration } from './learningContentItemRequestBuilderDeleteRequestConfiguration';
+import { type LearningContentItemRequestBuilderGetRequestConfiguration } from './learningContentItemRequestBuilderGetRequestConfiguration';
+import { type LearningContentItemRequestBuilderPatchRequestConfiguration } from './learningContentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.

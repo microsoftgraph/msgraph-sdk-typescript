@@ -1,17 +1,16 @@
-import {createDelegatedAdminCustomerFromDiscriminatorValue} from '../../../models/createDelegatedAdminCustomerFromDiscriminatorValue';
-import type {DelegatedAdminCustomer} from '../../../models/delegatedAdminCustomer';
-import {deserializeIntoDelegatedAdminCustomer} from '../../../models/deserializeIntoDelegatedAdminCustomer';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeDelegatedAdminCustomer} from '../../../models/serializeDelegatedAdminCustomer';
-import {DelegatedAdminCustomerItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminCustomerItemRequestBuilderDeleteRequestConfiguration';
-import {DelegatedAdminCustomerItemRequestBuilderGetRequestConfiguration} from './delegatedAdminCustomerItemRequestBuilderGetRequestConfiguration';
-import {DelegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration';
-import {ServiceManagementDetailsRequestBuilder} from './serviceManagementDetails/serviceManagementDetailsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDelegatedAdminCustomerFromDiscriminatorValue } from '../../../models/createDelegatedAdminCustomerFromDiscriminatorValue';
+import { type DelegatedAdminCustomer } from '../../../models/delegatedAdminCustomer';
+import { deserializeIntoDelegatedAdminCustomer } from '../../../models/deserializeIntoDelegatedAdminCustomer';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeDelegatedAdminCustomer } from '../../../models/serializeDelegatedAdminCustomer';
+import { type DelegatedAdminCustomerItemRequestBuilderDeleteRequestConfiguration } from './delegatedAdminCustomerItemRequestBuilderDeleteRequestConfiguration';
+import { type DelegatedAdminCustomerItemRequestBuilderGetRequestConfiguration } from './delegatedAdminCustomerItemRequestBuilderGetRequestConfiguration';
+import { type DelegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration } from './delegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration';
+import { ServiceManagementDetailsRequestBuilder } from './serviceManagementDetails/serviceManagementDetailsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.

@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import {UserExperienceAnalyticsOperatingSystemRestartCategory} from './userExperienceAnalyticsOperatingSystemRestartCategory';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { UserExperienceAnalyticsOperatingSystemRestartCategory } from './userExperienceAnalyticsOperatingSystemRestartCategory';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsDeviceStartupHistory extends Entity, Parsable {
     /**

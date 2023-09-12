@@ -1,8 +1,8 @@
-import type {Entity} from './entity';
-import type {SharedInsight} from './sharedInsight';
-import type {Trending} from './trending';
-import type {UsedInsight} from './usedInsight';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type SharedInsight } from './sharedInsight';
+import { type Trending } from './trending';
+import { type UsedInsight } from './usedInsight';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OfficeGraphInsights extends Entity, Parsable {
     /**

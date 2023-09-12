@@ -1,18 +1,17 @@
-import {ListItemCollectionResponse} from '../../../../../../../models/';
-import {createListItemCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createListItemCollectionResponseFromDiscriminatorValue';
-import {createListItemFromDiscriminatorValue} from '../../../../../../../models/createListItemFromDiscriminatorValue';
-import {deserializeIntoListItem} from '../../../../../../../models/deserializeIntoListItem';
-import type {ListItem} from '../../../../../../../models/listItem';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeListItem} from '../../../../../../../models/serializeListItem';
-import {ListItemItemRequestBuilder} from './item/listItemItemRequestBuilder';
-import {ItemsRequestBuilderGetRequestConfiguration} from './itemsRequestBuilderGetRequestConfiguration';
-import {ItemsRequestBuilderPostRequestConfiguration} from './itemsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ListItemCollectionResponse } from '../../../../../../../models/';
+import { createListItemCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createListItemCollectionResponseFromDiscriminatorValue';
+import { createListItemFromDiscriminatorValue } from '../../../../../../../models/createListItemFromDiscriminatorValue';
+import { deserializeIntoListItem } from '../../../../../../../models/deserializeIntoListItem';
+import { type ListItem } from '../../../../../../../models/listItem';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeListItem } from '../../../../../../../models/serializeListItem';
+import { ListItemItemRequestBuilder } from './item/listItemItemRequestBuilder';
+import { type ItemsRequestBuilderGetRequestConfiguration } from './itemsRequestBuilderGetRequestConfiguration';
+import { type ItemsRequestBuilderPostRequestConfiguration } from './itemsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.list entity.

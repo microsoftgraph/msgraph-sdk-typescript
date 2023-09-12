@@ -1,20 +1,19 @@
-import {ParticipantCollectionResponse} from '../../../../models/';
-import {createParticipantCollectionResponseFromDiscriminatorValue} from '../../../../models/createParticipantCollectionResponseFromDiscriminatorValue';
-import {createParticipantFromDiscriminatorValue} from '../../../../models/createParticipantFromDiscriminatorValue';
-import {deserializeIntoParticipant} from '../../../../models/deserializeIntoParticipant';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {Participant} from '../../../../models/participant';
-import {serializeParticipant} from '../../../../models/serializeParticipant';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
-import {ParticipantItemRequestBuilder} from './item/participantItemRequestBuilder';
-import {ParticipantsRequestBuilderGetRequestConfiguration} from './participantsRequestBuilderGetRequestConfiguration';
-import {ParticipantsRequestBuilderPostRequestConfiguration} from './participantsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ParticipantCollectionResponse } from '../../../../models/';
+import { createParticipantCollectionResponseFromDiscriminatorValue } from '../../../../models/createParticipantCollectionResponseFromDiscriminatorValue';
+import { createParticipantFromDiscriminatorValue } from '../../../../models/createParticipantFromDiscriminatorValue';
+import { deserializeIntoParticipant } from '../../../../models/deserializeIntoParticipant';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type Participant } from '../../../../models/participant';
+import { serializeParticipant } from '../../../../models/serializeParticipant';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { InviteRequestBuilder } from './invite/inviteRequestBuilder';
+import { ParticipantItemRequestBuilder } from './item/participantItemRequestBuilder';
+import { type ParticipantsRequestBuilderGetRequestConfiguration } from './participantsRequestBuilderGetRequestConfiguration';
+import { type ParticipantsRequestBuilderPostRequestConfiguration } from './participantsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the participants property of the microsoft.graph.call entity.

@@ -1,5 +1,5 @@
-import {OrganizationalBrandingLocalizationItemRequestBuilderGetQueryParameters} from './organizationalBrandingLocalizationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type OrganizationalBrandingLocalizationItemRequestBuilderGetQueryParameters } from './organizationalBrandingLocalizationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OrganizationalBrandingLocalizationItemRequestBuilderGetRequestConfiguration {
     /**

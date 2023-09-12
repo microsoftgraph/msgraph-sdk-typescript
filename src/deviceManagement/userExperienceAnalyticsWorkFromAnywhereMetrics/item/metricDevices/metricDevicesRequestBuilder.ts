@@ -1,19 +1,18 @@
-import {UserExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponse} from '../../../../models/';
-import {createUserExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponseFromDiscriminatorValue} from '../../../../models/createUserExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponseFromDiscriminatorValue';
-import {createUserExperienceAnalyticsWorkFromAnywhereDeviceFromDiscriminatorValue} from '../../../../models/createUserExperienceAnalyticsWorkFromAnywhereDeviceFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsWorkFromAnywhereDevice} from '../../../../models/deserializeIntoUserExperienceAnalyticsWorkFromAnywhereDevice';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsWorkFromAnywhereDevice} from '../../../../models/serializeUserExperienceAnalyticsWorkFromAnywhereDevice';
-import type {UserExperienceAnalyticsWorkFromAnywhereDevice} from '../../../../models/userExperienceAnalyticsWorkFromAnywhereDevice';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder} from './item/userExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder';
-import {MetricDevicesRequestBuilderGetRequestConfiguration} from './metricDevicesRequestBuilderGetRequestConfiguration';
-import {MetricDevicesRequestBuilderPostRequestConfiguration} from './metricDevicesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponse } from '../../../../models/';
+import { createUserExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponseFromDiscriminatorValue } from '../../../../models/createUserExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponseFromDiscriminatorValue';
+import { createUserExperienceAnalyticsWorkFromAnywhereDeviceFromDiscriminatorValue } from '../../../../models/createUserExperienceAnalyticsWorkFromAnywhereDeviceFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsWorkFromAnywhereDevice } from '../../../../models/deserializeIntoUserExperienceAnalyticsWorkFromAnywhereDevice';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsWorkFromAnywhereDevice } from '../../../../models/serializeUserExperienceAnalyticsWorkFromAnywhereDevice';
+import { type UserExperienceAnalyticsWorkFromAnywhereDevice } from '../../../../models/userExperienceAnalyticsWorkFromAnywhereDevice';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder } from './item/userExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder';
+import { type MetricDevicesRequestBuilderGetRequestConfiguration } from './metricDevicesRequestBuilderGetRequestConfiguration';
+import { type MetricDevicesRequestBuilderPostRequestConfiguration } from './metricDevicesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.

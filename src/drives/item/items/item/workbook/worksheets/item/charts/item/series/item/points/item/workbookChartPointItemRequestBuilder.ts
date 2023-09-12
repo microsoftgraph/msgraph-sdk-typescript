@@ -1,17 +1,16 @@
-import {createWorkbookChartPointFromDiscriminatorValue} from '../../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
-import {deserializeIntoWorkbookChartPoint} from '../../../../../../../../../../../../../models/deserializeIntoWorkbookChartPoint';
-import {ODataError} from '../../../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookChartPoint} from '../../../../../../../../../../../../../models/serializeWorkbookChartPoint';
-import type {WorkbookChartPoint} from '../../../../../../../../../../../../../models/workbookChartPoint';
-import {FormatRequestBuilder} from './format/formatRequestBuilder';
-import {WorkbookChartPointItemRequestBuilderDeleteRequestConfiguration} from './workbookChartPointItemRequestBuilderDeleteRequestConfiguration';
-import {WorkbookChartPointItemRequestBuilderGetRequestConfiguration} from './workbookChartPointItemRequestBuilderGetRequestConfiguration';
-import {WorkbookChartPointItemRequestBuilderPatchRequestConfiguration} from './workbookChartPointItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartPointFromDiscriminatorValue } from '../../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
+import { deserializeIntoWorkbookChartPoint } from '../../../../../../../../../../../../../models/deserializeIntoWorkbookChartPoint';
+import { type ODataError } from '../../../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookChartPoint } from '../../../../../../../../../../../../../models/serializeWorkbookChartPoint';
+import { type WorkbookChartPoint } from '../../../../../../../../../../../../../models/workbookChartPoint';
+import { FormatRequestBuilder } from './format/formatRequestBuilder';
+import { type WorkbookChartPointItemRequestBuilderDeleteRequestConfiguration } from './workbookChartPointItemRequestBuilderDeleteRequestConfiguration';
+import { type WorkbookChartPointItemRequestBuilderGetRequestConfiguration } from './workbookChartPointItemRequestBuilderGetRequestConfiguration';
+import { type WorkbookChartPointItemRequestBuilderPatchRequestConfiguration } from './workbookChartPointItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.

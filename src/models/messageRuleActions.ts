@@ -1,6 +1,6 @@
-import {Importance} from './importance';
-import type {Recipient} from './recipient';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { Importance } from './importance';
+import { type Recipient } from './recipient';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MessageRuleActions extends AdditionalDataHolder, Parsable {
     /**

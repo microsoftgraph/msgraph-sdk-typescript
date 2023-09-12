@@ -1,5 +1,5 @@
-import {InvitationItemRequestBuilderGetQueryParameters} from './invitationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type InvitationItemRequestBuilderGetQueryParameters } from './invitationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface InvitationItemRequestBuilderGetRequestConfiguration {
     /**

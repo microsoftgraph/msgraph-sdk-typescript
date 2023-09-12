@@ -1,11 +1,11 @@
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import type {EventMessageRequest} from './eventMessageRequest';
-import type {Location} from './location';
-import {MeetingRequestType} from './meetingRequestType';
-import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {serializeEventMessage} from './serializeEventMessage';
-import {serializeLocation} from './serializeLocation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { type EventMessageRequest } from './eventMessageRequest';
+import { type Location } from './location';
+import { MeetingRequestType } from './meetingRequestType';
+import { serializeDateTimeTimeZone } from './serializeDateTimeTimeZone';
+import { serializeEventMessage } from './serializeEventMessage';
+import { serializeLocation } from './serializeLocation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEventMessageRequest(writer: SerializationWriter, eventMessageRequest: EventMessageRequest | undefined = {} as EventMessageRequest) : void {
         serializeEventMessage(writer, eventMessageRequest)

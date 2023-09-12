@@ -1,5 +1,5 @@
-import {SecureScoresRequestBuilderGetQueryParameters} from './secureScoresRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SecureScoresRequestBuilderGetQueryParameters } from './secureScoresRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SecureScoresRequestBuilderGetRequestConfiguration {
     /**

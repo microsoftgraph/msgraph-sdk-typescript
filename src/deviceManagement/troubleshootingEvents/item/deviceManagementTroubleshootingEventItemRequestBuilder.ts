@@ -1,16 +1,15 @@
-import {createDeviceManagementTroubleshootingEventFromDiscriminatorValue} from '../../../models/createDeviceManagementTroubleshootingEventFromDiscriminatorValue';
-import {deserializeIntoDeviceManagementTroubleshootingEvent} from '../../../models/deserializeIntoDeviceManagementTroubleshootingEvent';
-import type {DeviceManagementTroubleshootingEvent} from '../../../models/deviceManagementTroubleshootingEvent';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceManagementTroubleshootingEvent} from '../../../models/serializeDeviceManagementTroubleshootingEvent';
-import {DeviceManagementTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration} from './deviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration';
-import {DeviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration} from './deviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceManagementTroubleshootingEventFromDiscriminatorValue } from '../../../models/createDeviceManagementTroubleshootingEventFromDiscriminatorValue';
+import { deserializeIntoDeviceManagementTroubleshootingEvent } from '../../../models/deserializeIntoDeviceManagementTroubleshootingEvent';
+import { type DeviceManagementTroubleshootingEvent } from '../../../models/deviceManagementTroubleshootingEvent';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceManagementTroubleshootingEvent } from '../../../models/serializeDeviceManagementTroubleshootingEvent';
+import { type DeviceManagementTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration } from './deviceManagementTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration } from './deviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration';
+import { type DeviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration } from './deviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the troubleshootingEvents property of the microsoft.graph.deviceManagement entity.

@@ -1,6 +1,6 @@
-import {deserializeIntoMessageCollectionResponse} from './deserializeIntoMessageCollectionResponse';
-import {MessageCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoMessageCollectionResponse } from './deserializeIntoMessageCollectionResponse';
+import { type MessageCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMessageCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

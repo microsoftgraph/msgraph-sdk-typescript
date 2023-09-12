@@ -1,9 +1,9 @@
-import {createRecentNotebookLinksFromDiscriminatorValue} from './createRecentNotebookLinksFromDiscriminatorValue';
-import {OnenoteSourceService} from './onenoteSourceService';
-import type {RecentNotebook} from './recentNotebook';
-import type {RecentNotebookLinks} from './recentNotebookLinks';
-import {serializeRecentNotebookLinks} from './serializeRecentNotebookLinks';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createRecentNotebookLinksFromDiscriminatorValue } from './createRecentNotebookLinksFromDiscriminatorValue';
+import { OnenoteSourceService } from './onenoteSourceService';
+import { type RecentNotebook } from './recentNotebook';
+import { type RecentNotebookLinks } from './recentNotebookLinks';
+import { serializeRecentNotebookLinks } from './serializeRecentNotebookLinks';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRecentNotebook(recentNotebook: RecentNotebook | undefined = {} as RecentNotebook) : Record<string, (node: ParseNode) => void> {
     return {

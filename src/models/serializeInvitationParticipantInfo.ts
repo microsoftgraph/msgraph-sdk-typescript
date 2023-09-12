@@ -1,7 +1,7 @@
-import type {IdentitySet} from './identitySet';
-import type {InvitationParticipantInfo} from './invitationParticipantInfo';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from './identitySet';
+import { type InvitationParticipantInfo } from './invitationParticipantInfo';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeInvitationParticipantInfo(writer: SerializationWriter, invitationParticipantInfo: InvitationParticipantInfo | undefined = {} as InvitationParticipantInfo) : void {
         writer.writeBooleanValue("hidden", invitationParticipantInfo.hidden);

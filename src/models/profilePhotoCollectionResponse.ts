@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {ProfilePhoto} from './profilePhoto';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type ProfilePhoto } from './profilePhoto';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ProfilePhotoCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

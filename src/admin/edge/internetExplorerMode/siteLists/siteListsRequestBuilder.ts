@@ -1,19 +1,18 @@
-import {BrowserSiteListCollectionResponse} from '../../../../models/';
-import type {BrowserSiteList} from '../../../../models/browserSiteList';
-import {createBrowserSiteListCollectionResponseFromDiscriminatorValue} from '../../../../models/createBrowserSiteListCollectionResponseFromDiscriminatorValue';
-import {createBrowserSiteListFromDiscriminatorValue} from '../../../../models/createBrowserSiteListFromDiscriminatorValue';
-import {deserializeIntoBrowserSiteList} from '../../../../models/deserializeIntoBrowserSiteList';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeBrowserSiteList} from '../../../../models/serializeBrowserSiteList';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BrowserSiteListItemRequestBuilder} from './item/browserSiteListItemRequestBuilder';
-import {SiteListsRequestBuilderGetRequestConfiguration} from './siteListsRequestBuilderGetRequestConfiguration';
-import {SiteListsRequestBuilderPostRequestConfiguration} from './siteListsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BrowserSiteListCollectionResponse } from '../../../../models/';
+import { type BrowserSiteList } from '../../../../models/browserSiteList';
+import { createBrowserSiteListCollectionResponseFromDiscriminatorValue } from '../../../../models/createBrowserSiteListCollectionResponseFromDiscriminatorValue';
+import { createBrowserSiteListFromDiscriminatorValue } from '../../../../models/createBrowserSiteListFromDiscriminatorValue';
+import { deserializeIntoBrowserSiteList } from '../../../../models/deserializeIntoBrowserSiteList';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeBrowserSiteList } from '../../../../models/serializeBrowserSiteList';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { BrowserSiteListItemRequestBuilder } from './item/browserSiteListItemRequestBuilder';
+import { type SiteListsRequestBuilderGetRequestConfiguration } from './siteListsRequestBuilderGetRequestConfiguration';
+import { type SiteListsRequestBuilderPostRequestConfiguration } from './siteListsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.

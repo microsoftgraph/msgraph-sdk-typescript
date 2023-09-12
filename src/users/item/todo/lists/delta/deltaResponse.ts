@@ -1,6 +1,6 @@
-import type {BaseDeltaFunctionResponse} from '../../../../../models/baseDeltaFunctionResponse';
-import type {TodoTaskList} from '../../../../../models/todoTaskList';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseDeltaFunctionResponse } from '../../../../../models/baseDeltaFunctionResponse';
+import { type TodoTaskList } from '../../../../../models/todoTaskList';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DeltaResponse extends BaseDeltaFunctionResponse, Parsable {
     /**

@@ -1,5 +1,5 @@
-import {MasterCategoriesRequestBuilderGetQueryParameters} from './masterCategoriesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type MasterCategoriesRequestBuilderGetQueryParameters } from './masterCategoriesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MasterCategoriesRequestBuilderGetRequestConfiguration {
     /**

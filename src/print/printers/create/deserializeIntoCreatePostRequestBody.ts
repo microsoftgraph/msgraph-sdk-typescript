@@ -1,8 +1,8 @@
-import {createPrintCertificateSigningRequestFromDiscriminatorValue} from '../../../models/createPrintCertificateSigningRequestFromDiscriminatorValue';
-import type {PrintCertificateSigningRequest} from '../../../models/printCertificateSigningRequest';
-import {serializePrintCertificateSigningRequest} from '../../../models/serializePrintCertificateSigningRequest';
-import type {CreatePostRequestBody} from './createPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPrintCertificateSigningRequestFromDiscriminatorValue } from '../../../models/createPrintCertificateSigningRequestFromDiscriminatorValue';
+import { type PrintCertificateSigningRequest } from '../../../models/printCertificateSigningRequest';
+import { serializePrintCertificateSigningRequest } from '../../../models/serializePrintCertificateSigningRequest';
+import { type CreatePostRequestBody } from './createPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCreatePostRequestBody(createPostRequestBody: CreatePostRequestBody | undefined = {} as CreatePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

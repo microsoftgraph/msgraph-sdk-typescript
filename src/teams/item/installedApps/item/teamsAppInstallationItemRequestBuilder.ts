@@ -1,19 +1,18 @@
-import {createTeamsAppInstallationFromDiscriminatorValue} from '../../../../models/createTeamsAppInstallationFromDiscriminatorValue';
-import {deserializeIntoTeamsAppInstallation} from '../../../../models/deserializeIntoTeamsAppInstallation';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeTeamsAppInstallation} from '../../../../models/serializeTeamsAppInstallation';
-import type {TeamsAppInstallation} from '../../../../models/teamsAppInstallation';
-import {TeamsAppRequestBuilder} from './teamsApp/teamsAppRequestBuilder';
-import {TeamsAppDefinitionRequestBuilder} from './teamsAppDefinition/teamsAppDefinitionRequestBuilder';
-import {TeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration} from './teamsAppInstallationItemRequestBuilderDeleteRequestConfiguration';
-import {TeamsAppInstallationItemRequestBuilderGetRequestConfiguration} from './teamsAppInstallationItemRequestBuilderGetRequestConfiguration';
-import {TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration} from './teamsAppInstallationItemRequestBuilderPatchRequestConfiguration';
-import {UpgradeRequestBuilder} from './upgrade/upgradeRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTeamsAppInstallationFromDiscriminatorValue } from '../../../../models/createTeamsAppInstallationFromDiscriminatorValue';
+import { deserializeIntoTeamsAppInstallation } from '../../../../models/deserializeIntoTeamsAppInstallation';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeTeamsAppInstallation } from '../../../../models/serializeTeamsAppInstallation';
+import { type TeamsAppInstallation } from '../../../../models/teamsAppInstallation';
+import { TeamsAppRequestBuilder } from './teamsApp/teamsAppRequestBuilder';
+import { TeamsAppDefinitionRequestBuilder } from './teamsAppDefinition/teamsAppDefinitionRequestBuilder';
+import { type TeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration } from './teamsAppInstallationItemRequestBuilderDeleteRequestConfiguration';
+import { type TeamsAppInstallationItemRequestBuilderGetRequestConfiguration } from './teamsAppInstallationItemRequestBuilderGetRequestConfiguration';
+import { type TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration } from './teamsAppInstallationItemRequestBuilderPatchRequestConfiguration';
+import { UpgradeRequestBuilder } from './upgrade/upgradeRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.team entity.

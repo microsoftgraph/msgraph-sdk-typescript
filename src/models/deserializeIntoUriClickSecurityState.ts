@@ -1,5 +1,5 @@
-import type {UriClickSecurityState} from './uriClickSecurityState';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type UriClickSecurityState } from './uriClickSecurityState';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUriClickSecurityState(uriClickSecurityState: UriClickSecurityState | undefined = {} as UriClickSecurityState) : Record<string, (node: ParseNode) => void> {
     return {

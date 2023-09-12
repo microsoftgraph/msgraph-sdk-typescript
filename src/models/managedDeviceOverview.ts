@@ -1,7 +1,7 @@
-import type {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSummary';
-import type {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DeviceExchangeAccessStateSummary } from './deviceExchangeAccessStateSummary';
+import { type DeviceOperatingSystemSummary } from './deviceOperatingSystemSummary';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ManagedDeviceOverview extends Entity, Parsable {
     /**

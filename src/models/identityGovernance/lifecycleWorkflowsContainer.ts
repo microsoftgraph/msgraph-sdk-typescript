@@ -1,11 +1,11 @@
-import type {DeletedItemContainer} from '../deletedItemContainer';
-import type {Entity} from '../entity';
-import type {CustomTaskExtension} from './customTaskExtension';
-import type {LifecycleManagementSettings} from './lifecycleManagementSettings';
-import type {TaskDefinition} from './taskDefinition';
-import type {Workflow} from './workflow';
-import type {WorkflowTemplate} from './workflowTemplate';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DeletedItemContainer } from '../deletedItemContainer';
+import { type Entity } from '../entity';
+import { type CustomTaskExtension } from './customTaskExtension';
+import { type LifecycleManagementSettings } from './lifecycleManagementSettings';
+import { type TaskDefinition } from './taskDefinition';
+import { type Workflow } from './workflow';
+import { type WorkflowTemplate } from './workflowTemplate';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface LifecycleWorkflowsContainer extends Entity, Parsable {
     /**

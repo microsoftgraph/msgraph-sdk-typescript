@@ -1,5 +1,5 @@
-import {AudioRoutingGroupItemRequestBuilderGetQueryParameters} from './audioRoutingGroupItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AudioRoutingGroupItemRequestBuilderGetQueryParameters } from './audioRoutingGroupItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AudioRoutingGroupItemRequestBuilderGetRequestConfiguration {
     /**

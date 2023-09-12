@@ -1,7 +1,7 @@
-import {deserializeIntoMobileContainedApp} from './deserializeIntoMobileContainedApp';
-import {deserializeIntoWindowsUniversalAppXContainedApp} from './deserializeIntoWindowsUniversalAppXContainedApp';
-import {MobileContainedApp, WindowsUniversalAppXContainedApp} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoMobileContainedApp } from './deserializeIntoMobileContainedApp';
+import { deserializeIntoWindowsUniversalAppXContainedApp } from './deserializeIntoWindowsUniversalAppXContainedApp';
+import { type MobileContainedApp, type WindowsUniversalAppXContainedApp } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMobileContainedAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

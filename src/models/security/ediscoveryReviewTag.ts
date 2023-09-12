@@ -1,6 +1,6 @@
-import {ChildSelectability} from './childSelectability';
-import type {Tag} from './tag';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { ChildSelectability } from './childSelectability';
+import { type Tag } from './tag';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryReviewTag extends Parsable, Tag {
     /**

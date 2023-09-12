@@ -1,5 +1,5 @@
-import {FailureStage} from './failureStage';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { FailureStage } from './failureStage';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface FailureInfo extends AdditionalDataHolder, Parsable {
     /**

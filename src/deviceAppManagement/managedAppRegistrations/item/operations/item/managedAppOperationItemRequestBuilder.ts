@@ -1,16 +1,15 @@
-import {createManagedAppOperationFromDiscriminatorValue} from '../../../../../models/createManagedAppOperationFromDiscriminatorValue';
-import {deserializeIntoManagedAppOperation} from '../../../../../models/deserializeIntoManagedAppOperation';
-import type {ManagedAppOperation} from '../../../../../models/managedAppOperation';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeManagedAppOperation} from '../../../../../models/serializeManagedAppOperation';
-import {ManagedAppOperationItemRequestBuilderDeleteRequestConfiguration} from './managedAppOperationItemRequestBuilderDeleteRequestConfiguration';
-import {ManagedAppOperationItemRequestBuilderGetRequestConfiguration} from './managedAppOperationItemRequestBuilderGetRequestConfiguration';
-import {ManagedAppOperationItemRequestBuilderPatchRequestConfiguration} from './managedAppOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createManagedAppOperationFromDiscriminatorValue } from '../../../../../models/createManagedAppOperationFromDiscriminatorValue';
+import { deserializeIntoManagedAppOperation } from '../../../../../models/deserializeIntoManagedAppOperation';
+import { type ManagedAppOperation } from '../../../../../models/managedAppOperation';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeManagedAppOperation } from '../../../../../models/serializeManagedAppOperation';
+import { type ManagedAppOperationItemRequestBuilderDeleteRequestConfiguration } from './managedAppOperationItemRequestBuilderDeleteRequestConfiguration';
+import { type ManagedAppOperationItemRequestBuilderGetRequestConfiguration } from './managedAppOperationItemRequestBuilderGetRequestConfiguration';
+import { type ManagedAppOperationItemRequestBuilderPatchRequestConfiguration } from './managedAppOperationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity.

@@ -1,16 +1,15 @@
-import type {AdminConsentRequestPolicy} from '../../models/adminConsentRequestPolicy';
-import {createAdminConsentRequestPolicyFromDiscriminatorValue} from '../../models/createAdminConsentRequestPolicyFromDiscriminatorValue';
-import {deserializeIntoAdminConsentRequestPolicy} from '../../models/deserializeIntoAdminConsentRequestPolicy';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeAdminConsentRequestPolicy} from '../../models/serializeAdminConsentRequestPolicy';
-import {AdminConsentRequestPolicyRequestBuilderDeleteRequestConfiguration} from './adminConsentRequestPolicyRequestBuilderDeleteRequestConfiguration';
-import {AdminConsentRequestPolicyRequestBuilderGetRequestConfiguration} from './adminConsentRequestPolicyRequestBuilderGetRequestConfiguration';
-import {AdminConsentRequestPolicyRequestBuilderPatchRequestConfiguration} from './adminConsentRequestPolicyRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AdminConsentRequestPolicy } from '../../models/adminConsentRequestPolicy';
+import { createAdminConsentRequestPolicyFromDiscriminatorValue } from '../../models/createAdminConsentRequestPolicyFromDiscriminatorValue';
+import { deserializeIntoAdminConsentRequestPolicy } from '../../models/deserializeIntoAdminConsentRequestPolicy';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeAdminConsentRequestPolicy } from '../../models/serializeAdminConsentRequestPolicy';
+import { type AdminConsentRequestPolicyRequestBuilderDeleteRequestConfiguration } from './adminConsentRequestPolicyRequestBuilderDeleteRequestConfiguration';
+import { type AdminConsentRequestPolicyRequestBuilderGetRequestConfiguration } from './adminConsentRequestPolicyRequestBuilderGetRequestConfiguration';
+import { type AdminConsentRequestPolicyRequestBuilderPatchRequestConfiguration } from './adminConsentRequestPolicyRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the adminConsentRequestPolicy property of the microsoft.graph.policyRoot entity.

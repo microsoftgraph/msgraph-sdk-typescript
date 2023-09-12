@@ -1,5 +1,5 @@
-import {ValueType} from './valueType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ValueType } from './valueType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Parameter extends AdditionalDataHolder, Parsable {
     /**

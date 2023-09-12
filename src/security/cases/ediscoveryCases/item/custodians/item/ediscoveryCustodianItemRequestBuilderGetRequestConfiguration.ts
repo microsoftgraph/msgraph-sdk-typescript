@@ -1,5 +1,5 @@
-import {EdiscoveryCustodianItemRequestBuilderGetQueryParameters} from './ediscoveryCustodianItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EdiscoveryCustodianItemRequestBuilderGetQueryParameters } from './ediscoveryCustodianItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryCustodianItemRequestBuilderGetRequestConfiguration {
     /**

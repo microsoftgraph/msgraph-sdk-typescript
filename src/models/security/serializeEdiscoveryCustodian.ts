@@ -1,14 +1,14 @@
-import type {EdiscoveryCustodian} from './ediscoveryCustodian';
-import type {EdiscoveryIndexOperation} from './ediscoveryIndexOperation';
-import {serializeDataSourceContainer} from './serializeDataSourceContainer';
-import {serializeEdiscoveryIndexOperation} from './serializeEdiscoveryIndexOperation';
-import {serializeSiteSource} from './serializeSiteSource';
-import {serializeUnifiedGroupSource} from './serializeUnifiedGroupSource';
-import {serializeUserSource} from './serializeUserSource';
-import type {SiteSource} from './siteSource';
-import type {UnifiedGroupSource} from './unifiedGroupSource';
-import type {UserSource} from './userSource';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EdiscoveryCustodian } from './ediscoveryCustodian';
+import { type EdiscoveryIndexOperation } from './ediscoveryIndexOperation';
+import { serializeDataSourceContainer } from './serializeDataSourceContainer';
+import { serializeEdiscoveryIndexOperation } from './serializeEdiscoveryIndexOperation';
+import { serializeSiteSource } from './serializeSiteSource';
+import { serializeUnifiedGroupSource } from './serializeUnifiedGroupSource';
+import { serializeUserSource } from './serializeUserSource';
+import { type SiteSource } from './siteSource';
+import { type UnifiedGroupSource } from './unifiedGroupSource';
+import { type UserSource } from './userSource';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoveryCustodian(writer: SerializationWriter, ediscoveryCustodian: EdiscoveryCustodian | undefined = {} as EdiscoveryCustodian) : void {
         serializeDataSourceContainer(writer, ediscoveryCustodian)

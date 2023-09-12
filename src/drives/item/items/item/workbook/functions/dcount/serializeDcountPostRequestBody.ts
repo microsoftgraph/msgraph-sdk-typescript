@@ -1,7 +1,7 @@
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {DcountPostRequestBody} from './dcountPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type DcountPostRequestBody } from './dcountPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDcountPostRequestBody(writer: SerializationWriter, dcountPostRequestBody: DcountPostRequestBody | undefined = {} as DcountPostRequestBody) : void {
         writer.writeObjectValue<Json>("criteria", dcountPostRequestBody.criteria, serializeJson);

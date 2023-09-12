@@ -1,7 +1,7 @@
-import {deserializeIntoCaseEscaped} from './deserializeIntoCaseEscaped';
-import {deserializeIntoEdiscoveryCase} from './deserializeIntoEdiscoveryCase';
-import {CaseEscaped, EdiscoveryCase} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCaseEscaped } from './deserializeIntoCaseEscaped';
+import { deserializeIntoEdiscoveryCase } from './deserializeIntoEdiscoveryCase';
+import { type CaseEscaped, type EdiscoveryCase } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCaseEscapedFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

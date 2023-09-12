@@ -1,7 +1,7 @@
-import type {DirectoryObject} from './directoryObject';
-import type {Extension} from './extension';
-import type {ScopedRoleMembership} from './scopedRoleMembership';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DirectoryObject } from './directoryObject';
+import { type Extension } from './extension';
+import { type ScopedRoleMembership } from './scopedRoleMembership';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AdministrativeUnit extends DirectoryObject, Parsable {
     /**
@@ -9,7 +9,7 @@ export interface AdministrativeUnit extends DirectoryObject, Parsable {
      */
     description?: string | undefined;
     /**
-     * Display name for the administrative unit. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * Display name for the administrative unit. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.
      */
     displayName?: string | undefined;
     /**

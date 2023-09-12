@@ -1,16 +1,15 @@
-import {createMessageRuleFromDiscriminatorValue} from '../../../../../models/createMessageRuleFromDiscriminatorValue';
-import {deserializeIntoMessageRule} from '../../../../../models/deserializeIntoMessageRule';
-import type {MessageRule} from '../../../../../models/messageRule';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeMessageRule} from '../../../../../models/serializeMessageRule';
-import {MessageRuleItemRequestBuilderDeleteRequestConfiguration} from './messageRuleItemRequestBuilderDeleteRequestConfiguration';
-import {MessageRuleItemRequestBuilderGetRequestConfiguration} from './messageRuleItemRequestBuilderGetRequestConfiguration';
-import {MessageRuleItemRequestBuilderPatchRequestConfiguration} from './messageRuleItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMessageRuleFromDiscriminatorValue } from '../../../../../models/createMessageRuleFromDiscriminatorValue';
+import { deserializeIntoMessageRule } from '../../../../../models/deserializeIntoMessageRule';
+import { type MessageRule } from '../../../../../models/messageRule';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeMessageRule } from '../../../../../models/serializeMessageRule';
+import { type MessageRuleItemRequestBuilderDeleteRequestConfiguration } from './messageRuleItemRequestBuilderDeleteRequestConfiguration';
+import { type MessageRuleItemRequestBuilderGetRequestConfiguration } from './messageRuleItemRequestBuilderGetRequestConfiguration';
+import { type MessageRuleItemRequestBuilderPatchRequestConfiguration } from './messageRuleItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.

@@ -1,16 +1,15 @@
-import {createPrintUsageByUserFromDiscriminatorValue} from '../../../models/createPrintUsageByUserFromDiscriminatorValue';
-import {deserializeIntoPrintUsageByUser} from '../../../models/deserializeIntoPrintUsageByUser';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {PrintUsageByUser} from '../../../models/printUsageByUser';
-import {serializePrintUsageByUser} from '../../../models/serializePrintUsageByUser';
-import {PrintUsageByUserItemRequestBuilderDeleteRequestConfiguration} from './printUsageByUserItemRequestBuilderDeleteRequestConfiguration';
-import {PrintUsageByUserItemRequestBuilderGetRequestConfiguration} from './printUsageByUserItemRequestBuilderGetRequestConfiguration';
-import {PrintUsageByUserItemRequestBuilderPatchRequestConfiguration} from './printUsageByUserItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPrintUsageByUserFromDiscriminatorValue } from '../../../models/createPrintUsageByUserFromDiscriminatorValue';
+import { deserializeIntoPrintUsageByUser } from '../../../models/deserializeIntoPrintUsageByUser';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type PrintUsageByUser } from '../../../models/printUsageByUser';
+import { serializePrintUsageByUser } from '../../../models/serializePrintUsageByUser';
+import { type PrintUsageByUserItemRequestBuilderDeleteRequestConfiguration } from './printUsageByUserItemRequestBuilderDeleteRequestConfiguration';
+import { type PrintUsageByUserItemRequestBuilderGetRequestConfiguration } from './printUsageByUserItemRequestBuilderGetRequestConfiguration';
+import { type PrintUsageByUserItemRequestBuilderPatchRequestConfiguration } from './printUsageByUserItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.

@@ -1,6 +1,6 @@
-import {deserializeIntoLogicAppTriggerEndpointConfiguration} from './deserializeIntoLogicAppTriggerEndpointConfiguration';
-import {LogicAppTriggerEndpointConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoLogicAppTriggerEndpointConfiguration } from './deserializeIntoLogicAppTriggerEndpointConfiguration';
+import { type LogicAppTriggerEndpointConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createLogicAppTriggerEndpointConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

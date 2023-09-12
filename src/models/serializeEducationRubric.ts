@@ -1,16 +1,16 @@
-import type {EducationAssignmentGradeType} from './educationAssignmentGradeType';
-import type {EducationItemBody} from './educationItemBody';
-import type {EducationRubric} from './educationRubric';
-import type {IdentitySet} from './identitySet';
-import type {RubricLevel} from './rubricLevel';
-import type {RubricQuality} from './rubricQuality';
-import {serializeEducationAssignmentGradeType} from './serializeEducationAssignmentGradeType';
-import {serializeEducationItemBody} from './serializeEducationItemBody';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeRubricLevel} from './serializeRubricLevel';
-import {serializeRubricQuality} from './serializeRubricQuality';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EducationAssignmentGradeType } from './educationAssignmentGradeType';
+import { type EducationItemBody } from './educationItemBody';
+import { type EducationRubric } from './educationRubric';
+import { type IdentitySet } from './identitySet';
+import { type RubricLevel } from './rubricLevel';
+import { type RubricQuality } from './rubricQuality';
+import { serializeEducationAssignmentGradeType } from './serializeEducationAssignmentGradeType';
+import { serializeEducationItemBody } from './serializeEducationItemBody';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeRubricLevel } from './serializeRubricLevel';
+import { serializeRubricQuality } from './serializeRubricQuality';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEducationRubric(writer: SerializationWriter, educationRubric: EducationRubric | undefined = {} as EducationRubric) : void {
         serializeEntity(writer, educationRubric)

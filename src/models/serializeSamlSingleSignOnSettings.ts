@@ -1,5 +1,5 @@
-import type {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SamlSingleSignOnSettings } from './samlSingleSignOnSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSamlSingleSignOnSettings(writer: SerializationWriter, samlSingleSignOnSettings: SamlSingleSignOnSettings | undefined = {} as SamlSingleSignOnSettings) : void {
         writer.writeStringValue("@odata.type", samlSingleSignOnSettings.odataType);

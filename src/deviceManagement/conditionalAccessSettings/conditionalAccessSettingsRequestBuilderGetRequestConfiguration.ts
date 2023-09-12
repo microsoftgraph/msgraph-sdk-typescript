@@ -1,5 +1,5 @@
-import {ConditionalAccessSettingsRequestBuilderGetQueryParameters} from './conditionalAccessSettingsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessSettingsRequestBuilderGetQueryParameters } from './conditionalAccessSettingsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessSettingsRequestBuilderGetRequestConfiguration {
     /**

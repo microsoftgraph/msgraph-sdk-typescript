@@ -1,8 +1,7 @@
-import type {AccessReviewApplyAction} from './accessReviewApplyAction';
-import type {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
-import type {PatternedRecurrence} from './patternedRecurrence';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessReviewApplyAction } from './accessReviewApplyAction';
+import { type AccessReviewRecommendationInsightSetting } from './accessReviewRecommendationInsightSetting';
+import { type PatternedRecurrence } from './patternedRecurrence';
+import { Duration, type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewScheduleSettings extends AdditionalDataHolder, Parsable {
     /**

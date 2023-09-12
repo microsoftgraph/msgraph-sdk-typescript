@@ -1,6 +1,6 @@
-import {deserializeIntoDeltaPostRequestBody} from './deserializeIntoDeltaPostRequestBody';
-import {DeltaPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeltaPostRequestBody } from './deserializeIntoDeltaPostRequestBody';
+import { type DeltaPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeltaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

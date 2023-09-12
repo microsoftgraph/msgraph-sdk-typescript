@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import type {TaskProcessingResult} from './taskProcessingResult';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from '../baseCollectionPaginationCountResponse';
+import { type TaskProcessingResult } from './taskProcessingResult';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TaskProcessingResultCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

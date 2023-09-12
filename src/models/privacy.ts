@@ -1,5 +1,5 @@
-import type {SubjectRightsRequest} from './subjectRightsRequest';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type SubjectRightsRequest } from './subjectRightsRequest';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Privacy extends AdditionalDataHolder, Parsable {
     /**

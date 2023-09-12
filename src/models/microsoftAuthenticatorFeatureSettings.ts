@@ -1,5 +1,5 @@
-import type {AuthenticationMethodFeatureConfiguration} from './authenticationMethodFeatureConfiguration';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodFeatureConfiguration } from './authenticationMethodFeatureConfiguration';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MicrosoftAuthenticatorFeatureSettings extends AdditionalDataHolder, Parsable {
     /**

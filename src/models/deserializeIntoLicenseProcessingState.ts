@@ -1,5 +1,5 @@
-import type {LicenseProcessingState} from './licenseProcessingState';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type LicenseProcessingState } from './licenseProcessingState';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLicenseProcessingState(licenseProcessingState: LicenseProcessingState | undefined = {} as LicenseProcessingState) : Record<string, (node: ParseNode) => void> {
     return {

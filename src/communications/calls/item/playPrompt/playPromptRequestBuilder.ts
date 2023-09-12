@@ -1,17 +1,16 @@
-import {createPlayPromptOperationFromDiscriminatorValue} from '../../../../models/createPlayPromptOperationFromDiscriminatorValue';
-import {deserializeIntoPlayPromptOperation} from '../../../../models/deserializeIntoPlayPromptOperation';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {PlayPromptOperation} from '../../../../models/playPromptOperation';
-import {serializePlayPromptOperation} from '../../../../models/serializePlayPromptOperation';
-import {deserializeIntoPlayPromptPostRequestBody} from './deserializeIntoPlayPromptPostRequestBody';
-import type {PlayPromptPostRequestBody} from './playPromptPostRequestBody';
-import {PlayPromptRequestBuilderPostRequestConfiguration} from './playPromptRequestBuilderPostRequestConfiguration';
-import {serializePlayPromptPostRequestBody} from './serializePlayPromptPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPlayPromptOperationFromDiscriminatorValue } from '../../../../models/createPlayPromptOperationFromDiscriminatorValue';
+import { deserializeIntoPlayPromptOperation } from '../../../../models/deserializeIntoPlayPromptOperation';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type PlayPromptOperation } from '../../../../models/playPromptOperation';
+import { serializePlayPromptOperation } from '../../../../models/serializePlayPromptOperation';
+import { deserializeIntoPlayPromptPostRequestBody } from './deserializeIntoPlayPromptPostRequestBody';
+import { type PlayPromptPostRequestBody } from './playPromptPostRequestBody';
+import { type PlayPromptRequestBuilderPostRequestConfiguration } from './playPromptRequestBuilderPostRequestConfiguration';
+import { serializePlayPromptPostRequestBody } from './serializePlayPromptPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the playPrompt method.

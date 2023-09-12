@@ -1,9 +1,9 @@
-import {createShiftItemFromDiscriminatorValue} from './createShiftItemFromDiscriminatorValue';
-import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTrackedEntity';
-import {serializeShiftItem} from './serializeShiftItem';
-import type {Shift} from './shift';
-import type {ShiftItem} from './shiftItem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createShiftItemFromDiscriminatorValue } from './createShiftItemFromDiscriminatorValue';
+import { deserializeIntoChangeTrackedEntity } from './deserializeIntoChangeTrackedEntity';
+import { serializeShiftItem } from './serializeShiftItem';
+import { type Shift } from './shift';
+import { type ShiftItem } from './shiftItem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoShift(shift: Shift | undefined = {} as Shift) : Record<string, (node: ParseNode) => void> {
     return {

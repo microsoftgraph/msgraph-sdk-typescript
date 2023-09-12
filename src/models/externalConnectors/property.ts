@@ -1,6 +1,6 @@
-import {Label} from './label';
-import {PropertyType} from './propertyType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { Label } from './label';
+import { PropertyType } from './propertyType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Property extends AdditionalDataHolder, Parsable {
     /**
@@ -28,7 +28,7 @@ export interface Property extends AdditionalDataHolder, Parsable {
      */
     isSearchable?: boolean | undefined;
     /**
-     * Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (e.g. better relevance). The possible values are: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName, fileExtension, unknownFutureValue. Optional.
+     * Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (e.g. better relevance). The possible values are: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName, fileExtension, iconUrl, unknownFutureValue. Optional.
      */
     labels?: Label[] | undefined;
     /**

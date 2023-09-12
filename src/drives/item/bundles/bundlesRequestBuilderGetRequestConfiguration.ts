@@ -1,5 +1,5 @@
-import {BundlesRequestBuilderGetQueryParameters} from './bundlesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BundlesRequestBuilderGetQueryParameters } from './bundlesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BundlesRequestBuilderGetRequestConfiguration {
     /**

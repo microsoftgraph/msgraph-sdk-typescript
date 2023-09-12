@@ -1,12 +1,12 @@
-import type {Entity} from './entity';
-import type {IdentitySet} from './identitySet';
-import {ThreatAssessmentContentType} from './threatAssessmentContentType';
-import {ThreatAssessmentRequestSource} from './threatAssessmentRequestSource';
-import type {ThreatAssessmentResult} from './threatAssessmentResult';
-import {ThreatAssessmentStatus} from './threatAssessmentStatus';
-import {ThreatCategory} from './threatCategory';
-import {ThreatExpectedAssessment} from './threatExpectedAssessment';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type IdentitySet } from './identitySet';
+import { ThreatAssessmentContentType } from './threatAssessmentContentType';
+import { ThreatAssessmentRequestSource } from './threatAssessmentRequestSource';
+import { type ThreatAssessmentResult } from './threatAssessmentResult';
+import { ThreatAssessmentStatus } from './threatAssessmentStatus';
+import { ThreatCategory } from './threatCategory';
+import { ThreatExpectedAssessment } from './threatExpectedAssessment';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ThreatAssessmentRequest extends Entity, Parsable {
     /**

@@ -1,19 +1,18 @@
-import {SharedWithChannelTeamInfoCollectionResponse} from '../../../../../../models/';
-import {createSharedWithChannelTeamInfoCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createSharedWithChannelTeamInfoCollectionResponseFromDiscriminatorValue';
-import {createSharedWithChannelTeamInfoFromDiscriminatorValue} from '../../../../../../models/createSharedWithChannelTeamInfoFromDiscriminatorValue';
-import {deserializeIntoSharedWithChannelTeamInfo} from '../../../../../../models/deserializeIntoSharedWithChannelTeamInfo';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeSharedWithChannelTeamInfo} from '../../../../../../models/serializeSharedWithChannelTeamInfo';
-import type {SharedWithChannelTeamInfo} from '../../../../../../models/sharedWithChannelTeamInfo';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {SharedWithChannelTeamInfoItemRequestBuilder} from './item/sharedWithChannelTeamInfoItemRequestBuilder';
-import {SharedWithTeamsRequestBuilderGetRequestConfiguration} from './sharedWithTeamsRequestBuilderGetRequestConfiguration';
-import {SharedWithTeamsRequestBuilderPostRequestConfiguration} from './sharedWithTeamsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SharedWithChannelTeamInfoCollectionResponse } from '../../../../../../models/';
+import { createSharedWithChannelTeamInfoCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createSharedWithChannelTeamInfoCollectionResponseFromDiscriminatorValue';
+import { createSharedWithChannelTeamInfoFromDiscriminatorValue } from '../../../../../../models/createSharedWithChannelTeamInfoFromDiscriminatorValue';
+import { deserializeIntoSharedWithChannelTeamInfo } from '../../../../../../models/deserializeIntoSharedWithChannelTeamInfo';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeSharedWithChannelTeamInfo } from '../../../../../../models/serializeSharedWithChannelTeamInfo';
+import { type SharedWithChannelTeamInfo } from '../../../../../../models/sharedWithChannelTeamInfo';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { SharedWithChannelTeamInfoItemRequestBuilder } from './item/sharedWithChannelTeamInfoItemRequestBuilder';
+import { type SharedWithTeamsRequestBuilderGetRequestConfiguration } from './sharedWithTeamsRequestBuilderGetRequestConfiguration';
+import { type SharedWithTeamsRequestBuilderPostRequestConfiguration } from './sharedWithTeamsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.

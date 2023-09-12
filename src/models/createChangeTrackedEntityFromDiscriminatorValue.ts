@@ -1,18 +1,18 @@
-import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTrackedEntity';
-import {deserializeIntoOfferShiftRequest} from './deserializeIntoOfferShiftRequest';
-import {deserializeIntoOpenShift} from './deserializeIntoOpenShift';
-import {deserializeIntoOpenShiftChangeRequest} from './deserializeIntoOpenShiftChangeRequest';
-import {deserializeIntoScheduleChangeRequest} from './deserializeIntoScheduleChangeRequest';
-import {deserializeIntoSchedulingGroup} from './deserializeIntoSchedulingGroup';
-import {deserializeIntoShift} from './deserializeIntoShift';
-import {deserializeIntoShiftPreferences} from './deserializeIntoShiftPreferences';
-import {deserializeIntoSwapShiftsChangeRequest} from './deserializeIntoSwapShiftsChangeRequest';
-import {deserializeIntoTimeOff} from './deserializeIntoTimeOff';
-import {deserializeIntoTimeOffReason} from './deserializeIntoTimeOffReason';
-import {deserializeIntoTimeOffRequest} from './deserializeIntoTimeOffRequest';
-import {deserializeIntoWorkforceIntegration} from './deserializeIntoWorkforceIntegration';
-import {ChangeTrackedEntity, OfferShiftRequest, OpenShift, OpenShiftChangeRequest, ScheduleChangeRequest, SchedulingGroup, Shift, ShiftPreferences, SwapShiftsChangeRequest, TimeOff, TimeOffReason, TimeOffRequest, WorkforceIntegration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoChangeTrackedEntity } from './deserializeIntoChangeTrackedEntity';
+import { deserializeIntoOfferShiftRequest } from './deserializeIntoOfferShiftRequest';
+import { deserializeIntoOpenShift } from './deserializeIntoOpenShift';
+import { deserializeIntoOpenShiftChangeRequest } from './deserializeIntoOpenShiftChangeRequest';
+import { deserializeIntoScheduleChangeRequest } from './deserializeIntoScheduleChangeRequest';
+import { deserializeIntoSchedulingGroup } from './deserializeIntoSchedulingGroup';
+import { deserializeIntoShift } from './deserializeIntoShift';
+import { deserializeIntoShiftPreferences } from './deserializeIntoShiftPreferences';
+import { deserializeIntoSwapShiftsChangeRequest } from './deserializeIntoSwapShiftsChangeRequest';
+import { deserializeIntoTimeOff } from './deserializeIntoTimeOff';
+import { deserializeIntoTimeOffReason } from './deserializeIntoTimeOffReason';
+import { deserializeIntoTimeOffRequest } from './deserializeIntoTimeOffRequest';
+import { deserializeIntoWorkforceIntegration } from './deserializeIntoWorkforceIntegration';
+import { type ChangeTrackedEntity, type OfferShiftRequest, type OpenShift, type OpenShiftChangeRequest, type ScheduleChangeRequest, type SchedulingGroup, type Shift, type ShiftPreferences, type SwapShiftsChangeRequest, type TimeOff, type TimeOffReason, type TimeOffRequest, type WorkforceIntegration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createChangeTrackedEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

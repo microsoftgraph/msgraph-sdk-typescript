@@ -1,21 +1,20 @@
-import {IdentityUserFlowAttributeAssignmentCollectionResponse} from '../../../../models/';
-import {createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue';
-import {createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue} from '../../../../models/createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue';
-import {deserializeIntoIdentityUserFlowAttributeAssignment} from '../../../../models/deserializeIntoIdentityUserFlowAttributeAssignment';
-import type {IdentityUserFlowAttributeAssignment} from '../../../../models/identityUserFlowAttributeAssignment';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeIdentityUserFlowAttributeAssignment} from '../../../../models/serializeIdentityUserFlowAttributeAssignment';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetOrderRequestBuilder} from './getOrder/getOrderRequestBuilder';
-import {IdentityUserFlowAttributeAssignmentItemRequestBuilder} from './item/identityUserFlowAttributeAssignmentItemRequestBuilder';
-import {SetOrderRequestBuilder} from './setOrder/setOrderRequestBuilder';
-import {UserAttributeAssignmentsRequestBuilderGetRequestConfiguration} from './userAttributeAssignmentsRequestBuilderGetRequestConfiguration';
-import {UserAttributeAssignmentsRequestBuilderPostRequestConfiguration} from './userAttributeAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentityUserFlowAttributeAssignmentCollectionResponse } from '../../../../models/';
+import { createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue } from '../../../../models/createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue';
+import { createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue } from '../../../../models/createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue';
+import { deserializeIntoIdentityUserFlowAttributeAssignment } from '../../../../models/deserializeIntoIdentityUserFlowAttributeAssignment';
+import { type IdentityUserFlowAttributeAssignment } from '../../../../models/identityUserFlowAttributeAssignment';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeIdentityUserFlowAttributeAssignment } from '../../../../models/serializeIdentityUserFlowAttributeAssignment';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { GetOrderRequestBuilder } from './getOrder/getOrderRequestBuilder';
+import { IdentityUserFlowAttributeAssignmentItemRequestBuilder } from './item/identityUserFlowAttributeAssignmentItemRequestBuilder';
+import { SetOrderRequestBuilder } from './setOrder/setOrderRequestBuilder';
+import { type UserAttributeAssignmentsRequestBuilderGetRequestConfiguration } from './userAttributeAssignmentsRequestBuilderGetRequestConfiguration';
+import { type UserAttributeAssignmentsRequestBuilderPostRequestConfiguration } from './userAttributeAssignmentsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.

@@ -1,19 +1,19 @@
-import {createEducationOutcomeFromDiscriminatorValue} from './createEducationOutcomeFromDiscriminatorValue';
-import {createEducationSubmissionRecipientFromDiscriminatorValue} from './createEducationSubmissionRecipientFromDiscriminatorValue';
-import {createEducationSubmissionResourceFromDiscriminatorValue} from './createEducationSubmissionResourceFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {EducationOutcome} from './educationOutcome';
-import type {EducationSubmission} from './educationSubmission';
-import type {EducationSubmissionRecipient} from './educationSubmissionRecipient';
-import type {EducationSubmissionResource} from './educationSubmissionResource';
-import {EducationSubmissionStatus} from './educationSubmissionStatus';
-import type {IdentitySet} from './identitySet';
-import {serializeEducationOutcome} from './serializeEducationOutcome';
-import {serializeEducationSubmissionRecipient} from './serializeEducationSubmissionRecipient';
-import {serializeEducationSubmissionResource} from './serializeEducationSubmissionResource';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createEducationOutcomeFromDiscriminatorValue } from './createEducationOutcomeFromDiscriminatorValue';
+import { createEducationSubmissionRecipientFromDiscriminatorValue } from './createEducationSubmissionRecipientFromDiscriminatorValue';
+import { createEducationSubmissionResourceFromDiscriminatorValue } from './createEducationSubmissionResourceFromDiscriminatorValue';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type EducationOutcome } from './educationOutcome';
+import { type EducationSubmission } from './educationSubmission';
+import { type EducationSubmissionRecipient } from './educationSubmissionRecipient';
+import { type EducationSubmissionResource } from './educationSubmissionResource';
+import { EducationSubmissionStatus } from './educationSubmissionStatus';
+import { type IdentitySet } from './identitySet';
+import { serializeEducationOutcome } from './serializeEducationOutcome';
+import { serializeEducationSubmissionRecipient } from './serializeEducationSubmissionRecipient';
+import { serializeEducationSubmissionResource } from './serializeEducationSubmissionResource';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationSubmission(educationSubmission: EducationSubmission | undefined = {} as EducationSubmission) : Record<string, (node: ParseNode) => void> {
     return {

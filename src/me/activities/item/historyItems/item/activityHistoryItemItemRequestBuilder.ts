@@ -1,17 +1,16 @@
-import type {ActivityHistoryItem} from '../../../../../models/activityHistoryItem';
-import {createActivityHistoryItemFromDiscriminatorValue} from '../../../../../models/createActivityHistoryItemFromDiscriminatorValue';
-import {deserializeIntoActivityHistoryItem} from '../../../../../models/deserializeIntoActivityHistoryItem';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeActivityHistoryItem} from '../../../../../models/serializeActivityHistoryItem';
-import {ActivityRequestBuilder} from './activity/activityRequestBuilder';
-import {ActivityHistoryItemItemRequestBuilderDeleteRequestConfiguration} from './activityHistoryItemItemRequestBuilderDeleteRequestConfiguration';
-import {ActivityHistoryItemItemRequestBuilderGetRequestConfiguration} from './activityHistoryItemItemRequestBuilderGetRequestConfiguration';
-import {ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration} from './activityHistoryItemItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ActivityHistoryItem } from '../../../../../models/activityHistoryItem';
+import { createActivityHistoryItemFromDiscriminatorValue } from '../../../../../models/createActivityHistoryItemFromDiscriminatorValue';
+import { deserializeIntoActivityHistoryItem } from '../../../../../models/deserializeIntoActivityHistoryItem';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeActivityHistoryItem } from '../../../../../models/serializeActivityHistoryItem';
+import { ActivityRequestBuilder } from './activity/activityRequestBuilder';
+import { type ActivityHistoryItemItemRequestBuilderDeleteRequestConfiguration } from './activityHistoryItemItemRequestBuilderDeleteRequestConfiguration';
+import { type ActivityHistoryItemItemRequestBuilderGetRequestConfiguration } from './activityHistoryItemItemRequestBuilderGetRequestConfiguration';
+import { type ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration } from './activityHistoryItemItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.

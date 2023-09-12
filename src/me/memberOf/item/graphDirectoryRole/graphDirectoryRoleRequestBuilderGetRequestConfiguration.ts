@@ -1,5 +1,5 @@
-import {GraphDirectoryRoleRequestBuilderGetQueryParameters} from './graphDirectoryRoleRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GraphDirectoryRoleRequestBuilderGetQueryParameters } from './graphDirectoryRoleRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GraphDirectoryRoleRequestBuilderGetRequestConfiguration {
     /**

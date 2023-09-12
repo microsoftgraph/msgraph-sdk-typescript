@@ -1,9 +1,9 @@
-import type {AccessPackageCatalog} from './accessPackageCatalog';
-import {AccessPackageRequestState} from './accessPackageRequestState';
-import {AccessPackageRequestType} from './accessPackageRequestType';
-import type {AccessPackageResource} from './accessPackageResource';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessPackageCatalog } from './accessPackageCatalog';
+import { AccessPackageRequestState } from './accessPackageRequestState';
+import { AccessPackageRequestType } from './accessPackageRequestType';
+import { type AccessPackageResource } from './accessPackageResource';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageResourceRequest extends Entity, Parsable {
     /**
@@ -23,7 +23,7 @@ export interface AccessPackageResourceRequest extends Entity, Parsable {
      */
     resource?: AccessPackageResource | undefined;
     /**
-     * The outcome of whether the service was able to add the resource to the catalog.  The value is delivered if the resource was added or removed. Read-only.
+     * The outcome of whether the service was able to add the resource to the catalog.  The value is delivered if the resource was added or removed, and deliveryFailed if it could not be added or removed. Read-only.
      */
     state?: AccessPackageRequestState | undefined;
 }

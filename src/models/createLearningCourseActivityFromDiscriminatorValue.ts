@@ -1,8 +1,8 @@
-import {deserializeIntoLearningAssignment} from './deserializeIntoLearningAssignment';
-import {deserializeIntoLearningCourseActivity} from './deserializeIntoLearningCourseActivity';
-import {deserializeIntoLearningSelfInitiatedCourse} from './deserializeIntoLearningSelfInitiatedCourse';
-import {LearningAssignment, LearningCourseActivity, LearningSelfInitiatedCourse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoLearningAssignment } from './deserializeIntoLearningAssignment';
+import { deserializeIntoLearningCourseActivity } from './deserializeIntoLearningCourseActivity';
+import { deserializeIntoLearningSelfInitiatedCourse } from './deserializeIntoLearningSelfInitiatedCourse';
+import { type LearningAssignment, type LearningCourseActivity, type LearningSelfInitiatedCourse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createLearningCourseActivityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

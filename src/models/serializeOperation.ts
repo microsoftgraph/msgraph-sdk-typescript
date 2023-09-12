@@ -1,7 +1,7 @@
-import type {Operation} from './operation';
-import {OperationStatus} from './operationStatus';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Operation } from './operation';
+import { OperationStatus } from './operationStatus';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOperation(writer: SerializationWriter, operation: Operation | undefined = {} as Operation) : void {
         serializeEntity(writer, operation)

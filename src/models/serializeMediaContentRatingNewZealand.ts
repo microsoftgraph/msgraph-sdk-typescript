@@ -1,7 +1,7 @@
-import type {MediaContentRatingNewZealand} from './mediaContentRatingNewZealand';
-import {RatingNewZealandMoviesType} from './ratingNewZealandMoviesType';
-import {RatingNewZealandTelevisionType} from './ratingNewZealandTelevisionType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MediaContentRatingNewZealand } from './mediaContentRatingNewZealand';
+import { RatingNewZealandMoviesType } from './ratingNewZealandMoviesType';
+import { RatingNewZealandTelevisionType } from './ratingNewZealandTelevisionType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMediaContentRatingNewZealand(writer: SerializationWriter, mediaContentRatingNewZealand: MediaContentRatingNewZealand | undefined = {} as MediaContentRatingNewZealand) : void {
         writer.writeEnumValue<RatingNewZealandMoviesType>("movieRating", mediaContentRatingNewZealand.movieRating);

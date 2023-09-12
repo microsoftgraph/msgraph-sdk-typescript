@@ -1,7 +1,7 @@
-import type {OnPremisesConditionalAccessSettings} from './onPremisesConditionalAccessSettings';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type OnPremisesConditionalAccessSettings } from './onPremisesConditionalAccessSettings';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeOnPremisesConditionalAccessSettings(writer: SerializationWriter, onPremisesConditionalAccessSettings: OnPremisesConditionalAccessSettings | undefined = {} as OnPremisesConditionalAccessSettings) : void {
         serializeEntity(writer, onPremisesConditionalAccessSettings)

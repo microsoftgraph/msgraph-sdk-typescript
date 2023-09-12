@@ -1,12 +1,12 @@
-import {deserializeIntoAppleManagedIdentityProvider} from './deserializeIntoAppleManagedIdentityProvider';
-import {deserializeIntoBuiltInIdentityProvider} from './deserializeIntoBuiltInIdentityProvider';
-import {deserializeIntoIdentityProviderBase} from './deserializeIntoIdentityProviderBase';
-import {deserializeIntoInternalDomainFederation} from './deserializeIntoInternalDomainFederation';
-import {deserializeIntoSamlOrWsFedExternalDomainFederation} from './deserializeIntoSamlOrWsFedExternalDomainFederation';
-import {deserializeIntoSamlOrWsFedProvider} from './deserializeIntoSamlOrWsFedProvider';
-import {deserializeIntoSocialIdentityProvider} from './deserializeIntoSocialIdentityProvider';
-import {AppleManagedIdentityProvider, BuiltInIdentityProvider, IdentityProviderBase, InternalDomainFederation, SamlOrWsFedExternalDomainFederation, SamlOrWsFedProvider, SocialIdentityProvider} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAppleManagedIdentityProvider } from './deserializeIntoAppleManagedIdentityProvider';
+import { deserializeIntoBuiltInIdentityProvider } from './deserializeIntoBuiltInIdentityProvider';
+import { deserializeIntoIdentityProviderBase } from './deserializeIntoIdentityProviderBase';
+import { deserializeIntoInternalDomainFederation } from './deserializeIntoInternalDomainFederation';
+import { deserializeIntoSamlOrWsFedExternalDomainFederation } from './deserializeIntoSamlOrWsFedExternalDomainFederation';
+import { deserializeIntoSamlOrWsFedProvider } from './deserializeIntoSamlOrWsFedProvider';
+import { deserializeIntoSocialIdentityProvider } from './deserializeIntoSocialIdentityProvider';
+import { type AppleManagedIdentityProvider, type BuiltInIdentityProvider, type IdentityProviderBase, type InternalDomainFederation, type SamlOrWsFedExternalDomainFederation, type SamlOrWsFedProvider, type SocialIdentityProvider } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIdentityProviderBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

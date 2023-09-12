@@ -1,12 +1,11 @@
-import {WorkbookWorksheet} from '../../../../../../../../models/';
-import {createWorkbookWorksheetFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {WorksheetRequestBuilderGetRequestConfiguration} from './worksheetRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookWorksheet } from '../../../../../../../../models/';
+import { createWorkbookWorksheetFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { type WorksheetRequestBuilderGetRequestConfiguration } from './worksheetRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the worksheet property of the microsoft.graph.workbookNamedItem entity.

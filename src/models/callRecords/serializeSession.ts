@@ -1,13 +1,13 @@
-import {serializeEntity} from '../serializeEntity';
-import type {Endpoint} from './endpoint';
-import type {FailureInfo} from './failureInfo';
-import {Modality} from './modality';
-import type {Segment} from './segment';
-import {serializeEndpoint} from './serializeEndpoint';
-import {serializeFailureInfo} from './serializeFailureInfo';
-import {serializeSegment} from './serializeSegment';
-import type {Session} from './session';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from '../serializeEntity';
+import { type Endpoint } from './endpoint';
+import { type FailureInfo } from './failureInfo';
+import { Modality } from './modality';
+import { type Segment } from './segment';
+import { serializeEndpoint } from './serializeEndpoint';
+import { serializeFailureInfo } from './serializeFailureInfo';
+import { serializeSegment } from './serializeSegment';
+import { type Session } from './session';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSession(writer: SerializationWriter, session: Session | undefined = {} as Session) : void {
         serializeEntity(writer, session)

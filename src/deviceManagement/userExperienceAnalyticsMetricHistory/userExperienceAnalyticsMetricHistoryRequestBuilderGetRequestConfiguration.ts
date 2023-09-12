@@ -1,5 +1,5 @@
-import {UserExperienceAnalyticsMetricHistoryRequestBuilderGetQueryParameters} from './userExperienceAnalyticsMetricHistoryRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsMetricHistoryRequestBuilderGetQueryParameters } from './userExperienceAnalyticsMetricHistoryRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsMetricHistoryRequestBuilderGetRequestConfiguration {
     /**

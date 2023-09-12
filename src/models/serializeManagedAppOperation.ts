@@ -1,6 +1,6 @@
-import type {ManagedAppOperation} from './managedAppOperation';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ManagedAppOperation } from './managedAppOperation';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeManagedAppOperation(writer: SerializationWriter, managedAppOperation: ManagedAppOperation | undefined = {} as ManagedAppOperation) : void {
         serializeEntity(writer, managedAppOperation)

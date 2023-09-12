@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeUserExperienceAnalyticsAppHealthDeviceModelPerformance} from './serializeUserExperienceAnalyticsAppHealthDeviceModelPerformance';
-import type {UserExperienceAnalyticsAppHealthDeviceModelPerformance} from './userExperienceAnalyticsAppHealthDeviceModelPerformance';
-import type {UserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionResponse} from './userExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeUserExperienceAnalyticsAppHealthDeviceModelPerformance } from './serializeUserExperienceAnalyticsAppHealthDeviceModelPerformance';
+import { type UserExperienceAnalyticsAppHealthDeviceModelPerformance } from './userExperienceAnalyticsAppHealthDeviceModelPerformance';
+import { type UserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionResponse } from './userExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionResponse: UserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionResponse | undefined = {} as UserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionResponse)

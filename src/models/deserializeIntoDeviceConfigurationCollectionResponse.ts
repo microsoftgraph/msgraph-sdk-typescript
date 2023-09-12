@@ -1,9 +1,9 @@
-import {createDeviceConfigurationFromDiscriminatorValue} from './createDeviceConfigurationFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {DeviceConfiguration} from './deviceConfiguration';
-import type {DeviceConfigurationCollectionResponse} from './deviceConfigurationCollectionResponse';
-import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDeviceConfigurationFromDiscriminatorValue } from './createDeviceConfigurationFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type DeviceConfiguration } from './deviceConfiguration';
+import { type DeviceConfigurationCollectionResponse } from './deviceConfigurationCollectionResponse';
+import { serializeDeviceConfiguration } from './serializeDeviceConfiguration';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceConfigurationCollectionResponse(deviceConfigurationCollectionResponse: DeviceConfigurationCollectionResponse | undefined = {} as DeviceConfigurationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

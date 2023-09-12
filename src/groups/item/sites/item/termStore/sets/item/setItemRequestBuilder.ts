@@ -1,20 +1,19 @@
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {createSetFromDiscriminatorValue} from '../../../../../../../models/termStore/createSetFromDiscriminatorValue';
-import {deserializeIntoSet} from '../../../../../../../models/termStore/deserializeIntoSet';
-import {serializeSet} from '../../../../../../../models/termStore/serializeSet';
-import type {Set} from '../../../../../../../models/termStore/set';
-import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {ParentGroupRequestBuilder} from './parentGroup/parentGroupRequestBuilder';
-import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
-import {SetItemRequestBuilderDeleteRequestConfiguration} from './setItemRequestBuilderDeleteRequestConfiguration';
-import {SetItemRequestBuilderGetRequestConfiguration} from './setItemRequestBuilderGetRequestConfiguration';
-import {SetItemRequestBuilderPatchRequestConfiguration} from './setItemRequestBuilderPatchRequestConfiguration';
-import {TermsRequestBuilder} from './terms/termsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createSetFromDiscriminatorValue } from '../../../../../../../models/termStore/createSetFromDiscriminatorValue';
+import { deserializeIntoSet } from '../../../../../../../models/termStore/deserializeIntoSet';
+import { serializeSet } from '../../../../../../../models/termStore/serializeSet';
+import { type Set } from '../../../../../../../models/termStore/set';
+import { ChildrenRequestBuilder } from './children/childrenRequestBuilder';
+import { ParentGroupRequestBuilder } from './parentGroup/parentGroupRequestBuilder';
+import { RelationsRequestBuilder } from './relations/relationsRequestBuilder';
+import { type SetItemRequestBuilderDeleteRequestConfiguration } from './setItemRequestBuilderDeleteRequestConfiguration';
+import { type SetItemRequestBuilderGetRequestConfiguration } from './setItemRequestBuilderGetRequestConfiguration';
+import { type SetItemRequestBuilderPatchRequestConfiguration } from './setItemRequestBuilderPatchRequestConfiguration';
+import { TermsRequestBuilder } from './terms/termsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.

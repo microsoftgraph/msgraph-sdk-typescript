@@ -1,5 +1,5 @@
-import {Fido2RestrictionEnforcementType} from './fido2RestrictionEnforcementType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { Fido2RestrictionEnforcementType } from './fido2RestrictionEnforcementType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Fido2KeyRestrictions extends AdditionalDataHolder, Parsable {
     /**

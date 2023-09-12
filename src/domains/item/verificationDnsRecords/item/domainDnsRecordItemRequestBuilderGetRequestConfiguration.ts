@@ -1,5 +1,5 @@
-import {DomainDnsRecordItemRequestBuilderGetQueryParameters} from './domainDnsRecordItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DomainDnsRecordItemRequestBuilderGetQueryParameters } from './domainDnsRecordItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DomainDnsRecordItemRequestBuilderGetRequestConfiguration {
     /**

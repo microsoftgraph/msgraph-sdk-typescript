@@ -1,16 +1,16 @@
-import type {AutomaticRepliesSetting} from './automaticRepliesSetting';
-import {createAutomaticRepliesSettingFromDiscriminatorValue} from './createAutomaticRepliesSettingFromDiscriminatorValue';
-import {createLocaleInfoFromDiscriminatorValue} from './createLocaleInfoFromDiscriminatorValue';
-import {createWorkingHoursFromDiscriminatorValue} from './createWorkingHoursFromDiscriminatorValue';
-import {DelegateMeetingMessageDeliveryOptions} from './delegateMeetingMessageDeliveryOptions';
-import type {LocaleInfo} from './localeInfo';
-import type {MailboxSettings} from './mailboxSettings';
-import {serializeAutomaticRepliesSetting} from './serializeAutomaticRepliesSetting';
-import {serializeLocaleInfo} from './serializeLocaleInfo';
-import {serializeWorkingHours} from './serializeWorkingHours';
-import {UserPurpose} from './userPurpose';
-import type {WorkingHours} from './workingHours';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AutomaticRepliesSetting } from './automaticRepliesSetting';
+import { createAutomaticRepliesSettingFromDiscriminatorValue } from './createAutomaticRepliesSettingFromDiscriminatorValue';
+import { createLocaleInfoFromDiscriminatorValue } from './createLocaleInfoFromDiscriminatorValue';
+import { createWorkingHoursFromDiscriminatorValue } from './createWorkingHoursFromDiscriminatorValue';
+import { DelegateMeetingMessageDeliveryOptions } from './delegateMeetingMessageDeliveryOptions';
+import { type LocaleInfo } from './localeInfo';
+import { type MailboxSettings } from './mailboxSettings';
+import { serializeAutomaticRepliesSetting } from './serializeAutomaticRepliesSetting';
+import { serializeLocaleInfo } from './serializeLocaleInfo';
+import { serializeWorkingHours } from './serializeWorkingHours';
+import { UserPurpose } from './userPurpose';
+import { type WorkingHours } from './workingHours';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMailboxSettings(mailboxSettings: MailboxSettings | undefined = {} as MailboxSettings) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
-import {HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters} from './homeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters } from './homeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface HomeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration {
     /**

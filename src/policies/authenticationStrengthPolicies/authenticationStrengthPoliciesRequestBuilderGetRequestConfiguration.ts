@@ -1,5 +1,5 @@
-import {AuthenticationStrengthPoliciesRequestBuilderGetQueryParameters} from './authenticationStrengthPoliciesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationStrengthPoliciesRequestBuilderGetQueryParameters } from './authenticationStrengthPoliciesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationStrengthPoliciesRequestBuilderGetRequestConfiguration {
     /**

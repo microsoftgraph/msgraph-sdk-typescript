@@ -1,10 +1,10 @@
-import type {ConversationThread} from './conversationThread';
-import type {Post} from './post';
-import type {Recipient} from './recipient';
-import {serializeEntity} from './serializeEntity';
-import {serializePost} from './serializePost';
-import {serializeRecipient} from './serializeRecipient';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConversationThread } from './conversationThread';
+import { type Post } from './post';
+import { type Recipient } from './recipient';
+import { serializeEntity } from './serializeEntity';
+import { serializePost } from './serializePost';
+import { serializeRecipient } from './serializeRecipient';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConversationThread(writer: SerializationWriter, conversationThread: ConversationThread | undefined = {} as ConversationThread) : void {
         serializeEntity(writer, conversationThread)

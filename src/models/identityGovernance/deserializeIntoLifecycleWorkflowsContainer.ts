@@ -1,24 +1,24 @@
-import {createDeletedItemContainerFromDiscriminatorValue} from '../createDeletedItemContainerFromDiscriminatorValue';
-import type {DeletedItemContainer} from '../deletedItemContainer';
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {serializeDeletedItemContainer} from '../serializeDeletedItemContainer';
-import {createCustomTaskExtensionFromDiscriminatorValue} from './createCustomTaskExtensionFromDiscriminatorValue';
-import {createLifecycleManagementSettingsFromDiscriminatorValue} from './createLifecycleManagementSettingsFromDiscriminatorValue';
-import {createTaskDefinitionFromDiscriminatorValue} from './createTaskDefinitionFromDiscriminatorValue';
-import {createWorkflowFromDiscriminatorValue} from './createWorkflowFromDiscriminatorValue';
-import {createWorkflowTemplateFromDiscriminatorValue} from './createWorkflowTemplateFromDiscriminatorValue';
-import type {CustomTaskExtension} from './customTaskExtension';
-import type {LifecycleManagementSettings} from './lifecycleManagementSettings';
-import type {LifecycleWorkflowsContainer} from './lifecycleWorkflowsContainer';
-import {serializeCustomTaskExtension} from './serializeCustomTaskExtension';
-import {serializeLifecycleManagementSettings} from './serializeLifecycleManagementSettings';
-import {serializeTaskDefinition} from './serializeTaskDefinition';
-import {serializeWorkflow} from './serializeWorkflow';
-import {serializeWorkflowTemplate} from './serializeWorkflowTemplate';
-import type {TaskDefinition} from './taskDefinition';
-import type {Workflow} from './workflow';
-import type {WorkflowTemplate} from './workflowTemplate';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDeletedItemContainerFromDiscriminatorValue } from '../createDeletedItemContainerFromDiscriminatorValue';
+import { type DeletedItemContainer } from '../deletedItemContainer';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { serializeDeletedItemContainer } from '../serializeDeletedItemContainer';
+import { createCustomTaskExtensionFromDiscriminatorValue } from './createCustomTaskExtensionFromDiscriminatorValue';
+import { createLifecycleManagementSettingsFromDiscriminatorValue } from './createLifecycleManagementSettingsFromDiscriminatorValue';
+import { createTaskDefinitionFromDiscriminatorValue } from './createTaskDefinitionFromDiscriminatorValue';
+import { createWorkflowFromDiscriminatorValue } from './createWorkflowFromDiscriminatorValue';
+import { createWorkflowTemplateFromDiscriminatorValue } from './createWorkflowTemplateFromDiscriminatorValue';
+import { type CustomTaskExtension } from './customTaskExtension';
+import { type LifecycleManagementSettings } from './lifecycleManagementSettings';
+import { type LifecycleWorkflowsContainer } from './lifecycleWorkflowsContainer';
+import { serializeCustomTaskExtension } from './serializeCustomTaskExtension';
+import { serializeLifecycleManagementSettings } from './serializeLifecycleManagementSettings';
+import { serializeTaskDefinition } from './serializeTaskDefinition';
+import { serializeWorkflow } from './serializeWorkflow';
+import { serializeWorkflowTemplate } from './serializeWorkflowTemplate';
+import { type TaskDefinition } from './taskDefinition';
+import { type Workflow } from './workflow';
+import { type WorkflowTemplate } from './workflowTemplate';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLifecycleWorkflowsContainer(lifecycleWorkflowsContainer: LifecycleWorkflowsContainer | undefined = {} as LifecycleWorkflowsContainer) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,9 +1,9 @@
-import type {ContactFolder} from './contactFolder';
-import type {ContactFolderCollectionResponse} from './contactFolderCollectionResponse';
-import {createContactFolderFromDiscriminatorValue} from './createContactFolderFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeContactFolder} from './serializeContactFolder';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ContactFolder } from './contactFolder';
+import { type ContactFolderCollectionResponse } from './contactFolderCollectionResponse';
+import { createContactFolderFromDiscriminatorValue } from './createContactFolderFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeContactFolder } from './serializeContactFolder';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContactFolderCollectionResponse(contactFolderCollectionResponse: ContactFolderCollectionResponse | undefined = {} as ContactFolderCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

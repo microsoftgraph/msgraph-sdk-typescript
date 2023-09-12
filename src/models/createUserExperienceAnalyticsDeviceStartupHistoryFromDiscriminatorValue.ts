@@ -1,6 +1,6 @@
-import {deserializeIntoUserExperienceAnalyticsDeviceStartupHistory} from './deserializeIntoUserExperienceAnalyticsDeviceStartupHistory';
-import {UserExperienceAnalyticsDeviceStartupHistory} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUserExperienceAnalyticsDeviceStartupHistory } from './deserializeIntoUserExperienceAnalyticsDeviceStartupHistory';
+import { type UserExperienceAnalyticsDeviceStartupHistory } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUserExperienceAnalyticsDeviceStartupHistoryFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

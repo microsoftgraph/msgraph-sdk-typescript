@@ -1,5 +1,5 @@
-import type {UserAgent} from './userAgent';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type UserAgent } from './userAgent';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Endpoint extends AdditionalDataHolder, Parsable {
     /**

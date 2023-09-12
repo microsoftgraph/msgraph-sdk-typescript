@@ -1,8 +1,7 @@
-import type {DeviceConfiguration} from './deviceConfiguration';
-import type {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
-import {SharedPCAllowedAccountType} from './sharedPCAllowedAccountType';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DeviceConfiguration } from './deviceConfiguration';
+import { type SharedPCAccountManagerPolicy } from './sharedPCAccountManagerPolicy';
+import { SharedPCAllowedAccountType } from './sharedPCAllowedAccountType';
+import { TimeOnly, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SharedPCConfiguration extends DeviceConfiguration, Parsable {
     /**
@@ -12,7 +11,7 @@ export interface SharedPCConfiguration extends DeviceConfiguration, Parsable {
     /**
      * Type of accounts that are allowed to share the PC.
      */
-    allowedAccounts?: SharedPCAllowedAccountType | undefined;
+    allowedAccounts?: SharedPCAllowedAccountType[] | undefined;
     /**
      * Specifies whether local storage is allowed on a shared PC.
      */

@@ -1,19 +1,18 @@
-import {createEducationRootFromDiscriminatorValue} from '../models/createEducationRootFromDiscriminatorValue';
-import {deserializeIntoEducationRoot} from '../models/deserializeIntoEducationRoot';
-import type {EducationRoot} from '../models/educationRoot';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeEducationRoot} from '../models/serializeEducationRoot';
-import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
-import {EducationRequestBuilderGetRequestConfiguration} from './educationRequestBuilderGetRequestConfiguration';
-import {EducationRequestBuilderPatchRequestConfiguration} from './educationRequestBuilderPatchRequestConfiguration';
-import {MeRequestBuilder} from './me/meRequestBuilder';
-import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
-import {UsersRequestBuilder} from './users/usersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEducationRootFromDiscriminatorValue } from '../models/createEducationRootFromDiscriminatorValue';
+import { deserializeIntoEducationRoot } from '../models/deserializeIntoEducationRoot';
+import { type EducationRoot } from '../models/educationRoot';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeEducationRoot } from '../models/serializeEducationRoot';
+import { ClassesRequestBuilder } from './classes/classesRequestBuilder';
+import { type EducationRequestBuilderGetRequestConfiguration } from './educationRequestBuilderGetRequestConfiguration';
+import { type EducationRequestBuilderPatchRequestConfiguration } from './educationRequestBuilderPatchRequestConfiguration';
+import { MeRequestBuilder } from './me/meRequestBuilder';
+import { SchoolsRequestBuilder } from './schools/schoolsRequestBuilder';
+import { UsersRequestBuilder } from './users/usersRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the educationRoot singleton.

@@ -1,20 +1,19 @@
-import {OnlineMeetingCollectionResponse} from '../../models/';
-import {createOnlineMeetingCollectionResponseFromDiscriminatorValue} from '../../models/createOnlineMeetingCollectionResponseFromDiscriminatorValue';
-import {createOnlineMeetingFromDiscriminatorValue} from '../../models/createOnlineMeetingFromDiscriminatorValue';
-import {deserializeIntoOnlineMeeting} from '../../models/deserializeIntoOnlineMeeting';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {OnlineMeeting} from '../../models/onlineMeeting';
-import {serializeOnlineMeeting} from '../../models/serializeOnlineMeeting';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CreateOrGetRequestBuilder} from './createOrGet/createOrGetRequestBuilder';
-import {OnlineMeetingItemRequestBuilder} from './item/onlineMeetingItemRequestBuilder';
-import {OnlineMeetingsRequestBuilderGetRequestConfiguration} from './onlineMeetingsRequestBuilderGetRequestConfiguration';
-import {OnlineMeetingsRequestBuilderPostRequestConfiguration} from './onlineMeetingsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OnlineMeetingCollectionResponse } from '../../models/';
+import { createOnlineMeetingCollectionResponseFromDiscriminatorValue } from '../../models/createOnlineMeetingCollectionResponseFromDiscriminatorValue';
+import { createOnlineMeetingFromDiscriminatorValue } from '../../models/createOnlineMeetingFromDiscriminatorValue';
+import { deserializeIntoOnlineMeeting } from '../../models/deserializeIntoOnlineMeeting';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type OnlineMeeting } from '../../models/onlineMeeting';
+import { serializeOnlineMeeting } from '../../models/serializeOnlineMeeting';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { CreateOrGetRequestBuilder } from './createOrGet/createOrGetRequestBuilder';
+import { OnlineMeetingItemRequestBuilder } from './item/onlineMeetingItemRequestBuilder';
+import { type OnlineMeetingsRequestBuilderGetRequestConfiguration } from './onlineMeetingsRequestBuilderGetRequestConfiguration';
+import { type OnlineMeetingsRequestBuilderPostRequestConfiguration } from './onlineMeetingsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.

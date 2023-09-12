@@ -1,19 +1,18 @@
-import {DeviceComplianceActionItemCollectionResponse} from '../../../../../../models/';
-import {createDeviceComplianceActionItemCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createDeviceComplianceActionItemCollectionResponseFromDiscriminatorValue';
-import {createDeviceComplianceActionItemFromDiscriminatorValue} from '../../../../../../models/createDeviceComplianceActionItemFromDiscriminatorValue';
-import {deserializeIntoDeviceComplianceActionItem} from '../../../../../../models/deserializeIntoDeviceComplianceActionItem';
-import type {DeviceComplianceActionItem} from '../../../../../../models/deviceComplianceActionItem';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceComplianceActionItem} from '../../../../../../models/serializeDeviceComplianceActionItem';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeviceComplianceActionItemItemRequestBuilder} from './item/deviceComplianceActionItemItemRequestBuilder';
-import {ScheduledActionConfigurationsRequestBuilderGetRequestConfiguration} from './scheduledActionConfigurationsRequestBuilderGetRequestConfiguration';
-import {ScheduledActionConfigurationsRequestBuilderPostRequestConfiguration} from './scheduledActionConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceComplianceActionItemCollectionResponse } from '../../../../../../models/';
+import { createDeviceComplianceActionItemCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createDeviceComplianceActionItemCollectionResponseFromDiscriminatorValue';
+import { createDeviceComplianceActionItemFromDiscriminatorValue } from '../../../../../../models/createDeviceComplianceActionItemFromDiscriminatorValue';
+import { deserializeIntoDeviceComplianceActionItem } from '../../../../../../models/deserializeIntoDeviceComplianceActionItem';
+import { type DeviceComplianceActionItem } from '../../../../../../models/deviceComplianceActionItem';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceComplianceActionItem } from '../../../../../../models/serializeDeviceComplianceActionItem';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeviceComplianceActionItemItemRequestBuilder } from './item/deviceComplianceActionItemItemRequestBuilder';
+import { type ScheduledActionConfigurationsRequestBuilderGetRequestConfiguration } from './scheduledActionConfigurationsRequestBuilderGetRequestConfiguration';
+import { type ScheduledActionConfigurationsRequestBuilderPostRequestConfiguration } from './scheduledActionConfigurationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scheduledActionConfigurations property of the microsoft.graph.deviceComplianceScheduledActionForRule entity.

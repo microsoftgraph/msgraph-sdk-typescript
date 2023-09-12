@@ -1,6 +1,6 @@
-import type {FeedbackTokenSet} from './feedbackTokenSet';
-import {UserFeedbackRating} from './userFeedbackRating';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type FeedbackTokenSet } from './feedbackTokenSet';
+import { UserFeedbackRating } from './userFeedbackRating';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserFeedback extends AdditionalDataHolder, Parsable {
     /**

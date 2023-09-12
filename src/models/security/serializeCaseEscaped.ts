@@ -1,9 +1,9 @@
-import type {IdentitySet} from '../identitySet';
-import {serializeEntity} from '../serializeEntity';
-import {serializeIdentitySet} from '../serializeIdentitySet';
-import type {CaseEscaped} from './caseEscaped';
-import {CaseStatus} from './caseStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from '../identitySet';
+import { serializeEntity } from '../serializeEntity';
+import { serializeIdentitySet } from '../serializeIdentitySet';
+import { type CaseEscaped } from './caseEscaped';
+import { CaseStatus } from './caseStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCaseEscaped(writer: SerializationWriter, caseEscaped: CaseEscaped | undefined = {} as CaseEscaped) : void {
         serializeEntity(writer, caseEscaped)

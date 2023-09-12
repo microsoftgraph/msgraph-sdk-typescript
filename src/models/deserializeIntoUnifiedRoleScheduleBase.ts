@@ -1,15 +1,15 @@
-import type {AppScope} from './appScope';
-import {createAppScopeFromDiscriminatorValue} from './createAppScopeFromDiscriminatorValue';
-import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
-import {createUnifiedRoleDefinitionFromDiscriminatorValue} from './createUnifiedRoleDefinitionFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DirectoryObject} from './directoryObject';
-import {serializeAppScope} from './serializeAppScope';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
-import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import type {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppScope } from './appScope';
+import { createAppScopeFromDiscriminatorValue } from './createAppScopeFromDiscriminatorValue';
+import { createDirectoryObjectFromDiscriminatorValue } from './createDirectoryObjectFromDiscriminatorValue';
+import { createUnifiedRoleDefinitionFromDiscriminatorValue } from './createUnifiedRoleDefinitionFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DirectoryObject } from './directoryObject';
+import { serializeAppScope } from './serializeAppScope';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeUnifiedRoleDefinition } from './serializeUnifiedRoleDefinition';
+import { type UnifiedRoleDefinition } from './unifiedRoleDefinition';
+import { type UnifiedRoleScheduleBase } from './unifiedRoleScheduleBase';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleScheduleBase(unifiedRoleScheduleBase: UnifiedRoleScheduleBase | undefined = {} as UnifiedRoleScheduleBase) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,10 +1,10 @@
-import type {ItemBody} from './itemBody';
-import type {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
-import type {ServiceAnnouncementBase} from './serviceAnnouncementBase';
-import {ServiceUpdateCategory} from './serviceUpdateCategory';
-import type {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
-import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ItemBody } from './itemBody';
+import { type ServiceAnnouncementAttachment } from './serviceAnnouncementAttachment';
+import { type ServiceAnnouncementBase } from './serviceAnnouncementBase';
+import { ServiceUpdateCategory } from './serviceUpdateCategory';
+import { type ServiceUpdateMessageViewpoint } from './serviceUpdateMessageViewpoint';
+import { ServiceUpdateSeverity } from './serviceUpdateSeverity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ServiceUpdateMessage extends Parsable, ServiceAnnouncementBase {
     /**

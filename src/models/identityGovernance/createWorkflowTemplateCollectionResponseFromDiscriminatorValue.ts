@@ -1,6 +1,6 @@
-import {deserializeIntoWorkflowTemplateCollectionResponse} from './deserializeIntoWorkflowTemplateCollectionResponse';
-import {WorkflowTemplateCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWorkflowTemplateCollectionResponse } from './deserializeIntoWorkflowTemplateCollectionResponse';
+import { type WorkflowTemplateCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWorkflowTemplateCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,7 +1,7 @@
-import type {AttackSimulationUser} from './attackSimulationUser';
-import type {UserSimulationEventInfo} from './userSimulationEventInfo';
-import type {UserTrainingEventInfo} from './userTrainingEventInfo';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AttackSimulationUser } from './attackSimulationUser';
+import { type UserSimulationEventInfo } from './userSimulationEventInfo';
+import { type UserTrainingEventInfo } from './userTrainingEventInfo';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserSimulationDetails extends AdditionalDataHolder, Parsable {
     /**

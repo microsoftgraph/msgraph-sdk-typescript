@@ -1,5 +1,5 @@
-import {ExternalActivityItemRequestBuilderGetQueryParameters} from './externalActivityItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExternalActivityItemRequestBuilderGetQueryParameters } from './externalActivityItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ExternalActivityItemRequestBuilderGetRequestConfiguration {
     /**

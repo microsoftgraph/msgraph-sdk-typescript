@@ -1,5 +1,5 @@
-import {MicrosoftAuthenticatorMethodsRequestBuilderGetQueryParameters} from './microsoftAuthenticatorMethodsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type MicrosoftAuthenticatorMethodsRequestBuilderGetQueryParameters } from './microsoftAuthenticatorMethodsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration {
     /**

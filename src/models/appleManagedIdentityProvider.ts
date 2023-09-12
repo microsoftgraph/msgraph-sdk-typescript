@@ -1,5 +1,5 @@
-import type {IdentityProviderBase} from './identityProviderBase';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type IdentityProviderBase } from './identityProviderBase';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AppleManagedIdentityProvider extends IdentityProviderBase, Parsable {
     /**

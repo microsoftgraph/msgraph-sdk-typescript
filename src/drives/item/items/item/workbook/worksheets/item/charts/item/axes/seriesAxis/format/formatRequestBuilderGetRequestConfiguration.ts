@@ -1,5 +1,5 @@
-import {FormatRequestBuilderGetQueryParameters} from './formatRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type FormatRequestBuilderGetQueryParameters } from './formatRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface FormatRequestBuilderGetRequestConfiguration {
     /**

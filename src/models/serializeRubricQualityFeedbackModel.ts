@@ -1,7 +1,7 @@
-import type {EducationItemBody} from './educationItemBody';
-import type {RubricQualityFeedbackModel} from './rubricQualityFeedbackModel';
-import {serializeEducationItemBody} from './serializeEducationItemBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EducationItemBody } from './educationItemBody';
+import { type RubricQualityFeedbackModel } from './rubricQualityFeedbackModel';
+import { serializeEducationItemBody } from './serializeEducationItemBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRubricQualityFeedbackModel(writer: SerializationWriter, rubricQualityFeedbackModel: RubricQualityFeedbackModel | undefined = {} as RubricQualityFeedbackModel) : void {
         writer.writeObjectValue<EducationItemBody>("feedback", rubricQualityFeedbackModel.feedback, serializeEducationItemBody);

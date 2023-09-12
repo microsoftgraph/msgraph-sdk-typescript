@@ -1,5 +1,5 @@
-import {AuthenticationMethodModes} from './authenticationMethodModes';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { AuthenticationMethodModes } from './authenticationMethodModes';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UpdateAllowedCombinationsResult extends AdditionalDataHolder, Parsable {
     /**

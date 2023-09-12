@@ -1,9 +1,9 @@
-import type {ApprovalStage} from './approvalStage';
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Identity} from './identity';
-import {serializeIdentity} from './serializeIdentity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ApprovalStage } from './approvalStage';
+import { createIdentityFromDiscriminatorValue } from './createIdentityFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Identity } from './identity';
+import { serializeIdentity } from './serializeIdentity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoApprovalStage(approvalStage: ApprovalStage | undefined = {} as ApprovalStage) : Record<string, (node: ParseNode) => void> {
     return {

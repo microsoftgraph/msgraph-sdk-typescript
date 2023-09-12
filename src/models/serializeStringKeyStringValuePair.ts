@@ -1,5 +1,5 @@
-import type {StringKeyStringValuePair} from './stringKeyStringValuePair';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type StringKeyStringValuePair } from './stringKeyStringValuePair';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeStringKeyStringValuePair(writer: SerializationWriter, stringKeyStringValuePair: StringKeyStringValuePair | undefined = {} as StringKeyStringValuePair) : void {
         writer.writeStringValue("key", stringKeyStringValuePair.key);

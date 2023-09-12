@@ -1,21 +1,21 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createItemReferenceFromDiscriminatorValue} from './createItemReferenceFromDiscriminatorValue';
-import {createSharePointIdentitySetFromDiscriminatorValue} from './createSharePointIdentitySetFromDiscriminatorValue';
-import {createSharingInvitationFromDiscriminatorValue} from './createSharingInvitationFromDiscriminatorValue';
-import {createSharingLinkFromDiscriminatorValue} from './createSharingLinkFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IdentitySet} from './identitySet';
-import type {ItemReference} from './itemReference';
-import type {Permission} from './permission';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeItemReference} from './serializeItemReference';
-import {serializeSharePointIdentitySet} from './serializeSharePointIdentitySet';
-import {serializeSharingInvitation} from './serializeSharingInvitation';
-import {serializeSharingLink} from './serializeSharingLink';
-import type {SharePointIdentitySet} from './sharePointIdentitySet';
-import type {SharingInvitation} from './sharingInvitation';
-import type {SharingLink} from './sharingLink';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { createItemReferenceFromDiscriminatorValue } from './createItemReferenceFromDiscriminatorValue';
+import { createSharePointIdentitySetFromDiscriminatorValue } from './createSharePointIdentitySetFromDiscriminatorValue';
+import { createSharingInvitationFromDiscriminatorValue } from './createSharingInvitationFromDiscriminatorValue';
+import { createSharingLinkFromDiscriminatorValue } from './createSharingLinkFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IdentitySet } from './identitySet';
+import { type ItemReference } from './itemReference';
+import { type Permission } from './permission';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeItemReference } from './serializeItemReference';
+import { serializeSharePointIdentitySet } from './serializeSharePointIdentitySet';
+import { serializeSharingInvitation } from './serializeSharingInvitation';
+import { serializeSharingLink } from './serializeSharingLink';
+import { type SharePointIdentitySet } from './sharePointIdentitySet';
+import { type SharingInvitation } from './sharingInvitation';
+import { type SharingLink } from './sharingLink';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPermission(permission: Permission | undefined = {} as Permission) : Record<string, (node: ParseNode) => void> {
     return {

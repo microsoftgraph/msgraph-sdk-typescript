@@ -1,7 +1,7 @@
-import {serializeWindowsDeviceAccount} from './serializeWindowsDeviceAccount';
-import type {UpdateWindowsDeviceAccountActionParameter} from './updateWindowsDeviceAccountActionParameter';
-import type {WindowsDeviceAccount} from './windowsDeviceAccount';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeWindowsDeviceAccount } from './serializeWindowsDeviceAccount';
+import { type UpdateWindowsDeviceAccountActionParameter } from './updateWindowsDeviceAccountActionParameter';
+import { type WindowsDeviceAccount } from './windowsDeviceAccount';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUpdateWindowsDeviceAccountActionParameter(writer: SerializationWriter, updateWindowsDeviceAccountActionParameter: UpdateWindowsDeviceAccountActionParameter | undefined = {} as UpdateWindowsDeviceAccountActionParameter) : void {
         writer.writeBooleanValue("calendarSyncEnabled", updateWindowsDeviceAccountActionParameter.calendarSyncEnabled);

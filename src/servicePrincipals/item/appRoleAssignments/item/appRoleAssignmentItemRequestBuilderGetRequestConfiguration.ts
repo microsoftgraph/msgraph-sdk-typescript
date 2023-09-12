@@ -1,5 +1,5 @@
-import {AppRoleAssignmentItemRequestBuilderGetQueryParameters} from './appRoleAssignmentItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppRoleAssignmentItemRequestBuilderGetQueryParameters } from './appRoleAssignmentItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AppRoleAssignmentItemRequestBuilderGetRequestConfiguration {
     /**

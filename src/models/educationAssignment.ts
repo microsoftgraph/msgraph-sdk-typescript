@@ -1,16 +1,16 @@
-import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
-import {EducationAddedStudentAction} from './educationAddedStudentAction';
-import type {EducationAssignmentGradeType} from './educationAssignmentGradeType';
-import type {EducationAssignmentRecipient} from './educationAssignmentRecipient';
-import type {EducationAssignmentResource} from './educationAssignmentResource';
-import {EducationAssignmentStatus} from './educationAssignmentStatus';
-import type {EducationCategory} from './educationCategory';
-import type {EducationItemBody} from './educationItemBody';
-import type {EducationRubric} from './educationRubric';
-import type {EducationSubmission} from './educationSubmission';
-import type {Entity} from './entity';
-import type {IdentitySet} from './identitySet';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { EducationAddedStudentAction } from './educationAddedStudentAction';
+import { EducationAddToCalendarOptions } from './educationAddToCalendarOptions';
+import { type EducationAssignmentGradeType } from './educationAssignmentGradeType';
+import { type EducationAssignmentRecipient } from './educationAssignmentRecipient';
+import { type EducationAssignmentResource } from './educationAssignmentResource';
+import { EducationAssignmentStatus } from './educationAssignmentStatus';
+import { type EducationCategory } from './educationCategory';
+import { type EducationItemBody } from './educationItemBody';
+import { type EducationRubric } from './educationRubric';
+import { type EducationSubmission } from './educationSubmission';
+import { type Entity } from './entity';
+import { type IdentitySet } from './identitySet';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EducationAssignment extends Entity, Parsable {
     /**

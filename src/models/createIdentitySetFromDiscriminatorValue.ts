@@ -1,10 +1,10 @@
-import {deserializeIntoChatMessageFromIdentitySet} from './deserializeIntoChatMessageFromIdentitySet';
-import {deserializeIntoChatMessageMentionedIdentitySet} from './deserializeIntoChatMessageMentionedIdentitySet';
-import {deserializeIntoChatMessageReactionIdentitySet} from './deserializeIntoChatMessageReactionIdentitySet';
-import {deserializeIntoIdentitySet} from './deserializeIntoIdentitySet';
-import {deserializeIntoSharePointIdentitySet} from './deserializeIntoSharePointIdentitySet';
-import {ChatMessageFromIdentitySet, ChatMessageMentionedIdentitySet, ChatMessageReactionIdentitySet, IdentitySet, SharePointIdentitySet} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoChatMessageFromIdentitySet } from './deserializeIntoChatMessageFromIdentitySet';
+import { deserializeIntoChatMessageMentionedIdentitySet } from './deserializeIntoChatMessageMentionedIdentitySet';
+import { deserializeIntoChatMessageReactionIdentitySet } from './deserializeIntoChatMessageReactionIdentitySet';
+import { deserializeIntoIdentitySet } from './deserializeIntoIdentitySet';
+import { deserializeIntoSharePointIdentitySet } from './deserializeIntoSharePointIdentitySet';
+import { type ChatMessageFromIdentitySet, type ChatMessageMentionedIdentitySet, type ChatMessageReactionIdentitySet, type IdentitySet, type SharePointIdentitySet } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIdentitySetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

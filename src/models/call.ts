@@ -1,24 +1,24 @@
-import type {AudioRoutingGroup} from './audioRoutingGroup';
-import {CallDirection} from './callDirection';
-import type {CallMediaState} from './callMediaState';
-import type {CallOptions} from './callOptions';
-import type {CallRoute} from './callRoute';
-import {CallState} from './callState';
-import type {CallTranscriptionInfo} from './callTranscriptionInfo';
-import type {ChatInfo} from './chatInfo';
-import type {CommsOperation} from './commsOperation';
-import type {ContentSharingSession} from './contentSharingSession';
-import type {Entity} from './entity';
-import type {IncomingContext} from './incomingContext';
-import type {InvitationParticipantInfo} from './invitationParticipantInfo';
-import type {MediaConfig} from './mediaConfig';
-import type {MeetingInfo} from './meetingInfo';
-import {Modality} from './modality';
-import type {Participant} from './participant';
-import type {ParticipantInfo} from './participantInfo';
-import type {ResultInfo} from './resultInfo';
-import type {ToneInfo} from './toneInfo';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AudioRoutingGroup } from './audioRoutingGroup';
+import { CallDirection } from './callDirection';
+import { type CallMediaState } from './callMediaState';
+import { type CallOptions } from './callOptions';
+import { type CallRoute } from './callRoute';
+import { CallState } from './callState';
+import { type CallTranscriptionInfo } from './callTranscriptionInfo';
+import { type ChatInfo } from './chatInfo';
+import { type CommsOperation } from './commsOperation';
+import { type ContentSharingSession } from './contentSharingSession';
+import { type Entity } from './entity';
+import { type IncomingContext } from './incomingContext';
+import { type InvitationParticipantInfo } from './invitationParticipantInfo';
+import { type MediaConfig } from './mediaConfig';
+import { type MeetingInfo } from './meetingInfo';
+import { Modality } from './modality';
+import { type Participant } from './participant';
+import { type ParticipantInfo } from './participantInfo';
+import { type ResultInfo } from './resultInfo';
+import { type ToneInfo } from './toneInfo';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Call extends Entity, Parsable {
     /**

@@ -1,15 +1,15 @@
-import {createIosHomeScreenItemFromDiscriminatorValue} from './createIosHomeScreenItemFromDiscriminatorValue';
-import {createIosHomeScreenPageFromDiscriminatorValue} from './createIosHomeScreenPageFromDiscriminatorValue';
-import {createIosNotificationSettingsFromDiscriminatorValue} from './createIosNotificationSettingsFromDiscriminatorValue';
-import {deserializeIntoAppleDeviceFeaturesConfigurationBase} from './deserializeIntoAppleDeviceFeaturesConfigurationBase';
-import type {IosDeviceFeaturesConfiguration} from './iosDeviceFeaturesConfiguration';
-import type {IosHomeScreenItem} from './iosHomeScreenItem';
-import type {IosHomeScreenPage} from './iosHomeScreenPage';
-import type {IosNotificationSettings} from './iosNotificationSettings';
-import {serializeIosHomeScreenItem} from './serializeIosHomeScreenItem';
-import {serializeIosHomeScreenPage} from './serializeIosHomeScreenPage';
-import {serializeIosNotificationSettings} from './serializeIosNotificationSettings';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIosHomeScreenItemFromDiscriminatorValue } from './createIosHomeScreenItemFromDiscriminatorValue';
+import { createIosHomeScreenPageFromDiscriminatorValue } from './createIosHomeScreenPageFromDiscriminatorValue';
+import { createIosNotificationSettingsFromDiscriminatorValue } from './createIosNotificationSettingsFromDiscriminatorValue';
+import { deserializeIntoAppleDeviceFeaturesConfigurationBase } from './deserializeIntoAppleDeviceFeaturesConfigurationBase';
+import { type IosDeviceFeaturesConfiguration } from './iosDeviceFeaturesConfiguration';
+import { type IosHomeScreenItem } from './iosHomeScreenItem';
+import { type IosHomeScreenPage } from './iosHomeScreenPage';
+import { type IosNotificationSettings } from './iosNotificationSettings';
+import { serializeIosHomeScreenItem } from './serializeIosHomeScreenItem';
+import { serializeIosHomeScreenPage } from './serializeIosHomeScreenPage';
+import { serializeIosNotificationSettings } from './serializeIosNotificationSettings';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosDeviceFeaturesConfiguration(iosDeviceFeaturesConfiguration: IosDeviceFeaturesConfiguration | undefined = {} as IosDeviceFeaturesConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

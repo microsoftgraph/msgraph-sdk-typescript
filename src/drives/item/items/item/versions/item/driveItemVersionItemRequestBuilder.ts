@@ -1,18 +1,17 @@
-import {createDriveItemVersionFromDiscriminatorValue} from '../../../../../../models/createDriveItemVersionFromDiscriminatorValue';
-import {deserializeIntoDriveItemVersion} from '../../../../../../models/deserializeIntoDriveItemVersion';
-import type {DriveItemVersion} from '../../../../../../models/driveItemVersion';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeDriveItemVersion} from '../../../../../../models/serializeDriveItemVersion';
-import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {DriveItemVersionItemRequestBuilderDeleteRequestConfiguration} from './driveItemVersionItemRequestBuilderDeleteRequestConfiguration';
-import {DriveItemVersionItemRequestBuilderGetRequestConfiguration} from './driveItemVersionItemRequestBuilderGetRequestConfiguration';
-import {DriveItemVersionItemRequestBuilderPatchRequestConfiguration} from './driveItemVersionItemRequestBuilderPatchRequestConfiguration';
-import {RestoreVersionRequestBuilder} from './restoreVersion/restoreVersionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDriveItemVersionFromDiscriminatorValue } from '../../../../../../models/createDriveItemVersionFromDiscriminatorValue';
+import { deserializeIntoDriveItemVersion } from '../../../../../../models/deserializeIntoDriveItemVersion';
+import { type DriveItemVersion } from '../../../../../../models/driveItemVersion';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeDriveItemVersion } from '../../../../../../models/serializeDriveItemVersion';
+import { ContentRequestBuilder } from './content/contentRequestBuilder';
+import { type DriveItemVersionItemRequestBuilderDeleteRequestConfiguration } from './driveItemVersionItemRequestBuilderDeleteRequestConfiguration';
+import { type DriveItemVersionItemRequestBuilderGetRequestConfiguration } from './driveItemVersionItemRequestBuilderGetRequestConfiguration';
+import { type DriveItemVersionItemRequestBuilderPatchRequestConfiguration } from './driveItemVersionItemRequestBuilderPatchRequestConfiguration';
+import { RestoreVersionRequestBuilder } from './restoreVersion/restoreVersionRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.driveItem entity.

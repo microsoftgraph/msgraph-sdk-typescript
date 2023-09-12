@@ -1,12 +1,12 @@
-import type {IdentitySet} from '../identitySet';
-import type {ResultInfo} from '../resultInfo';
-import {serializeEntity} from '../serializeEntity';
-import {serializeIdentitySet} from '../serializeIdentitySet';
-import {serializeResultInfo} from '../serializeResultInfo';
-import {CaseAction} from './caseAction';
-import type {CaseOperation} from './caseOperation';
-import {CaseOperationStatus} from './caseOperationStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from '../identitySet';
+import { type ResultInfo } from '../resultInfo';
+import { serializeEntity } from '../serializeEntity';
+import { serializeIdentitySet } from '../serializeIdentitySet';
+import { serializeResultInfo } from '../serializeResultInfo';
+import { CaseAction } from './caseAction';
+import { type CaseOperation } from './caseOperation';
+import { CaseOperationStatus } from './caseOperationStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCaseOperation(writer: SerializationWriter, caseOperation: CaseOperation | undefined = {} as CaseOperation) : void {
         serializeEntity(writer, caseOperation)

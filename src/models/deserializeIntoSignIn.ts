@@ -1,23 +1,23 @@
-import type {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
-import {ConditionalAccessStatus} from './conditionalAccessStatus';
-import {createAppliedConditionalAccessPolicyFromDiscriminatorValue} from './createAppliedConditionalAccessPolicyFromDiscriminatorValue';
-import {createDeviceDetailFromDiscriminatorValue} from './createDeviceDetailFromDiscriminatorValue';
-import {createSignInLocationFromDiscriminatorValue} from './createSignInLocationFromDiscriminatorValue';
-import {createSignInStatusFromDiscriminatorValue} from './createSignInStatusFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DeviceDetail} from './deviceDetail';
-import {RiskDetail} from './riskDetail';
-import {RiskEventType} from './riskEventType';
-import {RiskLevel} from './riskLevel';
-import {RiskState} from './riskState';
-import {serializeAppliedConditionalAccessPolicy} from './serializeAppliedConditionalAccessPolicy';
-import {serializeDeviceDetail} from './serializeDeviceDetail';
-import {serializeSignInLocation} from './serializeSignInLocation';
-import {serializeSignInStatus} from './serializeSignInStatus';
-import type {SignIn} from './signIn';
-import type {SignInLocation} from './signInLocation';
-import type {SignInStatus} from './signInStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppliedConditionalAccessPolicy } from './appliedConditionalAccessPolicy';
+import { ConditionalAccessStatus } from './conditionalAccessStatus';
+import { createAppliedConditionalAccessPolicyFromDiscriminatorValue } from './createAppliedConditionalAccessPolicyFromDiscriminatorValue';
+import { createDeviceDetailFromDiscriminatorValue } from './createDeviceDetailFromDiscriminatorValue';
+import { createSignInLocationFromDiscriminatorValue } from './createSignInLocationFromDiscriminatorValue';
+import { createSignInStatusFromDiscriminatorValue } from './createSignInStatusFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DeviceDetail } from './deviceDetail';
+import { RiskDetail } from './riskDetail';
+import { RiskEventType } from './riskEventType';
+import { RiskLevel } from './riskLevel';
+import { RiskState } from './riskState';
+import { serializeAppliedConditionalAccessPolicy } from './serializeAppliedConditionalAccessPolicy';
+import { serializeDeviceDetail } from './serializeDeviceDetail';
+import { serializeSignInLocation } from './serializeSignInLocation';
+import { serializeSignInStatus } from './serializeSignInStatus';
+import { type SignIn } from './signIn';
+import { type SignInLocation } from './signInLocation';
+import { type SignInStatus } from './signInStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSignIn(signIn: SignIn | undefined = {} as SignIn) : Record<string, (node: ParseNode) => void> {
     return {

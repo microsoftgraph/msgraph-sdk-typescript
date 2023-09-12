@@ -1,7 +1,7 @@
-import {serializeWorkbookSortField} from '../../../../../../../../../../../models/serializeWorkbookSortField';
-import type {WorkbookSortField} from '../../../../../../../../../../../models/workbookSortField';
-import type {ApplyPostRequestBody} from './applyPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeWorkbookSortField } from '../../../../../../../../../../../models/serializeWorkbookSortField';
+import { type WorkbookSortField } from '../../../../../../../../../../../models/workbookSortField';
+import { type ApplyPostRequestBody } from './applyPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeApplyPostRequestBody(writer: SerializationWriter, applyPostRequestBody: ApplyPostRequestBody | undefined = {} as ApplyPostRequestBody) : void {
         writer.writeCollectionOfObjectValues<WorkbookSortField>("fields", applyPostRequestBody.fields, serializeWorkbookSortField);

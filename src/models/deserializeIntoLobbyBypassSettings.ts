@@ -1,6 +1,6 @@
-import {LobbyBypassScope} from './lobbyBypassScope';
-import type {LobbyBypassSettings} from './lobbyBypassSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { LobbyBypassScope } from './lobbyBypassScope';
+import { type LobbyBypassSettings } from './lobbyBypassSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLobbyBypassSettings(lobbyBypassSettings: LobbyBypassSettings | undefined = {} as LobbyBypassSettings) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
-import {SchemaExtensionItemRequestBuilderGetQueryParameters} from './schemaExtensionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SchemaExtensionItemRequestBuilderGetQueryParameters } from './schemaExtensionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SchemaExtensionItemRequestBuilderGetRequestConfiguration {
     /**

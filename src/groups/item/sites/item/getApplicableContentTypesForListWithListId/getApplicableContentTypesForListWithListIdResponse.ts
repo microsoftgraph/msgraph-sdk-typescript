@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from '../../../../../models/baseCollectionPaginationCountResponse';
-import type {ContentType} from '../../../../../models/contentType';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from '../../../../../models/baseCollectionPaginationCountResponse';
+import { type ContentType } from '../../../../../models/contentType';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface GetApplicableContentTypesForListWithListIdResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

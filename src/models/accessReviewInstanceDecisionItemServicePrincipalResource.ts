@@ -1,5 +1,5 @@
-import type {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDecisionItemResource';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessReviewInstanceDecisionItemResource } from './accessReviewInstanceDecisionItemResource';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewInstanceDecisionItemServicePrincipalResource extends AccessReviewInstanceDecisionItemResource, Parsable {
     /**

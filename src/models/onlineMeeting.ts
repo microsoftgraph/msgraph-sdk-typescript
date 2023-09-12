@@ -1,17 +1,17 @@
-import type {AudioConferencing} from './audioConferencing';
-import type {BroadcastMeetingSettings} from './broadcastMeetingSettings';
-import type {ChatInfo} from './chatInfo';
-import type {Entity} from './entity';
-import type {ItemBody} from './itemBody';
-import type {JoinMeetingIdSettings} from './joinMeetingIdSettings';
-import type {LobbyBypassSettings} from './lobbyBypassSettings';
-import type {MeetingAttendanceReport} from './meetingAttendanceReport';
-import {MeetingChatHistoryDefaultMode} from './meetingChatHistoryDefaultMode';
-import {MeetingChatMode} from './meetingChatMode';
-import type {MeetingParticipants} from './meetingParticipants';
-import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
-import type {WatermarkProtectionValues} from './watermarkProtectionValues';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AudioConferencing } from './audioConferencing';
+import { type BroadcastMeetingSettings } from './broadcastMeetingSettings';
+import { type ChatInfo } from './chatInfo';
+import { type Entity } from './entity';
+import { type ItemBody } from './itemBody';
+import { type JoinMeetingIdSettings } from './joinMeetingIdSettings';
+import { type LobbyBypassSettings } from './lobbyBypassSettings';
+import { type MeetingAttendanceReport } from './meetingAttendanceReport';
+import { MeetingChatHistoryDefaultMode } from './meetingChatHistoryDefaultMode';
+import { MeetingChatMode } from './meetingChatMode';
+import { type MeetingParticipants } from './meetingParticipants';
+import { OnlineMeetingPresenters } from './onlineMeetingPresenters';
+import { type WatermarkProtectionValues } from './watermarkProtectionValues';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OnlineMeeting extends Entity, Parsable {
     /**

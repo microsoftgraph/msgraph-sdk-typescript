@@ -1,18 +1,17 @@
-import {createPlannerUserFromDiscriminatorValue} from '../../../models/createPlannerUserFromDiscriminatorValue';
-import {deserializeIntoPlannerUser} from '../../../models/deserializeIntoPlannerUser';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {PlannerUser} from '../../../models/plannerUser';
-import {serializePlannerUser} from '../../../models/serializePlannerUser';
-import {PlannerRequestBuilderDeleteRequestConfiguration} from './plannerRequestBuilderDeleteRequestConfiguration';
-import {PlannerRequestBuilderGetRequestConfiguration} from './plannerRequestBuilderGetRequestConfiguration';
-import {PlannerRequestBuilderPatchRequestConfiguration} from './plannerRequestBuilderPatchRequestConfiguration';
-import {PlansRequestBuilder} from './plans/plansRequestBuilder';
-import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPlannerUserFromDiscriminatorValue } from '../../../models/createPlannerUserFromDiscriminatorValue';
+import { deserializeIntoPlannerUser } from '../../../models/deserializeIntoPlannerUser';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type PlannerUser } from '../../../models/plannerUser';
+import { serializePlannerUser } from '../../../models/serializePlannerUser';
+import { type PlannerRequestBuilderDeleteRequestConfiguration } from './plannerRequestBuilderDeleteRequestConfiguration';
+import { type PlannerRequestBuilderGetRequestConfiguration } from './plannerRequestBuilderGetRequestConfiguration';
+import { type PlannerRequestBuilderPatchRequestConfiguration } from './plannerRequestBuilderPatchRequestConfiguration';
+import { PlansRequestBuilder } from './plans/plansRequestBuilder';
+import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the planner property of the microsoft.graph.user entity.

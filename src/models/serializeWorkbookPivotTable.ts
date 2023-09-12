@@ -1,8 +1,8 @@
-import {serializeEntity} from './serializeEntity';
-import {serializeWorkbookWorksheet} from './serializeWorkbookWorksheet';
-import type {WorkbookPivotTable} from './workbookPivotTable';
-import type {WorkbookWorksheet} from './workbookWorksheet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { serializeWorkbookWorksheet } from './serializeWorkbookWorksheet';
+import { type WorkbookPivotTable } from './workbookPivotTable';
+import { type WorkbookWorksheet } from './workbookWorksheet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookPivotTable(writer: SerializationWriter, workbookPivotTable: WorkbookPivotTable | undefined = {} as WorkbookPivotTable) : void {
         serializeEntity(writer, workbookPivotTable)

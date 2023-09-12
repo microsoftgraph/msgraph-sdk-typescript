@@ -1,5 +1,5 @@
-import type {BroadcastMeetingCaptionSettings} from './broadcastMeetingCaptionSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BroadcastMeetingCaptionSettings } from './broadcastMeetingCaptionSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBroadcastMeetingCaptionSettings(writer: SerializationWriter, broadcastMeetingCaptionSettings: BroadcastMeetingCaptionSettings | undefined = {} as BroadcastMeetingCaptionSettings) : void {
         writer.writeBooleanValue("isCaptionEnabled", broadcastMeetingCaptionSettings.isCaptionEnabled);

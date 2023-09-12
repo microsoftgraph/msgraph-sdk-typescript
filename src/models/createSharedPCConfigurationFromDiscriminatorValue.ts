@@ -1,6 +1,6 @@
-import {deserializeIntoSharedPCConfiguration} from './deserializeIntoSharedPCConfiguration';
-import {SharedPCConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoSharedPCConfiguration } from './deserializeIntoSharedPCConfiguration';
+import { type SharedPCConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createSharedPCConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

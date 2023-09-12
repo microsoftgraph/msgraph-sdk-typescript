@@ -1,8 +1,8 @@
-import {OperatingSystemUpgradeEligibility} from './operatingSystemUpgradeEligibility';
-import {serializeEntity} from './serializeEntity';
-import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
-import type {UserExperienceAnalyticsWorkFromAnywhereDevice} from './userExperienceAnalyticsWorkFromAnywhereDevice';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { OperatingSystemUpgradeEligibility } from './operatingSystemUpgradeEligibility';
+import { serializeEntity } from './serializeEntity';
+import { UserExperienceAnalyticsHealthState } from './userExperienceAnalyticsHealthState';
+import { type UserExperienceAnalyticsWorkFromAnywhereDevice } from './userExperienceAnalyticsWorkFromAnywhereDevice';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsWorkFromAnywhereDevice(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereDevice: UserExperienceAnalyticsWorkFromAnywhereDevice | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereDevice) : void {
         serializeEntity(writer, userExperienceAnalyticsWorkFromAnywhereDevice)

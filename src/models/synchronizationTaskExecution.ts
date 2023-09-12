@@ -1,6 +1,6 @@
-import type {SynchronizationError} from './synchronizationError';
-import {SynchronizationTaskExecutionResult} from './synchronizationTaskExecutionResult';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type SynchronizationError } from './synchronizationError';
+import { SynchronizationTaskExecutionResult } from './synchronizationTaskExecutionResult';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationTaskExecution extends AdditionalDataHolder, Parsable {
     /**

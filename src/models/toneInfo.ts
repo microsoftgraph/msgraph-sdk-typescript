@@ -1,5 +1,5 @@
-import {Tone} from './tone';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { Tone } from './tone';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ToneInfo extends AdditionalDataHolder, Parsable {
     /**

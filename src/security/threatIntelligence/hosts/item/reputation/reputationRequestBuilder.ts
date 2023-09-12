@@ -1,16 +1,15 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {createHostReputationFromDiscriminatorValue} from '../../../../../models/security/createHostReputationFromDiscriminatorValue';
-import {deserializeIntoHostReputation} from '../../../../../models/security/deserializeIntoHostReputation';
-import type {HostReputation} from '../../../../../models/security/hostReputation';
-import {serializeHostReputation} from '../../../../../models/security/serializeHostReputation';
-import {ReputationRequestBuilderDeleteRequestConfiguration} from './reputationRequestBuilderDeleteRequestConfiguration';
-import {ReputationRequestBuilderGetRequestConfiguration} from './reputationRequestBuilderGetRequestConfiguration';
-import {ReputationRequestBuilderPatchRequestConfiguration} from './reputationRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createHostReputationFromDiscriminatorValue } from '../../../../../models/security/createHostReputationFromDiscriminatorValue';
+import { deserializeIntoHostReputation } from '../../../../../models/security/deserializeIntoHostReputation';
+import { type HostReputation } from '../../../../../models/security/hostReputation';
+import { serializeHostReputation } from '../../../../../models/security/serializeHostReputation';
+import { type ReputationRequestBuilderDeleteRequestConfiguration } from './reputationRequestBuilderDeleteRequestConfiguration';
+import { type ReputationRequestBuilderGetRequestConfiguration } from './reputationRequestBuilderGetRequestConfiguration';
+import { type ReputationRequestBuilderPatchRequestConfiguration } from './reputationRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reputation property of the microsoft.graph.security.host entity.

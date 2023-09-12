@@ -1,11 +1,11 @@
-import {PrintColorMode} from './printColorMode';
-import {PrintDuplexMode} from './printDuplexMode';
-import {PrintFinishing} from './printFinishing';
-import {PrintMultipageLayout} from './printMultipageLayout';
-import {PrintOrientation} from './printOrientation';
-import {PrintQuality} from './printQuality';
-import {PrintScaling} from './printScaling';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { PrintColorMode } from './printColorMode';
+import { PrintDuplexMode } from './printDuplexMode';
+import { PrintFinishing } from './printFinishing';
+import { PrintMultipageLayout } from './printMultipageLayout';
+import { PrintOrientation } from './printOrientation';
+import { PrintQuality } from './printQuality';
+import { PrintScaling } from './printScaling';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PrinterDefaults extends AdditionalDataHolder, Parsable {
     /**

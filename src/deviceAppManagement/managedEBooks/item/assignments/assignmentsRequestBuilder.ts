@@ -1,19 +1,18 @@
-import {ManagedEBookAssignmentCollectionResponse} from '../../../../models/';
-import {createManagedEBookAssignmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createManagedEBookAssignmentCollectionResponseFromDiscriminatorValue';
-import {createManagedEBookAssignmentFromDiscriminatorValue} from '../../../../models/createManagedEBookAssignmentFromDiscriminatorValue';
-import {deserializeIntoManagedEBookAssignment} from '../../../../models/deserializeIntoManagedEBookAssignment';
-import type {ManagedEBookAssignment} from '../../../../models/managedEBookAssignment';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeManagedEBookAssignment} from '../../../../models/serializeManagedEBookAssignment';
-import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsRequestBuilderGetRequestConfiguration';
-import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ManagedEBookAssignmentItemRequestBuilder} from './item/managedEBookAssignmentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedEBookAssignmentCollectionResponse } from '../../../../models/';
+import { createManagedEBookAssignmentCollectionResponseFromDiscriminatorValue } from '../../../../models/createManagedEBookAssignmentCollectionResponseFromDiscriminatorValue';
+import { createManagedEBookAssignmentFromDiscriminatorValue } from '../../../../models/createManagedEBookAssignmentFromDiscriminatorValue';
+import { deserializeIntoManagedEBookAssignment } from '../../../../models/deserializeIntoManagedEBookAssignment';
+import { type ManagedEBookAssignment } from '../../../../models/managedEBookAssignment';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeManagedEBookAssignment } from '../../../../models/serializeManagedEBookAssignment';
+import { type AssignmentsRequestBuilderGetRequestConfiguration } from './assignmentsRequestBuilderGetRequestConfiguration';
+import { type AssignmentsRequestBuilderPostRequestConfiguration } from './assignmentsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ManagedEBookAssignmentItemRequestBuilder } from './item/managedEBookAssignmentItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.

@@ -1,7 +1,7 @@
-import {EmailRole} from './emailRole';
-import {LogonType} from './logonType';
-import {UserAccountSecurityType} from './userAccountSecurityType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { EmailRole } from './emailRole';
+import { LogonType } from './logonType';
+import { UserAccountSecurityType } from './userAccountSecurityType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserSecurityState extends AdditionalDataHolder, Parsable {
     /**

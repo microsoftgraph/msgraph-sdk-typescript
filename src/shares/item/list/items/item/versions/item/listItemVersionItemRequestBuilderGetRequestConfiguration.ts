@@ -1,5 +1,5 @@
-import {ListItemVersionItemRequestBuilderGetQueryParameters} from './listItemVersionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ListItemVersionItemRequestBuilderGetQueryParameters } from './listItemVersionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ListItemVersionItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,7 +1,7 @@
-import {deserializeIntoAzureAdPopTokenAuthentication} from './deserializeIntoAzureAdPopTokenAuthentication';
-import {deserializeIntoCustomExtensionAuthenticationConfiguration} from './deserializeIntoCustomExtensionAuthenticationConfiguration';
-import {AzureAdPopTokenAuthentication, CustomExtensionAuthenticationConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAzureAdPopTokenAuthentication } from './deserializeIntoAzureAdPopTokenAuthentication';
+import { deserializeIntoCustomExtensionAuthenticationConfiguration } from './deserializeIntoCustomExtensionAuthenticationConfiguration';
+import { type AzureAdPopTokenAuthentication, type CustomExtensionAuthenticationConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCustomExtensionAuthenticationConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

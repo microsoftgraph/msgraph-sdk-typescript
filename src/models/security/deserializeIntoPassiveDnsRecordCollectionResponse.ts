@@ -1,9 +1,9 @@
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
-import {createPassiveDnsRecordFromDiscriminatorValue} from './createPassiveDnsRecordFromDiscriminatorValue';
-import type {PassiveDnsRecord} from './passiveDnsRecord';
-import type {PassiveDnsRecordCollectionResponse} from './passiveDnsRecordCollectionResponse';
-import {serializePassiveDnsRecord} from './serializePassiveDnsRecord';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../deserializeIntoBaseCollectionPaginationCountResponse';
+import { createPassiveDnsRecordFromDiscriminatorValue } from './createPassiveDnsRecordFromDiscriminatorValue';
+import { type PassiveDnsRecord } from './passiveDnsRecord';
+import { type PassiveDnsRecordCollectionResponse } from './passiveDnsRecordCollectionResponse';
+import { serializePassiveDnsRecord } from './serializePassiveDnsRecord';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPassiveDnsRecordCollectionResponse(passiveDnsRecordCollectionResponse: PassiveDnsRecordCollectionResponse | undefined = {} as PassiveDnsRecordCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,8 +1,8 @@
-import {BrowserSiteCompatibilityMode} from './browserSiteCompatibilityMode';
-import {BrowserSiteMergeType} from './browserSiteMergeType';
-import {BrowserSiteTargetEnvironment} from './browserSiteTargetEnvironment';
-import type {IdentitySet} from './identitySet';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { BrowserSiteCompatibilityMode } from './browserSiteCompatibilityMode';
+import { BrowserSiteMergeType } from './browserSiteMergeType';
+import { BrowserSiteTargetEnvironment } from './browserSiteTargetEnvironment';
+import { type IdentitySet } from './identitySet';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BrowserSiteHistory extends AdditionalDataHolder, Parsable {
     /**

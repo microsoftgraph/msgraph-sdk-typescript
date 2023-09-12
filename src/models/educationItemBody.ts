@@ -1,5 +1,5 @@
-import {BodyType} from './bodyType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { BodyType } from './bodyType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EducationItemBody extends AdditionalDataHolder, Parsable {
     /**

@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import {MobileAppContentFileUploadState} from './mobileAppContentFileUploadState';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { MobileAppContentFileUploadState } from './mobileAppContentFileUploadState';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MobileAppContentFile extends Entity, Parsable {
     /**

@@ -1,12 +1,12 @@
-import {serializeEntity} from './serializeEntity';
-import {serializeServiceHealth} from './serializeServiceHealth';
-import {serializeServiceHealthIssue} from './serializeServiceHealthIssue';
-import {serializeServiceUpdateMessage} from './serializeServiceUpdateMessage';
-import type {ServiceAnnouncement} from './serviceAnnouncement';
-import type {ServiceHealth} from './serviceHealth';
-import type {ServiceHealthIssue} from './serviceHealthIssue';
-import type {ServiceUpdateMessage} from './serviceUpdateMessage';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from './serializeEntity';
+import { serializeServiceHealth } from './serializeServiceHealth';
+import { serializeServiceHealthIssue } from './serializeServiceHealthIssue';
+import { serializeServiceUpdateMessage } from './serializeServiceUpdateMessage';
+import { type ServiceAnnouncement } from './serviceAnnouncement';
+import { type ServiceHealth } from './serviceHealth';
+import { type ServiceHealthIssue } from './serviceHealthIssue';
+import { type ServiceUpdateMessage } from './serviceUpdateMessage';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeServiceAnnouncement(writer: SerializationWriter, serviceAnnouncement: ServiceAnnouncement | undefined = {} as ServiceAnnouncement) : void {
         serializeEntity(writer, serviceAnnouncement)

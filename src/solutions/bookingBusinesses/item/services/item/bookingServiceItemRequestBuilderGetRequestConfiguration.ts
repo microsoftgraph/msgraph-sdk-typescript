@@ -1,5 +1,5 @@
-import {BookingServiceItemRequestBuilderGetQueryParameters} from './bookingServiceItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BookingServiceItemRequestBuilderGetQueryParameters } from './bookingServiceItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BookingServiceItemRequestBuilderGetRequestConfiguration {
     /**

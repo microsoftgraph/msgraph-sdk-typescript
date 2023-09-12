@@ -1,6 +1,6 @@
-import type {CrossTenantAccessPolicyTarget} from './crossTenantAccessPolicyTarget';
-import {CrossTenantAccessPolicyTargetType} from './crossTenantAccessPolicyTargetType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CrossTenantAccessPolicyTarget } from './crossTenantAccessPolicyTarget';
+import { CrossTenantAccessPolicyTargetType } from './crossTenantAccessPolicyTargetType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCrossTenantAccessPolicyTarget(crossTenantAccessPolicyTarget: CrossTenantAccessPolicyTarget | undefined = {} as CrossTenantAccessPolicyTarget) : Record<string, (node: ParseNode) => void> {
     return {

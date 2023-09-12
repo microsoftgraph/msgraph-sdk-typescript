@@ -1,16 +1,16 @@
-import type {ChatMessageFromIdentitySet} from './chatMessageFromIdentitySet';
-import type {ChatMessageInfo} from './chatMessageInfo';
-import {ChatMessageType} from './chatMessageType';
-import {createChatMessageFromIdentitySetFromDiscriminatorValue} from './createChatMessageFromIdentitySetFromDiscriminatorValue';
-import {createEventMessageDetailFromDiscriminatorValue} from './createEventMessageDetailFromDiscriminatorValue';
-import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {EventMessageDetail} from './eventMessageDetail';
-import type {ItemBody} from './itemBody';
-import {serializeChatMessageFromIdentitySet} from './serializeChatMessageFromIdentitySet';
-import {serializeEventMessageDetail} from './serializeEventMessageDetail';
-import {serializeItemBody} from './serializeItemBody';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ChatMessageFromIdentitySet } from './chatMessageFromIdentitySet';
+import { type ChatMessageInfo } from './chatMessageInfo';
+import { ChatMessageType } from './chatMessageType';
+import { createChatMessageFromIdentitySetFromDiscriminatorValue } from './createChatMessageFromIdentitySetFromDiscriminatorValue';
+import { createEventMessageDetailFromDiscriminatorValue } from './createEventMessageDetailFromDiscriminatorValue';
+import { createItemBodyFromDiscriminatorValue } from './createItemBodyFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type EventMessageDetail } from './eventMessageDetail';
+import { type ItemBody } from './itemBody';
+import { serializeChatMessageFromIdentitySet } from './serializeChatMessageFromIdentitySet';
+import { serializeEventMessageDetail } from './serializeEventMessageDetail';
+import { serializeItemBody } from './serializeItemBody';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChatMessageInfo(chatMessageInfo: ChatMessageInfo | undefined = {} as ChatMessageInfo) : Record<string, (node: ParseNode) => void> {
     return {

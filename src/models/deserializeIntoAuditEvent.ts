@@ -1,13 +1,13 @@
-import type {AuditActor} from './auditActor';
-import type {AuditEvent} from './auditEvent';
-import type {AuditResource} from './auditResource';
-import {createAuditActorFromDiscriminatorValue} from './createAuditActorFromDiscriminatorValue';
-import {createAuditResourceFromDiscriminatorValue} from './createAuditResourceFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeAuditActor} from './serializeAuditActor';
-import {serializeAuditResource} from './serializeAuditResource';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type AuditActor } from './auditActor';
+import { type AuditEvent } from './auditEvent';
+import { type AuditResource } from './auditResource';
+import { createAuditActorFromDiscriminatorValue } from './createAuditActorFromDiscriminatorValue';
+import { createAuditResourceFromDiscriminatorValue } from './createAuditResourceFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeAuditActor } from './serializeAuditActor';
+import { serializeAuditResource } from './serializeAuditResource';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function deserializeIntoAuditEvent(auditEvent: AuditEvent | undefined = {} as AuditEvent) : Record<string, (node: ParseNode) => void> {
     return {

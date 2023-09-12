@@ -1,20 +1,19 @@
-import {AdministrativeUnitCollectionResponse} from '../../models/';
-import type {AdministrativeUnit} from '../../models/administrativeUnit';
-import {createAdministrativeUnitCollectionResponseFromDiscriminatorValue} from '../../models/createAdministrativeUnitCollectionResponseFromDiscriminatorValue';
-import {createAdministrativeUnitFromDiscriminatorValue} from '../../models/createAdministrativeUnitFromDiscriminatorValue';
-import {deserializeIntoAdministrativeUnit} from '../../models/deserializeIntoAdministrativeUnit';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeAdministrativeUnit} from '../../models/serializeAdministrativeUnit';
-import {AdministrativeUnitsRequestBuilderGetRequestConfiguration} from './administrativeUnitsRequestBuilderGetRequestConfiguration';
-import {AdministrativeUnitsRequestBuilderPostRequestConfiguration} from './administrativeUnitsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {AdministrativeUnitItemRequestBuilder} from './item/administrativeUnitItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AdministrativeUnitCollectionResponse } from '../../models/';
+import { type AdministrativeUnit } from '../../models/administrativeUnit';
+import { createAdministrativeUnitCollectionResponseFromDiscriminatorValue } from '../../models/createAdministrativeUnitCollectionResponseFromDiscriminatorValue';
+import { createAdministrativeUnitFromDiscriminatorValue } from '../../models/createAdministrativeUnitFromDiscriminatorValue';
+import { deserializeIntoAdministrativeUnit } from '../../models/deserializeIntoAdministrativeUnit';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeAdministrativeUnit } from '../../models/serializeAdministrativeUnit';
+import { type AdministrativeUnitsRequestBuilderGetRequestConfiguration } from './administrativeUnitsRequestBuilderGetRequestConfiguration';
+import { type AdministrativeUnitsRequestBuilderPostRequestConfiguration } from './administrativeUnitsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { AdministrativeUnitItemRequestBuilder } from './item/administrativeUnitItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.

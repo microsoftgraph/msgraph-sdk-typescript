@@ -1,7 +1,7 @@
-import {deserializeIntoPrintOperation} from './deserializeIntoPrintOperation';
-import {deserializeIntoPrinterCreateOperation} from './deserializeIntoPrinterCreateOperation';
-import {PrintOperation, PrinterCreateOperation} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPrinterCreateOperation } from './deserializeIntoPrinterCreateOperation';
+import { deserializeIntoPrintOperation } from './deserializeIntoPrintOperation';
+import { type PrinterCreateOperation, type PrintOperation } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPrintOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

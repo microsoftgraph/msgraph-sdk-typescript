@@ -1,14 +1,13 @@
-import {TaskProcessingResultCollectionResponse} from '../../../../../../../../models/identityGovernance/';
-import {createTaskProcessingResultCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/identityGovernance/createTaskProcessingResultCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TaskProcessingResultItemRequestBuilder} from './item/taskProcessingResultItemRequestBuilder';
-import {TaskProcessingResultsRequestBuilderGetRequestConfiguration} from './taskProcessingResultsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TaskProcessingResultCollectionResponse } from '../../../../../../../../models/identityGovernance/';
+import { createTaskProcessingResultCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/identityGovernance/createTaskProcessingResultCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { TaskProcessingResultItemRequestBuilder } from './item/taskProcessingResultItemRequestBuilder';
+import { type TaskProcessingResultsRequestBuilderGetRequestConfiguration } from './taskProcessingResultsRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.userProcessingResult entity.

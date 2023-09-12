@@ -1,5 +1,5 @@
-import type {IdentitySource} from './identitySource';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type IdentitySource } from './identitySource';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CrossCloudAzureActiveDirectoryTenant extends IdentitySource, Parsable {
     /**

@@ -1,19 +1,18 @@
-import {SharedDriveItemCollectionResponse} from '../models/';
-import {createSharedDriveItemCollectionResponseFromDiscriminatorValue} from '../models/createSharedDriveItemCollectionResponseFromDiscriminatorValue';
-import {createSharedDriveItemFromDiscriminatorValue} from '../models/createSharedDriveItemFromDiscriminatorValue';
-import {deserializeIntoSharedDriveItem} from '../models/deserializeIntoSharedDriveItem';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeSharedDriveItem} from '../models/serializeSharedDriveItem';
-import type {SharedDriveItem} from '../models/sharedDriveItem';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {SharedDriveItemItemRequestBuilder} from './item/sharedDriveItemItemRequestBuilder';
-import {SharesRequestBuilderGetRequestConfiguration} from './sharesRequestBuilderGetRequestConfiguration';
-import {SharesRequestBuilderPostRequestConfiguration} from './sharesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SharedDriveItemCollectionResponse } from '../models/';
+import { createSharedDriveItemCollectionResponseFromDiscriminatorValue } from '../models/createSharedDriveItemCollectionResponseFromDiscriminatorValue';
+import { createSharedDriveItemFromDiscriminatorValue } from '../models/createSharedDriveItemFromDiscriminatorValue';
+import { deserializeIntoSharedDriveItem } from '../models/deserializeIntoSharedDriveItem';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeSharedDriveItem } from '../models/serializeSharedDriveItem';
+import { type SharedDriveItem } from '../models/sharedDriveItem';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { SharedDriveItemItemRequestBuilder } from './item/sharedDriveItemItemRequestBuilder';
+import { type SharesRequestBuilderGetRequestConfiguration } from './sharesRequestBuilderGetRequestConfiguration';
+import { type SharesRequestBuilderPostRequestConfiguration } from './sharesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of sharedDriveItem entities.

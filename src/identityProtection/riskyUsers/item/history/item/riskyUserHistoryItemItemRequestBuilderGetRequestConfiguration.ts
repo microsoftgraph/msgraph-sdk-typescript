@@ -1,5 +1,5 @@
-import {RiskyUserHistoryItemItemRequestBuilderGetQueryParameters} from './riskyUserHistoryItemItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RiskyUserHistoryItemItemRequestBuilderGetQueryParameters } from './riskyUserHistoryItemItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RiskyUserHistoryItemItemRequestBuilderGetRequestConfiguration {
     /**

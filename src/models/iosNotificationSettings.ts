@@ -1,5 +1,5 @@
-import {IosNotificationAlertType} from './iosNotificationAlertType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { IosNotificationAlertType } from './iosNotificationAlertType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IosNotificationSettings extends AdditionalDataHolder, Parsable {
     /**

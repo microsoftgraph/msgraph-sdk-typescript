@@ -1,5 +1,5 @@
-import {TermsAndConditionsRequestBuilderGetQueryParameters} from './termsAndConditionsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TermsAndConditionsRequestBuilderGetQueryParameters } from './termsAndConditionsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TermsAndConditionsRequestBuilderGetRequestConfiguration {
     /**

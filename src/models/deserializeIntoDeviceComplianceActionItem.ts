@@ -1,7 +1,7 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DeviceComplianceActionItem} from './deviceComplianceActionItem';
-import {DeviceComplianceActionType} from './deviceComplianceActionType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DeviceComplianceActionItem } from './deviceComplianceActionItem';
+import { DeviceComplianceActionType } from './deviceComplianceActionType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceComplianceActionItem(deviceComplianceActionItem: DeviceComplianceActionItem | undefined = {} as DeviceComplianceActionItem) : Record<string, (node: ParseNode) => void> {
     return {

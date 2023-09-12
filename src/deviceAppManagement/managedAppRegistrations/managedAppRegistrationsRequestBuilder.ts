@@ -1,20 +1,19 @@
-import {ManagedAppRegistrationCollectionResponse} from '../../models/';
-import {createManagedAppRegistrationCollectionResponseFromDiscriminatorValue} from '../../models/createManagedAppRegistrationCollectionResponseFromDiscriminatorValue';
-import {createManagedAppRegistrationFromDiscriminatorValue} from '../../models/createManagedAppRegistrationFromDiscriminatorValue';
-import {deserializeIntoManagedAppRegistration} from '../../models/deserializeIntoManagedAppRegistration';
-import type {ManagedAppRegistration} from '../../models/managedAppRegistration';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeManagedAppRegistration} from '../../models/serializeManagedAppRegistration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetUserIdsWithFlaggedAppRegistrationRequestBuilder} from './getUserIdsWithFlaggedAppRegistration/getUserIdsWithFlaggedAppRegistrationRequestBuilder';
-import {ManagedAppRegistrationItemRequestBuilder} from './item/managedAppRegistrationItemRequestBuilder';
-import {ManagedAppRegistrationsRequestBuilderGetRequestConfiguration} from './managedAppRegistrationsRequestBuilderGetRequestConfiguration';
-import {ManagedAppRegistrationsRequestBuilderPostRequestConfiguration} from './managedAppRegistrationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedAppRegistrationCollectionResponse } from '../../models/';
+import { createManagedAppRegistrationCollectionResponseFromDiscriminatorValue } from '../../models/createManagedAppRegistrationCollectionResponseFromDiscriminatorValue';
+import { createManagedAppRegistrationFromDiscriminatorValue } from '../../models/createManagedAppRegistrationFromDiscriminatorValue';
+import { deserializeIntoManagedAppRegistration } from '../../models/deserializeIntoManagedAppRegistration';
+import { type ManagedAppRegistration } from '../../models/managedAppRegistration';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeManagedAppRegistration } from '../../models/serializeManagedAppRegistration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { GetUserIdsWithFlaggedAppRegistrationRequestBuilder } from './getUserIdsWithFlaggedAppRegistration/getUserIdsWithFlaggedAppRegistrationRequestBuilder';
+import { ManagedAppRegistrationItemRequestBuilder } from './item/managedAppRegistrationItemRequestBuilder';
+import { type ManagedAppRegistrationsRequestBuilderGetRequestConfiguration } from './managedAppRegistrationsRequestBuilderGetRequestConfiguration';
+import { type ManagedAppRegistrationsRequestBuilderPostRequestConfiguration } from './managedAppRegistrationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.

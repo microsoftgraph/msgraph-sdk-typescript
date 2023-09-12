@@ -1,5 +1,5 @@
-import type {AuditProperty} from './auditProperty';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AuditProperty } from './auditProperty';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AuditResource extends AdditionalDataHolder, Parsable {
     /**

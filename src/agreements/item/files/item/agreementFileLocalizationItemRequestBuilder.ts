@@ -1,17 +1,16 @@
-import type {AgreementFileLocalization} from '../../../../models/agreementFileLocalization';
-import {createAgreementFileLocalizationFromDiscriminatorValue} from '../../../../models/createAgreementFileLocalizationFromDiscriminatorValue';
-import {deserializeIntoAgreementFileLocalization} from '../../../../models/deserializeIntoAgreementFileLocalization';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeAgreementFileLocalization} from '../../../../models/serializeAgreementFileLocalization';
-import {AgreementFileLocalizationItemRequestBuilderDeleteRequestConfiguration} from './agreementFileLocalizationItemRequestBuilderDeleteRequestConfiguration';
-import {AgreementFileLocalizationItemRequestBuilderGetRequestConfiguration} from './agreementFileLocalizationItemRequestBuilderGetRequestConfiguration';
-import {AgreementFileLocalizationItemRequestBuilderPatchRequestConfiguration} from './agreementFileLocalizationItemRequestBuilderPatchRequestConfiguration';
-import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AgreementFileLocalization } from '../../../../models/agreementFileLocalization';
+import { createAgreementFileLocalizationFromDiscriminatorValue } from '../../../../models/createAgreementFileLocalizationFromDiscriminatorValue';
+import { deserializeIntoAgreementFileLocalization } from '../../../../models/deserializeIntoAgreementFileLocalization';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeAgreementFileLocalization } from '../../../../models/serializeAgreementFileLocalization';
+import { type AgreementFileLocalizationItemRequestBuilderDeleteRequestConfiguration } from './agreementFileLocalizationItemRequestBuilderDeleteRequestConfiguration';
+import { type AgreementFileLocalizationItemRequestBuilderGetRequestConfiguration } from './agreementFileLocalizationItemRequestBuilderGetRequestConfiguration';
+import { type AgreementFileLocalizationItemRequestBuilderPatchRequestConfiguration } from './agreementFileLocalizationItemRequestBuilderPatchRequestConfiguration';
+import { VersionsRequestBuilder } from './versions/versionsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the files property of the microsoft.graph.agreement entity.

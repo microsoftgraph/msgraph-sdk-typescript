@@ -1,6 +1,6 @@
-import {deserializeIntoContentTypeOrder} from './deserializeIntoContentTypeOrder';
-import {ContentTypeOrder} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoContentTypeOrder } from './deserializeIntoContentTypeOrder';
+import { type ContentTypeOrder } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createContentTypeOrderFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

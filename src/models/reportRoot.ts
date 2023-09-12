@@ -1,8 +1,8 @@
-import type {AuthenticationMethodsRoot} from './authenticationMethodsRoot';
-import type {PrintUsageByPrinter} from './printUsageByPrinter';
-import type {PrintUsageByUser} from './printUsageByUser';
-import type {SecurityReportsRoot} from './securityReportsRoot';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodsRoot } from './authenticationMethodsRoot';
+import { type PrintUsageByPrinter } from './printUsageByPrinter';
+import { type PrintUsageByUser } from './printUsageByUser';
+import { type SecurityReportsRoot } from './securityReportsRoot';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ReportRoot extends AdditionalDataHolder, Parsable {
     /**

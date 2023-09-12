@@ -1,5 +1,5 @@
-import type {Identity} from './identity';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type Identity } from './identity';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IdentitySet extends AdditionalDataHolder, Parsable {
     /**

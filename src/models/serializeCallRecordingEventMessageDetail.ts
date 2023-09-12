@@ -1,10 +1,9 @@
-import type {CallRecordingEventMessageDetail} from './callRecordingEventMessageDetail';
-import {CallRecordingStatus} from './callRecordingStatus';
-import type {IdentitySet} from './identitySet';
-import {serializeEventMessageDetail} from './serializeEventMessageDetail';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CallRecordingEventMessageDetail } from './callRecordingEventMessageDetail';
+import { CallRecordingStatus } from './callRecordingStatus';
+import { type IdentitySet } from './identitySet';
+import { serializeEventMessageDetail } from './serializeEventMessageDetail';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCallRecordingEventMessageDetail(writer: SerializationWriter, callRecordingEventMessageDetail: CallRecordingEventMessageDetail | undefined = {} as CallRecordingEventMessageDetail) : void {
         serializeEventMessageDetail(writer, callRecordingEventMessageDetail)

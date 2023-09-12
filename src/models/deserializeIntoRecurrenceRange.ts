@@ -1,7 +1,6 @@
-import type {RecurrenceRange} from './recurrenceRange';
-import {RecurrenceRangeType} from './recurrenceRangeType';
-import {DateOnly} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type RecurrenceRange } from './recurrenceRange';
+import { RecurrenceRangeType } from './recurrenceRangeType';
+import { DateOnly, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRecurrenceRange(recurrenceRange: RecurrenceRange | undefined = {} as RecurrenceRange) : Record<string, (node: ParseNode) => void> {
     return {

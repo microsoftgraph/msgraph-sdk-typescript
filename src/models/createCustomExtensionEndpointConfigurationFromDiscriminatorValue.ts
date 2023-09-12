@@ -1,7 +1,7 @@
-import {deserializeIntoCustomExtensionEndpointConfiguration} from './deserializeIntoCustomExtensionEndpointConfiguration';
-import {deserializeIntoLogicAppTriggerEndpointConfiguration} from './deserializeIntoLogicAppTriggerEndpointConfiguration';
-import {CustomExtensionEndpointConfiguration, LogicAppTriggerEndpointConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCustomExtensionEndpointConfiguration } from './deserializeIntoCustomExtensionEndpointConfiguration';
+import { deserializeIntoLogicAppTriggerEndpointConfiguration } from './deserializeIntoLogicAppTriggerEndpointConfiguration';
+import { type CustomExtensionEndpointConfiguration, type LogicAppTriggerEndpointConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCustomExtensionEndpointConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

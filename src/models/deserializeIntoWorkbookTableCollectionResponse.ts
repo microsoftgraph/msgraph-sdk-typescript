@@ -1,9 +1,9 @@
-import {createWorkbookTableFromDiscriminatorValue} from './createWorkbookTableFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeWorkbookTable} from './serializeWorkbookTable';
-import type {WorkbookTable} from './workbookTable';
-import type {WorkbookTableCollectionResponse} from './workbookTableCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookTableFromDiscriminatorValue } from './createWorkbookTableFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeWorkbookTable } from './serializeWorkbookTable';
+import { type WorkbookTable } from './workbookTable';
+import { type WorkbookTableCollectionResponse } from './workbookTableCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookTableCollectionResponse(workbookTableCollectionResponse: WorkbookTableCollectionResponse | undefined = {} as WorkbookTableCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

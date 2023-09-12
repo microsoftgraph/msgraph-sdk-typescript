@@ -1,10 +1,10 @@
-import type {AppConsentRequest} from './appConsentRequest';
-import type {AppConsentRequestScope} from './appConsentRequestScope';
-import {serializeAppConsentRequestScope} from './serializeAppConsentRequestScope';
-import {serializeEntity} from './serializeEntity';
-import {serializeUserConsentRequest} from './serializeUserConsentRequest';
-import type {UserConsentRequest} from './userConsentRequest';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppConsentRequest } from './appConsentRequest';
+import { type AppConsentRequestScope } from './appConsentRequestScope';
+import { serializeAppConsentRequestScope } from './serializeAppConsentRequestScope';
+import { serializeEntity } from './serializeEntity';
+import { serializeUserConsentRequest } from './serializeUserConsentRequest';
+import { type UserConsentRequest } from './userConsentRequest';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAppConsentRequest(writer: SerializationWriter, appConsentRequest: AppConsentRequest | undefined = {} as AppConsentRequest) : void {
         serializeEntity(writer, appConsentRequest)

@@ -1,6 +1,6 @@
-import {deserializeIntoSkewPostRequestBody} from './deserializeIntoSkewPostRequestBody';
-import {SkewPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoSkewPostRequestBody } from './deserializeIntoSkewPostRequestBody';
+import { type SkewPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createSkewPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,7 +1,7 @@
-import type {AccessPackageAssignmentRequestCallbackData} from './accessPackageAssignmentRequestCallbackData';
-import {AccessPackageCustomExtensionStage} from './accessPackageCustomExtensionStage';
-import {serializeCustomExtensionData} from './serializeCustomExtensionData';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentRequestCallbackData } from './accessPackageAssignmentRequestCallbackData';
+import { AccessPackageCustomExtensionStage } from './accessPackageCustomExtensionStage';
+import { serializeCustomExtensionData } from './serializeCustomExtensionData';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentRequestCallbackData(writer: SerializationWriter, accessPackageAssignmentRequestCallbackData: AccessPackageAssignmentRequestCallbackData | undefined = {} as AccessPackageAssignmentRequestCallbackData) : void {
         serializeCustomExtensionData(writer, accessPackageAssignmentRequestCallbackData)

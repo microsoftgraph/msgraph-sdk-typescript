@@ -1,11 +1,11 @@
-import {deserializeIntoDomainDnsCnameRecord} from './deserializeIntoDomainDnsCnameRecord';
-import {deserializeIntoDomainDnsMxRecord} from './deserializeIntoDomainDnsMxRecord';
-import {deserializeIntoDomainDnsRecord} from './deserializeIntoDomainDnsRecord';
-import {deserializeIntoDomainDnsSrvRecord} from './deserializeIntoDomainDnsSrvRecord';
-import {deserializeIntoDomainDnsTxtRecord} from './deserializeIntoDomainDnsTxtRecord';
-import {deserializeIntoDomainDnsUnavailableRecord} from './deserializeIntoDomainDnsUnavailableRecord';
-import {DomainDnsCnameRecord, DomainDnsMxRecord, DomainDnsRecord, DomainDnsSrvRecord, DomainDnsTxtRecord, DomainDnsUnavailableRecord} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDomainDnsCnameRecord } from './deserializeIntoDomainDnsCnameRecord';
+import { deserializeIntoDomainDnsMxRecord } from './deserializeIntoDomainDnsMxRecord';
+import { deserializeIntoDomainDnsRecord } from './deserializeIntoDomainDnsRecord';
+import { deserializeIntoDomainDnsSrvRecord } from './deserializeIntoDomainDnsSrvRecord';
+import { deserializeIntoDomainDnsTxtRecord } from './deserializeIntoDomainDnsTxtRecord';
+import { deserializeIntoDomainDnsUnavailableRecord } from './deserializeIntoDomainDnsUnavailableRecord';
+import { type DomainDnsCnameRecord, type DomainDnsMxRecord, type DomainDnsRecord, type DomainDnsSrvRecord, type DomainDnsTxtRecord, type DomainDnsUnavailableRecord } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDomainDnsRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

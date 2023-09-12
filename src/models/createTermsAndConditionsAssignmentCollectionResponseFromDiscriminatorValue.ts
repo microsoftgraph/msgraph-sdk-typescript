@@ -1,6 +1,6 @@
-import {deserializeIntoTermsAndConditionsAssignmentCollectionResponse} from './deserializeIntoTermsAndConditionsAssignmentCollectionResponse';
-import {TermsAndConditionsAssignmentCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoTermsAndConditionsAssignmentCollectionResponse } from './deserializeIntoTermsAndConditionsAssignmentCollectionResponse';
+import { type TermsAndConditionsAssignmentCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTermsAndConditionsAssignmentCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

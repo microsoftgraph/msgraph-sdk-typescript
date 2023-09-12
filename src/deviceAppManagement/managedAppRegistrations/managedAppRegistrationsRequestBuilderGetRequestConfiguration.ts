@@ -1,5 +1,5 @@
-import {ManagedAppRegistrationsRequestBuilderGetQueryParameters} from './managedAppRegistrationsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedAppRegistrationsRequestBuilderGetQueryParameters } from './managedAppRegistrationsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppRegistrationsRequestBuilderGetRequestConfiguration {
     /**

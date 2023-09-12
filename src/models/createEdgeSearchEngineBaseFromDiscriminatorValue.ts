@@ -1,8 +1,8 @@
-import {deserializeIntoEdgeSearchEngine} from './deserializeIntoEdgeSearchEngine';
-import {deserializeIntoEdgeSearchEngineBase} from './deserializeIntoEdgeSearchEngineBase';
-import {deserializeIntoEdgeSearchEngineCustom} from './deserializeIntoEdgeSearchEngineCustom';
-import {EdgeSearchEngine, EdgeSearchEngineBase, EdgeSearchEngineCustom} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEdgeSearchEngine } from './deserializeIntoEdgeSearchEngine';
+import { deserializeIntoEdgeSearchEngineBase } from './deserializeIntoEdgeSearchEngineBase';
+import { deserializeIntoEdgeSearchEngineCustom } from './deserializeIntoEdgeSearchEngineCustom';
+import { type EdgeSearchEngine, type EdgeSearchEngineBase, type EdgeSearchEngineCustom } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEdgeSearchEngineBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

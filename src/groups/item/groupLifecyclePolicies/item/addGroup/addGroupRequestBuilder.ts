@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import type {AddGroupPostRequestBody} from './addGroupPostRequestBody';
-import {AddGroupRequestBuilderPostRequestConfiguration} from './addGroupRequestBuilderPostRequestConfiguration';
-import type {AddGroupResponse} from './addGroupResponse';
-import {createAddGroupResponseFromDiscriminatorValue} from './createAddGroupResponseFromDiscriminatorValue';
-import {deserializeIntoAddGroupPostRequestBody} from './deserializeIntoAddGroupPostRequestBody';
-import {deserializeIntoAddGroupResponse} from './deserializeIntoAddGroupResponse';
-import {serializeAddGroupPostRequestBody} from './serializeAddGroupPostRequestBody';
-import {serializeAddGroupResponse} from './serializeAddGroupResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type AddGroupPostRequestBody } from './addGroupPostRequestBody';
+import { type AddGroupRequestBuilderPostRequestConfiguration } from './addGroupRequestBuilderPostRequestConfiguration';
+import { type AddGroupResponse } from './addGroupResponse';
+import { createAddGroupResponseFromDiscriminatorValue } from './createAddGroupResponseFromDiscriminatorValue';
+import { deserializeIntoAddGroupPostRequestBody } from './deserializeIntoAddGroupPostRequestBody';
+import { deserializeIntoAddGroupResponse } from './deserializeIntoAddGroupResponse';
+import { serializeAddGroupPostRequestBody } from './serializeAddGroupPostRequestBody';
+import { serializeAddGroupResponse } from './serializeAddGroupResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addGroup method.

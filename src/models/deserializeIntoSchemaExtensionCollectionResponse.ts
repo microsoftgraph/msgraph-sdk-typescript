@@ -1,9 +1,9 @@
-import {createSchemaExtensionFromDiscriminatorValue} from './createSchemaExtensionFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {SchemaExtension} from './schemaExtension';
-import type {SchemaExtensionCollectionResponse} from './schemaExtensionCollectionResponse';
-import {serializeSchemaExtension} from './serializeSchemaExtension';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSchemaExtensionFromDiscriminatorValue } from './createSchemaExtensionFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type SchemaExtension } from './schemaExtension';
+import { type SchemaExtensionCollectionResponse } from './schemaExtensionCollectionResponse';
+import { serializeSchemaExtension } from './serializeSchemaExtension';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSchemaExtensionCollectionResponse(schemaExtensionCollectionResponse: SchemaExtensionCollectionResponse | undefined = {} as SchemaExtensionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

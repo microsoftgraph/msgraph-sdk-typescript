@@ -1,16 +1,15 @@
-import type {BookingService} from '../../../../../models/bookingService';
-import {createBookingServiceFromDiscriminatorValue} from '../../../../../models/createBookingServiceFromDiscriminatorValue';
-import {deserializeIntoBookingService} from '../../../../../models/deserializeIntoBookingService';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeBookingService} from '../../../../../models/serializeBookingService';
-import {BookingServiceItemRequestBuilderDeleteRequestConfiguration} from './bookingServiceItemRequestBuilderDeleteRequestConfiguration';
-import {BookingServiceItemRequestBuilderGetRequestConfiguration} from './bookingServiceItemRequestBuilderGetRequestConfiguration';
-import {BookingServiceItemRequestBuilderPatchRequestConfiguration} from './bookingServiceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BookingService } from '../../../../../models/bookingService';
+import { createBookingServiceFromDiscriminatorValue } from '../../../../../models/createBookingServiceFromDiscriminatorValue';
+import { deserializeIntoBookingService } from '../../../../../models/deserializeIntoBookingService';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeBookingService } from '../../../../../models/serializeBookingService';
+import { type BookingServiceItemRequestBuilderDeleteRequestConfiguration } from './bookingServiceItemRequestBuilderDeleteRequestConfiguration';
+import { type BookingServiceItemRequestBuilderGetRequestConfiguration } from './bookingServiceItemRequestBuilderGetRequestConfiguration';
+import { type BookingServiceItemRequestBuilderPatchRequestConfiguration } from './bookingServiceItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.

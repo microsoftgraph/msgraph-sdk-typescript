@@ -1,31 +1,32 @@
-import {deserializeIntoAndroidLobApp} from './deserializeIntoAndroidLobApp';
-import {deserializeIntoAndroidStoreApp} from './deserializeIntoAndroidStoreApp';
-import {deserializeIntoIosLobApp} from './deserializeIntoIosLobApp';
-import {deserializeIntoIosStoreApp} from './deserializeIntoIosStoreApp';
-import {deserializeIntoIosVppApp} from './deserializeIntoIosVppApp';
-import {deserializeIntoIosiPadOSWebClip} from './deserializeIntoIosiPadOSWebClip';
-import {deserializeIntoMacOSLobApp} from './deserializeIntoMacOSLobApp';
-import {deserializeIntoMacOSMicrosoftDefenderApp} from './deserializeIntoMacOSMicrosoftDefenderApp';
-import {deserializeIntoMacOSMicrosoftEdgeApp} from './deserializeIntoMacOSMicrosoftEdgeApp';
-import {deserializeIntoMacOSOfficeSuiteApp} from './deserializeIntoMacOSOfficeSuiteApp';
-import {deserializeIntoManagedAndroidLobApp} from './deserializeIntoManagedAndroidLobApp';
-import {deserializeIntoManagedAndroidStoreApp} from './deserializeIntoManagedAndroidStoreApp';
-import {deserializeIntoManagedApp} from './deserializeIntoManagedApp';
-import {deserializeIntoManagedIOSLobApp} from './deserializeIntoManagedIOSLobApp';
-import {deserializeIntoManagedIOSStoreApp} from './deserializeIntoManagedIOSStoreApp';
-import {deserializeIntoManagedMobileLobApp} from './deserializeIntoManagedMobileLobApp';
-import {deserializeIntoMicrosoftStoreForBusinessApp} from './deserializeIntoMicrosoftStoreForBusinessApp';
-import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
-import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
-import {deserializeIntoWebApp} from './deserializeIntoWebApp';
-import {deserializeIntoWin32LobApp} from './deserializeIntoWin32LobApp';
-import {deserializeIntoWindowsAppX} from './deserializeIntoWindowsAppX';
-import {deserializeIntoWindowsMicrosoftEdgeApp} from './deserializeIntoWindowsMicrosoftEdgeApp';
-import {deserializeIntoWindowsMobileMSI} from './deserializeIntoWindowsMobileMSI';
-import {deserializeIntoWindowsUniversalAppX} from './deserializeIntoWindowsUniversalAppX';
-import {deserializeIntoWindowsWebApp} from './deserializeIntoWindowsWebApp';
-import {AndroidLobApp, AndroidStoreApp, IosLobApp, IosStoreApp, IosVppApp, IosiPadOSWebClip, MacOSLobApp, MacOSMicrosoftDefenderApp, MacOSMicrosoftEdgeApp, MacOSOfficeSuiteApp, ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileLobApp, MicrosoftStoreForBusinessApp, MobileApp, MobileLobApp, WebApp, Win32LobApp, WindowsAppX, WindowsMicrosoftEdgeApp, WindowsMobileMSI, WindowsUniversalAppX, WindowsWebApp} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAndroidLobApp } from './deserializeIntoAndroidLobApp';
+import { deserializeIntoAndroidStoreApp } from './deserializeIntoAndroidStoreApp';
+import { deserializeIntoIosiPadOSWebClip } from './deserializeIntoIosiPadOSWebClip';
+import { deserializeIntoIosLobApp } from './deserializeIntoIosLobApp';
+import { deserializeIntoIosStoreApp } from './deserializeIntoIosStoreApp';
+import { deserializeIntoIosVppApp } from './deserializeIntoIosVppApp';
+import { deserializeIntoMacOSDmgApp } from './deserializeIntoMacOSDmgApp';
+import { deserializeIntoMacOSLobApp } from './deserializeIntoMacOSLobApp';
+import { deserializeIntoMacOSMicrosoftDefenderApp } from './deserializeIntoMacOSMicrosoftDefenderApp';
+import { deserializeIntoMacOSMicrosoftEdgeApp } from './deserializeIntoMacOSMicrosoftEdgeApp';
+import { deserializeIntoMacOSOfficeSuiteApp } from './deserializeIntoMacOSOfficeSuiteApp';
+import { deserializeIntoManagedAndroidLobApp } from './deserializeIntoManagedAndroidLobApp';
+import { deserializeIntoManagedAndroidStoreApp } from './deserializeIntoManagedAndroidStoreApp';
+import { deserializeIntoManagedApp } from './deserializeIntoManagedApp';
+import { deserializeIntoManagedIOSLobApp } from './deserializeIntoManagedIOSLobApp';
+import { deserializeIntoManagedIOSStoreApp } from './deserializeIntoManagedIOSStoreApp';
+import { deserializeIntoManagedMobileLobApp } from './deserializeIntoManagedMobileLobApp';
+import { deserializeIntoMicrosoftStoreForBusinessApp } from './deserializeIntoMicrosoftStoreForBusinessApp';
+import { deserializeIntoMobileApp } from './deserializeIntoMobileApp';
+import { deserializeIntoMobileLobApp } from './deserializeIntoMobileLobApp';
+import { deserializeIntoWebApp } from './deserializeIntoWebApp';
+import { deserializeIntoWin32LobApp } from './deserializeIntoWin32LobApp';
+import { deserializeIntoWindowsAppX } from './deserializeIntoWindowsAppX';
+import { deserializeIntoWindowsMicrosoftEdgeApp } from './deserializeIntoWindowsMicrosoftEdgeApp';
+import { deserializeIntoWindowsMobileMSI } from './deserializeIntoWindowsMobileMSI';
+import { deserializeIntoWindowsUniversalAppX } from './deserializeIntoWindowsUniversalAppX';
+import { deserializeIntoWindowsWebApp } from './deserializeIntoWindowsWebApp';
+import { type AndroidLobApp, type AndroidStoreApp, type IosiPadOSWebClip, type IosLobApp, type IosStoreApp, type IosVppApp, type MacOSDmgApp, type MacOSLobApp, type MacOSMicrosoftDefenderApp, type MacOSMicrosoftEdgeApp, type MacOSOfficeSuiteApp, type ManagedAndroidLobApp, type ManagedAndroidStoreApp, type ManagedApp, type ManagedIOSLobApp, type ManagedIOSStoreApp, type ManagedMobileLobApp, type MicrosoftStoreForBusinessApp, type MobileApp, type MobileLobApp, type WebApp, type Win32LobApp, type WindowsAppX, type WindowsMicrosoftEdgeApp, type WindowsMobileMSI, type WindowsUniversalAppX, type WindowsWebApp } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMobileAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
@@ -46,6 +47,8 @@ export function createMobileAppFromDiscriminatorValue(parseNode: ParseNode | und
                     return deserializeIntoIosStoreApp;
                 case "#microsoft.graph.iosVppApp":
                     return deserializeIntoIosVppApp;
+                case "#microsoft.graph.macOSDmgApp":
+                    return deserializeIntoMacOSDmgApp;
                 case "#microsoft.graph.macOSLobApp":
                     return deserializeIntoMacOSLobApp;
                 case "#microsoft.graph.macOSMicrosoftDefenderApp":

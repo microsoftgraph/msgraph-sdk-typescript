@@ -1,6 +1,6 @@
-import type {FailureInfo} from './failureInfo';
-import {FailureStage} from './failureStage';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type FailureInfo } from './failureInfo';
+import { FailureStage } from './failureStage';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFailureInfo(failureInfo: FailureInfo | undefined = {} as FailureInfo) : Record<string, (node: ParseNode) => void> {
     return {

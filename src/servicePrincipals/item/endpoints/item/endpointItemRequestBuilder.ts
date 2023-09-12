@@ -1,16 +1,15 @@
-import {createEndpointFromDiscriminatorValue} from '../../../../models/createEndpointFromDiscriminatorValue';
-import {deserializeIntoEndpoint} from '../../../../models/deserializeIntoEndpoint';
-import type {Endpoint} from '../../../../models/endpoint';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeEndpoint} from '../../../../models/serializeEndpoint';
-import {EndpointItemRequestBuilderDeleteRequestConfiguration} from './endpointItemRequestBuilderDeleteRequestConfiguration';
-import {EndpointItemRequestBuilderGetRequestConfiguration} from './endpointItemRequestBuilderGetRequestConfiguration';
-import {EndpointItemRequestBuilderPatchRequestConfiguration} from './endpointItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEndpointFromDiscriminatorValue } from '../../../../models/createEndpointFromDiscriminatorValue';
+import { deserializeIntoEndpoint } from '../../../../models/deserializeIntoEndpoint';
+import { type Endpoint } from '../../../../models/endpoint';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeEndpoint } from '../../../../models/serializeEndpoint';
+import { type EndpointItemRequestBuilderDeleteRequestConfiguration } from './endpointItemRequestBuilderDeleteRequestConfiguration';
+import { type EndpointItemRequestBuilderGetRequestConfiguration } from './endpointItemRequestBuilderGetRequestConfiguration';
+import { type EndpointItemRequestBuilderPatchRequestConfiguration } from './endpointItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.servicePrincipal entity.

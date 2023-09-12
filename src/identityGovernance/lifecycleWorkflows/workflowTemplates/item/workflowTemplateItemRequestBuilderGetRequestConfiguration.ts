@@ -1,5 +1,5 @@
-import {WorkflowTemplateItemRequestBuilderGetQueryParameters} from './workflowTemplateItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkflowTemplateItemRequestBuilderGetQueryParameters } from './workflowTemplateItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WorkflowTemplateItemRequestBuilderGetRequestConfiguration {
     /**

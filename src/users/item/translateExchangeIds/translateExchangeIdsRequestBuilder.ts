@@ -1,17 +1,16 @@
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {createTranslateExchangeIdsResponseFromDiscriminatorValue} from './createTranslateExchangeIdsResponseFromDiscriminatorValue';
-import {deserializeIntoTranslateExchangeIdsPostRequestBody} from './deserializeIntoTranslateExchangeIdsPostRequestBody';
-import {deserializeIntoTranslateExchangeIdsResponse} from './deserializeIntoTranslateExchangeIdsResponse';
-import {serializeTranslateExchangeIdsPostRequestBody} from './serializeTranslateExchangeIdsPostRequestBody';
-import {serializeTranslateExchangeIdsResponse} from './serializeTranslateExchangeIdsResponse';
-import type {TranslateExchangeIdsPostRequestBody} from './translateExchangeIdsPostRequestBody';
-import {TranslateExchangeIdsRequestBuilderPostRequestConfiguration} from './translateExchangeIdsRequestBuilderPostRequestConfiguration';
-import type {TranslateExchangeIdsResponse} from './translateExchangeIdsResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createTranslateExchangeIdsResponseFromDiscriminatorValue } from './createTranslateExchangeIdsResponseFromDiscriminatorValue';
+import { deserializeIntoTranslateExchangeIdsPostRequestBody } from './deserializeIntoTranslateExchangeIdsPostRequestBody';
+import { deserializeIntoTranslateExchangeIdsResponse } from './deserializeIntoTranslateExchangeIdsResponse';
+import { serializeTranslateExchangeIdsPostRequestBody } from './serializeTranslateExchangeIdsPostRequestBody';
+import { serializeTranslateExchangeIdsResponse } from './serializeTranslateExchangeIdsResponse';
+import { type TranslateExchangeIdsPostRequestBody } from './translateExchangeIdsPostRequestBody';
+import { type TranslateExchangeIdsRequestBuilderPostRequestConfiguration } from './translateExchangeIdsRequestBuilderPostRequestConfiguration';
+import { type TranslateExchangeIdsResponse } from './translateExchangeIdsResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the translateExchangeIds method.

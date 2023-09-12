@@ -1,13 +1,12 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {deserializeIntoValidatePropertiesPostRequestBody} from './deserializeIntoValidatePropertiesPostRequestBody';
-import {serializeValidatePropertiesPostRequestBody} from './serializeValidatePropertiesPostRequestBody';
-import type {ValidatePropertiesPostRequestBody} from './validatePropertiesPostRequestBody';
-import {ValidatePropertiesRequestBuilderPostRequestConfiguration} from './validatePropertiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { deserializeIntoValidatePropertiesPostRequestBody } from './deserializeIntoValidatePropertiesPostRequestBody';
+import { serializeValidatePropertiesPostRequestBody } from './serializeValidatePropertiesPostRequestBody';
+import { type ValidatePropertiesPostRequestBody } from './validatePropertiesPostRequestBody';
+import { type ValidatePropertiesRequestBuilderPostRequestConfiguration } from './validatePropertiesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the validateProperties method.

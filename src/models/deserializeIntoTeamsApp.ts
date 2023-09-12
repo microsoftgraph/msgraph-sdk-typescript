@@ -1,10 +1,10 @@
-import {createTeamsAppDefinitionFromDiscriminatorValue} from './createTeamsAppDefinitionFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeTeamsAppDefinition} from './serializeTeamsAppDefinition';
-import type {TeamsApp} from './teamsApp';
-import type {TeamsAppDefinition} from './teamsAppDefinition';
-import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTeamsAppDefinitionFromDiscriminatorValue } from './createTeamsAppDefinitionFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeTeamsAppDefinition } from './serializeTeamsAppDefinition';
+import { type TeamsApp } from './teamsApp';
+import { type TeamsAppDefinition } from './teamsAppDefinition';
+import { TeamsAppDistributionMethod } from './teamsAppDistributionMethod';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsApp(teamsApp: TeamsApp | undefined = {} as TeamsApp) : Record<string, (node: ParseNode) => void> {
     return {

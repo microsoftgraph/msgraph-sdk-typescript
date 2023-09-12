@@ -1,19 +1,18 @@
-import {EducationSubmissionResourceCollectionResponse} from '../../../../../../../../models/';
-import {createEducationSubmissionResourceCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createEducationSubmissionResourceCollectionResponseFromDiscriminatorValue';
-import {createEducationSubmissionResourceFromDiscriminatorValue} from '../../../../../../../../models/createEducationSubmissionResourceFromDiscriminatorValue';
-import {deserializeIntoEducationSubmissionResource} from '../../../../../../../../models/deserializeIntoEducationSubmissionResource';
-import type {EducationSubmissionResource} from '../../../../../../../../models/educationSubmissionResource';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeEducationSubmissionResource} from '../../../../../../../../models/serializeEducationSubmissionResource';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EducationSubmissionResourceItemRequestBuilder} from './item/educationSubmissionResourceItemRequestBuilder';
-import {ResourcesRequestBuilderGetRequestConfiguration} from './resourcesRequestBuilderGetRequestConfiguration';
-import {ResourcesRequestBuilderPostRequestConfiguration} from './resourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type EducationSubmissionResourceCollectionResponse } from '../../../../../../../../models/';
+import { createEducationSubmissionResourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createEducationSubmissionResourceCollectionResponseFromDiscriminatorValue';
+import { createEducationSubmissionResourceFromDiscriminatorValue } from '../../../../../../../../models/createEducationSubmissionResourceFromDiscriminatorValue';
+import { deserializeIntoEducationSubmissionResource } from '../../../../../../../../models/deserializeIntoEducationSubmissionResource';
+import { type EducationSubmissionResource } from '../../../../../../../../models/educationSubmissionResource';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeEducationSubmissionResource } from '../../../../../../../../models/serializeEducationSubmissionResource';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { EducationSubmissionResourceItemRequestBuilder } from './item/educationSubmissionResourceItemRequestBuilder';
+import { type ResourcesRequestBuilderGetRequestConfiguration } from './resourcesRequestBuilderGetRequestConfiguration';
+import { type ResourcesRequestBuilderPostRequestConfiguration } from './resourcesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.educationSubmission entity.

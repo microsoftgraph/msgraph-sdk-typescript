@@ -1,8 +1,8 @@
-import {ComplianceStatus} from './complianceStatus';
-import type {DeviceCompliancePolicySettingState} from './deviceCompliancePolicySettingState';
-import {serializeSettingSource} from './serializeSettingSource';
-import type {SettingSource} from './settingSource';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ComplianceStatus } from './complianceStatus';
+import { type DeviceCompliancePolicySettingState } from './deviceCompliancePolicySettingState';
+import { serializeSettingSource } from './serializeSettingSource';
+import { type SettingSource } from './settingSource';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceCompliancePolicySettingState(writer: SerializationWriter, deviceCompliancePolicySettingState: DeviceCompliancePolicySettingState | undefined = {} as DeviceCompliancePolicySettingState) : void {
         writer.writeStringValue("currentValue", deviceCompliancePolicySettingState.currentValue);

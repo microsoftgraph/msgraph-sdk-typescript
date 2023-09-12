@@ -1,6 +1,6 @@
-import {deserializeIntoUpdateAllowedCombinationsResult} from './deserializeIntoUpdateAllowedCombinationsResult';
-import {UpdateAllowedCombinationsResult} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUpdateAllowedCombinationsResult } from './deserializeIntoUpdateAllowedCombinationsResult';
+import { type UpdateAllowedCombinationsResult } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUpdateAllowedCombinationsResultFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

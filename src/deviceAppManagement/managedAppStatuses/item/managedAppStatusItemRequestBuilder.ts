@@ -1,16 +1,15 @@
-import {createManagedAppStatusFromDiscriminatorValue} from '../../../models/createManagedAppStatusFromDiscriminatorValue';
-import {deserializeIntoManagedAppStatus} from '../../../models/deserializeIntoManagedAppStatus';
-import type {ManagedAppStatus} from '../../../models/managedAppStatus';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeManagedAppStatus} from '../../../models/serializeManagedAppStatus';
-import {ManagedAppStatusItemRequestBuilderDeleteRequestConfiguration} from './managedAppStatusItemRequestBuilderDeleteRequestConfiguration';
-import {ManagedAppStatusItemRequestBuilderGetRequestConfiguration} from './managedAppStatusItemRequestBuilderGetRequestConfiguration';
-import {ManagedAppStatusItemRequestBuilderPatchRequestConfiguration} from './managedAppStatusItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createManagedAppStatusFromDiscriminatorValue } from '../../../models/createManagedAppStatusFromDiscriminatorValue';
+import { deserializeIntoManagedAppStatus } from '../../../models/deserializeIntoManagedAppStatus';
+import { type ManagedAppStatus } from '../../../models/managedAppStatus';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeManagedAppStatus } from '../../../models/serializeManagedAppStatus';
+import { type ManagedAppStatusItemRequestBuilderDeleteRequestConfiguration } from './managedAppStatusItemRequestBuilderDeleteRequestConfiguration';
+import { type ManagedAppStatusItemRequestBuilderGetRequestConfiguration } from './managedAppStatusItemRequestBuilderGetRequestConfiguration';
+import { type ManagedAppStatusItemRequestBuilderPatchRequestConfiguration } from './managedAppStatusItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
@@ -39,10 +38,10 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the managedAppStatusRaw object.
+     * Read properties and relationships of the managedAppStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppStatus
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappstatusraw-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappstatus-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppStatusItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppStatus | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -87,7 +86,7 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the managedAppStatusRaw object.
+     * Read properties and relationships of the managedAppStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

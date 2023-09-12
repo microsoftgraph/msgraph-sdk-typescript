@@ -1,19 +1,18 @@
-import {AccessPackageResourceRoleCollectionResponse} from '../../../../../../../models/';
-import type {AccessPackageResourceRole} from '../../../../../../../models/accessPackageResourceRole';
-import {createAccessPackageResourceRoleCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createAccessPackageResourceRoleCollectionResponseFromDiscriminatorValue';
-import {createAccessPackageResourceRoleFromDiscriminatorValue} from '../../../../../../../models/createAccessPackageResourceRoleFromDiscriminatorValue';
-import {deserializeIntoAccessPackageResourceRole} from '../../../../../../../models/deserializeIntoAccessPackageResourceRole';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackageResourceRole} from '../../../../../../../models/serializeAccessPackageResourceRole';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AccessPackageResourceRoleItemRequestBuilder} from './item/accessPackageResourceRoleItemRequestBuilder';
-import {RolesRequestBuilderGetRequestConfiguration} from './rolesRequestBuilderGetRequestConfiguration';
-import {RolesRequestBuilderPostRequestConfiguration} from './rolesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResourceRoleCollectionResponse } from '../../../../../../../models/';
+import { type AccessPackageResourceRole } from '../../../../../../../models/accessPackageResourceRole';
+import { createAccessPackageResourceRoleCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createAccessPackageResourceRoleCollectionResponseFromDiscriminatorValue';
+import { createAccessPackageResourceRoleFromDiscriminatorValue } from '../../../../../../../models/createAccessPackageResourceRoleFromDiscriminatorValue';
+import { deserializeIntoAccessPackageResourceRole } from '../../../../../../../models/deserializeIntoAccessPackageResourceRole';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackageResourceRole } from '../../../../../../../models/serializeAccessPackageResourceRole';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AccessPackageResourceRoleItemRequestBuilder } from './item/accessPackageResourceRoleItemRequestBuilder';
+import { type RolesRequestBuilderGetRequestConfiguration } from './rolesRequestBuilderGetRequestConfiguration';
+import { type RolesRequestBuilderPostRequestConfiguration } from './rolesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roles property of the microsoft.graph.accessPackageResource entity.

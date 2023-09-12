@@ -1,17 +1,16 @@
-import {createPlannerBucketFromDiscriminatorValue} from '../../../models/createPlannerBucketFromDiscriminatorValue';
-import {deserializeIntoPlannerBucket} from '../../../models/deserializeIntoPlannerBucket';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {PlannerBucket} from '../../../models/plannerBucket';
-import {serializePlannerBucket} from '../../../models/serializePlannerBucket';
-import {PlannerBucketItemRequestBuilderDeleteRequestConfiguration} from './plannerBucketItemRequestBuilderDeleteRequestConfiguration';
-import {PlannerBucketItemRequestBuilderGetRequestConfiguration} from './plannerBucketItemRequestBuilderGetRequestConfiguration';
-import {PlannerBucketItemRequestBuilderPatchRequestConfiguration} from './plannerBucketItemRequestBuilderPatchRequestConfiguration';
-import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPlannerBucketFromDiscriminatorValue } from '../../../models/createPlannerBucketFromDiscriminatorValue';
+import { deserializeIntoPlannerBucket } from '../../../models/deserializeIntoPlannerBucket';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type PlannerBucket } from '../../../models/plannerBucket';
+import { serializePlannerBucket } from '../../../models/serializePlannerBucket';
+import { type PlannerBucketItemRequestBuilderDeleteRequestConfiguration } from './plannerBucketItemRequestBuilderDeleteRequestConfiguration';
+import { type PlannerBucketItemRequestBuilderGetRequestConfiguration } from './plannerBucketItemRequestBuilderGetRequestConfiguration';
+import { type PlannerBucketItemRequestBuilderPatchRequestConfiguration } from './plannerBucketItemRequestBuilderPatchRequestConfiguration';
+import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the buckets property of the microsoft.graph.planner entity.

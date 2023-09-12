@@ -1,18 +1,18 @@
-import type {Attachment} from './attachment';
-import type {Extension} from './extension';
-import type {ItemBody} from './itemBody';
-import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import type {Post} from './post';
-import type {Recipient} from './recipient';
-import {serializeAttachment} from './serializeAttachment';
-import {serializeExtension} from './serializeExtension';
-import {serializeItemBody} from './serializeItemBody';
-import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLegacyExtendedProperty';
-import {serializeOutlookItem} from './serializeOutlookItem';
-import {serializeRecipient} from './serializeRecipient';
-import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
-import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Attachment } from './attachment';
+import { type Extension } from './extension';
+import { type ItemBody } from './itemBody';
+import { type MultiValueLegacyExtendedProperty } from './multiValueLegacyExtendedProperty';
+import { type Post } from './post';
+import { type Recipient } from './recipient';
+import { serializeAttachment } from './serializeAttachment';
+import { serializeExtension } from './serializeExtension';
+import { serializeItemBody } from './serializeItemBody';
+import { serializeMultiValueLegacyExtendedProperty } from './serializeMultiValueLegacyExtendedProperty';
+import { serializeOutlookItem } from './serializeOutlookItem';
+import { serializeRecipient } from './serializeRecipient';
+import { serializeSingleValueLegacyExtendedProperty } from './serializeSingleValueLegacyExtendedProperty';
+import { type SingleValueLegacyExtendedProperty } from './singleValueLegacyExtendedProperty';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePost(writer: SerializationWriter, post: Post | undefined = {} as Post) : void {
         serializeOutlookItem(writer, post)

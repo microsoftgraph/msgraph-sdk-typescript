@@ -1,16 +1,15 @@
-import {OutlookUser} from '../../models/';
-import {createOutlookUserFromDiscriminatorValue} from '../../models/createOutlookUserFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {MasterCategoriesRequestBuilder} from './masterCategories/masterCategoriesRequestBuilder';
-import {OutlookRequestBuilderGetRequestConfiguration} from './outlookRequestBuilderGetRequestConfiguration';
-import {SupportedLanguagesRequestBuilder} from './supportedLanguages/supportedLanguagesRequestBuilder';
-import {SupportedTimeZonesRequestBuilder} from './supportedTimeZones/supportedTimeZonesRequestBuilder';
-import {SupportedTimeZonesWithTimeZoneStandardRequestBuilder} from './supportedTimeZonesWithTimeZoneStandard/supportedTimeZonesWithTimeZoneStandardRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type OutlookUser } from '../../models/';
+import { createOutlookUserFromDiscriminatorValue } from '../../models/createOutlookUserFromDiscriminatorValue';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { MasterCategoriesRequestBuilder } from './masterCategories/masterCategoriesRequestBuilder';
+import { type OutlookRequestBuilderGetRequestConfiguration } from './outlookRequestBuilderGetRequestConfiguration';
+import { SupportedLanguagesRequestBuilder } from './supportedLanguages/supportedLanguagesRequestBuilder';
+import { SupportedTimeZonesRequestBuilder } from './supportedTimeZones/supportedTimeZonesRequestBuilder';
+import { SupportedTimeZonesWithTimeZoneStandardRequestBuilder } from './supportedTimeZonesWithTimeZoneStandard/supportedTimeZonesWithTimeZoneStandardRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the outlook property of the microsoft.graph.user entity.

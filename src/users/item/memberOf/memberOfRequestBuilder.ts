@@ -1,17 +1,16 @@
-import {DirectoryObjectCollectionResponse} from '../../../models/';
-import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GraphAdministrativeUnitRequestBuilder} from './graphAdministrativeUnit/graphAdministrativeUnitRequestBuilder';
-import {GraphDirectoryRoleRequestBuilder} from './graphDirectoryRole/graphDirectoryRoleRequestBuilder';
-import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
-import {MemberOfRequestBuilderGetRequestConfiguration} from './memberOfRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryObjectCollectionResponse } from '../../../models/';
+import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { GraphAdministrativeUnitRequestBuilder } from './graphAdministrativeUnit/graphAdministrativeUnitRequestBuilder';
+import { GraphDirectoryRoleRequestBuilder } from './graphDirectoryRole/graphDirectoryRoleRequestBuilder';
+import { GraphGroupRequestBuilder } from './graphGroup/graphGroupRequestBuilder';
+import { DirectoryObjectItemRequestBuilder } from './item/directoryObjectItemRequestBuilder';
+import { type MemberOfRequestBuilderGetRequestConfiguration } from './memberOfRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the memberOf property of the microsoft.graph.user entity.

@@ -1,6 +1,6 @@
-import {AuthenticationMethodModes} from './authenticationMethodModes';
-import type {UpdateAllowedCombinationsResult} from './updateAllowedCombinationsResult';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AuthenticationMethodModes } from './authenticationMethodModes';
+import { type UpdateAllowedCombinationsResult } from './updateAllowedCombinationsResult';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUpdateAllowedCombinationsResult(updateAllowedCombinationsResult: UpdateAllowedCombinationsResult | undefined = {} as UpdateAllowedCombinationsResult) : Record<string, (node: ParseNode) => void> {
     return {

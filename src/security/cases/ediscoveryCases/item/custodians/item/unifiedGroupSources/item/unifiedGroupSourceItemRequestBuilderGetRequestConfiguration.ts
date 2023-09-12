@@ -1,5 +1,5 @@
-import {UnifiedGroupSourceItemRequestBuilderGetQueryParameters} from './unifiedGroupSourceItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedGroupSourceItemRequestBuilderGetQueryParameters } from './unifiedGroupSourceItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UnifiedGroupSourceItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,8 +1,8 @@
-import type {Entity} from './entity';
-import type {PlannerChecklistItems} from './plannerChecklistItems';
-import type {PlannerExternalReferences} from './plannerExternalReferences';
-import {PlannerPreviewType} from './plannerPreviewType';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type PlannerChecklistItems } from './plannerChecklistItems';
+import { type PlannerExternalReferences } from './plannerExternalReferences';
+import { PlannerPreviewType } from './plannerPreviewType';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PlannerTaskDetails extends Entity, Parsable {
     /**

@@ -1,7 +1,7 @@
-import type {AgreementAcceptance} from './agreementAcceptance';
-import {AgreementAcceptanceState} from './agreementAcceptanceState';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AgreementAcceptance } from './agreementAcceptance';
+import { AgreementAcceptanceState } from './agreementAcceptanceState';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAgreementAcceptance(agreementAcceptance: AgreementAcceptance | undefined = {} as AgreementAcceptance) : Record<string, (node: ParseNode) => void> {
     return {

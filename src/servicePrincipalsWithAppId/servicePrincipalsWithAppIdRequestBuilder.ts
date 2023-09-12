@@ -1,16 +1,15 @@
-import {createServicePrincipalFromDiscriminatorValue} from '../models/createServicePrincipalFromDiscriminatorValue';
-import {deserializeIntoServicePrincipal} from '../models/deserializeIntoServicePrincipal';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeServicePrincipal} from '../models/serializeServicePrincipal';
-import type {ServicePrincipal} from '../models/servicePrincipal';
-import {ServicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration} from './servicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration';
-import {ServicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration} from './servicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration';
-import {ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration} from './servicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createServicePrincipalFromDiscriminatorValue } from '../models/createServicePrincipalFromDiscriminatorValue';
+import { deserializeIntoServicePrincipal } from '../models/deserializeIntoServicePrincipal';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeServicePrincipal } from '../models/serializeServicePrincipal';
+import { type ServicePrincipal } from '../models/servicePrincipal';
+import { type ServicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration } from './servicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration';
+import { type ServicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration } from './servicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration';
+import { type ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration } from './servicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of servicePrincipal entities.

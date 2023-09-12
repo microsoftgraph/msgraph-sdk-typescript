@@ -1,5 +1,5 @@
-import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IosMinimumOperatingSystem } from './iosMinimumOperatingSystem';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIosMinimumOperatingSystem(writer: SerializationWriter, iosMinimumOperatingSystem: IosMinimumOperatingSystem | undefined = {} as IosMinimumOperatingSystem) : void {
         writer.writeStringValue("@odata.type", iosMinimumOperatingSystem.odataType);

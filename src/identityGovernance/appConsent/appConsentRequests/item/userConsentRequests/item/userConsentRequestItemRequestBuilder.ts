@@ -1,17 +1,16 @@
-import {createUserConsentRequestFromDiscriminatorValue} from '../../../../../../models/createUserConsentRequestFromDiscriminatorValue';
-import {deserializeIntoUserConsentRequest} from '../../../../../../models/deserializeIntoUserConsentRequest';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeUserConsentRequest} from '../../../../../../models/serializeUserConsentRequest';
-import type {UserConsentRequest} from '../../../../../../models/userConsentRequest';
-import {ApprovalRequestBuilder} from './approval/approvalRequestBuilder';
-import {UserConsentRequestItemRequestBuilderDeleteRequestConfiguration} from './userConsentRequestItemRequestBuilderDeleteRequestConfiguration';
-import {UserConsentRequestItemRequestBuilderGetRequestConfiguration} from './userConsentRequestItemRequestBuilderGetRequestConfiguration';
-import {UserConsentRequestItemRequestBuilderPatchRequestConfiguration} from './userConsentRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUserConsentRequestFromDiscriminatorValue } from '../../../../../../models/createUserConsentRequestFromDiscriminatorValue';
+import { deserializeIntoUserConsentRequest } from '../../../../../../models/deserializeIntoUserConsentRequest';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeUserConsentRequest } from '../../../../../../models/serializeUserConsentRequest';
+import { type UserConsentRequest } from '../../../../../../models/userConsentRequest';
+import { ApprovalRequestBuilder } from './approval/approvalRequestBuilder';
+import { type UserConsentRequestItemRequestBuilderDeleteRequestConfiguration } from './userConsentRequestItemRequestBuilderDeleteRequestConfiguration';
+import { type UserConsentRequestItemRequestBuilderGetRequestConfiguration } from './userConsentRequestItemRequestBuilderGetRequestConfiguration';
+import { type UserConsentRequestItemRequestBuilderPatchRequestConfiguration } from './userConsentRequestItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.

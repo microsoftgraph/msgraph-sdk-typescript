@@ -1,19 +1,18 @@
-import {createOnlineMeetingFromDiscriminatorValue} from '../../../models/createOnlineMeetingFromDiscriminatorValue';
-import {deserializeIntoOnlineMeeting} from '../../../models/deserializeIntoOnlineMeeting';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {OnlineMeeting} from '../../../models/onlineMeeting';
-import {serializeOnlineMeeting} from '../../../models/serializeOnlineMeeting';
-import {AttendanceReportsRequestBuilder} from './attendanceReports/attendanceReportsRequestBuilder';
-import {AttendeeReportRequestBuilder} from './attendeeReport/attendeeReportRequestBuilder';
-import {GetVirtualAppointmentJoinWebUrlRequestBuilder} from './getVirtualAppointmentJoinWebUrl/getVirtualAppointmentJoinWebUrlRequestBuilder';
-import {OnlineMeetingItemRequestBuilderDeleteRequestConfiguration} from './onlineMeetingItemRequestBuilderDeleteRequestConfiguration';
-import {OnlineMeetingItemRequestBuilderGetRequestConfiguration} from './onlineMeetingItemRequestBuilderGetRequestConfiguration';
-import {OnlineMeetingItemRequestBuilderPatchRequestConfiguration} from './onlineMeetingItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOnlineMeetingFromDiscriminatorValue } from '../../../models/createOnlineMeetingFromDiscriminatorValue';
+import { deserializeIntoOnlineMeeting } from '../../../models/deserializeIntoOnlineMeeting';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type OnlineMeeting } from '../../../models/onlineMeeting';
+import { serializeOnlineMeeting } from '../../../models/serializeOnlineMeeting';
+import { AttendanceReportsRequestBuilder } from './attendanceReports/attendanceReportsRequestBuilder';
+import { AttendeeReportRequestBuilder } from './attendeeReport/attendeeReportRequestBuilder';
+import { GetVirtualAppointmentJoinWebUrlRequestBuilder } from './getVirtualAppointmentJoinWebUrl/getVirtualAppointmentJoinWebUrlRequestBuilder';
+import { type OnlineMeetingItemRequestBuilderDeleteRequestConfiguration } from './onlineMeetingItemRequestBuilderDeleteRequestConfiguration';
+import { type OnlineMeetingItemRequestBuilderGetRequestConfiguration } from './onlineMeetingItemRequestBuilderGetRequestConfiguration';
+import { type OnlineMeetingItemRequestBuilderPatchRequestConfiguration } from './onlineMeetingItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.

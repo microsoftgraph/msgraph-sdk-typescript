@@ -1,6 +1,6 @@
-import type {OfferShiftRequest} from './offerShiftRequest';
-import {serializeScheduleChangeRequest} from './serializeScheduleChangeRequest';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type OfferShiftRequest } from './offerShiftRequest';
+import { serializeScheduleChangeRequest } from './serializeScheduleChangeRequest';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOfferShiftRequest(writer: SerializationWriter, offerShiftRequest: OfferShiftRequest | undefined = {} as OfferShiftRequest) : void {
         serializeScheduleChangeRequest(writer, offerShiftRequest)

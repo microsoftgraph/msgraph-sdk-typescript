@@ -1,6 +1,6 @@
-import {deserializeIntoExternalLink} from './deserializeIntoExternalLink';
-import {ExternalLink} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoExternalLink } from './deserializeIntoExternalLink';
+import { type ExternalLink } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createExternalLinkFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

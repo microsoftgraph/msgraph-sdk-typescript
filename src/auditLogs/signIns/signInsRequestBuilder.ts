@@ -1,19 +1,18 @@
-import {SignInCollectionResponse} from '../../models/';
-import {createSignInCollectionResponseFromDiscriminatorValue} from '../../models/createSignInCollectionResponseFromDiscriminatorValue';
-import {createSignInFromDiscriminatorValue} from '../../models/createSignInFromDiscriminatorValue';
-import {deserializeIntoSignIn} from '../../models/deserializeIntoSignIn';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeSignIn} from '../../models/serializeSignIn';
-import type {SignIn} from '../../models/signIn';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {SignInItemRequestBuilder} from './item/signInItemRequestBuilder';
-import {SignInsRequestBuilderGetRequestConfiguration} from './signInsRequestBuilderGetRequestConfiguration';
-import {SignInsRequestBuilderPostRequestConfiguration} from './signInsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SignInCollectionResponse } from '../../models/';
+import { createSignInCollectionResponseFromDiscriminatorValue } from '../../models/createSignInCollectionResponseFromDiscriminatorValue';
+import { createSignInFromDiscriminatorValue } from '../../models/createSignInFromDiscriminatorValue';
+import { deserializeIntoSignIn } from '../../models/deserializeIntoSignIn';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeSignIn } from '../../models/serializeSignIn';
+import { type SignIn } from '../../models/signIn';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { SignInItemRequestBuilder } from './item/signInItemRequestBuilder';
+import { type SignInsRequestBuilderGetRequestConfiguration } from './signInsRequestBuilderGetRequestConfiguration';
+import { type SignInsRequestBuilderPostRequestConfiguration } from './signInsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.

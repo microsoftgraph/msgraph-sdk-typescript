@@ -1,5 +1,5 @@
-import type {NumberColumn} from './numberColumn';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type NumberColumn } from './numberColumn';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNumberColumn(numberColumn: NumberColumn | undefined = {} as NumberColumn) : Record<string, (node: ParseNode) => void> {
     return {

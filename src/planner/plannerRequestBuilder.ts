@@ -1,18 +1,17 @@
-import {createPlannerFromDiscriminatorValue} from '../models/createPlannerFromDiscriminatorValue';
-import {deserializeIntoPlanner} from '../models/deserializeIntoPlanner';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import type {Planner} from '../models/planner';
-import {serializePlanner} from '../models/serializePlanner';
-import {BucketsRequestBuilder} from './buckets/bucketsRequestBuilder';
-import {PlannerRequestBuilderGetRequestConfiguration} from './plannerRequestBuilderGetRequestConfiguration';
-import {PlannerRequestBuilderPatchRequestConfiguration} from './plannerRequestBuilderPatchRequestConfiguration';
-import {PlansRequestBuilder} from './plans/plansRequestBuilder';
-import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPlannerFromDiscriminatorValue } from '../models/createPlannerFromDiscriminatorValue';
+import { deserializeIntoPlanner } from '../models/deserializeIntoPlanner';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { type Planner } from '../models/planner';
+import { serializePlanner } from '../models/serializePlanner';
+import { BucketsRequestBuilder } from './buckets/bucketsRequestBuilder';
+import { type PlannerRequestBuilderGetRequestConfiguration } from './plannerRequestBuilderGetRequestConfiguration';
+import { type PlannerRequestBuilderPatchRequestConfiguration } from './plannerRequestBuilderPatchRequestConfiguration';
+import { PlansRequestBuilder } from './plans/plansRequestBuilder';
+import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the planner singleton.

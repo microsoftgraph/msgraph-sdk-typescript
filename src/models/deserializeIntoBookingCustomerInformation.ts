@@ -1,12 +1,12 @@
-import type {BookingCustomerInformation} from './bookingCustomerInformation';
-import type {BookingQuestionAnswer} from './bookingQuestionAnswer';
-import {createBookingQuestionAnswerFromDiscriminatorValue} from './createBookingQuestionAnswerFromDiscriminatorValue';
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import {deserializeIntoBookingCustomerInformationBase} from './deserializeIntoBookingCustomerInformationBase';
-import type {Location} from './location';
-import {serializeBookingQuestionAnswer} from './serializeBookingQuestionAnswer';
-import {serializeLocation} from './serializeLocation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BookingCustomerInformation } from './bookingCustomerInformation';
+import { type BookingQuestionAnswer } from './bookingQuestionAnswer';
+import { createBookingQuestionAnswerFromDiscriminatorValue } from './createBookingQuestionAnswerFromDiscriminatorValue';
+import { createLocationFromDiscriminatorValue } from './createLocationFromDiscriminatorValue';
+import { deserializeIntoBookingCustomerInformationBase } from './deserializeIntoBookingCustomerInformationBase';
+import { type Location } from './location';
+import { serializeBookingQuestionAnswer } from './serializeBookingQuestionAnswer';
+import { serializeLocation } from './serializeLocation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingCustomerInformation(bookingCustomerInformation: BookingCustomerInformation | undefined = {} as BookingCustomerInformation) : Record<string, (node: ParseNode) => void> {
     return {

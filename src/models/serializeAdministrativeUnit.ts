@@ -1,11 +1,11 @@
-import type {AdministrativeUnit} from './administrativeUnit';
-import type {DirectoryObject} from './directoryObject';
-import type {Extension} from './extension';
-import type {ScopedRoleMembership} from './scopedRoleMembership';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeExtension} from './serializeExtension';
-import {serializeScopedRoleMembership} from './serializeScopedRoleMembership';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AdministrativeUnit } from './administrativeUnit';
+import { type DirectoryObject } from './directoryObject';
+import { type Extension } from './extension';
+import { type ScopedRoleMembership } from './scopedRoleMembership';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeExtension } from './serializeExtension';
+import { serializeScopedRoleMembership } from './serializeScopedRoleMembership';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAdministrativeUnit(writer: SerializationWriter, administrativeUnit: AdministrativeUnit | undefined = {} as AdministrativeUnit) : void {
         serializeDirectoryObject(writer, administrativeUnit)

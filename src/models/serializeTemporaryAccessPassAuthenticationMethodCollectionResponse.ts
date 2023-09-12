@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeTemporaryAccessPassAuthenticationMethod} from './serializeTemporaryAccessPassAuthenticationMethod';
-import type {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuthenticationMethod';
-import type {TemporaryAccessPassAuthenticationMethodCollectionResponse} from './temporaryAccessPassAuthenticationMethodCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeTemporaryAccessPassAuthenticationMethod } from './serializeTemporaryAccessPassAuthenticationMethod';
+import { type TemporaryAccessPassAuthenticationMethod } from './temporaryAccessPassAuthenticationMethod';
+import { type TemporaryAccessPassAuthenticationMethodCollectionResponse } from './temporaryAccessPassAuthenticationMethodCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTemporaryAccessPassAuthenticationMethodCollectionResponse(writer: SerializationWriter, temporaryAccessPassAuthenticationMethodCollectionResponse: TemporaryAccessPassAuthenticationMethodCollectionResponse | undefined = {} as TemporaryAccessPassAuthenticationMethodCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, temporaryAccessPassAuthenticationMethodCollectionResponse)

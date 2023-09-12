@@ -1,5 +1,5 @@
-import {InferenceClassificationOverrideItemRequestBuilderGetQueryParameters} from './inferenceClassificationOverrideItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type InferenceClassificationOverrideItemRequestBuilderGetQueryParameters } from './inferenceClassificationOverrideItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface InferenceClassificationOverrideItemRequestBuilderGetRequestConfiguration {
     /**

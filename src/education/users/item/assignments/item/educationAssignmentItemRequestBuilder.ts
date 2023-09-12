@@ -1,23 +1,22 @@
-import {createEducationAssignmentFromDiscriminatorValue} from '../../../../../models/createEducationAssignmentFromDiscriminatorValue';
-import {deserializeIntoEducationAssignment} from '../../../../../models/deserializeIntoEducationAssignment';
-import type {EducationAssignment} from '../../../../../models/educationAssignment';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeEducationAssignment} from '../../../../../models/serializeEducationAssignment';
-import {CategoriesRequestBuilder} from './categories/categoriesRequestBuilder';
-import {EducationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './educationAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {EducationAssignmentItemRequestBuilderGetRequestConfiguration} from './educationAssignmentItemRequestBuilderGetRequestConfiguration';
-import {EducationAssignmentItemRequestBuilderPatchRequestConfiguration} from './educationAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {PublishRequestBuilder} from './publish/publishRequestBuilder';
-import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
-import {RubricRequestBuilder} from './rubric/rubricRequestBuilder';
-import {SetUpFeedbackResourcesFolderRequestBuilder} from './setUpFeedbackResourcesFolder/setUpFeedbackResourcesFolderRequestBuilder';
-import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
-import {SubmissionsRequestBuilder} from './submissions/submissionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEducationAssignmentFromDiscriminatorValue } from '../../../../../models/createEducationAssignmentFromDiscriminatorValue';
+import { deserializeIntoEducationAssignment } from '../../../../../models/deserializeIntoEducationAssignment';
+import { type EducationAssignment } from '../../../../../models/educationAssignment';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeEducationAssignment } from '../../../../../models/serializeEducationAssignment';
+import { CategoriesRequestBuilder } from './categories/categoriesRequestBuilder';
+import { type EducationAssignmentItemRequestBuilderDeleteRequestConfiguration } from './educationAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type EducationAssignmentItemRequestBuilderGetRequestConfiguration } from './educationAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type EducationAssignmentItemRequestBuilderPatchRequestConfiguration } from './educationAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { PublishRequestBuilder } from './publish/publishRequestBuilder';
+import { ResourcesRequestBuilder } from './resources/resourcesRequestBuilder';
+import { RubricRequestBuilder } from './rubric/rubricRequestBuilder';
+import { SetUpFeedbackResourcesFolderRequestBuilder } from './setUpFeedbackResourcesFolder/setUpFeedbackResourcesFolderRequestBuilder';
+import { SetUpResourcesFolderRequestBuilder } from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
+import { SubmissionsRequestBuilder } from './submissions/submissionsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.

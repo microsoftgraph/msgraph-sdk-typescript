@@ -1,10 +1,10 @@
-import {AttributeFlowBehavior} from './attributeFlowBehavior';
-import {AttributeFlowType} from './attributeFlowType';
-import type {AttributeMapping} from './attributeMapping';
-import type {AttributeMappingSource} from './attributeMappingSource';
-import {createAttributeMappingSourceFromDiscriminatorValue} from './createAttributeMappingSourceFromDiscriminatorValue';
-import {serializeAttributeMappingSource} from './serializeAttributeMappingSource';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AttributeFlowBehavior } from './attributeFlowBehavior';
+import { AttributeFlowType } from './attributeFlowType';
+import { type AttributeMapping } from './attributeMapping';
+import { type AttributeMappingSource } from './attributeMappingSource';
+import { createAttributeMappingSourceFromDiscriminatorValue } from './createAttributeMappingSourceFromDiscriminatorValue';
+import { serializeAttributeMappingSource } from './serializeAttributeMappingSource';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttributeMapping(attributeMapping: AttributeMapping | undefined = {} as AttributeMapping) : Record<string, (node: ParseNode) => void> {
     return {

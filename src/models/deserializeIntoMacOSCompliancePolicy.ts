@@ -1,8 +1,8 @@
-import {deserializeIntoDeviceCompliancePolicy} from './deserializeIntoDeviceCompliancePolicy';
-import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
-import type {MacOSCompliancePolicy} from './macOSCompliancePolicy';
-import {RequiredPasswordType} from './requiredPasswordType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceCompliancePolicy } from './deserializeIntoDeviceCompliancePolicy';
+import { DeviceThreatProtectionLevel } from './deviceThreatProtectionLevel';
+import { type MacOSCompliancePolicy } from './macOSCompliancePolicy';
+import { RequiredPasswordType } from './requiredPasswordType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMacOSCompliancePolicy(macOSCompliancePolicy: MacOSCompliancePolicy | undefined = {} as MacOSCompliancePolicy) : Record<string, (node: ParseNode) => void> {
     return {

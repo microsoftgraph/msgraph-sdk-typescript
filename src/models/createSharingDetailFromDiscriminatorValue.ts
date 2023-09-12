@@ -1,6 +1,6 @@
-import {deserializeIntoSharingDetail} from './deserializeIntoSharingDetail';
-import {SharingDetail} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoSharingDetail } from './deserializeIntoSharingDetail';
+import { type SharingDetail } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createSharingDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

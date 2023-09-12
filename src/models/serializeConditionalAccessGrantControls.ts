@@ -1,8 +1,8 @@
-import type {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
-import {ConditionalAccessGrantControl} from './conditionalAccessGrantControl';
-import type {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
-import {serializeAuthenticationStrengthPolicy} from './serializeAuthenticationStrengthPolicy';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationStrengthPolicy } from './authenticationStrengthPolicy';
+import { ConditionalAccessGrantControl } from './conditionalAccessGrantControl';
+import { type ConditionalAccessGrantControls } from './conditionalAccessGrantControls';
+import { serializeAuthenticationStrengthPolicy } from './serializeAuthenticationStrengthPolicy';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessGrantControls(writer: SerializationWriter, conditionalAccessGrantControls: ConditionalAccessGrantControls | undefined = {} as ConditionalAccessGrantControls) : void {
         writer.writeObjectValue<AuthenticationStrengthPolicy>("authenticationStrength", conditionalAccessGrantControls.authenticationStrength, serializeAuthenticationStrengthPolicy);

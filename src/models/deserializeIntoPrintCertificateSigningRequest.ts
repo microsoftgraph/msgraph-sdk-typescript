@@ -1,5 +1,5 @@
-import type {PrintCertificateSigningRequest} from './printCertificateSigningRequest';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PrintCertificateSigningRequest } from './printCertificateSigningRequest';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintCertificateSigningRequest(printCertificateSigningRequest: PrintCertificateSigningRequest | undefined = {} as PrintCertificateSigningRequest) : Record<string, (node: ParseNode) => void> {
     return {

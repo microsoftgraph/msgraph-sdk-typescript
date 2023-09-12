@@ -1,5 +1,5 @@
-import {EventItemRequestBuilderGetQueryParameters} from './eventItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EventItemRequestBuilderGetQueryParameters } from './eventItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EventItemRequestBuilderGetRequestConfiguration {
     /**

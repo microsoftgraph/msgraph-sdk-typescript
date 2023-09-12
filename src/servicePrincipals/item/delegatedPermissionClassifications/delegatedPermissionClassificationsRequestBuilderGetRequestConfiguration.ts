@@ -1,5 +1,5 @@
-import {DelegatedPermissionClassificationsRequestBuilderGetQueryParameters} from './delegatedPermissionClassificationsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DelegatedPermissionClassificationsRequestBuilderGetQueryParameters } from './delegatedPermissionClassificationsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DelegatedPermissionClassificationsRequestBuilderGetRequestConfiguration {
     /**

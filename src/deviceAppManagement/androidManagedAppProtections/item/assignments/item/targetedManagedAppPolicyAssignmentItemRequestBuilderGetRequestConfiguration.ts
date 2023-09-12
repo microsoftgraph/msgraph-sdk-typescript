@@ -1,5 +1,5 @@
-import {TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters} from './targetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters } from './targetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration {
     /**

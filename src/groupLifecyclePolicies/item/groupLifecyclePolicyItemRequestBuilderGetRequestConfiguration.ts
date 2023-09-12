@@ -1,5 +1,5 @@
-import {GroupLifecyclePolicyItemRequestBuilderGetQueryParameters} from './groupLifecyclePolicyItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GroupLifecyclePolicyItemRequestBuilderGetQueryParameters } from './groupLifecyclePolicyItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GroupLifecyclePolicyItemRequestBuilderGetRequestConfiguration {
     /**

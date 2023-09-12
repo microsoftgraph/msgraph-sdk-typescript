@@ -1,20 +1,19 @@
-import {ChatMessageCollectionResponse} from '../../../../../models/';
-import type {ChatMessage} from '../../../../../models/chatMessage';
-import {createChatMessageCollectionResponseFromDiscriminatorValue} from '../../../../../models/createChatMessageCollectionResponseFromDiscriminatorValue';
-import {createChatMessageFromDiscriminatorValue} from '../../../../../models/createChatMessageFromDiscriminatorValue';
-import {deserializeIntoChatMessage} from '../../../../../models/deserializeIntoChatMessage';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeChatMessage} from '../../../../../models/serializeChatMessage';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {ChatMessageItemRequestBuilder} from './item/chatMessageItemRequestBuilder';
-import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
-import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ChatMessageCollectionResponse } from '../../../../../models/';
+import { type ChatMessage } from '../../../../../models/chatMessage';
+import { createChatMessageCollectionResponseFromDiscriminatorValue } from '../../../../../models/createChatMessageCollectionResponseFromDiscriminatorValue';
+import { createChatMessageFromDiscriminatorValue } from '../../../../../models/createChatMessageFromDiscriminatorValue';
+import { deserializeIntoChatMessage } from '../../../../../models/deserializeIntoChatMessage';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeChatMessage } from '../../../../../models/serializeChatMessage';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { ChatMessageItemRequestBuilder } from './item/chatMessageItemRequestBuilder';
+import { type MessagesRequestBuilderGetRequestConfiguration } from './messagesRequestBuilderGetRequestConfiguration';
+import { type MessagesRequestBuilderPostRequestConfiguration } from './messagesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.channel entity.
@@ -68,11 +67,11 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ChatMessageCollectionResponse>(requestInfo, createChatMessageCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Send a new chatMessage in the specified channel.
+     * Send a new chatMessage in the specified channel or a chat.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessage
-     * @see {@link https://learn.microsoft.com/graph/api/channel-post-messages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ChatMessage, requestConfiguration?: MessagesRequestBuilderPostRequestConfiguration | undefined) : Promise<ChatMessage | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -103,7 +102,7 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Send a new chatMessage in the specified channel.
+     * Send a new chatMessage in the specified channel or a chat.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

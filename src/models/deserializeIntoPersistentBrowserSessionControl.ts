@@ -1,7 +1,7 @@
-import {deserializeIntoConditionalAccessSessionControl} from './deserializeIntoConditionalAccessSessionControl';
-import type {PersistentBrowserSessionControl} from './persistentBrowserSessionControl';
-import {PersistentBrowserSessionMode} from './persistentBrowserSessionMode';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoConditionalAccessSessionControl } from './deserializeIntoConditionalAccessSessionControl';
+import { type PersistentBrowserSessionControl } from './persistentBrowserSessionControl';
+import { PersistentBrowserSessionMode } from './persistentBrowserSessionMode';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPersistentBrowserSessionControl(persistentBrowserSessionControl: PersistentBrowserSessionControl | undefined = {} as PersistentBrowserSessionControl) : Record<string, (node: ParseNode) => void> {
     return {

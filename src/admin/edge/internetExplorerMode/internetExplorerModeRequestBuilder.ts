@@ -1,17 +1,16 @@
-import {createInternetExplorerModeFromDiscriminatorValue} from '../../../models/createInternetExplorerModeFromDiscriminatorValue';
-import {deserializeIntoInternetExplorerMode} from '../../../models/deserializeIntoInternetExplorerMode';
-import type {InternetExplorerMode} from '../../../models/internetExplorerMode';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeInternetExplorerMode} from '../../../models/serializeInternetExplorerMode';
-import {InternetExplorerModeRequestBuilderDeleteRequestConfiguration} from './internetExplorerModeRequestBuilderDeleteRequestConfiguration';
-import {InternetExplorerModeRequestBuilderGetRequestConfiguration} from './internetExplorerModeRequestBuilderGetRequestConfiguration';
-import {InternetExplorerModeRequestBuilderPatchRequestConfiguration} from './internetExplorerModeRequestBuilderPatchRequestConfiguration';
-import {SiteListsRequestBuilder} from './siteLists/siteListsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createInternetExplorerModeFromDiscriminatorValue } from '../../../models/createInternetExplorerModeFromDiscriminatorValue';
+import { deserializeIntoInternetExplorerMode } from '../../../models/deserializeIntoInternetExplorerMode';
+import { type InternetExplorerMode } from '../../../models/internetExplorerMode';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeInternetExplorerMode } from '../../../models/serializeInternetExplorerMode';
+import { type InternetExplorerModeRequestBuilderDeleteRequestConfiguration } from './internetExplorerModeRequestBuilderDeleteRequestConfiguration';
+import { type InternetExplorerModeRequestBuilderGetRequestConfiguration } from './internetExplorerModeRequestBuilderGetRequestConfiguration';
+import { type InternetExplorerModeRequestBuilderPatchRequestConfiguration } from './internetExplorerModeRequestBuilderPatchRequestConfiguration';
+import { SiteListsRequestBuilder } from './siteLists/siteListsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the internetExplorerMode property of the microsoft.graph.edge entity.

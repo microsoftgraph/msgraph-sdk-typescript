@@ -1,5 +1,5 @@
-import {LastSevenDaysRequestBuilderGetQueryParameters} from './lastSevenDaysRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LastSevenDaysRequestBuilderGetQueryParameters } from './lastSevenDaysRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LastSevenDaysRequestBuilderGetRequestConfiguration {
     /**

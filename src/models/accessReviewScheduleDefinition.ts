@@ -1,12 +1,12 @@
-import type {AccessReviewInstance} from './accessReviewInstance';
-import type {AccessReviewNotificationRecipientItem} from './accessReviewNotificationRecipientItem';
-import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import type {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
-import type {AccessReviewScope} from './accessReviewScope';
-import type {AccessReviewStageSettings} from './accessReviewStageSettings';
-import type {Entity} from './entity';
-import type {UserIdentity} from './userIdentity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessReviewInstance } from './accessReviewInstance';
+import { type AccessReviewNotificationRecipientItem } from './accessReviewNotificationRecipientItem';
+import { type AccessReviewReviewerScope } from './accessReviewReviewerScope';
+import { type AccessReviewScheduleSettings } from './accessReviewScheduleSettings';
+import { type AccessReviewScope } from './accessReviewScope';
+import { type AccessReviewStageSettings } from './accessReviewStageSettings';
+import { type Entity } from './entity';
+import { type UserIdentity } from './userIdentity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewScheduleDefinition extends Entity, Parsable {
     /**
@@ -30,7 +30,7 @@ export interface AccessReviewScheduleDefinition extends Entity, Parsable {
      */
     descriptionForReviewers?: string | undefined;
     /**
-     * Name of the access review series. Supports $select and $orderBy. Required on create.
+     * Name of the access review series. Supports $select and $orderby. Required on create.
      */
     displayName?: string | undefined;
     /**

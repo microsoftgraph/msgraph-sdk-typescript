@@ -1,5 +1,5 @@
-import {SynchronizationMetadata} from './synchronizationMetadata';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { SynchronizationMetadata } from './synchronizationMetadata';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationMetadataEntry extends AdditionalDataHolder, Parsable {
     /**

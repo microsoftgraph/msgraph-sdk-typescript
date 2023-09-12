@@ -1,13 +1,13 @@
-import type {MobileLobApp} from './mobileLobApp';
-import {WindowsArchitecture} from './windowsArchitecture';
-import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type MobileLobApp } from './mobileLobApp';
+import { WindowsArchitecture } from './windowsArchitecture';
+import { type WindowsMinimumOperatingSystem } from './windowsMinimumOperatingSystem';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WindowsAppX extends MobileLobApp, Parsable {
     /**
      * Contains properties for Windows architecture.
      */
-    applicableArchitectures?: WindowsArchitecture | undefined;
+    applicableArchitectures?: WindowsArchitecture[] | undefined;
     /**
      * The identity name of the uploaded app package. For example: 'Contoso.DemoApp'.
      */

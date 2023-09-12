@@ -1,5 +1,5 @@
-import type {PrintDocumentUploadProperties} from './printDocumentUploadProperties';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PrintDocumentUploadProperties } from './printDocumentUploadProperties';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePrintDocumentUploadProperties(writer: SerializationWriter, printDocumentUploadProperties: PrintDocumentUploadProperties | undefined = {} as PrintDocumentUploadProperties) : void {
         writer.writeStringValue("contentType", printDocumentUploadProperties.contentType);

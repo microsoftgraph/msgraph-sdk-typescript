@@ -1,5 +1,5 @@
-import {SearchContent} from './searchContent';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { SearchContent } from './searchContent';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SharePointOneDriveOptions extends AdditionalDataHolder, Parsable {
     /**
@@ -9,7 +9,7 @@ export interface SharePointOneDriveOptions extends AdditionalDataHolder, Parsabl
     /**
      * The type of search content. The possible values are: sharedContent, privateContent, unknownFutureValue. Read-only.
      */
-    includeContent?: SearchContent | undefined;
+    includeContent?: SearchContent[] | undefined;
     /**
      * The OdataType property
      */

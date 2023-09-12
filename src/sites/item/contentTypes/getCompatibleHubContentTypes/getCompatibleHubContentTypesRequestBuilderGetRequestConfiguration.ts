@@ -1,5 +1,5 @@
-import {GetCompatibleHubContentTypesRequestBuilderGetQueryParameters} from './getCompatibleHubContentTypesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GetCompatibleHubContentTypesRequestBuilderGetQueryParameters } from './getCompatibleHubContentTypesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetCompatibleHubContentTypesRequestBuilderGetRequestConfiguration {
     /**

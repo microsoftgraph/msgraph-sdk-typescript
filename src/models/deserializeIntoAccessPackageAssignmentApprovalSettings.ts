@@ -1,8 +1,8 @@
-import type {AccessPackageApprovalStage} from './accessPackageApprovalStage';
-import type {AccessPackageAssignmentApprovalSettings} from './accessPackageAssignmentApprovalSettings';
-import {createAccessPackageApprovalStageFromDiscriminatorValue} from './createAccessPackageApprovalStageFromDiscriminatorValue';
-import {serializeAccessPackageApprovalStage} from './serializeAccessPackageApprovalStage';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageApprovalStage } from './accessPackageApprovalStage';
+import { type AccessPackageAssignmentApprovalSettings } from './accessPackageAssignmentApprovalSettings';
+import { createAccessPackageApprovalStageFromDiscriminatorValue } from './createAccessPackageApprovalStageFromDiscriminatorValue';
+import { serializeAccessPackageApprovalStage } from './serializeAccessPackageApprovalStage';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageAssignmentApprovalSettings(accessPackageAssignmentApprovalSettings: AccessPackageAssignmentApprovalSettings | undefined = {} as AccessPackageAssignmentApprovalSettings) : Record<string, (node: ParseNode) => void> {
     return {

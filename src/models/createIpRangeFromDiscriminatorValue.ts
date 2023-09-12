@@ -1,10 +1,10 @@
-import {deserializeIntoIPv4CidrRange} from './deserializeIntoIPv4CidrRange';
-import {deserializeIntoIPv4Range} from './deserializeIntoIPv4Range';
-import {deserializeIntoIPv6CidrRange} from './deserializeIntoIPv6CidrRange';
-import {deserializeIntoIPv6Range} from './deserializeIntoIPv6Range';
-import {deserializeIntoIpRange} from './deserializeIntoIpRange';
-import {IPv4CidrRange, IPv4Range, IPv6CidrRange, IPv6Range, IpRange} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIpRange } from './deserializeIntoIpRange';
+import { deserializeIntoIPv4CidrRange } from './deserializeIntoIPv4CidrRange';
+import { deserializeIntoIPv4Range } from './deserializeIntoIPv4Range';
+import { deserializeIntoIPv6CidrRange } from './deserializeIntoIPv6CidrRange';
+import { deserializeIntoIPv6Range } from './deserializeIntoIPv6Range';
+import { type IpRange, type IPv4CidrRange, type IPv4Range, type IPv6CidrRange, type IPv6Range } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIpRangeFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

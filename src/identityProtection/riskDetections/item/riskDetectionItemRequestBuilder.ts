@@ -1,16 +1,15 @@
-import {createRiskDetectionFromDiscriminatorValue} from '../../../models/createRiskDetectionFromDiscriminatorValue';
-import {deserializeIntoRiskDetection} from '../../../models/deserializeIntoRiskDetection';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {RiskDetection} from '../../../models/riskDetection';
-import {serializeRiskDetection} from '../../../models/serializeRiskDetection';
-import {RiskDetectionItemRequestBuilderDeleteRequestConfiguration} from './riskDetectionItemRequestBuilderDeleteRequestConfiguration';
-import {RiskDetectionItemRequestBuilderGetRequestConfiguration} from './riskDetectionItemRequestBuilderGetRequestConfiguration';
-import {RiskDetectionItemRequestBuilderPatchRequestConfiguration} from './riskDetectionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createRiskDetectionFromDiscriminatorValue } from '../../../models/createRiskDetectionFromDiscriminatorValue';
+import { deserializeIntoRiskDetection } from '../../../models/deserializeIntoRiskDetection';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type RiskDetection } from '../../../models/riskDetection';
+import { serializeRiskDetection } from '../../../models/serializeRiskDetection';
+import { type RiskDetectionItemRequestBuilderDeleteRequestConfiguration } from './riskDetectionItemRequestBuilderDeleteRequestConfiguration';
+import { type RiskDetectionItemRequestBuilderGetRequestConfiguration } from './riskDetectionItemRequestBuilderGetRequestConfiguration';
+import { type RiskDetectionItemRequestBuilderPatchRequestConfiguration } from './riskDetectionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.

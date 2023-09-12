@@ -1,5 +1,5 @@
-import {AgreementFileLocalizationItemRequestBuilderGetQueryParameters} from './agreementFileLocalizationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AgreementFileLocalizationItemRequestBuilderGetQueryParameters } from './agreementFileLocalizationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AgreementFileLocalizationItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,6 +1,6 @@
-import {deserializeIntoWorkbookNamedItem} from './deserializeIntoWorkbookNamedItem';
-import {WorkbookNamedItem} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWorkbookNamedItem } from './deserializeIntoWorkbookNamedItem';
+import { type WorkbookNamedItem } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWorkbookNamedItemFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

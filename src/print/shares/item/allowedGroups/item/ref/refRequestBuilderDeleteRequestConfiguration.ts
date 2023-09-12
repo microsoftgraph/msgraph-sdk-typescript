@@ -1,5 +1,5 @@
-import {RefRequestBuilderDeleteQueryParameters} from './refRequestBuilderDeleteQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RefRequestBuilderDeleteQueryParameters } from './refRequestBuilderDeleteQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RefRequestBuilderDeleteRequestConfiguration {
     /**

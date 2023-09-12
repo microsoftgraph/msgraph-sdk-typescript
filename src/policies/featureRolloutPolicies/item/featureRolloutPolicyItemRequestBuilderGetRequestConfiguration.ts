@@ -1,5 +1,5 @@
-import {FeatureRolloutPolicyItemRequestBuilderGetQueryParameters} from './featureRolloutPolicyItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type FeatureRolloutPolicyItemRequestBuilderGetQueryParameters } from './featureRolloutPolicyItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface FeatureRolloutPolicyItemRequestBuilderGetRequestConfiguration {
     /**

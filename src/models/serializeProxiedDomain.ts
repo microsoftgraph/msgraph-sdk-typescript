@@ -1,5 +1,5 @@
-import type {ProxiedDomain} from './proxiedDomain';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ProxiedDomain } from './proxiedDomain';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeProxiedDomain(writer: SerializationWriter, proxiedDomain: ProxiedDomain | undefined = {} as ProxiedDomain) : void {
         writer.writeStringValue("ipAddressOrFQDN", proxiedDomain.ipAddressOrFQDN);

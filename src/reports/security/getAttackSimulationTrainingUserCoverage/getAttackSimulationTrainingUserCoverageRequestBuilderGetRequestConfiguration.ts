@@ -1,5 +1,5 @@
-import {GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters} from './getAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters } from './getAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetAttackSimulationTrainingUserCoverageRequestBuilderGetRequestConfiguration {
     /**

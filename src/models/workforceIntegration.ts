@@ -1,7 +1,7 @@
-import type {ChangeTrackedEntity} from './changeTrackedEntity';
-import type {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
-import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSupportedEntities';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ChangeTrackedEntity } from './changeTrackedEntity';
+import { type WorkforceIntegrationEncryption } from './workforceIntegrationEncryption';
+import { WorkforceIntegrationSupportedEntities } from './workforceIntegrationSupportedEntities';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkforceIntegration extends ChangeTrackedEntity, Parsable {
     /**
@@ -23,7 +23,7 @@ export interface WorkforceIntegration extends ChangeTrackedEntity, Parsable {
     /**
      * The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue.
      */
-    supportedEntities?: WorkforceIntegrationSupportedEntities | undefined;
+    supportedEntities?: WorkforceIntegrationSupportedEntities[] | undefined;
     /**
      * Workforce Integration URL for callbacks from the Shifts service.
      */

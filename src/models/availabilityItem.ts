@@ -1,6 +1,6 @@
-import {BookingsAvailabilityStatus} from './bookingsAvailabilityStatus';
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { BookingsAvailabilityStatus } from './bookingsAvailabilityStatus';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AvailabilityItem extends AdditionalDataHolder, Parsable {
     /**

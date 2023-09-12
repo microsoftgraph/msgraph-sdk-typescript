@@ -1,17 +1,16 @@
-import {createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue} from '../../../models/createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue';
-import {deserializeIntoDeviceAndAppManagementRoleAssignment} from '../../../models/deserializeIntoDeviceAndAppManagementRoleAssignment';
-import type {DeviceAndAppManagementRoleAssignment} from '../../../models/deviceAndAppManagementRoleAssignment';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceAndAppManagementRoleAssignment} from '../../../models/serializeDeviceAndAppManagementRoleAssignment';
-import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderDeleteRequestConfiguration} from './deviceAndAppManagementRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration} from './deviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration';
-import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration} from './deviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue } from '../../../models/createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue';
+import { deserializeIntoDeviceAndAppManagementRoleAssignment } from '../../../models/deserializeIntoDeviceAndAppManagementRoleAssignment';
+import { type DeviceAndAppManagementRoleAssignment } from '../../../models/deviceAndAppManagementRoleAssignment';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceAndAppManagementRoleAssignment } from '../../../models/serializeDeviceAndAppManagementRoleAssignment';
+import { type DeviceAndAppManagementRoleAssignmentItemRequestBuilderDeleteRequestConfiguration } from './deviceAndAppManagementRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration } from './deviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type DeviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration } from './deviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { RoleDefinitionRequestBuilder } from './roleDefinition/roleDefinitionRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.

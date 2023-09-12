@@ -1,5 +1,5 @@
-import {EdiscoveryReviewSetItemRequestBuilderGetQueryParameters} from './ediscoveryReviewSetItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EdiscoveryReviewSetItemRequestBuilderGetQueryParameters } from './ediscoveryReviewSetItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration {
     /**

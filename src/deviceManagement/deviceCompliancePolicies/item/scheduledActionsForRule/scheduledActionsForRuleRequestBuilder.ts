@@ -1,19 +1,18 @@
-import {DeviceComplianceScheduledActionForRuleCollectionResponse} from '../../../../models/';
-import {createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue} from '../../../../models/createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue';
-import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from '../../../../models/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
-import {deserializeIntoDeviceComplianceScheduledActionForRule} from '../../../../models/deserializeIntoDeviceComplianceScheduledActionForRule';
-import type {DeviceComplianceScheduledActionForRule} from '../../../../models/deviceComplianceScheduledActionForRule';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceComplianceScheduledActionForRule} from '../../../../models/serializeDeviceComplianceScheduledActionForRule';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeviceComplianceScheduledActionForRuleItemRequestBuilder} from './item/deviceComplianceScheduledActionForRuleItemRequestBuilder';
-import {ScheduledActionsForRuleRequestBuilderGetRequestConfiguration} from './scheduledActionsForRuleRequestBuilderGetRequestConfiguration';
-import {ScheduledActionsForRuleRequestBuilderPostRequestConfiguration} from './scheduledActionsForRuleRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceComplianceScheduledActionForRuleCollectionResponse } from '../../../../models/';
+import { createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue } from '../../../../models/createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue';
+import { createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue } from '../../../../models/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
+import { deserializeIntoDeviceComplianceScheduledActionForRule } from '../../../../models/deserializeIntoDeviceComplianceScheduledActionForRule';
+import { type DeviceComplianceScheduledActionForRule } from '../../../../models/deviceComplianceScheduledActionForRule';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceComplianceScheduledActionForRule } from '../../../../models/serializeDeviceComplianceScheduledActionForRule';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeviceComplianceScheduledActionForRuleItemRequestBuilder } from './item/deviceComplianceScheduledActionForRuleItemRequestBuilder';
+import { type ScheduledActionsForRuleRequestBuilderGetRequestConfiguration } from './scheduledActionsForRuleRequestBuilderGetRequestConfiguration';
+import { type ScheduledActionsForRuleRequestBuilderPostRequestConfiguration } from './scheduledActionsForRuleRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.

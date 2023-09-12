@@ -1,5 +1,5 @@
-import {PivotTablesRequestBuilderGetQueryParameters} from './pivotTablesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PivotTablesRequestBuilderGetQueryParameters } from './pivotTablesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PivotTablesRequestBuilderGetRequestConfiguration {
     /**

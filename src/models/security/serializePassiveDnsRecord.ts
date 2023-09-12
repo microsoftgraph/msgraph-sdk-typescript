@@ -1,9 +1,9 @@
-import type {Artifact} from './artifact';
-import type {Host} from './host';
-import type {PassiveDnsRecord} from './passiveDnsRecord';
-import {serializeArtifact} from './serializeArtifact';
-import {serializeHost} from './serializeHost';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Artifact } from './artifact';
+import { type Host } from './host';
+import { type PassiveDnsRecord } from './passiveDnsRecord';
+import { serializeArtifact } from './serializeArtifact';
+import { serializeHost } from './serializeHost';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePassiveDnsRecord(writer: SerializationWriter, passiveDnsRecord: PassiveDnsRecord | undefined = {} as PassiveDnsRecord) : void {
         serializeArtifact(writer, passiveDnsRecord)

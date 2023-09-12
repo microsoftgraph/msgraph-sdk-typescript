@@ -1,13 +1,13 @@
-import {createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue} from './createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
-import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobileAppFromDiscriminatorValue';
-import {deserializeIntoTargetedManagedAppProtection} from './deserializeIntoTargetedManagedAppProtection';
-import type {IosManagedAppProtection} from './iosManagedAppProtection';
-import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
-import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import type {ManagedMobileApp} from './managedMobileApp';
-import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
-import {serializeManagedMobileApp} from './serializeManagedMobileApp';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue } from './createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
+import { createManagedMobileAppFromDiscriminatorValue } from './createManagedMobileAppFromDiscriminatorValue';
+import { deserializeIntoTargetedManagedAppProtection } from './deserializeIntoTargetedManagedAppProtection';
+import { type IosManagedAppProtection } from './iosManagedAppProtection';
+import { ManagedAppDataEncryptionType } from './managedAppDataEncryptionType';
+import { type ManagedAppPolicyDeploymentSummary } from './managedAppPolicyDeploymentSummary';
+import { type ManagedMobileApp } from './managedMobileApp';
+import { serializeManagedAppPolicyDeploymentSummary } from './serializeManagedAppPolicyDeploymentSummary';
+import { serializeManagedMobileApp } from './serializeManagedMobileApp';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosManagedAppProtection(iosManagedAppProtection: IosManagedAppProtection | undefined = {} as IosManagedAppProtection) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,13 +1,13 @@
-import {deserializeIntoCaseOperation} from './deserializeIntoCaseOperation';
-import {deserializeIntoEdiscoveryAddToReviewSetOperation} from './deserializeIntoEdiscoveryAddToReviewSetOperation';
-import {deserializeIntoEdiscoveryEstimateOperation} from './deserializeIntoEdiscoveryEstimateOperation';
-import {deserializeIntoEdiscoveryExportOperation} from './deserializeIntoEdiscoveryExportOperation';
-import {deserializeIntoEdiscoveryHoldOperation} from './deserializeIntoEdiscoveryHoldOperation';
-import {deserializeIntoEdiscoveryIndexOperation} from './deserializeIntoEdiscoveryIndexOperation';
-import {deserializeIntoEdiscoveryPurgeDataOperation} from './deserializeIntoEdiscoveryPurgeDataOperation';
-import {deserializeIntoEdiscoveryTagOperation} from './deserializeIntoEdiscoveryTagOperation';
-import {CaseOperation, EdiscoveryAddToReviewSetOperation, EdiscoveryEstimateOperation, EdiscoveryExportOperation, EdiscoveryHoldOperation, EdiscoveryIndexOperation, EdiscoveryPurgeDataOperation, EdiscoveryTagOperation} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCaseOperation } from './deserializeIntoCaseOperation';
+import { deserializeIntoEdiscoveryAddToReviewSetOperation } from './deserializeIntoEdiscoveryAddToReviewSetOperation';
+import { deserializeIntoEdiscoveryEstimateOperation } from './deserializeIntoEdiscoveryEstimateOperation';
+import { deserializeIntoEdiscoveryExportOperation } from './deserializeIntoEdiscoveryExportOperation';
+import { deserializeIntoEdiscoveryHoldOperation } from './deserializeIntoEdiscoveryHoldOperation';
+import { deserializeIntoEdiscoveryIndexOperation } from './deserializeIntoEdiscoveryIndexOperation';
+import { deserializeIntoEdiscoveryPurgeDataOperation } from './deserializeIntoEdiscoveryPurgeDataOperation';
+import { deserializeIntoEdiscoveryTagOperation } from './deserializeIntoEdiscoveryTagOperation';
+import { type CaseOperation, type EdiscoveryAddToReviewSetOperation, type EdiscoveryEstimateOperation, type EdiscoveryExportOperation, type EdiscoveryHoldOperation, type EdiscoveryIndexOperation, type EdiscoveryPurgeDataOperation, type EdiscoveryTagOperation } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCaseOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

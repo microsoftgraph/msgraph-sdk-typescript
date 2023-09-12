@@ -1,8 +1,8 @@
-import type {ContentType} from '../../../../../../models/contentType';
-import {serializeBaseCollectionPaginationCountResponse} from '../../../../../../models/serializeBaseCollectionPaginationCountResponse';
-import {serializeContentType} from '../../../../../../models/serializeContentType';
-import type {GetCompatibleHubContentTypesResponse} from './getCompatibleHubContentTypesResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ContentType } from '../../../../../../models/contentType';
+import { serializeBaseCollectionPaginationCountResponse } from '../../../../../../models/serializeBaseCollectionPaginationCountResponse';
+import { serializeContentType } from '../../../../../../models/serializeContentType';
+import { type GetCompatibleHubContentTypesResponse } from './getCompatibleHubContentTypesResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeGetCompatibleHubContentTypesResponse(writer: SerializationWriter, getCompatibleHubContentTypesResponse: GetCompatibleHubContentTypesResponse | undefined = {} as GetCompatibleHubContentTypesResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getCompatibleHubContentTypesResponse)

@@ -1,5 +1,5 @@
-import {InheritsPermissionsFromRequestBuilderGetQueryParameters} from './inheritsPermissionsFromRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type InheritsPermissionsFromRequestBuilderGetQueryParameters } from './inheritsPermissionsFromRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface InheritsPermissionsFromRequestBuilderGetRequestConfiguration {
     /**

@@ -1,7 +1,7 @@
-import {deserializeIntoEducationAssignmentGrade} from './deserializeIntoEducationAssignmentGrade';
-import {deserializeIntoEducationAssignmentPointsGrade} from './deserializeIntoEducationAssignmentPointsGrade';
-import {EducationAssignmentGrade, EducationAssignmentPointsGrade} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEducationAssignmentGrade } from './deserializeIntoEducationAssignmentGrade';
+import { deserializeIntoEducationAssignmentPointsGrade } from './deserializeIntoEducationAssignmentPointsGrade';
+import { type EducationAssignmentGrade, type EducationAssignmentPointsGrade } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEducationAssignmentGradeFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,9 +1,9 @@
-import {createDetailsInfoFromDiscriminatorValue} from './createDetailsInfoFromDiscriminatorValue';
-import {deserializeIntoIdentity} from './deserializeIntoIdentity';
-import type {DetailsInfo} from './detailsInfo';
-import type {ProvisionedIdentity} from './provisionedIdentity';
-import {serializeDetailsInfo} from './serializeDetailsInfo';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDetailsInfoFromDiscriminatorValue } from './createDetailsInfoFromDiscriminatorValue';
+import { deserializeIntoIdentity } from './deserializeIntoIdentity';
+import { type DetailsInfo } from './detailsInfo';
+import { type ProvisionedIdentity } from './provisionedIdentity';
+import { serializeDetailsInfo } from './serializeDetailsInfo';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProvisionedIdentity(provisionedIdentity: ProvisionedIdentity | undefined = {} as ProvisionedIdentity) : Record<string, (node: ParseNode) => void> {
     return {

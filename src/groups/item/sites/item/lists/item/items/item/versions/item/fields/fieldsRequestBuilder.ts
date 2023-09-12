@@ -1,16 +1,15 @@
-import {createFieldValueSetFromDiscriminatorValue} from '../../../../../../../../../../../models/createFieldValueSetFromDiscriminatorValue';
-import {deserializeIntoFieldValueSet} from '../../../../../../../../../../../models/deserializeIntoFieldValueSet';
-import type {FieldValueSet} from '../../../../../../../../../../../models/fieldValueSet';
-import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeFieldValueSet} from '../../../../../../../../../../../models/serializeFieldValueSet';
-import {FieldsRequestBuilderDeleteRequestConfiguration} from './fieldsRequestBuilderDeleteRequestConfiguration';
-import {FieldsRequestBuilderGetRequestConfiguration} from './fieldsRequestBuilderGetRequestConfiguration';
-import {FieldsRequestBuilderPatchRequestConfiguration} from './fieldsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createFieldValueSetFromDiscriminatorValue } from '../../../../../../../../../../../models/createFieldValueSetFromDiscriminatorValue';
+import { deserializeIntoFieldValueSet } from '../../../../../../../../../../../models/deserializeIntoFieldValueSet';
+import { type FieldValueSet } from '../../../../../../../../../../../models/fieldValueSet';
+import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeFieldValueSet } from '../../../../../../../../../../../models/serializeFieldValueSet';
+import { type FieldsRequestBuilderDeleteRequestConfiguration } from './fieldsRequestBuilderDeleteRequestConfiguration';
+import { type FieldsRequestBuilderGetRequestConfiguration } from './fieldsRequestBuilderGetRequestConfiguration';
+import { type FieldsRequestBuilderPatchRequestConfiguration } from './fieldsRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the fields property of the microsoft.graph.listItemVersion entity.

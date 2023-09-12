@@ -1,5 +1,5 @@
-import {EventPropagationStatus} from './eventPropagationStatus';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { EventPropagationStatus } from './eventPropagationStatus';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EventPropagationResult extends AdditionalDataHolder, Parsable {
     /**

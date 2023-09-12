@@ -1,6 +1,6 @@
-import {PrintJobProcessingState} from './printJobProcessingState';
-import type {UserIdentity} from './userIdentity';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { PrintJobProcessingState } from './printJobProcessingState';
+import { type UserIdentity } from './userIdentity';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ArchivedPrintJob extends AdditionalDataHolder, Parsable {
     /**

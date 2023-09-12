@@ -1,21 +1,20 @@
-import {createResourceSpecificPermissionGrantFromDiscriminatorValue} from '../../models/createResourceSpecificPermissionGrantFromDiscriminatorValue';
-import {deserializeIntoResourceSpecificPermissionGrant} from '../../models/deserializeIntoResourceSpecificPermissionGrant';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {ResourceSpecificPermissionGrant} from '../../models/resourceSpecificPermissionGrant';
-import {serializeResourceSpecificPermissionGrant} from '../../models/serializeResourceSpecificPermissionGrant';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {ResourceSpecificPermissionGrantItemRequestBuilderDeleteRequestConfiguration} from './resourceSpecificPermissionGrantItemRequestBuilderDeleteRequestConfiguration';
-import {ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration} from './resourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration';
-import {ResourceSpecificPermissionGrantItemRequestBuilderPatchRequestConfiguration} from './resourceSpecificPermissionGrantItemRequestBuilderPatchRequestConfiguration';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createResourceSpecificPermissionGrantFromDiscriminatorValue } from '../../models/createResourceSpecificPermissionGrantFromDiscriminatorValue';
+import { deserializeIntoResourceSpecificPermissionGrant } from '../../models/deserializeIntoResourceSpecificPermissionGrant';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type ResourceSpecificPermissionGrant } from '../../models/resourceSpecificPermissionGrant';
+import { serializeResourceSpecificPermissionGrant } from '../../models/serializeResourceSpecificPermissionGrant';
+import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
+import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
+import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
+import { type ResourceSpecificPermissionGrantItemRequestBuilderDeleteRequestConfiguration } from './resourceSpecificPermissionGrantItemRequestBuilderDeleteRequestConfiguration';
+import { type ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration } from './resourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration';
+import { type ResourceSpecificPermissionGrantItemRequestBuilderPatchRequestConfiguration } from './resourceSpecificPermissionGrantItemRequestBuilderPatchRequestConfiguration';
+import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of resourceSpecificPermissionGrant entities.

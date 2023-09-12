@@ -1,23 +1,22 @@
-import {DefenderCloudBlockLevelType} from './defenderCloudBlockLevelType';
-import type {DefenderDetectedMalwareActions} from './defenderDetectedMalwareActions';
-import {DefenderMonitorFileActivity} from './defenderMonitorFileActivity';
-import {DefenderPromptForSampleSubmission} from './defenderPromptForSampleSubmission';
-import {DefenderScanType} from './defenderScanType';
-import type {DeviceConfiguration} from './deviceConfiguration';
-import {DiagnosticDataSubmissionMode} from './diagnosticDataSubmissionMode';
-import {EdgeCookiePolicy} from './edgeCookiePolicy';
-import type {EdgeSearchEngineBase} from './edgeSearchEngineBase';
-import {RequiredPasswordType} from './requiredPasswordType';
-import {SafeSearchFilterType} from './safeSearchFilterType';
-import {StateManagementSetting} from './stateManagementSetting';
-import {VisibilitySetting} from './visibilitySetting';
-import {WeeklySchedule} from './weeklySchedule';
-import type {Windows10NetworkProxyServer} from './windows10NetworkProxyServer';
-import {WindowsSpotlightEnablementSettings} from './windowsSpotlightEnablementSettings';
-import {WindowsStartMenuAppListVisibilityType} from './windowsStartMenuAppListVisibilityType';
-import {WindowsStartMenuModeType} from './windowsStartMenuModeType';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { DefenderCloudBlockLevelType } from './defenderCloudBlockLevelType';
+import { type DefenderDetectedMalwareActions } from './defenderDetectedMalwareActions';
+import { DefenderMonitorFileActivity } from './defenderMonitorFileActivity';
+import { DefenderPromptForSampleSubmission } from './defenderPromptForSampleSubmission';
+import { DefenderScanType } from './defenderScanType';
+import { type DeviceConfiguration } from './deviceConfiguration';
+import { DiagnosticDataSubmissionMode } from './diagnosticDataSubmissionMode';
+import { EdgeCookiePolicy } from './edgeCookiePolicy';
+import { type EdgeSearchEngineBase } from './edgeSearchEngineBase';
+import { RequiredPasswordType } from './requiredPasswordType';
+import { SafeSearchFilterType } from './safeSearchFilterType';
+import { StateManagementSetting } from './stateManagementSetting';
+import { VisibilitySetting } from './visibilitySetting';
+import { WeeklySchedule } from './weeklySchedule';
+import { type Windows10NetworkProxyServer } from './windows10NetworkProxyServer';
+import { WindowsSpotlightEnablementSettings } from './windowsSpotlightEnablementSettings';
+import { WindowsStartMenuAppListVisibilityType } from './windowsStartMenuAppListVisibilityType';
+import { WindowsStartMenuModeType } from './windowsStartMenuModeType';
+import { TimeOnly, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Windows10GeneralConfiguration extends DeviceConfiguration, Parsable {
     /**
@@ -615,7 +614,7 @@ export interface Windows10GeneralConfiguration extends DeviceConfiguration, Pars
     /**
      * Type of start menu app list visibility.
      */
-    startMenuAppListVisibility?: WindowsStartMenuAppListVisibilityType | undefined;
+    startMenuAppListVisibility?: WindowsStartMenuAppListVisibilityType[] | undefined;
     /**
      * Enabling this policy hides the change account setting from appearing in the user tile in the start menu.
      */

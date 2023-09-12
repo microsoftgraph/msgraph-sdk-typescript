@@ -1,7 +1,7 @@
-import type {DirectoryDefinition} from './directoryDefinition';
-import type {Entity} from './entity';
-import type {SynchronizationRule} from './synchronizationRule';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DirectoryDefinition } from './directoryDefinition';
+import { type Entity } from './entity';
+import { type SynchronizationRule } from './synchronizationRule';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationSchema extends Entity, Parsable {
     /**

@@ -1,5 +1,5 @@
-import {GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters} from './getApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters } from './getApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetApplicableContentTypesForListWithListIdRequestBuilderGetRequestConfiguration {
     /**

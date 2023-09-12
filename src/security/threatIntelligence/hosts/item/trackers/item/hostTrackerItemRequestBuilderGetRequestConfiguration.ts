@@ -1,5 +1,5 @@
-import {HostTrackerItemRequestBuilderGetQueryParameters} from './hostTrackerItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type HostTrackerItemRequestBuilderGetQueryParameters } from './hostTrackerItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface HostTrackerItemRequestBuilderGetRequestConfiguration {
     /**

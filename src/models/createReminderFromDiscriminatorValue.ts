@@ -1,6 +1,6 @@
-import {deserializeIntoReminder} from './deserializeIntoReminder';
-import {Reminder} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoReminder } from './deserializeIntoReminder';
+import { type Reminder } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createReminderFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

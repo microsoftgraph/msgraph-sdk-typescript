@@ -1,21 +1,20 @@
-import {createDirectoryFromDiscriminatorValue} from '../models/createDirectoryFromDiscriminatorValue';
-import {deserializeIntoDirectory} from '../models/deserializeIntoDirectory';
-import type {Directory} from '../models/directory';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeDirectory} from '../models/serializeDirectory';
-import {AdministrativeUnitsRequestBuilder} from './administrativeUnits/administrativeUnitsRequestBuilder';
-import {AttributeSetsRequestBuilder} from './attributeSets/attributeSetsRequestBuilder';
-import {CustomSecurityAttributeDefinitionsRequestBuilder} from './customSecurityAttributeDefinitions/customSecurityAttributeDefinitionsRequestBuilder';
-import {DeletedItemsRequestBuilder} from './deletedItems/deletedItemsRequestBuilder';
-import {DirectoryRequestBuilderGetRequestConfiguration} from './directoryRequestBuilderGetRequestConfiguration';
-import {DirectoryRequestBuilderPatchRequestConfiguration} from './directoryRequestBuilderPatchRequestConfiguration';
-import {FederationConfigurationsRequestBuilder} from './federationConfigurations/federationConfigurationsRequestBuilder';
-import {OnPremisesSynchronizationRequestBuilder} from './onPremisesSynchronization/onPremisesSynchronizationRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDirectoryFromDiscriminatorValue } from '../models/createDirectoryFromDiscriminatorValue';
+import { deserializeIntoDirectory } from '../models/deserializeIntoDirectory';
+import { type Directory } from '../models/directory';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeDirectory } from '../models/serializeDirectory';
+import { AdministrativeUnitsRequestBuilder } from './administrativeUnits/administrativeUnitsRequestBuilder';
+import { AttributeSetsRequestBuilder } from './attributeSets/attributeSetsRequestBuilder';
+import { CustomSecurityAttributeDefinitionsRequestBuilder } from './customSecurityAttributeDefinitions/customSecurityAttributeDefinitionsRequestBuilder';
+import { DeletedItemsRequestBuilder } from './deletedItems/deletedItemsRequestBuilder';
+import { type DirectoryRequestBuilderGetRequestConfiguration } from './directoryRequestBuilderGetRequestConfiguration';
+import { type DirectoryRequestBuilderPatchRequestConfiguration } from './directoryRequestBuilderPatchRequestConfiguration';
+import { FederationConfigurationsRequestBuilder } from './federationConfigurations/federationConfigurationsRequestBuilder';
+import { OnPremisesSynchronizationRequestBuilder } from './onPremisesSynchronization/onPremisesSynchronizationRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directory singleton.

@@ -1,14 +1,14 @@
-import type {Json} from './json';
-import {serializeEntity} from './serializeEntity';
-import {serializeJson} from './serializeJson';
-import {serializeWorkbookRangeFormat} from './serializeWorkbookRangeFormat';
-import {serializeWorkbookRangeSort} from './serializeWorkbookRangeSort';
-import {serializeWorkbookWorksheet} from './serializeWorkbookWorksheet';
-import type {WorkbookRange} from './workbookRange';
-import type {WorkbookRangeFormat} from './workbookRangeFormat';
-import type {WorkbookRangeSort} from './workbookRangeSort';
-import type {WorkbookWorksheet} from './workbookWorksheet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from './json';
+import { serializeEntity } from './serializeEntity';
+import { serializeJson } from './serializeJson';
+import { serializeWorkbookRangeFormat } from './serializeWorkbookRangeFormat';
+import { serializeWorkbookRangeSort } from './serializeWorkbookRangeSort';
+import { serializeWorkbookWorksheet } from './serializeWorkbookWorksheet';
+import { type WorkbookRange } from './workbookRange';
+import { type WorkbookRangeFormat } from './workbookRangeFormat';
+import { type WorkbookRangeSort } from './workbookRangeSort';
+import { type WorkbookWorksheet } from './workbookWorksheet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookRange(writer: SerializationWriter, workbookRange: WorkbookRange | undefined = {} as WorkbookRange) : void {
         serializeEntity(writer, workbookRange)

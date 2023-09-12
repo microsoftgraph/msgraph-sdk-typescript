@@ -1,14 +1,14 @@
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {createTaskProcessingResultFromDiscriminatorValue} from './createTaskProcessingResultFromDiscriminatorValue';
-import {createUserProcessingResultFromDiscriminatorValue} from './createUserProcessingResultFromDiscriminatorValue';
-import {LifecycleWorkflowProcessingStatus} from './lifecycleWorkflowProcessingStatus';
-import type {Run} from './run';
-import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
-import {serializeUserProcessingResult} from './serializeUserProcessingResult';
-import type {TaskProcessingResult} from './taskProcessingResult';
-import type {UserProcessingResult} from './userProcessingResult';
-import {WorkflowExecutionType} from './workflowExecutionType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { createTaskProcessingResultFromDiscriminatorValue } from './createTaskProcessingResultFromDiscriminatorValue';
+import { createUserProcessingResultFromDiscriminatorValue } from './createUserProcessingResultFromDiscriminatorValue';
+import { LifecycleWorkflowProcessingStatus } from './lifecycleWorkflowProcessingStatus';
+import { type Run } from './run';
+import { serializeTaskProcessingResult } from './serializeTaskProcessingResult';
+import { serializeUserProcessingResult } from './serializeUserProcessingResult';
+import { type TaskProcessingResult } from './taskProcessingResult';
+import { type UserProcessingResult } from './userProcessingResult';
+import { WorkflowExecutionType } from './workflowExecutionType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRun(run: Run | undefined = {} as Run) : Record<string, (node: ParseNode) => void> {
     return {

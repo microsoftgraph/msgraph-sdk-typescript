@@ -1,24 +1,24 @@
-import {createDeviceConfigurationAssignmentFromDiscriminatorValue} from './createDeviceConfigurationAssignmentFromDiscriminatorValue';
-import {createDeviceConfigurationDeviceOverviewFromDiscriminatorValue} from './createDeviceConfigurationDeviceOverviewFromDiscriminatorValue';
-import {createDeviceConfigurationDeviceStatusFromDiscriminatorValue} from './createDeviceConfigurationDeviceStatusFromDiscriminatorValue';
-import {createDeviceConfigurationUserOverviewFromDiscriminatorValue} from './createDeviceConfigurationUserOverviewFromDiscriminatorValue';
-import {createDeviceConfigurationUserStatusFromDiscriminatorValue} from './createDeviceConfigurationUserStatusFromDiscriminatorValue';
-import {createSettingStateDeviceSummaryFromDiscriminatorValue} from './createSettingStateDeviceSummaryFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DeviceConfiguration} from './deviceConfiguration';
-import type {DeviceConfigurationAssignment} from './deviceConfigurationAssignment';
-import type {DeviceConfigurationDeviceOverview} from './deviceConfigurationDeviceOverview';
-import type {DeviceConfigurationDeviceStatus} from './deviceConfigurationDeviceStatus';
-import type {DeviceConfigurationUserOverview} from './deviceConfigurationUserOverview';
-import type {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
-import {serializeDeviceConfigurationAssignment} from './serializeDeviceConfigurationAssignment';
-import {serializeDeviceConfigurationDeviceOverview} from './serializeDeviceConfigurationDeviceOverview';
-import {serializeDeviceConfigurationDeviceStatus} from './serializeDeviceConfigurationDeviceStatus';
-import {serializeDeviceConfigurationUserOverview} from './serializeDeviceConfigurationUserOverview';
-import {serializeDeviceConfigurationUserStatus} from './serializeDeviceConfigurationUserStatus';
-import {serializeSettingStateDeviceSummary} from './serializeSettingStateDeviceSummary';
-import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDeviceConfigurationAssignmentFromDiscriminatorValue } from './createDeviceConfigurationAssignmentFromDiscriminatorValue';
+import { createDeviceConfigurationDeviceOverviewFromDiscriminatorValue } from './createDeviceConfigurationDeviceOverviewFromDiscriminatorValue';
+import { createDeviceConfigurationDeviceStatusFromDiscriminatorValue } from './createDeviceConfigurationDeviceStatusFromDiscriminatorValue';
+import { createDeviceConfigurationUserOverviewFromDiscriminatorValue } from './createDeviceConfigurationUserOverviewFromDiscriminatorValue';
+import { createDeviceConfigurationUserStatusFromDiscriminatorValue } from './createDeviceConfigurationUserStatusFromDiscriminatorValue';
+import { createSettingStateDeviceSummaryFromDiscriminatorValue } from './createSettingStateDeviceSummaryFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DeviceConfiguration } from './deviceConfiguration';
+import { type DeviceConfigurationAssignment } from './deviceConfigurationAssignment';
+import { type DeviceConfigurationDeviceOverview } from './deviceConfigurationDeviceOverview';
+import { type DeviceConfigurationDeviceStatus } from './deviceConfigurationDeviceStatus';
+import { type DeviceConfigurationUserOverview } from './deviceConfigurationUserOverview';
+import { type DeviceConfigurationUserStatus } from './deviceConfigurationUserStatus';
+import { serializeDeviceConfigurationAssignment } from './serializeDeviceConfigurationAssignment';
+import { serializeDeviceConfigurationDeviceOverview } from './serializeDeviceConfigurationDeviceOverview';
+import { serializeDeviceConfigurationDeviceStatus } from './serializeDeviceConfigurationDeviceStatus';
+import { serializeDeviceConfigurationUserOverview } from './serializeDeviceConfigurationUserOverview';
+import { serializeDeviceConfigurationUserStatus } from './serializeDeviceConfigurationUserStatus';
+import { serializeSettingStateDeviceSummary } from './serializeSettingStateDeviceSummary';
+import { type SettingStateDeviceSummary } from './settingStateDeviceSummary';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceConfiguration(deviceConfiguration: DeviceConfiguration | undefined = {} as DeviceConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

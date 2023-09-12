@@ -1,12 +1,12 @@
-import {createTraceRouteHopFromDiscriminatorValue} from './createTraceRouteHopFromDiscriminatorValue';
-import {NetworkConnectionType} from './networkConnectionType';
-import type {NetworkInfo} from './networkInfo';
-import {NetworkTransportProtocol} from './networkTransportProtocol';
-import {serializeTraceRouteHop} from './serializeTraceRouteHop';
-import type {TraceRouteHop} from './traceRouteHop';
-import {WifiBand} from './wifiBand';
-import {WifiRadioType} from './wifiRadioType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTraceRouteHopFromDiscriminatorValue } from './createTraceRouteHopFromDiscriminatorValue';
+import { NetworkConnectionType } from './networkConnectionType';
+import { type NetworkInfo } from './networkInfo';
+import { NetworkTransportProtocol } from './networkTransportProtocol';
+import { serializeTraceRouteHop } from './serializeTraceRouteHop';
+import { type TraceRouteHop } from './traceRouteHop';
+import { WifiBand } from './wifiBand';
+import { WifiRadioType } from './wifiRadioType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNetworkInfo(networkInfo: NetworkInfo | undefined = {} as NetworkInfo) : Record<string, (node: ParseNode) => void> {
     return {

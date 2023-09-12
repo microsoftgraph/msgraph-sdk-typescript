@@ -1,5 +1,5 @@
-import {LastIndexOperationRequestBuilderGetQueryParameters} from './lastIndexOperationRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LastIndexOperationRequestBuilderGetQueryParameters } from './lastIndexOperationRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LastIndexOperationRequestBuilderGetRequestConfiguration {
     /**

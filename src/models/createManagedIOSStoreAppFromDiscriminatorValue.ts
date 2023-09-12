@@ -1,6 +1,6 @@
-import {deserializeIntoManagedIOSStoreApp} from './deserializeIntoManagedIOSStoreApp';
-import {ManagedIOSStoreApp} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoManagedIOSStoreApp } from './deserializeIntoManagedIOSStoreApp';
+import { type ManagedIOSStoreApp } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedIOSStoreAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

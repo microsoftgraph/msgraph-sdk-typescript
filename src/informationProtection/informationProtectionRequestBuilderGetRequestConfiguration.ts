@@ -1,5 +1,5 @@
-import {InformationProtectionRequestBuilderGetQueryParameters} from './informationProtectionRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type InformationProtectionRequestBuilderGetQueryParameters } from './informationProtectionRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface InformationProtectionRequestBuilderGetRequestConfiguration {
     /**

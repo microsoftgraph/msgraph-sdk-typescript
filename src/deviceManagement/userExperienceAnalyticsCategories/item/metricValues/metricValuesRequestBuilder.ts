@@ -1,19 +1,18 @@
-import {UserExperienceAnalyticsMetricCollectionResponse} from '../../../../models/';
-import {createUserExperienceAnalyticsMetricCollectionResponseFromDiscriminatorValue} from '../../../../models/createUserExperienceAnalyticsMetricCollectionResponseFromDiscriminatorValue';
-import {createUserExperienceAnalyticsMetricFromDiscriminatorValue} from '../../../../models/createUserExperienceAnalyticsMetricFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsMetric} from '../../../../models/deserializeIntoUserExperienceAnalyticsMetric';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsMetric} from '../../../../models/serializeUserExperienceAnalyticsMetric';
-import type {UserExperienceAnalyticsMetric} from '../../../../models/userExperienceAnalyticsMetric';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserExperienceAnalyticsMetricItemRequestBuilder} from './item/userExperienceAnalyticsMetricItemRequestBuilder';
-import {MetricValuesRequestBuilderGetRequestConfiguration} from './metricValuesRequestBuilderGetRequestConfiguration';
-import {MetricValuesRequestBuilderPostRequestConfiguration} from './metricValuesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsMetricCollectionResponse } from '../../../../models/';
+import { createUserExperienceAnalyticsMetricCollectionResponseFromDiscriminatorValue } from '../../../../models/createUserExperienceAnalyticsMetricCollectionResponseFromDiscriminatorValue';
+import { createUserExperienceAnalyticsMetricFromDiscriminatorValue } from '../../../../models/createUserExperienceAnalyticsMetricFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsMetric } from '../../../../models/deserializeIntoUserExperienceAnalyticsMetric';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsMetric } from '../../../../models/serializeUserExperienceAnalyticsMetric';
+import { type UserExperienceAnalyticsMetric } from '../../../../models/userExperienceAnalyticsMetric';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserExperienceAnalyticsMetricItemRequestBuilder } from './item/userExperienceAnalyticsMetricItemRequestBuilder';
+import { type MetricValuesRequestBuilderGetRequestConfiguration } from './metricValuesRequestBuilderGetRequestConfiguration';
+import { type MetricValuesRequestBuilderPostRequestConfiguration } from './metricValuesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.

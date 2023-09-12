@@ -1,19 +1,18 @@
-import {ActivityBasedTimeoutPolicyCollectionResponse} from '../../models/';
-import type {ActivityBasedTimeoutPolicy} from '../../models/activityBasedTimeoutPolicy';
-import {createActivityBasedTimeoutPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createActivityBasedTimeoutPolicyCollectionResponseFromDiscriminatorValue';
-import {createActivityBasedTimeoutPolicyFromDiscriminatorValue} from '../../models/createActivityBasedTimeoutPolicyFromDiscriminatorValue';
-import {deserializeIntoActivityBasedTimeoutPolicy} from '../../models/deserializeIntoActivityBasedTimeoutPolicy';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeActivityBasedTimeoutPolicy} from '../../models/serializeActivityBasedTimeoutPolicy';
-import {ActivityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration} from './activityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration';
-import {ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration} from './activityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ActivityBasedTimeoutPolicyItemRequestBuilder} from './item/activityBasedTimeoutPolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ActivityBasedTimeoutPolicyCollectionResponse } from '../../models/';
+import { type ActivityBasedTimeoutPolicy } from '../../models/activityBasedTimeoutPolicy';
+import { createActivityBasedTimeoutPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createActivityBasedTimeoutPolicyCollectionResponseFromDiscriminatorValue';
+import { createActivityBasedTimeoutPolicyFromDiscriminatorValue } from '../../models/createActivityBasedTimeoutPolicyFromDiscriminatorValue';
+import { deserializeIntoActivityBasedTimeoutPolicy } from '../../models/deserializeIntoActivityBasedTimeoutPolicy';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeActivityBasedTimeoutPolicy } from '../../models/serializeActivityBasedTimeoutPolicy';
+import { type ActivityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration } from './activityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration';
+import { type ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration } from './activityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ActivityBasedTimeoutPolicyItemRequestBuilder } from './item/activityBasedTimeoutPolicyItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.

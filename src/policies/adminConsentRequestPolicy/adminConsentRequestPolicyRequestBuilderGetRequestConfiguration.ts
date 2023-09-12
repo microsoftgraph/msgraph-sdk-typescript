@@ -1,5 +1,5 @@
-import {AdminConsentRequestPolicyRequestBuilderGetQueryParameters} from './adminConsentRequestPolicyRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AdminConsentRequestPolicyRequestBuilderGetQueryParameters } from './adminConsentRequestPolicyRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AdminConsentRequestPolicyRequestBuilderGetRequestConfiguration {
     /**

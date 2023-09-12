@@ -1,6 +1,6 @@
-import {deserializeIntoAttachment} from './deserializeIntoAttachment';
-import type {FileAttachment} from './fileAttachment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAttachment } from './deserializeIntoAttachment';
+import { type FileAttachment } from './fileAttachment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFileAttachment(fileAttachment: FileAttachment | undefined = {} as FileAttachment) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
-import {WindowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParameters} from './windowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WindowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParameters } from './windowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration {
     /**

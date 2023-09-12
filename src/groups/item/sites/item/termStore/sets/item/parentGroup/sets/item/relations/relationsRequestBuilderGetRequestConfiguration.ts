@@ -1,5 +1,5 @@
-import {RelationsRequestBuilderGetQueryParameters} from './relationsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RelationsRequestBuilderGetQueryParameters } from './relationsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RelationsRequestBuilderGetRequestConfiguration {
     /**

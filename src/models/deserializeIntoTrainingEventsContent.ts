@@ -1,8 +1,8 @@
-import type {AssignedTrainingInfo} from './assignedTrainingInfo';
-import {createAssignedTrainingInfoFromDiscriminatorValue} from './createAssignedTrainingInfoFromDiscriminatorValue';
-import {serializeAssignedTrainingInfo} from './serializeAssignedTrainingInfo';
-import type {TrainingEventsContent} from './trainingEventsContent';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AssignedTrainingInfo } from './assignedTrainingInfo';
+import { createAssignedTrainingInfoFromDiscriminatorValue } from './createAssignedTrainingInfoFromDiscriminatorValue';
+import { serializeAssignedTrainingInfo } from './serializeAssignedTrainingInfo';
+import { type TrainingEventsContent } from './trainingEventsContent';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTrainingEventsContent(trainingEventsContent: TrainingEventsContent | undefined = {} as TrainingEventsContent) : Record<string, (node: ParseNode) => void> {
     return {

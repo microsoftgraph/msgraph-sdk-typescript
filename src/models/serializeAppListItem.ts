@@ -1,5 +1,5 @@
-import type {AppListItem} from './appListItem';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppListItem } from './appListItem';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAppListItem(writer: SerializationWriter, appListItem: AppListItem | undefined = {} as AppListItem) : void {
         writer.writeStringValue("appId", appListItem.appId);

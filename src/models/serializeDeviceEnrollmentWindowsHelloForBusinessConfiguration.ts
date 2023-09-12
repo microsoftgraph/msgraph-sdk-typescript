@@ -1,8 +1,8 @@
-import type {DeviceEnrollmentWindowsHelloForBusinessConfiguration} from './deviceEnrollmentWindowsHelloForBusinessConfiguration';
-import {Enablement} from './enablement';
-import {serializeDeviceEnrollmentConfiguration} from './serializeDeviceEnrollmentConfiguration';
-import {WindowsHelloForBusinessPinUsage} from './windowsHelloForBusinessPinUsage';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceEnrollmentWindowsHelloForBusinessConfiguration } from './deviceEnrollmentWindowsHelloForBusinessConfiguration';
+import { Enablement } from './enablement';
+import { serializeDeviceEnrollmentConfiguration } from './serializeDeviceEnrollmentConfiguration';
+import { WindowsHelloForBusinessPinUsage } from './windowsHelloForBusinessPinUsage';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceEnrollmentWindowsHelloForBusinessConfiguration(writer: SerializationWriter, deviceEnrollmentWindowsHelloForBusinessConfiguration: DeviceEnrollmentWindowsHelloForBusinessConfiguration | undefined = {} as DeviceEnrollmentWindowsHelloForBusinessConfiguration) : void {
         serializeDeviceEnrollmentConfiguration(writer, deviceEnrollmentWindowsHelloForBusinessConfiguration)

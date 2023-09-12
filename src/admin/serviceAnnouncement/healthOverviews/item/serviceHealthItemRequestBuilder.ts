@@ -1,17 +1,16 @@
-import {createServiceHealthFromDiscriminatorValue} from '../../../../models/createServiceHealthFromDiscriminatorValue';
-import {deserializeIntoServiceHealth} from '../../../../models/deserializeIntoServiceHealth';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeServiceHealth} from '../../../../models/serializeServiceHealth';
-import type {ServiceHealth} from '../../../../models/serviceHealth';
-import {IssuesRequestBuilder} from './issues/issuesRequestBuilder';
-import {ServiceHealthItemRequestBuilderDeleteRequestConfiguration} from './serviceHealthItemRequestBuilderDeleteRequestConfiguration';
-import {ServiceHealthItemRequestBuilderGetRequestConfiguration} from './serviceHealthItemRequestBuilderGetRequestConfiguration';
-import {ServiceHealthItemRequestBuilderPatchRequestConfiguration} from './serviceHealthItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createServiceHealthFromDiscriminatorValue } from '../../../../models/createServiceHealthFromDiscriminatorValue';
+import { deserializeIntoServiceHealth } from '../../../../models/deserializeIntoServiceHealth';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeServiceHealth } from '../../../../models/serializeServiceHealth';
+import { type ServiceHealth } from '../../../../models/serviceHealth';
+import { IssuesRequestBuilder } from './issues/issuesRequestBuilder';
+import { type ServiceHealthItemRequestBuilderDeleteRequestConfiguration } from './serviceHealthItemRequestBuilderDeleteRequestConfiguration';
+import { type ServiceHealthItemRequestBuilderGetRequestConfiguration } from './serviceHealthItemRequestBuilderGetRequestConfiguration';
+import { type ServiceHealthItemRequestBuilderPatchRequestConfiguration } from './serviceHealthItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.

@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeUserScopeTeamsAppInstallation} from './serializeUserScopeTeamsAppInstallation';
-import type {UserScopeTeamsAppInstallation} from './userScopeTeamsAppInstallation';
-import type {UserScopeTeamsAppInstallationCollectionResponse} from './userScopeTeamsAppInstallationCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeUserScopeTeamsAppInstallation } from './serializeUserScopeTeamsAppInstallation';
+import { type UserScopeTeamsAppInstallation } from './userScopeTeamsAppInstallation';
+import { type UserScopeTeamsAppInstallationCollectionResponse } from './userScopeTeamsAppInstallationCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserScopeTeamsAppInstallationCollectionResponse(writer: SerializationWriter, userScopeTeamsAppInstallationCollectionResponse: UserScopeTeamsAppInstallationCollectionResponse | undefined = {} as UserScopeTeamsAppInstallationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, userScopeTeamsAppInstallationCollectionResponse)

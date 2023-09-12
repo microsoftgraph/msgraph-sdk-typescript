@@ -1,23 +1,22 @@
-import {GroupCollectionResponse} from '../models/';
-import {createGroupCollectionResponseFromDiscriminatorValue} from '../models/createGroupCollectionResponseFromDiscriminatorValue';
-import {createGroupFromDiscriminatorValue} from '../models/createGroupFromDiscriminatorValue';
-import {deserializeIntoGroup} from '../models/deserializeIntoGroup';
-import type {Group} from '../models/group';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeGroup} from '../models/serializeGroup';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
-import {GroupsRequestBuilderGetRequestConfiguration} from './groupsRequestBuilderGetRequestConfiguration';
-import {GroupsRequestBuilderPostRequestConfiguration} from './groupsRequestBuilderPostRequestConfiguration';
-import {GroupItemRequestBuilder} from './item/groupItemRequestBuilder';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type GroupCollectionResponse } from '../models/';
+import { createGroupCollectionResponseFromDiscriminatorValue } from '../models/createGroupCollectionResponseFromDiscriminatorValue';
+import { createGroupFromDiscriminatorValue } from '../models/createGroupFromDiscriminatorValue';
+import { deserializeIntoGroup } from '../models/deserializeIntoGroup';
+import { type Group } from '../models/group';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeGroup } from '../models/serializeGroup';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
+import { type GroupsRequestBuilderGetRequestConfiguration } from './groupsRequestBuilderGetRequestConfiguration';
+import { type GroupsRequestBuilderPostRequestConfiguration } from './groupsRequestBuilderPostRequestConfiguration';
+import { GroupItemRequestBuilder } from './item/groupItemRequestBuilder';
+import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of group entities.

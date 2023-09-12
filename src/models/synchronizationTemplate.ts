@@ -1,8 +1,8 @@
-import type {Entity} from './entity';
-import type {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
-import type {SynchronizationSchema} from './synchronizationSchema';
-import type {Parsable} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type Entity } from './entity';
+import { type SynchronizationMetadataEntry } from './synchronizationMetadataEntry';
+import { type SynchronizationSchema } from './synchronizationSchema';
+import { type Parsable } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export interface SynchronizationTemplate extends Entity, Parsable {
     /**

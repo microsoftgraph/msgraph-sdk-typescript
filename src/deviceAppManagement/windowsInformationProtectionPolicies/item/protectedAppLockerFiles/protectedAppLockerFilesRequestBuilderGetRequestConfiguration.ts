@@ -1,5 +1,5 @@
-import {ProtectedAppLockerFilesRequestBuilderGetQueryParameters} from './protectedAppLockerFilesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ProtectedAppLockerFilesRequestBuilderGetQueryParameters } from './protectedAppLockerFilesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ProtectedAppLockerFilesRequestBuilderGetRequestConfiguration {
     /**

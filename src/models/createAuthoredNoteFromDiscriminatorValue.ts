@@ -1,6 +1,6 @@
-import {deserializeIntoAuthoredNote} from './deserializeIntoAuthoredNote';
-import {AuthoredNote} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAuthoredNote } from './deserializeIntoAuthoredNote';
+import { type AuthoredNote } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAuthoredNoteFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

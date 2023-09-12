@@ -1,5 +1,5 @@
-import {HostItemRequestBuilderGetQueryParameters} from './hostItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type HostItemRequestBuilderGetQueryParameters } from './hostItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface HostItemRequestBuilderGetRequestConfiguration {
     /**

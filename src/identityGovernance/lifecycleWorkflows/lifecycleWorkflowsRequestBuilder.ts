@@ -1,22 +1,21 @@
-import {createLifecycleWorkflowsContainerFromDiscriminatorValue} from '../../models/identityGovernance/createLifecycleWorkflowsContainerFromDiscriminatorValue';
-import {deserializeIntoLifecycleWorkflowsContainer} from '../../models/identityGovernance/deserializeIntoLifecycleWorkflowsContainer';
-import type {LifecycleWorkflowsContainer} from '../../models/identityGovernance/lifecycleWorkflowsContainer';
-import {serializeLifecycleWorkflowsContainer} from '../../models/identityGovernance/serializeLifecycleWorkflowsContainer';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {CustomTaskExtensionsRequestBuilder} from './customTaskExtensions/customTaskExtensionsRequestBuilder';
-import {DeletedItemsRequestBuilder} from './deletedItems/deletedItemsRequestBuilder';
-import {LifecycleWorkflowsRequestBuilderDeleteRequestConfiguration} from './lifecycleWorkflowsRequestBuilderDeleteRequestConfiguration';
-import {LifecycleWorkflowsRequestBuilderGetRequestConfiguration} from './lifecycleWorkflowsRequestBuilderGetRequestConfiguration';
-import {LifecycleWorkflowsRequestBuilderPatchRequestConfiguration} from './lifecycleWorkflowsRequestBuilderPatchRequestConfiguration';
-import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
-import {TaskDefinitionsRequestBuilder} from './taskDefinitions/taskDefinitionsRequestBuilder';
-import {WorkflowTemplatesRequestBuilder} from './workflowTemplates/workflowTemplatesRequestBuilder';
-import {WorkflowsRequestBuilder} from './workflows/workflowsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createLifecycleWorkflowsContainerFromDiscriminatorValue } from '../../models/identityGovernance/createLifecycleWorkflowsContainerFromDiscriminatorValue';
+import { deserializeIntoLifecycleWorkflowsContainer } from '../../models/identityGovernance/deserializeIntoLifecycleWorkflowsContainer';
+import { type LifecycleWorkflowsContainer } from '../../models/identityGovernance/lifecycleWorkflowsContainer';
+import { serializeLifecycleWorkflowsContainer } from '../../models/identityGovernance/serializeLifecycleWorkflowsContainer';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { CustomTaskExtensionsRequestBuilder } from './customTaskExtensions/customTaskExtensionsRequestBuilder';
+import { DeletedItemsRequestBuilder } from './deletedItems/deletedItemsRequestBuilder';
+import { type LifecycleWorkflowsRequestBuilderDeleteRequestConfiguration } from './lifecycleWorkflowsRequestBuilderDeleteRequestConfiguration';
+import { type LifecycleWorkflowsRequestBuilderGetRequestConfiguration } from './lifecycleWorkflowsRequestBuilderGetRequestConfiguration';
+import { type LifecycleWorkflowsRequestBuilderPatchRequestConfiguration } from './lifecycleWorkflowsRequestBuilderPatchRequestConfiguration';
+import { SettingsRequestBuilder } from './settings/settingsRequestBuilder';
+import { TaskDefinitionsRequestBuilder } from './taskDefinitions/taskDefinitionsRequestBuilder';
+import { WorkflowsRequestBuilder } from './workflows/workflowsRequestBuilder';
+import { WorkflowTemplatesRequestBuilder } from './workflowTemplates/workflowTemplatesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.

@@ -1,6 +1,6 @@
-import type {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTaskFormat';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type PlannerProgressTaskBoardTaskFormat } from './plannerProgressTaskBoardTaskFormat';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePlannerProgressTaskBoardTaskFormat(writer: SerializationWriter, plannerProgressTaskBoardTaskFormat: PlannerProgressTaskBoardTaskFormat | undefined = {} as PlannerProgressTaskBoardTaskFormat) : void {
         serializeEntity(writer, plannerProgressTaskBoardTaskFormat)

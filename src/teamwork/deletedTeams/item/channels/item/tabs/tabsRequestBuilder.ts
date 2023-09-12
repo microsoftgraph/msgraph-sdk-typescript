@@ -1,19 +1,18 @@
-import {TeamsTabCollectionResponse} from '../../../../../../models/';
-import {createTeamsTabCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createTeamsTabCollectionResponseFromDiscriminatorValue';
-import {createTeamsTabFromDiscriminatorValue} from '../../../../../../models/createTeamsTabFromDiscriminatorValue';
-import {deserializeIntoTeamsTab} from '../../../../../../models/deserializeIntoTeamsTab';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeTeamsTab} from '../../../../../../models/serializeTeamsTab';
-import type {TeamsTab} from '../../../../../../models/teamsTab';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TeamsTabItemRequestBuilder} from './item/teamsTabItemRequestBuilder';
-import {TabsRequestBuilderGetRequestConfiguration} from './tabsRequestBuilderGetRequestConfiguration';
-import {TabsRequestBuilderPostRequestConfiguration} from './tabsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TeamsTabCollectionResponse } from '../../../../../../models/';
+import { createTeamsTabCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createTeamsTabCollectionResponseFromDiscriminatorValue';
+import { createTeamsTabFromDiscriminatorValue } from '../../../../../../models/createTeamsTabFromDiscriminatorValue';
+import { deserializeIntoTeamsTab } from '../../../../../../models/deserializeIntoTeamsTab';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeTeamsTab } from '../../../../../../models/serializeTeamsTab';
+import { type TeamsTab } from '../../../../../../models/teamsTab';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { TeamsTabItemRequestBuilder } from './item/teamsTabItemRequestBuilder';
+import { type TabsRequestBuilderGetRequestConfiguration } from './tabsRequestBuilderGetRequestConfiguration';
+import { type TabsRequestBuilderPostRequestConfiguration } from './tabsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.channel entity.

@@ -1,6 +1,6 @@
-import {deserializeIntoDriveCollectionResponse} from './deserializeIntoDriveCollectionResponse';
-import {DriveCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDriveCollectionResponse } from './deserializeIntoDriveCollectionResponse';
+import { type DriveCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDriveCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

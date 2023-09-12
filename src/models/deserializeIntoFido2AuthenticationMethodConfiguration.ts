@@ -1,12 +1,12 @@
-import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
-import {createAuthenticationMethodTargetFromDiscriminatorValue} from './createAuthenticationMethodTargetFromDiscriminatorValue';
-import {createFido2KeyRestrictionsFromDiscriminatorValue} from './createFido2KeyRestrictionsFromDiscriminatorValue';
-import {deserializeIntoAuthenticationMethodConfiguration} from './deserializeIntoAuthenticationMethodConfiguration';
-import type {Fido2AuthenticationMethodConfiguration} from './fido2AuthenticationMethodConfiguration';
-import type {Fido2KeyRestrictions} from './fido2KeyRestrictions';
-import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
-import {serializeFido2KeyRestrictions} from './serializeFido2KeyRestrictions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodTarget } from './authenticationMethodTarget';
+import { createAuthenticationMethodTargetFromDiscriminatorValue } from './createAuthenticationMethodTargetFromDiscriminatorValue';
+import { createFido2KeyRestrictionsFromDiscriminatorValue } from './createFido2KeyRestrictionsFromDiscriminatorValue';
+import { deserializeIntoAuthenticationMethodConfiguration } from './deserializeIntoAuthenticationMethodConfiguration';
+import { type Fido2AuthenticationMethodConfiguration } from './fido2AuthenticationMethodConfiguration';
+import { type Fido2KeyRestrictions } from './fido2KeyRestrictions';
+import { serializeAuthenticationMethodTarget } from './serializeAuthenticationMethodTarget';
+import { serializeFido2KeyRestrictions } from './serializeFido2KeyRestrictions';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFido2AuthenticationMethodConfiguration(fido2AuthenticationMethodConfiguration: Fido2AuthenticationMethodConfiguration | undefined = {} as Fido2AuthenticationMethodConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

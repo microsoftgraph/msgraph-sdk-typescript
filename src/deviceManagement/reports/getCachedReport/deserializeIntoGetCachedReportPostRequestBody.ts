@@ -1,5 +1,5 @@
-import type {GetCachedReportPostRequestBody} from './getCachedReportPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type GetCachedReportPostRequestBody } from './getCachedReportPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetCachedReportPostRequestBody(getCachedReportPostRequestBody: GetCachedReportPostRequestBody | undefined = {} as GetCachedReportPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

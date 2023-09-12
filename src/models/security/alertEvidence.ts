@@ -1,7 +1,7 @@
-import {EvidenceRemediationStatus} from './evidenceRemediationStatus';
-import {EvidenceRole} from './evidenceRole';
-import {EvidenceVerdict} from './evidenceVerdict';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { EvidenceRemediationStatus } from './evidenceRemediationStatus';
+import { EvidenceRole } from './evidenceRole';
+import { EvidenceVerdict } from './evidenceVerdict';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AlertEvidence extends AdditionalDataHolder, Parsable {
     /**

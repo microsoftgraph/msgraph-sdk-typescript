@@ -1,8 +1,8 @@
-import {RunAsAccountType} from './runAsAccountType';
-import {Win32LobAppPowerShellScriptRuleOperationType} from './win32LobAppPowerShellScriptRuleOperationType';
-import type {Win32LobAppRule} from './win32LobAppRule';
-import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { RunAsAccountType } from './runAsAccountType';
+import { Win32LobAppPowerShellScriptRuleOperationType } from './win32LobAppPowerShellScriptRuleOperationType';
+import { type Win32LobAppRule } from './win32LobAppRule';
+import { Win32LobAppRuleOperator } from './win32LobAppRuleOperator';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Win32LobAppPowerShellScriptRule extends Parsable, Win32LobAppRule {
     /**

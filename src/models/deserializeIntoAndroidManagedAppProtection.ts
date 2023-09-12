@@ -1,12 +1,12 @@
-import type {AndroidManagedAppProtection} from './androidManagedAppProtection';
-import {createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue} from './createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
-import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobileAppFromDiscriminatorValue';
-import {deserializeIntoTargetedManagedAppProtection} from './deserializeIntoTargetedManagedAppProtection';
-import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import type {ManagedMobileApp} from './managedMobileApp';
-import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
-import {serializeManagedMobileApp} from './serializeManagedMobileApp';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AndroidManagedAppProtection } from './androidManagedAppProtection';
+import { createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue } from './createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
+import { createManagedMobileAppFromDiscriminatorValue } from './createManagedMobileAppFromDiscriminatorValue';
+import { deserializeIntoTargetedManagedAppProtection } from './deserializeIntoTargetedManagedAppProtection';
+import { type ManagedAppPolicyDeploymentSummary } from './managedAppPolicyDeploymentSummary';
+import { type ManagedMobileApp } from './managedMobileApp';
+import { serializeManagedAppPolicyDeploymentSummary } from './serializeManagedAppPolicyDeploymentSummary';
+import { serializeManagedMobileApp } from './serializeManagedMobileApp';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAndroidManagedAppProtection(androidManagedAppProtection: AndroidManagedAppProtection | undefined = {} as AndroidManagedAppProtection) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
-import type {ProxiedDomain} from './proxiedDomain';
-import {serializeProxiedDomain} from './serializeProxiedDomain';
-import type {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ProxiedDomain } from './proxiedDomain';
+import { serializeProxiedDomain } from './serializeProxiedDomain';
+import { type WindowsInformationProtectionProxiedDomainCollection } from './windowsInformationProtectionProxiedDomainCollection';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsInformationProtectionProxiedDomainCollection(writer: SerializationWriter, windowsInformationProtectionProxiedDomainCollection: WindowsInformationProtectionProxiedDomainCollection | undefined = {} as WindowsInformationProtectionProxiedDomainCollection) : void {
         writer.writeStringValue("displayName", windowsInformationProtectionProxiedDomainCollection.displayName);

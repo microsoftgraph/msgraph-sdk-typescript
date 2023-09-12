@@ -1,9 +1,9 @@
-import {createDeviceEnrollmentPlatformRestrictionFromDiscriminatorValue} from './createDeviceEnrollmentPlatformRestrictionFromDiscriminatorValue';
-import {deserializeIntoDeviceEnrollmentConfiguration} from './deserializeIntoDeviceEnrollmentConfiguration';
-import type {DeviceEnrollmentPlatformRestriction} from './deviceEnrollmentPlatformRestriction';
-import type {DeviceEnrollmentPlatformRestrictionsConfiguration} from './deviceEnrollmentPlatformRestrictionsConfiguration';
-import {serializeDeviceEnrollmentPlatformRestriction} from './serializeDeviceEnrollmentPlatformRestriction';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDeviceEnrollmentPlatformRestrictionFromDiscriminatorValue } from './createDeviceEnrollmentPlatformRestrictionFromDiscriminatorValue';
+import { deserializeIntoDeviceEnrollmentConfiguration } from './deserializeIntoDeviceEnrollmentConfiguration';
+import { type DeviceEnrollmentPlatformRestriction } from './deviceEnrollmentPlatformRestriction';
+import { type DeviceEnrollmentPlatformRestrictionsConfiguration } from './deviceEnrollmentPlatformRestrictionsConfiguration';
+import { serializeDeviceEnrollmentPlatformRestriction } from './serializeDeviceEnrollmentPlatformRestriction';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration(deviceEnrollmentPlatformRestrictionsConfiguration: DeviceEnrollmentPlatformRestrictionsConfiguration | undefined = {} as DeviceEnrollmentPlatformRestrictionsConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

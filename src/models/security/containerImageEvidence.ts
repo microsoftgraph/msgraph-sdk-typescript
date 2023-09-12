@@ -1,6 +1,6 @@
-import type {AlertEvidence} from './alertEvidence';
-import type {ContainerRegistryEvidence} from './containerRegistryEvidence';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AlertEvidence } from './alertEvidence';
+import { type ContainerRegistryEvidence } from './containerRegistryEvidence';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ContainerImageEvidence extends AlertEvidence, Parsable {
     /**

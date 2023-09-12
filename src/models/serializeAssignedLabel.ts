@@ -1,5 +1,5 @@
-import type {AssignedLabel} from './assignedLabel';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AssignedLabel } from './assignedLabel';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAssignedLabel(writer: SerializationWriter, assignedLabel: AssignedLabel | undefined = {} as AssignedLabel) : void {
         writer.writeStringValue("displayName", assignedLabel.displayName);

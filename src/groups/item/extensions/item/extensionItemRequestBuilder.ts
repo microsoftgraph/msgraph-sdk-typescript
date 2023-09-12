@@ -1,16 +1,15 @@
-import {createExtensionFromDiscriminatorValue} from '../../../../models/createExtensionFromDiscriminatorValue';
-import {deserializeIntoExtension} from '../../../../models/deserializeIntoExtension';
-import type {Extension} from '../../../../models/extension';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeExtension} from '../../../../models/serializeExtension';
-import {ExtensionItemRequestBuilderDeleteRequestConfiguration} from './extensionItemRequestBuilderDeleteRequestConfiguration';
-import {ExtensionItemRequestBuilderGetRequestConfiguration} from './extensionItemRequestBuilderGetRequestConfiguration';
-import {ExtensionItemRequestBuilderPatchRequestConfiguration} from './extensionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createExtensionFromDiscriminatorValue } from '../../../../models/createExtensionFromDiscriminatorValue';
+import { deserializeIntoExtension } from '../../../../models/deserializeIntoExtension';
+import { type Extension } from '../../../../models/extension';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeExtension } from '../../../../models/serializeExtension';
+import { type ExtensionItemRequestBuilderDeleteRequestConfiguration } from './extensionItemRequestBuilderDeleteRequestConfiguration';
+import { type ExtensionItemRequestBuilderGetRequestConfiguration } from './extensionItemRequestBuilderGetRequestConfiguration';
+import { type ExtensionItemRequestBuilderPatchRequestConfiguration } from './extensionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the extensions property of the microsoft.graph.group entity.

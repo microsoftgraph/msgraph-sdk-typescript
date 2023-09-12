@@ -1,17 +1,16 @@
-import type {ApplicationServicePrincipal} from '../../../models/applicationServicePrincipal';
-import {createApplicationServicePrincipalFromDiscriminatorValue} from '../../../models/createApplicationServicePrincipalFromDiscriminatorValue';
-import {deserializeIntoApplicationServicePrincipal} from '../../../models/deserializeIntoApplicationServicePrincipal';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeApplicationServicePrincipal} from '../../../models/serializeApplicationServicePrincipal';
-import {deserializeIntoInstantiatePostRequestBody} from './deserializeIntoInstantiatePostRequestBody';
-import type {InstantiatePostRequestBody} from './instantiatePostRequestBody';
-import {InstantiateRequestBuilderPostRequestConfiguration} from './instantiateRequestBuilderPostRequestConfiguration';
-import {serializeInstantiatePostRequestBody} from './serializeInstantiatePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ApplicationServicePrincipal } from '../../../models/applicationServicePrincipal';
+import { createApplicationServicePrincipalFromDiscriminatorValue } from '../../../models/createApplicationServicePrincipalFromDiscriminatorValue';
+import { deserializeIntoApplicationServicePrincipal } from '../../../models/deserializeIntoApplicationServicePrincipal';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeApplicationServicePrincipal } from '../../../models/serializeApplicationServicePrincipal';
+import { deserializeIntoInstantiatePostRequestBody } from './deserializeIntoInstantiatePostRequestBody';
+import { type InstantiatePostRequestBody } from './instantiatePostRequestBody';
+import { type InstantiateRequestBuilderPostRequestConfiguration } from './instantiateRequestBuilderPostRequestConfiguration';
+import { serializeInstantiatePostRequestBody } from './serializeInstantiatePostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the instantiate method.

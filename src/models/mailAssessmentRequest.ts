@@ -1,6 +1,6 @@
-import {MailDestinationRoutingReason} from './mailDestinationRoutingReason';
-import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { MailDestinationRoutingReason } from './mailDestinationRoutingReason';
+import { type ThreatAssessmentRequest } from './threatAssessmentRequest';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MailAssessmentRequest extends Parsable, ThreatAssessmentRequest {
     /**

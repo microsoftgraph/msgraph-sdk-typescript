@@ -1,5 +1,5 @@
-import type {ResultTemplateOption} from './resultTemplateOption';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ResultTemplateOption } from './resultTemplateOption';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeResultTemplateOption(writer: SerializationWriter, resultTemplateOption: ResultTemplateOption | undefined = {} as ResultTemplateOption) : void {
         writer.writeBooleanValue("enableResultTemplate", resultTemplateOption.enableResultTemplate);

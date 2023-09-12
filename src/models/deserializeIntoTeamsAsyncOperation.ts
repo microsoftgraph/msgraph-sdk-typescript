@@ -1,11 +1,11 @@
-import {createOperationErrorFromDiscriminatorValue} from './createOperationErrorFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {OperationError} from './operationError';
-import {serializeOperationError} from './serializeOperationError';
-import type {TeamsAsyncOperation} from './teamsAsyncOperation';
-import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
-import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createOperationErrorFromDiscriminatorValue } from './createOperationErrorFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type OperationError } from './operationError';
+import { serializeOperationError } from './serializeOperationError';
+import { type TeamsAsyncOperation } from './teamsAsyncOperation';
+import { TeamsAsyncOperationStatus } from './teamsAsyncOperationStatus';
+import { TeamsAsyncOperationType } from './teamsAsyncOperationType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAsyncOperation(teamsAsyncOperation: TeamsAsyncOperation | undefined = {} as TeamsAsyncOperation) : Record<string, (node: ParseNode) => void> {
     return {

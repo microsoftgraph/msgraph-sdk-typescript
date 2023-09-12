@@ -1,5 +1,5 @@
-import type {Dictionary} from './dictionary';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Dictionary } from './dictionary';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDictionary(dictionary: Dictionary | undefined = {} as Dictionary) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,10 +1,10 @@
-import {AllowInvitesFrom} from './allowInvitesFrom';
-import type {AuthorizationPolicy} from './authorizationPolicy';
-import type {DefaultUserRolePermissions} from './defaultUserRolePermissions';
-import {serializeDefaultUserRolePermissions} from './serializeDefaultUserRolePermissions';
-import {serializePolicyBase} from './serializePolicyBase';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { AllowInvitesFrom } from './allowInvitesFrom';
+import { type AuthorizationPolicy } from './authorizationPolicy';
+import { type DefaultUserRolePermissions } from './defaultUserRolePermissions';
+import { serializeDefaultUserRolePermissions } from './serializeDefaultUserRolePermissions';
+import { serializePolicyBase } from './serializePolicyBase';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeAuthorizationPolicy(writer: SerializationWriter, authorizationPolicy: AuthorizationPolicy | undefined = {} as AuthorizationPolicy) : void {
         serializePolicyBase(writer, authorizationPolicy)

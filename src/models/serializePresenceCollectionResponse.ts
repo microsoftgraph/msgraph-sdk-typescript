@@ -1,8 +1,8 @@
-import type {Presence} from './presence';
-import type {PresenceCollectionResponse} from './presenceCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializePresence} from './serializePresence';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Presence } from './presence';
+import { type PresenceCollectionResponse } from './presenceCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializePresence } from './serializePresence';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePresenceCollectionResponse(writer: SerializationWriter, presenceCollectionResponse: PresenceCollectionResponse | undefined = {} as PresenceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, presenceCollectionResponse)

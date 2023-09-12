@@ -1,5 +1,5 @@
-import type {ScheduleChangeRequest} from './scheduleChangeRequest';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ScheduleChangeRequest } from './scheduleChangeRequest';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OfferShiftRequest extends Parsable, ScheduleChangeRequest {
     /**

@@ -1,9 +1,9 @@
-import {createUnifiedRbacResourceNamespaceFromDiscriminatorValue} from './createUnifiedRbacResourceNamespaceFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeUnifiedRbacResourceNamespace} from './serializeUnifiedRbacResourceNamespace';
-import type {UnifiedRbacResourceNamespace} from './unifiedRbacResourceNamespace';
-import type {UnifiedRbacResourceNamespaceCollectionResponse} from './unifiedRbacResourceNamespaceCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUnifiedRbacResourceNamespaceFromDiscriminatorValue } from './createUnifiedRbacResourceNamespaceFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeUnifiedRbacResourceNamespace } from './serializeUnifiedRbacResourceNamespace';
+import { type UnifiedRbacResourceNamespace } from './unifiedRbacResourceNamespace';
+import { type UnifiedRbacResourceNamespaceCollectionResponse } from './unifiedRbacResourceNamespaceCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRbacResourceNamespaceCollectionResponse(unifiedRbacResourceNamespaceCollectionResponse: UnifiedRbacResourceNamespaceCollectionResponse | undefined = {} as UnifiedRbacResourceNamespaceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

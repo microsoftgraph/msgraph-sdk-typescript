@@ -1,21 +1,21 @@
-import type {AdministrativeUnit} from './administrativeUnit';
-import {createAdministrativeUnitFromDiscriminatorValue} from './createAdministrativeUnitFromDiscriminatorValue';
-import {createEducationClassFromDiscriminatorValue} from './createEducationClassFromDiscriminatorValue';
-import {createEducationUserFromDiscriminatorValue} from './createEducationUserFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
-import {deserializeIntoEducationOrganization} from './deserializeIntoEducationOrganization';
-import type {EducationClass} from './educationClass';
-import type {EducationSchool} from './educationSchool';
-import type {EducationUser} from './educationUser';
-import type {IdentitySet} from './identitySet';
-import type {PhysicalAddress} from './physicalAddress';
-import {serializeAdministrativeUnit} from './serializeAdministrativeUnit';
-import {serializeEducationClass} from './serializeEducationClass';
-import {serializeEducationUser} from './serializeEducationUser';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializePhysicalAddress} from './serializePhysicalAddress';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AdministrativeUnit } from './administrativeUnit';
+import { createAdministrativeUnitFromDiscriminatorValue } from './createAdministrativeUnitFromDiscriminatorValue';
+import { createEducationClassFromDiscriminatorValue } from './createEducationClassFromDiscriminatorValue';
+import { createEducationUserFromDiscriminatorValue } from './createEducationUserFromDiscriminatorValue';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { createPhysicalAddressFromDiscriminatorValue } from './createPhysicalAddressFromDiscriminatorValue';
+import { deserializeIntoEducationOrganization } from './deserializeIntoEducationOrganization';
+import { type EducationClass } from './educationClass';
+import { type EducationSchool } from './educationSchool';
+import { type EducationUser } from './educationUser';
+import { type IdentitySet } from './identitySet';
+import { type PhysicalAddress } from './physicalAddress';
+import { serializeAdministrativeUnit } from './serializeAdministrativeUnit';
+import { serializeEducationClass } from './serializeEducationClass';
+import { serializeEducationUser } from './serializeEducationUser';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializePhysicalAddress } from './serializePhysicalAddress';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationSchool(educationSchool: EducationSchool | undefined = {} as EducationSchool) : Record<string, (node: ParseNode) => void> {
     return {

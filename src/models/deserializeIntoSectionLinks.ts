@@ -1,8 +1,8 @@
-import {createExternalLinkFromDiscriminatorValue} from './createExternalLinkFromDiscriminatorValue';
-import type {ExternalLink} from './externalLink';
-import type {SectionLinks} from './sectionLinks';
-import {serializeExternalLink} from './serializeExternalLink';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createExternalLinkFromDiscriminatorValue } from './createExternalLinkFromDiscriminatorValue';
+import { type ExternalLink } from './externalLink';
+import { type SectionLinks } from './sectionLinks';
+import { serializeExternalLink } from './serializeExternalLink';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSectionLinks(sectionLinks: SectionLinks | undefined = {} as SectionLinks) : Record<string, (node: ParseNode) => void> {
     return {
