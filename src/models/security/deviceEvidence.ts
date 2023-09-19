@@ -25,7 +25,7 @@ export interface DeviceEvidence extends AlertEvidence, Parsable {
      */
     firstSeenDateTime?: Date | undefined;
     /**
-     * The health state of the device.The possible values are: active, inactive, impairedCommunication, noSensorData, noSensorDataImpairedCommunication, unknown, unknownFutureValue.
+     * The health state of the device. The possible values are: active, inactive, impairedCommunication, noSensorData, noSensorDataImpairedCommunication, unknown, unknownFutureValue.
      */
     healthStatus?: DeviceHealthStatus | undefined;
     /**
@@ -41,7 +41,7 @@ export interface DeviceEvidence extends AlertEvidence, Parsable {
      */
     mdeDeviceId?: string | undefined;
     /**
-     * The status of the machine onboarding to Microsoft Defender for Endpoint.The possible values are: insufficientInfo, onboarded, canBeOnboarded, unsupported, unknownFutureValue.
+     * The status of the machine onboarding to Microsoft Defender for Endpoint. The possible values are: insufficientInfo, onboarded, canBeOnboarded, unsupported, unknownFutureValue.
      */
     onboardingStatus?: OnboardingStatus | undefined;
     /**

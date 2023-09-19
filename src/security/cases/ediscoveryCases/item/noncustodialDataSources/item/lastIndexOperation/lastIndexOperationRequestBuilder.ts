@@ -20,7 +20,7 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources/{ediscoveryNoncustodialDataSource%2Did}/lastIndexOperation{?%24select,%24expand}");
     };
     /**
-     * Operation entity that represents the latest indexing for the non-custodial data source.
+     * Operation entity that represents the latest indexing for the noncustodial data source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryIndexOperation
      */
@@ -35,7 +35,7 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EdiscoveryIndexOperation>(requestInfo, createEdiscoveryIndexOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Operation entity that represents the latest indexing for the non-custodial data source.
+     * Operation entity that represents the latest indexing for the noncustodial data source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

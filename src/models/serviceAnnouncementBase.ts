@@ -4,7 +4,7 @@ import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ServiceAnnouncementBase extends Entity, Parsable {
     /**
-     * Additional details about service event. This property doesn't support filters.
+     * More details about service event. This property doesn't support filters.
      */
     details?: KeyValuePair[] | undefined;
     /**

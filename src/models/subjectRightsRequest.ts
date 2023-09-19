@@ -97,7 +97,7 @@ export interface SubjectRightsRequest extends Entity, Parsable {
      */
     mailboxlocations?: SubjectRightsRequestMailboxLocation | undefined;
     /**
-     * List of notes associcated with the request.
+     * List of notes associated with the request.
      */
     notes?: AuthoredNote[] | undefined;
     /**
@@ -105,7 +105,7 @@ export interface SubjectRightsRequest extends Entity, Parsable {
      */
     pauseAfterEstimate?: boolean | undefined;
     /**
-     * List of regulations that this request will fulfill.
+     * List of regulations that this request fulfills.
      */
     regulations?: string[] | undefined;
     /**
@@ -117,7 +117,7 @@ export interface SubjectRightsRequest extends Entity, Parsable {
      */
     stages?: SubjectRightsRequestStageDetail[] | undefined;
     /**
-     * The status of the request.. Possible values are: active, closed, unknownFutureValue.
+     * The status of the request. Possible values are: active, closed, unknownFutureValue.
      */
     status?: SubjectRightsRequestStatus | undefined;
     /**

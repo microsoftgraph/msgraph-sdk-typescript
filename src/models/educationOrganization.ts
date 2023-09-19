@@ -16,7 +16,7 @@ export interface EducationOrganization extends Entity, Parsable {
      */
     externalSource?: EducationExternalSource | undefined;
     /**
-     * The name of the external source this resources was generated from.
+     * The name of the external source this resource was generated from.
      */
     externalSourceDetail?: string | undefined;
 }

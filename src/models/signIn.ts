@@ -12,7 +12,7 @@ import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SignIn extends Entity, Parsable {
     /**
-     * App name displayed in the Azure Portal.  Supports $filter (eq, startsWith).
+     * App name displayed in the Azure portal.  Supports $filter (eq, startsWith).
      */
     appDisplayName?: string | undefined;
     /**
@@ -76,11 +76,11 @@ export interface SignIn extends Entity, Parsable {
      */
     riskEventTypes_v2?: string[] | undefined;
     /**
-     * Aggregated risk level. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection.  Supports $filter (eq).  Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned hidden.
+     * Aggregated risk level. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in wasn't enabled for Azure AD Identity Protection.  Supports $filter (eq).  Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
      */
     riskLevelAggregated?: RiskLevel | undefined;
     /**
-     * Risk level during sign-in. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection.  Supports $filter (eq).  Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers will be returned hidden.
+     * Risk level during sign-in. The possible values are: none, low, medium, high, hidden, and unknownFutureValue. The value hidden means the user or sign-in wasn't enabled for Azure AD Identity Protection.  Supports $filter (eq).  Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
      */
     riskLevelDuringSignIn?: RiskLevel | undefined;
     /**
@@ -88,7 +88,7 @@ export interface SignIn extends Entity, Parsable {
      */
     riskState?: RiskState | undefined;
     /**
-     * Sign-in status. Includes the error code and description of the error (in case of a sign-in failure).  Supports $filter (eq) on errorCode property.
+     * Sign-in status. Includes the error code and description of the error (if there's a sign-in failure).  Supports $filter (eq) on errorCode property.
      */
     status?: SignInStatus | undefined;
     /**

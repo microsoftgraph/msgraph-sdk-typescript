@@ -9,8 +9,22 @@ import { serializeMobileApp } from '../../../models/serializeMobileApp';
 import { AssignRequestBuilder } from './assign/assignRequestBuilder';
 import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
 import { CategoriesRequestBuilder } from './categories/categoriesRequestBuilder';
+import { GraphAndroidLobAppRequestBuilder } from './graphAndroidLobApp/graphAndroidLobAppRequestBuilder';
+import { GraphAndroidStoreAppRequestBuilder } from './graphAndroidStoreApp/graphAndroidStoreAppRequestBuilder';
+import { GraphIosLobAppRequestBuilder } from './graphIosLobApp/graphIosLobAppRequestBuilder';
+import { GraphIosStoreAppRequestBuilder } from './graphIosStoreApp/graphIosStoreAppRequestBuilder';
+import { GraphIosVppAppRequestBuilder } from './graphIosVppApp/graphIosVppAppRequestBuilder';
+import { GraphMacOSDmgAppRequestBuilder } from './graphMacOSDmgApp/graphMacOSDmgAppRequestBuilder';
+import { GraphMacOSLobAppRequestBuilder } from './graphMacOSLobApp/graphMacOSLobAppRequestBuilder';
+import { GraphManagedAndroidLobAppRequestBuilder } from './graphManagedAndroidLobApp/graphManagedAndroidLobAppRequestBuilder';
+import { GraphManagedIOSLobAppRequestBuilder } from './graphManagedIOSLobApp/graphManagedIOSLobAppRequestBuilder';
 import { GraphManagedMobileLobAppRequestBuilder } from './graphManagedMobileLobApp/graphManagedMobileLobAppRequestBuilder';
-import { GraphMobileLobAppRequestBuilder } from './graphMobileLobApp/graphMobileLobAppRequestBuilder';
+import { GraphMicrosoftStoreForBusinessAppRequestBuilder } from './graphMicrosoftStoreForBusinessApp/graphMicrosoftStoreForBusinessAppRequestBuilder';
+import { GraphWin32LobAppRequestBuilder } from './graphWin32LobApp/graphWin32LobAppRequestBuilder';
+import { GraphWindowsAppXRequestBuilder } from './graphWindowsAppX/graphWindowsAppXRequestBuilder';
+import { GraphWindowsMobileMSIRequestBuilder } from './graphWindowsMobileMSI/graphWindowsMobileMSIRequestBuilder';
+import { GraphWindowsUniversalAppXRequestBuilder } from './graphWindowsUniversalAppX/graphWindowsUniversalAppXRequestBuilder';
+import { GraphWindowsWebAppRequestBuilder } from './graphWindowsWebApp/graphWindowsWebAppRequestBuilder';
 import { type MobileAppItemRequestBuilderDeleteRequestConfiguration } from './mobileAppItemRequestBuilderDeleteRequestConfiguration';
 import { type MobileAppItemRequestBuilderGetRequestConfiguration } from './mobileAppItemRequestBuilderGetRequestConfiguration';
 import { type MobileAppItemRequestBuilderPatchRequestConfiguration } from './mobileAppItemRequestBuilderPatchRequestConfiguration';
@@ -39,16 +53,100 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return new CategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Casts the previous resource to androidLobApp.
+     */
+    public get graphAndroidLobApp(): GraphAndroidLobAppRequestBuilder {
+        return new GraphAndroidLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to androidStoreApp.
+     */
+    public get graphAndroidStoreApp(): GraphAndroidStoreAppRequestBuilder {
+        return new GraphAndroidStoreAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to iosLobApp.
+     */
+    public get graphIosLobApp(): GraphIosLobAppRequestBuilder {
+        return new GraphIosLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to iosStoreApp.
+     */
+    public get graphIosStoreApp(): GraphIosStoreAppRequestBuilder {
+        return new GraphIosStoreAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to iosVppApp.
+     */
+    public get graphIosVppApp(): GraphIosVppAppRequestBuilder {
+        return new GraphIosVppAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to macOSDmgApp.
+     */
+    public get graphMacOSDmgApp(): GraphMacOSDmgAppRequestBuilder {
+        return new GraphMacOSDmgAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to macOSLobApp.
+     */
+    public get graphMacOSLobApp(): GraphMacOSLobAppRequestBuilder {
+        return new GraphMacOSLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to managedAndroidLobApp.
+     */
+    public get graphManagedAndroidLobApp(): GraphManagedAndroidLobAppRequestBuilder {
+        return new GraphManagedAndroidLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to managedIOSLobApp.
+     */
+    public get graphManagedIOSLobApp(): GraphManagedIOSLobAppRequestBuilder {
+        return new GraphManagedIOSLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Casts the previous resource to managedMobileLobApp.
      */
     public get graphManagedMobileLobApp(): GraphManagedMobileLobAppRequestBuilder {
         return new GraphManagedMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Casts the previous resource to mobileLobApp.
+     * Casts the previous resource to microsoftStoreForBusinessApp.
      */
-    public get graphMobileLobApp(): GraphMobileLobAppRequestBuilder {
-        return new GraphMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphMicrosoftStoreForBusinessApp(): GraphMicrosoftStoreForBusinessAppRequestBuilder {
+        return new GraphMicrosoftStoreForBusinessAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to win32LobApp.
+     */
+    public get graphWin32LobApp(): GraphWin32LobAppRequestBuilder {
+        return new GraphWin32LobAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to windowsAppX.
+     */
+    public get graphWindowsAppX(): GraphWindowsAppXRequestBuilder {
+        return new GraphWindowsAppXRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to windowsMobileMSI.
+     */
+    public get graphWindowsMobileMSI(): GraphWindowsMobileMSIRequestBuilder {
+        return new GraphWindowsMobileMSIRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to windowsUniversalAppX.
+     */
+    public get graphWindowsUniversalAppX(): GraphWindowsUniversalAppXRequestBuilder {
+        return new GraphWindowsUniversalAppXRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to windowsWebApp.
+     */
+    public get graphWindowsWebApp(): GraphWindowsWebAppRequestBuilder {
+        return new GraphWindowsWebAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new MobileAppItemRequestBuilder and sets the default values.
@@ -74,10 +172,10 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the windowsMicrosoftEdgeApp object.
+     * Read properties and relationships of the webApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsmicrosoftedgeapp-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-webapp-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -90,11 +188,11 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a win32LobApp object.
+     * Update the properties of a windowsMicrosoftEdgeApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsmicrosoftedgeapp-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileApp, requestConfiguration?: MobileAppItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -123,7 +221,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the windowsMicrosoftEdgeApp object.
+     * Read properties and relationships of the webApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -141,7 +239,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a win32LobApp object.
+     * Update the properties of a windowsMicrosoftEdgeApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

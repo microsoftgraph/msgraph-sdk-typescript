@@ -16,7 +16,7 @@ export interface B2xIdentityUserFlow extends IdentityUserFlow, Parsable {
      */
     identityProviders?: IdentityProvider[] | undefined;
     /**
-     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You cannot create custom languages in self-service sign-up user flows.
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You can't create custom languages in self-service sign-up user flows.
      */
     languages?: UserFlowLanguageConfiguration[] | undefined;
     /**

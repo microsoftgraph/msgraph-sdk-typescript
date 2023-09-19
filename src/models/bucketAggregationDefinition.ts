@@ -24,7 +24,7 @@ export interface BucketAggregationDefinition extends AdditionalDataHolder, Parsa
      */
     prefixFilter?: string | undefined;
     /**
-     * Specifies the manual ranges to compute the aggregations. This is only valid for non-string refiners of date or numeric type. Optional.
+     * Specifies the manual ranges to compute the aggregations. This is only valid for nonstring refiners of date or numeric type. Optional.
      */
     ranges?: BucketAggregationRange[] | undefined;
     /**

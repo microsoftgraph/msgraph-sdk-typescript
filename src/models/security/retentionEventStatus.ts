@@ -8,7 +8,7 @@ export interface RetentionEventStatus extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The error if the status is not successful.
+     * The error if the status isn't successful.
      */
     errorEscaped?: PublicError | undefined;
     /**

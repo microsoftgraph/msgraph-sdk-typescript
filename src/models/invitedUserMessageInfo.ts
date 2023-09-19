@@ -7,7 +7,7 @@ export interface InvitedUserMessageInfo extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported.
+     * Additional recipients the invitation message should be sent to. Currently only one additional recipient is supported.
      */
     ccRecipients?: Recipient[] | undefined;
     /**

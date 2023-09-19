@@ -7,11 +7,11 @@ export interface SignInLocation extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
+     * Provides the city where the sign-in originated and is determined using latitude/longitude information from the sign-in activity.
      */
     city?: string | undefined;
     /**
-     * Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.
+     * Provides the country code info (two letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.
      */
     countryOrRegion?: string | undefined;
     /**

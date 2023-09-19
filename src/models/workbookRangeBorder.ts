@@ -3,7 +3,7 @@ import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookRangeBorder extends Entity, Parsable {
     /**
-     * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange').
+     * HTML color code representing the color of the border line, of the form #RRGGBB (for example 'FFA500') or as a named HTML color (for example 'orange').
      */
     color?: string | undefined;
     /**
