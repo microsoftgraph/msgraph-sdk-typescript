@@ -13,7 +13,7 @@ export interface DataSource extends Entity, Parsable {
      */
     createdDateTime?: Date | undefined;
     /**
-     * The display name of the dataSource. This will be the name of the SharePoint site.
+     * The display name of the dataSource and is the name of the SharePoint site.
      */
     displayName?: string | undefined;
     /**

@@ -38,7 +38,7 @@ export class AuthoredNoteItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * List of notes associcated with the request.
+     * List of notes associated with the request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthoredNote
      */
@@ -85,7 +85,7 @@ export class AuthoredNoteItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * List of notes associcated with the request.
+     * List of notes associated with the request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

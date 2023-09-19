@@ -7,7 +7,7 @@ export interface TeamworkHostedContent extends Entity, Parsable {
      */
     contentBytes?: string | undefined;
     /**
-     * Write only. Content type. sicj as image/png, image/jpg.
+     * Write only. Content type. such as image/png, image/jpg.
      */
     contentType?: string | undefined;
 }

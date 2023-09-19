@@ -445,7 +445,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     preferredDataLocation?: string | undefined;
     /**
-     * The preferred language for the user. Should follow ISO 639-1 Code; for example, en-US. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)
+     * The preferred language for the user. The preferred language format is based on RFC 4646. The name is a combination of an ISO 639 two-letter lowercase culture code associated with the language, and an ISO 3166 two-letter uppercase subculture code associated with the country or region. Example: 'en-US', or 'es-ES'. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)
      */
     preferredLanguage?: string | undefined;
     /**

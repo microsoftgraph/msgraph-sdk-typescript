@@ -8,7 +8,7 @@ import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Permission extends Entity, Parsable {
     /**
-     * A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional.
+     * A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there's no expiration set for this permission. Optional.
      */
     expirationDateTime?: Date | undefined;
     /**
@@ -32,7 +32,7 @@ export interface Permission extends Entity, Parsable {
      */
     hasPassword?: boolean | undefined;
     /**
-     * Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.
+     * Provides a reference to the ancestor of the current permission, if it's inherited from an ancestor. Read-only.
      */
     inheritedFrom?: ItemReference | undefined;
     /**
@@ -40,7 +40,7 @@ export interface Permission extends Entity, Parsable {
      */
     invitation?: SharingInvitation | undefined;
     /**
-     * Provides the link details of the current permission, if it is a link type permissions. Read-only.
+     * Provides the link details of the current permission, if it's a link type permission. Read-only.
      */
     link?: SharingLink | undefined;
     /**

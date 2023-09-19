@@ -7,7 +7,7 @@ export interface UnifiedRoleManagementPolicyExpirationRule extends Parsable, Uni
      */
     isExpirationRequired?: boolean | undefined;
     /**
-     * The maximum duration allowed for eligibility or assignment which is not permanent. Required when isExpirationRequired is true.
+     * The maximum duration allowed for eligibility or assignment that isn't permanent. Required when isExpirationRequired is true.
      */
     maximumDuration?: Duration | undefined;
 }

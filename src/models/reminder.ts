@@ -32,7 +32,7 @@ export interface Reminder extends AdditionalDataHolder, Parsable {
      */
     eventSubject?: string | undefined;
     /**
-     * The URL to open the event in Outlook on the web.The event will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.
+     * The URL to open the event in Outlook on the web.The event opens in the browser if you're logged in to your mailbox via Outlook on the web. You're prompted to log in if you aren't already logged in with the browser.This URL can't be accessed from within an iFrame.
      */
     eventWebLink?: string | undefined;
     /**

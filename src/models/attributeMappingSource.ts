@@ -20,7 +20,7 @@ export interface AttributeMappingSource extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | undefined;
     /**
-     * If this object represents a function, lists function parameters. Parameters consist of attributeMappingSource objects themselves, allowing for complex expressions. If type is not Function, this property will be null/empty array.
+     * If this object represents a function, lists function parameters. Parameters consist of attributeMappingSource objects themselves, allowing for complex expressions. If type isn't Function, this property is null/empty array.
      */
     parameters?: StringKeyAttributeMappingSourceValuePair[] | undefined;
     /**

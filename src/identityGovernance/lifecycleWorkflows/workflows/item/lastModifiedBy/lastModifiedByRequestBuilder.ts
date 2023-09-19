@@ -27,7 +27,7 @@ export class LastModifiedByRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/lastModifiedBy{?%24select,%24expand}");
     };
     /**
-     * The unique identifier of the AAD identity that last modified the workflow.
+     * The unique identifier of the Azure Active Directory identity that last modified the workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
      */
@@ -42,7 +42,7 @@ export class LastModifiedByRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The unique identifier of the AAD identity that last modified the workflow.
+     * The unique identifier of the Azure Active Directory identity that last modified the workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

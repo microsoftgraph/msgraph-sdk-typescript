@@ -51,10 +51,10 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages/{message%2Did}/attachments{?%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of attachment objects.
+     * Retrieve a list of attachment objects attached to a message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttachmentCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/eventmessage-list-attachments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/message-list-attachments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttachmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<AttachmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -84,7 +84,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Attachment>(requestInfo, createAttachmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of attachment objects.
+     * Retrieve a list of attachment objects attached to a message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

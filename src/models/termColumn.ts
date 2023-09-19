@@ -8,7 +8,7 @@ export interface TermColumn extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * Specifies whether the column will allow more than one value.
+     * Specifies whether the column allows more than one value.
      */
     allowMultipleValues?: boolean | undefined;
     /**

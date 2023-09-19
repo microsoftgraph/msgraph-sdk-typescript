@@ -3,7 +3,7 @@ import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BasicAuthentication extends ApiAuthenticationConfigurationBase, Parsable {
     /**
-     * The password. It is not returned in the responses.
+     * The password. It isn't returned in the responses.
      */
     password?: string | undefined;
     /**

@@ -6,7 +6,7 @@ export interface WorkbookSessionInfo extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * Id of the workbook session.
+     * ID of the workbook session.
      */
     id?: string | undefined;
     /**

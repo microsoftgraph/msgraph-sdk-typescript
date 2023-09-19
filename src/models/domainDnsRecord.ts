@@ -11,11 +11,11 @@ export interface DomainDnsRecord extends Entity, Parsable {
      */
     label?: string | undefined;
     /**
-     * Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, Txt.
+     * Indicates what type of DNS record this entity represents. The value can be CName, Mx, Srv, or Txt.
      */
     recordType?: string | undefined;
     /**
-     * Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune.
+     * Microsoft Online Service or feature that has a dependency on this DNS record. Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune.
      */
     supportedService?: string | undefined;
     /**

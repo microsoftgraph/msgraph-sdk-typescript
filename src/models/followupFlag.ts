@@ -12,7 +12,7 @@ export interface FollowupFlag extends AdditionalDataHolder, Parsable {
      */
     completedDateTime?: DateTimeTimeZone | undefined;
     /**
-     * The date and time that the follow up is to be finished. Note: To set the due date, you must also specify the startDateTime; otherwise, you will get a 400 Bad Request response.
+     * The date and time that the follow-up is to be finished. Note: To set the due date, you must also specify the startDateTime; otherwise, you get a 400 Bad Request response.
      */
     dueDateTime?: DateTimeTimeZone | undefined;
     /**

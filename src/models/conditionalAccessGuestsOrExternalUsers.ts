@@ -8,7 +8,7 @@ export interface ConditionalAccessGuestsOrExternalUsers extends AdditionalDataHo
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The tenant IDs of the selected types of external users. Either all B2B tenant or a collection of tenant IDs. External tenants can be specified only when the property guestOrExternalUserTypes is not null or an empty String.
+     * The tenant IDs of the selected types of external users. Either all B2B tenant or a collection of tenant IDs. External tenants can be specified only when the property guestOrExternalUserTypes isn't null or an empty String.
      */
     externalTenants?: ConditionalAccessExternalTenants | undefined;
     /**

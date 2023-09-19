@@ -17,11 +17,11 @@ export interface AccessPackageSubject extends Entity, Parsable {
      */
     email?: string | undefined;
     /**
-     * The object identifier of the subject. null if the subject is not yet a user in the tenant.
+     * The object identifier of the subject. null if the subject isn't yet a user in the tenant.
      */
     objectId?: string | undefined;
     /**
-     * A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier.
+     * A string representation of the principal's security identifier, if known, or null if the subject doesn't have a security identifier.
      */
     onPremisesSecurityIdentifier?: string | undefined;
     /**

@@ -8,7 +8,7 @@ export interface ProvisioningStatusInfo extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * If status is not success/ skipped details for the error are contained in this.
+     * If status isn't success/ skipped details for the error are contained in this.
      */
     errorInformation?: ProvisioningErrorInfo | undefined;
     /**

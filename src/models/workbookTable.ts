@@ -19,7 +19,7 @@ export interface WorkbookTable extends Entity, Parsable {
      */
     highlightLastColumn?: boolean | undefined;
     /**
-     * Legacy Id used in older Excle clients. The value of the identifier remains the same even when the table is renamed. This property should be interpreted as an opaque string value and should not be parsed to any other type. Read-only.
+     * Legacy ID used in older Excel clients. The value of the identifier remains the same even when the table is renamed. This property should be interpreted as an opaque string value and shouldn't be parsed to any other type. Read-only.
      */
     legacyId?: string | undefined;
     /**
@@ -55,7 +55,7 @@ export interface WorkbookTable extends Entity, Parsable {
      */
     sort?: WorkbookTableSort | undefined;
     /**
-     * Constant value that represents the Table style. The possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.
+     * Constant value that represents the Table style. The possible values are: TableStyleLight1 through TableStyleLight21, TableStyleMedium1 through TableStyleMedium28, TableStyleStyleDark1 through TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.
      */
     style?: string | undefined;
     /**

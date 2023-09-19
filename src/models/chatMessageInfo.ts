@@ -7,7 +7,7 @@ import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ChatMessageInfo extends Entity, Parsable {
     /**
-     * Body of the chatMessage. This will still contain markers for @mentions and attachments even though the object does not return @mentions and attachments.
+     * Body of the chatMessage. This will still contain markers for @mentions and attachments even though the object doesn't return @mentions and attachments.
      */
     body?: ItemBody | undefined;
     /**
@@ -15,7 +15,7 @@ export interface ChatMessageInfo extends Entity, Parsable {
      */
     createdDateTime?: Date | undefined;
     /**
-     * Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property will be set to systemEventMessage.
+     * Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property is set to systemEventMessage.
      */
     eventDetail?: EventMessageDetail | undefined;
     /**

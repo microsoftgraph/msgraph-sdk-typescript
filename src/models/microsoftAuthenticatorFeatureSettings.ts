@@ -7,11 +7,11 @@ export interface MicrosoftAuthenticatorFeatureSettings extends AdditionalDataHol
      */
     additionalData?: Record<string, unknown>;
     /**
-     * Determines whether the user's Authenticator app will show them the client app they are signing into.
+     * Determines whether the user's Authenticator app shows them the client app they're signing into.
      */
     displayAppInformationRequiredState?: AuthenticationMethodFeatureConfiguration | undefined;
     /**
-     * Determines whether the user's Authenticator app will show them the geographic location of where the authentication request originated from.
+     * Determines whether the user's Authenticator app shows them the geographic location of where the authentication request originated from.
      */
     displayLocationInformationRequiredState?: AuthenticationMethodFeatureConfiguration | undefined;
     /**

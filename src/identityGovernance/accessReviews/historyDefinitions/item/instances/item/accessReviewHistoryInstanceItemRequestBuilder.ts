@@ -45,7 +45,7 @@ export class AccessReviewHistoryInstanceItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that does not recur will have exactly one instance.
+     * If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that doesn't recur will have exactly one instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewHistoryInstance
      */
@@ -92,7 +92,7 @@ export class AccessReviewHistoryInstanceItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that does not recur will have exactly one instance.
+     * If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that doesn't recur will have exactly one instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

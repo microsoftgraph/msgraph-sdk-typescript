@@ -15,7 +15,7 @@ export interface LoginPageLayoutConfiguration extends AdditionalDataHolder, Pars
      */
     isHeaderShown?: boolean | undefined;
     /**
-     * Represents the layout template to be displayed on the login page for a tenant. The possible values are  default - Represents the default Microsoft layout with a centered lightbox.  verticalSplit - Represents a layout with a backgound on the left side and a full-height lightbox to the right.  unknownFutureValue - Evolvable enumeration sentinel value. Do not use.
+     * Represents the layout template to be displayed on the login page for a tenant. The possible values are  default - Represents the default Microsoft layout with a centered lightbox.  verticalSplit - Represents a layout with a background on the left side and a full-height lightbox to the right.  unknownFutureValue - Evolvable enumeration sentinel value. Don't use.
      */
     layoutTemplateType?: LayoutTemplateType | undefined;
     /**

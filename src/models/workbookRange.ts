@@ -7,7 +7,7 @@ import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookRange extends Entity, Parsable {
     /**
-     * Represents the range reference in A1-style. Address value will contain the Sheet reference (e.g. Sheet1!A1:B4). Read-only.
+     * Represents the range reference in A1-style. Address value contains the Sheet reference (for example, Sheet1!A1:B4). Read-only.
      */
     address?: string | undefined;
     /**
@@ -71,11 +71,11 @@ export interface WorkbookRange extends Entity, Parsable {
      */
     sort?: WorkbookRangeSort | undefined;
     /**
-     * Text values of the specified range. The Text value will not depend on the cell width. The # sign substitution that happens in Excel UI will not affect the text value returned by the API. Read-only.
+     * Text values of the specified range. The Text value won't depend on the cell width. The # sign substitution that happens in Excel UI won't affect the text value returned by the API. Read-only.
      */
     text?: Json | undefined;
     /**
-     * Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
+     * Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contains an error returns the error string.
      */
     values?: Json | undefined;
     /**

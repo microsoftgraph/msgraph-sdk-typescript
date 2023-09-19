@@ -18,15 +18,15 @@ export interface AuthorizationPolicy extends Parsable, PolicyBase {
      */
     allowEmailVerifiedUsersToJoinOrganization?: boolean | undefined;
     /**
-     * Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. For more details, see allowInvitesFrom values.
+     * Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. For more information, see allowInvitesFrom values.
      */
     allowInvitesFrom?: AllowInvitesFrom | undefined;
     /**
-     * Indicates whether user consent for risky apps is allowed. We recommend to keep this as false. Default value is false.
+     * Indicates whether user consent for risky apps is allowed. We recommend keeping allowUserConsentForRiskyApps as false. Default value is false.
      */
     allowUserConsentForRiskyApps?: boolean | undefined;
     /**
-     * To disable the use of MSOL PowerShell, set this property to true. This also disables user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure Active Directory Connect or Microsoft Graph.
+     * To disable the use of MSOL PowerShell, set this property to true. This also disables user-based access to the legacy service endpoint used by MSOL PowerShell. This doesn't affect Azure Active Directory Connect or Microsoft Graph.
      */
     blockMsolPowerShell?: boolean | undefined;
     /**

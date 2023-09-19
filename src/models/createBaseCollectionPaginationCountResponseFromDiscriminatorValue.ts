@@ -29,7 +29,9 @@ import { deserializeIntoAgreementFileLocalizationCollectionResponse } from './de
 import { deserializeIntoAgreementFileVersionCollectionResponse } from './deserializeIntoAgreementFileVersionCollectionResponse';
 import { deserializeIntoAlertCollectionResponse as I6c9576999b9de4622ea5c63d882e92974865f2fc76da3e8fd3c602385bb2d1ce } from './deserializeIntoAlertCollectionResponse';
 import { deserializeIntoAllowedValueCollectionResponse } from './deserializeIntoAllowedValueCollectionResponse';
+import { deserializeIntoAndroidLobAppCollectionResponse } from './deserializeIntoAndroidLobAppCollectionResponse';
 import { deserializeIntoAndroidManagedAppProtectionCollectionResponse } from './deserializeIntoAndroidManagedAppProtectionCollectionResponse';
+import { deserializeIntoAndroidStoreAppCollectionResponse } from './deserializeIntoAndroidStoreAppCollectionResponse';
 import { deserializeIntoAppConsentRequestCollectionResponse } from './deserializeIntoAppConsentRequestCollectionResponse';
 import { deserializeIntoApplicationCollectionResponse } from './deserializeIntoApplicationCollectionResponse';
 import { deserializeIntoApplicationTemplateCollectionResponse } from './deserializeIntoApplicationTemplateCollectionResponse';
@@ -179,8 +181,11 @@ import { deserializeIntoImportedWindowsAutopilotDeviceIdentityCollectionResponse
 import { deserializeIntoInferenceClassificationOverrideCollectionResponse } from './deserializeIntoInferenceClassificationOverrideCollectionResponse';
 import { deserializeIntoInternalDomainFederationCollectionResponse } from './deserializeIntoInternalDomainFederationCollectionResponse';
 import { deserializeIntoInvitationCollectionResponse } from './deserializeIntoInvitationCollectionResponse';
+import { deserializeIntoIosLobAppCollectionResponse } from './deserializeIntoIosLobAppCollectionResponse';
 import { deserializeIntoIosManagedAppProtectionCollectionResponse } from './deserializeIntoIosManagedAppProtectionCollectionResponse';
+import { deserializeIntoIosStoreAppCollectionResponse } from './deserializeIntoIosStoreAppCollectionResponse';
 import { deserializeIntoIosUpdateDeviceStatusCollectionResponse } from './deserializeIntoIosUpdateDeviceStatusCollectionResponse';
+import { deserializeIntoIosVppAppCollectionResponse } from './deserializeIntoIosVppAppCollectionResponse';
 import { deserializeIntoItemActivityCollectionResponse } from './deserializeIntoItemActivityCollectionResponse';
 import { deserializeIntoItemActivityStatCollectionResponse } from './deserializeIntoItemActivityStatCollectionResponse';
 import { deserializeIntoLearningContentCollectionResponse } from './deserializeIntoLearningContentCollectionResponse';
@@ -193,8 +198,11 @@ import { deserializeIntoListItemCollectionResponse } from './deserializeIntoList
 import { deserializeIntoListItemVersionCollectionResponse } from './deserializeIntoListItemVersionCollectionResponse';
 import { deserializeIntoLocalizedNotificationMessageCollectionResponse } from './deserializeIntoLocalizedNotificationMessageCollectionResponse';
 import { deserializeIntoLongRunningOperationCollectionResponse } from './deserializeIntoLongRunningOperationCollectionResponse';
+import { deserializeIntoMacOSDmgAppCollectionResponse } from './deserializeIntoMacOSDmgAppCollectionResponse';
+import { deserializeIntoMacOSLobAppCollectionResponse } from './deserializeIntoMacOSLobAppCollectionResponse';
 import { deserializeIntoMailFolderCollectionResponse } from './deserializeIntoMailFolderCollectionResponse';
 import { deserializeIntoMalwareStateForWindowsDeviceCollectionResponse } from './deserializeIntoMalwareStateForWindowsDeviceCollectionResponse';
+import { deserializeIntoManagedAndroidLobAppCollectionResponse } from './deserializeIntoManagedAndroidLobAppCollectionResponse';
 import { deserializeIntoManagedAppOperationCollectionResponse } from './deserializeIntoManagedAppOperationCollectionResponse';
 import { deserializeIntoManagedAppPolicyCollectionResponse } from './deserializeIntoManagedAppPolicyCollectionResponse';
 import { deserializeIntoManagedAppRegistrationCollectionResponse } from './deserializeIntoManagedAppRegistrationCollectionResponse';
@@ -206,6 +214,7 @@ import { deserializeIntoManagedDeviceMobileAppConfigurationDeviceStatusCollectio
 import { deserializeIntoManagedDeviceMobileAppConfigurationUserStatusCollectionResponse } from './deserializeIntoManagedDeviceMobileAppConfigurationUserStatusCollectionResponse';
 import { deserializeIntoManagedEBookAssignmentCollectionResponse } from './deserializeIntoManagedEBookAssignmentCollectionResponse';
 import { deserializeIntoManagedEBookCollectionResponse } from './deserializeIntoManagedEBookCollectionResponse';
+import { deserializeIntoManagedIOSLobAppCollectionResponse } from './deserializeIntoManagedIOSLobAppCollectionResponse';
 import { deserializeIntoManagedMobileAppCollectionResponse } from './deserializeIntoManagedMobileAppCollectionResponse';
 import { deserializeIntoManagedMobileLobAppCollectionResponse } from './deserializeIntoManagedMobileLobAppCollectionResponse';
 import { deserializeIntoMdmWindowsInformationProtectionPolicyCollectionResponse } from './deserializeIntoMdmWindowsInformationProtectionPolicyCollectionResponse';
@@ -213,11 +222,11 @@ import { deserializeIntoMeetingAttendanceReportCollectionResponse } from './dese
 import { deserializeIntoMessageCollectionResponse } from './deserializeIntoMessageCollectionResponse';
 import { deserializeIntoMessageRuleCollectionResponse } from './deserializeIntoMessageRuleCollectionResponse';
 import { deserializeIntoMicrosoftAuthenticatorAuthenticationMethodCollectionResponse } from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethodCollectionResponse';
+import { deserializeIntoMicrosoftStoreForBusinessAppCollectionResponse } from './deserializeIntoMicrosoftStoreForBusinessAppCollectionResponse';
 import { deserializeIntoMobileAppAssignmentCollectionResponse } from './deserializeIntoMobileAppAssignmentCollectionResponse';
 import { deserializeIntoMobileAppCategoryCollectionResponse } from './deserializeIntoMobileAppCategoryCollectionResponse';
 import { deserializeIntoMobileAppCollectionResponse } from './deserializeIntoMobileAppCollectionResponse';
 import { deserializeIntoMobileAppTroubleshootingEventCollectionResponse } from './deserializeIntoMobileAppTroubleshootingEventCollectionResponse';
-import { deserializeIntoMobileLobAppCollectionResponse } from './deserializeIntoMobileLobAppCollectionResponse';
 import { deserializeIntoMobileThreatDefenseConnectorCollectionResponse } from './deserializeIntoMobileThreatDefenseConnectorCollectionResponse';
 import { deserializeIntoNamedLocationCollectionResponse } from './deserializeIntoNamedLocationCollectionResponse';
 import { deserializeIntoNotebookCollectionResponse } from './deserializeIntoNotebookCollectionResponse';
@@ -379,6 +388,8 @@ import { deserializeIntoUserInstallStateSummaryCollectionResponse } from './dese
 import { deserializeIntoUserRegistrationDetailsCollectionResponse } from './deserializeIntoUserRegistrationDetailsCollectionResponse';
 import { deserializeIntoUserScopeTeamsAppInstallationCollectionResponse } from './deserializeIntoUserScopeTeamsAppInstallationCollectionResponse';
 import { deserializeIntoVppTokenCollectionResponse } from './deserializeIntoVppTokenCollectionResponse';
+import { deserializeIntoWin32LobAppCollectionResponse } from './deserializeIntoWin32LobAppCollectionResponse';
+import { deserializeIntoWindowsAppXCollectionResponse } from './deserializeIntoWindowsAppXCollectionResponse';
 import { deserializeIntoWindowsAutopilotDeviceIdentityCollectionResponse } from './deserializeIntoWindowsAutopilotDeviceIdentityCollectionResponse';
 import { deserializeIntoWindowsDeviceMalwareStateCollectionResponse } from './deserializeIntoWindowsDeviceMalwareStateCollectionResponse';
 import { deserializeIntoWindowsHelloForBusinessAuthenticationMethodCollectionResponse } from './deserializeIntoWindowsHelloForBusinessAuthenticationMethodCollectionResponse';
@@ -387,6 +398,9 @@ import { deserializeIntoWindowsInformationProtectionAppLockerFileCollectionRespo
 import { deserializeIntoWindowsInformationProtectionNetworkLearningSummaryCollectionResponse } from './deserializeIntoWindowsInformationProtectionNetworkLearningSummaryCollectionResponse';
 import { deserializeIntoWindowsInformationProtectionPolicyCollectionResponse } from './deserializeIntoWindowsInformationProtectionPolicyCollectionResponse';
 import { deserializeIntoWindowsMalwareInformationCollectionResponse } from './deserializeIntoWindowsMalwareInformationCollectionResponse';
+import { deserializeIntoWindowsMobileMSICollectionResponse } from './deserializeIntoWindowsMobileMSICollectionResponse';
+import { deserializeIntoWindowsUniversalAppXCollectionResponse } from './deserializeIntoWindowsUniversalAppXCollectionResponse';
+import { deserializeIntoWindowsWebAppCollectionResponse } from './deserializeIntoWindowsWebAppCollectionResponse';
 import { deserializeIntoWorkbookChartCollectionResponse } from './deserializeIntoWorkbookChartCollectionResponse';
 import { deserializeIntoWorkbookChartPointCollectionResponse } from './deserializeIntoWorkbookChartPointCollectionResponse';
 import { deserializeIntoWorkbookChartSeriesCollectionResponse } from './deserializeIntoWorkbookChartSeriesCollectionResponse';

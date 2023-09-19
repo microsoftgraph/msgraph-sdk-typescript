@@ -25,7 +25,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/add");
     };
     /**
-     * Adds a new worksheet to the workbook. The worksheet will be added at the end of existing worksheets. If you wish to activate the newly added worksheet, call .activate() on it.
+     * Adds a new worksheet to the workbook. The worksheet is added at the end of existing worksheets. If you wish to activate the newly added worksheet, call.activate() on it.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheet
@@ -42,7 +42,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookWorksheet>(requestInfo, createWorkbookWorksheetFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Adds a new worksheet to the workbook. The worksheet will be added at the end of existing worksheets. If you wish to activate the newly added worksheet, call .activate() on it.
+     * Adds a new worksheet to the workbook. The worksheet is added at the end of existing worksheets. If you wish to activate the newly added worksheet, call.activate() on it.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

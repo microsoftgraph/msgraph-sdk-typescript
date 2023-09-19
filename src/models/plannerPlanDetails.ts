@@ -9,7 +9,7 @@ export interface PlannerPlanDetails extends Entity, Parsable {
      */
     categoryDescriptions?: PlannerCategoryDescriptions | undefined;
     /**
-     * Set of user IDs that this plan is shared with. If you are leveraging Microsoft 365 groups, use the Groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection, although it is not required for them to access the plan owned by the group.
+     * Set of user IDs that this plan is shared with. If you're using Microsoft 365 groups, use the Groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection, although it isn't required for them to access the plan owned by the group.
      */
     sharedWith?: PlannerUserIds | undefined;
 }

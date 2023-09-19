@@ -6,7 +6,7 @@ export interface DirectRoutingLogRow extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * Number of the user or bot who received the call. E.164 format, but may include additional data.
+     * Number of the user or bot who received the call. E.164 format, but may include other data.
      */
     calleeNumber?: string | undefined;
     /**
@@ -14,7 +14,7 @@ export interface DirectRoutingLogRow extends AdditionalDataHolder, Parsable {
      */
     callEndSubReason?: number | undefined;
     /**
-     * Number of the user or bot who made the call. E.164 format, but may include additional data.
+     * Number of the user or bot who made the call. E.164 format, but may include other data.
      */
     callerNumber?: string | undefined;
     /**
@@ -38,7 +38,7 @@ export interface DirectRoutingLogRow extends AdditionalDataHolder, Parsable {
      */
     failureDateTime?: Date | undefined;
     /**
-     * The code with which the call ended, RFC 3261.
+     * The code with which the call ended, see RFC 3261.
      */
     finalSipCode?: number | undefined;
     /**
@@ -58,7 +58,7 @@ export interface DirectRoutingLogRow extends AdditionalDataHolder, Parsable {
      */
     mediaBypassEnabled?: boolean | undefined;
     /**
-     * The datacenter used for media path in non-bypass call.
+     * The datacenter used for media path in nonbypass call.
      */
     mediaPathLocation?: string | undefined;
     /**
@@ -66,7 +66,7 @@ export interface DirectRoutingLogRow extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | undefined;
     /**
-     * The datacenter used for signaling for both bypass and non-bypass calls.
+     * The datacenter used for signaling for both bypass and nonbypass calls.
      */
     signalingLocation?: string | undefined;
     /**

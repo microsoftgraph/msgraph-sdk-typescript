@@ -11,7 +11,7 @@ export interface FileAttachment extends Attachment, Parsable {
      */
     contentId?: string | undefined;
     /**
-     * Do not use this property as it is not supported.
+     * Don't use this property as it isn't supported.
      */
     contentLocation?: string | undefined;
 }

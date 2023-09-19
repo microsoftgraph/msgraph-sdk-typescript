@@ -27,7 +27,7 @@ export interface AppliedConditionalAccessPolicy extends AdditionalDataHolder, Pa
      */
     odataType?: string | undefined;
     /**
-     * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
+     * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions weren't met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
      */
     result?: AppliedConditionalAccessPolicyResult | undefined;
 }

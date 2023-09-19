@@ -40,7 +40,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<StringCollectionResponse>(requestInfo, createStringCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Specify the user or group in @odata.id in the request body. Users in the accepted senders list can post to conversations of the group . Make sure you do not specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
+     * Specify the user or group in @odata.id in the request body. Users in the accepted senders list can post to conversations of the group. Make sure you don't specify the same user or group in the accepted senders and rejected senders lists, otherwise you'll get an error.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/group-post-acceptedsenders?view=graph-rest-1.0|Find more info here}
@@ -74,7 +74,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Specify the user or group in @odata.id in the request body. Users in the accepted senders list can post to conversations of the group . Make sure you do not specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
+     * Specify the user or group in @odata.id in the request body. Users in the accepted senders list can post to conversations of the group. Make sure you don't specify the same user or group in the accepted senders and rejected senders lists, otherwise you'll get an error.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

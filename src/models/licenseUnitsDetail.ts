@@ -10,7 +10,7 @@ export interface LicenseUnitsDetail extends AdditionalDataHolder, Parsable {
      */
     enabled?: number | undefined;
     /**
-     * The number of units that are locked out because the customer cancelled their subscription of the service SKU.
+     * The number of units that are locked out because the customer canceled their subscription of the service SKU.
      */
     lockedOut?: number | undefined;
     /**
@@ -18,11 +18,11 @@ export interface LicenseUnitsDetail extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | undefined;
     /**
-     * The number of units that are suspended because the subscription of the service SKU has been cancelled. The units cannot be assigned but can still be reactivated before they are deleted.
+     * The number of units that are suspended because the subscription of the service SKU has been canceled. The units can't be assigned but can still be reactivated before they're deleted.
      */
     suspended?: number | undefined;
     /**
-     * The number of units that are in warning status. When the subscription of the service SKU has expired, the customer has a grace period to renew their subscription before it is cancelled (moved to a suspended state).
+     * The number of units that are in warning status. When the subscription of the service SKU has expired, the customer has a grace period to renew their subscription before it's canceled (moved to a suspended state).
      */
     warning?: number | undefined;
 }

@@ -11,7 +11,7 @@ export interface OnlineMeetingInfo extends AdditionalDataHolder, Parsable {
      */
     conferenceId?: string | undefined;
     /**
-     * The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.
+     * The external link that launches the online meeting. This is a URL that clients launch into a browser and will redirect the user to join the meeting.
      */
     joinUrl?: string | undefined;
     /**
@@ -23,7 +23,7 @@ export interface OnlineMeetingInfo extends AdditionalDataHolder, Parsable {
      */
     phones?: Phone[] | undefined;
     /**
-     * The pre-formatted quickdial for this call.
+     * The preformatted quick dial for this call.
      */
     quickDial?: string | undefined;
     /**

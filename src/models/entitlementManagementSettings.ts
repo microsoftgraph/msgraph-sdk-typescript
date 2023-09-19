@@ -4,7 +4,7 @@ import { Duration, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface EntitlementManagementSettings extends Entity, Parsable {
     /**
-     * If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.
+     * If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically many days, after an external user is blocked from sign in before their account is deleted.
      */
     durationUntilExternalUserDeletedAfterBlocked?: Duration | undefined;
     /**

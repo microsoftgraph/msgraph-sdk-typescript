@@ -18,7 +18,7 @@ export interface ResultInfo extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | undefined;
     /**
-     * The result sub-code.
+     * The result subcode.
      */
     subcode?: number | undefined;
 }
