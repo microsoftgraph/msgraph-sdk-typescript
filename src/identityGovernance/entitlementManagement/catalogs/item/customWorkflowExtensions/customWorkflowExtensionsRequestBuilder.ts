@@ -1,19 +1,70 @@
 import { type CustomCalloutExtensionCollectionResponse } from '../../../../../models/';
-import { createCustomCalloutExtensionCollectionResponseFromDiscriminatorValue } from '../../../../../models/createCustomCalloutExtensionCollectionResponseFromDiscriminatorValue';
-import { createCustomCalloutExtensionFromDiscriminatorValue } from '../../../../../models/createCustomCalloutExtensionFromDiscriminatorValue';
-import { type CustomCalloutExtension } from '../../../../../models/customCalloutExtension';
-import { deserializeIntoCustomCalloutExtension } from '../../../../../models/deserializeIntoCustomCalloutExtension';
+import { createCustomCalloutExtensionFromDiscriminatorValue, deserializeIntoCustomCalloutExtension, serializeCustomCalloutExtension, type CustomCalloutExtension } from '../../../../../models/customCalloutExtension';
+import { createCustomCalloutExtensionCollectionResponseFromDiscriminatorValue } from '../../../../../models/customCalloutExtensionCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeCustomCalloutExtension } from '../../../../../models/serializeCustomCalloutExtension';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type CustomWorkflowExtensionsRequestBuilderGetRequestConfiguration } from './customWorkflowExtensionsRequestBuilderGetRequestConfiguration';
-import { type CustomWorkflowExtensionsRequestBuilderPostRequestConfiguration } from './customWorkflowExtensionsRequestBuilderPostRequestConfiguration';
 import { CustomCalloutExtensionItemRequestBuilder } from './item/customCalloutExtensionItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CustomWorkflowExtensionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface CustomWorkflowExtensionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CustomWorkflowExtensionsRequestBuilderGetQueryParameters;
+}
+export interface CustomWorkflowExtensionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
  */

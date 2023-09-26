@@ -1,19 +1,70 @@
 import { type ResourceOperationCollectionResponse } from '../../models/';
-import { createResourceOperationCollectionResponseFromDiscriminatorValue } from '../../models/createResourceOperationCollectionResponseFromDiscriminatorValue';
-import { createResourceOperationFromDiscriminatorValue } from '../../models/createResourceOperationFromDiscriminatorValue';
-import { deserializeIntoResourceOperation } from '../../models/deserializeIntoResourceOperation';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type ResourceOperation } from '../../models/resourceOperation';
-import { serializeResourceOperation } from '../../models/serializeResourceOperation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createResourceOperationFromDiscriminatorValue, deserializeIntoResourceOperation, serializeResourceOperation, type ResourceOperation } from '../../models/resourceOperation';
+import { createResourceOperationCollectionResponseFromDiscriminatorValue } from '../../models/resourceOperationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ResourceOperationItemRequestBuilder } from './item/resourceOperationItemRequestBuilder';
-import { type ResourceOperationsRequestBuilderGetRequestConfiguration } from './resourceOperationsRequestBuilderGetRequestConfiguration';
-import { type ResourceOperationsRequestBuilderPostRequestConfiguration } from './resourceOperationsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ResourceOperationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ResourceOperationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ResourceOperationsRequestBuilderGetQueryParameters;
+}
+export interface ResourceOperationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity.
  */

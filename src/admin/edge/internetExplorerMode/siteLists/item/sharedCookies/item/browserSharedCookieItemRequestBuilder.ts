@@ -1,16 +1,52 @@
-import { type BrowserSharedCookie } from '../../../../../../../models/browserSharedCookie';
-import { createBrowserSharedCookieFromDiscriminatorValue } from '../../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
-import { deserializeIntoBrowserSharedCookie } from '../../../../../../../models/deserializeIntoBrowserSharedCookie';
+import { createBrowserSharedCookieFromDiscriminatorValue, deserializeIntoBrowserSharedCookie, serializeBrowserSharedCookie, type BrowserSharedCookie } from '../../../../../../../models/browserSharedCookie';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeBrowserSharedCookie } from '../../../../../../../models/serializeBrowserSharedCookie';
-import { type BrowserSharedCookieItemRequestBuilderDeleteRequestConfiguration } from './browserSharedCookieItemRequestBuilderDeleteRequestConfiguration';
-import { type BrowserSharedCookieItemRequestBuilderGetRequestConfiguration } from './browserSharedCookieItemRequestBuilderGetRequestConfiguration';
-import { type BrowserSharedCookieItemRequestBuilderPatchRequestConfiguration } from './browserSharedCookieItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BrowserSharedCookieItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BrowserSharedCookieItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BrowserSharedCookieItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BrowserSharedCookieItemRequestBuilderGetQueryParameters;
+}
+export interface BrowserSharedCookieItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
  */

@@ -1,21 +1,57 @@
-import { createPresenceFromDiscriminatorValue } from '../../../models/createPresenceFromDiscriminatorValue';
-import { deserializeIntoPresence } from '../../../models/deserializeIntoPresence';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type Presence } from '../../../models/presence';
-import { serializePresence } from '../../../models/serializePresence';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPresenceFromDiscriminatorValue, deserializeIntoPresence, serializePresence, type Presence } from '../../../models/presence';
 import { ClearPresenceRequestBuilder } from './clearPresence/clearPresenceRequestBuilder';
 import { ClearUserPreferredPresenceRequestBuilder } from './clearUserPreferredPresence/clearUserPreferredPresenceRequestBuilder';
-import { type PresenceItemRequestBuilderDeleteRequestConfiguration } from './presenceItemRequestBuilderDeleteRequestConfiguration';
-import { type PresenceItemRequestBuilderGetRequestConfiguration } from './presenceItemRequestBuilderGetRequestConfiguration';
-import { type PresenceItemRequestBuilderPatchRequestConfiguration } from './presenceItemRequestBuilderPatchRequestConfiguration';
 import { SetPresenceRequestBuilder } from './setPresence/setPresenceRequestBuilder';
 import { SetStatusMessageRequestBuilder } from './setStatusMessage/setStatusMessageRequestBuilder';
 import { SetUserPreferredPresenceRequestBuilder } from './setUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PresenceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PresenceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PresenceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PresenceItemRequestBuilderGetQueryParameters;
+}
+export interface PresenceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
  */

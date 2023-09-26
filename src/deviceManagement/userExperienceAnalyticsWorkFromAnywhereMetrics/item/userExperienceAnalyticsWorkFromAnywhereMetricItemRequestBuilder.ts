@@ -1,17 +1,53 @@
-import { createUserExperienceAnalyticsWorkFromAnywhereMetricFromDiscriminatorValue } from '../../../models/createUserExperienceAnalyticsWorkFromAnywhereMetricFromDiscriminatorValue';
-import { deserializeIntoUserExperienceAnalyticsWorkFromAnywhereMetric } from '../../../models/deserializeIntoUserExperienceAnalyticsWorkFromAnywhereMetric';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUserExperienceAnalyticsWorkFromAnywhereMetric } from '../../../models/serializeUserExperienceAnalyticsWorkFromAnywhereMetric';
-import { type UserExperienceAnalyticsWorkFromAnywhereMetric } from '../../../models/userExperienceAnalyticsWorkFromAnywhereMetric';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsWorkFromAnywhereMetricFromDiscriminatorValue, deserializeIntoUserExperienceAnalyticsWorkFromAnywhereMetric, serializeUserExperienceAnalyticsWorkFromAnywhereMetric, type UserExperienceAnalyticsWorkFromAnywhereMetric } from '../../../models/userExperienceAnalyticsWorkFromAnywhereMetric';
 import { MetricDevicesRequestBuilder } from './metricDevices/metricDevicesRequestBuilder';
-import { type UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderDeleteRequestConfiguration';
-import { type UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderGetRequestConfiguration';
-import { type UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderGetQueryParameters;
+}
+export interface UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereMetrics property of the microsoft.graph.deviceManagement entity.
  */

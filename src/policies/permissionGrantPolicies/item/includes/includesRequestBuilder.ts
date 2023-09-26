@@ -1,19 +1,70 @@
 import { type PermissionGrantConditionSetCollectionResponse } from '../../../../models/';
-import { createPermissionGrantConditionSetCollectionResponseFromDiscriminatorValue } from '../../../../models/createPermissionGrantConditionSetCollectionResponseFromDiscriminatorValue';
-import { createPermissionGrantConditionSetFromDiscriminatorValue } from '../../../../models/createPermissionGrantConditionSetFromDiscriminatorValue';
-import { deserializeIntoPermissionGrantConditionSet } from '../../../../models/deserializeIntoPermissionGrantConditionSet';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type PermissionGrantConditionSet } from '../../../../models/permissionGrantConditionSet';
-import { serializePermissionGrantConditionSet } from '../../../../models/serializePermissionGrantConditionSet';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createPermissionGrantConditionSetFromDiscriminatorValue, deserializeIntoPermissionGrantConditionSet, serializePermissionGrantConditionSet, type PermissionGrantConditionSet } from '../../../../models/permissionGrantConditionSet';
+import { createPermissionGrantConditionSetCollectionResponseFromDiscriminatorValue } from '../../../../models/permissionGrantConditionSetCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type IncludesRequestBuilderGetRequestConfiguration } from './includesRequestBuilderGetRequestConfiguration';
-import { type IncludesRequestBuilderPostRequestConfiguration } from './includesRequestBuilderPostRequestConfiguration';
 import { PermissionGrantConditionSetItemRequestBuilder } from './item/permissionGrantConditionSetItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IncludesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface IncludesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IncludesRequestBuilderGetQueryParameters;
+}
+export interface IncludesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity.
  */

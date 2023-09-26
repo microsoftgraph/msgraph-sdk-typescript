@@ -1,5 +1,2 @@
 export * from './atan2PostRequestBody'
-export * from './atan2RequestBuilderPostRequestConfiguration'
-export * from './createAtan2PostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAtan2PostRequestBody'
-export * from './serializeAtan2PostRequestBody'
+export * from './atan2RequestBuilder'

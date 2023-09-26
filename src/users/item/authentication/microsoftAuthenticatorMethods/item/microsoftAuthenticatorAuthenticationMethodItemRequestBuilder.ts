@@ -1,14 +1,44 @@
 import { type MicrosoftAuthenticatorAuthenticationMethod } from '../../../../../models/';
-import { createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue';
+import { createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/microsoftAuthenticatorAuthenticationMethod';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { DeviceRequestBuilder } from './device/deviceRequestBuilder';
-import { type MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './microsoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import { type MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './microsoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
  */

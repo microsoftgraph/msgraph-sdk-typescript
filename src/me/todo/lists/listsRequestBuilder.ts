@@ -1,20 +1,71 @@
 import { type TodoTaskListCollectionResponse } from '../../../models/';
-import { createTodoTaskListCollectionResponseFromDiscriminatorValue } from '../../../models/createTodoTaskListCollectionResponseFromDiscriminatorValue';
-import { createTodoTaskListFromDiscriminatorValue } from '../../../models/createTodoTaskListFromDiscriminatorValue';
-import { deserializeIntoTodoTaskList } from '../../../models/deserializeIntoTodoTaskList';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeTodoTaskList } from '../../../models/serializeTodoTaskList';
-import { type TodoTaskList } from '../../../models/todoTaskList';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createTodoTaskListFromDiscriminatorValue, deserializeIntoTodoTaskList, serializeTodoTaskList, type TodoTaskList } from '../../../models/todoTaskList';
+import { createTodoTaskListCollectionResponseFromDiscriminatorValue } from '../../../models/todoTaskListCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { TodoTaskListItemRequestBuilder } from './item/todoTaskListItemRequestBuilder';
-import { type ListsRequestBuilderGetRequestConfiguration } from './listsRequestBuilderGetRequestConfiguration';
-import { type ListsRequestBuilderPostRequestConfiguration } from './listsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ListsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ListsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ListsRequestBuilderGetQueryParameters;
+}
+export interface ListsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the lists property of the microsoft.graph.todo entity.
  */

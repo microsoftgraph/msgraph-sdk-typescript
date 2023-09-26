@@ -1,17 +1,53 @@
-import { createExternalGroupFromDiscriminatorValue } from '../../../../../models/externalConnectors/createExternalGroupFromDiscriminatorValue';
-import { deserializeIntoExternalGroup } from '../../../../../models/externalConnectors/deserializeIntoExternalGroup';
-import { type ExternalGroup } from '../../../../../models/externalConnectors/externalGroup';
-import { serializeExternalGroup } from '../../../../../models/externalConnectors/serializeExternalGroup';
+import { createExternalGroupFromDiscriminatorValue, deserializeIntoExternalGroup, serializeExternalGroup, type ExternalGroup } from '../../../../../models/externalConnectors/externalGroup';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type ExternalGroupItemRequestBuilderDeleteRequestConfiguration } from './externalGroupItemRequestBuilderDeleteRequestConfiguration';
-import { type ExternalGroupItemRequestBuilderGetRequestConfiguration } from './externalGroupItemRequestBuilderGetRequestConfiguration';
-import { type ExternalGroupItemRequestBuilderPatchRequestConfiguration } from './externalGroupItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { MembersRequestBuilder } from './members/membersRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExternalGroupItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ExternalGroupItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ExternalGroupItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ExternalGroupItemRequestBuilderGetQueryParameters;
+}
+export interface ExternalGroupItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
  */

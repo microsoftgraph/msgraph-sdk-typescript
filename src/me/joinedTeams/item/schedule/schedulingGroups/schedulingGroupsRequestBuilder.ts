@@ -1,19 +1,66 @@
 import { type SchedulingGroupCollectionResponse } from '../../../../../models/';
-import { createSchedulingGroupCollectionResponseFromDiscriminatorValue } from '../../../../../models/createSchedulingGroupCollectionResponseFromDiscriminatorValue';
-import { createSchedulingGroupFromDiscriminatorValue } from '../../../../../models/createSchedulingGroupFromDiscriminatorValue';
-import { deserializeIntoSchedulingGroup } from '../../../../../models/deserializeIntoSchedulingGroup';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type SchedulingGroup } from '../../../../../models/schedulingGroup';
-import { serializeSchedulingGroup } from '../../../../../models/serializeSchedulingGroup';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createSchedulingGroupFromDiscriminatorValue, deserializeIntoSchedulingGroup, serializeSchedulingGroup, type SchedulingGroup } from '../../../../../models/schedulingGroup';
+import { createSchedulingGroupCollectionResponseFromDiscriminatorValue } from '../../../../../models/schedulingGroupCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SchedulingGroupItemRequestBuilder } from './item/schedulingGroupItemRequestBuilder';
-import { type SchedulingGroupsRequestBuilderGetRequestConfiguration } from './schedulingGroupsRequestBuilderGetRequestConfiguration';
-import { type SchedulingGroupsRequestBuilderPostRequestConfiguration } from './schedulingGroupsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SchedulingGroupsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SchedulingGroupsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SchedulingGroupsRequestBuilderGetQueryParameters;
+}
+export interface SchedulingGroupsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
  */

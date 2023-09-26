@@ -1,19 +1,70 @@
 import { type HomeRealmDiscoveryPolicyCollectionResponse } from '../../models/';
-import { createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue';
-import { createHomeRealmDiscoveryPolicyFromDiscriminatorValue } from '../../models/createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
-import { deserializeIntoHomeRealmDiscoveryPolicy } from '../../models/deserializeIntoHomeRealmDiscoveryPolicy';
-import { type HomeRealmDiscoveryPolicy } from '../../models/homeRealmDiscoveryPolicy';
+import { createHomeRealmDiscoveryPolicyFromDiscriminatorValue, deserializeIntoHomeRealmDiscoveryPolicy, serializeHomeRealmDiscoveryPolicy, type HomeRealmDiscoveryPolicy } from '../../models/homeRealmDiscoveryPolicy';
+import { createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue } from '../../models/homeRealmDiscoveryPolicyCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeHomeRealmDiscoveryPolicy } from '../../models/serializeHomeRealmDiscoveryPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HomeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration } from './homeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration';
-import { type HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration } from './homeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration';
 import { HomeRealmDiscoveryPolicyItemRequestBuilder } from './item/homeRealmDiscoveryPolicyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HomeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters;
+}
+export interface HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
  */

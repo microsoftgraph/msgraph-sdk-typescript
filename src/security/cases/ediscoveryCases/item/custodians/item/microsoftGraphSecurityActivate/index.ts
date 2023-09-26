@@ -1,1 +1,1 @@
-export * from './microsoftGraphSecurityActivateRequestBuilderPostRequestConfiguration'
+export * from './microsoftGraphSecurityActivateRequestBuilder'

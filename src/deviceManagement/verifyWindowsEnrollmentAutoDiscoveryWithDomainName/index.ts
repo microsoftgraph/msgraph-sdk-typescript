@@ -1,5 +1,2 @@
-export * from './createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseFromDiscriminatorValue'
-export * from './deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse'
-export * from './serializeVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse'
-export * from './verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilderGetRequestConfiguration'
+export * from './verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder'
 export * from './verifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse'

@@ -1,17 +1,19 @@
-import { createRecordOperationFromDiscriminatorValue } from '../../../../models/createRecordOperationFromDiscriminatorValue';
-import { deserializeIntoRecordOperation } from '../../../../models/deserializeIntoRecordOperation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type RecordOperation } from '../../../../models/recordOperation';
-import { serializeRecordOperation } from '../../../../models/serializeRecordOperation';
-import { deserializeIntoRecordResponsePostRequestBody } from './deserializeIntoRecordResponsePostRequestBody';
-import { type RecordResponsePostRequestBody } from './recordResponsePostRequestBody';
-import { type RecordResponseRequestBuilderPostRequestConfiguration } from './recordResponseRequestBuilderPostRequestConfiguration';
-import { serializeRecordResponsePostRequestBody } from './serializeRecordResponsePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createRecordOperationFromDiscriminatorValue, deserializeIntoRecordOperation, serializeRecordOperation, type RecordOperation } from '../../../../models/recordOperation';
+import { deserializeIntoRecordResponsePostRequestBody, serializeRecordResponsePostRequestBody, type RecordResponsePostRequestBody } from './recordResponsePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RecordResponseRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the recordResponse method.
  */

@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoSetDataPostRequestBody } from './deserializeIntoSetDataPostRequestBody';
-import { serializeSetDataPostRequestBody } from './serializeSetDataPostRequestBody';
-import { type SetDataPostRequestBody } from './setDataPostRequestBody';
-import { type SetDataRequestBuilderPostRequestConfiguration } from './setDataRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoSetDataPostRequestBody, serializeSetDataPostRequestBody, type SetDataPostRequestBody } from './setDataPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SetDataRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the setData method.
  */

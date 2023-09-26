@@ -1,6 +1,2 @@
-export * from './createGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseFromDiscriminatorValue'
-export * from './deserializeIntoGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse'
-export * from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderGetQueryParameters'
-export * from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderGetRequestConfiguration'
+export * from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder'
 export * from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse'
-export * from './serializeGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse'

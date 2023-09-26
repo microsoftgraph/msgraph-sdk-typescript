@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue } from './createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue';
-import { deserializeIntoGetAvailableExtensionPropertiesPostRequestBody } from './deserializeIntoGetAvailableExtensionPropertiesPostRequestBody';
-import { deserializeIntoGetAvailableExtensionPropertiesResponse } from './deserializeIntoGetAvailableExtensionPropertiesResponse';
-import { type GetAvailableExtensionPropertiesPostRequestBody } from './getAvailableExtensionPropertiesPostRequestBody';
-import { type GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration } from './getAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration';
-import { type GetAvailableExtensionPropertiesResponse } from './getAvailableExtensionPropertiesResponse';
-import { serializeGetAvailableExtensionPropertiesPostRequestBody } from './serializeGetAvailableExtensionPropertiesPostRequestBody';
-import { serializeGetAvailableExtensionPropertiesResponse } from './serializeGetAvailableExtensionPropertiesResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetAvailableExtensionPropertiesPostRequestBody, serializeGetAvailableExtensionPropertiesPostRequestBody, type GetAvailableExtensionPropertiesPostRequestBody } from './getAvailableExtensionPropertiesPostRequestBody';
+import { createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue, deserializeIntoGetAvailableExtensionPropertiesResponse, serializeGetAvailableExtensionPropertiesResponse, type GetAvailableExtensionPropertiesResponse } from './getAvailableExtensionPropertiesResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getAvailableExtensionProperties method.
  */

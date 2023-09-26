@@ -1,16 +1,52 @@
-import { createTeamworkBotFromDiscriminatorValue } from '../../../../../../models/createTeamworkBotFromDiscriminatorValue';
-import { deserializeIntoTeamworkBot } from '../../../../../../models/deserializeIntoTeamworkBot';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeTeamworkBot } from '../../../../../../models/serializeTeamworkBot';
-import { type TeamworkBot } from '../../../../../../models/teamworkBot';
-import { type BotRequestBuilderDeleteRequestConfiguration } from './botRequestBuilderDeleteRequestConfiguration';
-import { type BotRequestBuilderGetRequestConfiguration } from './botRequestBuilderGetRequestConfiguration';
-import { type BotRequestBuilderPatchRequestConfiguration } from './botRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createTeamworkBotFromDiscriminatorValue, deserializeIntoTeamworkBot, serializeTeamworkBot, type TeamworkBot } from '../../../../../../models/teamworkBot';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BotRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BotRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BotRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BotRequestBuilderGetQueryParameters;
+}
+export interface BotRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the bot property of the microsoft.graph.teamsAppDefinition entity.
  */

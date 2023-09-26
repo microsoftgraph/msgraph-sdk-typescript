@@ -1,20 +1,71 @@
 import { type TodoTaskCollectionResponse } from '../../../../../../models/';
-import { createTodoTaskCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createTodoTaskCollectionResponseFromDiscriminatorValue';
-import { createTodoTaskFromDiscriminatorValue } from '../../../../../../models/createTodoTaskFromDiscriminatorValue';
-import { deserializeIntoTodoTask } from '../../../../../../models/deserializeIntoTodoTask';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeTodoTask } from '../../../../../../models/serializeTodoTask';
-import { type TodoTask } from '../../../../../../models/todoTask';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createTodoTaskFromDiscriminatorValue, deserializeIntoTodoTask, serializeTodoTask, type TodoTask } from '../../../../../../models/todoTask';
+import { createTodoTaskCollectionResponseFromDiscriminatorValue } from '../../../../../../models/todoTaskCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { TodoTaskItemRequestBuilder } from './item/todoTaskItemRequestBuilder';
-import { type TasksRequestBuilderGetRequestConfiguration } from './tasksRequestBuilderGetRequestConfiguration';
-import { type TasksRequestBuilderPostRequestConfiguration } from './tasksRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TasksRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TasksRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TasksRequestBuilderGetQueryParameters;
+}
+export interface TasksRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
  */

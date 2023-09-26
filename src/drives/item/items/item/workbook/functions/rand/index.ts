@@ -1,1 +1,1 @@
-export * from './randRequestBuilderPostRequestConfiguration'
+export * from './randRequestBuilder'

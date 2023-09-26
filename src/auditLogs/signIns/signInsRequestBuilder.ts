@@ -1,19 +1,70 @@
 import { type SignInCollectionResponse } from '../../models/';
-import { createSignInCollectionResponseFromDiscriminatorValue } from '../../models/createSignInCollectionResponseFromDiscriminatorValue';
-import { createSignInFromDiscriminatorValue } from '../../models/createSignInFromDiscriminatorValue';
-import { deserializeIntoSignIn } from '../../models/deserializeIntoSignIn';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeSignIn } from '../../models/serializeSignIn';
-import { type SignIn } from '../../models/signIn';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createSignInFromDiscriminatorValue, deserializeIntoSignIn, serializeSignIn, type SignIn } from '../../models/signIn';
+import { createSignInCollectionResponseFromDiscriminatorValue } from '../../models/signInCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SignInItemRequestBuilder } from './item/signInItemRequestBuilder';
-import { type SignInsRequestBuilderGetRequestConfiguration } from './signInsRequestBuilderGetRequestConfiguration';
-import { type SignInsRequestBuilderPostRequestConfiguration } from './signInsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SignInsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SignInsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SignInsRequestBuilderGetQueryParameters;
+}
+export interface SignInsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
  */

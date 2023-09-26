@@ -1,12 +1,19 @@
 import { type WorkbookRange } from '../../../../../../../../../../models/';
-import { createWorkbookRangeFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookRangeFromDiscriminatorValue';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type RangeRequestBuilderGetRequestConfiguration } from './rangeRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookRangeFromDiscriminatorValue } from '../../../../../../../../../../models/workbookRange';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RangeRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the range method.
  */
@@ -20,10 +27,10 @@ export class RangeRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/names/{workbookNamedItem%2Did}/range()");
     };
     /**
-     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
+     * Retrieve the properties and relationships of range object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookRange
-     * @see {@link https://learn.microsoft.com/graph/api/nameditem-range?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/range-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RangeRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -36,7 +43,7 @@ export class RangeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookRange>(requestInfo, createWorkbookRangeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
+     * Retrieve the properties and relationships of range object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

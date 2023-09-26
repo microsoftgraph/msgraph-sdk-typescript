@@ -1,6 +1,2 @@
-export * from './createSearchWithQResponseFromDiscriminatorValue'
-export * from './deserializeIntoSearchWithQResponse'
-export * from './searchWithQRequestBuilderGetQueryParameters'
-export * from './searchWithQRequestBuilderGetRequestConfiguration'
+export * from './searchWithQRequestBuilder'
 export * from './searchWithQResponse'
-export * from './serializeSearchWithQResponse'

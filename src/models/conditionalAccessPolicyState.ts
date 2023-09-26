@@ -3,3 +3,5 @@ export enum ConditionalAccessPolicyState {
     Disabled = "disabled",
     EnabledForReportingButNotEnforced = "enabledForReportingButNotEnforced",
 }
+// tslint:enable
+// eslint-enable

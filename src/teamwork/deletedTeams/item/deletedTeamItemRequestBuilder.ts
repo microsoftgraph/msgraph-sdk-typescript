@@ -1,17 +1,53 @@
-import { createDeletedTeamFromDiscriminatorValue } from '../../../models/createDeletedTeamFromDiscriminatorValue';
-import { type DeletedTeam } from '../../../models/deletedTeam';
-import { deserializeIntoDeletedTeam } from '../../../models/deserializeIntoDeletedTeam';
+import { createDeletedTeamFromDiscriminatorValue, deserializeIntoDeletedTeam, serializeDeletedTeam, type DeletedTeam } from '../../../models/deletedTeam';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDeletedTeam } from '../../../models/serializeDeletedTeam';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { ChannelsRequestBuilder } from './channels/channelsRequestBuilder';
-import { type DeletedTeamItemRequestBuilderDeleteRequestConfiguration } from './deletedTeamItemRequestBuilderDeleteRequestConfiguration';
-import { type DeletedTeamItemRequestBuilderGetRequestConfiguration } from './deletedTeamItemRequestBuilderGetRequestConfiguration';
-import { type DeletedTeamItemRequestBuilderPatchRequestConfiguration } from './deletedTeamItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeletedTeamItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeletedTeamItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeletedTeamItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeletedTeamItemRequestBuilderGetQueryParameters;
+}
+export interface DeletedTeamItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
  */

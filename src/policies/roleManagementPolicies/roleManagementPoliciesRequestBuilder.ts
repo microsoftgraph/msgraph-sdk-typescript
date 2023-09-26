@@ -1,19 +1,70 @@
 import { type UnifiedRoleManagementPolicyCollectionResponse } from '../../models/';
-import { createUnifiedRoleManagementPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createUnifiedRoleManagementPolicyCollectionResponseFromDiscriminatorValue';
-import { createUnifiedRoleManagementPolicyFromDiscriminatorValue } from '../../models/createUnifiedRoleManagementPolicyFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleManagementPolicy } from '../../models/deserializeIntoUnifiedRoleManagementPolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleManagementPolicy } from '../../models/serializeUnifiedRoleManagementPolicy';
-import { type UnifiedRoleManagementPolicy } from '../../models/unifiedRoleManagementPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createUnifiedRoleManagementPolicyFromDiscriminatorValue, deserializeIntoUnifiedRoleManagementPolicy, serializeUnifiedRoleManagementPolicy, type UnifiedRoleManagementPolicy } from '../../models/unifiedRoleManagementPolicy';
+import { createUnifiedRoleManagementPolicyCollectionResponseFromDiscriminatorValue } from '../../models/unifiedRoleManagementPolicyCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UnifiedRoleManagementPolicyItemRequestBuilder } from './item/unifiedRoleManagementPolicyItemRequestBuilder';
-import { type RoleManagementPoliciesRequestBuilderGetRequestConfiguration } from './roleManagementPoliciesRequestBuilderGetRequestConfiguration';
-import { type RoleManagementPoliciesRequestBuilderPostRequestConfiguration } from './roleManagementPoliciesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RoleManagementPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RoleManagementPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RoleManagementPoliciesRequestBuilderGetQueryParameters;
+}
+export interface RoleManagementPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
  */

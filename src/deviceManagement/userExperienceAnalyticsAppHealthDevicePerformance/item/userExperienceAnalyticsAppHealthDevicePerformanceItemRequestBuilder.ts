@@ -1,16 +1,52 @@
-import { createUserExperienceAnalyticsAppHealthDevicePerformanceFromDiscriminatorValue } from '../../../models/createUserExperienceAnalyticsAppHealthDevicePerformanceFromDiscriminatorValue';
-import { deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformance } from '../../../models/deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformance';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUserExperienceAnalyticsAppHealthDevicePerformance } from '../../../models/serializeUserExperienceAnalyticsAppHealthDevicePerformance';
-import { type UserExperienceAnalyticsAppHealthDevicePerformance } from '../../../models/userExperienceAnalyticsAppHealthDevicePerformance';
-import { type UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilderDeleteRequestConfiguration';
-import { type UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilderGetRequestConfiguration';
-import { type UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsAppHealthDevicePerformanceFromDiscriminatorValue, deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformance, serializeUserExperienceAnalyticsAppHealthDevicePerformance, type UserExperienceAnalyticsAppHealthDevicePerformance } from '../../../models/userExperienceAnalyticsAppHealthDevicePerformance';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilderGetQueryParameters;
+}
+export interface UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthDevicePerformance property of the microsoft.graph.deviceManagement entity.
  */

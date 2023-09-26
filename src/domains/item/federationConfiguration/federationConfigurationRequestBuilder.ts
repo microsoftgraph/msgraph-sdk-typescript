@@ -1,19 +1,70 @@
 import { type InternalDomainFederationCollectionResponse } from '../../../models/';
-import { createInternalDomainFederationCollectionResponseFromDiscriminatorValue } from '../../../models/createInternalDomainFederationCollectionResponseFromDiscriminatorValue';
-import { createInternalDomainFederationFromDiscriminatorValue } from '../../../models/createInternalDomainFederationFromDiscriminatorValue';
-import { deserializeIntoInternalDomainFederation } from '../../../models/deserializeIntoInternalDomainFederation';
-import { type InternalDomainFederation } from '../../../models/internalDomainFederation';
+import { createInternalDomainFederationFromDiscriminatorValue, deserializeIntoInternalDomainFederation, serializeInternalDomainFederation, type InternalDomainFederation } from '../../../models/internalDomainFederation';
+import { createInternalDomainFederationCollectionResponseFromDiscriminatorValue } from '../../../models/internalDomainFederationCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeInternalDomainFederation } from '../../../models/serializeInternalDomainFederation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type FederationConfigurationRequestBuilderGetRequestConfiguration } from './federationConfigurationRequestBuilderGetRequestConfiguration';
-import { type FederationConfigurationRequestBuilderPostRequestConfiguration } from './federationConfigurationRequestBuilderPostRequestConfiguration';
 import { InternalDomainFederationItemRequestBuilder } from './item/internalDomainFederationItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FederationConfigurationRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface FederationConfigurationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FederationConfigurationRequestBuilderGetQueryParameters;
+}
+export interface FederationConfigurationRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
  */

@@ -1,16 +1,52 @@
-import { type AppRoleAssignment } from '../../../../models/appRoleAssignment';
-import { createAppRoleAssignmentFromDiscriminatorValue } from '../../../../models/createAppRoleAssignmentFromDiscriminatorValue';
-import { deserializeIntoAppRoleAssignment } from '../../../../models/deserializeIntoAppRoleAssignment';
+import { createAppRoleAssignmentFromDiscriminatorValue, deserializeIntoAppRoleAssignment, serializeAppRoleAssignment, type AppRoleAssignment } from '../../../../models/appRoleAssignment';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAppRoleAssignment } from '../../../../models/serializeAppRoleAssignment';
-import { type AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration } from './appRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type AppRoleAssignmentItemRequestBuilderGetRequestConfiguration } from './appRoleAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type AppRoleAssignmentItemRequestBuilderPatchRequestConfiguration } from './appRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AppRoleAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AppRoleAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AppRoleAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface AppRoleAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
  */

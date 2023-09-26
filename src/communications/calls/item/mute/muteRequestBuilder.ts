@@ -1,17 +1,19 @@
-import { createMuteParticipantOperationFromDiscriminatorValue } from '../../../../models/createMuteParticipantOperationFromDiscriminatorValue';
-import { deserializeIntoMuteParticipantOperation } from '../../../../models/deserializeIntoMuteParticipantOperation';
-import { type MuteParticipantOperation } from '../../../../models/muteParticipantOperation';
+import { createMuteParticipantOperationFromDiscriminatorValue, deserializeIntoMuteParticipantOperation, serializeMuteParticipantOperation, type MuteParticipantOperation } from '../../../../models/muteParticipantOperation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeMuteParticipantOperation } from '../../../../models/serializeMuteParticipantOperation';
-import { deserializeIntoMutePostRequestBody } from './deserializeIntoMutePostRequestBody';
-import { type MutePostRequestBody } from './mutePostRequestBody';
-import { type MuteRequestBuilderPostRequestConfiguration } from './muteRequestBuilderPostRequestConfiguration';
-import { serializeMutePostRequestBody } from './serializeMutePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoMutePostRequestBody, serializeMutePostRequestBody, type MutePostRequestBody } from './mutePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MuteRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the mute method.
  */

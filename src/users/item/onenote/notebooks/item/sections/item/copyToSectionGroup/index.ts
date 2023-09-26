@@ -1,5 +1,2 @@
 export * from './copyToSectionGroupPostRequestBody'
-export * from './copyToSectionGroupRequestBuilderPostRequestConfiguration'
-export * from './createCopyToSectionGroupPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoCopyToSectionGroupPostRequestBody'
-export * from './serializeCopyToSectionGroupPostRequestBody'
+export * from './copyToSectionGroupRequestBuilder'

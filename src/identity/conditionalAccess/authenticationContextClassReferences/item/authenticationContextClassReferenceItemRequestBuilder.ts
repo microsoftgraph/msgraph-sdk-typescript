@@ -1,16 +1,52 @@
-import { type AuthenticationContextClassReference } from '../../../../models/authenticationContextClassReference';
-import { createAuthenticationContextClassReferenceFromDiscriminatorValue } from '../../../../models/createAuthenticationContextClassReferenceFromDiscriminatorValue';
-import { deserializeIntoAuthenticationContextClassReference } from '../../../../models/deserializeIntoAuthenticationContextClassReference';
+import { createAuthenticationContextClassReferenceFromDiscriminatorValue, deserializeIntoAuthenticationContextClassReference, serializeAuthenticationContextClassReference, type AuthenticationContextClassReference } from '../../../../models/authenticationContextClassReference';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationContextClassReference } from '../../../../models/serializeAuthenticationContextClassReference';
-import { type AuthenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration } from './authenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration';
-import { type AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration } from './authenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration';
-import { type AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration } from './authenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AuthenticationContextClassReferenceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthenticationContextClassReferenceItemRequestBuilderGetQueryParameters;
+}
+export interface AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
  */

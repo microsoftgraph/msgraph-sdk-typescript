@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoSetSolidColorPostRequestBody } from './deserializeIntoSetSolidColorPostRequestBody';
-import { serializeSetSolidColorPostRequestBody } from './serializeSetSolidColorPostRequestBody';
-import { type SetSolidColorPostRequestBody } from './setSolidColorPostRequestBody';
-import { type SetSolidColorRequestBuilderPostRequestConfiguration } from './setSolidColorRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoSetSolidColorPostRequestBody, serializeSetSolidColorPostRequestBody, type SetSolidColorPostRequestBody } from './setSolidColorPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SetSolidColorRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the setSolidColor method.
  */

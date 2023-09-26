@@ -1,16 +1,52 @@
-import { createPermissionGrantConditionSetFromDiscriminatorValue } from '../../../../../models/createPermissionGrantConditionSetFromDiscriminatorValue';
-import { deserializeIntoPermissionGrantConditionSet } from '../../../../../models/deserializeIntoPermissionGrantConditionSet';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type PermissionGrantConditionSet } from '../../../../../models/permissionGrantConditionSet';
-import { serializePermissionGrantConditionSet } from '../../../../../models/serializePermissionGrantConditionSet';
-import { type PermissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration } from './permissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration';
-import { type PermissionGrantConditionSetItemRequestBuilderGetRequestConfiguration } from './permissionGrantConditionSetItemRequestBuilderGetRequestConfiguration';
-import { type PermissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration } from './permissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createPermissionGrantConditionSetFromDiscriminatorValue, deserializeIntoPermissionGrantConditionSet, serializePermissionGrantConditionSet, type PermissionGrantConditionSet } from '../../../../../models/permissionGrantConditionSet';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PermissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PermissionGrantConditionSetItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PermissionGrantConditionSetItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PermissionGrantConditionSetItemRequestBuilderGetQueryParameters;
+}
+export interface PermissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
  */

@@ -4,3 +4,5 @@ export enum EventType {
     Exception = "exception",
     SeriesMaster = "seriesMaster",
 }
+// tslint:enable
+// eslint-enable

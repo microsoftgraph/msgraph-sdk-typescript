@@ -1,7 +1,37 @@
+import { deserializeIntoAmazonResourceEvidence } from './amazonResourceEvidence';
+import { deserializeIntoAnalyzedMessageEvidence } from './analyzedMessageEvidence';
+import { deserializeIntoAzureResourceEvidence } from './azureResourceEvidence';
+import { deserializeIntoBlobContainerEvidence } from './blobContainerEvidence';
+import { deserializeIntoBlobEvidence } from './blobEvidence';
+import { deserializeIntoCloudApplicationEvidence } from './cloudApplicationEvidence';
+import { deserializeIntoContainerEvidence } from './containerEvidence';
+import { deserializeIntoContainerImageEvidence } from './containerImageEvidence';
+import { deserializeIntoContainerRegistryEvidence } from './containerRegistryEvidence';
+import { deserializeIntoDeviceEvidence } from './deviceEvidence';
 import { EvidenceRemediationStatus } from './evidenceRemediationStatus';
 import { EvidenceRole } from './evidenceRole';
 import { EvidenceVerdict } from './evidenceVerdict';
-import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
+import { deserializeIntoFileEvidence } from './fileEvidence';
+import { deserializeIntoGoogleCloudResourceEvidence } from './googleCloudResourceEvidence';
+import { type AmazonResourceEvidence, type AnalyzedMessageEvidence, type AzureResourceEvidence, type BlobContainerEvidence, type BlobEvidence, type CloudApplicationEvidence, type ContainerEvidence, type ContainerImageEvidence, type ContainerRegistryEvidence, type DeviceEvidence, type FileEvidence, type GoogleCloudResourceEvidence, type IpEvidence, type KubernetesClusterEvidence, type KubernetesControllerEvidence, type KubernetesNamespaceEvidence, type KubernetesPodEvidence, type KubernetesSecretEvidence, type KubernetesServiceAccountEvidence, type KubernetesServiceEvidence, type MailboxEvidence, type MailClusterEvidence, type OauthApplicationEvidence, type ProcessEvidence, type RegistryKeyEvidence, type RegistryValueEvidence, type SecurityGroupEvidence, type UrlEvidence, type UserEvidence } from './index';
+import { deserializeIntoIpEvidence } from './ipEvidence';
+import { deserializeIntoKubernetesClusterEvidence } from './kubernetesClusterEvidence';
+import { deserializeIntoKubernetesControllerEvidence } from './kubernetesControllerEvidence';
+import { deserializeIntoKubernetesNamespaceEvidence } from './kubernetesNamespaceEvidence';
+import { deserializeIntoKubernetesPodEvidence } from './kubernetesPodEvidence';
+import { deserializeIntoKubernetesSecretEvidence } from './kubernetesSecretEvidence';
+import { deserializeIntoKubernetesServiceAccountEvidence } from './kubernetesServiceAccountEvidence';
+import { deserializeIntoKubernetesServiceEvidence } from './kubernetesServiceEvidence';
+import { deserializeIntoMailboxEvidence } from './mailboxEvidence';
+import { deserializeIntoMailClusterEvidence } from './mailClusterEvidence';
+import { deserializeIntoOauthApplicationEvidence } from './oauthApplicationEvidence';
+import { deserializeIntoProcessEvidence } from './processEvidence';
+import { deserializeIntoRegistryKeyEvidence } from './registryKeyEvidence';
+import { deserializeIntoRegistryValueEvidence } from './registryValueEvidence';
+import { deserializeIntoSecurityGroupEvidence } from './securityGroupEvidence';
+import { deserializeIntoUrlEvidence } from './urlEvidence';
+import { deserializeIntoUserEvidence } from './userEvidence';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface AlertEvidence extends AdditionalDataHolder, Parsable {
     /**
@@ -11,33 +41,136 @@ export interface AlertEvidence extends AdditionalDataHolder, Parsable {
     /**
      * The date and time when the evidence was created and added to the alert. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
-    createdDateTime?: Date | undefined;
+    createdDateTime?: Date;
     /**
      * Detailed description of the entity role/s in an alert. Values are free-form.
      */
-    detailedRoles?: string[] | undefined;
+    detailedRoles?: string[];
     /**
      * The OdataType property
      */
-    odataType?: string | undefined;
+    odataType?: string;
     /**
      * The remediationStatus property
      */
-    remediationStatus?: EvidenceRemediationStatus | undefined;
+    remediationStatus?: EvidenceRemediationStatus;
     /**
      * Details about the remediation status.
      */
-    remediationStatusDetails?: string | undefined;
+    remediationStatusDetails?: string;
     /**
      * The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role Attacker.
      */
-    roles?: EvidenceRole[] | undefined;
+    roles?: EvidenceRole[];
     /**
      * Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc.
      */
-    tags?: string[] | undefined;
+    tags?: string[];
     /**
      * The verdict property
      */
-    verdict?: EvidenceVerdict | undefined;
+    verdict?: EvidenceVerdict;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.security.amazonResourceEvidence":
+                    return deserializeIntoAmazonResourceEvidence;
+                case "#microsoft.graph.security.analyzedMessageEvidence":
+                    return deserializeIntoAnalyzedMessageEvidence;
+                case "#microsoft.graph.security.azureResourceEvidence":
+                    return deserializeIntoAzureResourceEvidence;
+                case "#microsoft.graph.security.blobContainerEvidence":
+                    return deserializeIntoBlobContainerEvidence;
+                case "#microsoft.graph.security.blobEvidence":
+                    return deserializeIntoBlobEvidence;
+                case "#microsoft.graph.security.cloudApplicationEvidence":
+                    return deserializeIntoCloudApplicationEvidence;
+                case "#microsoft.graph.security.containerEvidence":
+                    return deserializeIntoContainerEvidence;
+                case "#microsoft.graph.security.containerImageEvidence":
+                    return deserializeIntoContainerImageEvidence;
+                case "#microsoft.graph.security.containerRegistryEvidence":
+                    return deserializeIntoContainerRegistryEvidence;
+                case "#microsoft.graph.security.deviceEvidence":
+                    return deserializeIntoDeviceEvidence;
+                case "#microsoft.graph.security.fileEvidence":
+                    return deserializeIntoFileEvidence;
+                case "#microsoft.graph.security.googleCloudResourceEvidence":
+                    return deserializeIntoGoogleCloudResourceEvidence;
+                case "#microsoft.graph.security.ipEvidence":
+                    return deserializeIntoIpEvidence;
+                case "#microsoft.graph.security.kubernetesClusterEvidence":
+                    return deserializeIntoKubernetesClusterEvidence;
+                case "#microsoft.graph.security.kubernetesControllerEvidence":
+                    return deserializeIntoKubernetesControllerEvidence;
+                case "#microsoft.graph.security.kubernetesNamespaceEvidence":
+                    return deserializeIntoKubernetesNamespaceEvidence;
+                case "#microsoft.graph.security.kubernetesPodEvidence":
+                    return deserializeIntoKubernetesPodEvidence;
+                case "#microsoft.graph.security.kubernetesSecretEvidence":
+                    return deserializeIntoKubernetesSecretEvidence;
+                case "#microsoft.graph.security.kubernetesServiceAccountEvidence":
+                    return deserializeIntoKubernetesServiceAccountEvidence;
+                case "#microsoft.graph.security.kubernetesServiceEvidence":
+                    return deserializeIntoKubernetesServiceEvidence;
+                case "#microsoft.graph.security.mailboxEvidence":
+                    return deserializeIntoMailboxEvidence;
+                case "#microsoft.graph.security.mailClusterEvidence":
+                    return deserializeIntoMailClusterEvidence;
+                case "#microsoft.graph.security.oauthApplicationEvidence":
+                    return deserializeIntoOauthApplicationEvidence;
+                case "#microsoft.graph.security.processEvidence":
+                    return deserializeIntoProcessEvidence;
+                case "#microsoft.graph.security.registryKeyEvidence":
+                    return deserializeIntoRegistryKeyEvidence;
+                case "#microsoft.graph.security.registryValueEvidence":
+                    return deserializeIntoRegistryValueEvidence;
+                case "#microsoft.graph.security.securityGroupEvidence":
+                    return deserializeIntoSecurityGroupEvidence;
+                case "#microsoft.graph.security.urlEvidence":
+                    return deserializeIntoUrlEvidence;
+                case "#microsoft.graph.security.userEvidence":
+                    return deserializeIntoUserEvidence;
+            }
+        }
+    }
+    return deserializeIntoAlertEvidence;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function deserializeIntoAlertEvidence(alertEvidence: AlertEvidence | undefined = {} as AlertEvidence) : Record<string, (node: ParseNode) => void> {
+    return {
+        "createdDateTime": n => { alertEvidence.createdDateTime = n.getDateValue(); },
+        "detailedRoles": n => { alertEvidence.detailedRoles = n.getCollectionOfPrimitiveValues<string>(); },
+        "@odata.type": n => { alertEvidence.odataType = n.getStringValue(); },
+        "remediationStatus": n => { alertEvidence.remediationStatus = n.getEnumValue<EvidenceRemediationStatus>(EvidenceRemediationStatus); },
+        "remediationStatusDetails": n => { alertEvidence.remediationStatusDetails = n.getStringValue(); },
+        "roles": n => { alertEvidence.roles = n.getCollectionOfEnumValues<EvidenceRole>(EvidenceRole); },
+        "tags": n => { alertEvidence.tags = n.getCollectionOfPrimitiveValues<string>(); },
+        "verdict": n => { alertEvidence.verdict = n.getEnumValue<EvidenceVerdict>(EvidenceVerdict); },
+    }
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function serializeAlertEvidence(writer: SerializationWriter, alertEvidence: AlertEvidence | undefined = {} as AlertEvidence) : void {
+        writer.writeDateValue("createdDateTime", alertEvidence.createdDateTime);
+        writer.writeCollectionOfPrimitiveValues<string>("detailedRoles", alertEvidence.detailedRoles);
+        writer.writeStringValue("@odata.type", alertEvidence.odataType);
+        writer.writeEnumValue<EvidenceRemediationStatus>("remediationStatus", alertEvidence.remediationStatus);
+        writer.writeStringValue("remediationStatusDetails", alertEvidence.remediationStatusDetails);
+        if(alertEvidence.roles)
+        writer.writeEnumValue<EvidenceRole>("roles", ...alertEvidence.roles);
+        writer.writeCollectionOfPrimitiveValues<string>("tags", alertEvidence.tags);
+        writer.writeEnumValue<EvidenceVerdict>("verdict", alertEvidence.verdict);
+        writer.writeAdditionalData(alertEvidence.additionalData);
 }

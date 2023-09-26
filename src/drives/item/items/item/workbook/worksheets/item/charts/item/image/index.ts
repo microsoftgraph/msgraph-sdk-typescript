@@ -1,5 +1,2 @@
-export * from './createImageResponseFromDiscriminatorValue'
-export * from './deserializeIntoImageResponse'
-export * from './imageRequestBuilderGetRequestConfiguration'
+export * from './imageRequestBuilder'
 export * from './imageResponse'
-export * from './serializeImageResponse'

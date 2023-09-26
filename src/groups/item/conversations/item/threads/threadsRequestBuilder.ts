@@ -1,19 +1,66 @@
 import { type ConversationThreadCollectionResponse } from '../../../../../models/';
-import { type ConversationThread } from '../../../../../models/conversationThread';
-import { createConversationThreadCollectionResponseFromDiscriminatorValue } from '../../../../../models/createConversationThreadCollectionResponseFromDiscriminatorValue';
-import { createConversationThreadFromDiscriminatorValue } from '../../../../../models/createConversationThreadFromDiscriminatorValue';
-import { deserializeIntoConversationThread } from '../../../../../models/deserializeIntoConversationThread';
+import { createConversationThreadFromDiscriminatorValue, deserializeIntoConversationThread, serializeConversationThread, type ConversationThread } from '../../../../../models/conversationThread';
+import { createConversationThreadCollectionResponseFromDiscriminatorValue } from '../../../../../models/conversationThreadCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeConversationThread } from '../../../../../models/serializeConversationThread';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ConversationThreadItemRequestBuilder } from './item/conversationThreadItemRequestBuilder';
-import { type ThreadsRequestBuilderGetRequestConfiguration } from './threadsRequestBuilderGetRequestConfiguration';
-import { type ThreadsRequestBuilderPostRequestConfiguration } from './threadsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ThreadsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ThreadsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ThreadsRequestBuilderGetQueryParameters;
+}
+export interface ThreadsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the threads property of the microsoft.graph.conversation entity.
  */

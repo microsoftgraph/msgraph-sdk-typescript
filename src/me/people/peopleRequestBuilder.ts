@@ -1,14 +1,55 @@
 import { type PersonCollectionResponse } from '../../models/';
-import { createPersonCollectionResponseFromDiscriminatorValue } from '../../models/createPersonCollectionResponseFromDiscriminatorValue';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createPersonCollectionResponseFromDiscriminatorValue } from '../../models/personCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PersonItemRequestBuilder } from './item/personItemRequestBuilder';
-import { type PeopleRequestBuilderGetRequestConfiguration } from './peopleRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PeopleRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PeopleRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PeopleRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the people property of the microsoft.graph.user entity.
  */

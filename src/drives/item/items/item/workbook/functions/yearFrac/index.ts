@@ -1,5 +1,2 @@
-export * from './createYearFracPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoYearFracPostRequestBody'
-export * from './serializeYearFracPostRequestBody'
 export * from './yearFracPostRequestBody'
-export * from './yearFracRequestBuilderPostRequestConfiguration'
+export * from './yearFracRequestBuilder'

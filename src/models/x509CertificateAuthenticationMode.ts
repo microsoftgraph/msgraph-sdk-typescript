@@ -3,3 +3,5 @@ export enum X509CertificateAuthenticationMode {
     X509CertificateMultiFactor = "x509CertificateMultiFactor",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

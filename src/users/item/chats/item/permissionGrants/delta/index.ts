@@ -1,6 +1,2 @@
-export * from './createDeltaResponseFromDiscriminatorValue'
-export * from './deltaRequestBuilderGetQueryParameters'
-export * from './deltaRequestBuilderGetRequestConfiguration'
+export * from './deltaRequestBuilder'
 export * from './deltaResponse'
-export * from './deserializeIntoDeltaResponse'
-export * from './serializeDeltaResponse'

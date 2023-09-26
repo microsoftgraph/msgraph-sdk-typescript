@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type CheckMemberObjectsPostRequestBody } from './checkMemberObjectsPostRequestBody';
-import { type CheckMemberObjectsRequestBuilderPostRequestConfiguration } from './checkMemberObjectsRequestBuilderPostRequestConfiguration';
-import { type CheckMemberObjectsResponse } from './checkMemberObjectsResponse';
-import { createCheckMemberObjectsResponseFromDiscriminatorValue } from './createCheckMemberObjectsResponseFromDiscriminatorValue';
-import { deserializeIntoCheckMemberObjectsPostRequestBody } from './deserializeIntoCheckMemberObjectsPostRequestBody';
-import { deserializeIntoCheckMemberObjectsResponse } from './deserializeIntoCheckMemberObjectsResponse';
-import { serializeCheckMemberObjectsPostRequestBody } from './serializeCheckMemberObjectsPostRequestBody';
-import { serializeCheckMemberObjectsResponse } from './serializeCheckMemberObjectsResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoCheckMemberObjectsPostRequestBody, serializeCheckMemberObjectsPostRequestBody, type CheckMemberObjectsPostRequestBody } from './checkMemberObjectsPostRequestBody';
+import { createCheckMemberObjectsResponseFromDiscriminatorValue, deserializeIntoCheckMemberObjectsResponse, serializeCheckMemberObjectsResponse, type CheckMemberObjectsResponse } from './checkMemberObjectsResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CheckMemberObjectsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the checkMemberObjects method.
  */

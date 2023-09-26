@@ -1,17 +1,19 @@
-import { type ContentType } from '../../../../../../models/contentType';
-import { createContentTypeFromDiscriminatorValue } from '../../../../../../models/createContentTypeFromDiscriminatorValue';
-import { deserializeIntoContentType } from '../../../../../../models/deserializeIntoContentType';
+import { createContentTypeFromDiscriminatorValue, deserializeIntoContentType, serializeContentType, type ContentType } from '../../../../../../models/contentType';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeContentType } from '../../../../../../models/serializeContentType';
-import { type AddCopyFromContentTypeHubPostRequestBody } from './addCopyFromContentTypeHubPostRequestBody';
-import { type AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration } from './addCopyFromContentTypeHubRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAddCopyFromContentTypeHubPostRequestBody } from './deserializeIntoAddCopyFromContentTypeHubPostRequestBody';
-import { serializeAddCopyFromContentTypeHubPostRequestBody } from './serializeAddCopyFromContentTypeHubPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoAddCopyFromContentTypeHubPostRequestBody, serializeAddCopyFromContentTypeHubPostRequestBody, type AddCopyFromContentTypeHubPostRequestBody } from './addCopyFromContentTypeHubPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the addCopyFromContentTypeHub method.
  */

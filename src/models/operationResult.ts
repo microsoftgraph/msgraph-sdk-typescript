@@ -4,3 +4,5 @@ export enum OperationResult {
     Timeout = "timeout",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,5 +1,2 @@
-export * from './createSetMobileDeviceManagementAuthorityResponseFromDiscriminatorValue'
-export * from './deserializeIntoSetMobileDeviceManagementAuthorityResponse'
-export * from './serializeSetMobileDeviceManagementAuthorityResponse'
-export * from './setMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration'
+export * from './setMobileDeviceManagementAuthorityRequestBuilder'
 export * from './setMobileDeviceManagementAuthorityResponse'

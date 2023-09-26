@@ -1,20 +1,56 @@
-import { type AccessPackageAssignment } from '../../../../models/accessPackageAssignment';
-import { createAccessPackageAssignmentFromDiscriminatorValue } from '../../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
-import { deserializeIntoAccessPackageAssignment } from '../../../../models/deserializeIntoAccessPackageAssignment';
+import { createAccessPackageAssignmentFromDiscriminatorValue, deserializeIntoAccessPackageAssignment, serializeAccessPackageAssignment, type AccessPackageAssignment } from '../../../../models/accessPackageAssignment';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageAssignment } from '../../../../models/serializeAccessPackageAssignment';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { AccessPackageRequestBuilder } from './accessPackage/accessPackageRequestBuilder';
-import { type AccessPackageAssignmentItemRequestBuilderDeleteRequestConfiguration } from './accessPackageAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessPackageAssignmentItemRequestBuilderGetRequestConfiguration } from './accessPackageAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type AccessPackageAssignmentItemRequestBuilderPatchRequestConfiguration } from './accessPackageAssignmentItemRequestBuilderPatchRequestConfiguration';
 import { AssignmentPolicyRequestBuilder } from './assignmentPolicy/assignmentPolicyRequestBuilder';
 import { ReprocessRequestBuilder } from './reprocess/reprocessRequestBuilder';
 import { TargetRequestBuilder } from './target/targetRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessPackageAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessPackageAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessPackageAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessPackageAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface AccessPackageAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
  */

@@ -1,19 +1,70 @@
 import { type AuthenticationMethodCollectionResponse } from '../../../models/';
-import { type AuthenticationMethod } from '../../../models/authenticationMethod';
-import { createAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../models/createAuthenticationMethodCollectionResponseFromDiscriminatorValue';
-import { createAuthenticationMethodFromDiscriminatorValue } from '../../../models/createAuthenticationMethodFromDiscriminatorValue';
-import { deserializeIntoAuthenticationMethod } from '../../../models/deserializeIntoAuthenticationMethod';
+import { createAuthenticationMethodFromDiscriminatorValue, deserializeIntoAuthenticationMethod, serializeAuthenticationMethod, type AuthenticationMethod } from '../../../models/authenticationMethod';
+import { createAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../models/authenticationMethodCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationMethod } from '../../../models/serializeAuthenticationMethod';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AuthenticationMethodItemRequestBuilder } from './item/authenticationMethodItemRequestBuilder';
-import { type MethodsRequestBuilderGetRequestConfiguration } from './methodsRequestBuilderGetRequestConfiguration';
-import { type MethodsRequestBuilderPostRequestConfiguration } from './methodsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MethodsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface MethodsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MethodsRequestBuilderGetQueryParameters;
+}
+export interface MethodsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
  */

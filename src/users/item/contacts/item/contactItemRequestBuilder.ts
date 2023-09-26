@@ -1,18 +1,54 @@
-import { type Contact } from '../../../../models/contact';
-import { createContactFromDiscriminatorValue } from '../../../../models/createContactFromDiscriminatorValue';
-import { deserializeIntoContact } from '../../../../models/deserializeIntoContact';
+import { createContactFromDiscriminatorValue, deserializeIntoContact, serializeContact, type Contact } from '../../../../models/contact';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeContact } from '../../../../models/serializeContact';
-import { type ContactItemRequestBuilderDeleteRequestConfiguration } from './contactItemRequestBuilderDeleteRequestConfiguration';
-import { type ContactItemRequestBuilderGetRequestConfiguration } from './contactItemRequestBuilderGetRequestConfiguration';
-import { type ContactItemRequestBuilderPatchRequestConfiguration } from './contactItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
 import { PhotoRequestBuilder } from './photo/photoRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContactItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ContactItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ContactItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContactItemRequestBuilderGetQueryParameters;
+}
+export interface ContactItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the contacts property of the microsoft.graph.user entity.
  */

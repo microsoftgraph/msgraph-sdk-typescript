@@ -1,19 +1,70 @@
 import { type OnenoteResourceCollectionResponse } from '../../../../../../models/';
-import { createOnenoteResourceCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createOnenoteResourceCollectionResponseFromDiscriminatorValue';
-import { createOnenoteResourceFromDiscriminatorValue } from '../../../../../../models/createOnenoteResourceFromDiscriminatorValue';
-import { deserializeIntoOnenoteResource } from '../../../../../../models/deserializeIntoOnenoteResource';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type OnenoteResource } from '../../../../../../models/onenoteResource';
-import { serializeOnenoteResource } from '../../../../../../models/serializeOnenoteResource';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createOnenoteResourceFromDiscriminatorValue, deserializeIntoOnenoteResource, serializeOnenoteResource, type OnenoteResource } from '../../../../../../models/onenoteResource';
+import { createOnenoteResourceCollectionResponseFromDiscriminatorValue } from '../../../../../../models/onenoteResourceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OnenoteResourceItemRequestBuilder } from './item/onenoteResourceItemRequestBuilder';
-import { type ResourcesRequestBuilderGetRequestConfiguration } from './resourcesRequestBuilderGetRequestConfiguration';
-import { type ResourcesRequestBuilderPostRequestConfiguration } from './resourcesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ResourcesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ResourcesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ResourcesRequestBuilderGetQueryParameters;
+}
+export interface ResourcesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
  */

@@ -1,16 +1,52 @@
-import { createDeviceComplianceActionItemFromDiscriminatorValue } from '../../../../../../../models/createDeviceComplianceActionItemFromDiscriminatorValue';
-import { deserializeIntoDeviceComplianceActionItem } from '../../../../../../../models/deserializeIntoDeviceComplianceActionItem';
-import { type DeviceComplianceActionItem } from '../../../../../../../models/deviceComplianceActionItem';
+import { createDeviceComplianceActionItemFromDiscriminatorValue, deserializeIntoDeviceComplianceActionItem, serializeDeviceComplianceActionItem, type DeviceComplianceActionItem } from '../../../../../../../models/deviceComplianceActionItem';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceComplianceActionItem } from '../../../../../../../models/serializeDeviceComplianceActionItem';
-import { type DeviceComplianceActionItemItemRequestBuilderDeleteRequestConfiguration } from './deviceComplianceActionItemItemRequestBuilderDeleteRequestConfiguration';
-import { type DeviceComplianceActionItemItemRequestBuilderGetRequestConfiguration } from './deviceComplianceActionItemItemRequestBuilderGetRequestConfiguration';
-import { type DeviceComplianceActionItemItemRequestBuilderPatchRequestConfiguration } from './deviceComplianceActionItemItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceComplianceActionItemItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceComplianceActionItemItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceComplianceActionItemItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceComplianceActionItemItemRequestBuilderGetQueryParameters;
+}
+export interface DeviceComplianceActionItemItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the scheduledActionConfigurations property of the microsoft.graph.deviceComplianceScheduledActionForRule entity.
  */

@@ -1,2 +1,1 @@
-export * from './teamsAppDefinitionRequestBuilderGetQueryParameters'
-export * from './teamsAppDefinitionRequestBuilderGetRequestConfiguration'
+export * from './teamsAppDefinitionRequestBuilder'

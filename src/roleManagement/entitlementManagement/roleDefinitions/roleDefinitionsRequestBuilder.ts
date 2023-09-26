@@ -1,19 +1,70 @@
 import { type UnifiedRoleDefinitionCollectionResponse } from '../../../models/';
-import { createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue } from '../../../models/createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue';
-import { createUnifiedRoleDefinitionFromDiscriminatorValue } from '../../../models/createUnifiedRoleDefinitionFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleDefinition } from '../../../models/deserializeIntoUnifiedRoleDefinition';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleDefinition } from '../../../models/serializeUnifiedRoleDefinition';
-import { type UnifiedRoleDefinition } from '../../../models/unifiedRoleDefinition';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleDefinitionFromDiscriminatorValue, deserializeIntoUnifiedRoleDefinition, serializeUnifiedRoleDefinition, type UnifiedRoleDefinition } from '../../../models/unifiedRoleDefinition';
+import { createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue } from '../../../models/unifiedRoleDefinitionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UnifiedRoleDefinitionItemRequestBuilder } from './item/unifiedRoleDefinitionItemRequestBuilder';
-import { type RoleDefinitionsRequestBuilderGetRequestConfiguration } from './roleDefinitionsRequestBuilderGetRequestConfiguration';
-import { type RoleDefinitionsRequestBuilderPostRequestConfiguration } from './roleDefinitionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RoleDefinitionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RoleDefinitionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RoleDefinitionsRequestBuilderGetQueryParameters;
+}
+export interface RoleDefinitionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
  */

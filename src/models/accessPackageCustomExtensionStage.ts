@@ -7,3 +7,5 @@ export enum AccessPackageCustomExtensionStage {
     AssignmentOneDayBeforeExpiration = "assignmentOneDayBeforeExpiration",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

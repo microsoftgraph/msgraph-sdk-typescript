@@ -1,5 +1,2 @@
-export * from './createVdbPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoVdbPostRequestBody'
-export * from './serializeVdbPostRequestBody'
 export * from './vdbPostRequestBody'
-export * from './vdbRequestBuilderPostRequestConfiguration'
+export * from './vdbRequestBuilder'

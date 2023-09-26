@@ -1,17 +1,53 @@
-import { type ActivityBasedTimeoutPolicy } from '../../../models/activityBasedTimeoutPolicy';
-import { createActivityBasedTimeoutPolicyFromDiscriminatorValue } from '../../../models/createActivityBasedTimeoutPolicyFromDiscriminatorValue';
-import { deserializeIntoActivityBasedTimeoutPolicy } from '../../../models/deserializeIntoActivityBasedTimeoutPolicy';
+import { createActivityBasedTimeoutPolicyFromDiscriminatorValue, deserializeIntoActivityBasedTimeoutPolicy, serializeActivityBasedTimeoutPolicy, type ActivityBasedTimeoutPolicy } from '../../../models/activityBasedTimeoutPolicy';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeActivityBasedTimeoutPolicy } from '../../../models/serializeActivityBasedTimeoutPolicy';
-import { type ActivityBasedTimeoutPolicyItemRequestBuilderDeleteRequestConfiguration } from './activityBasedTimeoutPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type ActivityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration } from './activityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration';
-import { type ActivityBasedTimeoutPolicyItemRequestBuilderPatchRequestConfiguration } from './activityBasedTimeoutPolicyItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ActivityBasedTimeoutPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ActivityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface ActivityBasedTimeoutPolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
  */

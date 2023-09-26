@@ -1,12 +1,19 @@
 import { type DirectoryDefinition } from '../../../../../../../../../models/';
-import { createDirectoryDefinitionFromDiscriminatorValue } from '../../../../../../../../../models/createDirectoryDefinitionFromDiscriminatorValue';
+import { createDirectoryDefinitionFromDiscriminatorValue } from '../../../../../../../../../models/directoryDefinition';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type DiscoverRequestBuilderPostRequestConfiguration } from './discoverRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DiscoverRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the discover method.
  */

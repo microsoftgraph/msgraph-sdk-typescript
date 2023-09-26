@@ -1,12 +1,33 @@
 import { type ConditionalAccessTemplate } from '../../../../models/';
-import { createConditionalAccessTemplateFromDiscriminatorValue } from '../../../../models/createConditionalAccessTemplateFromDiscriminatorValue';
+import { createConditionalAccessTemplateFromDiscriminatorValue } from '../../../../models/conditionalAccessTemplate';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type ConditionalAccessTemplateItemRequestBuilderGetRequestConfiguration } from './conditionalAccessTemplateItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConditionalAccessTemplateItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ConditionalAccessTemplateItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConditionalAccessTemplateItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
  */

@@ -1,17 +1,53 @@
-import { createDetectedAppFromDiscriminatorValue } from '../../../models/createDetectedAppFromDiscriminatorValue';
-import { deserializeIntoDetectedApp } from '../../../models/deserializeIntoDetectedApp';
-import { type DetectedApp } from '../../../models/detectedApp';
+import { createDetectedAppFromDiscriminatorValue, deserializeIntoDetectedApp, serializeDetectedApp, type DetectedApp } from '../../../models/detectedApp';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDetectedApp } from '../../../models/serializeDetectedApp';
-import { type DetectedAppItemRequestBuilderDeleteRequestConfiguration } from './detectedAppItemRequestBuilderDeleteRequestConfiguration';
-import { type DetectedAppItemRequestBuilderGetRequestConfiguration } from './detectedAppItemRequestBuilderGetRequestConfiguration';
-import { type DetectedAppItemRequestBuilderPatchRequestConfiguration } from './detectedAppItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { ManagedDevicesRequestBuilder } from './managedDevices/managedDevicesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DetectedAppItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DetectedAppItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DetectedAppItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DetectedAppItemRequestBuilderGetQueryParameters;
+}
+export interface DetectedAppItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
  */

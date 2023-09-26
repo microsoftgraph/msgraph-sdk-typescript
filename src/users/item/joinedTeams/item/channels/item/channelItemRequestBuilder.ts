@@ -1,14 +1,6 @@
-import { type Channel } from '../../../../../../models/channel';
-import { createChannelFromDiscriminatorValue } from '../../../../../../models/createChannelFromDiscriminatorValue';
-import { deserializeIntoChannel } from '../../../../../../models/deserializeIntoChannel';
+import { createChannelFromDiscriminatorValue, deserializeIntoChannel, serializeChannel, type Channel } from '../../../../../../models/channel';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeChannel } from '../../../../../../models/serializeChannel';
-import { type ChannelItemRequestBuilderDeleteRequestConfiguration } from './channelItemRequestBuilderDeleteRequestConfiguration';
-import { type ChannelItemRequestBuilderGetRequestConfiguration } from './channelItemRequestBuilderGetRequestConfiguration';
-import { type ChannelItemRequestBuilderPatchRequestConfiguration } from './channelItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { CompleteMigrationRequestBuilder } from './completeMigration/completeMigrationRequestBuilder';
 import { DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder } from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder';
 import { FilesFolderRequestBuilder } from './filesFolder/filesFolderRequestBuilder';
@@ -20,6 +12,50 @@ import { SharedWithTeamsRequestBuilder } from './sharedWithTeams/sharedWithTeams
 import { TabsRequestBuilder } from './tabs/tabsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChannelItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ChannelItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ChannelItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ChannelItemRequestBuilderGetQueryParameters;
+}
+export interface ChannelItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the channels property of the microsoft.graph.team entity.
  */

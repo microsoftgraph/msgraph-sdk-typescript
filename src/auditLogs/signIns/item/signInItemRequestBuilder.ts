@@ -1,16 +1,52 @@
-import { createSignInFromDiscriminatorValue } from '../../../models/createSignInFromDiscriminatorValue';
-import { deserializeIntoSignIn } from '../../../models/deserializeIntoSignIn';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeSignIn } from '../../../models/serializeSignIn';
-import { type SignIn } from '../../../models/signIn';
-import { type SignInItemRequestBuilderDeleteRequestConfiguration } from './signInItemRequestBuilderDeleteRequestConfiguration';
-import { type SignInItemRequestBuilderGetRequestConfiguration } from './signInItemRequestBuilderGetRequestConfiguration';
-import { type SignInItemRequestBuilderPatchRequestConfiguration } from './signInItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createSignInFromDiscriminatorValue, deserializeIntoSignIn, serializeSignIn, type SignIn } from '../../../models/signIn';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SignInItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SignInItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SignInItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SignInItemRequestBuilderGetQueryParameters;
+}
+export interface SignInItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
  */

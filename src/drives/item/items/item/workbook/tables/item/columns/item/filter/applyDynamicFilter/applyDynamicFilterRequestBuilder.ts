@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type ApplyDynamicFilterPostRequestBody } from './applyDynamicFilterPostRequestBody';
-import { type ApplyDynamicFilterRequestBuilderPostRequestConfiguration } from './applyDynamicFilterRequestBuilderPostRequestConfiguration';
-import { deserializeIntoApplyDynamicFilterPostRequestBody } from './deserializeIntoApplyDynamicFilterPostRequestBody';
-import { serializeApplyDynamicFilterPostRequestBody } from './serializeApplyDynamicFilterPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoApplyDynamicFilterPostRequestBody, serializeApplyDynamicFilterPostRequestBody, type ApplyDynamicFilterPostRequestBody } from './applyDynamicFilterPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApplyDynamicFilterRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the applyDynamicFilter method.
  */

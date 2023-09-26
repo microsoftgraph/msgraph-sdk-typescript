@@ -1,1 +1,1 @@
-export * from './getFinalAttachmentRequestBuilderGetRequestConfiguration'
+export * from './getFinalAttachmentRequestBuilder'

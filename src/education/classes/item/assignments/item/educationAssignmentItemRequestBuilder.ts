@@ -1,15 +1,7 @@
-import { createEducationAssignmentFromDiscriminatorValue } from '../../../../../models/createEducationAssignmentFromDiscriminatorValue';
-import { deserializeIntoEducationAssignment } from '../../../../../models/deserializeIntoEducationAssignment';
-import { type EducationAssignment } from '../../../../../models/educationAssignment';
+import { createEducationAssignmentFromDiscriminatorValue, deserializeIntoEducationAssignment, serializeEducationAssignment, type EducationAssignment } from '../../../../../models/educationAssignment';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationAssignment } from '../../../../../models/serializeEducationAssignment';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CategoriesRequestBuilder } from './categories/categoriesRequestBuilder';
-import { type EducationAssignmentItemRequestBuilderDeleteRequestConfiguration } from './educationAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationAssignmentItemRequestBuilderGetRequestConfiguration } from './educationAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type EducationAssignmentItemRequestBuilderPatchRequestConfiguration } from './educationAssignmentItemRequestBuilderPatchRequestConfiguration';
 import { PublishRequestBuilder } from './publish/publishRequestBuilder';
 import { ResourcesRequestBuilder } from './resources/resourcesRequestBuilder';
 import { RubricRequestBuilder } from './rubric/rubricRequestBuilder';
@@ -18,6 +10,50 @@ import { SetUpResourcesFolderRequestBuilder } from './setUpResourcesFolder/setUp
 import { SubmissionsRequestBuilder } from './submissions/submissionsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface EducationAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
  */

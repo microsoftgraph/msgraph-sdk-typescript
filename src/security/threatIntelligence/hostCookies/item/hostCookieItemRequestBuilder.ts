@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createHostCookieFromDiscriminatorValue } from '../../../../models/security/createHostCookieFromDiscriminatorValue';
-import { deserializeIntoHostCookie } from '../../../../models/security/deserializeIntoHostCookie';
-import { type HostCookie } from '../../../../models/security/hostCookie';
-import { serializeHostCookie } from '../../../../models/security/serializeHostCookie';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createHostCookieFromDiscriminatorValue, deserializeIntoHostCookie, serializeHostCookie, type HostCookie } from '../../../../models/security/hostCookie';
 import { HostRequestBuilder } from './host/hostRequestBuilder';
-import { type HostCookieItemRequestBuilderDeleteRequestConfiguration } from './hostCookieItemRequestBuilderDeleteRequestConfiguration';
-import { type HostCookieItemRequestBuilderGetRequestConfiguration } from './hostCookieItemRequestBuilderGetRequestConfiguration';
-import { type HostCookieItemRequestBuilderPatchRequestConfiguration } from './hostCookieItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HostCookieItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface HostCookieItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface HostCookieItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HostCookieItemRequestBuilderGetQueryParameters;
+}
+export interface HostCookieItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.
  */

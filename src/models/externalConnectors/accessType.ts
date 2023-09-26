@@ -3,3 +3,5 @@ export enum AccessType {
     Deny = "deny",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

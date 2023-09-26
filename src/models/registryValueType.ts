@@ -13,3 +13,5 @@ export enum RegistryValueType {
     Sz = "sz",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

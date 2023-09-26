@@ -1,17 +1,53 @@
-import { createWorkbookApplicationFromDiscriminatorValue } from '../../../../../../models/createWorkbookApplicationFromDiscriminatorValue';
-import { deserializeIntoWorkbookApplication } from '../../../../../../models/deserializeIntoWorkbookApplication';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookApplication } from '../../../../../../models/serializeWorkbookApplication';
-import { type WorkbookApplication } from '../../../../../../models/workbookApplication';
-import { type ApplicationRequestBuilderDeleteRequestConfiguration } from './applicationRequestBuilderDeleteRequestConfiguration';
-import { type ApplicationRequestBuilderGetRequestConfiguration } from './applicationRequestBuilderGetRequestConfiguration';
-import { type ApplicationRequestBuilderPatchRequestConfiguration } from './applicationRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookApplicationFromDiscriminatorValue, deserializeIntoWorkbookApplication, serializeWorkbookApplication, type WorkbookApplication } from '../../../../../../models/workbookApplication';
 import { CalculateRequestBuilder } from './calculate/calculateRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApplicationRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ApplicationRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ApplicationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ApplicationRequestBuilderGetQueryParameters;
+}
+export interface ApplicationRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the application property of the microsoft.graph.workbook entity.
  */

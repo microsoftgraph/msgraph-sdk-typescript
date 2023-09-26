@@ -1,5 +1,2 @@
-export * from './createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue'
-export * from './deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse'
-export * from './getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration'
+export * from './getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder'
 export * from './getOmaSettingPlainTextValueWithSecretReferenceValueIdResponse'
-export * from './serializeGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse'

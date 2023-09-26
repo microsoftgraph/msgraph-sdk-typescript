@@ -1,17 +1,53 @@
-import { createSimulationAutomationFromDiscriminatorValue } from '../../../../models/createSimulationAutomationFromDiscriminatorValue';
-import { deserializeIntoSimulationAutomation } from '../../../../models/deserializeIntoSimulationAutomation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeSimulationAutomation } from '../../../../models/serializeSimulationAutomation';
-import { type SimulationAutomation } from '../../../../models/simulationAutomation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createSimulationAutomationFromDiscriminatorValue, deserializeIntoSimulationAutomation, serializeSimulationAutomation, type SimulationAutomation } from '../../../../models/simulationAutomation';
 import { RunsRequestBuilder } from './runs/runsRequestBuilder';
-import { type SimulationAutomationItemRequestBuilderDeleteRequestConfiguration } from './simulationAutomationItemRequestBuilderDeleteRequestConfiguration';
-import { type SimulationAutomationItemRequestBuilderGetRequestConfiguration } from './simulationAutomationItemRequestBuilderGetRequestConfiguration';
-import { type SimulationAutomationItemRequestBuilderPatchRequestConfiguration } from './simulationAutomationItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SimulationAutomationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SimulationAutomationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SimulationAutomationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SimulationAutomationItemRequestBuilderGetQueryParameters;
+}
+export interface SimulationAutomationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
  */

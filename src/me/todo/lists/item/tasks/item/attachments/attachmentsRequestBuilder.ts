@@ -1,20 +1,63 @@
 import { type AttachmentBaseCollectionResponse } from '../../../../../../../models/';
-import { type AttachmentBase } from '../../../../../../../models/attachmentBase';
-import { createAttachmentBaseCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createAttachmentBaseCollectionResponseFromDiscriminatorValue';
-import { createAttachmentBaseFromDiscriminatorValue } from '../../../../../../../models/createAttachmentBaseFromDiscriminatorValue';
-import { deserializeIntoAttachmentBase } from '../../../../../../../models/deserializeIntoAttachmentBase';
+import { createAttachmentBaseFromDiscriminatorValue, deserializeIntoAttachmentBase, serializeAttachmentBase, type AttachmentBase } from '../../../../../../../models/attachmentBase';
+import { createAttachmentBaseCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/attachmentBaseCollectionResponse';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAttachmentBase } from '../../../../../../../models/serializeAttachmentBase';
-import { type AttachmentsRequestBuilderGetRequestConfiguration } from './attachmentsRequestBuilderGetRequestConfiguration';
-import { type AttachmentsRequestBuilderPostRequestConfiguration } from './attachmentsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { CreateUploadSessionRequestBuilder } from './createUploadSession/createUploadSessionRequestBuilder';
 import { AttachmentBaseItemRequestBuilder } from './item/attachmentBaseItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AttachmentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AttachmentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AttachmentsRequestBuilderGetQueryParameters;
+}
+export interface AttachmentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
  */

@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoRemovePasswordPostRequestBody } from './deserializeIntoRemovePasswordPostRequestBody';
-import { type RemovePasswordPostRequestBody } from './removePasswordPostRequestBody';
-import { type RemovePasswordRequestBuilderPostRequestConfiguration } from './removePasswordRequestBuilderPostRequestConfiguration';
-import { serializeRemovePasswordPostRequestBody } from './serializeRemovePasswordPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoRemovePasswordPostRequestBody, serializeRemovePasswordPostRequestBody, type RemovePasswordPostRequestBody } from './removePasswordPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RemovePasswordRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the removePassword method.
  */

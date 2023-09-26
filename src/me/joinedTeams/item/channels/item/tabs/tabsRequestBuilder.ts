@@ -1,19 +1,70 @@
 import { type TeamsTabCollectionResponse } from '../../../../../../models/';
-import { createTeamsTabCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createTeamsTabCollectionResponseFromDiscriminatorValue';
-import { createTeamsTabFromDiscriminatorValue } from '../../../../../../models/createTeamsTabFromDiscriminatorValue';
-import { deserializeIntoTeamsTab } from '../../../../../../models/deserializeIntoTeamsTab';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeTeamsTab } from '../../../../../../models/serializeTeamsTab';
-import { type TeamsTab } from '../../../../../../models/teamsTab';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createTeamsTabFromDiscriminatorValue, deserializeIntoTeamsTab, serializeTeamsTab, type TeamsTab } from '../../../../../../models/teamsTab';
+import { createTeamsTabCollectionResponseFromDiscriminatorValue } from '../../../../../../models/teamsTabCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TeamsTabItemRequestBuilder } from './item/teamsTabItemRequestBuilder';
-import { type TabsRequestBuilderGetRequestConfiguration } from './tabsRequestBuilderGetRequestConfiguration';
-import { type TabsRequestBuilderPostRequestConfiguration } from './tabsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TabsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TabsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TabsRequestBuilderGetQueryParameters;
+}
+export interface TabsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
  */

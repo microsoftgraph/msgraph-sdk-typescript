@@ -1,16 +1,52 @@
-import { createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue } from '../../../../models/createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue';
-import { deserializeIntoPlannerProgressTaskBoardTaskFormat } from '../../../../models/deserializeIntoPlannerProgressTaskBoardTaskFormat';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type PlannerProgressTaskBoardTaskFormat } from '../../../../models/plannerProgressTaskBoardTaskFormat';
-import { serializePlannerProgressTaskBoardTaskFormat } from '../../../../models/serializePlannerProgressTaskBoardTaskFormat';
-import { type ProgressTaskBoardFormatRequestBuilderDeleteRequestConfiguration } from './progressTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
-import { type ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration } from './progressTaskBoardFormatRequestBuilderGetRequestConfiguration';
-import { type ProgressTaskBoardFormatRequestBuilderPatchRequestConfiguration } from './progressTaskBoardFormatRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue, deserializeIntoPlannerProgressTaskBoardTaskFormat, serializePlannerProgressTaskBoardTaskFormat, type PlannerProgressTaskBoardTaskFormat } from '../../../../models/plannerProgressTaskBoardTaskFormat';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ProgressTaskBoardFormatRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ProgressTaskBoardFormatRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ProgressTaskBoardFormatRequestBuilderGetQueryParameters;
+}
+export interface ProgressTaskBoardFormatRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity.
  */

@@ -3,3 +3,5 @@ export enum CrossTenantAccessPolicyTargetConfigurationAccessType {
     Blocked = "blocked",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

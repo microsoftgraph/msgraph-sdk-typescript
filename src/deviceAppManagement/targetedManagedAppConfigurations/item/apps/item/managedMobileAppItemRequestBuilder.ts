@@ -1,16 +1,52 @@
-import { createManagedMobileAppFromDiscriminatorValue } from '../../../../../models/createManagedMobileAppFromDiscriminatorValue';
-import { deserializeIntoManagedMobileApp } from '../../../../../models/deserializeIntoManagedMobileApp';
-import { type ManagedMobileApp } from '../../../../../models/managedMobileApp';
+import { createManagedMobileAppFromDiscriminatorValue, deserializeIntoManagedMobileApp, serializeManagedMobileApp, type ManagedMobileApp } from '../../../../../models/managedMobileApp';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeManagedMobileApp } from '../../../../../models/serializeManagedMobileApp';
-import { type ManagedMobileAppItemRequestBuilderDeleteRequestConfiguration } from './managedMobileAppItemRequestBuilderDeleteRequestConfiguration';
-import { type ManagedMobileAppItemRequestBuilderGetRequestConfiguration } from './managedMobileAppItemRequestBuilderGetRequestConfiguration';
-import { type ManagedMobileAppItemRequestBuilderPatchRequestConfiguration } from './managedMobileAppItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ManagedMobileAppItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ManagedMobileAppItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ManagedMobileAppItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ManagedMobileAppItemRequestBuilderGetQueryParameters;
+}
+export interface ManagedMobileAppItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the apps property of the microsoft.graph.targetedManagedAppConfiguration entity.
  */

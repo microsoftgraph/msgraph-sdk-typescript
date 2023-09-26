@@ -1,17 +1,53 @@
-import { createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue } from '../../../../../models/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
-import { deserializeIntoDeviceComplianceScheduledActionForRule } from '../../../../../models/deserializeIntoDeviceComplianceScheduledActionForRule';
-import { type DeviceComplianceScheduledActionForRule } from '../../../../../models/deviceComplianceScheduledActionForRule';
+import { createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue, deserializeIntoDeviceComplianceScheduledActionForRule, serializeDeviceComplianceScheduledActionForRule, type DeviceComplianceScheduledActionForRule } from '../../../../../models/deviceComplianceScheduledActionForRule';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceComplianceScheduledActionForRule } from '../../../../../models/serializeDeviceComplianceScheduledActionForRule';
-import { type DeviceComplianceScheduledActionForRuleItemRequestBuilderDeleteRequestConfiguration } from './deviceComplianceScheduledActionForRuleItemRequestBuilderDeleteRequestConfiguration';
-import { type DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration } from './deviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration';
-import { type DeviceComplianceScheduledActionForRuleItemRequestBuilderPatchRequestConfiguration } from './deviceComplianceScheduledActionForRuleItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { ScheduledActionConfigurationsRequestBuilder } from './scheduledActionConfigurations/scheduledActionConfigurationsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceComplianceScheduledActionForRuleItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters;
+}
+export interface DeviceComplianceScheduledActionForRuleItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
  */

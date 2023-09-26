@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoGetNoncompliantDevicesAndSettingsReportPostRequestBody } from './deserializeIntoGetNoncompliantDevicesAndSettingsReportPostRequestBody';
-import { type GetNoncompliantDevicesAndSettingsReportPostRequestBody } from './getNoncompliantDevicesAndSettingsReportPostRequestBody';
-import { type GetNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration } from './getNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration';
-import { serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody } from './serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetNoncompliantDevicesAndSettingsReportPostRequestBody, serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody, type GetNoncompliantDevicesAndSettingsReportPostRequestBody } from './getNoncompliantDevicesAndSettingsReportPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getNoncompliantDevicesAndSettingsReport method.
  */

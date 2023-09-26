@@ -1,20 +1,71 @@
 import { type DeletedTeamCollectionResponse } from '../../models/';
-import { createDeletedTeamCollectionResponseFromDiscriminatorValue } from '../../models/createDeletedTeamCollectionResponseFromDiscriminatorValue';
-import { createDeletedTeamFromDiscriminatorValue } from '../../models/createDeletedTeamFromDiscriminatorValue';
-import { type DeletedTeam } from '../../models/deletedTeam';
-import { deserializeIntoDeletedTeam } from '../../models/deserializeIntoDeletedTeam';
+import { createDeletedTeamFromDiscriminatorValue, deserializeIntoDeletedTeam, serializeDeletedTeam, type DeletedTeam } from '../../models/deletedTeam';
+import { createDeletedTeamCollectionResponseFromDiscriminatorValue } from '../../models/deletedTeamCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDeletedTeam } from '../../models/serializeDeletedTeam';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DeletedTeamsRequestBuilderGetRequestConfiguration } from './deletedTeamsRequestBuilderGetRequestConfiguration';
-import { type DeletedTeamsRequestBuilderPostRequestConfiguration } from './deletedTeamsRequestBuilderPostRequestConfiguration';
 import { GetAllMessagesRequestBuilder } from './getAllMessages/getAllMessagesRequestBuilder';
 import { DeletedTeamItemRequestBuilder } from './item/deletedTeamItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeletedTeamsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DeletedTeamsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeletedTeamsRequestBuilderGetQueryParameters;
+}
+export interface DeletedTeamsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
  */

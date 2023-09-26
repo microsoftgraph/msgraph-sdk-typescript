@@ -1,16 +1,52 @@
-import { type ConnectionOperation } from '../../../../../models/externalConnectors/connectionOperation';
-import { createConnectionOperationFromDiscriminatorValue } from '../../../../../models/externalConnectors/createConnectionOperationFromDiscriminatorValue';
-import { deserializeIntoConnectionOperation } from '../../../../../models/externalConnectors/deserializeIntoConnectionOperation';
-import { serializeConnectionOperation } from '../../../../../models/externalConnectors/serializeConnectionOperation';
+import { createConnectionOperationFromDiscriminatorValue, deserializeIntoConnectionOperation, serializeConnectionOperation, type ConnectionOperation } from '../../../../../models/externalConnectors/connectionOperation';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type ConnectionOperationItemRequestBuilderDeleteRequestConfiguration } from './connectionOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type ConnectionOperationItemRequestBuilderGetRequestConfiguration } from './connectionOperationItemRequestBuilderGetRequestConfiguration';
-import { type ConnectionOperationItemRequestBuilderPatchRequestConfiguration } from './connectionOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConnectionOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ConnectionOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ConnectionOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConnectionOperationItemRequestBuilderGetQueryParameters;
+}
+export interface ConnectionOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.externalConnectors.externalConnection entity.
  */

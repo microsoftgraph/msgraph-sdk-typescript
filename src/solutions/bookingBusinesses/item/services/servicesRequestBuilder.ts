@@ -1,19 +1,70 @@
 import { type BookingServiceCollectionResponse } from '../../../../models/';
-import { type BookingService } from '../../../../models/bookingService';
-import { createBookingServiceCollectionResponseFromDiscriminatorValue } from '../../../../models/createBookingServiceCollectionResponseFromDiscriminatorValue';
-import { createBookingServiceFromDiscriminatorValue } from '../../../../models/createBookingServiceFromDiscriminatorValue';
-import { deserializeIntoBookingService } from '../../../../models/deserializeIntoBookingService';
+import { createBookingServiceFromDiscriminatorValue, deserializeIntoBookingService, serializeBookingService, type BookingService } from '../../../../models/bookingService';
+import { createBookingServiceCollectionResponseFromDiscriminatorValue } from '../../../../models/bookingServiceCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingService } from '../../../../models/serializeBookingService';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { BookingServiceItemRequestBuilder } from './item/bookingServiceItemRequestBuilder';
-import { type ServicesRequestBuilderGetRequestConfiguration } from './servicesRequestBuilderGetRequestConfiguration';
-import { type ServicesRequestBuilderPostRequestConfiguration } from './servicesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServicesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ServicesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServicesRequestBuilderGetQueryParameters;
+}
+export interface ServicesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
  */

@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type ArchivePostRequestBody } from './archivePostRequestBody';
-import { type ArchiveRequestBuilderPostRequestConfiguration } from './archiveRequestBuilderPostRequestConfiguration';
-import { type ArchiveResponse } from './archiveResponse';
-import { createArchiveResponseFromDiscriminatorValue } from './createArchiveResponseFromDiscriminatorValue';
-import { deserializeIntoArchivePostRequestBody } from './deserializeIntoArchivePostRequestBody';
-import { deserializeIntoArchiveResponse } from './deserializeIntoArchiveResponse';
-import { serializeArchivePostRequestBody } from './serializeArchivePostRequestBody';
-import { serializeArchiveResponse } from './serializeArchiveResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoArchivePostRequestBody, serializeArchivePostRequestBody, type ArchivePostRequestBody } from './archivePostRequestBody';
+import { createArchiveResponseFromDiscriminatorValue, deserializeIntoArchiveResponse, serializeArchiveResponse, type ArchiveResponse } from './archiveResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ArchiveRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the archive method.
  */

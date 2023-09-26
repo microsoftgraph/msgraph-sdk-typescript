@@ -13,3 +13,5 @@ export enum DeviceManagementReportStatus {
     /** Report generation has failed */
     Failed = "failed",
 }
+// tslint:enable
+// eslint-enable

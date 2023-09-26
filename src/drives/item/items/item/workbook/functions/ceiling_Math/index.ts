@@ -1,5 +1,2 @@
 export * from './ceiling_MathPostRequestBody'
-export * from './ceiling_MathRequestBuilderPostRequestConfiguration'
-export * from './createCeiling_MathPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoCeiling_MathPostRequestBody'
-export * from './serializeCeiling_MathPostRequestBody'
+export * from './ceiling_MathRequestBuilder'

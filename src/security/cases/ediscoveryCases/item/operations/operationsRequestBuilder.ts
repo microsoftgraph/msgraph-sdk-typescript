@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type CaseOperationCollectionResponse } from '../../../../../models/security/';
-import { type CaseOperation } from '../../../../../models/security/caseOperation';
-import { createCaseOperationCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createCaseOperationCollectionResponseFromDiscriminatorValue';
-import { createCaseOperationFromDiscriminatorValue } from '../../../../../models/security/createCaseOperationFromDiscriminatorValue';
-import { deserializeIntoCaseOperation } from '../../../../../models/security/deserializeIntoCaseOperation';
-import { serializeCaseOperation } from '../../../../../models/security/serializeCaseOperation';
+import { createCaseOperationFromDiscriminatorValue, deserializeIntoCaseOperation, serializeCaseOperation, type CaseOperation } from '../../../../../models/security/caseOperation';
+import { createCaseOperationCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/caseOperationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { CaseOperationItemRequestBuilder } from './item/caseOperationItemRequestBuilder';
-import { type OperationsRequestBuilderGetRequestConfiguration } from './operationsRequestBuilderGetRequestConfiguration';
-import { type OperationsRequestBuilderPostRequestConfiguration } from './operationsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OperationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OperationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OperationsRequestBuilderGetQueryParameters;
+}
+export interface OperationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
  */

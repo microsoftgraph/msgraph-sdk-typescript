@@ -1,17 +1,19 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { createGetPresencesByUserIdResponseFromDiscriminatorValue } from './createGetPresencesByUserIdResponseFromDiscriminatorValue';
-import { deserializeIntoGetPresencesByUserIdPostRequestBody } from './deserializeIntoGetPresencesByUserIdPostRequestBody';
-import { deserializeIntoGetPresencesByUserIdResponse } from './deserializeIntoGetPresencesByUserIdResponse';
-import { type GetPresencesByUserIdPostRequestBody } from './getPresencesByUserIdPostRequestBody';
-import { type GetPresencesByUserIdRequestBuilderPostRequestConfiguration } from './getPresencesByUserIdRequestBuilderPostRequestConfiguration';
-import { type GetPresencesByUserIdResponse } from './getPresencesByUserIdResponse';
-import { serializeGetPresencesByUserIdPostRequestBody } from './serializeGetPresencesByUserIdPostRequestBody';
-import { serializeGetPresencesByUserIdResponse } from './serializeGetPresencesByUserIdResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { deserializeIntoGetPresencesByUserIdPostRequestBody, serializeGetPresencesByUserIdPostRequestBody, type GetPresencesByUserIdPostRequestBody } from './getPresencesByUserIdPostRequestBody';
+import { createGetPresencesByUserIdResponseFromDiscriminatorValue, deserializeIntoGetPresencesByUserIdResponse, serializeGetPresencesByUserIdResponse, type GetPresencesByUserIdResponse } from './getPresencesByUserIdResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetPresencesByUserIdRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getPresencesByUserId method.
  */

@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoUnsetReactionPostRequestBody } from './deserializeIntoUnsetReactionPostRequestBody';
-import { serializeUnsetReactionPostRequestBody } from './serializeUnsetReactionPostRequestBody';
-import { type UnsetReactionPostRequestBody } from './unsetReactionPostRequestBody';
-import { type UnsetReactionRequestBuilderPostRequestConfiguration } from './unsetReactionRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoUnsetReactionPostRequestBody, serializeUnsetReactionPostRequestBody, type UnsetReactionPostRequestBody } from './unsetReactionPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnsetReactionRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the unsetReaction method.
  */

@@ -1,18 +1,54 @@
-import { createDocumentSetVersionFromDiscriminatorValue } from '../../../../../../../models/createDocumentSetVersionFromDiscriminatorValue';
-import { deserializeIntoDocumentSetVersion } from '../../../../../../../models/deserializeIntoDocumentSetVersion';
-import { type DocumentSetVersion } from '../../../../../../../models/documentSetVersion';
+import { createDocumentSetVersionFromDiscriminatorValue, deserializeIntoDocumentSetVersion, serializeDocumentSetVersion, type DocumentSetVersion } from '../../../../../../../models/documentSetVersion';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeDocumentSetVersion } from '../../../../../../../models/serializeDocumentSetVersion';
-import { type DocumentSetVersionItemRequestBuilderDeleteRequestConfiguration } from './documentSetVersionItemRequestBuilderDeleteRequestConfiguration';
-import { type DocumentSetVersionItemRequestBuilderGetRequestConfiguration } from './documentSetVersionItemRequestBuilderGetRequestConfiguration';
-import { type DocumentSetVersionItemRequestBuilderPatchRequestConfiguration } from './documentSetVersionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { FieldsRequestBuilder } from './fields/fieldsRequestBuilder';
 import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DocumentSetVersionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DocumentSetVersionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DocumentSetVersionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DocumentSetVersionItemRequestBuilderGetQueryParameters;
+}
+export interface DocumentSetVersionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
  */

@@ -1,17 +1,19 @@
-import { type CancelMediaProcessingOperation } from '../../../../models/cancelMediaProcessingOperation';
-import { createCancelMediaProcessingOperationFromDiscriminatorValue } from '../../../../models/createCancelMediaProcessingOperationFromDiscriminatorValue';
-import { deserializeIntoCancelMediaProcessingOperation } from '../../../../models/deserializeIntoCancelMediaProcessingOperation';
+import { createCancelMediaProcessingOperationFromDiscriminatorValue, deserializeIntoCancelMediaProcessingOperation, serializeCancelMediaProcessingOperation, type CancelMediaProcessingOperation } from '../../../../models/cancelMediaProcessingOperation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeCancelMediaProcessingOperation } from '../../../../models/serializeCancelMediaProcessingOperation';
-import { type CancelMediaProcessingPostRequestBody } from './cancelMediaProcessingPostRequestBody';
-import { type CancelMediaProcessingRequestBuilderPostRequestConfiguration } from './cancelMediaProcessingRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCancelMediaProcessingPostRequestBody } from './deserializeIntoCancelMediaProcessingPostRequestBody';
-import { serializeCancelMediaProcessingPostRequestBody } from './serializeCancelMediaProcessingPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoCancelMediaProcessingPostRequestBody, serializeCancelMediaProcessingPostRequestBody, type CancelMediaProcessingPostRequestBody } from './cancelMediaProcessingPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CancelMediaProcessingRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the cancelMediaProcessing method.
  */

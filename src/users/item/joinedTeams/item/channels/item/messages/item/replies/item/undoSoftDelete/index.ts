@@ -1,1 +1,1 @@
-export * from './undoSoftDeleteRequestBuilderPostRequestConfiguration'
+export * from './undoSoftDeleteRequestBuilder'

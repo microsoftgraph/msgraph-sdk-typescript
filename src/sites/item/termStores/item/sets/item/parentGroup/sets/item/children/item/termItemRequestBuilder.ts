@@ -1,19 +1,55 @@
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { createTermFromDiscriminatorValue } from '../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
-import { deserializeIntoTerm } from '../../../../../../../../../../../models/termStore/deserializeIntoTerm';
-import { serializeTerm } from '../../../../../../../../../../../models/termStore/serializeTerm';
-import { type Term } from '../../../../../../../../../../../models/termStore/term';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createTermFromDiscriminatorValue, deserializeIntoTerm, serializeTerm, type Term } from '../../../../../../../../../../../models/termStore/term';
 import { ChildrenRequestBuilder } from './children/childrenRequestBuilder';
 import { RelationsRequestBuilder } from './relations/relationsRequestBuilder';
 import { SetRequestBuilder } from './set/setRequestBuilder';
-import { type TermItemRequestBuilderDeleteRequestConfiguration } from './termItemRequestBuilderDeleteRequestConfiguration';
-import { type TermItemRequestBuilderGetRequestConfiguration } from './termItemRequestBuilderGetRequestConfiguration';
-import { type TermItemRequestBuilderPatchRequestConfiguration } from './termItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TermItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TermItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TermItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TermItemRequestBuilderGetQueryParameters;
+}
+export interface TermItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
  */

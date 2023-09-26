@@ -1,16 +1,52 @@
-import { createTeamworkTagMemberFromDiscriminatorValue } from '../../../../../../models/createTeamworkTagMemberFromDiscriminatorValue';
-import { deserializeIntoTeamworkTagMember } from '../../../../../../models/deserializeIntoTeamworkTagMember';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeTeamworkTagMember } from '../../../../../../models/serializeTeamworkTagMember';
-import { type TeamworkTagMember } from '../../../../../../models/teamworkTagMember';
-import { type TeamworkTagMemberItemRequestBuilderDeleteRequestConfiguration } from './teamworkTagMemberItemRequestBuilderDeleteRequestConfiguration';
-import { type TeamworkTagMemberItemRequestBuilderGetRequestConfiguration } from './teamworkTagMemberItemRequestBuilderGetRequestConfiguration';
-import { type TeamworkTagMemberItemRequestBuilderPatchRequestConfiguration } from './teamworkTagMemberItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createTeamworkTagMemberFromDiscriminatorValue, deserializeIntoTeamworkTagMember, serializeTeamworkTagMember, type TeamworkTagMember } from '../../../../../../models/teamworkTagMember';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamworkTagMemberItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TeamworkTagMemberItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamworkTagMemberItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamworkTagMemberItemRequestBuilderGetQueryParameters;
+}
+export interface TeamworkTagMemberItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the members property of the microsoft.graph.teamworkTag entity.
  */

@@ -1,19 +1,70 @@
 import { type OfferShiftRequestCollectionResponse } from '../../../../../models/';
-import { createOfferShiftRequestCollectionResponseFromDiscriminatorValue } from '../../../../../models/createOfferShiftRequestCollectionResponseFromDiscriminatorValue';
-import { createOfferShiftRequestFromDiscriminatorValue } from '../../../../../models/createOfferShiftRequestFromDiscriminatorValue';
-import { deserializeIntoOfferShiftRequest } from '../../../../../models/deserializeIntoOfferShiftRequest';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type OfferShiftRequest } from '../../../../../models/offerShiftRequest';
-import { serializeOfferShiftRequest } from '../../../../../models/serializeOfferShiftRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createOfferShiftRequestFromDiscriminatorValue, deserializeIntoOfferShiftRequest, serializeOfferShiftRequest, type OfferShiftRequest } from '../../../../../models/offerShiftRequest';
+import { createOfferShiftRequestCollectionResponseFromDiscriminatorValue } from '../../../../../models/offerShiftRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OfferShiftRequestItemRequestBuilder } from './item/offerShiftRequestItemRequestBuilder';
-import { type OfferShiftRequestsRequestBuilderGetRequestConfiguration } from './offerShiftRequestsRequestBuilderGetRequestConfiguration';
-import { type OfferShiftRequestsRequestBuilderPostRequestConfiguration } from './offerShiftRequestsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OfferShiftRequestsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OfferShiftRequestsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OfferShiftRequestsRequestBuilderGetQueryParameters;
+}
+export interface OfferShiftRequestsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
  */

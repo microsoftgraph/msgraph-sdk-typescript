@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type AddGroupPostRequestBody } from './addGroupPostRequestBody';
-import { type AddGroupRequestBuilderPostRequestConfiguration } from './addGroupRequestBuilderPostRequestConfiguration';
-import { type AddGroupResponse } from './addGroupResponse';
-import { createAddGroupResponseFromDiscriminatorValue } from './createAddGroupResponseFromDiscriminatorValue';
-import { deserializeIntoAddGroupPostRequestBody } from './deserializeIntoAddGroupPostRequestBody';
-import { deserializeIntoAddGroupResponse } from './deserializeIntoAddGroupResponse';
-import { serializeAddGroupPostRequestBody } from './serializeAddGroupPostRequestBody';
-import { serializeAddGroupResponse } from './serializeAddGroupResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoAddGroupPostRequestBody, serializeAddGroupPostRequestBody, type AddGroupPostRequestBody } from './addGroupPostRequestBody';
+import { createAddGroupResponseFromDiscriminatorValue, deserializeIntoAddGroupResponse, serializeAddGroupResponse, type AddGroupResponse } from './addGroupResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AddGroupRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the addGroup method.
  */

@@ -1,17 +1,19 @@
-import { createOnenoteOperationFromDiscriminatorValue } from '../../../../../../../models/createOnenoteOperationFromDiscriminatorValue';
-import { deserializeIntoOnenoteOperation } from '../../../../../../../models/deserializeIntoOnenoteOperation';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { type OnenoteOperation } from '../../../../../../../models/onenoteOperation';
-import { serializeOnenoteOperation } from '../../../../../../../models/serializeOnenoteOperation';
-import { type CopyToSectionGroupPostRequestBody } from './copyToSectionGroupPostRequestBody';
-import { type CopyToSectionGroupRequestBuilderPostRequestConfiguration } from './copyToSectionGroupRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCopyToSectionGroupPostRequestBody } from './deserializeIntoCopyToSectionGroupPostRequestBody';
-import { serializeCopyToSectionGroupPostRequestBody } from './serializeCopyToSectionGroupPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createOnenoteOperationFromDiscriminatorValue, deserializeIntoOnenoteOperation, serializeOnenoteOperation, type OnenoteOperation } from '../../../../../../../models/onenoteOperation';
+import { deserializeIntoCopyToSectionGroupPostRequestBody, serializeCopyToSectionGroupPostRequestBody, type CopyToSectionGroupPostRequestBody } from './copyToSectionGroupPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CopyToSectionGroupRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the copyToSectionGroup method.
  */

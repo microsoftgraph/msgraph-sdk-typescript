@@ -17,3 +17,5 @@ export enum ActionState {
     /** Action is not supported. */
     NotSupported = "notSupported",
 }
+// tslint:enable
+// eslint-enable

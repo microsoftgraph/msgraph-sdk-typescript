@@ -1,16 +1,52 @@
-import { type BookingStaffMemberBase } from '../../../../../models/bookingStaffMemberBase';
-import { createBookingStaffMemberBaseFromDiscriminatorValue } from '../../../../../models/createBookingStaffMemberBaseFromDiscriminatorValue';
-import { deserializeIntoBookingStaffMemberBase } from '../../../../../models/deserializeIntoBookingStaffMemberBase';
+import { createBookingStaffMemberBaseFromDiscriminatorValue, deserializeIntoBookingStaffMemberBase, serializeBookingStaffMemberBase, type BookingStaffMemberBase } from '../../../../../models/bookingStaffMemberBase';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingStaffMemberBase } from '../../../../../models/serializeBookingStaffMemberBase';
-import { type BookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration } from './bookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration';
-import { type BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration } from './bookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration';
-import { type BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration } from './bookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BookingStaffMemberBaseItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BookingStaffMemberBaseItemRequestBuilderGetQueryParameters;
+}
+export interface BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
  */

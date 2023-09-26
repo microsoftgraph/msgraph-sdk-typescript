@@ -1,17 +1,19 @@
-import { createOnlineMeetingFromDiscriminatorValue } from '../../../../models/createOnlineMeetingFromDiscriminatorValue';
-import { deserializeIntoOnlineMeeting } from '../../../../models/deserializeIntoOnlineMeeting';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type OnlineMeeting } from '../../../../models/onlineMeeting';
-import { serializeOnlineMeeting } from '../../../../models/serializeOnlineMeeting';
-import { type CreateOrGetPostRequestBody } from './createOrGetPostRequestBody';
-import { type CreateOrGetRequestBuilderPostRequestConfiguration } from './createOrGetRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCreateOrGetPostRequestBody } from './deserializeIntoCreateOrGetPostRequestBody';
-import { serializeCreateOrGetPostRequestBody } from './serializeCreateOrGetPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createOnlineMeetingFromDiscriminatorValue, deserializeIntoOnlineMeeting, serializeOnlineMeeting, type OnlineMeeting } from '../../../../models/onlineMeeting';
+import { deserializeIntoCreateOrGetPostRequestBody, serializeCreateOrGetPostRequestBody, type CreateOrGetPostRequestBody } from './createOrGetPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CreateOrGetRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the createOrGet method.
  */

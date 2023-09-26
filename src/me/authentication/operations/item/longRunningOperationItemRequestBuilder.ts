@@ -1,16 +1,52 @@
-import { createLongRunningOperationFromDiscriminatorValue } from '../../../../models/createLongRunningOperationFromDiscriminatorValue';
-import { deserializeIntoLongRunningOperation } from '../../../../models/deserializeIntoLongRunningOperation';
-import { type LongRunningOperation } from '../../../../models/longRunningOperation';
+import { createLongRunningOperationFromDiscriminatorValue, deserializeIntoLongRunningOperation, serializeLongRunningOperation, type LongRunningOperation } from '../../../../models/longRunningOperation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeLongRunningOperation } from '../../../../models/serializeLongRunningOperation';
-import { type LongRunningOperationItemRequestBuilderDeleteRequestConfiguration } from './longRunningOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type LongRunningOperationItemRequestBuilderGetRequestConfiguration } from './longRunningOperationItemRequestBuilderGetRequestConfiguration';
-import { type LongRunningOperationItemRequestBuilderPatchRequestConfiguration } from './longRunningOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LongRunningOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface LongRunningOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LongRunningOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LongRunningOperationItemRequestBuilderGetQueryParameters;
+}
+export interface LongRunningOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.authentication entity.
  */

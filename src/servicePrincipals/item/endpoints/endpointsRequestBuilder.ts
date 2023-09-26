@@ -1,19 +1,70 @@
 import { type EndpointCollectionResponse } from '../../../models/';
-import { createEndpointCollectionResponseFromDiscriminatorValue } from '../../../models/createEndpointCollectionResponseFromDiscriminatorValue';
-import { createEndpointFromDiscriminatorValue } from '../../../models/createEndpointFromDiscriminatorValue';
-import { deserializeIntoEndpoint } from '../../../models/deserializeIntoEndpoint';
-import { type Endpoint } from '../../../models/endpoint';
+import { createEndpointFromDiscriminatorValue, deserializeIntoEndpoint, serializeEndpoint, type Endpoint } from '../../../models/endpoint';
+import { createEndpointCollectionResponseFromDiscriminatorValue } from '../../../models/endpointCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeEndpoint } from '../../../models/serializeEndpoint';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type EndpointsRequestBuilderGetRequestConfiguration } from './endpointsRequestBuilderGetRequestConfiguration';
-import { type EndpointsRequestBuilderPostRequestConfiguration } from './endpointsRequestBuilderPostRequestConfiguration';
 import { EndpointItemRequestBuilder } from './item/endpointItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EndpointsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface EndpointsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EndpointsRequestBuilderGetQueryParameters;
+}
+export interface EndpointsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.servicePrincipal entity.
  */

@@ -1,4 +1,5 @@
 import { RefRequestBuilder } from './ref/refRequestBuilder';
+import { ServiceProvisioningErrorsRequestBuilder } from './serviceProvisioningErrors/serviceProvisioningErrorsRequestBuilder';
 import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstractions';
 
 /**
@@ -10,6 +11,12 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
      */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * The serviceProvisioningErrors property
+     */
+    public get serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder {
+        return new ServiceProvisioningErrorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new GroupItemRequestBuilder and sets the default values.

@@ -4,3 +4,5 @@ export enum ExpirationPatternType {
     AfterDateTime = "afterDateTime",
     AfterDuration = "afterDuration",
 }
+// tslint:enable
+// eslint-enable

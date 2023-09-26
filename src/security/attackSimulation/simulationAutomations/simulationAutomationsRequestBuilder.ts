@@ -1,19 +1,70 @@
 import { type SimulationAutomationCollectionResponse } from '../../../models/';
-import { createSimulationAutomationCollectionResponseFromDiscriminatorValue } from '../../../models/createSimulationAutomationCollectionResponseFromDiscriminatorValue';
-import { createSimulationAutomationFromDiscriminatorValue } from '../../../models/createSimulationAutomationFromDiscriminatorValue';
-import { deserializeIntoSimulationAutomation } from '../../../models/deserializeIntoSimulationAutomation';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeSimulationAutomation } from '../../../models/serializeSimulationAutomation';
-import { type SimulationAutomation } from '../../../models/simulationAutomation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createSimulationAutomationFromDiscriminatorValue, deserializeIntoSimulationAutomation, serializeSimulationAutomation, type SimulationAutomation } from '../../../models/simulationAutomation';
+import { createSimulationAutomationCollectionResponseFromDiscriminatorValue } from '../../../models/simulationAutomationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SimulationAutomationItemRequestBuilder } from './item/simulationAutomationItemRequestBuilder';
-import { type SimulationAutomationsRequestBuilderGetRequestConfiguration } from './simulationAutomationsRequestBuilderGetRequestConfiguration';
-import { type SimulationAutomationsRequestBuilderPostRequestConfiguration } from './simulationAutomationsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SimulationAutomationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SimulationAutomationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SimulationAutomationsRequestBuilderGetQueryParameters;
+}
+export interface SimulationAutomationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
  */

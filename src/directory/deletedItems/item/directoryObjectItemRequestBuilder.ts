@@ -1,55 +1,53 @@
-import { createDirectoryObjectFromDiscriminatorValue } from '../../../models/createDirectoryObjectFromDiscriminatorValue';
-import { deserializeIntoDirectoryObject } from '../../../models/deserializeIntoDirectoryObject';
-import { type DirectoryObject } from '../../../models/directoryObject';
+import { type DirectoryObject } from '../../../models/';
+import { createDirectoryObjectFromDiscriminatorValue } from '../../../models/directoryObject';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDirectoryObject } from '../../../models/serializeDirectoryObject';
-import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import { type DirectoryObjectItemRequestBuilderDeleteRequestConfiguration } from './directoryObjectItemRequestBuilderDeleteRequestConfiguration';
-import { type DirectoryObjectItemRequestBuilderGetRequestConfiguration } from './directoryObjectItemRequestBuilderGetRequestConfiguration';
-import { type DirectoryObjectItemRequestBuilderPatchRequestConfiguration } from './directoryObjectItemRequestBuilderPatchRequestConfiguration';
-import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
-import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { GraphAdministrativeUnitRequestBuilder } from './graphAdministrativeUnit/graphAdministrativeUnitRequestBuilder';
 import { GraphApplicationRequestBuilder } from './graphApplication/graphApplicationRequestBuilder';
 import { GraphDeviceRequestBuilder } from './graphDevice/graphDeviceRequestBuilder';
 import { GraphGroupRequestBuilder } from './graphGroup/graphGroupRequestBuilder';
 import { GraphServicePrincipalRequestBuilder } from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
 import { GraphUserRequestBuilder } from './graphUser/graphUserRequestBuilder';
-import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DirectoryObjectItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DirectoryObjectItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DirectoryObjectItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DirectoryObjectItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
  */
 export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
-    /**
-     * Provides operations to call the checkMemberGroups method.
-     */
-    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
-        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
-     * Provides operations to call the checkMemberObjects method.
-     */
-    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
-        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
-     * Provides operations to call the getMemberGroups method.
-     */
-    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
-        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
-     * Provides operations to call the getMemberObjects method.
-     */
-    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
-        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Casts the previous resource to administrativeUnit.
      */
@@ -85,12 +83,6 @@ export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
      */
     public get graphUser(): GraphUserRequestBuilder {
         return new GraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
-     * Provides operations to call the restore method.
-     */
-    public get restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
@@ -132,22 +124,6 @@ export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property deletedItems in directory
-     * @param body The request body
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DirectoryObject
-     */
-    public patch(body: DirectoryObject, requestConfiguration?: DirectoryObjectItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DirectoryObject | undefined> {
-        const requestInfo = this.toPatchRequestInformation(
-            body, requestConfiguration
-        );
-        const errorMapping = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, errorMapping);
-    };
-    /**
      * Permanently delete a recently deleted application, group, servicePrincipal, or user object from deleted items. After an item is permanently deleted, it cannot be restored. Administrative units cannot be permanently deleted by using the deletedItems API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -179,26 +155,6 @@ export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        return requestInfo;
-    };
-    /**
-     * Update the navigation property deletedItems in directory
-     * @param body The request body
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public toPatchRequestInformation(body: DirectoryObject, requestConfiguration?: DirectoryObjectItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = ["application/json"];
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectoryObject);
         return requestInfo;
     };
     /**

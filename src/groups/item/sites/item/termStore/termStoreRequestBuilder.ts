@@ -1,18 +1,54 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { createStoreFromDiscriminatorValue } from '../../../../../models/termStore/createStoreFromDiscriminatorValue';
-import { deserializeIntoStore } from '../../../../../models/termStore/deserializeIntoStore';
-import { serializeStore } from '../../../../../models/termStore/serializeStore';
-import { type Store } from '../../../../../models/termStore/store';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createStoreFromDiscriminatorValue, deserializeIntoStore, serializeStore, type Store } from '../../../../../models/termStore/store';
 import { GroupsRequestBuilder } from './groups/groupsRequestBuilder';
 import { SetsRequestBuilder } from './sets/setsRequestBuilder';
-import { type TermStoreRequestBuilderDeleteRequestConfiguration } from './termStoreRequestBuilderDeleteRequestConfiguration';
-import { type TermStoreRequestBuilderGetRequestConfiguration } from './termStoreRequestBuilderGetRequestConfiguration';
-import { type TermStoreRequestBuilderPatchRequestConfiguration } from './termStoreRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TermStoreRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TermStoreRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TermStoreRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TermStoreRequestBuilderGetQueryParameters;
+}
+export interface TermStoreRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the termStore property of the microsoft.graph.site entity.
  */

@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type ChangeScreenSharingRolePostRequestBody } from './changeScreenSharingRolePostRequestBody';
-import { type ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration } from './changeScreenSharingRoleRequestBuilderPostRequestConfiguration';
-import { deserializeIntoChangeScreenSharingRolePostRequestBody } from './deserializeIntoChangeScreenSharingRolePostRequestBody';
-import { serializeChangeScreenSharingRolePostRequestBody } from './serializeChangeScreenSharingRolePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoChangeScreenSharingRolePostRequestBody, serializeChangeScreenSharingRolePostRequestBody, type ChangeScreenSharingRolePostRequestBody } from './changeScreenSharingRolePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the changeScreenSharingRole method.
  */

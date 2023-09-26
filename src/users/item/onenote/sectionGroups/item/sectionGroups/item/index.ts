@@ -1,2 +1,1 @@
-export * from './sectionGroupItemRequestBuilderGetQueryParameters'
-export * from './sectionGroupItemRequestBuilderGetRequestConfiguration'
+export * from './sectionGroupItemRequestBuilder'

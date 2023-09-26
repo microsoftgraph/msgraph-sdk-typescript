@@ -1,19 +1,70 @@
 import { type BookingAppointmentCollectionResponse } from '../../../../models/';
-import { type BookingAppointment } from '../../../../models/bookingAppointment';
-import { createBookingAppointmentCollectionResponseFromDiscriminatorValue } from '../../../../models/createBookingAppointmentCollectionResponseFromDiscriminatorValue';
-import { createBookingAppointmentFromDiscriminatorValue } from '../../../../models/createBookingAppointmentFromDiscriminatorValue';
-import { deserializeIntoBookingAppointment } from '../../../../models/deserializeIntoBookingAppointment';
+import { createBookingAppointmentFromDiscriminatorValue, deserializeIntoBookingAppointment, serializeBookingAppointment, type BookingAppointment } from '../../../../models/bookingAppointment';
+import { createBookingAppointmentCollectionResponseFromDiscriminatorValue } from '../../../../models/bookingAppointmentCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingAppointment } from '../../../../models/serializeBookingAppointment';
-import { type AppointmentsRequestBuilderGetRequestConfiguration } from './appointmentsRequestBuilderGetRequestConfiguration';
-import { type AppointmentsRequestBuilderPostRequestConfiguration } from './appointmentsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { BookingAppointmentItemRequestBuilder } from './item/bookingAppointmentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AppointmentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AppointmentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AppointmentsRequestBuilderGetQueryParameters;
+}
+export interface AppointmentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
  */

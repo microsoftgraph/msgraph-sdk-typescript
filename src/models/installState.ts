@@ -15,3 +15,5 @@ export enum InstallState {
     /** Unknown. */
     Unknown = "unknown",
 }
+// tslint:enable
+// eslint-enable

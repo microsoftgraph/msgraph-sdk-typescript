@@ -1,19 +1,66 @@
 import { type TimeOffRequestCollectionResponse } from '../../../../../models/';
-import { createTimeOffRequestCollectionResponseFromDiscriminatorValue } from '../../../../../models/createTimeOffRequestCollectionResponseFromDiscriminatorValue';
-import { createTimeOffRequestFromDiscriminatorValue } from '../../../../../models/createTimeOffRequestFromDiscriminatorValue';
-import { deserializeIntoTimeOffRequest } from '../../../../../models/deserializeIntoTimeOffRequest';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeTimeOffRequest } from '../../../../../models/serializeTimeOffRequest';
-import { type TimeOffRequest } from '../../../../../models/timeOffRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createTimeOffRequestFromDiscriminatorValue, deserializeIntoTimeOffRequest, serializeTimeOffRequest, type TimeOffRequest } from '../../../../../models/timeOffRequest';
+import { createTimeOffRequestCollectionResponseFromDiscriminatorValue } from '../../../../../models/timeOffRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TimeOffRequestItemRequestBuilder } from './item/timeOffRequestItemRequestBuilder';
-import { type TimeOffRequestsRequestBuilderGetRequestConfiguration } from './timeOffRequestsRequestBuilderGetRequestConfiguration';
-import { type TimeOffRequestsRequestBuilderPostRequestConfiguration } from './timeOffRequestsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TimeOffRequestsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TimeOffRequestsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TimeOffRequestsRequestBuilderGetQueryParameters;
+}
+export interface TimeOffRequestsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
  */

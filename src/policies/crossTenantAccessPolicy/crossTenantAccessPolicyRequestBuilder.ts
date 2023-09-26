@@ -1,18 +1,54 @@
-import { createCrossTenantAccessPolicyFromDiscriminatorValue } from '../../models/createCrossTenantAccessPolicyFromDiscriminatorValue';
-import { type CrossTenantAccessPolicy } from '../../models/crossTenantAccessPolicy';
-import { deserializeIntoCrossTenantAccessPolicy } from '../../models/deserializeIntoCrossTenantAccessPolicy';
+import { createCrossTenantAccessPolicyFromDiscriminatorValue, deserializeIntoCrossTenantAccessPolicy, serializeCrossTenantAccessPolicy, type CrossTenantAccessPolicy } from '../../models/crossTenantAccessPolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeCrossTenantAccessPolicy } from '../../models/serializeCrossTenantAccessPolicy';
-import { type CrossTenantAccessPolicyRequestBuilderDeleteRequestConfiguration } from './crossTenantAccessPolicyRequestBuilderDeleteRequestConfiguration';
-import { type CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration } from './crossTenantAccessPolicyRequestBuilderGetRequestConfiguration';
-import { type CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration } from './crossTenantAccessPolicyRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { DefaultRequestBuilder } from './defaultEscaped/defaultRequestBuilder';
 import { PartnersRequestBuilder } from './partners/partnersRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CrossTenantAccessPolicyRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CrossTenantAccessPolicyRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CrossTenantAccessPolicyRequestBuilderGetQueryParameters;
+}
+export interface CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity.
  */

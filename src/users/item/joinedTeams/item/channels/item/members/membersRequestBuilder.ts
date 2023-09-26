@@ -1,20 +1,71 @@
 import { type ConversationMemberCollectionResponse } from '../../../../../../../models/';
-import { type ConversationMember } from '../../../../../../../models/conversationMember';
-import { createConversationMemberCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createConversationMemberCollectionResponseFromDiscriminatorValue';
-import { createConversationMemberFromDiscriminatorValue } from '../../../../../../../models/createConversationMemberFromDiscriminatorValue';
-import { deserializeIntoConversationMember } from '../../../../../../../models/deserializeIntoConversationMember';
+import { createConversationMemberFromDiscriminatorValue, deserializeIntoConversationMember, serializeConversationMember, type ConversationMember } from '../../../../../../../models/conversationMember';
+import { createConversationMemberCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/conversationMemberCollectionResponse';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeConversationMember } from '../../../../../../../models/serializeConversationMember';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { AddRequestBuilder } from './add/addRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ConversationMemberItemRequestBuilder } from './item/conversationMemberItemRequestBuilder';
-import { type MembersRequestBuilderGetRequestConfiguration } from './membersRequestBuilderGetRequestConfiguration';
-import { type MembersRequestBuilderPostRequestConfiguration } from './membersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MembersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface MembersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MembersRequestBuilderGetQueryParameters;
+}
+export interface MembersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the members property of the microsoft.graph.channel entity.
  */
@@ -67,11 +118,11 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationMemberCollectionResponse>(requestInfo, createConversationMemberCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add a conversationMember to a channel.
+     * Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
-     * @see {@link https://learn.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ConversationMember, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -102,7 +153,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add a conversationMember to a channel.
+     * Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

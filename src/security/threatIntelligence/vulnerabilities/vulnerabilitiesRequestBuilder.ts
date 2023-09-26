@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type VulnerabilityCollectionResponse } from '../../../models/security/';
-import { createVulnerabilityCollectionResponseFromDiscriminatorValue } from '../../../models/security/createVulnerabilityCollectionResponseFromDiscriminatorValue';
-import { createVulnerabilityFromDiscriminatorValue } from '../../../models/security/createVulnerabilityFromDiscriminatorValue';
-import { deserializeIntoVulnerability } from '../../../models/security/deserializeIntoVulnerability';
-import { serializeVulnerability } from '../../../models/security/serializeVulnerability';
-import { type Vulnerability } from '../../../models/security/vulnerability';
+import { createVulnerabilityFromDiscriminatorValue, deserializeIntoVulnerability, serializeVulnerability, type Vulnerability } from '../../../models/security/vulnerability';
+import { createVulnerabilityCollectionResponseFromDiscriminatorValue } from '../../../models/security/vulnerabilityCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { VulnerabilityItemRequestBuilder } from './item/vulnerabilityItemRequestBuilder';
-import { type VulnerabilitiesRequestBuilderGetRequestConfiguration } from './vulnerabilitiesRequestBuilderGetRequestConfiguration';
-import { type VulnerabilitiesRequestBuilderPostRequestConfiguration } from './vulnerabilitiesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface VulnerabilitiesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface VulnerabilitiesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: VulnerabilitiesRequestBuilderGetQueryParameters;
+}
+export interface VulnerabilitiesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
  */

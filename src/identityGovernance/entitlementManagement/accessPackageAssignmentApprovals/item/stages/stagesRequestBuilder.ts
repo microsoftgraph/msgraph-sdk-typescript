@@ -1,19 +1,70 @@
 import { type ApprovalStageCollectionResponse } from '../../../../../models/';
-import { type ApprovalStage } from '../../../../../models/approvalStage';
-import { createApprovalStageCollectionResponseFromDiscriminatorValue } from '../../../../../models/createApprovalStageCollectionResponseFromDiscriminatorValue';
-import { createApprovalStageFromDiscriminatorValue } from '../../../../../models/createApprovalStageFromDiscriminatorValue';
-import { deserializeIntoApprovalStage } from '../../../../../models/deserializeIntoApprovalStage';
+import { createApprovalStageFromDiscriminatorValue, deserializeIntoApprovalStage, serializeApprovalStage, type ApprovalStage } from '../../../../../models/approvalStage';
+import { createApprovalStageCollectionResponseFromDiscriminatorValue } from '../../../../../models/approvalStageCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeApprovalStage } from '../../../../../models/serializeApprovalStage';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ApprovalStageItemRequestBuilder } from './item/approvalStageItemRequestBuilder';
-import { type StagesRequestBuilderGetRequestConfiguration } from './stagesRequestBuilderGetRequestConfiguration';
-import { type StagesRequestBuilderPostRequestConfiguration } from './stagesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface StagesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface StagesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: StagesRequestBuilderGetQueryParameters;
+}
+export interface StagesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the stages property of the microsoft.graph.approval entity.
  */

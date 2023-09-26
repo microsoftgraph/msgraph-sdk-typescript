@@ -1,19 +1,70 @@
 import { type WorkbookCommentReplyCollectionResponse } from '../../../../../../../../models/';
-import { createWorkbookCommentReplyCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookCommentReplyCollectionResponseFromDiscriminatorValue';
-import { createWorkbookCommentReplyFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookCommentReplyFromDiscriminatorValue';
-import { deserializeIntoWorkbookCommentReply } from '../../../../../../../../models/deserializeIntoWorkbookCommentReply';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookCommentReply } from '../../../../../../../../models/serializeWorkbookCommentReply';
-import { type WorkbookCommentReply } from '../../../../../../../../models/workbookCommentReply';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookCommentReplyFromDiscriminatorValue, deserializeIntoWorkbookCommentReply, serializeWorkbookCommentReply, type WorkbookCommentReply } from '../../../../../../../../models/workbookCommentReply';
+import { createWorkbookCommentReplyCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/workbookCommentReplyCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookCommentReplyItemRequestBuilder } from './item/workbookCommentReplyItemRequestBuilder';
-import { type RepliesRequestBuilderGetRequestConfiguration } from './repliesRequestBuilderGetRequestConfiguration';
-import { type RepliesRequestBuilderPostRequestConfiguration } from './repliesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RepliesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RepliesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RepliesRequestBuilderGetQueryParameters;
+}
+export interface RepliesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
  */

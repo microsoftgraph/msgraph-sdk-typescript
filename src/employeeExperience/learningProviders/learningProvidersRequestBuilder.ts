@@ -1,19 +1,70 @@
 import { type LearningProviderCollectionResponse } from '../../models/';
-import { createLearningProviderCollectionResponseFromDiscriminatorValue } from '../../models/createLearningProviderCollectionResponseFromDiscriminatorValue';
-import { createLearningProviderFromDiscriminatorValue } from '../../models/createLearningProviderFromDiscriminatorValue';
-import { deserializeIntoLearningProvider } from '../../models/deserializeIntoLearningProvider';
-import { type LearningProvider } from '../../models/learningProvider';
+import { createLearningProviderFromDiscriminatorValue, deserializeIntoLearningProvider, serializeLearningProvider, type LearningProvider } from '../../models/learningProvider';
+import { createLearningProviderCollectionResponseFromDiscriminatorValue } from '../../models/learningProviderCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeLearningProvider } from '../../models/serializeLearningProvider';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { LearningProviderItemRequestBuilder } from './item/learningProviderItemRequestBuilder';
-import { type LearningProvidersRequestBuilderGetRequestConfiguration } from './learningProvidersRequestBuilderGetRequestConfiguration';
-import { type LearningProvidersRequestBuilderPostRequestConfiguration } from './learningProvidersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LearningProvidersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface LearningProvidersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LearningProvidersRequestBuilderGetQueryParameters;
+}
+export interface LearningProvidersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
  */

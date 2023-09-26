@@ -1,19 +1,70 @@
 import { type TokenLifetimePolicyCollectionResponse } from '../../models/';
-import { createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue } from '../../models/createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue';
-import { createTokenLifetimePolicyFromDiscriminatorValue } from '../../models/createTokenLifetimePolicyFromDiscriminatorValue';
-import { deserializeIntoTokenLifetimePolicy } from '../../models/deserializeIntoTokenLifetimePolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeTokenLifetimePolicy } from '../../models/serializeTokenLifetimePolicy';
-import { type TokenLifetimePolicy } from '../../models/tokenLifetimePolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createTokenLifetimePolicyFromDiscriminatorValue, deserializeIntoTokenLifetimePolicy, serializeTokenLifetimePolicy, type TokenLifetimePolicy } from '../../models/tokenLifetimePolicy';
+import { createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue } from '../../models/tokenLifetimePolicyCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TokenLifetimePolicyItemRequestBuilder } from './item/tokenLifetimePolicyItemRequestBuilder';
-import { type TokenLifetimePoliciesRequestBuilderGetRequestConfiguration } from './tokenLifetimePoliciesRequestBuilderGetRequestConfiguration';
-import { type TokenLifetimePoliciesRequestBuilderPostRequestConfiguration } from './tokenLifetimePoliciesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TokenLifetimePoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TokenLifetimePoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TokenLifetimePoliciesRequestBuilderGetQueryParameters;
+}
+export interface TokenLifetimePoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.
  */

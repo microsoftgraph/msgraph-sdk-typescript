@@ -1,17 +1,53 @@
-import { createDelegatedAdminCustomerFromDiscriminatorValue } from '../../../models/createDelegatedAdminCustomerFromDiscriminatorValue';
-import { type DelegatedAdminCustomer } from '../../../models/delegatedAdminCustomer';
-import { deserializeIntoDelegatedAdminCustomer } from '../../../models/deserializeIntoDelegatedAdminCustomer';
+import { createDelegatedAdminCustomerFromDiscriminatorValue, deserializeIntoDelegatedAdminCustomer, serializeDelegatedAdminCustomer, type DelegatedAdminCustomer } from '../../../models/delegatedAdminCustomer';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDelegatedAdminCustomer } from '../../../models/serializeDelegatedAdminCustomer';
-import { type DelegatedAdminCustomerItemRequestBuilderDeleteRequestConfiguration } from './delegatedAdminCustomerItemRequestBuilderDeleteRequestConfiguration';
-import { type DelegatedAdminCustomerItemRequestBuilderGetRequestConfiguration } from './delegatedAdminCustomerItemRequestBuilderGetRequestConfiguration';
-import { type DelegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration } from './delegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { ServiceManagementDetailsRequestBuilder } from './serviceManagementDetails/serviceManagementDetailsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DelegatedAdminCustomerItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DelegatedAdminCustomerItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DelegatedAdminCustomerItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DelegatedAdminCustomerItemRequestBuilderGetQueryParameters;
+}
+export interface DelegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
  */

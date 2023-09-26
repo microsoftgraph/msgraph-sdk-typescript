@@ -1,20 +1,71 @@
 import { type EducationSchoolCollectionResponse } from '../../models/';
-import { createEducationSchoolCollectionResponseFromDiscriminatorValue } from '../../models/createEducationSchoolCollectionResponseFromDiscriminatorValue';
-import { createEducationSchoolFromDiscriminatorValue } from '../../models/createEducationSchoolFromDiscriminatorValue';
-import { deserializeIntoEducationSchool } from '../../models/deserializeIntoEducationSchool';
-import { type EducationSchool } from '../../models/educationSchool';
+import { createEducationSchoolFromDiscriminatorValue, deserializeIntoEducationSchool, serializeEducationSchool, type EducationSchool } from '../../models/educationSchool';
+import { createEducationSchoolCollectionResponseFromDiscriminatorValue } from '../../models/educationSchoolCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeEducationSchool } from '../../models/serializeEducationSchool';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { EducationSchoolItemRequestBuilder } from './item/educationSchoolItemRequestBuilder';
-import { type SchoolsRequestBuilderGetRequestConfiguration } from './schoolsRequestBuilderGetRequestConfiguration';
-import { type SchoolsRequestBuilderPostRequestConfiguration } from './schoolsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SchoolsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SchoolsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SchoolsRequestBuilderGetQueryParameters;
+}
+export interface SchoolsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
  */

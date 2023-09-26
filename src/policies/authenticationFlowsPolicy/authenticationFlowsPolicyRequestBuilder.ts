@@ -1,16 +1,52 @@
-import { type AuthenticationFlowsPolicy } from '../../models/authenticationFlowsPolicy';
-import { createAuthenticationFlowsPolicyFromDiscriminatorValue } from '../../models/createAuthenticationFlowsPolicyFromDiscriminatorValue';
-import { deserializeIntoAuthenticationFlowsPolicy } from '../../models/deserializeIntoAuthenticationFlowsPolicy';
+import { createAuthenticationFlowsPolicyFromDiscriminatorValue, deserializeIntoAuthenticationFlowsPolicy, serializeAuthenticationFlowsPolicy, type AuthenticationFlowsPolicy } from '../../models/authenticationFlowsPolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationFlowsPolicy } from '../../models/serializeAuthenticationFlowsPolicy';
-import { type AuthenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration } from './authenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration';
-import { type AuthenticationFlowsPolicyRequestBuilderGetRequestConfiguration } from './authenticationFlowsPolicyRequestBuilderGetRequestConfiguration';
-import { type AuthenticationFlowsPolicyRequestBuilderPatchRequestConfiguration } from './authenticationFlowsPolicyRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AuthenticationFlowsPolicyRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AuthenticationFlowsPolicyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthenticationFlowsPolicyRequestBuilderGetQueryParameters;
+}
+export interface AuthenticationFlowsPolicyRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the authenticationFlowsPolicy property of the microsoft.graph.policyRoot entity.
  */

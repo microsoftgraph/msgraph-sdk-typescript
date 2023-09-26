@@ -1,12 +1,33 @@
 import { type Entity } from '../../../../../../models/';
-import { createEntityFromDiscriminatorValue } from '../../../../../../models/createEntityFromDiscriminatorValue';
+import { createEntityFromDiscriminatorValue } from '../../../../../../models/entity';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type LastSharedMethodRequestBuilderGetRequestConfiguration } from './lastSharedMethodRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LastSharedMethodRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LastSharedMethodRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LastSharedMethodRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the lastSharedMethod property of the microsoft.graph.sharedInsight entity.
  */

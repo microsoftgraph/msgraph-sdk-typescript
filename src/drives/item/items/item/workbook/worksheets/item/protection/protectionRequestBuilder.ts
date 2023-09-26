@@ -1,18 +1,54 @@
-import { createWorkbookWorksheetProtectionFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookWorksheetProtectionFromDiscriminatorValue';
-import { deserializeIntoWorkbookWorksheetProtection } from '../../../../../../../../models/deserializeIntoWorkbookWorksheetProtection';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookWorksheetProtection } from '../../../../../../../../models/serializeWorkbookWorksheetProtection';
-import { type WorkbookWorksheetProtection } from '../../../../../../../../models/workbookWorksheetProtection';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookWorksheetProtectionFromDiscriminatorValue, deserializeIntoWorkbookWorksheetProtection, serializeWorkbookWorksheetProtection, type WorkbookWorksheetProtection } from '../../../../../../../../models/workbookWorksheetProtection';
 import { ProtectRequestBuilder } from './protect/protectRequestBuilder';
-import { type ProtectionRequestBuilderDeleteRequestConfiguration } from './protectionRequestBuilderDeleteRequestConfiguration';
-import { type ProtectionRequestBuilderGetRequestConfiguration } from './protectionRequestBuilderGetRequestConfiguration';
-import { type ProtectionRequestBuilderPatchRequestConfiguration } from './protectionRequestBuilderPatchRequestConfiguration';
 import { UnprotectRequestBuilder } from './unprotect/unprotectRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ProtectionRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ProtectionRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ProtectionRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ProtectionRequestBuilderGetQueryParameters;
+}
+export interface ProtectionRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the protection property of the microsoft.graph.workbookWorksheet entity.
  */

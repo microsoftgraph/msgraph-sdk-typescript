@@ -1,23 +1,74 @@
 import { type OrganizationCollectionResponse } from '../models/';
-import { createOrganizationCollectionResponseFromDiscriminatorValue } from '../models/createOrganizationCollectionResponseFromDiscriminatorValue';
-import { createOrganizationFromDiscriminatorValue } from '../models/createOrganizationFromDiscriminatorValue';
-import { deserializeIntoOrganization } from '../models/deserializeIntoOrganization';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { type Organization } from '../models/organization';
-import { serializeOrganization } from '../models/serializeOrganization';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createOrganizationFromDiscriminatorValue, deserializeIntoOrganization, serializeOrganization, type Organization } from '../models/organization';
+import { createOrganizationCollectionResponseFromDiscriminatorValue } from '../models/organizationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
 import { OrganizationItemRequestBuilder } from './item/organizationItemRequestBuilder';
-import { type OrganizationRequestBuilderGetRequestConfiguration } from './organizationRequestBuilderGetRequestConfiguration';
-import { type OrganizationRequestBuilderPostRequestConfiguration } from './organizationRequestBuilderPostRequestConfiguration';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OrganizationRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OrganizationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OrganizationRequestBuilderGetQueryParameters;
+}
+export interface OrganizationRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of organization entities.
  */

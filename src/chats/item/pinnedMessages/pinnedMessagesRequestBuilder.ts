@@ -1,19 +1,70 @@
 import { type PinnedChatMessageInfoCollectionResponse } from '../../../models/';
-import { createPinnedChatMessageInfoCollectionResponseFromDiscriminatorValue } from '../../../models/createPinnedChatMessageInfoCollectionResponseFromDiscriminatorValue';
-import { createPinnedChatMessageInfoFromDiscriminatorValue } from '../../../models/createPinnedChatMessageInfoFromDiscriminatorValue';
-import { deserializeIntoPinnedChatMessageInfo } from '../../../models/deserializeIntoPinnedChatMessageInfo';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PinnedChatMessageInfo } from '../../../models/pinnedChatMessageInfo';
-import { serializePinnedChatMessageInfo } from '../../../models/serializePinnedChatMessageInfo';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPinnedChatMessageInfoFromDiscriminatorValue, deserializeIntoPinnedChatMessageInfo, serializePinnedChatMessageInfo, type PinnedChatMessageInfo } from '../../../models/pinnedChatMessageInfo';
+import { createPinnedChatMessageInfoCollectionResponseFromDiscriminatorValue } from '../../../models/pinnedChatMessageInfoCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PinnedChatMessageInfoItemRequestBuilder } from './item/pinnedChatMessageInfoItemRequestBuilder';
-import { type PinnedMessagesRequestBuilderGetRequestConfiguration } from './pinnedMessagesRequestBuilderGetRequestConfiguration';
-import { type PinnedMessagesRequestBuilderPostRequestConfiguration } from './pinnedMessagesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PinnedMessagesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PinnedMessagesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PinnedMessagesRequestBuilderGetQueryParameters;
+}
+export interface PinnedMessagesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
  */

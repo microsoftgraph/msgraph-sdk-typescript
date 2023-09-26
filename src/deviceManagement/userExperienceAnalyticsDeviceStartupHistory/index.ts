@@ -1,3 +1,1 @@
-export * from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetQueryParameters'
-export * from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration'
-export * from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration'
+export * from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilder'

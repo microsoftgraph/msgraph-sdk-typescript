@@ -1,14 +1,59 @@
 import { type WorkflowVersionCollectionResponse } from '../../../../../../models/identityGovernance/';
-import { createWorkflowVersionCollectionResponseFromDiscriminatorValue } from '../../../../../../models/identityGovernance/createWorkflowVersionCollectionResponseFromDiscriminatorValue';
+import { createWorkflowVersionCollectionResponseFromDiscriminatorValue } from '../../../../../../models/identityGovernance/workflowVersionCollectionResponse';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkflowVersionVersionNumberItemRequestBuilder } from './item/workflowVersionVersionNumberItemRequestBuilder';
-import { type VersionsRequestBuilderGetRequestConfiguration } from './versionsRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface VersionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface VersionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: VersionsRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
  */

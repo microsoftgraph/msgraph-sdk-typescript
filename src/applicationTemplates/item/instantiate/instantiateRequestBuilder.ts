@@ -1,17 +1,19 @@
-import { type ApplicationServicePrincipal } from '../../../models/applicationServicePrincipal';
-import { createApplicationServicePrincipalFromDiscriminatorValue } from '../../../models/createApplicationServicePrincipalFromDiscriminatorValue';
-import { deserializeIntoApplicationServicePrincipal } from '../../../models/deserializeIntoApplicationServicePrincipal';
+import { createApplicationServicePrincipalFromDiscriminatorValue, deserializeIntoApplicationServicePrincipal, serializeApplicationServicePrincipal, type ApplicationServicePrincipal } from '../../../models/applicationServicePrincipal';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeApplicationServicePrincipal } from '../../../models/serializeApplicationServicePrincipal';
-import { deserializeIntoInstantiatePostRequestBody } from './deserializeIntoInstantiatePostRequestBody';
-import { type InstantiatePostRequestBody } from './instantiatePostRequestBody';
-import { type InstantiateRequestBuilderPostRequestConfiguration } from './instantiateRequestBuilderPostRequestConfiguration';
-import { serializeInstantiatePostRequestBody } from './serializeInstantiatePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoInstantiatePostRequestBody, serializeInstantiatePostRequestBody, type InstantiatePostRequestBody } from './instantiatePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InstantiateRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the instantiate method.
  */

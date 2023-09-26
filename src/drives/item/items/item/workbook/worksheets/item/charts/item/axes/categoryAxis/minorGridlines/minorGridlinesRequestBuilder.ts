@@ -1,17 +1,53 @@
-import { createWorkbookChartGridlinesFromDiscriminatorValue } from '../../../../../../../../../../../../models/createWorkbookChartGridlinesFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartGridlines } from '../../../../../../../../../../../../models/deserializeIntoWorkbookChartGridlines';
 import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartGridlines } from '../../../../../../../../../../../../models/serializeWorkbookChartGridlines';
-import { type WorkbookChartGridlines } from '../../../../../../../../../../../../models/workbookChartGridlines';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartGridlinesFromDiscriminatorValue, deserializeIntoWorkbookChartGridlines, serializeWorkbookChartGridlines, type WorkbookChartGridlines } from '../../../../../../../../../../../../models/workbookChartGridlines';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
-import { type MinorGridlinesRequestBuilderDeleteRequestConfiguration } from './minorGridlinesRequestBuilderDeleteRequestConfiguration';
-import { type MinorGridlinesRequestBuilderGetRequestConfiguration } from './minorGridlinesRequestBuilderGetRequestConfiguration';
-import { type MinorGridlinesRequestBuilderPatchRequestConfiguration } from './minorGridlinesRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MinorGridlinesRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MinorGridlinesRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MinorGridlinesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MinorGridlinesRequestBuilderGetQueryParameters;
+}
+export interface MinorGridlinesRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the minorGridlines property of the microsoft.graph.workbookChartAxis entity.
  */

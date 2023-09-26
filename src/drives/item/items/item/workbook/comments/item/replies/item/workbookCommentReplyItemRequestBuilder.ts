@@ -1,16 +1,52 @@
-import { createWorkbookCommentReplyFromDiscriminatorValue } from '../../../../../../../../../models/createWorkbookCommentReplyFromDiscriminatorValue';
-import { deserializeIntoWorkbookCommentReply } from '../../../../../../../../../models/deserializeIntoWorkbookCommentReply';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookCommentReply } from '../../../../../../../../../models/serializeWorkbookCommentReply';
-import { type WorkbookCommentReply } from '../../../../../../../../../models/workbookCommentReply';
-import { type WorkbookCommentReplyItemRequestBuilderDeleteRequestConfiguration } from './workbookCommentReplyItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookCommentReplyItemRequestBuilderGetRequestConfiguration } from './workbookCommentReplyItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookCommentReplyItemRequestBuilderPatchRequestConfiguration } from './workbookCommentReplyItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookCommentReplyFromDiscriminatorValue, deserializeIntoWorkbookCommentReply, serializeWorkbookCommentReply, type WorkbookCommentReply } from '../../../../../../../../../models/workbookCommentReply';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookCommentReplyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookCommentReplyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookCommentReplyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookCommentReplyItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookCommentReplyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
  */

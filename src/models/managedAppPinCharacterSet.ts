@@ -7,3 +7,5 @@ export enum ManagedAppPinCharacterSet {
     /** Alphanumeric and symbolic characters */
     AlphanumericAndSymbol = "alphanumericAndSymbol",
 }
+// tslint:enable
+// eslint-enable

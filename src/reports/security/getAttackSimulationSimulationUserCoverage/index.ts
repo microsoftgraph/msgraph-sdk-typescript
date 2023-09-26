@@ -1,6 +1,2 @@
-export * from './createGetAttackSimulationSimulationUserCoverageResponseFromDiscriminatorValue'
-export * from './deserializeIntoGetAttackSimulationSimulationUserCoverageResponse'
-export * from './getAttackSimulationSimulationUserCoverageRequestBuilderGetQueryParameters'
-export * from './getAttackSimulationSimulationUserCoverageRequestBuilderGetRequestConfiguration'
+export * from './getAttackSimulationSimulationUserCoverageRequestBuilder'
 export * from './getAttackSimulationSimulationUserCoverageResponse'
-export * from './serializeGetAttackSimulationSimulationUserCoverageResponse'

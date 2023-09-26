@@ -1,16 +1,52 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type CaseOperation } from '../../../../../../models/security/caseOperation';
-import { createCaseOperationFromDiscriminatorValue } from '../../../../../../models/security/createCaseOperationFromDiscriminatorValue';
-import { deserializeIntoCaseOperation } from '../../../../../../models/security/deserializeIntoCaseOperation';
-import { serializeCaseOperation } from '../../../../../../models/security/serializeCaseOperation';
-import { type CaseOperationItemRequestBuilderDeleteRequestConfiguration } from './caseOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type CaseOperationItemRequestBuilderGetRequestConfiguration } from './caseOperationItemRequestBuilderGetRequestConfiguration';
-import { type CaseOperationItemRequestBuilderPatchRequestConfiguration } from './caseOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createCaseOperationFromDiscriminatorValue, deserializeIntoCaseOperation, serializeCaseOperation, type CaseOperation } from '../../../../../../models/security/caseOperation';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CaseOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CaseOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CaseOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CaseOperationItemRequestBuilderGetQueryParameters;
+}
+export interface CaseOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
  */

@@ -1,18 +1,54 @@
-import { createPermissionGrantPolicyFromDiscriminatorValue } from '../../../models/createPermissionGrantPolicyFromDiscriminatorValue';
-import { deserializeIntoPermissionGrantPolicy } from '../../../models/deserializeIntoPermissionGrantPolicy';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PermissionGrantPolicy } from '../../../models/permissionGrantPolicy';
-import { serializePermissionGrantPolicy } from '../../../models/serializePermissionGrantPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPermissionGrantPolicyFromDiscriminatorValue, deserializeIntoPermissionGrantPolicy, serializePermissionGrantPolicy, type PermissionGrantPolicy } from '../../../models/permissionGrantPolicy';
 import { ExcludesRequestBuilder } from './excludes/excludesRequestBuilder';
 import { IncludesRequestBuilder } from './includes/includesRequestBuilder';
-import { type PermissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration } from './permissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration } from './permissionGrantPolicyItemRequestBuilderGetRequestConfiguration';
-import { type PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration } from './permissionGrantPolicyItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PermissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PermissionGrantPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PermissionGrantPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
  */

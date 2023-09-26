@@ -1,21 +1,57 @@
-import { createGroupSettingTemplateFromDiscriminatorValue } from '../../models/createGroupSettingTemplateFromDiscriminatorValue';
-import { deserializeIntoGroupSettingTemplate } from '../../models/deserializeIntoGroupSettingTemplate';
-import { type GroupSettingTemplate } from '../../models/groupSettingTemplate';
+import { createGroupSettingTemplateFromDiscriminatorValue, deserializeIntoGroupSettingTemplate, serializeGroupSettingTemplate, type GroupSettingTemplate } from '../../models/groupSettingTemplate';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeGroupSettingTemplate } from '../../models/serializeGroupSettingTemplate';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
 import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
-import { type GroupSettingTemplateItemRequestBuilderDeleteRequestConfiguration } from './groupSettingTemplateItemRequestBuilderDeleteRequestConfiguration';
-import { type GroupSettingTemplateItemRequestBuilderGetRequestConfiguration } from './groupSettingTemplateItemRequestBuilderGetRequestConfiguration';
-import { type GroupSettingTemplateItemRequestBuilderPatchRequestConfiguration } from './groupSettingTemplateItemRequestBuilderPatchRequestConfiguration';
 import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GroupSettingTemplateItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface GroupSettingTemplateItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface GroupSettingTemplateItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GroupSettingTemplateItemRequestBuilderGetQueryParameters;
+}
+export interface GroupSettingTemplateItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of groupSettingTemplate entities.
  */

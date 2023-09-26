@@ -1,19 +1,70 @@
 import { type ThumbnailSetCollectionResponse } from '../../../../../models/';
-import { createThumbnailSetCollectionResponseFromDiscriminatorValue } from '../../../../../models/createThumbnailSetCollectionResponseFromDiscriminatorValue';
-import { createThumbnailSetFromDiscriminatorValue } from '../../../../../models/createThumbnailSetFromDiscriminatorValue';
-import { deserializeIntoThumbnailSet } from '../../../../../models/deserializeIntoThumbnailSet';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeThumbnailSet } from '../../../../../models/serializeThumbnailSet';
-import { type ThumbnailSet } from '../../../../../models/thumbnailSet';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createThumbnailSetFromDiscriminatorValue, deserializeIntoThumbnailSet, serializeThumbnailSet, type ThumbnailSet } from '../../../../../models/thumbnailSet';
+import { createThumbnailSetCollectionResponseFromDiscriminatorValue } from '../../../../../models/thumbnailSetCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ThumbnailSetItemRequestBuilder } from './item/thumbnailSetItemRequestBuilder';
-import { type ThumbnailsRequestBuilderGetRequestConfiguration } from './thumbnailsRequestBuilderGetRequestConfiguration';
-import { type ThumbnailsRequestBuilderPostRequestConfiguration } from './thumbnailsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ThumbnailsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ThumbnailsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ThumbnailsRequestBuilderGetQueryParameters;
+}
+export interface ThumbnailsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity.
  */

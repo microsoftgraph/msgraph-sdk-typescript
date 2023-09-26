@@ -1,19 +1,70 @@
 import { type PrinterShareCollectionResponse } from '../../models/';
-import { createPrinterShareCollectionResponseFromDiscriminatorValue } from '../../models/createPrinterShareCollectionResponseFromDiscriminatorValue';
-import { createPrinterShareFromDiscriminatorValue } from '../../models/createPrinterShareFromDiscriminatorValue';
-import { deserializeIntoPrinterShare } from '../../models/deserializeIntoPrinterShare';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type PrinterShare } from '../../models/printerShare';
-import { serializePrinterShare } from '../../models/serializePrinterShare';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createPrinterShareFromDiscriminatorValue, deserializeIntoPrinterShare, serializePrinterShare, type PrinterShare } from '../../models/printerShare';
+import { createPrinterShareCollectionResponseFromDiscriminatorValue } from '../../models/printerShareCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PrinterShareItemRequestBuilder } from './item/printerShareItemRequestBuilder';
-import { type SharesRequestBuilderGetRequestConfiguration } from './sharesRequestBuilderGetRequestConfiguration';
-import { type SharesRequestBuilderPostRequestConfiguration } from './sharesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SharesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SharesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SharesRequestBuilderGetQueryParameters;
+}
+export interface SharesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the shares property of the microsoft.graph.print entity.
  */

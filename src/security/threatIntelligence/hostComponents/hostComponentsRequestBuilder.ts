@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type HostComponentCollectionResponse } from '../../../models/security/';
-import { createHostComponentCollectionResponseFromDiscriminatorValue } from '../../../models/security/createHostComponentCollectionResponseFromDiscriminatorValue';
-import { createHostComponentFromDiscriminatorValue } from '../../../models/security/createHostComponentFromDiscriminatorValue';
-import { deserializeIntoHostComponent } from '../../../models/security/deserializeIntoHostComponent';
-import { type HostComponent } from '../../../models/security/hostComponent';
-import { serializeHostComponent } from '../../../models/security/serializeHostComponent';
+import { createHostComponentFromDiscriminatorValue, deserializeIntoHostComponent, serializeHostComponent, type HostComponent } from '../../../models/security/hostComponent';
+import { createHostComponentCollectionResponseFromDiscriminatorValue } from '../../../models/security/hostComponentCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HostComponentsRequestBuilderGetRequestConfiguration } from './hostComponentsRequestBuilderGetRequestConfiguration';
-import { type HostComponentsRequestBuilderPostRequestConfiguration } from './hostComponentsRequestBuilderPostRequestConfiguration';
 import { HostComponentItemRequestBuilder } from './item/hostComponentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HostComponentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HostComponentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HostComponentsRequestBuilderGetQueryParameters;
+}
+export interface HostComponentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the hostComponents property of the microsoft.graph.security.threatIntelligence entity.
  */

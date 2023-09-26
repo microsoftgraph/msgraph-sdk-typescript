@@ -1,12 +1,33 @@
 import { type AppRoleAssignment } from '../../../../models/';
-import { createAppRoleAssignmentFromDiscriminatorValue } from '../../../../models/createAppRoleAssignmentFromDiscriminatorValue';
+import { createAppRoleAssignmentFromDiscriminatorValue } from '../../../../models/appRoleAssignment';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type GraphAppRoleAssignmentRequestBuilderGetRequestConfiguration } from './graphAppRoleAssignmentRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GraphAppRoleAssignmentRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface GraphAppRoleAssignmentRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GraphAppRoleAssignmentRequestBuilderGetQueryParameters;
+}
 /**
  * Casts the previous resource to appRoleAssignment.
  */

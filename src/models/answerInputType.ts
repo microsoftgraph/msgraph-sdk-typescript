@@ -3,3 +3,5 @@ export enum AnswerInputType {
     RadioButton = "radioButton",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

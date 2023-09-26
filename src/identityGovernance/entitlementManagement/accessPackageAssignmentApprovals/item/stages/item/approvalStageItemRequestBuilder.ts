@@ -1,16 +1,52 @@
-import { type ApprovalStage } from '../../../../../../models/approvalStage';
-import { createApprovalStageFromDiscriminatorValue } from '../../../../../../models/createApprovalStageFromDiscriminatorValue';
-import { deserializeIntoApprovalStage } from '../../../../../../models/deserializeIntoApprovalStage';
+import { createApprovalStageFromDiscriminatorValue, deserializeIntoApprovalStage, serializeApprovalStage, type ApprovalStage } from '../../../../../../models/approvalStage';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeApprovalStage } from '../../../../../../models/serializeApprovalStage';
-import { type ApprovalStageItemRequestBuilderDeleteRequestConfiguration } from './approvalStageItemRequestBuilderDeleteRequestConfiguration';
-import { type ApprovalStageItemRequestBuilderGetRequestConfiguration } from './approvalStageItemRequestBuilderGetRequestConfiguration';
-import { type ApprovalStageItemRequestBuilderPatchRequestConfiguration } from './approvalStageItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApprovalStageItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ApprovalStageItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ApprovalStageItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ApprovalStageItemRequestBuilderGetQueryParameters;
+}
+export interface ApprovalStageItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the stages property of the microsoft.graph.approval entity.
  */

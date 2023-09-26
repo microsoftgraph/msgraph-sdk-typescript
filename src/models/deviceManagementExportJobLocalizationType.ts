@@ -7,3 +7,5 @@ export enum DeviceManagementExportJobLocalizationType {
     /** Configures the export job to replace enumerable values with their localized values */
     ReplaceLocalizableValues = "replaceLocalizableValues",
 }
+// tslint:enable
+// eslint-enable

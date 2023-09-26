@@ -1,13 +1,43 @@
 import { type TemporaryAccessPassAuthenticationMethod } from '../../../../../models/';
-import { createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type TemporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './temporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import { type TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './temporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/temporaryAccessPassAuthenticationMethod';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TemporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
  */

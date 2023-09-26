@@ -1,17 +1,53 @@
-import { createUserConsentRequestFromDiscriminatorValue } from '../../../../../../models/createUserConsentRequestFromDiscriminatorValue';
-import { deserializeIntoUserConsentRequest } from '../../../../../../models/deserializeIntoUserConsentRequest';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeUserConsentRequest } from '../../../../../../models/serializeUserConsentRequest';
-import { type UserConsentRequest } from '../../../../../../models/userConsentRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createUserConsentRequestFromDiscriminatorValue, deserializeIntoUserConsentRequest, serializeUserConsentRequest, type UserConsentRequest } from '../../../../../../models/userConsentRequest';
 import { ApprovalRequestBuilder } from './approval/approvalRequestBuilder';
-import { type UserConsentRequestItemRequestBuilderDeleteRequestConfiguration } from './userConsentRequestItemRequestBuilderDeleteRequestConfiguration';
-import { type UserConsentRequestItemRequestBuilderGetRequestConfiguration } from './userConsentRequestItemRequestBuilderGetRequestConfiguration';
-import { type UserConsentRequestItemRequestBuilderPatchRequestConfiguration } from './userConsentRequestItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserConsentRequestItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserConsentRequestItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserConsentRequestItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserConsentRequestItemRequestBuilderGetQueryParameters;
+}
+export interface UserConsentRequestItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
  */

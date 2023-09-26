@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoValidateCredentialsPostRequestBody } from './deserializeIntoValidateCredentialsPostRequestBody';
-import { serializeValidateCredentialsPostRequestBody } from './serializeValidateCredentialsPostRequestBody';
-import { type ValidateCredentialsPostRequestBody } from './validateCredentialsPostRequestBody';
-import { type ValidateCredentialsRequestBuilderPostRequestConfiguration } from './validateCredentialsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoValidateCredentialsPostRequestBody, serializeValidateCredentialsPostRequestBody, type ValidateCredentialsPostRequestBody } from './validateCredentialsPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ValidateCredentialsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the validateCredentials method.
  */

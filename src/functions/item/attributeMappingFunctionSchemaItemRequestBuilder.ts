@@ -1,16 +1,52 @@
-import { type AttributeMappingFunctionSchema } from '../../models/attributeMappingFunctionSchema';
-import { createAttributeMappingFunctionSchemaFromDiscriminatorValue } from '../../models/createAttributeMappingFunctionSchemaFromDiscriminatorValue';
-import { deserializeIntoAttributeMappingFunctionSchema } from '../../models/deserializeIntoAttributeMappingFunctionSchema';
+import { createAttributeMappingFunctionSchemaFromDiscriminatorValue, deserializeIntoAttributeMappingFunctionSchema, serializeAttributeMappingFunctionSchema, type AttributeMappingFunctionSchema } from '../../models/attributeMappingFunctionSchema';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAttributeMappingFunctionSchema } from '../../models/serializeAttributeMappingFunctionSchema';
-import { type AttributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration } from './attributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration';
-import { type AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration } from './attributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration';
-import { type AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration } from './attributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AttributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters;
+}
+export interface AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of attributeMappingFunctionSchema entities.
  */

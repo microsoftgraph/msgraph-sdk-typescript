@@ -1,2 +1,1 @@
-export * from './faviconRequestBuilderGetRequestConfiguration'
-export * from './faviconRequestBuilderPutRequestConfiguration'
+export * from './faviconRequestBuilder'

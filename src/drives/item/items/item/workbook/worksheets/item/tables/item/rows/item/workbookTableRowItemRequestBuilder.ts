@@ -1,17 +1,53 @@
-import { createWorkbookTableRowFromDiscriminatorValue } from '../../../../../../../../../../../models/createWorkbookTableRowFromDiscriminatorValue';
-import { deserializeIntoWorkbookTableRow } from '../../../../../../../../../../../models/deserializeIntoWorkbookTableRow';
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookTableRow } from '../../../../../../../../../../../models/serializeWorkbookTableRow';
-import { type WorkbookTableRow } from '../../../../../../../../../../../models/workbookTableRow';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookTableRowFromDiscriminatorValue, deserializeIntoWorkbookTableRow, serializeWorkbookTableRow, type WorkbookTableRow } from '../../../../../../../../../../../models/workbookTableRow';
 import { RangeRequestBuilder } from './range/rangeRequestBuilder';
-import { type WorkbookTableRowItemRequestBuilderDeleteRequestConfiguration } from './workbookTableRowItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookTableRowItemRequestBuilderGetRequestConfiguration } from './workbookTableRowItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookTableRowItemRequestBuilderPatchRequestConfiguration } from './workbookTableRowItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookTableRowItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookTableRowItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookTableRowItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookTableRowItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookTableRowItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
  */

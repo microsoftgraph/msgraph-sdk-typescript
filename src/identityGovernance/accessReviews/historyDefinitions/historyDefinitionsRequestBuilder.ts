@@ -1,19 +1,70 @@
 import { type AccessReviewHistoryDefinitionCollectionResponse } from '../../../models/';
-import { type AccessReviewHistoryDefinition } from '../../../models/accessReviewHistoryDefinition';
-import { createAccessReviewHistoryDefinitionCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessReviewHistoryDefinitionCollectionResponseFromDiscriminatorValue';
-import { createAccessReviewHistoryDefinitionFromDiscriminatorValue } from '../../../models/createAccessReviewHistoryDefinitionFromDiscriminatorValue';
-import { deserializeIntoAccessReviewHistoryDefinition } from '../../../models/deserializeIntoAccessReviewHistoryDefinition';
+import { createAccessReviewHistoryDefinitionFromDiscriminatorValue, deserializeIntoAccessReviewHistoryDefinition, serializeAccessReviewHistoryDefinition, type AccessReviewHistoryDefinition } from '../../../models/accessReviewHistoryDefinition';
+import { createAccessReviewHistoryDefinitionCollectionResponseFromDiscriminatorValue } from '../../../models/accessReviewHistoryDefinitionCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewHistoryDefinition } from '../../../models/serializeAccessReviewHistoryDefinition';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HistoryDefinitionsRequestBuilderGetRequestConfiguration } from './historyDefinitionsRequestBuilderGetRequestConfiguration';
-import { type HistoryDefinitionsRequestBuilderPostRequestConfiguration } from './historyDefinitionsRequestBuilderPostRequestConfiguration';
 import { AccessReviewHistoryDefinitionItemRequestBuilder } from './item/accessReviewHistoryDefinitionItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HistoryDefinitionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HistoryDefinitionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HistoryDefinitionsRequestBuilderGetQueryParameters;
+}
+export interface HistoryDefinitionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
  */

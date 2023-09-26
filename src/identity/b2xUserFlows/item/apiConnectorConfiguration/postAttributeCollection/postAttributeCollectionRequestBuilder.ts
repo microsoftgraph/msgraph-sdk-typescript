@@ -1,18 +1,54 @@
-import { createIdentityApiConnectorFromDiscriminatorValue } from '../../../../../models/createIdentityApiConnectorFromDiscriminatorValue';
-import { deserializeIntoIdentityApiConnector } from '../../../../../models/deserializeIntoIdentityApiConnector';
-import { type IdentityApiConnector } from '../../../../../models/identityApiConnector';
+import { createIdentityApiConnectorFromDiscriminatorValue, deserializeIntoIdentityApiConnector, serializeIdentityApiConnector, type IdentityApiConnector } from '../../../../../models/identityApiConnector';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeIdentityApiConnector } from '../../../../../models/serializeIdentityApiConnector';
-import { type PostAttributeCollectionRequestBuilderDeleteRequestConfiguration } from './postAttributeCollectionRequestBuilderDeleteRequestConfiguration';
-import { type PostAttributeCollectionRequestBuilderGetRequestConfiguration } from './postAttributeCollectionRequestBuilderGetRequestConfiguration';
-import { type PostAttributeCollectionRequestBuilderPatchRequestConfiguration } from './postAttributeCollectionRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { RefRequestBuilder } from './ref/refRequestBuilder';
 import { UploadClientCertificateRequestBuilder } from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PostAttributeCollectionRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PostAttributeCollectionRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PostAttributeCollectionRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PostAttributeCollectionRequestBuilderGetQueryParameters;
+}
+export interface PostAttributeCollectionRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the postAttributeCollection property of the microsoft.graph.userFlowApiConnectorConfiguration entity.
  */

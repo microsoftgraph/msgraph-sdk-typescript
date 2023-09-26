@@ -1,17 +1,19 @@
-import { createWorkbookNamedItemFromDiscriminatorValue } from '../../../../../../../models/createWorkbookNamedItemFromDiscriminatorValue';
-import { deserializeIntoWorkbookNamedItem } from '../../../../../../../models/deserializeIntoWorkbookNamedItem';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookNamedItem } from '../../../../../../../models/serializeWorkbookNamedItem';
-import { type WorkbookNamedItem } from '../../../../../../../models/workbookNamedItem';
-import { type AddFormulaLocalPostRequestBody } from './addFormulaLocalPostRequestBody';
-import { type AddFormulaLocalRequestBuilderPostRequestConfiguration } from './addFormulaLocalRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAddFormulaLocalPostRequestBody } from './deserializeIntoAddFormulaLocalPostRequestBody';
-import { serializeAddFormulaLocalPostRequestBody } from './serializeAddFormulaLocalPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookNamedItemFromDiscriminatorValue, deserializeIntoWorkbookNamedItem, serializeWorkbookNamedItem, type WorkbookNamedItem } from '../../../../../../../models/workbookNamedItem';
+import { deserializeIntoAddFormulaLocalPostRequestBody, serializeAddFormulaLocalPostRequestBody, type AddFormulaLocalPostRequestBody } from './addFormulaLocalPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AddFormulaLocalRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the addFormulaLocal method.
  */

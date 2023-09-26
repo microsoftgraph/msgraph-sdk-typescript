@@ -1,18 +1,54 @@
-import { createUnifiedRoleManagementPolicyFromDiscriminatorValue } from '../../../models/createUnifiedRoleManagementPolicyFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleManagementPolicy } from '../../../models/deserializeIntoUnifiedRoleManagementPolicy';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleManagementPolicy } from '../../../models/serializeUnifiedRoleManagementPolicy';
-import { type UnifiedRoleManagementPolicy } from '../../../models/unifiedRoleManagementPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleManagementPolicyFromDiscriminatorValue, deserializeIntoUnifiedRoleManagementPolicy, serializeUnifiedRoleManagementPolicy, type UnifiedRoleManagementPolicy } from '../../../models/unifiedRoleManagementPolicy';
 import { EffectiveRulesRequestBuilder } from './effectiveRules/effectiveRulesRequestBuilder';
 import { RulesRequestBuilder } from './rules/rulesRequestBuilder';
-import { type UnifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration } from './unifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration } from './unifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration';
-import { type UnifiedRoleManagementPolicyItemRequestBuilderPatchRequestConfiguration } from './unifiedRoleManagementPolicyItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface UnifiedRoleManagementPolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
  */

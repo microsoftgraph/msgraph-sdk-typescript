@@ -1,21 +1,72 @@
 import { type WorkbookTableRowCollectionResponse } from '../../../../../../../../models/';
-import { createWorkbookTableRowCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookTableRowCollectionResponseFromDiscriminatorValue';
-import { createWorkbookTableRowFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookTableRowFromDiscriminatorValue';
-import { deserializeIntoWorkbookTableRow } from '../../../../../../../../models/deserializeIntoWorkbookTableRow';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookTableRow } from '../../../../../../../../models/serializeWorkbookTableRow';
-import { type WorkbookTableRow } from '../../../../../../../../models/workbookTableRow';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookTableRowFromDiscriminatorValue, deserializeIntoWorkbookTableRow, serializeWorkbookTableRow, type WorkbookTableRow } from '../../../../../../../../models/workbookTableRow';
+import { createWorkbookTableRowCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/workbookTableRowCollectionResponse';
 import { AddRequestBuilder } from './add/addRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookTableRowItemRequestBuilder } from './item/workbookTableRowItemRequestBuilder';
 import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import { type RowsRequestBuilderGetRequestConfiguration } from './rowsRequestBuilderGetRequestConfiguration';
-import { type RowsRequestBuilderPostRequestConfiguration } from './rowsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RowsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RowsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RowsRequestBuilderGetQueryParameters;
+}
+export interface RowsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
  */

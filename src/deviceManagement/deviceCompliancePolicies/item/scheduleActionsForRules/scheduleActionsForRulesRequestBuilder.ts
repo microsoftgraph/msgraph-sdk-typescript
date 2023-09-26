@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoScheduleActionsForRulesPostRequestBody } from './deserializeIntoScheduleActionsForRulesPostRequestBody';
-import { type ScheduleActionsForRulesPostRequestBody } from './scheduleActionsForRulesPostRequestBody';
-import { type ScheduleActionsForRulesRequestBuilderPostRequestConfiguration } from './scheduleActionsForRulesRequestBuilderPostRequestConfiguration';
-import { serializeScheduleActionsForRulesPostRequestBody } from './serializeScheduleActionsForRulesPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoScheduleActionsForRulesPostRequestBody, serializeScheduleActionsForRulesPostRequestBody, type ScheduleActionsForRulesPostRequestBody } from './scheduleActionsForRulesPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ScheduleActionsForRulesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the scheduleActionsForRules method.
  */

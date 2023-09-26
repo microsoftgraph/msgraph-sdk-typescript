@@ -1,19 +1,70 @@
 import { type SimulationAutomationRunCollectionResponse } from '../../../../../models/';
-import { createSimulationAutomationRunCollectionResponseFromDiscriminatorValue } from '../../../../../models/createSimulationAutomationRunCollectionResponseFromDiscriminatorValue';
-import { createSimulationAutomationRunFromDiscriminatorValue } from '../../../../../models/createSimulationAutomationRunFromDiscriminatorValue';
-import { deserializeIntoSimulationAutomationRun } from '../../../../../models/deserializeIntoSimulationAutomationRun';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeSimulationAutomationRun } from '../../../../../models/serializeSimulationAutomationRun';
-import { type SimulationAutomationRun } from '../../../../../models/simulationAutomationRun';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createSimulationAutomationRunFromDiscriminatorValue, deserializeIntoSimulationAutomationRun, serializeSimulationAutomationRun, type SimulationAutomationRun } from '../../../../../models/simulationAutomationRun';
+import { createSimulationAutomationRunCollectionResponseFromDiscriminatorValue } from '../../../../../models/simulationAutomationRunCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SimulationAutomationRunItemRequestBuilder } from './item/simulationAutomationRunItemRequestBuilder';
-import { type RunsRequestBuilderGetRequestConfiguration } from './runsRequestBuilderGetRequestConfiguration';
-import { type RunsRequestBuilderPostRequestConfiguration } from './runsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RunsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RunsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RunsRequestBuilderGetQueryParameters;
+}
+export interface RunsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the runs property of the microsoft.graph.simulationAutomation entity.
  */

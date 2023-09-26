@@ -1,19 +1,70 @@
 import { type ServiceHealthCollectionResponse } from '../../../models/';
-import { createServiceHealthCollectionResponseFromDiscriminatorValue } from '../../../models/createServiceHealthCollectionResponseFromDiscriminatorValue';
-import { createServiceHealthFromDiscriminatorValue } from '../../../models/createServiceHealthFromDiscriminatorValue';
-import { deserializeIntoServiceHealth } from '../../../models/deserializeIntoServiceHealth';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeServiceHealth } from '../../../models/serializeServiceHealth';
-import { type ServiceHealth } from '../../../models/serviceHealth';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createServiceHealthFromDiscriminatorValue, deserializeIntoServiceHealth, serializeServiceHealth, type ServiceHealth } from '../../../models/serviceHealth';
+import { createServiceHealthCollectionResponseFromDiscriminatorValue } from '../../../models/serviceHealthCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HealthOverviewsRequestBuilderGetRequestConfiguration } from './healthOverviewsRequestBuilderGetRequestConfiguration';
-import { type HealthOverviewsRequestBuilderPostRequestConfiguration } from './healthOverviewsRequestBuilderPostRequestConfiguration';
 import { ServiceHealthItemRequestBuilder } from './item/serviceHealthItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HealthOverviewsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HealthOverviewsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HealthOverviewsRequestBuilderGetQueryParameters;
+}
+export interface HealthOverviewsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
  */

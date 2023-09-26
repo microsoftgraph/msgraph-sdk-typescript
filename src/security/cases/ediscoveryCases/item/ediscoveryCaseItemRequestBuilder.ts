@@ -1,15 +1,7 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createEdiscoveryCaseFromDiscriminatorValue } from '../../../../models/security/createEdiscoveryCaseFromDiscriminatorValue';
-import { deserializeIntoEdiscoveryCase } from '../../../../models/security/deserializeIntoEdiscoveryCase';
-import { type EdiscoveryCase } from '../../../../models/security/ediscoveryCase';
-import { serializeEdiscoveryCase } from '../../../../models/security/serializeEdiscoveryCase';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createEdiscoveryCaseFromDiscriminatorValue, deserializeIntoEdiscoveryCase, serializeEdiscoveryCase, type EdiscoveryCase } from '../../../../models/security/ediscoveryCase';
 import { CustodiansRequestBuilder } from './custodians/custodiansRequestBuilder';
-import { type EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration } from './ediscoveryCaseItemRequestBuilderDeleteRequestConfiguration';
-import { type EdiscoveryCaseItemRequestBuilderGetRequestConfiguration } from './ediscoveryCaseItemRequestBuilderGetRequestConfiguration';
-import { type EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration } from './ediscoveryCaseItemRequestBuilderPatchRequestConfiguration';
 import { MicrosoftGraphSecurityCloseRequestBuilder } from './microsoftGraphSecurityClose/microsoftGraphSecurityCloseRequestBuilder';
 import { MicrosoftGraphSecurityReopenRequestBuilder } from './microsoftGraphSecurityReopen/microsoftGraphSecurityReopenRequestBuilder';
 import { NoncustodialDataSourcesRequestBuilder } from './noncustodialDataSources/noncustodialDataSourcesRequestBuilder';
@@ -20,6 +12,50 @@ import { SettingsRequestBuilder } from './settings/settingsRequestBuilder';
 import { TagsRequestBuilder } from './tags/tagsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EdiscoveryCaseItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EdiscoveryCaseItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EdiscoveryCaseItemRequestBuilderGetQueryParameters;
+}
+export interface EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
  */

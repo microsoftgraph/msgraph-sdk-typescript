@@ -1,13 +1,43 @@
 import { type Attachment } from '../../../../../../../../../models/';
-import { createAttachmentFromDiscriminatorValue } from '../../../../../../../../../models/createAttachmentFromDiscriminatorValue';
+import { createAttachmentFromDiscriminatorValue } from '../../../../../../../../../models/attachment';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type AttachmentItemRequestBuilderDeleteRequestConfiguration } from './attachmentItemRequestBuilderDeleteRequestConfiguration';
-import { type AttachmentItemRequestBuilderGetRequestConfiguration } from './attachmentItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AttachmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AttachmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AttachmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AttachmentItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.event entity.
  */

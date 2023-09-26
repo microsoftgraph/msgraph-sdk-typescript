@@ -1,18 +1,54 @@
-import { createWorkbookChartSeriesFromDiscriminatorValue } from '../../../../../../../../../../../models/createWorkbookChartSeriesFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartSeries } from '../../../../../../../../../../../models/deserializeIntoWorkbookChartSeries';
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartSeries } from '../../../../../../../../../../../models/serializeWorkbookChartSeries';
-import { type WorkbookChartSeries } from '../../../../../../../../../../../models/workbookChartSeries';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartSeriesFromDiscriminatorValue, deserializeIntoWorkbookChartSeries, serializeWorkbookChartSeries, type WorkbookChartSeries } from '../../../../../../../../../../../models/workbookChartSeries';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
 import { PointsRequestBuilder } from './points/pointsRequestBuilder';
-import { type WorkbookChartSeriesItemRequestBuilderDeleteRequestConfiguration } from './workbookChartSeriesItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration } from './workbookChartSeriesItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration } from './workbookChartSeriesItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookChartSeriesItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookChartSeriesItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookChartSeriesItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
  */

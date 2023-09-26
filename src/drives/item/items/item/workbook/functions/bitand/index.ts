@@ -1,5 +1,2 @@
 export * from './bitandPostRequestBody'
-export * from './bitandRequestBuilderPostRequestConfiguration'
-export * from './createBitandPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoBitandPostRequestBody'
-export * from './serializeBitandPostRequestBody'
+export * from './bitandRequestBuilder'

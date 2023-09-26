@@ -1,17 +1,19 @@
-import { type CopyNotebookModel } from '../../../../../../../models/copyNotebookModel';
-import { createCopyNotebookModelFromDiscriminatorValue } from '../../../../../../../models/createCopyNotebookModelFromDiscriminatorValue';
-import { deserializeIntoCopyNotebookModel } from '../../../../../../../models/deserializeIntoCopyNotebookModel';
+import { createCopyNotebookModelFromDiscriminatorValue, deserializeIntoCopyNotebookModel, serializeCopyNotebookModel, type CopyNotebookModel } from '../../../../../../../models/copyNotebookModel';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeCopyNotebookModel } from '../../../../../../../models/serializeCopyNotebookModel';
-import { deserializeIntoGetNotebookFromWebUrlPostRequestBody } from './deserializeIntoGetNotebookFromWebUrlPostRequestBody';
-import { type GetNotebookFromWebUrlPostRequestBody } from './getNotebookFromWebUrlPostRequestBody';
-import { type GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration } from './getNotebookFromWebUrlRequestBuilderPostRequestConfiguration';
-import { serializeGetNotebookFromWebUrlPostRequestBody } from './serializeGetNotebookFromWebUrlPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetNotebookFromWebUrlPostRequestBody, serializeGetNotebookFromWebUrlPostRequestBody, type GetNotebookFromWebUrlPostRequestBody } from './getNotebookFromWebUrlPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getNotebookFromWebUrl method.
  */

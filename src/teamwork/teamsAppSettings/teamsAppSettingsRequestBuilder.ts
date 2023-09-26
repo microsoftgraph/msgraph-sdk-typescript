@@ -1,16 +1,52 @@
-import { createTeamsAppSettingsFromDiscriminatorValue } from '../../models/createTeamsAppSettingsFromDiscriminatorValue';
-import { deserializeIntoTeamsAppSettings } from '../../models/deserializeIntoTeamsAppSettings';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeTeamsAppSettings } from '../../models/serializeTeamsAppSettings';
-import { type TeamsAppSettings } from '../../models/teamsAppSettings';
-import { type TeamsAppSettingsRequestBuilderDeleteRequestConfiguration } from './teamsAppSettingsRequestBuilderDeleteRequestConfiguration';
-import { type TeamsAppSettingsRequestBuilderGetRequestConfiguration } from './teamsAppSettingsRequestBuilderGetRequestConfiguration';
-import { type TeamsAppSettingsRequestBuilderPatchRequestConfiguration } from './teamsAppSettingsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createTeamsAppSettingsFromDiscriminatorValue, deserializeIntoTeamsAppSettings, serializeTeamsAppSettings, type TeamsAppSettings } from '../../models/teamsAppSettings';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamsAppSettingsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TeamsAppSettingsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamsAppSettingsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamsAppSettingsRequestBuilderGetQueryParameters;
+}
+export interface TeamsAppSettingsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the teamsAppSettings property of the microsoft.graph.teamwork entity.
  */

@@ -1,16 +1,52 @@
-import { createFieldValueSetFromDiscriminatorValue } from '../../../../../../../../../models/createFieldValueSetFromDiscriminatorValue';
-import { deserializeIntoFieldValueSet } from '../../../../../../../../../models/deserializeIntoFieldValueSet';
-import { type FieldValueSet } from '../../../../../../../../../models/fieldValueSet';
+import { createFieldValueSetFromDiscriminatorValue, deserializeIntoFieldValueSet, serializeFieldValueSet, type FieldValueSet } from '../../../../../../../../../models/fieldValueSet';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeFieldValueSet } from '../../../../../../../../../models/serializeFieldValueSet';
-import { type FieldsRequestBuilderDeleteRequestConfiguration } from './fieldsRequestBuilderDeleteRequestConfiguration';
-import { type FieldsRequestBuilderGetRequestConfiguration } from './fieldsRequestBuilderGetRequestConfiguration';
-import { type FieldsRequestBuilderPatchRequestConfiguration } from './fieldsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FieldsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface FieldsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FieldsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FieldsRequestBuilderGetQueryParameters;
+}
+export interface FieldsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the fields property of the microsoft.graph.listItem entity.
  */

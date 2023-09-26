@@ -1,18 +1,54 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createStoreFromDiscriminatorValue } from '../../../../models/termStore/createStoreFromDiscriminatorValue';
-import { deserializeIntoStore } from '../../../../models/termStore/deserializeIntoStore';
-import { serializeStore } from '../../../../models/termStore/serializeStore';
-import { type Store } from '../../../../models/termStore/store';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createStoreFromDiscriminatorValue, deserializeIntoStore, serializeStore, type Store } from '../../../../models/termStore/store';
 import { GroupsRequestBuilder } from './groups/groupsRequestBuilder';
 import { SetsRequestBuilder } from './sets/setsRequestBuilder';
-import { type StoreItemRequestBuilderDeleteRequestConfiguration } from './storeItemRequestBuilderDeleteRequestConfiguration';
-import { type StoreItemRequestBuilderGetRequestConfiguration } from './storeItemRequestBuilderGetRequestConfiguration';
-import { type StoreItemRequestBuilderPatchRequestConfiguration } from './storeItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface StoreItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface StoreItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface StoreItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: StoreItemRequestBuilderGetQueryParameters;
+}
+export interface StoreItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the termStores property of the microsoft.graph.site entity.
  */

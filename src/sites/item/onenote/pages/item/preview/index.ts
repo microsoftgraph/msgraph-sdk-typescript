@@ -1,1 +1,1 @@
-export * from './previewRequestBuilderGetRequestConfiguration'
+export * from './previewRequestBuilder'

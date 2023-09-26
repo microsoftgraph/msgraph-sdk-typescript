@@ -1,18 +1,54 @@
-import { createWorkbookPivotTableFromDiscriminatorValue } from '../../../../../../../../../models/createWorkbookPivotTableFromDiscriminatorValue';
-import { deserializeIntoWorkbookPivotTable } from '../../../../../../../../../models/deserializeIntoWorkbookPivotTable';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookPivotTable } from '../../../../../../../../../models/serializeWorkbookPivotTable';
-import { type WorkbookPivotTable } from '../../../../../../../../../models/workbookPivotTable';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookPivotTableFromDiscriminatorValue, deserializeIntoWorkbookPivotTable, serializeWorkbookPivotTable, type WorkbookPivotTable } from '../../../../../../../../../models/workbookPivotTable';
 import { RefreshRequestBuilder } from './refresh/refreshRequestBuilder';
-import { type WorkbookPivotTableItemRequestBuilderDeleteRequestConfiguration } from './workbookPivotTableItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookPivotTableItemRequestBuilderGetRequestConfiguration } from './workbookPivotTableItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration } from './workbookPivotTableItemRequestBuilderPatchRequestConfiguration';
 import { WorksheetRequestBuilder } from './worksheet/worksheetRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookPivotTableItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookPivotTableItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookPivotTableItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookPivotTableItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
  */

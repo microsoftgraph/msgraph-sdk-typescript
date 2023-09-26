@@ -1,16 +1,52 @@
-import { createDeviceFromDiscriminatorValue } from '../models/createDeviceFromDiscriminatorValue';
-import { deserializeIntoDevice } from '../models/deserializeIntoDevice';
-import { type Device } from '../models/device';
+import { createDeviceFromDiscriminatorValue, deserializeIntoDevice, serializeDevice, type Device } from '../models/device';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeDevice } from '../models/serializeDevice';
-import { type DevicesWithDeviceIdRequestBuilderDeleteRequestConfiguration } from './devicesWithDeviceIdRequestBuilderDeleteRequestConfiguration';
-import { type DevicesWithDeviceIdRequestBuilderGetRequestConfiguration } from './devicesWithDeviceIdRequestBuilderGetRequestConfiguration';
-import { type DevicesWithDeviceIdRequestBuilderPatchRequestConfiguration } from './devicesWithDeviceIdRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DevicesWithDeviceIdRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DevicesWithDeviceIdRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DevicesWithDeviceIdRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DevicesWithDeviceIdRequestBuilderGetQueryParameters;
+}
+export interface DevicesWithDeviceIdRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of device entities.
  */

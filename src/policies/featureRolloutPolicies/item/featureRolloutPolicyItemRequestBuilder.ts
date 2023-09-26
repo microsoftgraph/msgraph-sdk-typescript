@@ -1,17 +1,53 @@
-import { createFeatureRolloutPolicyFromDiscriminatorValue } from '../../../models/createFeatureRolloutPolicyFromDiscriminatorValue';
-import { deserializeIntoFeatureRolloutPolicy } from '../../../models/deserializeIntoFeatureRolloutPolicy';
-import { type FeatureRolloutPolicy } from '../../../models/featureRolloutPolicy';
+import { createFeatureRolloutPolicyFromDiscriminatorValue, deserializeIntoFeatureRolloutPolicy, serializeFeatureRolloutPolicy, type FeatureRolloutPolicy } from '../../../models/featureRolloutPolicy';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeFeatureRolloutPolicy } from '../../../models/serializeFeatureRolloutPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
-import { type FeatureRolloutPolicyItemRequestBuilderDeleteRequestConfiguration } from './featureRolloutPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type FeatureRolloutPolicyItemRequestBuilderGetRequestConfiguration } from './featureRolloutPolicyItemRequestBuilderGetRequestConfiguration';
-import { type FeatureRolloutPolicyItemRequestBuilderPatchRequestConfiguration } from './featureRolloutPolicyItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FeatureRolloutPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface FeatureRolloutPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FeatureRolloutPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FeatureRolloutPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface FeatureRolloutPolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
  */

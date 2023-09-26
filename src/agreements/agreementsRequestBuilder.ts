@@ -1,18 +1,45 @@
 import { type AgreementCollectionResponse } from '../models/';
-import { type Agreement } from '../models/agreement';
-import { createAgreementCollectionResponseFromDiscriminatorValue } from '../models/createAgreementCollectionResponseFromDiscriminatorValue';
-import { createAgreementFromDiscriminatorValue } from '../models/createAgreementFromDiscriminatorValue';
-import { deserializeIntoAgreement } from '../models/deserializeIntoAgreement';
+import { createAgreementFromDiscriminatorValue, deserializeIntoAgreement, serializeAgreement, type Agreement } from '../models/agreement';
+import { createAgreementCollectionResponseFromDiscriminatorValue } from '../models/agreementCollectionResponse';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeAgreement } from '../models/serializeAgreement';
-import { type AgreementsRequestBuilderGetRequestConfiguration } from './agreementsRequestBuilderGetRequestConfiguration';
-import { type AgreementsRequestBuilderPostRequestConfiguration } from './agreementsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { AgreementItemRequestBuilder } from './item/agreementItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AgreementsRequestBuilderGetQueryParameters {
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AgreementsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AgreementsRequestBuilderGetQueryParameters;
+}
+export interface AgreementsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of agreement entities.
  */

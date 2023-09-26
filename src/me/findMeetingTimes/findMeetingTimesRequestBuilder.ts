@@ -1,17 +1,19 @@
-import { createMeetingTimeSuggestionsResultFromDiscriminatorValue } from '../../models/createMeetingTimeSuggestionsResultFromDiscriminatorValue';
-import { deserializeIntoMeetingTimeSuggestionsResult } from '../../models/deserializeIntoMeetingTimeSuggestionsResult';
-import { type MeetingTimeSuggestionsResult } from '../../models/meetingTimeSuggestionsResult';
+import { createMeetingTimeSuggestionsResultFromDiscriminatorValue, deserializeIntoMeetingTimeSuggestionsResult, serializeMeetingTimeSuggestionsResult, type MeetingTimeSuggestionsResult } from '../../models/meetingTimeSuggestionsResult';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeMeetingTimeSuggestionsResult } from '../../models/serializeMeetingTimeSuggestionsResult';
-import { deserializeIntoFindMeetingTimesPostRequestBody } from './deserializeIntoFindMeetingTimesPostRequestBody';
-import { type FindMeetingTimesPostRequestBody } from './findMeetingTimesPostRequestBody';
-import { type FindMeetingTimesRequestBuilderPostRequestConfiguration } from './findMeetingTimesRequestBuilderPostRequestConfiguration';
-import { serializeFindMeetingTimesPostRequestBody } from './serializeFindMeetingTimesPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { deserializeIntoFindMeetingTimesPostRequestBody, serializeFindMeetingTimesPostRequestBody, type FindMeetingTimesPostRequestBody } from './findMeetingTimesPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FindMeetingTimesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the findMeetingTimes method.
  */

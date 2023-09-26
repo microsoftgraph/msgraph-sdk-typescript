@@ -1,19 +1,62 @@
 import { type OutlookCategoryCollectionResponse } from '../../../../models/';
-import { createOutlookCategoryCollectionResponseFromDiscriminatorValue } from '../../../../models/createOutlookCategoryCollectionResponseFromDiscriminatorValue';
-import { createOutlookCategoryFromDiscriminatorValue } from '../../../../models/createOutlookCategoryFromDiscriminatorValue';
-import { deserializeIntoOutlookCategory } from '../../../../models/deserializeIntoOutlookCategory';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type OutlookCategory } from '../../../../models/outlookCategory';
-import { serializeOutlookCategory } from '../../../../models/serializeOutlookCategory';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createOutlookCategoryFromDiscriminatorValue, deserializeIntoOutlookCategory, serializeOutlookCategory, type OutlookCategory } from '../../../../models/outlookCategory';
+import { createOutlookCategoryCollectionResponseFromDiscriminatorValue } from '../../../../models/outlookCategoryCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OutlookCategoryItemRequestBuilder } from './item/outlookCategoryItemRequestBuilder';
-import { type MasterCategoriesRequestBuilderGetRequestConfiguration } from './masterCategoriesRequestBuilderGetRequestConfiguration';
-import { type MasterCategoriesRequestBuilderPostRequestConfiguration } from './masterCategoriesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MasterCategoriesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface MasterCategoriesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MasterCategoriesRequestBuilderGetQueryParameters;
+}
+export interface MasterCategoriesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
  */

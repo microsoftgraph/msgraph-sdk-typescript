@@ -1,17 +1,19 @@
-import { createWorkflowFromDiscriminatorValue } from '../../../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
-import { deserializeIntoWorkflow } from '../../../../../models/identityGovernance/deserializeIntoWorkflow';
-import { serializeWorkflow } from '../../../../../models/identityGovernance/serializeWorkflow';
-import { type Workflow } from '../../../../../models/identityGovernance/workflow';
+import { createWorkflowFromDiscriminatorValue, deserializeIntoWorkflow, serializeWorkflow, type Workflow } from '../../../../../models/identityGovernance/workflow';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type CreateNewVersionPostRequestBody } from './createNewVersionPostRequestBody';
-import { deserializeIntoCreateNewVersionPostRequestBody } from './deserializeIntoCreateNewVersionPostRequestBody';
-import { type MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration } from './microsoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration';
-import { serializeCreateNewVersionPostRequestBody } from './serializeCreateNewVersionPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoCreateNewVersionPostRequestBody, serializeCreateNewVersionPostRequestBody, type CreateNewVersionPostRequestBody } from './createNewVersionPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the createNewVersion method.
  */

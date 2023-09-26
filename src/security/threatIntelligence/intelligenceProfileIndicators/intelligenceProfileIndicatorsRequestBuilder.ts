@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type IntelligenceProfileIndicatorCollectionResponse } from '../../../models/security/';
-import { createIntelligenceProfileIndicatorCollectionResponseFromDiscriminatorValue } from '../../../models/security/createIntelligenceProfileIndicatorCollectionResponseFromDiscriminatorValue';
-import { createIntelligenceProfileIndicatorFromDiscriminatorValue } from '../../../models/security/createIntelligenceProfileIndicatorFromDiscriminatorValue';
-import { deserializeIntoIntelligenceProfileIndicator } from '../../../models/security/deserializeIntoIntelligenceProfileIndicator';
-import { type IntelligenceProfileIndicator } from '../../../models/security/intelligenceProfileIndicator';
-import { serializeIntelligenceProfileIndicator } from '../../../models/security/serializeIntelligenceProfileIndicator';
+import { createIntelligenceProfileIndicatorFromDiscriminatorValue, deserializeIntoIntelligenceProfileIndicator, serializeIntelligenceProfileIndicator, type IntelligenceProfileIndicator } from '../../../models/security/intelligenceProfileIndicator';
+import { createIntelligenceProfileIndicatorCollectionResponseFromDiscriminatorValue } from '../../../models/security/intelligenceProfileIndicatorCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type IntelligenceProfileIndicatorsRequestBuilderGetRequestConfiguration } from './intelligenceProfileIndicatorsRequestBuilderGetRequestConfiguration';
-import { type IntelligenceProfileIndicatorsRequestBuilderPostRequestConfiguration } from './intelligenceProfileIndicatorsRequestBuilderPostRequestConfiguration';
 import { IntelligenceProfileIndicatorItemRequestBuilder } from './item/intelligenceProfileIndicatorItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IntelligenceProfileIndicatorsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface IntelligenceProfileIndicatorsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IntelligenceProfileIndicatorsRequestBuilderGetQueryParameters;
+}
+export interface IntelligenceProfileIndicatorsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.
  */

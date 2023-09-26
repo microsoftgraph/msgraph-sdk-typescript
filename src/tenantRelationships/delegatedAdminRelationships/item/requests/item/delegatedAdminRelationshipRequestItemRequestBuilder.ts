@@ -1,16 +1,52 @@
-import { createDelegatedAdminRelationshipRequestFromDiscriminatorValue } from '../../../../../models/createDelegatedAdminRelationshipRequestFromDiscriminatorValue';
-import { type DelegatedAdminRelationshipRequest } from '../../../../../models/delegatedAdminRelationshipRequest';
-import { deserializeIntoDelegatedAdminRelationshipRequest } from '../../../../../models/deserializeIntoDelegatedAdminRelationshipRequest';
+import { createDelegatedAdminRelationshipRequestFromDiscriminatorValue, deserializeIntoDelegatedAdminRelationshipRequest, serializeDelegatedAdminRelationshipRequest, type DelegatedAdminRelationshipRequest } from '../../../../../models/delegatedAdminRelationshipRequest';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeDelegatedAdminRelationshipRequest } from '../../../../../models/serializeDelegatedAdminRelationshipRequest';
-import { type DelegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration } from './delegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration';
-import { type DelegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration } from './delegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration';
-import { type DelegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration } from './delegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DelegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DelegatedAdminRelationshipRequestItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DelegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DelegatedAdminRelationshipRequestItemRequestBuilderGetQueryParameters;
+}
+export interface DelegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
  */

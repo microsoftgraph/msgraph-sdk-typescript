@@ -1,19 +1,55 @@
-import { createTeamsAppInstallationFromDiscriminatorValue } from '../../../../models/createTeamsAppInstallationFromDiscriminatorValue';
-import { deserializeIntoTeamsAppInstallation } from '../../../../models/deserializeIntoTeamsAppInstallation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeTeamsAppInstallation } from '../../../../models/serializeTeamsAppInstallation';
-import { type TeamsAppInstallation } from '../../../../models/teamsAppInstallation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createTeamsAppInstallationFromDiscriminatorValue, deserializeIntoTeamsAppInstallation, serializeTeamsAppInstallation, type TeamsAppInstallation } from '../../../../models/teamsAppInstallation';
 import { TeamsAppRequestBuilder } from './teamsApp/teamsAppRequestBuilder';
 import { TeamsAppDefinitionRequestBuilder } from './teamsAppDefinition/teamsAppDefinitionRequestBuilder';
-import { type TeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration } from './teamsAppInstallationItemRequestBuilderDeleteRequestConfiguration';
-import { type TeamsAppInstallationItemRequestBuilderGetRequestConfiguration } from './teamsAppInstallationItemRequestBuilderGetRequestConfiguration';
-import { type TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration } from './teamsAppInstallationItemRequestBuilderPatchRequestConfiguration';
 import { UpgradeRequestBuilder } from './upgrade/upgradeRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TeamsAppInstallationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamsAppInstallationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamsAppInstallationItemRequestBuilderGetQueryParameters;
+}
+export interface TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.team entity.
  */

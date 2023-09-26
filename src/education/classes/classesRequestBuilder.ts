@@ -1,20 +1,71 @@
 import { type EducationClassCollectionResponse } from '../../models/';
-import { createEducationClassCollectionResponseFromDiscriminatorValue } from '../../models/createEducationClassCollectionResponseFromDiscriminatorValue';
-import { createEducationClassFromDiscriminatorValue } from '../../models/createEducationClassFromDiscriminatorValue';
-import { deserializeIntoEducationClass } from '../../models/deserializeIntoEducationClass';
-import { type EducationClass } from '../../models/educationClass';
+import { createEducationClassFromDiscriminatorValue, deserializeIntoEducationClass, serializeEducationClass, type EducationClass } from '../../models/educationClass';
+import { createEducationClassCollectionResponseFromDiscriminatorValue } from '../../models/educationClassCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeEducationClass } from '../../models/serializeEducationClass';
-import { type ClassesRequestBuilderGetRequestConfiguration } from './classesRequestBuilderGetRequestConfiguration';
-import { type ClassesRequestBuilderPostRequestConfiguration } from './classesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { EducationClassItemRequestBuilder } from './item/educationClassItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ClassesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ClassesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ClassesRequestBuilderGetQueryParameters;
+}
+export interface ClassesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
  */

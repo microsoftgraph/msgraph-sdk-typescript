@@ -1,17 +1,19 @@
-import { createOnenoteOperationFromDiscriminatorValue } from '../../../../../../../../../../models/createOnenoteOperationFromDiscriminatorValue';
-import { deserializeIntoOnenoteOperation } from '../../../../../../../../../../models/deserializeIntoOnenoteOperation';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type OnenoteOperation } from '../../../../../../../../../../models/onenoteOperation';
-import { serializeOnenoteOperation } from '../../../../../../../../../../models/serializeOnenoteOperation';
-import { type CopyToNotebookPostRequestBody } from './copyToNotebookPostRequestBody';
-import { type CopyToNotebookRequestBuilderPostRequestConfiguration } from './copyToNotebookRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCopyToNotebookPostRequestBody } from './deserializeIntoCopyToNotebookPostRequestBody';
-import { serializeCopyToNotebookPostRequestBody } from './serializeCopyToNotebookPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { createOnenoteOperationFromDiscriminatorValue, deserializeIntoOnenoteOperation, serializeOnenoteOperation, type OnenoteOperation } from '../../../../../../../../../../models/onenoteOperation';
+import { deserializeIntoCopyToNotebookPostRequestBody, serializeCopyToNotebookPostRequestBody, type CopyToNotebookPostRequestBody } from './copyToNotebookPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CopyToNotebookRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the copyToNotebook method.
  */

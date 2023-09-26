@@ -1,16 +1,52 @@
-import { createSecureScoreControlProfileFromDiscriminatorValue } from '../../../models/createSecureScoreControlProfileFromDiscriminatorValue';
-import { deserializeIntoSecureScoreControlProfile } from '../../../models/deserializeIntoSecureScoreControlProfile';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type SecureScoreControlProfile } from '../../../models/secureScoreControlProfile';
-import { serializeSecureScoreControlProfile } from '../../../models/serializeSecureScoreControlProfile';
-import { type SecureScoreControlProfileItemRequestBuilderDeleteRequestConfiguration } from './secureScoreControlProfileItemRequestBuilderDeleteRequestConfiguration';
-import { type SecureScoreControlProfileItemRequestBuilderGetRequestConfiguration } from './secureScoreControlProfileItemRequestBuilderGetRequestConfiguration';
-import { type SecureScoreControlProfileItemRequestBuilderPatchRequestConfiguration } from './secureScoreControlProfileItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createSecureScoreControlProfileFromDiscriminatorValue, deserializeIntoSecureScoreControlProfile, serializeSecureScoreControlProfile, type SecureScoreControlProfile } from '../../../models/secureScoreControlProfile';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SecureScoreControlProfileItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SecureScoreControlProfileItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SecureScoreControlProfileItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SecureScoreControlProfileItemRequestBuilderGetQueryParameters;
+}
+export interface SecureScoreControlProfileItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
  */

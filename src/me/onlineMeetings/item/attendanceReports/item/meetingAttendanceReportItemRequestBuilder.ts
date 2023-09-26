@@ -1,17 +1,53 @@
-import { createMeetingAttendanceReportFromDiscriminatorValue } from '../../../../../models/createMeetingAttendanceReportFromDiscriminatorValue';
-import { deserializeIntoMeetingAttendanceReport } from '../../../../../models/deserializeIntoMeetingAttendanceReport';
-import { type MeetingAttendanceReport } from '../../../../../models/meetingAttendanceReport';
+import { createMeetingAttendanceReportFromDiscriminatorValue, deserializeIntoMeetingAttendanceReport, serializeMeetingAttendanceReport, type MeetingAttendanceReport } from '../../../../../models/meetingAttendanceReport';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeMeetingAttendanceReport } from '../../../../../models/serializeMeetingAttendanceReport';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { AttendanceRecordsRequestBuilder } from './attendanceRecords/attendanceRecordsRequestBuilder';
-import { type MeetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration } from './meetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration';
-import { type MeetingAttendanceReportItemRequestBuilderGetRequestConfiguration } from './meetingAttendanceReportItemRequestBuilderGetRequestConfiguration';
-import { type MeetingAttendanceReportItemRequestBuilderPatchRequestConfiguration } from './meetingAttendanceReportItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MeetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MeetingAttendanceReportItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MeetingAttendanceReportItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MeetingAttendanceReportItemRequestBuilderGetQueryParameters;
+}
+export interface MeetingAttendanceReportItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
  */

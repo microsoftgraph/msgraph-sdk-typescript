@@ -1,16 +1,52 @@
-import { createManagedAppOperationFromDiscriminatorValue } from '../../../../../models/createManagedAppOperationFromDiscriminatorValue';
-import { deserializeIntoManagedAppOperation } from '../../../../../models/deserializeIntoManagedAppOperation';
-import { type ManagedAppOperation } from '../../../../../models/managedAppOperation';
+import { createManagedAppOperationFromDiscriminatorValue, deserializeIntoManagedAppOperation, serializeManagedAppOperation, type ManagedAppOperation } from '../../../../../models/managedAppOperation';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeManagedAppOperation } from '../../../../../models/serializeManagedAppOperation';
-import { type ManagedAppOperationItemRequestBuilderDeleteRequestConfiguration } from './managedAppOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type ManagedAppOperationItemRequestBuilderGetRequestConfiguration } from './managedAppOperationItemRequestBuilderGetRequestConfiguration';
-import { type ManagedAppOperationItemRequestBuilderPatchRequestConfiguration } from './managedAppOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ManagedAppOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ManagedAppOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ManagedAppOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ManagedAppOperationItemRequestBuilderGetQueryParameters;
+}
+export interface ManagedAppOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity.
  */

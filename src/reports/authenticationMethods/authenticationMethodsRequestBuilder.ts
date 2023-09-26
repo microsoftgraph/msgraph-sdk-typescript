@@ -1,14 +1,6 @@
-import { type AuthenticationMethodsRoot } from '../../models/authenticationMethodsRoot';
-import { createAuthenticationMethodsRootFromDiscriminatorValue } from '../../models/createAuthenticationMethodsRootFromDiscriminatorValue';
-import { deserializeIntoAuthenticationMethodsRoot } from '../../models/deserializeIntoAuthenticationMethodsRoot';
+import { createAuthenticationMethodsRootFromDiscriminatorValue, deserializeIntoAuthenticationMethodsRoot, serializeAuthenticationMethodsRoot, type AuthenticationMethodsRoot } from '../../models/authenticationMethodsRoot';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationMethodsRoot } from '../../models/serializeAuthenticationMethodsRoot';
-import { type AuthenticationMethodsRequestBuilderDeleteRequestConfiguration } from './authenticationMethodsRequestBuilderDeleteRequestConfiguration';
-import { type AuthenticationMethodsRequestBuilderGetRequestConfiguration } from './authenticationMethodsRequestBuilderGetRequestConfiguration';
-import { type AuthenticationMethodsRequestBuilderPatchRequestConfiguration } from './authenticationMethodsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { UserRegistrationDetailsRequestBuilder } from './userRegistrationDetails/userRegistrationDetailsRequestBuilder';
 import { UsersRegisteredByFeatureRequestBuilder } from './usersRegisteredByFeature/usersRegisteredByFeatureRequestBuilder';
 import { UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder } from './usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles/usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder';
@@ -16,6 +8,50 @@ import { UsersRegisteredByMethodRequestBuilder } from './usersRegisteredByMethod
 import { UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder } from './usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles/usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthenticationMethodsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AuthenticationMethodsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AuthenticationMethodsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthenticationMethodsRequestBuilderGetQueryParameters;
+}
+export interface AuthenticationMethodsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the authenticationMethods property of the microsoft.graph.reportRoot entity.
  */

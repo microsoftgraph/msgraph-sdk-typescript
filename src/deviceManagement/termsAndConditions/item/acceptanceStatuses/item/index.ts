@@ -1,4 +1,1 @@
-export * from './termsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration'
-export * from './termsAndConditionsAcceptanceStatusItemRequestBuilderGetQueryParameters'
-export * from './termsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration'
-export * from './termsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration'
+export * from './termsAndConditionsAcceptanceStatusItemRequestBuilder'

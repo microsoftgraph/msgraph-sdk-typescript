@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { createGetScheduleResponseFromDiscriminatorValue } from './createGetScheduleResponseFromDiscriminatorValue';
-import { deserializeIntoGetSchedulePostRequestBody } from './deserializeIntoGetSchedulePostRequestBody';
-import { deserializeIntoGetScheduleResponse } from './deserializeIntoGetScheduleResponse';
-import { type GetSchedulePostRequestBody } from './getSchedulePostRequestBody';
-import { type GetScheduleRequestBuilderPostRequestConfiguration } from './getScheduleRequestBuilderPostRequestConfiguration';
-import { type GetScheduleResponse } from './getScheduleResponse';
-import { serializeGetSchedulePostRequestBody } from './serializeGetSchedulePostRequestBody';
-import { serializeGetScheduleResponse } from './serializeGetScheduleResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetSchedulePostRequestBody, serializeGetSchedulePostRequestBody, type GetSchedulePostRequestBody } from './getSchedulePostRequestBody';
+import { createGetScheduleResponseFromDiscriminatorValue, deserializeIntoGetScheduleResponse, serializeGetScheduleResponse, type GetScheduleResponse } from './getScheduleResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetScheduleRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getSchedule method.
  */

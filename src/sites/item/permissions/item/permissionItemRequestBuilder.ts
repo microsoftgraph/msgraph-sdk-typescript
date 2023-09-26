@@ -1,17 +1,53 @@
-import { createPermissionFromDiscriminatorValue } from '../../../../models/createPermissionFromDiscriminatorValue';
-import { deserializeIntoPermission } from '../../../../models/deserializeIntoPermission';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type Permission } from '../../../../models/permission';
-import { serializePermission } from '../../../../models/serializePermission';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createPermissionFromDiscriminatorValue, deserializeIntoPermission, serializePermission, type Permission } from '../../../../models/permission';
 import { GrantRequestBuilder } from './grant/grantRequestBuilder';
-import { type PermissionItemRequestBuilderDeleteRequestConfiguration } from './permissionItemRequestBuilderDeleteRequestConfiguration';
-import { type PermissionItemRequestBuilderGetRequestConfiguration } from './permissionItemRequestBuilderGetRequestConfiguration';
-import { type PermissionItemRequestBuilderPatchRequestConfiguration } from './permissionItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PermissionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PermissionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PermissionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PermissionItemRequestBuilderGetQueryParameters;
+}
+export interface PermissionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the permissions property of the microsoft.graph.site entity.
  */

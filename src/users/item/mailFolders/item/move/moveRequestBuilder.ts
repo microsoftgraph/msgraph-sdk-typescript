@@ -1,17 +1,19 @@
-import { createMailFolderFromDiscriminatorValue } from '../../../../../models/createMailFolderFromDiscriminatorValue';
-import { deserializeIntoMailFolder } from '../../../../../models/deserializeIntoMailFolder';
-import { type MailFolder } from '../../../../../models/mailFolder';
+import { createMailFolderFromDiscriminatorValue, deserializeIntoMailFolder, serializeMailFolder, type MailFolder } from '../../../../../models/mailFolder';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeMailFolder } from '../../../../../models/serializeMailFolder';
-import { deserializeIntoMovePostRequestBody } from './deserializeIntoMovePostRequestBody';
-import { type MovePostRequestBody } from './movePostRequestBody';
-import { type MoveRequestBuilderPostRequestConfiguration } from './moveRequestBuilderPostRequestConfiguration';
-import { serializeMovePostRequestBody } from './serializeMovePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoMovePostRequestBody, serializeMovePostRequestBody, type MovePostRequestBody } from './movePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MoveRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the move method.
  */

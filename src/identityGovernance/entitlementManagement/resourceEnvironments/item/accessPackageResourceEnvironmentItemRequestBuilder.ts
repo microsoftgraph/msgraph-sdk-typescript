@@ -1,17 +1,53 @@
-import { type AccessPackageResourceEnvironment } from '../../../../models/accessPackageResourceEnvironment';
-import { createAccessPackageResourceEnvironmentFromDiscriminatorValue } from '../../../../models/createAccessPackageResourceEnvironmentFromDiscriminatorValue';
-import { deserializeIntoAccessPackageResourceEnvironment } from '../../../../models/deserializeIntoAccessPackageResourceEnvironment';
+import { createAccessPackageResourceEnvironmentFromDiscriminatorValue, deserializeIntoAccessPackageResourceEnvironment, serializeAccessPackageResourceEnvironment, type AccessPackageResourceEnvironment } from '../../../../models/accessPackageResourceEnvironment';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageResourceEnvironment } from '../../../../models/serializeAccessPackageResourceEnvironment';
-import { type AccessPackageResourceEnvironmentItemRequestBuilderDeleteRequestConfiguration } from './accessPackageResourceEnvironmentItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessPackageResourceEnvironmentItemRequestBuilderGetRequestConfiguration } from './accessPackageResourceEnvironmentItemRequestBuilderGetRequestConfiguration';
-import { type AccessPackageResourceEnvironmentItemRequestBuilderPatchRequestConfiguration } from './accessPackageResourceEnvironmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { ResourcesRequestBuilder } from './resources/resourcesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessPackageResourceEnvironmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessPackageResourceEnvironmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessPackageResourceEnvironmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessPackageResourceEnvironmentItemRequestBuilderGetQueryParameters;
+}
+export interface AccessPackageResourceEnvironmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.
  */

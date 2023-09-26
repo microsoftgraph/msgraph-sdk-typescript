@@ -1,6 +1,2 @@
-export * from './createGetManagedAppPoliciesResponseFromDiscriminatorValue'
-export * from './deserializeIntoGetManagedAppPoliciesResponse'
-export * from './getManagedAppPoliciesRequestBuilderGetQueryParameters'
-export * from './getManagedAppPoliciesRequestBuilderGetRequestConfiguration'
+export * from './getManagedAppPoliciesRequestBuilder'
 export * from './getManagedAppPoliciesResponse'
-export * from './serializeGetManagedAppPoliciesResponse'

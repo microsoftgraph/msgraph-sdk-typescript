@@ -1,3 +1,1 @@
-export * from './filesRequestBuilderGetQueryParameters'
-export * from './filesRequestBuilderGetRequestConfiguration'
-export * from './filesRequestBuilderPostRequestConfiguration'
+export * from './filesRequestBuilder'

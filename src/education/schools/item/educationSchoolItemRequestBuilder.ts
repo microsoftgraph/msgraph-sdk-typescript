@@ -1,19 +1,55 @@
-import { createEducationSchoolFromDiscriminatorValue } from '../../../models/createEducationSchoolFromDiscriminatorValue';
-import { deserializeIntoEducationSchool } from '../../../models/deserializeIntoEducationSchool';
-import { type EducationSchool } from '../../../models/educationSchool';
+import { createEducationSchoolFromDiscriminatorValue, deserializeIntoEducationSchool, serializeEducationSchool, type EducationSchool } from '../../../models/educationSchool';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeEducationSchool } from '../../../models/serializeEducationSchool';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AdministrativeUnitRequestBuilder } from './administrativeUnit/administrativeUnitRequestBuilder';
 import { ClassesRequestBuilder } from './classes/classesRequestBuilder';
-import { type EducationSchoolItemRequestBuilderDeleteRequestConfiguration } from './educationSchoolItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationSchoolItemRequestBuilderGetRequestConfiguration } from './educationSchoolItemRequestBuilderGetRequestConfiguration';
-import { type EducationSchoolItemRequestBuilderPatchRequestConfiguration } from './educationSchoolItemRequestBuilderPatchRequestConfiguration';
 import { UsersRequestBuilder } from './users/usersRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationSchoolItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationSchoolItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationSchoolItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationSchoolItemRequestBuilderGetQueryParameters;
+}
+export interface EducationSchoolItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
  */

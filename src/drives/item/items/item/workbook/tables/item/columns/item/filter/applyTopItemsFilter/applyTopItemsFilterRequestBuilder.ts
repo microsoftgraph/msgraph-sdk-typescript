@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type ApplyTopItemsFilterPostRequestBody } from './applyTopItemsFilterPostRequestBody';
-import { type ApplyTopItemsFilterRequestBuilderPostRequestConfiguration } from './applyTopItemsFilterRequestBuilderPostRequestConfiguration';
-import { deserializeIntoApplyTopItemsFilterPostRequestBody } from './deserializeIntoApplyTopItemsFilterPostRequestBody';
-import { serializeApplyTopItemsFilterPostRequestBody } from './serializeApplyTopItemsFilterPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoApplyTopItemsFilterPostRequestBody, serializeApplyTopItemsFilterPostRequestBody, type ApplyTopItemsFilterPostRequestBody } from './applyTopItemsFilterPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApplyTopItemsFilterRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the applyTopItemsFilter method.
  */

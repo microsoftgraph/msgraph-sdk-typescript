@@ -1,1 +1,1 @@
-export * from './getM365AppUserCountsWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getM365AppUserCountsWithPeriodRequestBuilder'

@@ -1,18 +1,54 @@
-import { type AccessReviewSet } from '../../models/accessReviewSet';
-import { createAccessReviewSetFromDiscriminatorValue } from '../../models/createAccessReviewSetFromDiscriminatorValue';
-import { deserializeIntoAccessReviewSet } from '../../models/deserializeIntoAccessReviewSet';
+import { createAccessReviewSetFromDiscriminatorValue, deserializeIntoAccessReviewSet, serializeAccessReviewSet, type AccessReviewSet } from '../../models/accessReviewSet';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewSet } from '../../models/serializeAccessReviewSet';
-import { type AccessReviewsRequestBuilderDeleteRequestConfiguration } from './accessReviewsRequestBuilderDeleteRequestConfiguration';
-import { type AccessReviewsRequestBuilderGetRequestConfiguration } from './accessReviewsRequestBuilderGetRequestConfiguration';
-import { type AccessReviewsRequestBuilderPatchRequestConfiguration } from './accessReviewsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { DefinitionsRequestBuilder } from './definitions/definitionsRequestBuilder';
 import { HistoryDefinitionsRequestBuilder } from './historyDefinitions/historyDefinitionsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessReviewsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessReviewsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessReviewsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessReviewsRequestBuilderGetQueryParameters;
+}
+export interface AccessReviewsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.
  */

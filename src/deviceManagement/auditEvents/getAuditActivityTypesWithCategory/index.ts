@@ -1,6 +1,2 @@
-export * from './createGetAuditActivityTypesWithCategoryResponseFromDiscriminatorValue'
-export * from './deserializeIntoGetAuditActivityTypesWithCategoryResponse'
-export * from './getAuditActivityTypesWithCategoryRequestBuilderGetQueryParameters'
-export * from './getAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration'
+export * from './getAuditActivityTypesWithCategoryRequestBuilder'
 export * from './getAuditActivityTypesWithCategoryResponse'
-export * from './serializeGetAuditActivityTypesWithCategoryResponse'

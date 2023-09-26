@@ -1,19 +1,70 @@
 import { type PermissionGrantPolicyCollectionResponse } from '../../models/';
-import { createPermissionGrantPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createPermissionGrantPolicyCollectionResponseFromDiscriminatorValue';
-import { createPermissionGrantPolicyFromDiscriminatorValue } from '../../models/createPermissionGrantPolicyFromDiscriminatorValue';
-import { deserializeIntoPermissionGrantPolicy } from '../../models/deserializeIntoPermissionGrantPolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type PermissionGrantPolicy } from '../../models/permissionGrantPolicy';
-import { serializePermissionGrantPolicy } from '../../models/serializePermissionGrantPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createPermissionGrantPolicyFromDiscriminatorValue, deserializeIntoPermissionGrantPolicy, serializePermissionGrantPolicy, type PermissionGrantPolicy } from '../../models/permissionGrantPolicy';
+import { createPermissionGrantPolicyCollectionResponseFromDiscriminatorValue } from '../../models/permissionGrantPolicyCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PermissionGrantPolicyItemRequestBuilder } from './item/permissionGrantPolicyItemRequestBuilder';
-import { type PermissionGrantPoliciesRequestBuilderGetRequestConfiguration } from './permissionGrantPoliciesRequestBuilderGetRequestConfiguration';
-import { type PermissionGrantPoliciesRequestBuilderPostRequestConfiguration } from './permissionGrantPoliciesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PermissionGrantPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PermissionGrantPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PermissionGrantPoliciesRequestBuilderGetQueryParameters;
+}
+export interface PermissionGrantPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
  */

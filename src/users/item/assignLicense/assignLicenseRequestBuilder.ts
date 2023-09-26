@@ -1,17 +1,19 @@
-import { createUserFromDiscriminatorValue } from '../../../models/createUserFromDiscriminatorValue';
-import { deserializeIntoUser } from '../../../models/deserializeIntoUser';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUser } from '../../../models/serializeUser';
-import { type User } from '../../../models/user';
-import { type AssignLicensePostRequestBody } from './assignLicensePostRequestBody';
-import { type AssignLicenseRequestBuilderPostRequestConfiguration } from './assignLicenseRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAssignLicensePostRequestBody } from './deserializeIntoAssignLicensePostRequestBody';
-import { serializeAssignLicensePostRequestBody } from './serializeAssignLicensePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUserFromDiscriminatorValue, deserializeIntoUser, serializeUser, type User } from '../../../models/user';
+import { deserializeIntoAssignLicensePostRequestBody, serializeAssignLicensePostRequestBody, type AssignLicensePostRequestBody } from './assignLicensePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignLicenseRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the assignLicense method.
  */

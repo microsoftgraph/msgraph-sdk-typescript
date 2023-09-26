@@ -1,16 +1,52 @@
-import { createWorkbookOperationFromDiscriminatorValue } from '../../../../../../../models/createWorkbookOperationFromDiscriminatorValue';
-import { deserializeIntoWorkbookOperation } from '../../../../../../../models/deserializeIntoWorkbookOperation';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookOperation } from '../../../../../../../models/serializeWorkbookOperation';
-import { type WorkbookOperation } from '../../../../../../../models/workbookOperation';
-import { type WorkbookOperationItemRequestBuilderDeleteRequestConfiguration } from './workbookOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookOperationItemRequestBuilderGetRequestConfiguration } from './workbookOperationItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookOperationItemRequestBuilderPatchRequestConfiguration } from './workbookOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookOperationFromDiscriminatorValue, deserializeIntoWorkbookOperation, serializeWorkbookOperation, type WorkbookOperation } from '../../../../../../../models/workbookOperation';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookOperationItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.workbook entity.
  */

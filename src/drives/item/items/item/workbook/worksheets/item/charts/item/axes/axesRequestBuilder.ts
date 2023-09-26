@@ -1,19 +1,55 @@
-import { createWorkbookChartAxesFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookChartAxesFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartAxes } from '../../../../../../../../../../models/deserializeIntoWorkbookChartAxes';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartAxes } from '../../../../../../../../../../models/serializeWorkbookChartAxes';
-import { type WorkbookChartAxes } from '../../../../../../../../../../models/workbookChartAxes';
-import { type AxesRequestBuilderDeleteRequestConfiguration } from './axesRequestBuilderDeleteRequestConfiguration';
-import { type AxesRequestBuilderGetRequestConfiguration } from './axesRequestBuilderGetRequestConfiguration';
-import { type AxesRequestBuilderPatchRequestConfiguration } from './axesRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartAxesFromDiscriminatorValue, deserializeIntoWorkbookChartAxes, serializeWorkbookChartAxes, type WorkbookChartAxes } from '../../../../../../../../../../models/workbookChartAxes';
 import { CategoryAxisRequestBuilder } from './categoryAxis/categoryAxisRequestBuilder';
 import { SeriesAxisRequestBuilder } from './seriesAxis/seriesAxisRequestBuilder';
 import { ValueAxisRequestBuilder } from './valueAxis/valueAxisRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AxesRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AxesRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AxesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AxesRequestBuilderGetQueryParameters;
+}
+export interface AxesRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the axes property of the microsoft.graph.workbookChart entity.
  */

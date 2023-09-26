@@ -1,18 +1,54 @@
-import { createWorkbookNamedItemFromDiscriminatorValue } from '../../../../../../../../../models/createWorkbookNamedItemFromDiscriminatorValue';
-import { deserializeIntoWorkbookNamedItem } from '../../../../../../../../../models/deserializeIntoWorkbookNamedItem';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookNamedItem } from '../../../../../../../../../models/serializeWorkbookNamedItem';
-import { type WorkbookNamedItem } from '../../../../../../../../../models/workbookNamedItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookNamedItemFromDiscriminatorValue, deserializeIntoWorkbookNamedItem, serializeWorkbookNamedItem, type WorkbookNamedItem } from '../../../../../../../../../models/workbookNamedItem';
 import { RangeRequestBuilder } from './range/rangeRequestBuilder';
-import { type WorkbookNamedItemItemRequestBuilderDeleteRequestConfiguration } from './workbookNamedItemItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookNamedItemItemRequestBuilderGetRequestConfiguration } from './workbookNamedItemItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration } from './workbookNamedItemItemRequestBuilderPatchRequestConfiguration';
 import { WorksheetRequestBuilder } from './worksheet/worksheetRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookNamedItemItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookNamedItemItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookNamedItemItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookNamedItemItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.
  */

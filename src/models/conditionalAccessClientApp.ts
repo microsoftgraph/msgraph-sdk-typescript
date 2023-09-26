@@ -7,3 +7,5 @@ export enum ConditionalAccessClientApp {
     Other = "other",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

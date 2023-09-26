@@ -1,13 +1,18 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { deserializeIntoSendActivityNotificationToRecipientsPostRequestBody } from './deserializeIntoSendActivityNotificationToRecipientsPostRequestBody';
-import { type SendActivityNotificationToRecipientsPostRequestBody } from './sendActivityNotificationToRecipientsPostRequestBody';
-import { type SendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration } from './sendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration';
-import { serializeSendActivityNotificationToRecipientsPostRequestBody } from './serializeSendActivityNotificationToRecipientsPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { deserializeIntoSendActivityNotificationToRecipientsPostRequestBody, serializeSendActivityNotificationToRecipientsPostRequestBody, type SendActivityNotificationToRecipientsPostRequestBody } from './sendActivityNotificationToRecipientsPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the sendActivityNotificationToRecipients method.
  */

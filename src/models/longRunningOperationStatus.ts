@@ -5,3 +5,5 @@ export enum LongRunningOperationStatus {
     Failed = "failed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

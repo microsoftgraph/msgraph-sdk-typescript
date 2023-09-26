@@ -1,17 +1,53 @@
-import { createWorkbookChartGridlinesFormatFromDiscriminatorValue } from '../../../../../../../../../../../../../models/createWorkbookChartGridlinesFormatFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartGridlinesFormat } from '../../../../../../../../../../../../../models/deserializeIntoWorkbookChartGridlinesFormat';
 import { type ODataError } from '../../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartGridlinesFormat } from '../../../../../../../../../../../../../models/serializeWorkbookChartGridlinesFormat';
-import { type WorkbookChartGridlinesFormat } from '../../../../../../../../../../../../../models/workbookChartGridlinesFormat';
-import { type FormatRequestBuilderDeleteRequestConfiguration } from './formatRequestBuilderDeleteRequestConfiguration';
-import { type FormatRequestBuilderGetRequestConfiguration } from './formatRequestBuilderGetRequestConfiguration';
-import { type FormatRequestBuilderPatchRequestConfiguration } from './formatRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartGridlinesFormatFromDiscriminatorValue, deserializeIntoWorkbookChartGridlinesFormat, serializeWorkbookChartGridlinesFormat, type WorkbookChartGridlinesFormat } from '../../../../../../../../../../../../../models/workbookChartGridlinesFormat';
 import { LineRequestBuilder } from './line/lineRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FormatRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface FormatRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FormatRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FormatRequestBuilderGetQueryParameters;
+}
+export interface FormatRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the format property of the microsoft.graph.workbookChartGridlines entity.
  */

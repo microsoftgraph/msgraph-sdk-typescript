@@ -1,20 +1,71 @@
 import { type WorkbookChartSeriesCollectionResponse } from '../../../../../../../../../../models/';
-import { createWorkbookChartSeriesCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookChartSeriesCollectionResponseFromDiscriminatorValue';
-import { createWorkbookChartSeriesFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookChartSeriesFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartSeries } from '../../../../../../../../../../models/deserializeIntoWorkbookChartSeries';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartSeries } from '../../../../../../../../../../models/serializeWorkbookChartSeries';
-import { type WorkbookChartSeries } from '../../../../../../../../../../models/workbookChartSeries';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartSeriesFromDiscriminatorValue, deserializeIntoWorkbookChartSeries, serializeWorkbookChartSeries, type WorkbookChartSeries } from '../../../../../../../../../../models/workbookChartSeries';
+import { createWorkbookChartSeriesCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../models/workbookChartSeriesCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookChartSeriesItemRequestBuilder } from './item/workbookChartSeriesItemRequestBuilder';
 import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import { type SeriesRequestBuilderGetRequestConfiguration } from './seriesRequestBuilderGetRequestConfiguration';
-import { type SeriesRequestBuilderPostRequestConfiguration } from './seriesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SeriesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SeriesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SeriesRequestBuilderGetQueryParameters;
+}
+export interface SeriesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
  */

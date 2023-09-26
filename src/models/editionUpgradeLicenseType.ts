@@ -7,3 +7,5 @@ export enum EditionUpgradeLicenseType {
     /** License File Type */
     LicenseFile = "licenseFile",
 }
+// tslint:enable
+// eslint-enable

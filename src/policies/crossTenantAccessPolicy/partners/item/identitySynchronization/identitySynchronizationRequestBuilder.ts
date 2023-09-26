@@ -1,16 +1,52 @@
-import { createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue } from '../../../../../models/createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue';
-import { type CrossTenantIdentitySyncPolicyPartner } from '../../../../../models/crossTenantIdentitySyncPolicyPartner';
-import { deserializeIntoCrossTenantIdentitySyncPolicyPartner } from '../../../../../models/deserializeIntoCrossTenantIdentitySyncPolicyPartner';
+import { createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue, deserializeIntoCrossTenantIdentitySyncPolicyPartner, serializeCrossTenantIdentitySyncPolicyPartner, type CrossTenantIdentitySyncPolicyPartner } from '../../../../../models/crossTenantIdentitySyncPolicyPartner';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeCrossTenantIdentitySyncPolicyPartner } from '../../../../../models/serializeCrossTenantIdentitySyncPolicyPartner';
-import { type IdentitySynchronizationRequestBuilderDeleteRequestConfiguration } from './identitySynchronizationRequestBuilderDeleteRequestConfiguration';
-import { type IdentitySynchronizationRequestBuilderGetRequestConfiguration } from './identitySynchronizationRequestBuilderGetRequestConfiguration';
-import { type IdentitySynchronizationRequestBuilderPutRequestConfiguration } from './identitySynchronizationRequestBuilderPutRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentitySynchronizationRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IdentitySynchronizationRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentitySynchronizationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentitySynchronizationRequestBuilderGetQueryParameters;
+}
+export interface IdentitySynchronizationRequestBuilderPutRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the identitySynchronization property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.
  */

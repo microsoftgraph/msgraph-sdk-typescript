@@ -1,16 +1,52 @@
-import { createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue } from '../../models/createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue';
-import { deserializeIntoIdentitySecurityDefaultsEnforcementPolicy } from '../../models/deserializeIntoIdentitySecurityDefaultsEnforcementPolicy';
-import { type IdentitySecurityDefaultsEnforcementPolicy } from '../../models/identitySecurityDefaultsEnforcementPolicy';
+import { createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue, deserializeIntoIdentitySecurityDefaultsEnforcementPolicy, serializeIdentitySecurityDefaultsEnforcementPolicy, type IdentitySecurityDefaultsEnforcementPolicy } from '../../models/identitySecurityDefaultsEnforcementPolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeIdentitySecurityDefaultsEnforcementPolicy } from '../../models/serializeIdentitySecurityDefaultsEnforcementPolicy';
-import { type IdentitySecurityDefaultsEnforcementPolicyRequestBuilderDeleteRequestConfiguration } from './identitySecurityDefaultsEnforcementPolicyRequestBuilderDeleteRequestConfiguration';
-import { type IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration } from './identitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration';
-import { type IdentitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration } from './identitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters;
+}
+export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the identitySecurityDefaultsEnforcementPolicy property of the microsoft.graph.policyRoot entity.
  */

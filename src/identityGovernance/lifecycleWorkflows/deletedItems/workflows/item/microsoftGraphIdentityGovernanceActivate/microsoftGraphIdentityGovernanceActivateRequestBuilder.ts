@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type ActivatePostRequestBody } from './activatePostRequestBody';
-import { deserializeIntoActivatePostRequestBody } from './deserializeIntoActivatePostRequestBody';
-import { type MicrosoftGraphIdentityGovernanceActivateRequestBuilderPostRequestConfiguration } from './microsoftGraphIdentityGovernanceActivateRequestBuilderPostRequestConfiguration';
-import { serializeActivatePostRequestBody } from './serializeActivatePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoActivatePostRequestBody, serializeActivatePostRequestBody, type ActivatePostRequestBody } from './activatePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MicrosoftGraphIdentityGovernanceActivateRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the activate method.
  */

@@ -1,25 +1,76 @@
 import { type ServiceUpdateMessageCollectionResponse } from '../../../models/';
-import { createServiceUpdateMessageCollectionResponseFromDiscriminatorValue } from '../../../models/createServiceUpdateMessageCollectionResponseFromDiscriminatorValue';
-import { createServiceUpdateMessageFromDiscriminatorValue } from '../../../models/createServiceUpdateMessageFromDiscriminatorValue';
-import { deserializeIntoServiceUpdateMessage } from '../../../models/deserializeIntoServiceUpdateMessage';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeServiceUpdateMessage } from '../../../models/serializeServiceUpdateMessage';
-import { type ServiceUpdateMessage } from '../../../models/serviceUpdateMessage';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createServiceUpdateMessageFromDiscriminatorValue, deserializeIntoServiceUpdateMessage, serializeServiceUpdateMessage, type ServiceUpdateMessage } from '../../../models/serviceUpdateMessage';
+import { createServiceUpdateMessageCollectionResponseFromDiscriminatorValue } from '../../../models/serviceUpdateMessageCollectionResponse';
 import { ArchiveRequestBuilder } from './archive/archiveRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FavoriteRequestBuilder } from './favorite/favoriteRequestBuilder';
 import { ServiceUpdateMessageItemRequestBuilder } from './item/serviceUpdateMessageItemRequestBuilder';
 import { MarkReadRequestBuilder } from './markRead/markReadRequestBuilder';
 import { MarkUnreadRequestBuilder } from './markUnread/markUnreadRequestBuilder';
-import { type MessagesRequestBuilderGetRequestConfiguration } from './messagesRequestBuilderGetRequestConfiguration';
-import { type MessagesRequestBuilderPostRequestConfiguration } from './messagesRequestBuilderPostRequestConfiguration';
 import { UnarchiveRequestBuilder } from './unarchive/unarchiveRequestBuilder';
 import { UnfavoriteRequestBuilder } from './unfavorite/unfavoriteRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MessagesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface MessagesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MessagesRequestBuilderGetQueryParameters;
+}
+export interface MessagesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
  */

@@ -1,19 +1,70 @@
 import { type SettingStateDeviceSummaryCollectionResponse } from '../../../../models/';
-import { createSettingStateDeviceSummaryCollectionResponseFromDiscriminatorValue } from '../../../../models/createSettingStateDeviceSummaryCollectionResponseFromDiscriminatorValue';
-import { createSettingStateDeviceSummaryFromDiscriminatorValue } from '../../../../models/createSettingStateDeviceSummaryFromDiscriminatorValue';
-import { deserializeIntoSettingStateDeviceSummary } from '../../../../models/deserializeIntoSettingStateDeviceSummary';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeSettingStateDeviceSummary } from '../../../../models/serializeSettingStateDeviceSummary';
-import { type SettingStateDeviceSummary } from '../../../../models/settingStateDeviceSummary';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createSettingStateDeviceSummaryFromDiscriminatorValue, deserializeIntoSettingStateDeviceSummary, serializeSettingStateDeviceSummary, type SettingStateDeviceSummary } from '../../../../models/settingStateDeviceSummary';
+import { createSettingStateDeviceSummaryCollectionResponseFromDiscriminatorValue } from '../../../../models/settingStateDeviceSummaryCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration } from './deviceSettingStateSummariesRequestBuilderGetRequestConfiguration';
-import { type DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration } from './deviceSettingStateSummariesRequestBuilderPostRequestConfiguration';
 import { SettingStateDeviceSummaryItemRequestBuilder } from './item/settingStateDeviceSummaryItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceSettingStateSummariesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceSettingStateSummariesRequestBuilderGetQueryParameters;
+}
+export interface DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.
  */

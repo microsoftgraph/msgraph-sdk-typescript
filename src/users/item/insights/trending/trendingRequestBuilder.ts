@@ -1,19 +1,70 @@
 import { type TrendingCollectionResponse } from '../../../../models/';
-import { createTrendingCollectionResponseFromDiscriminatorValue } from '../../../../models/createTrendingCollectionResponseFromDiscriminatorValue';
-import { createTrendingFromDiscriminatorValue } from '../../../../models/createTrendingFromDiscriminatorValue';
-import { deserializeIntoTrending } from '../../../../models/deserializeIntoTrending';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeTrending } from '../../../../models/serializeTrending';
-import { type Trending } from '../../../../models/trending';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createTrendingFromDiscriminatorValue, deserializeIntoTrending, serializeTrending, type Trending } from '../../../../models/trending';
+import { createTrendingCollectionResponseFromDiscriminatorValue } from '../../../../models/trendingCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TrendingItemRequestBuilder } from './item/trendingItemRequestBuilder';
-import { type TrendingRequestBuilderGetRequestConfiguration } from './trendingRequestBuilderGetRequestConfiguration';
-import { type TrendingRequestBuilderPostRequestConfiguration } from './trendingRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TrendingRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TrendingRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TrendingRequestBuilderGetQueryParameters;
+}
+export interface TrendingRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
  */

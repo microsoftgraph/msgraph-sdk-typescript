@@ -1,3 +1,1 @@
-export * from './appCatalogsRequestBuilderGetQueryParameters'
-export * from './appCatalogsRequestBuilderGetRequestConfiguration'
-export * from './appCatalogsRequestBuilderPatchRequestConfiguration'
+export * from './appCatalogsRequestBuilder'

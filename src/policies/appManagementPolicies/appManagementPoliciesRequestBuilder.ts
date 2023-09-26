@@ -1,19 +1,70 @@
 import { type AppManagementPolicyCollectionResponse } from '../../models/';
-import { type AppManagementPolicy } from '../../models/appManagementPolicy';
-import { createAppManagementPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createAppManagementPolicyCollectionResponseFromDiscriminatorValue';
-import { createAppManagementPolicyFromDiscriminatorValue } from '../../models/createAppManagementPolicyFromDiscriminatorValue';
-import { deserializeIntoAppManagementPolicy } from '../../models/deserializeIntoAppManagementPolicy';
+import { createAppManagementPolicyFromDiscriminatorValue, deserializeIntoAppManagementPolicy, serializeAppManagementPolicy, type AppManagementPolicy } from '../../models/appManagementPolicy';
+import { createAppManagementPolicyCollectionResponseFromDiscriminatorValue } from '../../models/appManagementPolicyCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAppManagementPolicy } from '../../models/serializeAppManagementPolicy';
-import { type AppManagementPoliciesRequestBuilderGetRequestConfiguration } from './appManagementPoliciesRequestBuilderGetRequestConfiguration';
-import { type AppManagementPoliciesRequestBuilderPostRequestConfiguration } from './appManagementPoliciesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AppManagementPolicyItemRequestBuilder } from './item/appManagementPolicyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AppManagementPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AppManagementPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AppManagementPoliciesRequestBuilderGetQueryParameters;
+}
+export interface AppManagementPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
  */

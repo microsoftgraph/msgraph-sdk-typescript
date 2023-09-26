@@ -1,23 +1,70 @@
 import { type DirectoryRoleCollectionResponse } from '../models/';
-import { createDirectoryRoleCollectionResponseFromDiscriminatorValue } from '../models/createDirectoryRoleCollectionResponseFromDiscriminatorValue';
-import { createDirectoryRoleFromDiscriminatorValue } from '../models/createDirectoryRoleFromDiscriminatorValue';
-import { deserializeIntoDirectoryRole } from '../models/deserializeIntoDirectoryRole';
-import { type DirectoryRole } from '../models/directoryRole';
+import { createDirectoryRoleFromDiscriminatorValue, deserializeIntoDirectoryRole, serializeDirectoryRole, type DirectoryRole } from '../models/directoryRole';
+import { createDirectoryRoleCollectionResponseFromDiscriminatorValue } from '../models/directoryRoleCollectionResponse';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeDirectoryRole } from '../models/serializeDirectoryRole';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
-import { type DirectoryRolesRequestBuilderGetRequestConfiguration } from './directoryRolesRequestBuilderGetRequestConfiguration';
-import { type DirectoryRolesRequestBuilderPostRequestConfiguration } from './directoryRolesRequestBuilderPostRequestConfiguration';
 import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
 import { DirectoryRoleItemRequestBuilder } from './item/directoryRoleItemRequestBuilder';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DirectoryRolesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+}
+export interface DirectoryRolesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DirectoryRolesRequestBuilderGetQueryParameters;
+}
+export interface DirectoryRolesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of directoryRole entities.
  */
@@ -72,7 +119,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directoryRoles{?%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List the directory roles that are activated in the tenant. This operation only returns roles that have been activated. A role becomes activated when an admin activates the role using the Activate directoryRole API. Not all built-in roles are initially activated.  When assigning a role using the Azure portal, the role activation step is implicitly done on the admin's behalf. To get the full list of roles that are available in Azure AD, use List directoryRoleTemplates.
+     * List the directory roles that are activated in the tenant. This operation only returns roles that have been activated. A role becomes activated when an admin activates the role using the Activate directoryRole API. Not all built-in roles are initially activated.  When assigning a role using the Microsoft Entra admin center, the role activation step is implicitly done on the admin's behalf. To get the full list of roles that are available in Azure AD, use List directoryRoleTemplates.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryRoleCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0|Find more info here}
@@ -105,7 +152,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DirectoryRole>(requestInfo, createDirectoryRoleFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List the directory roles that are activated in the tenant. This operation only returns roles that have been activated. A role becomes activated when an admin activates the role using the Activate directoryRole API. Not all built-in roles are initially activated.  When assigning a role using the Azure portal, the role activation step is implicitly done on the admin's behalf. To get the full list of roles that are available in Azure AD, use List directoryRoleTemplates.
+     * List the directory roles that are activated in the tenant. This operation only returns roles that have been activated. A role becomes activated when an admin activates the role using the Activate directoryRole API. Not all built-in roles are initially activated.  When assigning a role using the Microsoft Entra admin center, the role activation step is implicitly done on the admin's behalf. To get the full list of roles that are available in Azure AD, use List directoryRoleTemplates.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

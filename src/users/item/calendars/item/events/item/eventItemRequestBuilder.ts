@@ -1,20 +1,12 @@
-import { createEventFromDiscriminatorValue } from '../../../../../../models/createEventFromDiscriminatorValue';
-import { deserializeIntoEvent } from '../../../../../../models/deserializeIntoEvent';
-import { type Event } from '../../../../../../models/event';
+import { createEventFromDiscriminatorValue, deserializeIntoEvent, serializeEvent, type Event } from '../../../../../../models/event';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeEvent } from '../../../../../../models/serializeEvent';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { AcceptRequestBuilder } from './accept/acceptRequestBuilder';
 import { AttachmentsRequestBuilder } from './attachments/attachmentsRequestBuilder';
 import { CalendarRequestBuilder } from './calendar/calendarRequestBuilder';
 import { CancelRequestBuilder } from './cancel/cancelRequestBuilder';
 import { DeclineRequestBuilder } from './decline/declineRequestBuilder';
 import { DismissReminderRequestBuilder } from './dismissReminder/dismissReminderRequestBuilder';
-import { type EventItemRequestBuilderDeleteRequestConfiguration } from './eventItemRequestBuilderDeleteRequestConfiguration';
-import { type EventItemRequestBuilderGetRequestConfiguration } from './eventItemRequestBuilderGetRequestConfiguration';
-import { type EventItemRequestBuilderPatchRequestConfiguration } from './eventItemRequestBuilderPatchRequestConfiguration';
 import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
 import { ForwardRequestBuilder } from './forward/forwardRequestBuilder';
 import { InstancesRequestBuilder } from './instances/instancesRequestBuilder';
@@ -22,6 +14,50 @@ import { SnoozeReminderRequestBuilder } from './snoozeReminder/snoozeReminderReq
 import { TentativelyAcceptRequestBuilder } from './tentativelyAccept/tentativelyAcceptRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EventItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EventItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EventItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EventItemRequestBuilderGetQueryParameters;
+}
+export interface EventItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the events property of the microsoft.graph.calendar entity.
  */

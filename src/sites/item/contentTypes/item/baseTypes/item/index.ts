@@ -1,2 +1,1 @@
-export * from './contentTypeItemRequestBuilderGetQueryParameters'
-export * from './contentTypeItemRequestBuilderGetRequestConfiguration'
+export * from './contentTypeItemRequestBuilder'

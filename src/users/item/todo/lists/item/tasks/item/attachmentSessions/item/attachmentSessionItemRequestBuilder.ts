@@ -1,17 +1,49 @@
-import { type AttachmentSession } from '../../../../../../../../../models/attachmentSession';
-import { createAttachmentSessionFromDiscriminatorValue } from '../../../../../../../../../models/createAttachmentSessionFromDiscriminatorValue';
-import { deserializeIntoAttachmentSession } from '../../../../../../../../../models/deserializeIntoAttachmentSession';
+import { createAttachmentSessionFromDiscriminatorValue, deserializeIntoAttachmentSession, serializeAttachmentSession, type AttachmentSession } from '../../../../../../../../../models/attachmentSession';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAttachmentSession } from '../../../../../../../../../models/serializeAttachmentSession';
-import { type AttachmentSessionItemRequestBuilderDeleteRequestConfiguration } from './attachmentSessionItemRequestBuilderDeleteRequestConfiguration';
-import { type AttachmentSessionItemRequestBuilderGetRequestConfiguration } from './attachmentSessionItemRequestBuilderGetRequestConfiguration';
-import { type AttachmentSessionItemRequestBuilderPatchRequestConfiguration } from './attachmentSessionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { ContentRequestBuilder } from './content/contentRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AttachmentSessionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AttachmentSessionItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AttachmentSessionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AttachmentSessionItemRequestBuilderGetQueryParameters;
+}
+export interface AttachmentSessionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
  */

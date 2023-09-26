@@ -1,22 +1,58 @@
-import { createEducationUserFromDiscriminatorValue } from '../../../models/createEducationUserFromDiscriminatorValue';
-import { deserializeIntoEducationUser } from '../../../models/deserializeIntoEducationUser';
-import { type EducationUser } from '../../../models/educationUser';
+import { createEducationUserFromDiscriminatorValue, deserializeIntoEducationUser, serializeEducationUser, type EducationUser } from '../../../models/educationUser';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeEducationUser } from '../../../models/serializeEducationUser';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
 import { ClassesRequestBuilder } from './classes/classesRequestBuilder';
-import { type EducationUserItemRequestBuilderDeleteRequestConfiguration } from './educationUserItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationUserItemRequestBuilderGetRequestConfiguration } from './educationUserItemRequestBuilderGetRequestConfiguration';
-import { type EducationUserItemRequestBuilderPatchRequestConfiguration } from './educationUserItemRequestBuilderPatchRequestConfiguration';
 import { RubricsRequestBuilder } from './rubrics/rubricsRequestBuilder';
 import { SchoolsRequestBuilder } from './schools/schoolsRequestBuilder';
 import { TaughtClassesRequestBuilder } from './taughtClasses/taughtClassesRequestBuilder';
 import { UserRequestBuilder } from './user/userRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationUserItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationUserItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationUserItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationUserItemRequestBuilderGetQueryParameters;
+}
+export interface EducationUserItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
  */

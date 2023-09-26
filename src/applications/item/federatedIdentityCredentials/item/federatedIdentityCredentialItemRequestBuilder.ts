@@ -1,16 +1,52 @@
-import { createFederatedIdentityCredentialFromDiscriminatorValue } from '../../../../models/createFederatedIdentityCredentialFromDiscriminatorValue';
-import { deserializeIntoFederatedIdentityCredential } from '../../../../models/deserializeIntoFederatedIdentityCredential';
-import { type FederatedIdentityCredential } from '../../../../models/federatedIdentityCredential';
+import { createFederatedIdentityCredentialFromDiscriminatorValue, deserializeIntoFederatedIdentityCredential, serializeFederatedIdentityCredential, type FederatedIdentityCredential } from '../../../../models/federatedIdentityCredential';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeFederatedIdentityCredential } from '../../../../models/serializeFederatedIdentityCredential';
-import { type FederatedIdentityCredentialItemRequestBuilderDeleteRequestConfiguration } from './federatedIdentityCredentialItemRequestBuilderDeleteRequestConfiguration';
-import { type FederatedIdentityCredentialItemRequestBuilderGetRequestConfiguration } from './federatedIdentityCredentialItemRequestBuilderGetRequestConfiguration';
-import { type FederatedIdentityCredentialItemRequestBuilderPatchRequestConfiguration } from './federatedIdentityCredentialItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FederatedIdentityCredentialItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface FederatedIdentityCredentialItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FederatedIdentityCredentialItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FederatedIdentityCredentialItemRequestBuilderGetQueryParameters;
+}
+export interface FederatedIdentityCredentialItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
  */

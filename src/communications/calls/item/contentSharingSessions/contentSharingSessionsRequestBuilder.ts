@@ -1,19 +1,70 @@
 import { type ContentSharingSessionCollectionResponse } from '../../../../models/';
-import { type ContentSharingSession } from '../../../../models/contentSharingSession';
-import { createContentSharingSessionCollectionResponseFromDiscriminatorValue } from '../../../../models/createContentSharingSessionCollectionResponseFromDiscriminatorValue';
-import { createContentSharingSessionFromDiscriminatorValue } from '../../../../models/createContentSharingSessionFromDiscriminatorValue';
-import { deserializeIntoContentSharingSession } from '../../../../models/deserializeIntoContentSharingSession';
+import { createContentSharingSessionFromDiscriminatorValue, deserializeIntoContentSharingSession, serializeContentSharingSession, type ContentSharingSession } from '../../../../models/contentSharingSession';
+import { createContentSharingSessionCollectionResponseFromDiscriminatorValue } from '../../../../models/contentSharingSessionCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeContentSharingSession } from '../../../../models/serializeContentSharingSession';
-import { type ContentSharingSessionsRequestBuilderGetRequestConfiguration } from './contentSharingSessionsRequestBuilderGetRequestConfiguration';
-import { type ContentSharingSessionsRequestBuilderPostRequestConfiguration } from './contentSharingSessionsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ContentSharingSessionItemRequestBuilder } from './item/contentSharingSessionItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContentSharingSessionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ContentSharingSessionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContentSharingSessionsRequestBuilderGetQueryParameters;
+}
+export interface ContentSharingSessionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
  */

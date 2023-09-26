@@ -1,23 +1,59 @@
-import { createOrganizationalBrandingLocalizationFromDiscriminatorValue } from '../../../../../models/createOrganizationalBrandingLocalizationFromDiscriminatorValue';
-import { deserializeIntoOrganizationalBrandingLocalization } from '../../../../../models/deserializeIntoOrganizationalBrandingLocalization';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type OrganizationalBrandingLocalization } from '../../../../../models/organizationalBrandingLocalization';
-import { serializeOrganizationalBrandingLocalization } from '../../../../../models/serializeOrganizationalBrandingLocalization';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createOrganizationalBrandingLocalizationFromDiscriminatorValue, deserializeIntoOrganizationalBrandingLocalization, serializeOrganizationalBrandingLocalization, type OrganizationalBrandingLocalization } from '../../../../../models/organizationalBrandingLocalization';
 import { BackgroundImageRequestBuilder } from './backgroundImage/backgroundImageRequestBuilder';
 import { BannerLogoRequestBuilder } from './bannerLogo/bannerLogoRequestBuilder';
 import { CustomCSSRequestBuilder } from './customCSS/customCSSRequestBuilder';
 import { FaviconRequestBuilder } from './favicon/faviconRequestBuilder';
 import { HeaderLogoRequestBuilder } from './headerLogo/headerLogoRequestBuilder';
-import { type OrganizationalBrandingLocalizationItemRequestBuilderDeleteRequestConfiguration } from './organizationalBrandingLocalizationItemRequestBuilderDeleteRequestConfiguration';
-import { type OrganizationalBrandingLocalizationItemRequestBuilderGetRequestConfiguration } from './organizationalBrandingLocalizationItemRequestBuilderGetRequestConfiguration';
-import { type OrganizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration } from './organizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration';
 import { SquareLogoRequestBuilder } from './squareLogo/squareLogoRequestBuilder';
 import { SquareLogoDarkRequestBuilder } from './squareLogoDark/squareLogoDarkRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OrganizationalBrandingLocalizationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OrganizationalBrandingLocalizationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OrganizationalBrandingLocalizationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OrganizationalBrandingLocalizationItemRequestBuilderGetQueryParameters;
+}
+export interface OrganizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
  */

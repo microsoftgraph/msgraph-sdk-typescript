@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody } from './deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody';
-import { type LogTeleconferenceDeviceQualityPostRequestBody } from './logTeleconferenceDeviceQualityPostRequestBody';
-import { type LogTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration } from './logTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration';
-import { serializeLogTeleconferenceDeviceQualityPostRequestBody } from './serializeLogTeleconferenceDeviceQualityPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody, serializeLogTeleconferenceDeviceQualityPostRequestBody, type LogTeleconferenceDeviceQualityPostRequestBody } from './logTeleconferenceDeviceQualityPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LogTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the logTeleconferenceDeviceQuality method.
  */

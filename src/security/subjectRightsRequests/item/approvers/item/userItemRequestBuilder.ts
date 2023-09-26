@@ -1,13 +1,35 @@
 import { type User } from '../../../../../models/';
-import { createUserFromDiscriminatorValue } from '../../../../../models/createUserFromDiscriminatorValue';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createUserFromDiscriminatorValue } from '../../../../../models/user';
 import { MailboxSettingsRequestBuilder } from './mailboxSettings/mailboxSettingsRequestBuilder';
-import { type UserItemRequestBuilderGetRequestConfiguration } from './userItemRequestBuilderGetRequestConfiguration';
+import { ServiceProvisioningErrorsRequestBuilder } from './serviceProvisioningErrors/serviceProvisioningErrorsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the approvers property of the microsoft.graph.subjectRightsRequest entity.
  */
@@ -17,6 +39,12 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
      */
     public get mailboxSettings(): MailboxSettingsRequestBuilder {
         return new MailboxSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * The serviceProvisioningErrors property
+     */
+    public get serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder {
+        return new ServiceProvisioningErrorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new UserItemRequestBuilder and sets the default values.

@@ -1,21 +1,57 @@
-import { createWorkbookTableColumnFromDiscriminatorValue } from '../../../../../../../../../models/createWorkbookTableColumnFromDiscriminatorValue';
-import { deserializeIntoWorkbookTableColumn } from '../../../../../../../../../models/deserializeIntoWorkbookTableColumn';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookTableColumn } from '../../../../../../../../../models/serializeWorkbookTableColumn';
-import { type WorkbookTableColumn } from '../../../../../../../../../models/workbookTableColumn';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookTableColumnFromDiscriminatorValue, deserializeIntoWorkbookTableColumn, serializeWorkbookTableColumn, type WorkbookTableColumn } from '../../../../../../../../../models/workbookTableColumn';
 import { DataBodyRangeRequestBuilder } from './dataBodyRange/dataBodyRangeRequestBuilder';
 import { FilterRequestBuilder } from './filter/filterRequestBuilder';
 import { HeaderRowRangeRequestBuilder } from './headerRowRange/headerRowRangeRequestBuilder';
 import { RangeRequestBuilder } from './range/rangeRequestBuilder';
 import { TotalRowRangeRequestBuilder } from './totalRowRange/totalRowRangeRequestBuilder';
-import { type WorkbookTableColumnItemRequestBuilderDeleteRequestConfiguration } from './workbookTableColumnItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookTableColumnItemRequestBuilderGetRequestConfiguration } from './workbookTableColumnItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration } from './workbookTableColumnItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookTableColumnItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookTableColumnItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookTableColumnItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookTableColumnItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
  */

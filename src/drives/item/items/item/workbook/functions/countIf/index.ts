@@ -1,5 +1,2 @@
 export * from './countIfPostRequestBody'
-export * from './countIfRequestBuilderPostRequestConfiguration'
-export * from './createCountIfPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoCountIfPostRequestBody'
-export * from './serializeCountIfPostRequestBody'
+export * from './countIfRequestBuilder'

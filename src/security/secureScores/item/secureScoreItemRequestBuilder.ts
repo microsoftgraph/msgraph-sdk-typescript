@@ -1,16 +1,52 @@
-import { createSecureScoreFromDiscriminatorValue } from '../../../models/createSecureScoreFromDiscriminatorValue';
-import { deserializeIntoSecureScore } from '../../../models/deserializeIntoSecureScore';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type SecureScore } from '../../../models/secureScore';
-import { serializeSecureScore } from '../../../models/serializeSecureScore';
-import { type SecureScoreItemRequestBuilderDeleteRequestConfiguration } from './secureScoreItemRequestBuilderDeleteRequestConfiguration';
-import { type SecureScoreItemRequestBuilderGetRequestConfiguration } from './secureScoreItemRequestBuilderGetRequestConfiguration';
-import { type SecureScoreItemRequestBuilderPatchRequestConfiguration } from './secureScoreItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createSecureScoreFromDiscriminatorValue, deserializeIntoSecureScore, serializeSecureScore, type SecureScore } from '../../../models/secureScore';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SecureScoreItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SecureScoreItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SecureScoreItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SecureScoreItemRequestBuilderGetQueryParameters;
+}
+export interface SecureScoreItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
  */

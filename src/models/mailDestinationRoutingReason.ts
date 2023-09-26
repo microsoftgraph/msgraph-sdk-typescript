@@ -16,3 +16,5 @@ export enum MailDestinationRoutingReason {
     Junk = "junk",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

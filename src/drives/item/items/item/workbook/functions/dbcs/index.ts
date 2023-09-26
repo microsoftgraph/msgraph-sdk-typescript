@@ -1,5 +1,2 @@
-export * from './createDbcsPostRequestBodyFromDiscriminatorValue'
 export * from './dbcsPostRequestBody'
-export * from './dbcsRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoDbcsPostRequestBody'
-export * from './serializeDbcsPostRequestBody'
+export * from './dbcsRequestBuilder'

@@ -9,3 +9,5 @@ export enum Enablement {
     /** Disables the setting on the device. */
     Disabled = "disabled",
 }
+// tslint:enable
+// eslint-enable

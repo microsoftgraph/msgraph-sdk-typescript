@@ -1,12 +1,19 @@
 import { type EducationAssignment } from '../../../../../../models/';
-import { createEducationAssignmentFromDiscriminatorValue } from '../../../../../../models/createEducationAssignmentFromDiscriminatorValue';
+import { createEducationAssignmentFromDiscriminatorValue } from '../../../../../../models/educationAssignment';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type SetUpResourcesFolderRequestBuilderPostRequestConfiguration } from './setUpResourcesFolderRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SetUpResourcesFolderRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the setUpResourcesFolder method.
  */

@@ -1,16 +1,52 @@
-import { createFilterOperatorSchemaFromDiscriminatorValue } from '../../models/createFilterOperatorSchemaFromDiscriminatorValue';
-import { deserializeIntoFilterOperatorSchema } from '../../models/deserializeIntoFilterOperatorSchema';
-import { type FilterOperatorSchema } from '../../models/filterOperatorSchema';
+import { createFilterOperatorSchemaFromDiscriminatorValue, deserializeIntoFilterOperatorSchema, serializeFilterOperatorSchema, type FilterOperatorSchema } from '../../models/filterOperatorSchema';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeFilterOperatorSchema } from '../../models/serializeFilterOperatorSchema';
-import { type FilterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration } from './filterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration';
-import { type FilterOperatorSchemaItemRequestBuilderGetRequestConfiguration } from './filterOperatorSchemaItemRequestBuilderGetRequestConfiguration';
-import { type FilterOperatorSchemaItemRequestBuilderPatchRequestConfiguration } from './filterOperatorSchemaItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FilterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface FilterOperatorSchemaItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FilterOperatorSchemaItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FilterOperatorSchemaItemRequestBuilderGetQueryParameters;
+}
+export interface FilterOperatorSchemaItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of filterOperatorSchema entities.
  */

@@ -1,16 +1,52 @@
-import { createProvisioningObjectSummaryFromDiscriminatorValue } from '../../../models/createProvisioningObjectSummaryFromDiscriminatorValue';
-import { deserializeIntoProvisioningObjectSummary } from '../../../models/deserializeIntoProvisioningObjectSummary';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type ProvisioningObjectSummary } from '../../../models/provisioningObjectSummary';
-import { serializeProvisioningObjectSummary } from '../../../models/serializeProvisioningObjectSummary';
-import { type ProvisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration } from './provisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration';
-import { type ProvisioningObjectSummaryItemRequestBuilderGetRequestConfiguration } from './provisioningObjectSummaryItemRequestBuilderGetRequestConfiguration';
-import { type ProvisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration } from './provisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createProvisioningObjectSummaryFromDiscriminatorValue, deserializeIntoProvisioningObjectSummary, serializeProvisioningObjectSummary, type ProvisioningObjectSummary } from '../../../models/provisioningObjectSummary';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ProvisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ProvisioningObjectSummaryItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ProvisioningObjectSummaryItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ProvisioningObjectSummaryItemRequestBuilderGetQueryParameters;
+}
+export interface ProvisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
  */

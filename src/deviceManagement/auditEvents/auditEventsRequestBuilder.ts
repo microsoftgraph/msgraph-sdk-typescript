@@ -1,21 +1,72 @@
 import { type AuditEventCollectionResponse } from '../../models/';
-import { type AuditEvent } from '../../models/auditEvent';
-import { createAuditEventCollectionResponseFromDiscriminatorValue } from '../../models/createAuditEventCollectionResponseFromDiscriminatorValue';
-import { createAuditEventFromDiscriminatorValue } from '../../models/createAuditEventFromDiscriminatorValue';
-import { deserializeIntoAuditEvent } from '../../models/deserializeIntoAuditEvent';
+import { createAuditEventFromDiscriminatorValue, deserializeIntoAuditEvent, serializeAuditEvent, type AuditEvent } from '../../models/auditEvent';
+import { createAuditEventCollectionResponseFromDiscriminatorValue } from '../../models/auditEventCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAuditEvent } from '../../models/serializeAuditEvent';
-import { type AuditEventsRequestBuilderGetRequestConfiguration } from './auditEventsRequestBuilderGetRequestConfiguration';
-import { type AuditEventsRequestBuilderPostRequestConfiguration } from './auditEventsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { GetAuditActivityTypesWithCategoryRequestBuilder } from './getAuditActivityTypesWithCategory/getAuditActivityTypesWithCategoryRequestBuilder';
 import { GetAuditCategoriesRequestBuilder } from './getAuditCategories/getAuditCategoriesRequestBuilder';
 import { AuditEventItemRequestBuilder } from './item/auditEventItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuditEventsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AuditEventsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuditEventsRequestBuilderGetQueryParameters;
+}
+export interface AuditEventsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
  */

@@ -1,19 +1,70 @@
 import { type WindowsInformationProtectionAppLockerFileCollectionResponse } from '../../../../models/';
-import { createWindowsInformationProtectionAppLockerFileCollectionResponseFromDiscriminatorValue } from '../../../../models/createWindowsInformationProtectionAppLockerFileCollectionResponseFromDiscriminatorValue';
-import { createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue } from '../../../../models/createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue';
-import { deserializeIntoWindowsInformationProtectionAppLockerFile } from '../../../../models/deserializeIntoWindowsInformationProtectionAppLockerFile';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeWindowsInformationProtectionAppLockerFile } from '../../../../models/serializeWindowsInformationProtectionAppLockerFile';
-import { type WindowsInformationProtectionAppLockerFile } from '../../../../models/windowsInformationProtectionAppLockerFile';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue, deserializeIntoWindowsInformationProtectionAppLockerFile, serializeWindowsInformationProtectionAppLockerFile, type WindowsInformationProtectionAppLockerFile } from '../../../../models/windowsInformationProtectionAppLockerFile';
+import { createWindowsInformationProtectionAppLockerFileCollectionResponseFromDiscriminatorValue } from '../../../../models/windowsInformationProtectionAppLockerFileCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WindowsInformationProtectionAppLockerFileItemRequestBuilder } from './item/windowsInformationProtectionAppLockerFileItemRequestBuilder';
-import { type ProtectedAppLockerFilesRequestBuilderGetRequestConfiguration } from './protectedAppLockerFilesRequestBuilderGetRequestConfiguration';
-import { type ProtectedAppLockerFilesRequestBuilderPostRequestConfiguration } from './protectedAppLockerFilesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ProtectedAppLockerFilesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ProtectedAppLockerFilesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ProtectedAppLockerFilesRequestBuilderGetQueryParameters;
+}
+export interface ProtectedAppLockerFilesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.
  */

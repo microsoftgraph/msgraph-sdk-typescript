@@ -1,5 +1,2 @@
 export * from './addToReviewSetPostRequestBody'
-export * from './createAddToReviewSetPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAddToReviewSetPostRequestBody'
-export * from './microsoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration'
-export * from './serializeAddToReviewSetPostRequestBody'
+export * from './microsoftGraphSecurityAddToReviewSetRequestBuilder'

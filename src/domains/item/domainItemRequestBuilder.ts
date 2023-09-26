@@ -1,14 +1,6 @@
-import { createDomainFromDiscriminatorValue } from '../../models/createDomainFromDiscriminatorValue';
-import { deserializeIntoDomain } from '../../models/deserializeIntoDomain';
-import { type Domain } from '../../models/domain';
+import { createDomainFromDiscriminatorValue, deserializeIntoDomain, serializeDomain, type Domain } from '../../models/domain';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDomain } from '../../models/serializeDomain';
-import { type DomainItemRequestBuilderDeleteRequestConfiguration } from './domainItemRequestBuilderDeleteRequestConfiguration';
-import { type DomainItemRequestBuilderGetRequestConfiguration } from './domainItemRequestBuilderGetRequestConfiguration';
-import { type DomainItemRequestBuilderPatchRequestConfiguration } from './domainItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { DomainNameReferencesRequestBuilder } from './domainNameReferences/domainNameReferencesRequestBuilder';
 import { FederationConfigurationRequestBuilder } from './federationConfiguration/federationConfigurationRequestBuilder';
 import { ForceDeleteRequestBuilder } from './forceDelete/forceDeleteRequestBuilder';
@@ -18,6 +10,50 @@ import { VerificationDnsRecordsRequestBuilder } from './verificationDnsRecords/v
 import { VerifyRequestBuilder } from './verify/verifyRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DomainItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DomainItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DomainItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DomainItemRequestBuilderGetQueryParameters;
+}
+export interface DomainItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of domain entities.
  */

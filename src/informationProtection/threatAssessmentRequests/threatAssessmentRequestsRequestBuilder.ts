@@ -1,19 +1,70 @@
 import { type ThreatAssessmentRequestCollectionResponse } from '../../models/';
-import { createThreatAssessmentRequestCollectionResponseFromDiscriminatorValue } from '../../models/createThreatAssessmentRequestCollectionResponseFromDiscriminatorValue';
-import { createThreatAssessmentRequestFromDiscriminatorValue } from '../../models/createThreatAssessmentRequestFromDiscriminatorValue';
-import { deserializeIntoThreatAssessmentRequest } from '../../models/deserializeIntoThreatAssessmentRequest';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeThreatAssessmentRequest } from '../../models/serializeThreatAssessmentRequest';
-import { type ThreatAssessmentRequest } from '../../models/threatAssessmentRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createThreatAssessmentRequestFromDiscriminatorValue, deserializeIntoThreatAssessmentRequest, serializeThreatAssessmentRequest, type ThreatAssessmentRequest } from '../../models/threatAssessmentRequest';
+import { createThreatAssessmentRequestCollectionResponseFromDiscriminatorValue } from '../../models/threatAssessmentRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ThreatAssessmentRequestItemRequestBuilder } from './item/threatAssessmentRequestItemRequestBuilder';
-import { type ThreatAssessmentRequestsRequestBuilderGetRequestConfiguration } from './threatAssessmentRequestsRequestBuilderGetRequestConfiguration';
-import { type ThreatAssessmentRequestsRequestBuilderPostRequestConfiguration } from './threatAssessmentRequestsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ThreatAssessmentRequestsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ThreatAssessmentRequestsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ThreatAssessmentRequestsRequestBuilderGetQueryParameters;
+}
+export interface ThreatAssessmentRequestsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
  */

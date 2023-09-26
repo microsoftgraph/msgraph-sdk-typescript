@@ -1,2 +1,1 @@
-export * from './learningCourseActivitiesRequestBuilderGetQueryParameters'
-export * from './learningCourseActivitiesRequestBuilderGetRequestConfiguration'
+export * from './learningCourseActivitiesRequestBuilder'

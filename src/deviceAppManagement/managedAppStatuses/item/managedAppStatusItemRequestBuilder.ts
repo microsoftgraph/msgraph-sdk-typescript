@@ -1,16 +1,52 @@
-import { createManagedAppStatusFromDiscriminatorValue } from '../../../models/createManagedAppStatusFromDiscriminatorValue';
-import { deserializeIntoManagedAppStatus } from '../../../models/deserializeIntoManagedAppStatus';
-import { type ManagedAppStatus } from '../../../models/managedAppStatus';
+import { createManagedAppStatusFromDiscriminatorValue, deserializeIntoManagedAppStatus, serializeManagedAppStatus, type ManagedAppStatus } from '../../../models/managedAppStatus';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeManagedAppStatus } from '../../../models/serializeManagedAppStatus';
-import { type ManagedAppStatusItemRequestBuilderDeleteRequestConfiguration } from './managedAppStatusItemRequestBuilderDeleteRequestConfiguration';
-import { type ManagedAppStatusItemRequestBuilderGetRequestConfiguration } from './managedAppStatusItemRequestBuilderGetRequestConfiguration';
-import { type ManagedAppStatusItemRequestBuilderPatchRequestConfiguration } from './managedAppStatusItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ManagedAppStatusItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ManagedAppStatusItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ManagedAppStatusItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ManagedAppStatusItemRequestBuilderGetQueryParameters;
+}
+export interface ManagedAppStatusItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
  */

@@ -1,20 +1,47 @@
-import { createIdentityContainerFromDiscriminatorValue } from '../models/createIdentityContainerFromDiscriminatorValue';
-import { deserializeIntoIdentityContainer } from '../models/deserializeIntoIdentityContainer';
-import { type IdentityContainer } from '../models/identityContainer';
+import { createIdentityContainerFromDiscriminatorValue, deserializeIntoIdentityContainer, serializeIdentityContainer, type IdentityContainer } from '../models/identityContainer';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeIdentityContainer } from '../models/serializeIdentityContainer';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { ApiConnectorsRequestBuilder } from './apiConnectors/apiConnectorsRequestBuilder';
 import { B2xUserFlowsRequestBuilder } from './b2xUserFlows/b2xUserFlowsRequestBuilder';
 import { ConditionalAccessRequestBuilder } from './conditionalAccess/conditionalAccessRequestBuilder';
 import { IdentityProvidersRequestBuilder } from './identityProviders/identityProvidersRequestBuilder';
-import { type IdentityRequestBuilderGetRequestConfiguration } from './identityRequestBuilderGetRequestConfiguration';
-import { type IdentityRequestBuilderPatchRequestConfiguration } from './identityRequestBuilderPatchRequestConfiguration';
 import { UserFlowAttributesRequestBuilder } from './userFlowAttributes/userFlowAttributesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentityRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentityRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentityRequestBuilderGetQueryParameters;
+}
+export interface IdentityRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the identityContainer singleton.
  */

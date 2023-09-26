@@ -1,16 +1,52 @@
-import { createUserExperienceAnalyticsScoreHistoryFromDiscriminatorValue } from '../../../models/createUserExperienceAnalyticsScoreHistoryFromDiscriminatorValue';
-import { deserializeIntoUserExperienceAnalyticsScoreHistory } from '../../../models/deserializeIntoUserExperienceAnalyticsScoreHistory';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUserExperienceAnalyticsScoreHistory } from '../../../models/serializeUserExperienceAnalyticsScoreHistory';
-import { type UserExperienceAnalyticsScoreHistory } from '../../../models/userExperienceAnalyticsScoreHistory';
-import { type UserExperienceAnalyticsScoreHistoryItemRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsScoreHistoryItemRequestBuilderDeleteRequestConfiguration';
-import { type UserExperienceAnalyticsScoreHistoryItemRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsScoreHistoryItemRequestBuilderGetRequestConfiguration';
-import { type UserExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsScoreHistoryFromDiscriminatorValue, deserializeIntoUserExperienceAnalyticsScoreHistory, serializeUserExperienceAnalyticsScoreHistory, type UserExperienceAnalyticsScoreHistory } from '../../../models/userExperienceAnalyticsScoreHistory';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserExperienceAnalyticsScoreHistoryItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserExperienceAnalyticsScoreHistoryItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserExperienceAnalyticsScoreHistoryItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserExperienceAnalyticsScoreHistoryItemRequestBuilderGetQueryParameters;
+}
+export interface UserExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userExperienceAnalyticsScoreHistory property of the microsoft.graph.deviceManagement entity.
  */

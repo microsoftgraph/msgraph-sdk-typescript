@@ -1,17 +1,53 @@
-import { createPlannerGroupFromDiscriminatorValue } from '../../../models/createPlannerGroupFromDiscriminatorValue';
-import { deserializeIntoPlannerGroup } from '../../../models/deserializeIntoPlannerGroup';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PlannerGroup } from '../../../models/plannerGroup';
-import { serializePlannerGroup } from '../../../models/serializePlannerGroup';
-import { type PlannerRequestBuilderDeleteRequestConfiguration } from './plannerRequestBuilderDeleteRequestConfiguration';
-import { type PlannerRequestBuilderGetRequestConfiguration } from './plannerRequestBuilderGetRequestConfiguration';
-import { type PlannerRequestBuilderPatchRequestConfiguration } from './plannerRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPlannerGroupFromDiscriminatorValue, deserializeIntoPlannerGroup, serializePlannerGroup, type PlannerGroup } from '../../../models/plannerGroup';
 import { PlansRequestBuilder } from './plans/plansRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PlannerRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PlannerRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PlannerRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PlannerRequestBuilderGetQueryParameters;
+}
+export interface PlannerRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the planner property of the microsoft.graph.group entity.
  */

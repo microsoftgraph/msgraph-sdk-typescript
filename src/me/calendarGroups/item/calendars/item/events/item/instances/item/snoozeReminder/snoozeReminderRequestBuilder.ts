@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoSnoozeReminderPostRequestBody } from './deserializeIntoSnoozeReminderPostRequestBody';
-import { serializeSnoozeReminderPostRequestBody } from './serializeSnoozeReminderPostRequestBody';
-import { type SnoozeReminderPostRequestBody } from './snoozeReminderPostRequestBody';
-import { type SnoozeReminderRequestBuilderPostRequestConfiguration } from './snoozeReminderRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoSnoozeReminderPostRequestBody, serializeSnoozeReminderPostRequestBody, type SnoozeReminderPostRequestBody } from './snoozeReminderPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SnoozeReminderRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the snoozeReminder method.
  */

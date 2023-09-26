@@ -1,20 +1,56 @@
-import { createExternalConnectionFromDiscriminatorValue } from '../../../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
-import { deserializeIntoExternalConnection } from '../../../models/externalConnectors/deserializeIntoExternalConnection';
-import { type ExternalConnection } from '../../../models/externalConnectors/externalConnection';
-import { serializeExternalConnection } from '../../../models/externalConnectors/serializeExternalConnection';
+import { createExternalConnectionFromDiscriminatorValue, deserializeIntoExternalConnection, serializeExternalConnection, type ExternalConnection } from '../../../models/externalConnectors/externalConnection';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type ExternalConnectionItemRequestBuilderDeleteRequestConfiguration } from './externalConnectionItemRequestBuilderDeleteRequestConfiguration';
-import { type ExternalConnectionItemRequestBuilderGetRequestConfiguration } from './externalConnectionItemRequestBuilderGetRequestConfiguration';
-import { type ExternalConnectionItemRequestBuilderPatchRequestConfiguration } from './externalConnectionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { GroupsRequestBuilder } from './groups/groupsRequestBuilder';
 import { ItemsRequestBuilder } from './items/itemsRequestBuilder';
 import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
 import { SchemaRequestBuilder } from './schema/schemaRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExternalConnectionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ExternalConnectionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ExternalConnectionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ExternalConnectionItemRequestBuilderGetQueryParameters;
+}
+export interface ExternalConnectionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
  */

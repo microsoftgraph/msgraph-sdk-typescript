@@ -1,19 +1,70 @@
 import { type ManagedAppPolicyCollectionResponse } from '../../models/';
-import { createManagedAppPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createManagedAppPolicyCollectionResponseFromDiscriminatorValue';
-import { createManagedAppPolicyFromDiscriminatorValue } from '../../models/createManagedAppPolicyFromDiscriminatorValue';
-import { deserializeIntoManagedAppPolicy } from '../../models/deserializeIntoManagedAppPolicy';
-import { type ManagedAppPolicy } from '../../models/managedAppPolicy';
+import { createManagedAppPolicyFromDiscriminatorValue, deserializeIntoManagedAppPolicy, serializeManagedAppPolicy, type ManagedAppPolicy } from '../../models/managedAppPolicy';
+import { createManagedAppPolicyCollectionResponseFromDiscriminatorValue } from '../../models/managedAppPolicyCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeManagedAppPolicy } from '../../models/serializeManagedAppPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ManagedAppPolicyItemRequestBuilder } from './item/managedAppPolicyItemRequestBuilder';
-import { type ManagedAppPoliciesRequestBuilderGetRequestConfiguration } from './managedAppPoliciesRequestBuilderGetRequestConfiguration';
-import { type ManagedAppPoliciesRequestBuilderPostRequestConfiguration } from './managedAppPoliciesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ManagedAppPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ManagedAppPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ManagedAppPoliciesRequestBuilderGetQueryParameters;
+}
+export interface ManagedAppPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the managedAppPolicies property of the microsoft.graph.deviceAppManagement entity.
  */
@@ -44,10 +95,10 @@ export class ManagedAppPoliciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedAppPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the managedAppPolicy objects.
+     * List properties and relationships of the managedAppProtection objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppPolicyCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedapppolicy-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappprotection-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +127,7 @@ export class ManagedAppPoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedAppPolicy>(requestInfo, createManagedAppPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the managedAppPolicy objects.
+     * List properties and relationships of the managedAppProtection objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

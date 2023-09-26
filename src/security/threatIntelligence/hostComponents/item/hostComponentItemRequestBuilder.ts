@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createHostComponentFromDiscriminatorValue } from '../../../../models/security/createHostComponentFromDiscriminatorValue';
-import { deserializeIntoHostComponent } from '../../../../models/security/deserializeIntoHostComponent';
-import { type HostComponent } from '../../../../models/security/hostComponent';
-import { serializeHostComponent } from '../../../../models/security/serializeHostComponent';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createHostComponentFromDiscriminatorValue, deserializeIntoHostComponent, serializeHostComponent, type HostComponent } from '../../../../models/security/hostComponent';
 import { HostRequestBuilder } from './host/hostRequestBuilder';
-import { type HostComponentItemRequestBuilderDeleteRequestConfiguration } from './hostComponentItemRequestBuilderDeleteRequestConfiguration';
-import { type HostComponentItemRequestBuilderGetRequestConfiguration } from './hostComponentItemRequestBuilderGetRequestConfiguration';
-import { type HostComponentItemRequestBuilderPatchRequestConfiguration } from './hostComponentItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HostComponentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface HostComponentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface HostComponentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HostComponentItemRequestBuilderGetQueryParameters;
+}
+export interface HostComponentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the hostComponents property of the microsoft.graph.security.threatIntelligence entity.
  */

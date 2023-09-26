@@ -1,16 +1,52 @@
-import { createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue } from '../../../../../models/createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
-import { deserializeIntoTargetedManagedAppPolicyAssignment } from '../../../../../models/deserializeIntoTargetedManagedAppPolicyAssignment';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeTargetedManagedAppPolicyAssignment } from '../../../../../models/serializeTargetedManagedAppPolicyAssignment';
-import { type TargetedManagedAppPolicyAssignment } from '../../../../../models/targetedManagedAppPolicyAssignment';
-import { type TargetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration } from './targetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration } from './targetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration } from './targetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue, deserializeIntoTargetedManagedAppPolicyAssignment, serializeTargetedManagedAppPolicyAssignment, type TargetedManagedAppPolicyAssignment } from '../../../../../models/targetedManagedAppPolicyAssignment';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppProtection entity.
  */

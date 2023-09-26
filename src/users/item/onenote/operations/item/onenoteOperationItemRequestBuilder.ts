@@ -1,16 +1,52 @@
-import { createOnenoteOperationFromDiscriminatorValue } from '../../../../../models/createOnenoteOperationFromDiscriminatorValue';
-import { deserializeIntoOnenoteOperation } from '../../../../../models/deserializeIntoOnenoteOperation';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type OnenoteOperation } from '../../../../../models/onenoteOperation';
-import { serializeOnenoteOperation } from '../../../../../models/serializeOnenoteOperation';
-import { type OnenoteOperationItemRequestBuilderDeleteRequestConfiguration } from './onenoteOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type OnenoteOperationItemRequestBuilderGetRequestConfiguration } from './onenoteOperationItemRequestBuilderGetRequestConfiguration';
-import { type OnenoteOperationItemRequestBuilderPatchRequestConfiguration } from './onenoteOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createOnenoteOperationFromDiscriminatorValue, deserializeIntoOnenoteOperation, serializeOnenoteOperation, type OnenoteOperation } from '../../../../../models/onenoteOperation';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OnenoteOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OnenoteOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OnenoteOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OnenoteOperationItemRequestBuilderGetQueryParameters;
+}
+export interface OnenoteOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
  */

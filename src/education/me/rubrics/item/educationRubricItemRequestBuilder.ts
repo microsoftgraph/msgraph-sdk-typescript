@@ -1,16 +1,52 @@
-import { createEducationRubricFromDiscriminatorValue } from '../../../../models/createEducationRubricFromDiscriminatorValue';
-import { deserializeIntoEducationRubric } from '../../../../models/deserializeIntoEducationRubric';
-import { type EducationRubric } from '../../../../models/educationRubric';
+import { createEducationRubricFromDiscriminatorValue, deserializeIntoEducationRubric, serializeEducationRubric, type EducationRubric } from '../../../../models/educationRubric';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationRubric } from '../../../../models/serializeEducationRubric';
-import { type EducationRubricItemRequestBuilderDeleteRequestConfiguration } from './educationRubricItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationRubricItemRequestBuilderGetRequestConfiguration } from './educationRubricItemRequestBuilderGetRequestConfiguration';
-import { type EducationRubricItemRequestBuilderPatchRequestConfiguration } from './educationRubricItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationRubricItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationRubricItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationRubricItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationRubricItemRequestBuilderGetQueryParameters;
+}
+export interface EducationRubricItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
  */

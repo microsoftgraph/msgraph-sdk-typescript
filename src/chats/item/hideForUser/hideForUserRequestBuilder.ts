@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoHideForUserPostRequestBody } from './deserializeIntoHideForUserPostRequestBody';
-import { type HideForUserPostRequestBody } from './hideForUserPostRequestBody';
-import { type HideForUserRequestBuilderPostRequestConfiguration } from './hideForUserRequestBuilderPostRequestConfiguration';
-import { serializeHideForUserPostRequestBody } from './serializeHideForUserPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoHideForUserPostRequestBody, serializeHideForUserPostRequestBody, type HideForUserPostRequestBody } from './hideForUserPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HideForUserRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the hideForUser method.
  */

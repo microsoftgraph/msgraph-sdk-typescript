@@ -1,16 +1,52 @@
-import { createEducationAssignmentResourceFromDiscriminatorValue } from '../../../../../../models/createEducationAssignmentResourceFromDiscriminatorValue';
-import { deserializeIntoEducationAssignmentResource } from '../../../../../../models/deserializeIntoEducationAssignmentResource';
-import { type EducationAssignmentResource } from '../../../../../../models/educationAssignmentResource';
+import { createEducationAssignmentResourceFromDiscriminatorValue, deserializeIntoEducationAssignmentResource, serializeEducationAssignmentResource, type EducationAssignmentResource } from '../../../../../../models/educationAssignmentResource';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationAssignmentResource } from '../../../../../../models/serializeEducationAssignmentResource';
-import { type EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration } from './educationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration } from './educationAssignmentResourceItemRequestBuilderGetRequestConfiguration';
-import { type EducationAssignmentResourceItemRequestBuilderPatchRequestConfiguration } from './educationAssignmentResourceItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationAssignmentResourceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationAssignmentResourceItemRequestBuilderGetQueryParameters;
+}
+export interface EducationAssignmentResourceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
  */

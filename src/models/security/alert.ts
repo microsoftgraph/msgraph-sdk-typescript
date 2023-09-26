@@ -1,130 +1,209 @@
-import { type Entity } from '../entity';
+import { deserializeIntoEntity, serializeEntity, type Entity } from '../entity';
 import { AlertClassification } from './alertClassification';
-import { type AlertComment } from './alertComment';
+import { createAlertCommentFromDiscriminatorValue, serializeAlertComment, type AlertComment } from './alertComment';
 import { AlertDetermination } from './alertDetermination';
-import { type AlertEvidence } from './alertEvidence';
+import { createAlertEvidenceFromDiscriminatorValue, serializeAlertEvidence, type AlertEvidence } from './alertEvidence';
 import { AlertSeverity } from './alertSeverity';
 import { AlertStatus } from './alertStatus';
 import { DetectionSource } from './detectionSource';
-import { type Dictionary } from './dictionary';
+import { createDictionaryFromDiscriminatorValue, serializeDictionary, type Dictionary } from './dictionary';
 import { ServiceSource } from './serviceSource';
-import { type Parsable } from '@microsoft/kiota-abstractions';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface Alert extends Entity, Parsable {
     /**
      * The adversary or activity group that is associated with this alert.
      */
-    actorDisplayName?: string | undefined;
+    actorDisplayName?: string;
     /**
      * The alertPolicyId property
      */
-    alertPolicyId?: string | undefined;
+    alertPolicyId?: string;
     /**
      * URL for the alert page in the Microsoft 365 Defender portal.
      */
-    alertWebUrl?: string | undefined;
+    alertWebUrl?: string;
     /**
      * Owner of the alert, or null if no owner is assigned.
      */
-    assignedTo?: string | undefined;
+    assignedTo?: string;
     /**
      * The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework.
      */
-    category?: string | undefined;
+    category?: string;
     /**
      * Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      */
-    classification?: AlertClassification | undefined;
+    classification?: AlertClassification;
     /**
      * Array of comments created by the Security Operations (SecOps) team during the alert management process.
      */
-    comments?: AlertComment[] | undefined;
+    comments?: AlertComment[];
     /**
      * Time when Microsoft 365 Defender created the alert.
      */
-    createdDateTime?: Date | undefined;
+    createdDateTime?: Date;
     /**
      * String value describing each alert.
      */
-    description?: string | undefined;
+    description?: string;
     /**
      * Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: microsoftDefenderForCloud.
      */
-    detectionSource?: DetectionSource | undefined;
+    detectionSource?: DetectionSource;
     /**
      * The ID of the detector that triggered the alert.
      */
-    detectorId?: string | undefined;
+    detectorId?: string;
     /**
      * Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      */
-    determination?: AlertDetermination | undefined;
+    determination?: AlertDetermination;
     /**
      * Collection of evidence related to the alert.
      */
-    evidence?: AlertEvidence[] | undefined;
+    evidence?: AlertEvidence[];
     /**
      * The earliest activity associated with the alert.
      */
-    firstActivityDateTime?: Date | undefined;
+    firstActivityDateTime?: Date;
     /**
      * Unique identifier to represent the incident this alert resource is associated with.
      */
-    incidentId?: string | undefined;
+    incidentId?: string;
     /**
      * URL for the incident page in the Microsoft 365 Defender portal.
      */
-    incidentWebUrl?: string | undefined;
+    incidentWebUrl?: string;
     /**
      * The oldest activity associated with the alert.
      */
-    lastActivityDateTime?: Date | undefined;
+    lastActivityDateTime?: Date;
     /**
      * Time when the alert was last updated at Microsoft 365 Defender.
      */
-    lastUpdateDateTime?: Date | undefined;
+    lastUpdateDateTime?: Date;
     /**
      * The attack techniques, as aligned with the MITRE ATT&CK framework.
      */
-    mitreTechniques?: string[] | undefined;
+    mitreTechniques?: string[];
     /**
      * The ID of the alert as it appears in the security provider product that generated the alert.
      */
-    providerAlertId?: string | undefined;
+    providerAlertId?: string;
     /**
      * Recommended response and remediation actions to take in the event this alert was generated.
      */
-    recommendedActions?: string | undefined;
+    recommendedActions?: string;
     /**
      * Time when the alert was resolved.
      */
-    resolvedDateTime?: Date | undefined;
+    resolvedDateTime?: Date;
     /**
      * The serviceSource property
      */
-    serviceSource?: ServiceSource | undefined;
+    serviceSource?: ServiceSource;
     /**
      * The severity property
      */
-    severity?: AlertSeverity | undefined;
+    severity?: AlertSeverity;
     /**
      * The status property
      */
-    status?: AlertStatus | undefined;
+    status?: AlertStatus;
     /**
      * The Azure Active Directory tenant the alert was created in.
      */
-    tenantId?: string | undefined;
+    tenantId?: string;
     /**
      * The threat associated with this alert.
      */
-    threatDisplayName?: string | undefined;
+    threatDisplayName?: string;
     /**
      * Threat family associated with this alert.
      */
-    threatFamilyName?: string | undefined;
+    threatFamilyName?: string;
     /**
      * Brief identifying string value describing the alert.
      */
-    title?: string | undefined;
+    title?: string;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function createAlertFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoAlert;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function deserializeIntoAlert(alert: Alert | undefined = {} as Alert) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(alert),
+        "actorDisplayName": n => { alert.actorDisplayName = n.getStringValue(); },
+        "alertPolicyId": n => { alert.alertPolicyId = n.getStringValue(); },
+        "alertWebUrl": n => { alert.alertWebUrl = n.getStringValue(); },
+        "assignedTo": n => { alert.assignedTo = n.getStringValue(); },
+        "category": n => { alert.category = n.getStringValue(); },
+        "classification": n => { alert.classification = n.getEnumValue<AlertClassification>(AlertClassification); },
+        "comments": n => { alert.comments = n.getCollectionOfObjectValues<AlertComment>(createAlertCommentFromDiscriminatorValue); },
+        "createdDateTime": n => { alert.createdDateTime = n.getDateValue(); },
+        "description": n => { alert.description = n.getStringValue(); },
+        "detectionSource": n => { alert.detectionSource = n.getEnumValue<DetectionSource>(DetectionSource); },
+        "detectorId": n => { alert.detectorId = n.getStringValue(); },
+        "determination": n => { alert.determination = n.getEnumValue<AlertDetermination>(AlertDetermination); },
+        "evidence": n => { alert.evidence = n.getCollectionOfObjectValues<AlertEvidence>(createAlertEvidenceFromDiscriminatorValue); },
+        "firstActivityDateTime": n => { alert.firstActivityDateTime = n.getDateValue(); },
+        "incidentId": n => { alert.incidentId = n.getStringValue(); },
+        "incidentWebUrl": n => { alert.incidentWebUrl = n.getStringValue(); },
+        "lastActivityDateTime": n => { alert.lastActivityDateTime = n.getDateValue(); },
+        "lastUpdateDateTime": n => { alert.lastUpdateDateTime = n.getDateValue(); },
+        "mitreTechniques": n => { alert.mitreTechniques = n.getCollectionOfPrimitiveValues<string>(); },
+        "providerAlertId": n => { alert.providerAlertId = n.getStringValue(); },
+        "recommendedActions": n => { alert.recommendedActions = n.getStringValue(); },
+        "resolvedDateTime": n => { alert.resolvedDateTime = n.getDateValue(); },
+        "serviceSource": n => { alert.serviceSource = n.getEnumValue<ServiceSource>(ServiceSource); },
+        "severity": n => { alert.severity = n.getEnumValue<AlertSeverity>(AlertSeverity); },
+        "status": n => { alert.status = n.getEnumValue<AlertStatus>(AlertStatus); },
+        "tenantId": n => { alert.tenantId = n.getStringValue(); },
+        "threatDisplayName": n => { alert.threatDisplayName = n.getStringValue(); },
+        "threatFamilyName": n => { alert.threatFamilyName = n.getStringValue(); },
+        "title": n => { alert.title = n.getStringValue(); },
+    }
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function serializeAlert(writer: SerializationWriter, alert: Alert | undefined = {} as Alert) : void {
+        serializeEntity(writer, alert)
+        writer.writeStringValue("actorDisplayName", alert.actorDisplayName);
+        writer.writeStringValue("alertPolicyId", alert.alertPolicyId);
+        writer.writeStringValue("alertWebUrl", alert.alertWebUrl);
+        writer.writeStringValue("assignedTo", alert.assignedTo);
+        writer.writeStringValue("category", alert.category);
+        writer.writeEnumValue<AlertClassification>("classification", alert.classification);
+        writer.writeCollectionOfObjectValues<AlertComment>("comments", alert.comments, );
+        writer.writeDateValue("createdDateTime", alert.createdDateTime);
+        writer.writeStringValue("description", alert.description);
+        writer.writeEnumValue<DetectionSource>("detectionSource", alert.detectionSource);
+        writer.writeStringValue("detectorId", alert.detectorId);
+        writer.writeEnumValue<AlertDetermination>("determination", alert.determination);
+        writer.writeCollectionOfObjectValues<AlertEvidence>("evidence", alert.evidence, );
+        writer.writeDateValue("firstActivityDateTime", alert.firstActivityDateTime);
+        writer.writeStringValue("incidentId", alert.incidentId);
+        writer.writeStringValue("incidentWebUrl", alert.incidentWebUrl);
+        writer.writeDateValue("lastActivityDateTime", alert.lastActivityDateTime);
+        writer.writeDateValue("lastUpdateDateTime", alert.lastUpdateDateTime);
+        writer.writeCollectionOfPrimitiveValues<string>("mitreTechniques", alert.mitreTechniques);
+        writer.writeStringValue("providerAlertId", alert.providerAlertId);
+        writer.writeStringValue("recommendedActions", alert.recommendedActions);
+        writer.writeDateValue("resolvedDateTime", alert.resolvedDateTime);
+        writer.writeEnumValue<ServiceSource>("serviceSource", alert.serviceSource);
+        writer.writeEnumValue<AlertSeverity>("severity", alert.severity);
+        writer.writeEnumValue<AlertStatus>("status", alert.status);
+        writer.writeStringValue("tenantId", alert.tenantId);
+        writer.writeStringValue("threatDisplayName", alert.threatDisplayName);
+        writer.writeStringValue("threatFamilyName", alert.threatFamilyName);
+        writer.writeStringValue("title", alert.title);
 }

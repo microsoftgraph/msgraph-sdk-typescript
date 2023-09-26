@@ -1,16 +1,52 @@
-import { createOpenShiftFromDiscriminatorValue } from '../../../../../../../models/createOpenShiftFromDiscriminatorValue';
-import { deserializeIntoOpenShift } from '../../../../../../../models/deserializeIntoOpenShift';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { type OpenShift } from '../../../../../../../models/openShift';
-import { serializeOpenShift } from '../../../../../../../models/serializeOpenShift';
-import { type OpenShiftItemRequestBuilderDeleteRequestConfiguration } from './openShiftItemRequestBuilderDeleteRequestConfiguration';
-import { type OpenShiftItemRequestBuilderGetRequestConfiguration } from './openShiftItemRequestBuilderGetRequestConfiguration';
-import { type OpenShiftItemRequestBuilderPatchRequestConfiguration } from './openShiftItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createOpenShiftFromDiscriminatorValue, deserializeIntoOpenShift, serializeOpenShift, type OpenShift } from '../../../../../../../models/openShift';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OpenShiftItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OpenShiftItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OpenShiftItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OpenShiftItemRequestBuilderGetQueryParameters;
+}
+export interface OpenShiftItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
  */

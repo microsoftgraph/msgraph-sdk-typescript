@@ -1,14 +1,6 @@
-import { type ChatMessage } from '../../../../models/chatMessage';
-import { createChatMessageFromDiscriminatorValue } from '../../../../models/createChatMessageFromDiscriminatorValue';
-import { deserializeIntoChatMessage } from '../../../../models/deserializeIntoChatMessage';
+import { createChatMessageFromDiscriminatorValue, deserializeIntoChatMessage, serializeChatMessage, type ChatMessage } from '../../../../models/chatMessage';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeChatMessage } from '../../../../models/serializeChatMessage';
-import { type ChatMessageItemRequestBuilderDeleteRequestConfiguration } from './chatMessageItemRequestBuilderDeleteRequestConfiguration';
-import { type ChatMessageItemRequestBuilderGetRequestConfiguration } from './chatMessageItemRequestBuilderGetRequestConfiguration';
-import { type ChatMessageItemRequestBuilderPatchRequestConfiguration } from './chatMessageItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { HostedContentsRequestBuilder } from './hostedContents/hostedContentsRequestBuilder';
 import { RepliesRequestBuilder } from './replies/repliesRequestBuilder';
 import { SetReactionRequestBuilder } from './setReaction/setReactionRequestBuilder';
@@ -17,6 +9,50 @@ import { UndoSoftDeleteRequestBuilder } from './undoSoftDelete/undoSoftDeleteReq
 import { UnsetReactionRequestBuilder } from './unsetReaction/unsetReactionRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChatMessageItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ChatMessageItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ChatMessageItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ChatMessageItemRequestBuilderGetQueryParameters;
+}
+export interface ChatMessageItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the messages property of the microsoft.graph.chat entity.
  */

@@ -1,17 +1,19 @@
-import { createWorkbookChartFromDiscriminatorValue } from '../../../../../../../../../models/createWorkbookChartFromDiscriminatorValue';
-import { deserializeIntoWorkbookChart } from '../../../../../../../../../models/deserializeIntoWorkbookChart';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChart } from '../../../../../../../../../models/serializeWorkbookChart';
-import { type WorkbookChart } from '../../../../../../../../../models/workbookChart';
-import { type AddPostRequestBody } from './addPostRequestBody';
-import { type AddRequestBuilderPostRequestConfiguration } from './addRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAddPostRequestBody } from './deserializeIntoAddPostRequestBody';
-import { serializeAddPostRequestBody } from './serializeAddPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartFromDiscriminatorValue, deserializeIntoWorkbookChart, serializeWorkbookChart, type WorkbookChart } from '../../../../../../../../../models/workbookChart';
+import { deserializeIntoAddPostRequestBody, serializeAddPostRequestBody, type AddPostRequestBody } from './addPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AddRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the add method.
  */

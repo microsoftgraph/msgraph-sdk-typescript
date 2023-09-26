@@ -4,3 +4,5 @@ export enum WorkflowTriggerTimeBasedAttribute {
     UnknownFutureValue = "unknownFutureValue",
     CreatedDateTime = "createdDateTime",
 }
+// tslint:enable
+// eslint-enable

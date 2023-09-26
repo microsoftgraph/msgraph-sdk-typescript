@@ -1,6 +1,2 @@
-export * from './createFilterOperatorsResponseFromDiscriminatorValue'
-export * from './deserializeIntoFilterOperatorsResponse'
-export * from './filterOperatorsRequestBuilderGetQueryParameters'
-export * from './filterOperatorsRequestBuilderGetRequestConfiguration'
+export * from './filterOperatorsRequestBuilder'
 export * from './filterOperatorsResponse'
-export * from './serializeFilterOperatorsResponse'

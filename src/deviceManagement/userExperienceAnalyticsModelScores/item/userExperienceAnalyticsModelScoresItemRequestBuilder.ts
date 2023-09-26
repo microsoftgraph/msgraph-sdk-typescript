@@ -1,16 +1,52 @@
-import { createUserExperienceAnalyticsModelScoresFromDiscriminatorValue } from '../../../models/createUserExperienceAnalyticsModelScoresFromDiscriminatorValue';
-import { deserializeIntoUserExperienceAnalyticsModelScores } from '../../../models/deserializeIntoUserExperienceAnalyticsModelScores';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUserExperienceAnalyticsModelScores } from '../../../models/serializeUserExperienceAnalyticsModelScores';
-import { type UserExperienceAnalyticsModelScores } from '../../../models/userExperienceAnalyticsModelScores';
-import { type UserExperienceAnalyticsModelScoresItemRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsModelScoresItemRequestBuilderDeleteRequestConfiguration';
-import { type UserExperienceAnalyticsModelScoresItemRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsModelScoresItemRequestBuilderGetRequestConfiguration';
-import { type UserExperienceAnalyticsModelScoresItemRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsModelScoresItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsModelScoresFromDiscriminatorValue, deserializeIntoUserExperienceAnalyticsModelScores, serializeUserExperienceAnalyticsModelScores, type UserExperienceAnalyticsModelScores } from '../../../models/userExperienceAnalyticsModelScores';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserExperienceAnalyticsModelScoresItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserExperienceAnalyticsModelScoresItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserExperienceAnalyticsModelScoresItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserExperienceAnalyticsModelScoresItemRequestBuilderGetQueryParameters;
+}
+export interface UserExperienceAnalyticsModelScoresItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userExperienceAnalyticsModelScores property of the microsoft.graph.deviceManagement entity.
  */

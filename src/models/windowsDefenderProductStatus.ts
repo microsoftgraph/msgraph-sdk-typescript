@@ -55,3 +55,5 @@ export enum WindowsDefenderProductStatus {
     /** Windows SMode signatures still in use on non-Win10S install */
     WindowsSModeSignaturesInUseOnNonWin10SInstall = "windowsSModeSignaturesInUseOnNonWin10SInstall",
 }
+// tslint:enable
+// eslint-enable

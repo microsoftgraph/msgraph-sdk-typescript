@@ -1,16 +1,52 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { createHostReputationFromDiscriminatorValue } from '../../../../../models/security/createHostReputationFromDiscriminatorValue';
-import { deserializeIntoHostReputation } from '../../../../../models/security/deserializeIntoHostReputation';
-import { type HostReputation } from '../../../../../models/security/hostReputation';
-import { serializeHostReputation } from '../../../../../models/security/serializeHostReputation';
-import { type ReputationRequestBuilderDeleteRequestConfiguration } from './reputationRequestBuilderDeleteRequestConfiguration';
-import { type ReputationRequestBuilderGetRequestConfiguration } from './reputationRequestBuilderGetRequestConfiguration';
-import { type ReputationRequestBuilderPatchRequestConfiguration } from './reputationRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createHostReputationFromDiscriminatorValue, deserializeIntoHostReputation, serializeHostReputation, type HostReputation } from '../../../../../models/security/hostReputation';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ReputationRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ReputationRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ReputationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ReputationRequestBuilderGetQueryParameters;
+}
+export interface ReputationRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the reputation property of the microsoft.graph.security.host entity.
  */

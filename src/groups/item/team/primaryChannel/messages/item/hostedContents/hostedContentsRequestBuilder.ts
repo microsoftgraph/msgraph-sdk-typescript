@@ -1,19 +1,70 @@
 import { type ChatMessageHostedContentCollectionResponse } from '../../../../../../../models/';
-import { type ChatMessageHostedContent } from '../../../../../../../models/chatMessageHostedContent';
-import { createChatMessageHostedContentCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createChatMessageHostedContentCollectionResponseFromDiscriminatorValue';
-import { createChatMessageHostedContentFromDiscriminatorValue } from '../../../../../../../models/createChatMessageHostedContentFromDiscriminatorValue';
-import { deserializeIntoChatMessageHostedContent } from '../../../../../../../models/deserializeIntoChatMessageHostedContent';
+import { createChatMessageHostedContentFromDiscriminatorValue, deserializeIntoChatMessageHostedContent, serializeChatMessageHostedContent, type ChatMessageHostedContent } from '../../../../../../../models/chatMessageHostedContent';
+import { createChatMessageHostedContentCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/chatMessageHostedContentCollectionResponse';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeChatMessageHostedContent } from '../../../../../../../models/serializeChatMessageHostedContent';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HostedContentsRequestBuilderGetRequestConfiguration } from './hostedContentsRequestBuilderGetRequestConfiguration';
-import { type HostedContentsRequestBuilderPostRequestConfiguration } from './hostedContentsRequestBuilderPostRequestConfiguration';
 import { ChatMessageHostedContentItemRequestBuilder } from './item/chatMessageHostedContentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HostedContentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HostedContentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HostedContentsRequestBuilderGetQueryParameters;
+}
+export interface HostedContentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
  */

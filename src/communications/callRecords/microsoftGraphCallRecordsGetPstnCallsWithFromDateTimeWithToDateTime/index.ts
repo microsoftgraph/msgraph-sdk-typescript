@@ -1,6 +1,2 @@
-export * from './createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue'
-export * from './deserializeIntoGetPstnCallsWithFromDateTimeWithToDateTimeResponse'
 export * from './getPstnCallsWithFromDateTimeWithToDateTimeResponse'
-export * from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters'
-export * from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration'
-export * from './serializeGetPstnCallsWithFromDateTimeWithToDateTimeResponse'
+export * from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder'

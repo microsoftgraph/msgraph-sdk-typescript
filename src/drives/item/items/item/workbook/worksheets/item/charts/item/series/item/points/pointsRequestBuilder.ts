@@ -1,20 +1,71 @@
 import { type WorkbookChartPointCollectionResponse } from '../../../../../../../../../../../../models/';
-import { createWorkbookChartPointCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../../models/createWorkbookChartPointCollectionResponseFromDiscriminatorValue';
-import { createWorkbookChartPointFromDiscriminatorValue } from '../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartPoint } from '../../../../../../../../../../../../models/deserializeIntoWorkbookChartPoint';
 import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartPoint } from '../../../../../../../../../../../../models/serializeWorkbookChartPoint';
-import { type WorkbookChartPoint } from '../../../../../../../../../../../../models/workbookChartPoint';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartPointFromDiscriminatorValue, deserializeIntoWorkbookChartPoint, serializeWorkbookChartPoint, type WorkbookChartPoint } from '../../../../../../../../../../../../models/workbookChartPoint';
+import { createWorkbookChartPointCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../../models/workbookChartPointCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookChartPointItemRequestBuilder } from './item/workbookChartPointItemRequestBuilder';
 import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import { type PointsRequestBuilderGetRequestConfiguration } from './pointsRequestBuilderGetRequestConfiguration';
-import { type PointsRequestBuilderPostRequestConfiguration } from './pointsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PointsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PointsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PointsRequestBuilderGetQueryParameters;
+}
+export interface PointsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
  */

@@ -1,16 +1,52 @@
-import { createDelegatedAdminAccessAssignmentFromDiscriminatorValue } from '../../../../../models/createDelegatedAdminAccessAssignmentFromDiscriminatorValue';
-import { type DelegatedAdminAccessAssignment } from '../../../../../models/delegatedAdminAccessAssignment';
-import { deserializeIntoDelegatedAdminAccessAssignment } from '../../../../../models/deserializeIntoDelegatedAdminAccessAssignment';
+import { createDelegatedAdminAccessAssignmentFromDiscriminatorValue, deserializeIntoDelegatedAdminAccessAssignment, serializeDelegatedAdminAccessAssignment, type DelegatedAdminAccessAssignment } from '../../../../../models/delegatedAdminAccessAssignment';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeDelegatedAdminAccessAssignment } from '../../../../../models/serializeDelegatedAdminAccessAssignment';
-import { type DelegatedAdminAccessAssignmentItemRequestBuilderDeleteRequestConfiguration } from './delegatedAdminAccessAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type DelegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration } from './delegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type DelegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration } from './delegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DelegatedAdminAccessAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DelegatedAdminAccessAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DelegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DelegatedAdminAccessAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface DelegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
  */

@@ -1,19 +1,70 @@
 import { type BrowserSharedCookieCollectionResponse } from '../../../../../../models/';
-import { type BrowserSharedCookie } from '../../../../../../models/browserSharedCookie';
-import { createBrowserSharedCookieCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createBrowserSharedCookieCollectionResponseFromDiscriminatorValue';
-import { createBrowserSharedCookieFromDiscriminatorValue } from '../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
-import { deserializeIntoBrowserSharedCookie } from '../../../../../../models/deserializeIntoBrowserSharedCookie';
+import { createBrowserSharedCookieFromDiscriminatorValue, deserializeIntoBrowserSharedCookie, serializeBrowserSharedCookie, type BrowserSharedCookie } from '../../../../../../models/browserSharedCookie';
+import { createBrowserSharedCookieCollectionResponseFromDiscriminatorValue } from '../../../../../../models/browserSharedCookieCollectionResponse';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeBrowserSharedCookie } from '../../../../../../models/serializeBrowserSharedCookie';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { BrowserSharedCookieItemRequestBuilder } from './item/browserSharedCookieItemRequestBuilder';
-import { type SharedCookiesRequestBuilderGetRequestConfiguration } from './sharedCookiesRequestBuilderGetRequestConfiguration';
-import { type SharedCookiesRequestBuilderPostRequestConfiguration } from './sharedCookiesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SharedCookiesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SharedCookiesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SharedCookiesRequestBuilderGetQueryParameters;
+}
+export interface SharedCookiesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
  */

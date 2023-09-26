@@ -1,19 +1,70 @@
 import { type OnenoteSectionCollectionResponse } from '../../../../../../../../models/';
-import { createOnenoteSectionCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createOnenoteSectionCollectionResponseFromDiscriminatorValue';
-import { createOnenoteSectionFromDiscriminatorValue } from '../../../../../../../../models/createOnenoteSectionFromDiscriminatorValue';
-import { deserializeIntoOnenoteSection } from '../../../../../../../../models/deserializeIntoOnenoteSection';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { type OnenoteSection } from '../../../../../../../../models/onenoteSection';
-import { serializeOnenoteSection } from '../../../../../../../../models/serializeOnenoteSection';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createOnenoteSectionFromDiscriminatorValue, deserializeIntoOnenoteSection, serializeOnenoteSection, type OnenoteSection } from '../../../../../../../../models/onenoteSection';
+import { createOnenoteSectionCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/onenoteSectionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OnenoteSectionItemRequestBuilder } from './item/onenoteSectionItemRequestBuilder';
-import { type SectionsRequestBuilderGetRequestConfiguration } from './sectionsRequestBuilderGetRequestConfiguration';
-import { type SectionsRequestBuilderPostRequestConfiguration } from './sectionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SectionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SectionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SectionsRequestBuilderGetQueryParameters;
+}
+export interface SectionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.
  */

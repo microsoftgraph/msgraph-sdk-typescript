@@ -1,5 +1,2 @@
 export * from './amorLincPostRequestBody'
-export * from './amorLincRequestBuilderPostRequestConfiguration'
-export * from './createAmorLincPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAmorLincPostRequestBody'
-export * from './serializeAmorLincPostRequestBody'
+export * from './amorLincRequestBuilder'

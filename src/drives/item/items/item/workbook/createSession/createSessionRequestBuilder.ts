@@ -1,17 +1,19 @@
-import { createWorkbookSessionInfoFromDiscriminatorValue } from '../../../../../../models/createWorkbookSessionInfoFromDiscriminatorValue';
-import { deserializeIntoWorkbookSessionInfo } from '../../../../../../models/deserializeIntoWorkbookSessionInfo';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookSessionInfo } from '../../../../../../models/serializeWorkbookSessionInfo';
-import { type WorkbookSessionInfo } from '../../../../../../models/workbookSessionInfo';
-import { type CreateSessionPostRequestBody } from './createSessionPostRequestBody';
-import { type CreateSessionRequestBuilderPostRequestConfiguration } from './createSessionRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCreateSessionPostRequestBody } from './deserializeIntoCreateSessionPostRequestBody';
-import { serializeCreateSessionPostRequestBody } from './serializeCreateSessionPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookSessionInfoFromDiscriminatorValue, deserializeIntoWorkbookSessionInfo, serializeWorkbookSessionInfo, type WorkbookSessionInfo } from '../../../../../../models/workbookSessionInfo';
+import { deserializeIntoCreateSessionPostRequestBody, serializeCreateSessionPostRequestBody, type CreateSessionPostRequestBody } from './createSessionPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CreateSessionRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the createSession method.
  */

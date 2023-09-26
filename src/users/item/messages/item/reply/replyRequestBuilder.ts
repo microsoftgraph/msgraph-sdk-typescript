@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoReplyPostRequestBody } from './deserializeIntoReplyPostRequestBody';
-import { type ReplyPostRequestBody } from './replyPostRequestBody';
-import { type ReplyRequestBuilderPostRequestConfiguration } from './replyRequestBuilderPostRequestConfiguration';
-import { serializeReplyPostRequestBody } from './serializeReplyPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoReplyPostRequestBody, serializeReplyPostRequestBody, type ReplyPostRequestBody } from './replyPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ReplyRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the reply method.
  */

@@ -1,17 +1,53 @@
-import { type AgreementFileLocalization } from '../../../../../models/agreementFileLocalization';
-import { createAgreementFileLocalizationFromDiscriminatorValue } from '../../../../../models/createAgreementFileLocalizationFromDiscriminatorValue';
-import { deserializeIntoAgreementFileLocalization } from '../../../../../models/deserializeIntoAgreementFileLocalization';
+import { createAgreementFileLocalizationFromDiscriminatorValue, deserializeIntoAgreementFileLocalization, serializeAgreementFileLocalization, type AgreementFileLocalization } from '../../../../../models/agreementFileLocalization';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeAgreementFileLocalization } from '../../../../../models/serializeAgreementFileLocalization';
-import { type AgreementFileLocalizationItemRequestBuilderDeleteRequestConfiguration } from './agreementFileLocalizationItemRequestBuilderDeleteRequestConfiguration';
-import { type AgreementFileLocalizationItemRequestBuilderGetRequestConfiguration } from './agreementFileLocalizationItemRequestBuilderGetRequestConfiguration';
-import { type AgreementFileLocalizationItemRequestBuilderPatchRequestConfiguration } from './agreementFileLocalizationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { VersionsRequestBuilder } from './versions/versionsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AgreementFileLocalizationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AgreementFileLocalizationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AgreementFileLocalizationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AgreementFileLocalizationItemRequestBuilderGetQueryParameters;
+}
+export interface AgreementFileLocalizationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
  */

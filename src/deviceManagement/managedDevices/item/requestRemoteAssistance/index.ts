@@ -1,1 +1,1 @@
-export * from './requestRemoteAssistanceRequestBuilderPostRequestConfiguration'
+export * from './requestRemoteAssistanceRequestBuilder'

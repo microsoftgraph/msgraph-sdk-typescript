@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createMarkUnreadResponseFromDiscriminatorValue } from './createMarkUnreadResponseFromDiscriminatorValue';
-import { deserializeIntoMarkUnreadPostRequestBody } from './deserializeIntoMarkUnreadPostRequestBody';
-import { deserializeIntoMarkUnreadResponse } from './deserializeIntoMarkUnreadResponse';
-import { type MarkUnreadPostRequestBody } from './markUnreadPostRequestBody';
-import { type MarkUnreadRequestBuilderPostRequestConfiguration } from './markUnreadRequestBuilderPostRequestConfiguration';
-import { type MarkUnreadResponse } from './markUnreadResponse';
-import { serializeMarkUnreadPostRequestBody } from './serializeMarkUnreadPostRequestBody';
-import { serializeMarkUnreadResponse } from './serializeMarkUnreadResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoMarkUnreadPostRequestBody, serializeMarkUnreadPostRequestBody, type MarkUnreadPostRequestBody } from './markUnreadPostRequestBody';
+import { createMarkUnreadResponseFromDiscriminatorValue, deserializeIntoMarkUnreadResponse, serializeMarkUnreadResponse, type MarkUnreadResponse } from './markUnreadResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MarkUnreadRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the markUnread method.
  */

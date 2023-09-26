@@ -1,19 +1,70 @@
 import { type ProvisioningObjectSummaryCollectionResponse } from '../../models/';
-import { createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue } from '../../models/createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue';
-import { createProvisioningObjectSummaryFromDiscriminatorValue } from '../../models/createProvisioningObjectSummaryFromDiscriminatorValue';
-import { deserializeIntoProvisioningObjectSummary } from '../../models/deserializeIntoProvisioningObjectSummary';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type ProvisioningObjectSummary } from '../../models/provisioningObjectSummary';
-import { serializeProvisioningObjectSummary } from '../../models/serializeProvisioningObjectSummary';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createProvisioningObjectSummaryFromDiscriminatorValue, deserializeIntoProvisioningObjectSummary, serializeProvisioningObjectSummary, type ProvisioningObjectSummary } from '../../models/provisioningObjectSummary';
+import { createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue } from '../../models/provisioningObjectSummaryCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ProvisioningObjectSummaryItemRequestBuilder } from './item/provisioningObjectSummaryItemRequestBuilder';
-import { type ProvisioningRequestBuilderGetRequestConfiguration } from './provisioningRequestBuilderGetRequestConfiguration';
-import { type ProvisioningRequestBuilderPostRequestConfiguration } from './provisioningRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ProvisioningRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ProvisioningRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ProvisioningRequestBuilderGetQueryParameters;
+}
+export interface ProvisioningRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
  */

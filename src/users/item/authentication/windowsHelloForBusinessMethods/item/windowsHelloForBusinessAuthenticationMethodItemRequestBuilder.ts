@@ -1,14 +1,44 @@
 import { type WindowsHelloForBusinessAuthenticationMethod } from '../../../../../models/';
-import { createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/windowsHelloForBusinessAuthenticationMethod';
 import { DeviceRequestBuilder } from './device/deviceRequestBuilder';
-import { type WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import { type WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
  */

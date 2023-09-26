@@ -1,17 +1,9 @@
-import { type Call } from '../../../models/call';
-import { createCallFromDiscriminatorValue } from '../../../models/createCallFromDiscriminatorValue';
-import { deserializeIntoCall } from '../../../models/deserializeIntoCall';
+import { createCallFromDiscriminatorValue, deserializeIntoCall, serializeCall, type Call } from '../../../models/call';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeCall } from '../../../models/serializeCall';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AddLargeGalleryViewRequestBuilder } from './addLargeGalleryView/addLargeGalleryViewRequestBuilder';
 import { AnswerRequestBuilder } from './answer/answerRequestBuilder';
 import { AudioRoutingGroupsRequestBuilder } from './audioRoutingGroups/audioRoutingGroupsRequestBuilder';
-import { type CallItemRequestBuilderDeleteRequestConfiguration } from './callItemRequestBuilderDeleteRequestConfiguration';
-import { type CallItemRequestBuilderGetRequestConfiguration } from './callItemRequestBuilderGetRequestConfiguration';
-import { type CallItemRequestBuilderPatchRequestConfiguration } from './callItemRequestBuilderPatchRequestConfiguration';
 import { CancelMediaProcessingRequestBuilder } from './cancelMediaProcessing/cancelMediaProcessingRequestBuilder';
 import { ChangeScreenSharingRoleRequestBuilder } from './changeScreenSharingRole/changeScreenSharingRoleRequestBuilder';
 import { ContentSharingSessionsRequestBuilder } from './contentSharingSessions/contentSharingSessionsRequestBuilder';
@@ -29,6 +21,50 @@ import { UnmuteRequestBuilder } from './unmute/unmuteRequestBuilder';
 import { UpdateRecordingStatusRequestBuilder } from './updateRecordingStatus/updateRecordingStatusRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CallItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CallItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CallItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CallItemRequestBuilderGetQueryParameters;
+}
+export interface CallItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
  */

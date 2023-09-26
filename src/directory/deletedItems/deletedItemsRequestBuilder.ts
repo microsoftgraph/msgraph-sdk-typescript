@@ -1,19 +1,8 @@
 import { type DirectoryObjectCollectionResponse } from '../../models/';
-import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
-import { createDirectoryObjectFromDiscriminatorValue } from '../../models/createDirectoryObjectFromDiscriminatorValue';
-import { deserializeIntoDirectoryObject } from '../../models/deserializeIntoDirectoryObject';
-import { type DirectoryObject } from '../../models/directoryObject';
+import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../models/directoryObjectCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDirectoryObject } from '../../models/serializeDirectoryObject';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DeletedItemsRequestBuilderGetRequestConfiguration } from './deletedItemsRequestBuilderGetRequestConfiguration';
-import { type DeletedItemsRequestBuilderPostRequestConfiguration } from './deletedItemsRequestBuilderPostRequestConfiguration';
-import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
-import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
 import { GraphAdministrativeUnitRequestBuilder } from './graphAdministrativeUnit/graphAdministrativeUnitRequestBuilder';
 import { GraphApplicationRequestBuilder } from './graphApplication/graphApplicationRequestBuilder';
 import { GraphDeviceRequestBuilder } from './graphDevice/graphDeviceRequestBuilder';
@@ -21,9 +10,56 @@ import { GraphGroupRequestBuilder } from './graphGroup/graphGroupRequestBuilder'
 import { GraphServicePrincipalRequestBuilder } from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
 import { GraphUserRequestBuilder } from './graphUser/graphUserRequestBuilder';
 import { DirectoryObjectItemRequestBuilder } from './item/directoryObjectItemRequestBuilder';
-import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeletedItemsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DeletedItemsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeletedItemsRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
  */
@@ -33,24 +69,6 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
      */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
-     * Provides operations to call the delta method.
-     */
-    public get delta(): DeltaRequestBuilder {
-        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
-     * Provides operations to call the getAvailableExtensionProperties method.
-     */
-    public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
-        return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
-     * Provides operations to call the getByIds method.
-     */
-    public get getByIds(): GetByIdsRequestBuilder {
-        return new GetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Casts the previous resource to administrativeUnit.
@@ -89,12 +107,6 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
         return new GraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to call the validateProperties method.
-     */
-    public get validateProperties(): ValidatePropertiesRequestBuilder {
-        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
      * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
      * @param directoryObjectId The unique identifier of directoryObject
      * @returns a DirectoryObjectItemRequestBuilder
@@ -129,22 +141,6 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DirectoryObjectCollectionResponse>(requestInfo, createDirectoryObjectCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to deletedItems for directory
-     * @param body The request body
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of DirectoryObject
-     */
-    public post(body: DirectoryObject, requestConfiguration?: DeletedItemsRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryObject | undefined> {
-        const requestInfo = this.toPostRequestInformation(
-            body, requestConfiguration
-        );
-        const errorMapping = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, errorMapping);
-    };
-    /**
      * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -160,26 +156,6 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        return requestInfo;
-    };
-    /**
-     * Create new navigation property to deletedItems for directory
-     * @param body The request body
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public toPostRequestInformation(body: DirectoryObject, requestConfiguration?: DeletedItemsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = ["application/json"];
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectoryObject);
         return requestInfo;
     };
     /**

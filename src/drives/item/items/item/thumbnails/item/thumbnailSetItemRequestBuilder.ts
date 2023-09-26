@@ -1,16 +1,52 @@
-import { createThumbnailSetFromDiscriminatorValue } from '../../../../../../models/createThumbnailSetFromDiscriminatorValue';
-import { deserializeIntoThumbnailSet } from '../../../../../../models/deserializeIntoThumbnailSet';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeThumbnailSet } from '../../../../../../models/serializeThumbnailSet';
-import { type ThumbnailSet } from '../../../../../../models/thumbnailSet';
-import { type ThumbnailSetItemRequestBuilderDeleteRequestConfiguration } from './thumbnailSetItemRequestBuilderDeleteRequestConfiguration';
-import { type ThumbnailSetItemRequestBuilderGetRequestConfiguration } from './thumbnailSetItemRequestBuilderGetRequestConfiguration';
-import { type ThumbnailSetItemRequestBuilderPatchRequestConfiguration } from './thumbnailSetItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createThumbnailSetFromDiscriminatorValue, deserializeIntoThumbnailSet, serializeThumbnailSet, type ThumbnailSet } from '../../../../../../models/thumbnailSet';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ThumbnailSetItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ThumbnailSetItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ThumbnailSetItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ThumbnailSetItemRequestBuilderGetQueryParameters;
+}
+export interface ThumbnailSetItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity.
  */

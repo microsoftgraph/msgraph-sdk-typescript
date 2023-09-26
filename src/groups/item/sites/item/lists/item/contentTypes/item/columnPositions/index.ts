@@ -1,2 +1,1 @@
-export * from './columnPositionsRequestBuilderGetQueryParameters'
-export * from './columnPositionsRequestBuilderGetRequestConfiguration'
+export * from './columnPositionsRequestBuilder'

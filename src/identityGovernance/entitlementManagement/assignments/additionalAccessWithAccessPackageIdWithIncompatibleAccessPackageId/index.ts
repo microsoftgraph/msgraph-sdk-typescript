@@ -1,6 +1,2 @@
-export * from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderGetQueryParameters'
-export * from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderGetRequestConfiguration'
+export * from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder'
 export * from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse'
-export * from './createAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponseFromDiscriminatorValue'
-export * from './deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse'
-export * from './serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse'

@@ -15,3 +15,5 @@ export enum DeviceThreatProtectionLevel {
     /** Device Threat Protection level requirement: Not Set. Not set represents that there is no requirement for the device to meet a Threat Protection level. */
     NotSet = "notSet",
 }
+// tslint:enable
+// eslint-enable

@@ -1,5 +1,2 @@
-export * from './createImPowerPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoImPowerPostRequestBody'
 export * from './imPowerPostRequestBody'
-export * from './imPowerRequestBuilderPostRequestConfiguration'
-export * from './serializeImPowerPostRequestBody'
+export * from './imPowerRequestBuilder'

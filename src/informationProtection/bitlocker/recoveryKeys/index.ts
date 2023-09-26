@@ -1,2 +1,1 @@
-export * from './recoveryKeysRequestBuilderGetQueryParameters'
-export * from './recoveryKeysRequestBuilderGetRequestConfiguration'
+export * from './recoveryKeysRequestBuilder'

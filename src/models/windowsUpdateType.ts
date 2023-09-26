@@ -15,3 +15,5 @@ export enum WindowsUpdateType {
     /** Release Windows Insider build */
     WindowsInsiderBuildRelease = "windowsInsiderBuildRelease",
 }
+// tslint:enable
+// eslint-enable

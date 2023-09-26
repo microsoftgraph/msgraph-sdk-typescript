@@ -1,17 +1,53 @@
-import { type ColumnDefinition } from '../../../../../../models/columnDefinition';
-import { createColumnDefinitionFromDiscriminatorValue } from '../../../../../../models/createColumnDefinitionFromDiscriminatorValue';
-import { deserializeIntoColumnDefinition } from '../../../../../../models/deserializeIntoColumnDefinition';
+import { createColumnDefinitionFromDiscriminatorValue, deserializeIntoColumnDefinition, serializeColumnDefinition, type ColumnDefinition } from '../../../../../../models/columnDefinition';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeColumnDefinition } from '../../../../../../models/serializeColumnDefinition';
-import { type ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration } from './columnDefinitionItemRequestBuilderDeleteRequestConfiguration';
-import { type ColumnDefinitionItemRequestBuilderGetRequestConfiguration } from './columnDefinitionItemRequestBuilderGetRequestConfiguration';
-import { type ColumnDefinitionItemRequestBuilderPatchRequestConfiguration } from './columnDefinitionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { SourceColumnRequestBuilder } from './sourceColumn/sourceColumnRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ColumnDefinitionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ColumnDefinitionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ColumnDefinitionItemRequestBuilderGetQueryParameters;
+}
+export interface ColumnDefinitionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
  */

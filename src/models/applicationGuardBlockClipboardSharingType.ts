@@ -13,3 +13,5 @@ export enum ApplicationGuardBlockClipboardSharingType {
     /** Block clipboard to share data neither from Host to Container nor from Container to Host */
     BlockNone = "blockNone",
 }
+// tslint:enable
+// eslint-enable

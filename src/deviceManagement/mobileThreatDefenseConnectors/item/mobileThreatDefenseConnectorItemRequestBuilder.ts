@@ -1,16 +1,52 @@
-import { createMobileThreatDefenseConnectorFromDiscriminatorValue } from '../../../models/createMobileThreatDefenseConnectorFromDiscriminatorValue';
-import { deserializeIntoMobileThreatDefenseConnector } from '../../../models/deserializeIntoMobileThreatDefenseConnector';
-import { type MobileThreatDefenseConnector } from '../../../models/mobileThreatDefenseConnector';
+import { createMobileThreatDefenseConnectorFromDiscriminatorValue, deserializeIntoMobileThreatDefenseConnector, serializeMobileThreatDefenseConnector, type MobileThreatDefenseConnector } from '../../../models/mobileThreatDefenseConnector';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeMobileThreatDefenseConnector } from '../../../models/serializeMobileThreatDefenseConnector';
-import { type MobileThreatDefenseConnectorItemRequestBuilderDeleteRequestConfiguration } from './mobileThreatDefenseConnectorItemRequestBuilderDeleteRequestConfiguration';
-import { type MobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration } from './mobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration';
-import { type MobileThreatDefenseConnectorItemRequestBuilderPatchRequestConfiguration } from './mobileThreatDefenseConnectorItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MobileThreatDefenseConnectorItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MobileThreatDefenseConnectorItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MobileThreatDefenseConnectorItemRequestBuilderGetQueryParameters;
+}
+export interface MobileThreatDefenseConnectorItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
  */

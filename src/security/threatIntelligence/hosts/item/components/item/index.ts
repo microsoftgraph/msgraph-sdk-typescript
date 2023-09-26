@@ -1,2 +1,1 @@
-export * from './hostComponentItemRequestBuilderGetQueryParameters'
-export * from './hostComponentItemRequestBuilderGetRequestConfiguration'
+export * from './hostComponentItemRequestBuilder'

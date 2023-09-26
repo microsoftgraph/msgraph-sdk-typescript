@@ -5,3 +5,5 @@ export enum RiskDetectionTimingType {
     Offline = "offline",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

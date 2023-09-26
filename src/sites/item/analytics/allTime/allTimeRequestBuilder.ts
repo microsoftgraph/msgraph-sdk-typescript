@@ -1,12 +1,33 @@
 import { type ItemActivityStat } from '../../../../models/';
-import { createItemActivityStatFromDiscriminatorValue } from '../../../../models/createItemActivityStatFromDiscriminatorValue';
+import { createItemActivityStatFromDiscriminatorValue } from '../../../../models/itemActivityStat';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type AllTimeRequestBuilderGetRequestConfiguration } from './allTimeRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AllTimeRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AllTimeRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AllTimeRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity.
  */

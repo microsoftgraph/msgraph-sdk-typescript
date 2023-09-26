@@ -1,18 +1,45 @@
-import { createPlannerFromDiscriminatorValue } from '../models/createPlannerFromDiscriminatorValue';
-import { deserializeIntoPlanner } from '../models/deserializeIntoPlanner';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { type Planner } from '../models/planner';
-import { serializePlanner } from '../models/serializePlanner';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createPlannerFromDiscriminatorValue, deserializeIntoPlanner, serializePlanner, type Planner } from '../models/planner';
 import { BucketsRequestBuilder } from './buckets/bucketsRequestBuilder';
-import { type PlannerRequestBuilderGetRequestConfiguration } from './plannerRequestBuilderGetRequestConfiguration';
-import { type PlannerRequestBuilderPatchRequestConfiguration } from './plannerRequestBuilderPatchRequestConfiguration';
 import { PlansRequestBuilder } from './plans/plansRequestBuilder';
 import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PlannerRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PlannerRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PlannerRequestBuilderGetQueryParameters;
+}
+export interface PlannerRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the planner singleton.
  */

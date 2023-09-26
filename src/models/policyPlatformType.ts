@@ -19,3 +19,5 @@ export enum PolicyPlatformType {
     /** All platforms. */
     All = "all",
 }
+// tslint:enable
+// eslint-enable

@@ -1,16 +1,52 @@
-import { type AgreementFileVersion } from '../../../../../../../models/agreementFileVersion';
-import { createAgreementFileVersionFromDiscriminatorValue } from '../../../../../../../models/createAgreementFileVersionFromDiscriminatorValue';
-import { deserializeIntoAgreementFileVersion } from '../../../../../../../models/deserializeIntoAgreementFileVersion';
+import { createAgreementFileVersionFromDiscriminatorValue, deserializeIntoAgreementFileVersion, serializeAgreementFileVersion, type AgreementFileVersion } from '../../../../../../../models/agreementFileVersion';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAgreementFileVersion } from '../../../../../../../models/serializeAgreementFileVersion';
-import { type AgreementFileVersionItemRequestBuilderDeleteRequestConfiguration } from './agreementFileVersionItemRequestBuilderDeleteRequestConfiguration';
-import { type AgreementFileVersionItemRequestBuilderGetRequestConfiguration } from './agreementFileVersionItemRequestBuilderGetRequestConfiguration';
-import { type AgreementFileVersionItemRequestBuilderPatchRequestConfiguration } from './agreementFileVersionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AgreementFileVersionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AgreementFileVersionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AgreementFileVersionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AgreementFileVersionItemRequestBuilderGetQueryParameters;
+}
+export interface AgreementFileVersionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity.
  */

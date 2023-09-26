@@ -1,22 +1,58 @@
-import { createLifecycleWorkflowsContainerFromDiscriminatorValue } from '../../models/identityGovernance/createLifecycleWorkflowsContainerFromDiscriminatorValue';
-import { deserializeIntoLifecycleWorkflowsContainer } from '../../models/identityGovernance/deserializeIntoLifecycleWorkflowsContainer';
-import { type LifecycleWorkflowsContainer } from '../../models/identityGovernance/lifecycleWorkflowsContainer';
-import { serializeLifecycleWorkflowsContainer } from '../../models/identityGovernance/serializeLifecycleWorkflowsContainer';
+import { createLifecycleWorkflowsContainerFromDiscriminatorValue, deserializeIntoLifecycleWorkflowsContainer, serializeLifecycleWorkflowsContainer, type LifecycleWorkflowsContainer } from '../../models/identityGovernance/lifecycleWorkflowsContainer';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CustomTaskExtensionsRequestBuilder } from './customTaskExtensions/customTaskExtensionsRequestBuilder';
 import { DeletedItemsRequestBuilder } from './deletedItems/deletedItemsRequestBuilder';
-import { type LifecycleWorkflowsRequestBuilderDeleteRequestConfiguration } from './lifecycleWorkflowsRequestBuilderDeleteRequestConfiguration';
-import { type LifecycleWorkflowsRequestBuilderGetRequestConfiguration } from './lifecycleWorkflowsRequestBuilderGetRequestConfiguration';
-import { type LifecycleWorkflowsRequestBuilderPatchRequestConfiguration } from './lifecycleWorkflowsRequestBuilderPatchRequestConfiguration';
 import { SettingsRequestBuilder } from './settings/settingsRequestBuilder';
 import { TaskDefinitionsRequestBuilder } from './taskDefinitions/taskDefinitionsRequestBuilder';
 import { WorkflowsRequestBuilder } from './workflows/workflowsRequestBuilder';
 import { WorkflowTemplatesRequestBuilder } from './workflowTemplates/workflowTemplatesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LifecycleWorkflowsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface LifecycleWorkflowsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LifecycleWorkflowsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LifecycleWorkflowsRequestBuilderGetQueryParameters;
+}
+export interface LifecycleWorkflowsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.
  */

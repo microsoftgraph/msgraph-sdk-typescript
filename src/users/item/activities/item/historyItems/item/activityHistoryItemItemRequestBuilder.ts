@@ -1,17 +1,53 @@
-import { type ActivityHistoryItem } from '../../../../../../models/activityHistoryItem';
-import { createActivityHistoryItemFromDiscriminatorValue } from '../../../../../../models/createActivityHistoryItemFromDiscriminatorValue';
-import { deserializeIntoActivityHistoryItem } from '../../../../../../models/deserializeIntoActivityHistoryItem';
+import { createActivityHistoryItemFromDiscriminatorValue, deserializeIntoActivityHistoryItem, serializeActivityHistoryItem, type ActivityHistoryItem } from '../../../../../../models/activityHistoryItem';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeActivityHistoryItem } from '../../../../../../models/serializeActivityHistoryItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { ActivityRequestBuilder } from './activity/activityRequestBuilder';
-import { type ActivityHistoryItemItemRequestBuilderDeleteRequestConfiguration } from './activityHistoryItemItemRequestBuilderDeleteRequestConfiguration';
-import { type ActivityHistoryItemItemRequestBuilderGetRequestConfiguration } from './activityHistoryItemItemRequestBuilderGetRequestConfiguration';
-import { type ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration } from './activityHistoryItemItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ActivityHistoryItemItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ActivityHistoryItemItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ActivityHistoryItemItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ActivityHistoryItemItemRequestBuilderGetQueryParameters;
+}
+export interface ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
  */

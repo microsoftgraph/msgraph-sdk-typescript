@@ -1,17 +1,53 @@
-import { type AccessReviewHistoryInstance } from '../../../../../../models/accessReviewHistoryInstance';
-import { createAccessReviewHistoryInstanceFromDiscriminatorValue } from '../../../../../../models/createAccessReviewHistoryInstanceFromDiscriminatorValue';
-import { deserializeIntoAccessReviewHistoryInstance } from '../../../../../../models/deserializeIntoAccessReviewHistoryInstance';
+import { createAccessReviewHistoryInstanceFromDiscriminatorValue, deserializeIntoAccessReviewHistoryInstance, serializeAccessReviewHistoryInstance, type AccessReviewHistoryInstance } from '../../../../../../models/accessReviewHistoryInstance';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewHistoryInstance } from '../../../../../../models/serializeAccessReviewHistoryInstance';
-import { type AccessReviewHistoryInstanceItemRequestBuilderDeleteRequestConfiguration } from './accessReviewHistoryInstanceItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessReviewHistoryInstanceItemRequestBuilderGetRequestConfiguration } from './accessReviewHistoryInstanceItemRequestBuilderGetRequestConfiguration';
-import { type AccessReviewHistoryInstanceItemRequestBuilderPatchRequestConfiguration } from './accessReviewHistoryInstanceItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { GenerateDownloadUriRequestBuilder } from './generateDownloadUri/generateDownloadUriRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessReviewHistoryInstanceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessReviewHistoryInstanceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessReviewHistoryInstanceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessReviewHistoryInstanceItemRequestBuilderGetQueryParameters;
+}
+export interface AccessReviewHistoryInstanceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
  */

@@ -1,20 +1,71 @@
 import { type UserActivityCollectionResponse } from '../../models/';
-import { createUserActivityCollectionResponseFromDiscriminatorValue } from '../../models/createUserActivityCollectionResponseFromDiscriminatorValue';
-import { createUserActivityFromDiscriminatorValue } from '../../models/createUserActivityFromDiscriminatorValue';
-import { deserializeIntoUserActivity } from '../../models/deserializeIntoUserActivity';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeUserActivity } from '../../models/serializeUserActivity';
-import { type UserActivity } from '../../models/userActivity';
-import { type ActivitiesRequestBuilderGetRequestConfiguration } from './activitiesRequestBuilderGetRequestConfiguration';
-import { type ActivitiesRequestBuilderPostRequestConfiguration } from './activitiesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createUserActivityFromDiscriminatorValue, deserializeIntoUserActivity, serializeUserActivity, type UserActivity } from '../../models/userActivity';
+import { createUserActivityCollectionResponseFromDiscriminatorValue } from '../../models/userActivityCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserActivityItemRequestBuilder } from './item/userActivityItemRequestBuilder';
 import { RecentRequestBuilder } from './recent/recentRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ActivitiesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ActivitiesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ActivitiesRequestBuilderGetQueryParameters;
+}
+export interface ActivitiesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the activities property of the microsoft.graph.user entity.
  */

@@ -1,22 +1,58 @@
-import { createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue } from '../../../../models/createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleEligibilityScheduleRequest } from '../../../../models/deserializeIntoUnifiedRoleEligibilityScheduleRequest';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleEligibilityScheduleRequest } from '../../../../models/serializeUnifiedRoleEligibilityScheduleRequest';
-import { type UnifiedRoleEligibilityScheduleRequest } from '../../../../models/unifiedRoleEligibilityScheduleRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue, deserializeIntoUnifiedRoleEligibilityScheduleRequest, serializeUnifiedRoleEligibilityScheduleRequest, type UnifiedRoleEligibilityScheduleRequest } from '../../../../models/unifiedRoleEligibilityScheduleRequest';
 import { AppScopeRequestBuilder } from './appScope/appScopeRequestBuilder';
 import { CancelRequestBuilder } from './cancel/cancelRequestBuilder';
 import { DirectoryScopeRequestBuilder } from './directoryScope/directoryScopeRequestBuilder';
 import { PrincipalRequestBuilder } from './principal/principalRequestBuilder';
 import { RoleDefinitionRequestBuilder } from './roleDefinition/roleDefinitionRequestBuilder';
 import { TargetScheduleRequestBuilder } from './targetSchedule/targetScheduleRequestBuilder';
-import { type UnifiedRoleEligibilityScheduleRequestItemRequestBuilderDeleteRequestConfiguration } from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderDeleteRequestConfiguration';
-import { type UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration } from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration';
-import { type UnifiedRoleEligibilityScheduleRequestItemRequestBuilderPatchRequestConfiguration } from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQueryParameters;
+}
+export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
  */

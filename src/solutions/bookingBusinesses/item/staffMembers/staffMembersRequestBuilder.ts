@@ -1,19 +1,70 @@
 import { type BookingStaffMemberBaseCollectionResponse } from '../../../../models/';
-import { type BookingStaffMemberBase } from '../../../../models/bookingStaffMemberBase';
-import { createBookingStaffMemberBaseCollectionResponseFromDiscriminatorValue } from '../../../../models/createBookingStaffMemberBaseCollectionResponseFromDiscriminatorValue';
-import { createBookingStaffMemberBaseFromDiscriminatorValue } from '../../../../models/createBookingStaffMemberBaseFromDiscriminatorValue';
-import { deserializeIntoBookingStaffMemberBase } from '../../../../models/deserializeIntoBookingStaffMemberBase';
+import { createBookingStaffMemberBaseFromDiscriminatorValue, deserializeIntoBookingStaffMemberBase, serializeBookingStaffMemberBase, type BookingStaffMemberBase } from '../../../../models/bookingStaffMemberBase';
+import { createBookingStaffMemberBaseCollectionResponseFromDiscriminatorValue } from '../../../../models/bookingStaffMemberBaseCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingStaffMemberBase } from '../../../../models/serializeBookingStaffMemberBase';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { BookingStaffMemberBaseItemRequestBuilder } from './item/bookingStaffMemberBaseItemRequestBuilder';
-import { type StaffMembersRequestBuilderGetRequestConfiguration } from './staffMembersRequestBuilderGetRequestConfiguration';
-import { type StaffMembersRequestBuilderPostRequestConfiguration } from './staffMembersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface StaffMembersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface StaffMembersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: StaffMembersRequestBuilderGetQueryParameters;
+}
+export interface StaffMembersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
  */

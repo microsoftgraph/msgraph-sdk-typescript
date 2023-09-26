@@ -1,19 +1,70 @@
 import { type MeetingAttendanceReportCollectionResponse } from '../../../../../models/';
-import { createMeetingAttendanceReportCollectionResponseFromDiscriminatorValue } from '../../../../../models/createMeetingAttendanceReportCollectionResponseFromDiscriminatorValue';
-import { createMeetingAttendanceReportFromDiscriminatorValue } from '../../../../../models/createMeetingAttendanceReportFromDiscriminatorValue';
-import { deserializeIntoMeetingAttendanceReport } from '../../../../../models/deserializeIntoMeetingAttendanceReport';
-import { type MeetingAttendanceReport } from '../../../../../models/meetingAttendanceReport';
+import { createMeetingAttendanceReportFromDiscriminatorValue, deserializeIntoMeetingAttendanceReport, serializeMeetingAttendanceReport, type MeetingAttendanceReport } from '../../../../../models/meetingAttendanceReport';
+import { createMeetingAttendanceReportCollectionResponseFromDiscriminatorValue } from '../../../../../models/meetingAttendanceReportCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeMeetingAttendanceReport } from '../../../../../models/serializeMeetingAttendanceReport';
-import { type AttendanceReportsRequestBuilderGetRequestConfiguration } from './attendanceReportsRequestBuilderGetRequestConfiguration';
-import { type AttendanceReportsRequestBuilderPostRequestConfiguration } from './attendanceReportsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { MeetingAttendanceReportItemRequestBuilder } from './item/meetingAttendanceReportItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AttendanceReportsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AttendanceReportsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AttendanceReportsRequestBuilderGetQueryParameters;
+}
+export interface AttendanceReportsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
  */

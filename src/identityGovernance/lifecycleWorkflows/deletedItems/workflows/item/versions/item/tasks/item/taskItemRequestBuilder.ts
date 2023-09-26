@@ -1,17 +1,53 @@
-import { createTaskFromDiscriminatorValue } from '../../../../../../../../../models/identityGovernance/createTaskFromDiscriminatorValue';
-import { deserializeIntoTask } from '../../../../../../../../../models/identityGovernance/deserializeIntoTask';
-import { serializeTask } from '../../../../../../../../../models/identityGovernance/serializeTask';
-import { type Task } from '../../../../../../../../../models/identityGovernance/task';
+import { createTaskFromDiscriminatorValue, deserializeIntoTask, serializeTask, type Task } from '../../../../../../../../../models/identityGovernance/task';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type TaskItemRequestBuilderDeleteRequestConfiguration } from './taskItemRequestBuilderDeleteRequestConfiguration';
-import { type TaskItemRequestBuilderGetRequestConfiguration } from './taskItemRequestBuilderGetRequestConfiguration';
-import { type TaskItemRequestBuilderPatchRequestConfiguration } from './taskItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { TaskProcessingResultsRequestBuilder } from './taskProcessingResults/taskProcessingResultsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TaskItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TaskItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TaskItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TaskItemRequestBuilderGetQueryParameters;
+}
+export interface TaskItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowBase entity.
  */

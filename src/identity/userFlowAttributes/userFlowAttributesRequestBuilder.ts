@@ -1,19 +1,70 @@
 import { type IdentityUserFlowAttributeCollectionResponse } from '../../models/';
-import { createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue } from '../../models/createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue';
-import { createIdentityUserFlowAttributeFromDiscriminatorValue } from '../../models/createIdentityUserFlowAttributeFromDiscriminatorValue';
-import { deserializeIntoIdentityUserFlowAttribute } from '../../models/deserializeIntoIdentityUserFlowAttribute';
-import { type IdentityUserFlowAttribute } from '../../models/identityUserFlowAttribute';
+import { createIdentityUserFlowAttributeFromDiscriminatorValue, deserializeIntoIdentityUserFlowAttribute, serializeIdentityUserFlowAttribute, type IdentityUserFlowAttribute } from '../../models/identityUserFlowAttribute';
+import { createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue } from '../../models/identityUserFlowAttributeCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeIdentityUserFlowAttribute } from '../../models/serializeIdentityUserFlowAttribute';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { IdentityUserFlowAttributeItemRequestBuilder } from './item/identityUserFlowAttributeItemRequestBuilder';
-import { type UserFlowAttributesRequestBuilderGetRequestConfiguration } from './userFlowAttributesRequestBuilderGetRequestConfiguration';
-import { type UserFlowAttributesRequestBuilderPostRequestConfiguration } from './userFlowAttributesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserFlowAttributesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserFlowAttributesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserFlowAttributesRequestBuilderGetQueryParameters;
+}
+export interface UserFlowAttributesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
  */
@@ -60,7 +111,7 @@ export class UserFlowAttributesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<IdentityUserFlowAttributeCollectionResponse>(requestInfo, createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new identityUserFlowAttribute object.
+     * Create a new custom identityUserFlowAttribute object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityUserFlowAttribute
@@ -95,7 +146,7 @@ export class UserFlowAttributesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new identityUserFlowAttribute object.
+     * Create a new custom identityUserFlowAttribute object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

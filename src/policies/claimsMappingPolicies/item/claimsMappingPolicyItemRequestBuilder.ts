@@ -1,17 +1,53 @@
-import { type ClaimsMappingPolicy } from '../../../models/claimsMappingPolicy';
-import { createClaimsMappingPolicyFromDiscriminatorValue } from '../../../models/createClaimsMappingPolicyFromDiscriminatorValue';
-import { deserializeIntoClaimsMappingPolicy } from '../../../models/deserializeIntoClaimsMappingPolicy';
+import { createClaimsMappingPolicyFromDiscriminatorValue, deserializeIntoClaimsMappingPolicy, serializeClaimsMappingPolicy, type ClaimsMappingPolicy } from '../../../models/claimsMappingPolicy';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeClaimsMappingPolicy } from '../../../models/serializeClaimsMappingPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
-import { type ClaimsMappingPolicyItemRequestBuilderDeleteRequestConfiguration } from './claimsMappingPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type ClaimsMappingPolicyItemRequestBuilderGetRequestConfiguration } from './claimsMappingPolicyItemRequestBuilderGetRequestConfiguration';
-import { type ClaimsMappingPolicyItemRequestBuilderPatchRequestConfiguration } from './claimsMappingPolicyItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ClaimsMappingPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ClaimsMappingPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ClaimsMappingPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ClaimsMappingPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface ClaimsMappingPolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
  */

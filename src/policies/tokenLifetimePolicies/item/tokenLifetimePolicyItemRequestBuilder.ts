@@ -1,17 +1,53 @@
-import { createTokenLifetimePolicyFromDiscriminatorValue } from '../../../models/createTokenLifetimePolicyFromDiscriminatorValue';
-import { deserializeIntoTokenLifetimePolicy } from '../../../models/deserializeIntoTokenLifetimePolicy';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeTokenLifetimePolicy } from '../../../models/serializeTokenLifetimePolicy';
-import { type TokenLifetimePolicy } from '../../../models/tokenLifetimePolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createTokenLifetimePolicyFromDiscriminatorValue, deserializeIntoTokenLifetimePolicy, serializeTokenLifetimePolicy, type TokenLifetimePolicy } from '../../../models/tokenLifetimePolicy';
 import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
-import { type TokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration } from './tokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration } from './tokenLifetimePolicyItemRequestBuilderGetRequestConfiguration';
-import { type TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration } from './tokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TokenLifetimePolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TokenLifetimePolicyItemRequestBuilderGetQueryParameters;
+}
+export interface TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.
  */

@@ -1,17 +1,53 @@
-import { createUserFlowLanguagePageFromDiscriminatorValue } from '../../../../../../../models/createUserFlowLanguagePageFromDiscriminatorValue';
-import { deserializeIntoUserFlowLanguagePage } from '../../../../../../../models/deserializeIntoUserFlowLanguagePage';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeUserFlowLanguagePage } from '../../../../../../../models/serializeUserFlowLanguagePage';
-import { type UserFlowLanguagePage } from '../../../../../../../models/userFlowLanguagePage';
-import { type UserFlowLanguagePageItemRequestBuilderDeleteRequestConfiguration } from './userFlowLanguagePageItemRequestBuilderDeleteRequestConfiguration';
-import { type UserFlowLanguagePageItemRequestBuilderGetRequestConfiguration } from './userFlowLanguagePageItemRequestBuilderGetRequestConfiguration';
-import { type UserFlowLanguagePageItemRequestBuilderPatchRequestConfiguration } from './userFlowLanguagePageItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createUserFlowLanguagePageFromDiscriminatorValue, deserializeIntoUserFlowLanguagePage, serializeUserFlowLanguagePage, type UserFlowLanguagePage } from '../../../../../../../models/userFlowLanguagePage';
 import { ContentRequestBuilder } from './value/contentRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserFlowLanguagePageItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserFlowLanguagePageItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserFlowLanguagePageItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserFlowLanguagePageItemRequestBuilderGetQueryParameters;
+}
+export interface UserFlowLanguagePageItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the overridesPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
  */

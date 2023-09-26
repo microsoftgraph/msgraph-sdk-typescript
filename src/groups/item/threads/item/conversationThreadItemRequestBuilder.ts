@@ -1,18 +1,50 @@
-import { type ConversationThread } from '../../../../models/conversationThread';
-import { createConversationThreadFromDiscriminatorValue } from '../../../../models/createConversationThreadFromDiscriminatorValue';
-import { deserializeIntoConversationThread } from '../../../../models/deserializeIntoConversationThread';
+import { createConversationThreadFromDiscriminatorValue, deserializeIntoConversationThread, serializeConversationThread, type ConversationThread } from '../../../../models/conversationThread';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeConversationThread } from '../../../../models/serializeConversationThread';
-import { type ConversationThreadItemRequestBuilderDeleteRequestConfiguration } from './conversationThreadItemRequestBuilderDeleteRequestConfiguration';
-import { type ConversationThreadItemRequestBuilderGetRequestConfiguration } from './conversationThreadItemRequestBuilderGetRequestConfiguration';
-import { type ConversationThreadItemRequestBuilderPatchRequestConfiguration } from './conversationThreadItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { PostsRequestBuilder } from './posts/postsRequestBuilder';
 import { ReplyRequestBuilder } from './reply/replyRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConversationThreadItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ConversationThreadItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ConversationThreadItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConversationThreadItemRequestBuilderGetQueryParameters;
+}
+export interface ConversationThreadItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the threads property of the microsoft.graph.group entity.
  */
@@ -40,7 +72,7 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete conversationThread.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/group-delete-thread?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conversationthread-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConversationThreadItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -53,10 +85,10 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get a thread object.
+     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationThread
-     * @see {@link https://learn.microsoft.com/graph/api/group-get-thread?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conversationthread-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConversationThreadItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConversationThread | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -102,7 +134,7 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get a thread object.
+     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

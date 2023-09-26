@@ -1,17 +1,19 @@
-import { createMessageFromDiscriminatorValue } from '../../../../../../../../../models/createMessageFromDiscriminatorValue';
-import { deserializeIntoMessage } from '../../../../../../../../../models/deserializeIntoMessage';
-import { type Message } from '../../../../../../../../../models/message';
+import { createMessageFromDiscriminatorValue, deserializeIntoMessage, serializeMessage, type Message } from '../../../../../../../../../models/message';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeMessage } from '../../../../../../../../../models/serializeMessage';
-import { type CreateReplyPostRequestBody } from './createReplyPostRequestBody';
-import { type CreateReplyRequestBuilderPostRequestConfiguration } from './createReplyRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCreateReplyPostRequestBody } from './deserializeIntoCreateReplyPostRequestBody';
-import { serializeCreateReplyPostRequestBody } from './serializeCreateReplyPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoCreateReplyPostRequestBody, serializeCreateReplyPostRequestBody, type CreateReplyPostRequestBody } from './createReplyPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CreateReplyRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the createReply method.
  */

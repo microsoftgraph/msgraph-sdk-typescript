@@ -1,19 +1,62 @@
 import { type MessageRuleCollectionResponse } from '../../../../models/';
-import { createMessageRuleCollectionResponseFromDiscriminatorValue } from '../../../../models/createMessageRuleCollectionResponseFromDiscriminatorValue';
-import { createMessageRuleFromDiscriminatorValue } from '../../../../models/createMessageRuleFromDiscriminatorValue';
-import { deserializeIntoMessageRule } from '../../../../models/deserializeIntoMessageRule';
-import { type MessageRule } from '../../../../models/messageRule';
+import { createMessageRuleFromDiscriminatorValue, deserializeIntoMessageRule, serializeMessageRule, type MessageRule } from '../../../../models/messageRule';
+import { createMessageRuleCollectionResponseFromDiscriminatorValue } from '../../../../models/messageRuleCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeMessageRule } from '../../../../models/serializeMessageRule';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { MessageRuleItemRequestBuilder } from './item/messageRuleItemRequestBuilder';
-import { type MessageRulesRequestBuilderGetRequestConfiguration } from './messageRulesRequestBuilderGetRequestConfiguration';
-import { type MessageRulesRequestBuilderPostRequestConfiguration } from './messageRulesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MessageRulesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface MessageRulesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MessageRulesRequestBuilderGetQueryParameters;
+}
+export interface MessageRulesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
  */

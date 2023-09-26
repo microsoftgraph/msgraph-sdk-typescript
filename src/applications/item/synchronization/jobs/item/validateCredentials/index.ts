@@ -1,5 +1,2 @@
-export * from './createValidateCredentialsPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoValidateCredentialsPostRequestBody'
-export * from './serializeValidateCredentialsPostRequestBody'
 export * from './validateCredentialsPostRequestBody'
-export * from './validateCredentialsRequestBuilderPostRequestConfiguration'
+export * from './validateCredentialsRequestBuilder'

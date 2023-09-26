@@ -1,19 +1,70 @@
 import { type InvitationCollectionResponse } from '../models/';
-import { createInvitationCollectionResponseFromDiscriminatorValue } from '../models/createInvitationCollectionResponseFromDiscriminatorValue';
-import { createInvitationFromDiscriminatorValue } from '../models/createInvitationFromDiscriminatorValue';
-import { deserializeIntoInvitation } from '../models/deserializeIntoInvitation';
-import { type Invitation } from '../models/invitation';
+import { createInvitationFromDiscriminatorValue, deserializeIntoInvitation, serializeInvitation, type Invitation } from '../models/invitation';
+import { createInvitationCollectionResponseFromDiscriminatorValue } from '../models/invitationCollectionResponse';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeInvitation } from '../models/serializeInvitation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type InvitationsRequestBuilderGetRequestConfiguration } from './invitationsRequestBuilderGetRequestConfiguration';
-import { type InvitationsRequestBuilderPostRequestConfiguration } from './invitationsRequestBuilderPostRequestConfiguration';
 import { InvitationItemRequestBuilder } from './item/invitationItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InvitationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface InvitationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InvitationsRequestBuilderGetQueryParameters;
+}
+export interface InvitationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of invitation entities.
  */

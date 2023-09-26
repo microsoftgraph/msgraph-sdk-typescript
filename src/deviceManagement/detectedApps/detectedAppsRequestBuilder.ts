@@ -1,19 +1,70 @@
 import { type DetectedAppCollectionResponse } from '../../models/';
-import { createDetectedAppCollectionResponseFromDiscriminatorValue } from '../../models/createDetectedAppCollectionResponseFromDiscriminatorValue';
-import { createDetectedAppFromDiscriminatorValue } from '../../models/createDetectedAppFromDiscriminatorValue';
-import { deserializeIntoDetectedApp } from '../../models/deserializeIntoDetectedApp';
-import { type DetectedApp } from '../../models/detectedApp';
+import { createDetectedAppFromDiscriminatorValue, deserializeIntoDetectedApp, serializeDetectedApp, type DetectedApp } from '../../models/detectedApp';
+import { createDetectedAppCollectionResponseFromDiscriminatorValue } from '../../models/detectedAppCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDetectedApp } from '../../models/serializeDetectedApp';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DetectedAppsRequestBuilderGetRequestConfiguration } from './detectedAppsRequestBuilderGetRequestConfiguration';
-import { type DetectedAppsRequestBuilderPostRequestConfiguration } from './detectedAppsRequestBuilderPostRequestConfiguration';
 import { DetectedAppItemRequestBuilder } from './item/detectedAppItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DetectedAppsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DetectedAppsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DetectedAppsRequestBuilderGetQueryParameters;
+}
+export interface DetectedAppsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
  */

@@ -1,19 +1,70 @@
 import { type TeamworkTagCollectionResponse } from '../../../../../models/';
-import { createTeamworkTagCollectionResponseFromDiscriminatorValue } from '../../../../../models/createTeamworkTagCollectionResponseFromDiscriminatorValue';
-import { createTeamworkTagFromDiscriminatorValue } from '../../../../../models/createTeamworkTagFromDiscriminatorValue';
-import { deserializeIntoTeamworkTag } from '../../../../../models/deserializeIntoTeamworkTag';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeTeamworkTag } from '../../../../../models/serializeTeamworkTag';
-import { type TeamworkTag } from '../../../../../models/teamworkTag';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createTeamworkTagFromDiscriminatorValue, deserializeIntoTeamworkTag, serializeTeamworkTag, type TeamworkTag } from '../../../../../models/teamworkTag';
+import { createTeamworkTagCollectionResponseFromDiscriminatorValue } from '../../../../../models/teamworkTagCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TeamworkTagItemRequestBuilder } from './item/teamworkTagItemRequestBuilder';
-import { type TagsRequestBuilderGetRequestConfiguration } from './tagsRequestBuilderGetRequestConfiguration';
-import { type TagsRequestBuilderPostRequestConfiguration } from './tagsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TagsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TagsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TagsRequestBuilderGetQueryParameters;
+}
+export interface TagsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tags property of the microsoft.graph.team entity.
  */

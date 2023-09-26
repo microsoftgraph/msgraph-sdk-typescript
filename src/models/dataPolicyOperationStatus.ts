@@ -5,3 +5,5 @@ export enum DataPolicyOperationStatus {
     Failed = "failed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

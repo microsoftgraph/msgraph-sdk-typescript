@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoSetVerifiedPublisherPostRequestBody } from './deserializeIntoSetVerifiedPublisherPostRequestBody';
-import { serializeSetVerifiedPublisherPostRequestBody } from './serializeSetVerifiedPublisherPostRequestBody';
-import { type SetVerifiedPublisherPostRequestBody } from './setVerifiedPublisherPostRequestBody';
-import { type SetVerifiedPublisherRequestBuilderPostRequestConfiguration } from './setVerifiedPublisherRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoSetVerifiedPublisherPostRequestBody, serializeSetVerifiedPublisherPostRequestBody, type SetVerifiedPublisherPostRequestBody } from './setVerifiedPublisherPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SetVerifiedPublisherRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the setVerifiedPublisher method.
  */

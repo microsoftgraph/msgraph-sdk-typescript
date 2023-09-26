@@ -1,7 +1,0 @@
-import { type ExternalSponsors } from './externalSponsors';
-import { serializeSubjectSet } from './serializeSubjectSet';
-import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
-
-export function serializeExternalSponsors(writer: SerializationWriter, externalSponsors: ExternalSponsors | undefined = {} as ExternalSponsors) : void {
-        serializeSubjectSet(writer, externalSponsors)
-}

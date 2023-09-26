@@ -1,18 +1,54 @@
-import { type ConnectedOrganization } from '../../../../models/connectedOrganization';
-import { createConnectedOrganizationFromDiscriminatorValue } from '../../../../models/createConnectedOrganizationFromDiscriminatorValue';
-import { deserializeIntoConnectedOrganization } from '../../../../models/deserializeIntoConnectedOrganization';
+import { createConnectedOrganizationFromDiscriminatorValue, deserializeIntoConnectedOrganization, serializeConnectedOrganization, type ConnectedOrganization } from '../../../../models/connectedOrganization';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeConnectedOrganization } from '../../../../models/serializeConnectedOrganization';
-import { type ConnectedOrganizationItemRequestBuilderDeleteRequestConfiguration } from './connectedOrganizationItemRequestBuilderDeleteRequestConfiguration';
-import { type ConnectedOrganizationItemRequestBuilderGetRequestConfiguration } from './connectedOrganizationItemRequestBuilderGetRequestConfiguration';
-import { type ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration } from './connectedOrganizationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { ExternalSponsorsRequestBuilder } from './externalSponsors/externalSponsorsRequestBuilder';
 import { InternalSponsorsRequestBuilder } from './internalSponsors/internalSponsorsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConnectedOrganizationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ConnectedOrganizationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ConnectedOrganizationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConnectedOrganizationItemRequestBuilderGetQueryParameters;
+}
+export interface ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
  */

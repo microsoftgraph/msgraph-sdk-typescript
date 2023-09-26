@@ -1,20 +1,71 @@
 import { type ParticipantCollectionResponse } from '../../../../models/';
-import { createParticipantCollectionResponseFromDiscriminatorValue } from '../../../../models/createParticipantCollectionResponseFromDiscriminatorValue';
-import { createParticipantFromDiscriminatorValue } from '../../../../models/createParticipantFromDiscriminatorValue';
-import { deserializeIntoParticipant } from '../../../../models/deserializeIntoParticipant';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type Participant } from '../../../../models/participant';
-import { serializeParticipant } from '../../../../models/serializeParticipant';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createParticipantFromDiscriminatorValue, deserializeIntoParticipant, serializeParticipant, type Participant } from '../../../../models/participant';
+import { createParticipantCollectionResponseFromDiscriminatorValue } from '../../../../models/participantCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { InviteRequestBuilder } from './invite/inviteRequestBuilder';
 import { ParticipantItemRequestBuilder } from './item/participantItemRequestBuilder';
-import { type ParticipantsRequestBuilderGetRequestConfiguration } from './participantsRequestBuilderGetRequestConfiguration';
-import { type ParticipantsRequestBuilderPostRequestConfiguration } from './participantsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ParticipantsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ParticipantsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ParticipantsRequestBuilderGetQueryParameters;
+}
+export interface ParticipantsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the participants property of the microsoft.graph.call entity.
  */

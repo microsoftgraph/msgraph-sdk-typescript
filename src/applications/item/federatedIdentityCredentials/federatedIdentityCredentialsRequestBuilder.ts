@@ -1,19 +1,70 @@
 import { type FederatedIdentityCredentialCollectionResponse } from '../../../models/';
-import { createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue } from '../../../models/createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue';
-import { createFederatedIdentityCredentialFromDiscriminatorValue } from '../../../models/createFederatedIdentityCredentialFromDiscriminatorValue';
-import { deserializeIntoFederatedIdentityCredential } from '../../../models/deserializeIntoFederatedIdentityCredential';
-import { type FederatedIdentityCredential } from '../../../models/federatedIdentityCredential';
+import { createFederatedIdentityCredentialFromDiscriminatorValue, deserializeIntoFederatedIdentityCredential, serializeFederatedIdentityCredential, type FederatedIdentityCredential } from '../../../models/federatedIdentityCredential';
+import { createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue } from '../../../models/federatedIdentityCredentialCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeFederatedIdentityCredential } from '../../../models/serializeFederatedIdentityCredential';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration } from './federatedIdentityCredentialsRequestBuilderGetRequestConfiguration';
-import { type FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration } from './federatedIdentityCredentialsRequestBuilderPostRequestConfiguration';
 import { FederatedIdentityCredentialItemRequestBuilder } from './item/federatedIdentityCredentialItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FederatedIdentityCredentialsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FederatedIdentityCredentialsRequestBuilderGetQueryParameters;
+}
+export interface FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
  */

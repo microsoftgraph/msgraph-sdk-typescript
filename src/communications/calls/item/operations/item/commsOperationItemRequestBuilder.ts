@@ -1,16 +1,52 @@
-import { type CommsOperation } from '../../../../../models/commsOperation';
-import { createCommsOperationFromDiscriminatorValue } from '../../../../../models/createCommsOperationFromDiscriminatorValue';
-import { deserializeIntoCommsOperation } from '../../../../../models/deserializeIntoCommsOperation';
+import { createCommsOperationFromDiscriminatorValue, deserializeIntoCommsOperation, serializeCommsOperation, type CommsOperation } from '../../../../../models/commsOperation';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeCommsOperation } from '../../../../../models/serializeCommsOperation';
-import { type CommsOperationItemRequestBuilderDeleteRequestConfiguration } from './commsOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type CommsOperationItemRequestBuilderGetRequestConfiguration } from './commsOperationItemRequestBuilderGetRequestConfiguration';
-import { type CommsOperationItemRequestBuilderPatchRequestConfiguration } from './commsOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CommsOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CommsOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CommsOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CommsOperationItemRequestBuilderGetQueryParameters;
+}
+export interface CommsOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.call entity.
  */

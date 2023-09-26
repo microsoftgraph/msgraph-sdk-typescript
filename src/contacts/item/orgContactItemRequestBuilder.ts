@@ -1,11 +1,6 @@
-import { createOrgContactFromDiscriminatorValue } from '../../models/createOrgContactFromDiscriminatorValue';
-import { deserializeIntoOrgContact } from '../../models/deserializeIntoOrgContact';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type OrgContact } from '../../models/orgContact';
-import { serializeOrgContact } from '../../models/serializeOrgContact';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createOrgContactFromDiscriminatorValue, deserializeIntoOrgContact, serializeOrgContact, type OrgContact } from '../../models/orgContact';
 import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import { DirectReportsRequestBuilder } from './directReports/directReportsRequestBuilder';
@@ -13,14 +8,56 @@ import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroups
 import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
 import { ManagerRequestBuilder } from './manager/managerRequestBuilder';
 import { MemberOfRequestBuilder } from './memberOf/memberOfRequestBuilder';
-import { type OrgContactItemRequestBuilderDeleteRequestConfiguration } from './orgContactItemRequestBuilderDeleteRequestConfiguration';
-import { type OrgContactItemRequestBuilderGetRequestConfiguration } from './orgContactItemRequestBuilderGetRequestConfiguration';
-import { type OrgContactItemRequestBuilderPatchRequestConfiguration } from './orgContactItemRequestBuilderPatchRequestConfiguration';
 import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
 import { RetryServiceProvisioningRequestBuilder } from './retryServiceProvisioning/retryServiceProvisioningRequestBuilder';
+import { ServiceProvisioningErrorsRequestBuilder } from './serviceProvisioningErrors/serviceProvisioningErrorsRequestBuilder';
 import { TransitiveMemberOfRequestBuilder } from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OrgContactItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OrgContactItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OrgContactItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OrgContactItemRequestBuilderGetQueryParameters;
+}
+export interface OrgContactItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of orgContact entities.
  */
@@ -78,6 +115,12 @@ export class OrgContactItemRequestBuilder extends BaseRequestBuilder {
      */
     public get retryServiceProvisioning(): RetryServiceProvisioningRequestBuilder {
         return new RetryServiceProvisioningRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * The serviceProvisioningErrors property
+     */
+    public get serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder {
+        return new ServiceProvisioningErrorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.orgContact entity.

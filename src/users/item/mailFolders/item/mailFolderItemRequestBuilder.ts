@@ -1,21 +1,61 @@
-import { createMailFolderFromDiscriminatorValue } from '../../../../models/createMailFolderFromDiscriminatorValue';
-import { deserializeIntoMailFolder } from '../../../../models/deserializeIntoMailFolder';
-import { type MailFolder } from '../../../../models/mailFolder';
+import { createMailFolderFromDiscriminatorValue, deserializeIntoMailFolder, serializeMailFolder, type MailFolder } from '../../../../models/mailFolder';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeMailFolder } from '../../../../models/serializeMailFolder';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { ChildFoldersRequestBuilder } from './childFolders/childFoldersRequestBuilder';
 import { CopyRequestBuilder } from './copy/copyRequestBuilder';
-import { type MailFolderItemRequestBuilderDeleteRequestConfiguration } from './mailFolderItemRequestBuilderDeleteRequestConfiguration';
-import { type MailFolderItemRequestBuilderGetRequestConfiguration } from './mailFolderItemRequestBuilderGetRequestConfiguration';
-import { type MailFolderItemRequestBuilderPatchRequestConfiguration } from './mailFolderItemRequestBuilderPatchRequestConfiguration';
 import { MessageRulesRequestBuilder } from './messageRules/messageRulesRequestBuilder';
 import { MessagesRequestBuilder } from './messages/messagesRequestBuilder';
 import { MoveRequestBuilder } from './move/moveRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MailFolderItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MailFolderItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Include Hidden Folders
+     */
+    includeHiddenFolders?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MailFolderItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MailFolderItemRequestBuilderGetQueryParameters;
+}
+export interface MailFolderItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
  */

@@ -1,17 +1,53 @@
-import { createIdentityApiConnectorFromDiscriminatorValue } from '../../../models/createIdentityApiConnectorFromDiscriminatorValue';
-import { deserializeIntoIdentityApiConnector } from '../../../models/deserializeIntoIdentityApiConnector';
-import { type IdentityApiConnector } from '../../../models/identityApiConnector';
+import { createIdentityApiConnectorFromDiscriminatorValue, deserializeIntoIdentityApiConnector, serializeIdentityApiConnector, type IdentityApiConnector } from '../../../models/identityApiConnector';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeIdentityApiConnector } from '../../../models/serializeIdentityApiConnector';
-import { type IdentityApiConnectorItemRequestBuilderDeleteRequestConfiguration } from './identityApiConnectorItemRequestBuilderDeleteRequestConfiguration';
-import { type IdentityApiConnectorItemRequestBuilderGetRequestConfiguration } from './identityApiConnectorItemRequestBuilderGetRequestConfiguration';
-import { type IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration } from './identityApiConnectorItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { UploadClientCertificateRequestBuilder } from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentityApiConnectorItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IdentityApiConnectorItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentityApiConnectorItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentityApiConnectorItemRequestBuilderGetQueryParameters;
+}
+export interface IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
  */

@@ -1,16 +1,52 @@
-import { type AuthorizationPolicy } from '../../models/authorizationPolicy';
-import { createAuthorizationPolicyFromDiscriminatorValue } from '../../models/createAuthorizationPolicyFromDiscriminatorValue';
-import { deserializeIntoAuthorizationPolicy } from '../../models/deserializeIntoAuthorizationPolicy';
+import { createAuthorizationPolicyFromDiscriminatorValue, deserializeIntoAuthorizationPolicy, serializeAuthorizationPolicy, type AuthorizationPolicy } from '../../models/authorizationPolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAuthorizationPolicy } from '../../models/serializeAuthorizationPolicy';
-import { type AuthorizationPolicyRequestBuilderDeleteRequestConfiguration } from './authorizationPolicyRequestBuilderDeleteRequestConfiguration';
-import { type AuthorizationPolicyRequestBuilderGetRequestConfiguration } from './authorizationPolicyRequestBuilderGetRequestConfiguration';
-import { type AuthorizationPolicyRequestBuilderPatchRequestConfiguration } from './authorizationPolicyRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthorizationPolicyRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AuthorizationPolicyRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AuthorizationPolicyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthorizationPolicyRequestBuilderGetQueryParameters;
+}
+export interface AuthorizationPolicyRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.
  */

@@ -1,19 +1,70 @@
 import { type DomainDnsRecordCollectionResponse } from '../../../models/';
-import { createDomainDnsRecordCollectionResponseFromDiscriminatorValue } from '../../../models/createDomainDnsRecordCollectionResponseFromDiscriminatorValue';
-import { createDomainDnsRecordFromDiscriminatorValue } from '../../../models/createDomainDnsRecordFromDiscriminatorValue';
-import { deserializeIntoDomainDnsRecord } from '../../../models/deserializeIntoDomainDnsRecord';
-import { type DomainDnsRecord } from '../../../models/domainDnsRecord';
+import { createDomainDnsRecordFromDiscriminatorValue, deserializeIntoDomainDnsRecord, serializeDomainDnsRecord, type DomainDnsRecord } from '../../../models/domainDnsRecord';
+import { createDomainDnsRecordCollectionResponseFromDiscriminatorValue } from '../../../models/domainDnsRecordCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDomainDnsRecord } from '../../../models/serializeDomainDnsRecord';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DomainDnsRecordItemRequestBuilder } from './item/domainDnsRecordItemRequestBuilder';
-import { type VerificationDnsRecordsRequestBuilderGetRequestConfiguration } from './verificationDnsRecordsRequestBuilderGetRequestConfiguration';
-import { type VerificationDnsRecordsRequestBuilderPostRequestConfiguration } from './verificationDnsRecordsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface VerificationDnsRecordsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface VerificationDnsRecordsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: VerificationDnsRecordsRequestBuilderGetQueryParameters;
+}
+export interface VerificationDnsRecordsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity.
  */

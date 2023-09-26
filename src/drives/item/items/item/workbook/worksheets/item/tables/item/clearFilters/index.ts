@@ -1,1 +1,1 @@
-export * from './clearFiltersRequestBuilderPostRequestConfiguration'
+export * from './clearFiltersRequestBuilder'

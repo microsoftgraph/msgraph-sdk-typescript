@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type EdiscoveryCaseCollectionResponse } from '../../../models/security/';
-import { createEdiscoveryCaseCollectionResponseFromDiscriminatorValue } from '../../../models/security/createEdiscoveryCaseCollectionResponseFromDiscriminatorValue';
-import { createEdiscoveryCaseFromDiscriminatorValue } from '../../../models/security/createEdiscoveryCaseFromDiscriminatorValue';
-import { deserializeIntoEdiscoveryCase } from '../../../models/security/deserializeIntoEdiscoveryCase';
-import { type EdiscoveryCase } from '../../../models/security/ediscoveryCase';
-import { serializeEdiscoveryCase } from '../../../models/security/serializeEdiscoveryCase';
+import { createEdiscoveryCaseFromDiscriminatorValue, deserializeIntoEdiscoveryCase, serializeEdiscoveryCase, type EdiscoveryCase } from '../../../models/security/ediscoveryCase';
+import { createEdiscoveryCaseCollectionResponseFromDiscriminatorValue } from '../../../models/security/ediscoveryCaseCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type EdiscoveryCasesRequestBuilderGetRequestConfiguration } from './ediscoveryCasesRequestBuilderGetRequestConfiguration';
-import { type EdiscoveryCasesRequestBuilderPostRequestConfiguration } from './ediscoveryCasesRequestBuilderPostRequestConfiguration';
 import { EdiscoveryCaseItemRequestBuilder } from './item/ediscoveryCaseItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EdiscoveryCasesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface EdiscoveryCasesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EdiscoveryCasesRequestBuilderGetQueryParameters;
+}
+export interface EdiscoveryCasesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
  */

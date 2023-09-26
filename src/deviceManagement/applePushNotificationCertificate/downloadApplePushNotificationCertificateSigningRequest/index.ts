@@ -1,5 +1,2 @@
-export * from './createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue'
-export * from './deserializeIntoDownloadApplePushNotificationCertificateSigningRequestResponse'
-export * from './downloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration'
+export * from './downloadApplePushNotificationCertificateSigningRequestRequestBuilder'
 export * from './downloadApplePushNotificationCertificateSigningRequestResponse'
-export * from './serializeDownloadApplePushNotificationCertificateSigningRequestResponse'

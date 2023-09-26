@@ -1,11 +1,6 @@
-import { createListItemFromDiscriminatorValue } from '../../../../../../../../models/createListItemFromDiscriminatorValue';
-import { deserializeIntoListItem } from '../../../../../../../../models/deserializeIntoListItem';
-import { type ListItem } from '../../../../../../../../models/listItem';
+import { createListItemFromDiscriminatorValue, deserializeIntoListItem, serializeListItem, type ListItem } from '../../../../../../../../models/listItem';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeListItem } from '../../../../../../../../models/serializeListItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { AnalyticsRequestBuilder } from './analytics/analyticsRequestBuilder';
 import { CreatedByUserRequestBuilder } from './createdByUser/createdByUserRequestBuilder';
 import { DocumentSetVersionsRequestBuilder } from './documentSetVersions/documentSetVersionsRequestBuilder';
@@ -14,12 +9,53 @@ import { FieldsRequestBuilder } from './fields/fieldsRequestBuilder';
 import { GetActivitiesByIntervalRequestBuilder } from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
 import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder } from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import { LastModifiedByUserRequestBuilder } from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
-import { type ListItemItemRequestBuilderDeleteRequestConfiguration } from './listItemItemRequestBuilderDeleteRequestConfiguration';
-import { type ListItemItemRequestBuilderGetRequestConfiguration } from './listItemItemRequestBuilderGetRequestConfiguration';
-import { type ListItemItemRequestBuilderPatchRequestConfiguration } from './listItemItemRequestBuilderPatchRequestConfiguration';
 import { VersionsRequestBuilder } from './versions/versionsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ListItemItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ListItemItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ListItemItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ListItemItemRequestBuilderGetQueryParameters;
+}
+export interface ListItemItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the items property of the microsoft.graph.list entity.
  */

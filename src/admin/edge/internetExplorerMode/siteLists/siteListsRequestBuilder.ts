@@ -1,19 +1,70 @@
 import { type BrowserSiteListCollectionResponse } from '../../../../models/';
-import { type BrowserSiteList } from '../../../../models/browserSiteList';
-import { createBrowserSiteListCollectionResponseFromDiscriminatorValue } from '../../../../models/createBrowserSiteListCollectionResponseFromDiscriminatorValue';
-import { createBrowserSiteListFromDiscriminatorValue } from '../../../../models/createBrowserSiteListFromDiscriminatorValue';
-import { deserializeIntoBrowserSiteList } from '../../../../models/deserializeIntoBrowserSiteList';
+import { createBrowserSiteListFromDiscriminatorValue, deserializeIntoBrowserSiteList, serializeBrowserSiteList, type BrowserSiteList } from '../../../../models/browserSiteList';
+import { createBrowserSiteListCollectionResponseFromDiscriminatorValue } from '../../../../models/browserSiteListCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeBrowserSiteList } from '../../../../models/serializeBrowserSiteList';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { BrowserSiteListItemRequestBuilder } from './item/browserSiteListItemRequestBuilder';
-import { type SiteListsRequestBuilderGetRequestConfiguration } from './siteListsRequestBuilderGetRequestConfiguration';
-import { type SiteListsRequestBuilderPostRequestConfiguration } from './siteListsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SiteListsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SiteListsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SiteListsRequestBuilderGetQueryParameters;
+}
+export interface SiteListsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
  */

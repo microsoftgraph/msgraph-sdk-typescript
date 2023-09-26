@@ -1,19 +1,70 @@
 import { type SchemaExtensionCollectionResponse } from '../models/';
-import { createSchemaExtensionCollectionResponseFromDiscriminatorValue } from '../models/createSchemaExtensionCollectionResponseFromDiscriminatorValue';
-import { createSchemaExtensionFromDiscriminatorValue } from '../models/createSchemaExtensionFromDiscriminatorValue';
-import { deserializeIntoSchemaExtension } from '../models/deserializeIntoSchemaExtension';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { type SchemaExtension } from '../models/schemaExtension';
-import { serializeSchemaExtension } from '../models/serializeSchemaExtension';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createSchemaExtensionFromDiscriminatorValue, deserializeIntoSchemaExtension, serializeSchemaExtension, type SchemaExtension } from '../models/schemaExtension';
+import { createSchemaExtensionCollectionResponseFromDiscriminatorValue } from '../models/schemaExtensionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SchemaExtensionItemRequestBuilder } from './item/schemaExtensionItemRequestBuilder';
-import { type SchemaExtensionsRequestBuilderGetRequestConfiguration } from './schemaExtensionsRequestBuilderGetRequestConfiguration';
-import { type SchemaExtensionsRequestBuilderPostRequestConfiguration } from './schemaExtensionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SchemaExtensionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SchemaExtensionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SchemaExtensionsRequestBuilderGetQueryParameters;
+}
+export interface SchemaExtensionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of schemaExtension entities.
  */

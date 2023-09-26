@@ -1,2 +1,1 @@
-export * from './graphRoomRequestBuilderGetQueryParameters'
-export * from './graphRoomRequestBuilderGetRequestConfiguration'
+export * from './graphRoomRequestBuilder'

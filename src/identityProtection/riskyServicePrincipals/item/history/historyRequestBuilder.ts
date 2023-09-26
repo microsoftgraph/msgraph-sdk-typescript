@@ -1,19 +1,70 @@
 import { type RiskyServicePrincipalHistoryItemCollectionResponse } from '../../../../models/';
-import { createRiskyServicePrincipalHistoryItemCollectionResponseFromDiscriminatorValue } from '../../../../models/createRiskyServicePrincipalHistoryItemCollectionResponseFromDiscriminatorValue';
-import { createRiskyServicePrincipalHistoryItemFromDiscriminatorValue } from '../../../../models/createRiskyServicePrincipalHistoryItemFromDiscriminatorValue';
-import { deserializeIntoRiskyServicePrincipalHistoryItem } from '../../../../models/deserializeIntoRiskyServicePrincipalHistoryItem';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type RiskyServicePrincipalHistoryItem } from '../../../../models/riskyServicePrincipalHistoryItem';
-import { serializeRiskyServicePrincipalHistoryItem } from '../../../../models/serializeRiskyServicePrincipalHistoryItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createRiskyServicePrincipalHistoryItemFromDiscriminatorValue, deserializeIntoRiskyServicePrincipalHistoryItem, serializeRiskyServicePrincipalHistoryItem, type RiskyServicePrincipalHistoryItem } from '../../../../models/riskyServicePrincipalHistoryItem';
+import { createRiskyServicePrincipalHistoryItemCollectionResponseFromDiscriminatorValue } from '../../../../models/riskyServicePrincipalHistoryItemCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HistoryRequestBuilderGetRequestConfiguration } from './historyRequestBuilderGetRequestConfiguration';
-import { type HistoryRequestBuilderPostRequestConfiguration } from './historyRequestBuilderPostRequestConfiguration';
 import { RiskyServicePrincipalHistoryItemItemRequestBuilder } from './item/riskyServicePrincipalHistoryItemItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HistoryRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HistoryRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HistoryRequestBuilderGetQueryParameters;
+}
+export interface HistoryRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
  */

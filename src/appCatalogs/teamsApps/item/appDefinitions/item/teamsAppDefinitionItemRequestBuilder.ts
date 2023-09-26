@@ -1,17 +1,53 @@
-import { createTeamsAppDefinitionFromDiscriminatorValue } from '../../../../../models/createTeamsAppDefinitionFromDiscriminatorValue';
-import { deserializeIntoTeamsAppDefinition } from '../../../../../models/deserializeIntoTeamsAppDefinition';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeTeamsAppDefinition } from '../../../../../models/serializeTeamsAppDefinition';
-import { type TeamsAppDefinition } from '../../../../../models/teamsAppDefinition';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createTeamsAppDefinitionFromDiscriminatorValue, deserializeIntoTeamsAppDefinition, serializeTeamsAppDefinition, type TeamsAppDefinition } from '../../../../../models/teamsAppDefinition';
 import { BotRequestBuilder } from './bot/botRequestBuilder';
-import { type TeamsAppDefinitionItemRequestBuilderDeleteRequestConfiguration } from './teamsAppDefinitionItemRequestBuilderDeleteRequestConfiguration';
-import { type TeamsAppDefinitionItemRequestBuilderGetRequestConfiguration } from './teamsAppDefinitionItemRequestBuilderGetRequestConfiguration';
-import { type TeamsAppDefinitionItemRequestBuilderPatchRequestConfiguration } from './teamsAppDefinitionItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamsAppDefinitionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TeamsAppDefinitionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamsAppDefinitionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamsAppDefinitionItemRequestBuilderGetQueryParameters;
+}
+export interface TeamsAppDefinitionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
  */

@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createGrantResponseFromDiscriminatorValue } from './createGrantResponseFromDiscriminatorValue';
-import { deserializeIntoGrantPostRequestBody } from './deserializeIntoGrantPostRequestBody';
-import { deserializeIntoGrantResponse } from './deserializeIntoGrantResponse';
-import { type GrantPostRequestBody } from './grantPostRequestBody';
-import { type GrantRequestBuilderPostRequestConfiguration } from './grantRequestBuilderPostRequestConfiguration';
-import { type GrantResponse } from './grantResponse';
-import { serializeGrantPostRequestBody } from './serializeGrantPostRequestBody';
-import { serializeGrantResponse } from './serializeGrantResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoGrantPostRequestBody, serializeGrantPostRequestBody, type GrantPostRequestBody } from './grantPostRequestBody';
+import { createGrantResponseFromDiscriminatorValue, deserializeIntoGrantResponse, serializeGrantResponse, type GrantResponse } from './grantResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GrantRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the grant method.
  */

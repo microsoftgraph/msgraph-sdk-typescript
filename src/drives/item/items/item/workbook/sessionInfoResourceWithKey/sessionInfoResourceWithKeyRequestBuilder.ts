@@ -1,12 +1,19 @@
 import { type WorkbookSessionInfo } from '../../../../../../models/';
-import { createWorkbookSessionInfoFromDiscriminatorValue } from '../../../../../../models/createWorkbookSessionInfoFromDiscriminatorValue';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type SessionInfoResourceWithKeyRequestBuilderGetRequestConfiguration } from './sessionInfoResourceWithKeyRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookSessionInfoFromDiscriminatorValue } from '../../../../../../models/workbookSessionInfo';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SessionInfoResourceWithKeyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the sessionInfoResource method.
  */

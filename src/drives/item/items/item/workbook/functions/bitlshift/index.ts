@@ -1,5 +1,2 @@
 export * from './bitlshiftPostRequestBody'
-export * from './bitlshiftRequestBuilderPostRequestConfiguration'
-export * from './createBitlshiftPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoBitlshiftPostRequestBody'
-export * from './serializeBitlshiftPostRequestBody'
+export * from './bitlshiftRequestBuilder'

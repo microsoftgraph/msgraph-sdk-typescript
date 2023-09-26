@@ -1,13 +1,18 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { deserializeIntoExportPersonalDataPostRequestBody } from './deserializeIntoExportPersonalDataPostRequestBody';
-import { type ExportPersonalDataPostRequestBody } from './exportPersonalDataPostRequestBody';
-import { type ExportPersonalDataRequestBuilderPostRequestConfiguration } from './exportPersonalDataRequestBuilderPostRequestConfiguration';
-import { serializeExportPersonalDataPostRequestBody } from './serializeExportPersonalDataPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { deserializeIntoExportPersonalDataPostRequestBody, serializeExportPersonalDataPostRequestBody, type ExportPersonalDataPostRequestBody } from './exportPersonalDataPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExportPersonalDataRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the exportPersonalData method.
  */

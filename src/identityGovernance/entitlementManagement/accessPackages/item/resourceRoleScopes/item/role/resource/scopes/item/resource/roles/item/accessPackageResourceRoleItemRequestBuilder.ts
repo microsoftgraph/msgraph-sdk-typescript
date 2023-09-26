@@ -1,16 +1,52 @@
-import { type AccessPackageResourceRole } from '../../../../../../../../../../../../../models/accessPackageResourceRole';
-import { createAccessPackageResourceRoleFromDiscriminatorValue } from '../../../../../../../../../../../../../models/createAccessPackageResourceRoleFromDiscriminatorValue';
-import { deserializeIntoAccessPackageResourceRole } from '../../../../../../../../../../../../../models/deserializeIntoAccessPackageResourceRole';
+import { createAccessPackageResourceRoleFromDiscriminatorValue, deserializeIntoAccessPackageResourceRole, serializeAccessPackageResourceRole, type AccessPackageResourceRole } from '../../../../../../../../../../../../../models/accessPackageResourceRole';
 import { type ODataError } from '../../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageResourceRole } from '../../../../../../../../../../../../../models/serializeAccessPackageResourceRole';
-import { type AccessPackageResourceRoleItemRequestBuilderDeleteRequestConfiguration } from './accessPackageResourceRoleItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessPackageResourceRoleItemRequestBuilderGetRequestConfiguration } from './accessPackageResourceRoleItemRequestBuilderGetRequestConfiguration';
-import { type AccessPackageResourceRoleItemRequestBuilderPatchRequestConfiguration } from './accessPackageResourceRoleItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessPackageResourceRoleItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessPackageResourceRoleItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessPackageResourceRoleItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessPackageResourceRoleItemRequestBuilderGetQueryParameters;
+}
+export interface AccessPackageResourceRoleItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roles property of the microsoft.graph.accessPackageResource entity.
  */

@@ -1,19 +1,54 @@
 import { type WorkbookOperationCollectionResponse } from '../../../../../../models/';
-import { createWorkbookOperationCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createWorkbookOperationCollectionResponseFromDiscriminatorValue';
-import { createWorkbookOperationFromDiscriminatorValue } from '../../../../../../models/createWorkbookOperationFromDiscriminatorValue';
-import { deserializeIntoWorkbookOperation } from '../../../../../../models/deserializeIntoWorkbookOperation';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookOperation } from '../../../../../../models/serializeWorkbookOperation';
-import { type WorkbookOperation } from '../../../../../../models/workbookOperation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookOperationFromDiscriminatorValue, deserializeIntoWorkbookOperation, serializeWorkbookOperation, type WorkbookOperation } from '../../../../../../models/workbookOperation';
+import { createWorkbookOperationCollectionResponseFromDiscriminatorValue } from '../../../../../../models/workbookOperationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookOperationItemRequestBuilder } from './item/workbookOperationItemRequestBuilder';
-import { type OperationsRequestBuilderGetRequestConfiguration } from './operationsRequestBuilderGetRequestConfiguration';
-import { type OperationsRequestBuilderPostRequestConfiguration } from './operationsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OperationsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OperationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OperationsRequestBuilderGetQueryParameters;
+}
+export interface OperationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.workbook entity.
  */

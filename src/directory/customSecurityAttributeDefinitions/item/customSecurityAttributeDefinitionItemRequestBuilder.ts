@@ -1,17 +1,53 @@
-import { createCustomSecurityAttributeDefinitionFromDiscriminatorValue } from '../../../models/createCustomSecurityAttributeDefinitionFromDiscriminatorValue';
-import { type CustomSecurityAttributeDefinition } from '../../../models/customSecurityAttributeDefinition';
-import { deserializeIntoCustomSecurityAttributeDefinition } from '../../../models/deserializeIntoCustomSecurityAttributeDefinition';
+import { createCustomSecurityAttributeDefinitionFromDiscriminatorValue, deserializeIntoCustomSecurityAttributeDefinition, serializeCustomSecurityAttributeDefinition, type CustomSecurityAttributeDefinition } from '../../../models/customSecurityAttributeDefinition';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeCustomSecurityAttributeDefinition } from '../../../models/serializeCustomSecurityAttributeDefinition';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AllowedValuesRequestBuilder } from './allowedValues/allowedValuesRequestBuilder';
-import { type CustomSecurityAttributeDefinitionItemRequestBuilderDeleteRequestConfiguration } from './customSecurityAttributeDefinitionItemRequestBuilderDeleteRequestConfiguration';
-import { type CustomSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration } from './customSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration';
-import { type CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration } from './customSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CustomSecurityAttributeDefinitionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CustomSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters;
+}
+export interface CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
  */

@@ -1,16 +1,52 @@
-import { createLocalizedNotificationMessageFromDiscriminatorValue } from '../../../../../models/createLocalizedNotificationMessageFromDiscriminatorValue';
-import { deserializeIntoLocalizedNotificationMessage } from '../../../../../models/deserializeIntoLocalizedNotificationMessage';
-import { type LocalizedNotificationMessage } from '../../../../../models/localizedNotificationMessage';
+import { createLocalizedNotificationMessageFromDiscriminatorValue, deserializeIntoLocalizedNotificationMessage, serializeLocalizedNotificationMessage, type LocalizedNotificationMessage } from '../../../../../models/localizedNotificationMessage';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeLocalizedNotificationMessage } from '../../../../../models/serializeLocalizedNotificationMessage';
-import { type LocalizedNotificationMessageItemRequestBuilderDeleteRequestConfiguration } from './localizedNotificationMessageItemRequestBuilderDeleteRequestConfiguration';
-import { type LocalizedNotificationMessageItemRequestBuilderGetRequestConfiguration } from './localizedNotificationMessageItemRequestBuilderGetRequestConfiguration';
-import { type LocalizedNotificationMessageItemRequestBuilderPatchRequestConfiguration } from './localizedNotificationMessageItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LocalizedNotificationMessageItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface LocalizedNotificationMessageItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LocalizedNotificationMessageItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LocalizedNotificationMessageItemRequestBuilderGetQueryParameters;
+}
+export interface LocalizedNotificationMessageItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity.
  */

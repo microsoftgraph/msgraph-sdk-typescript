@@ -1,16 +1,52 @@
-import { createEducationOutcomeFromDiscriminatorValue } from '../../../../../../../../../models/createEducationOutcomeFromDiscriminatorValue';
-import { deserializeIntoEducationOutcome } from '../../../../../../../../../models/deserializeIntoEducationOutcome';
-import { type EducationOutcome } from '../../../../../../../../../models/educationOutcome';
+import { createEducationOutcomeFromDiscriminatorValue, deserializeIntoEducationOutcome, serializeEducationOutcome, type EducationOutcome } from '../../../../../../../../../models/educationOutcome';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationOutcome } from '../../../../../../../../../models/serializeEducationOutcome';
-import { type EducationOutcomeItemRequestBuilderDeleteRequestConfiguration } from './educationOutcomeItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationOutcomeItemRequestBuilderGetRequestConfiguration } from './educationOutcomeItemRequestBuilderGetRequestConfiguration';
-import { type EducationOutcomeItemRequestBuilderPatchRequestConfiguration } from './educationOutcomeItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationOutcomeItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationOutcomeItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationOutcomeItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationOutcomeItemRequestBuilderGetQueryParameters;
+}
+export interface EducationOutcomeItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
  */

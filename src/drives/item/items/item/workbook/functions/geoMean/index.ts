@@ -1,5 +1,2 @@
-export * from './createGeoMeanPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoGeoMeanPostRequestBody'
 export * from './geoMeanPostRequestBody'
-export * from './geoMeanRequestBuilderPostRequestConfiguration'
-export * from './serializeGeoMeanPostRequestBody'
+export * from './geoMeanRequestBuilder'

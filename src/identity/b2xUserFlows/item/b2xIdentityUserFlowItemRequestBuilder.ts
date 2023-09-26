@@ -1,21 +1,57 @@
-import { type B2xIdentityUserFlow } from '../../../models/b2xIdentityUserFlow';
-import { createB2xIdentityUserFlowFromDiscriminatorValue } from '../../../models/createB2xIdentityUserFlowFromDiscriminatorValue';
-import { deserializeIntoB2xIdentityUserFlow } from '../../../models/deserializeIntoB2xIdentityUserFlow';
+import { createB2xIdentityUserFlowFromDiscriminatorValue, deserializeIntoB2xIdentityUserFlow, serializeB2xIdentityUserFlow, type B2xIdentityUserFlow } from '../../../models/b2xIdentityUserFlow';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeB2xIdentityUserFlow } from '../../../models/serializeB2xIdentityUserFlow';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { ApiConnectorConfigurationRequestBuilder } from './apiConnectorConfiguration/apiConnectorConfigurationRequestBuilder';
-import { type B2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration } from './b2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration';
-import { type B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration } from './b2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration';
-import { type B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration } from './b2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration';
 import { IdentityProvidersRequestBuilder } from './identityProviders/identityProvidersRequestBuilder';
 import { LanguagesRequestBuilder } from './languages/languagesRequestBuilder';
 import { UserAttributeAssignmentsRequestBuilder } from './userAttributeAssignments/userAttributeAssignmentsRequestBuilder';
 import { UserFlowIdentityProvidersRequestBuilder } from './userFlowIdentityProviders/userFlowIdentityProvidersRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface B2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface B2xIdentityUserFlowItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: B2xIdentityUserFlowItemRequestBuilderGetQueryParameters;
+}
+export interface B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
  */

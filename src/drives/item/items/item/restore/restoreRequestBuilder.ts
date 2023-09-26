@@ -1,17 +1,19 @@
-import { createDriveItemFromDiscriminatorValue } from '../../../../../models/createDriveItemFromDiscriminatorValue';
-import { deserializeIntoDriveItem } from '../../../../../models/deserializeIntoDriveItem';
-import { type DriveItem } from '../../../../../models/driveItem';
+import { createDriveItemFromDiscriminatorValue, deserializeIntoDriveItem, serializeDriveItem, type DriveItem } from '../../../../../models/driveItem';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeDriveItem } from '../../../../../models/serializeDriveItem';
-import { deserializeIntoRestorePostRequestBody } from './deserializeIntoRestorePostRequestBody';
-import { type RestorePostRequestBody } from './restorePostRequestBody';
-import { type RestoreRequestBuilderPostRequestConfiguration } from './restoreRequestBuilderPostRequestConfiguration';
-import { serializeRestorePostRequestBody } from './serializeRestorePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoRestorePostRequestBody, serializeRestorePostRequestBody, type RestorePostRequestBody } from './restorePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RestoreRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the restore method.
  */

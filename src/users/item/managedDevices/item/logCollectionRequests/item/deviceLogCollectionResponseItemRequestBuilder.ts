@@ -1,17 +1,53 @@
-import { createDeviceLogCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createDeviceLogCollectionResponseFromDiscriminatorValue';
-import { deserializeIntoDeviceLogCollectionResponse } from '../../../../../../models/deserializeIntoDeviceLogCollectionResponse';
-import { type DeviceLogCollectionResponse } from '../../../../../../models/deviceLogCollectionResponse';
+import { createDeviceLogCollectionResponseFromDiscriminatorValue, deserializeIntoDeviceLogCollectionResponse, serializeDeviceLogCollectionResponse, type DeviceLogCollectionResponse } from '../../../../../../models/deviceLogCollectionResponse';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceLogCollectionResponse } from '../../../../../../models/serializeDeviceLogCollectionResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { CreateDownloadUrlRequestBuilder } from './createDownloadUrl/createDownloadUrlRequestBuilder';
-import { type DeviceLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration } from './deviceLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration';
-import { type DeviceLogCollectionResponseItemRequestBuilderGetRequestConfiguration } from './deviceLogCollectionResponseItemRequestBuilderGetRequestConfiguration';
-import { type DeviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration } from './deviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceLogCollectionResponseItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceLogCollectionResponseItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceLogCollectionResponseItemRequestBuilderGetQueryParameters;
+}
+export interface DeviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
  */

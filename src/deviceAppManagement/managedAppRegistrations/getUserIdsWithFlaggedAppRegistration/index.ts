@@ -1,6 +1,2 @@
-export * from './createGetUserIdsWithFlaggedAppRegistrationResponseFromDiscriminatorValue'
-export * from './deserializeIntoGetUserIdsWithFlaggedAppRegistrationResponse'
-export * from './getUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParameters'
-export * from './getUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration'
+export * from './getUserIdsWithFlaggedAppRegistrationRequestBuilder'
 export * from './getUserIdsWithFlaggedAppRegistrationResponse'
-export * from './serializeGetUserIdsWithFlaggedAppRegistrationResponse'

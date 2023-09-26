@@ -1,16 +1,52 @@
-import { type ChecklistItem } from '../../../../../../../../../models/checklistItem';
-import { createChecklistItemFromDiscriminatorValue } from '../../../../../../../../../models/createChecklistItemFromDiscriminatorValue';
-import { deserializeIntoChecklistItem } from '../../../../../../../../../models/deserializeIntoChecklistItem';
+import { createChecklistItemFromDiscriminatorValue, deserializeIntoChecklistItem, serializeChecklistItem, type ChecklistItem } from '../../../../../../../../../models/checklistItem';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeChecklistItem } from '../../../../../../../../../models/serializeChecklistItem';
-import { type ChecklistItemItemRequestBuilderDeleteRequestConfiguration } from './checklistItemItemRequestBuilderDeleteRequestConfiguration';
-import { type ChecklistItemItemRequestBuilderGetRequestConfiguration } from './checklistItemItemRequestBuilderGetRequestConfiguration';
-import { type ChecklistItemItemRequestBuilderPatchRequestConfiguration } from './checklistItemItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChecklistItemItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ChecklistItemItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ChecklistItemItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ChecklistItemItemRequestBuilderGetQueryParameters;
+}
+export interface ChecklistItemItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
  */

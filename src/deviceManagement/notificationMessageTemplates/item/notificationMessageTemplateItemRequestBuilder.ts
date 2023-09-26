@@ -1,18 +1,54 @@
-import { createNotificationMessageTemplateFromDiscriminatorValue } from '../../../models/createNotificationMessageTemplateFromDiscriminatorValue';
-import { deserializeIntoNotificationMessageTemplate } from '../../../models/deserializeIntoNotificationMessageTemplate';
-import { type NotificationMessageTemplate } from '../../../models/notificationMessageTemplate';
+import { createNotificationMessageTemplateFromDiscriminatorValue, deserializeIntoNotificationMessageTemplate, serializeNotificationMessageTemplate, type NotificationMessageTemplate } from '../../../models/notificationMessageTemplate';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeNotificationMessageTemplate } from '../../../models/serializeNotificationMessageTemplate';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { LocalizedNotificationMessagesRequestBuilder } from './localizedNotificationMessages/localizedNotificationMessagesRequestBuilder';
-import { type NotificationMessageTemplateItemRequestBuilderDeleteRequestConfiguration } from './notificationMessageTemplateItemRequestBuilderDeleteRequestConfiguration';
-import { type NotificationMessageTemplateItemRequestBuilderGetRequestConfiguration } from './notificationMessageTemplateItemRequestBuilderGetRequestConfiguration';
-import { type NotificationMessageTemplateItemRequestBuilderPatchRequestConfiguration } from './notificationMessageTemplateItemRequestBuilderPatchRequestConfiguration';
 import { SendTestMessageRequestBuilder } from './sendTestMessage/sendTestMessageRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface NotificationMessageTemplateItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface NotificationMessageTemplateItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface NotificationMessageTemplateItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: NotificationMessageTemplateItemRequestBuilderGetQueryParameters;
+}
+export interface NotificationMessageTemplateItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.
  */

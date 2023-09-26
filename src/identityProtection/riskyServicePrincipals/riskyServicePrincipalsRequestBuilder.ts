@@ -1,21 +1,72 @@
 import { type RiskyServicePrincipalCollectionResponse } from '../../models/';
-import { createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue } from '../../models/createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue';
-import { createRiskyServicePrincipalFromDiscriminatorValue } from '../../models/createRiskyServicePrincipalFromDiscriminatorValue';
-import { deserializeIntoRiskyServicePrincipal } from '../../models/deserializeIntoRiskyServicePrincipal';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type RiskyServicePrincipal } from '../../models/riskyServicePrincipal';
-import { serializeRiskyServicePrincipal } from '../../models/serializeRiskyServicePrincipal';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createRiskyServicePrincipalFromDiscriminatorValue, deserializeIntoRiskyServicePrincipal, serializeRiskyServicePrincipal, type RiskyServicePrincipal } from '../../models/riskyServicePrincipal';
+import { createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue } from '../../models/riskyServicePrincipalCollectionResponse';
 import { ConfirmCompromisedRequestBuilder } from './confirmCompromised/confirmCompromisedRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DismissRequestBuilder } from './dismiss/dismissRequestBuilder';
 import { RiskyServicePrincipalItemRequestBuilder } from './item/riskyServicePrincipalItemRequestBuilder';
-import { type RiskyServicePrincipalsRequestBuilderGetRequestConfiguration } from './riskyServicePrincipalsRequestBuilderGetRequestConfiguration';
-import { type RiskyServicePrincipalsRequestBuilderPostRequestConfiguration } from './riskyServicePrincipalsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RiskyServicePrincipalsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RiskyServicePrincipalsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RiskyServicePrincipalsRequestBuilderGetQueryParameters;
+}
+export interface RiskyServicePrincipalsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
  */

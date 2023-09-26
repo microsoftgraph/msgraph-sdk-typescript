@@ -1,19 +1,70 @@
 import { type PrintTaskDefinitionCollectionResponse } from '../../models/';
-import { createPrintTaskDefinitionCollectionResponseFromDiscriminatorValue } from '../../models/createPrintTaskDefinitionCollectionResponseFromDiscriminatorValue';
-import { createPrintTaskDefinitionFromDiscriminatorValue } from '../../models/createPrintTaskDefinitionFromDiscriminatorValue';
-import { deserializeIntoPrintTaskDefinition } from '../../models/deserializeIntoPrintTaskDefinition';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type PrintTaskDefinition } from '../../models/printTaskDefinition';
-import { serializePrintTaskDefinition } from '../../models/serializePrintTaskDefinition';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createPrintTaskDefinitionFromDiscriminatorValue, deserializeIntoPrintTaskDefinition, serializePrintTaskDefinition, type PrintTaskDefinition } from '../../models/printTaskDefinition';
+import { createPrintTaskDefinitionCollectionResponseFromDiscriminatorValue } from '../../models/printTaskDefinitionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PrintTaskDefinitionItemRequestBuilder } from './item/printTaskDefinitionItemRequestBuilder';
-import { type TaskDefinitionsRequestBuilderGetRequestConfiguration } from './taskDefinitionsRequestBuilderGetRequestConfiguration';
-import { type TaskDefinitionsRequestBuilderPostRequestConfiguration } from './taskDefinitionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TaskDefinitionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TaskDefinitionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TaskDefinitionsRequestBuilderGetQueryParameters;
+}
+export interface TaskDefinitionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
  */

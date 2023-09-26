@@ -21,3 +21,5 @@ export enum WeeklySchedule {
     /** Saturday. */
     Saturday = "saturday",
 }
+// tslint:enable
+// eslint-enable

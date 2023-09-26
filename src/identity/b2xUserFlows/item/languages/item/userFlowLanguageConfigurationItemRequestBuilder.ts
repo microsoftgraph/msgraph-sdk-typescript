@@ -1,18 +1,54 @@
-import { createUserFlowLanguageConfigurationFromDiscriminatorValue } from '../../../../../models/createUserFlowLanguageConfigurationFromDiscriminatorValue';
-import { deserializeIntoUserFlowLanguageConfiguration } from '../../../../../models/deserializeIntoUserFlowLanguageConfiguration';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeUserFlowLanguageConfiguration } from '../../../../../models/serializeUserFlowLanguageConfiguration';
-import { type UserFlowLanguageConfiguration } from '../../../../../models/userFlowLanguageConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createUserFlowLanguageConfigurationFromDiscriminatorValue, deserializeIntoUserFlowLanguageConfiguration, serializeUserFlowLanguageConfiguration, type UserFlowLanguageConfiguration } from '../../../../../models/userFlowLanguageConfiguration';
 import { DefaultPagesRequestBuilder } from './defaultPages/defaultPagesRequestBuilder';
 import { OverridesPagesRequestBuilder } from './overridesPages/overridesPagesRequestBuilder';
-import { type UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration } from './userFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration';
-import { type UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration } from './userFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration';
-import { type UserFlowLanguageConfigurationItemRequestBuilderPatchRequestConfiguration } from './userFlowLanguageConfigurationItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserFlowLanguageConfigurationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserFlowLanguageConfigurationItemRequestBuilderGetQueryParameters;
+}
+export interface UserFlowLanguageConfigurationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
  */

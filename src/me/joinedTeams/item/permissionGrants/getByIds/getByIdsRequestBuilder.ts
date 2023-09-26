@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { createGetByIdsResponseFromDiscriminatorValue } from './createGetByIdsResponseFromDiscriminatorValue';
-import { deserializeIntoGetByIdsPostRequestBody } from './deserializeIntoGetByIdsPostRequestBody';
-import { deserializeIntoGetByIdsResponse } from './deserializeIntoGetByIdsResponse';
-import { type GetByIdsPostRequestBody } from './getByIdsPostRequestBody';
-import { type GetByIdsRequestBuilderPostRequestConfiguration } from './getByIdsRequestBuilderPostRequestConfiguration';
-import { type GetByIdsResponse } from './getByIdsResponse';
-import { serializeGetByIdsPostRequestBody } from './serializeGetByIdsPostRequestBody';
-import { serializeGetByIdsResponse } from './serializeGetByIdsResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetByIdsPostRequestBody, serializeGetByIdsPostRequestBody, type GetByIdsPostRequestBody } from './getByIdsPostRequestBody';
+import { createGetByIdsResponseFromDiscriminatorValue, deserializeIntoGetByIdsResponse, serializeGetByIdsResponse, type GetByIdsResponse } from './getByIdsResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetByIdsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getByIds method.
  */

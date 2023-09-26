@@ -1,17 +1,53 @@
-import { createVppTokenFromDiscriminatorValue } from '../../../models/createVppTokenFromDiscriminatorValue';
-import { deserializeIntoVppToken } from '../../../models/deserializeIntoVppToken';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeVppToken } from '../../../models/serializeVppToken';
-import { type VppToken } from '../../../models/vppToken';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createVppTokenFromDiscriminatorValue, deserializeIntoVppToken, serializeVppToken, type VppToken } from '../../../models/vppToken';
 import { SyncLicensesRequestBuilder } from './syncLicenses/syncLicensesRequestBuilder';
-import { type VppTokenItemRequestBuilderDeleteRequestConfiguration } from './vppTokenItemRequestBuilderDeleteRequestConfiguration';
-import { type VppTokenItemRequestBuilderGetRequestConfiguration } from './vppTokenItemRequestBuilderGetRequestConfiguration';
-import { type VppTokenItemRequestBuilderPatchRequestConfiguration } from './vppTokenItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface VppTokenItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface VppTokenItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface VppTokenItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: VppTokenItemRequestBuilderGetQueryParameters;
+}
+export interface VppTokenItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.
  */

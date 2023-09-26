@@ -1,19 +1,70 @@
 import { type TermsAndConditionsCollectionResponse } from '../../models/';
-import { createTermsAndConditionsCollectionResponseFromDiscriminatorValue } from '../../models/createTermsAndConditionsCollectionResponseFromDiscriminatorValue';
-import { createTermsAndConditionsFromDiscriminatorValue } from '../../models/createTermsAndConditionsFromDiscriminatorValue';
-import { deserializeIntoTermsAndConditions } from '../../models/deserializeIntoTermsAndConditions';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeTermsAndConditions } from '../../models/serializeTermsAndConditions';
-import { type TermsAndConditions } from '../../models/termsAndConditions';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createTermsAndConditionsFromDiscriminatorValue, deserializeIntoTermsAndConditions, serializeTermsAndConditions, type TermsAndConditions } from '../../models/termsAndConditions';
+import { createTermsAndConditionsCollectionResponseFromDiscriminatorValue } from '../../models/termsAndConditionsCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TermsAndConditionsItemRequestBuilder } from './item/termsAndConditionsItemRequestBuilder';
-import { type TermsAndConditionsRequestBuilderGetRequestConfiguration } from './termsAndConditionsRequestBuilderGetRequestConfiguration';
-import { type TermsAndConditionsRequestBuilderPostRequestConfiguration } from './termsAndConditionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TermsAndConditionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TermsAndConditionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TermsAndConditionsRequestBuilderGetQueryParameters;
+}
+export interface TermsAndConditionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
  */

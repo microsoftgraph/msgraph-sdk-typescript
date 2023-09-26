@@ -1,19 +1,70 @@
 import { type LicenseDetailsCollectionResponse } from '../../../models/';
-import { createLicenseDetailsCollectionResponseFromDiscriminatorValue } from '../../../models/createLicenseDetailsCollectionResponseFromDiscriminatorValue';
-import { createLicenseDetailsFromDiscriminatorValue } from '../../../models/createLicenseDetailsFromDiscriminatorValue';
-import { deserializeIntoLicenseDetails } from '../../../models/deserializeIntoLicenseDetails';
-import { type LicenseDetails } from '../../../models/licenseDetails';
+import { createLicenseDetailsFromDiscriminatorValue, deserializeIntoLicenseDetails, serializeLicenseDetails, type LicenseDetails } from '../../../models/licenseDetails';
+import { createLicenseDetailsCollectionResponseFromDiscriminatorValue } from '../../../models/licenseDetailsCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeLicenseDetails } from '../../../models/serializeLicenseDetails';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { LicenseDetailsItemRequestBuilder } from './item/licenseDetailsItemRequestBuilder';
-import { type LicenseDetailsRequestBuilderGetRequestConfiguration } from './licenseDetailsRequestBuilderGetRequestConfiguration';
-import { type LicenseDetailsRequestBuilderPostRequestConfiguration } from './licenseDetailsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LicenseDetailsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface LicenseDetailsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LicenseDetailsRequestBuilderGetQueryParameters;
+}
+export interface LicenseDetailsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
  */

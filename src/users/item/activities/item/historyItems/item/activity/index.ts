@@ -1,2 +1,1 @@
-export * from './activityRequestBuilderGetQueryParameters'
-export * from './activityRequestBuilderGetRequestConfiguration'
+export * from './activityRequestBuilder'

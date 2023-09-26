@@ -1,19 +1,70 @@
 import { type AuthenticationMethodModeDetailCollectionResponse } from '../../../../models/';
-import { type AuthenticationMethodModeDetail } from '../../../../models/authenticationMethodModeDetail';
-import { createAuthenticationMethodModeDetailCollectionResponseFromDiscriminatorValue } from '../../../../models/createAuthenticationMethodModeDetailCollectionResponseFromDiscriminatorValue';
-import { createAuthenticationMethodModeDetailFromDiscriminatorValue } from '../../../../models/createAuthenticationMethodModeDetailFromDiscriminatorValue';
-import { deserializeIntoAuthenticationMethodModeDetail } from '../../../../models/deserializeIntoAuthenticationMethodModeDetail';
+import { createAuthenticationMethodModeDetailFromDiscriminatorValue, deserializeIntoAuthenticationMethodModeDetail, serializeAuthenticationMethodModeDetail, type AuthenticationMethodModeDetail } from '../../../../models/authenticationMethodModeDetail';
+import { createAuthenticationMethodModeDetailCollectionResponseFromDiscriminatorValue } from '../../../../models/authenticationMethodModeDetailCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationMethodModeDetail } from '../../../../models/serializeAuthenticationMethodModeDetail';
-import { type AuthenticationMethodModesRequestBuilderGetRequestConfiguration } from './authenticationMethodModesRequestBuilderGetRequestConfiguration';
-import { type AuthenticationMethodModesRequestBuilderPostRequestConfiguration } from './authenticationMethodModesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AuthenticationMethodModeDetailItemRequestBuilder } from './item/authenticationMethodModeDetailItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthenticationMethodModesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AuthenticationMethodModesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthenticationMethodModesRequestBuilderGetQueryParameters;
+}
+export interface AuthenticationMethodModesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
  */

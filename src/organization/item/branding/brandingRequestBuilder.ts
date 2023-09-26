@@ -1,16 +1,8 @@
-import { createOrganizationalBrandingFromDiscriminatorValue } from '../../../models/createOrganizationalBrandingFromDiscriminatorValue';
-import { deserializeIntoOrganizationalBranding } from '../../../models/deserializeIntoOrganizationalBranding';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type OrganizationalBranding } from '../../../models/organizationalBranding';
-import { serializeOrganizationalBranding } from '../../../models/serializeOrganizationalBranding';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createOrganizationalBrandingFromDiscriminatorValue, deserializeIntoOrganizationalBranding, serializeOrganizationalBranding, type OrganizationalBranding } from '../../../models/organizationalBranding';
 import { BackgroundImageRequestBuilder } from './backgroundImage/backgroundImageRequestBuilder';
 import { BannerLogoRequestBuilder } from './bannerLogo/bannerLogoRequestBuilder';
-import { type BrandingRequestBuilderDeleteRequestConfiguration } from './brandingRequestBuilderDeleteRequestConfiguration';
-import { type BrandingRequestBuilderGetRequestConfiguration } from './brandingRequestBuilderGetRequestConfiguration';
-import { type BrandingRequestBuilderPatchRequestConfiguration } from './brandingRequestBuilderPatchRequestConfiguration';
 import { CustomCSSRequestBuilder } from './customCSS/customCSSRequestBuilder';
 import { FaviconRequestBuilder } from './favicon/faviconRequestBuilder';
 import { HeaderLogoRequestBuilder } from './headerLogo/headerLogoRequestBuilder';
@@ -19,6 +11,50 @@ import { SquareLogoRequestBuilder } from './squareLogo/squareLogoRequestBuilder'
 import { SquareLogoDarkRequestBuilder } from './squareLogoDark/squareLogoDarkRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BrandingRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BrandingRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BrandingRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BrandingRequestBuilderGetQueryParameters;
+}
+export interface BrandingRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the branding property of the microsoft.graph.organization entity.
  */

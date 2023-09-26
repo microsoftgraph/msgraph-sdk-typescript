@@ -1,16 +1,52 @@
-import { createServicePrincipalFromDiscriminatorValue } from '../models/createServicePrincipalFromDiscriminatorValue';
-import { deserializeIntoServicePrincipal } from '../models/deserializeIntoServicePrincipal';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeServicePrincipal } from '../models/serializeServicePrincipal';
-import { type ServicePrincipal } from '../models/servicePrincipal';
-import { type ServicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration } from './servicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration';
-import { type ServicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration } from './servicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration';
-import { type ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration } from './servicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createServicePrincipalFromDiscriminatorValue, deserializeIntoServicePrincipal, serializeServicePrincipal, type ServicePrincipal } from '../models/servicePrincipal';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ServicePrincipalsWithAppIdRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ServicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServicePrincipalsWithAppIdRequestBuilderGetQueryParameters;
+}
+export interface ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of servicePrincipal entities.
  */

@@ -1,18 +1,54 @@
-import { type AttackSimulationRoot } from '../../models/attackSimulationRoot';
-import { createAttackSimulationRootFromDiscriminatorValue } from '../../models/createAttackSimulationRootFromDiscriminatorValue';
-import { deserializeIntoAttackSimulationRoot } from '../../models/deserializeIntoAttackSimulationRoot';
+import { createAttackSimulationRootFromDiscriminatorValue, deserializeIntoAttackSimulationRoot, serializeAttackSimulationRoot, type AttackSimulationRoot } from '../../models/attackSimulationRoot';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAttackSimulationRoot } from '../../models/serializeAttackSimulationRoot';
-import { type AttackSimulationRequestBuilderDeleteRequestConfiguration } from './attackSimulationRequestBuilderDeleteRequestConfiguration';
-import { type AttackSimulationRequestBuilderGetRequestConfiguration } from './attackSimulationRequestBuilderGetRequestConfiguration';
-import { type AttackSimulationRequestBuilderPatchRequestConfiguration } from './attackSimulationRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { SimulationAutomationsRequestBuilder } from './simulationAutomations/simulationAutomationsRequestBuilder';
 import { SimulationsRequestBuilder } from './simulations/simulationsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AttackSimulationRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AttackSimulationRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AttackSimulationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AttackSimulationRequestBuilderGetQueryParameters;
+}
+export interface AttackSimulationRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
  */

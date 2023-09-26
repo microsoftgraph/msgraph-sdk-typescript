@@ -1,19 +1,70 @@
 import { type SecureScoreControlProfileCollectionResponse } from '../../models/';
-import { createSecureScoreControlProfileCollectionResponseFromDiscriminatorValue } from '../../models/createSecureScoreControlProfileCollectionResponseFromDiscriminatorValue';
-import { createSecureScoreControlProfileFromDiscriminatorValue } from '../../models/createSecureScoreControlProfileFromDiscriminatorValue';
-import { deserializeIntoSecureScoreControlProfile } from '../../models/deserializeIntoSecureScoreControlProfile';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type SecureScoreControlProfile } from '../../models/secureScoreControlProfile';
-import { serializeSecureScoreControlProfile } from '../../models/serializeSecureScoreControlProfile';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createSecureScoreControlProfileFromDiscriminatorValue, deserializeIntoSecureScoreControlProfile, serializeSecureScoreControlProfile, type SecureScoreControlProfile } from '../../models/secureScoreControlProfile';
+import { createSecureScoreControlProfileCollectionResponseFromDiscriminatorValue } from '../../models/secureScoreControlProfileCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SecureScoreControlProfileItemRequestBuilder } from './item/secureScoreControlProfileItemRequestBuilder';
-import { type SecureScoreControlProfilesRequestBuilderGetRequestConfiguration } from './secureScoreControlProfilesRequestBuilderGetRequestConfiguration';
-import { type SecureScoreControlProfilesRequestBuilderPostRequestConfiguration } from './secureScoreControlProfilesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SecureScoreControlProfilesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SecureScoreControlProfilesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SecureScoreControlProfilesRequestBuilderGetQueryParameters;
+}
+export interface SecureScoreControlProfilesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
  */

@@ -1,17 +1,19 @@
-import { createMailFolderFromDiscriminatorValue } from '../../../../../../models/createMailFolderFromDiscriminatorValue';
-import { deserializeIntoMailFolder } from '../../../../../../models/deserializeIntoMailFolder';
-import { type MailFolder } from '../../../../../../models/mailFolder';
+import { createMailFolderFromDiscriminatorValue, deserializeIntoMailFolder, serializeMailFolder, type MailFolder } from '../../../../../../models/mailFolder';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeMailFolder } from '../../../../../../models/serializeMailFolder';
-import { type CopyPostRequestBody } from './copyPostRequestBody';
-import { type CopyRequestBuilderPostRequestConfiguration } from './copyRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCopyPostRequestBody } from './deserializeIntoCopyPostRequestBody';
-import { serializeCopyPostRequestBody } from './serializeCopyPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoCopyPostRequestBody, serializeCopyPostRequestBody, type CopyPostRequestBody } from './copyPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CopyRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the copy method.
  */

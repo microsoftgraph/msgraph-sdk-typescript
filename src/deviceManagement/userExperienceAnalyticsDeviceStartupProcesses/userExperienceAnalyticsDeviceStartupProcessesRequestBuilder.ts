@@ -1,19 +1,70 @@
 import { type UserExperienceAnalyticsDeviceStartupProcessCollectionResponse } from '../../models/';
-import { createUserExperienceAnalyticsDeviceStartupProcessCollectionResponseFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsDeviceStartupProcessCollectionResponseFromDiscriminatorValue';
-import { createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue';
-import { deserializeIntoUserExperienceAnalyticsDeviceStartupProcess } from '../../models/deserializeIntoUserExperienceAnalyticsDeviceStartupProcess';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeUserExperienceAnalyticsDeviceStartupProcess } from '../../models/serializeUserExperienceAnalyticsDeviceStartupProcess';
-import { type UserExperienceAnalyticsDeviceStartupProcess } from '../../models/userExperienceAnalyticsDeviceStartupProcess';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue, deserializeIntoUserExperienceAnalyticsDeviceStartupProcess, serializeUserExperienceAnalyticsDeviceStartupProcess, type UserExperienceAnalyticsDeviceStartupProcess } from '../../models/userExperienceAnalyticsDeviceStartupProcess';
+import { createUserExperienceAnalyticsDeviceStartupProcessCollectionResponseFromDiscriminatorValue } from '../../models/userExperienceAnalyticsDeviceStartupProcessCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilder } from './item/userExperienceAnalyticsDeviceStartupProcessItemRequestBuilder';
-import { type UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetRequestConfiguration';
-import { type UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderPostRequestConfiguration } from './userExperienceAnalyticsDeviceStartupProcessesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetQueryParameters;
+}
+export interface UserExperienceAnalyticsDeviceStartupProcessesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcesses property of the microsoft.graph.deviceManagement entity.
  */

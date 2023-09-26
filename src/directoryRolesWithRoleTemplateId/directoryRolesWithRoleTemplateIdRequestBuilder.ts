@@ -1,16 +1,52 @@
-import { createDirectoryRoleFromDiscriminatorValue } from '../models/createDirectoryRoleFromDiscriminatorValue';
-import { deserializeIntoDirectoryRole } from '../models/deserializeIntoDirectoryRole';
-import { type DirectoryRole } from '../models/directoryRole';
+import { createDirectoryRoleFromDiscriminatorValue, deserializeIntoDirectoryRole, serializeDirectoryRole, type DirectoryRole } from '../models/directoryRole';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeDirectoryRole } from '../models/serializeDirectoryRole';
-import { type DirectoryRolesWithRoleTemplateIdRequestBuilderDeleteRequestConfiguration } from './directoryRolesWithRoleTemplateIdRequestBuilderDeleteRequestConfiguration';
-import { type DirectoryRolesWithRoleTemplateIdRequestBuilderGetRequestConfiguration } from './directoryRolesWithRoleTemplateIdRequestBuilderGetRequestConfiguration';
-import { type DirectoryRolesWithRoleTemplateIdRequestBuilderPatchRequestConfiguration } from './directoryRolesWithRoleTemplateIdRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DirectoryRolesWithRoleTemplateIdRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DirectoryRolesWithRoleTemplateIdRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DirectoryRolesWithRoleTemplateIdRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DirectoryRolesWithRoleTemplateIdRequestBuilderGetQueryParameters;
+}
+export interface DirectoryRolesWithRoleTemplateIdRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of directoryRole entities.
  */
@@ -40,7 +76,7 @@ export class DirectoryRolesWithRoleTemplateIdRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties of a directoryRole object. The role must be activated in tenant for a successful response. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Azure portal. For details, see Role template IDs.
+     * Retrieve the properties of a directoryRole object. The role must be activated in tenant for a successful response. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryRole
      * @see {@link https://learn.microsoft.com/graph/api/directoryrole-get?view=graph-rest-1.0|Find more info here}
@@ -88,7 +124,7 @@ export class DirectoryRolesWithRoleTemplateIdRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * Retrieve the properties of a directoryRole object. The role must be activated in tenant for a successful response. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Azure portal. For details, see Role template IDs.
+     * Retrieve the properties of a directoryRole object. The role must be activated in tenant for a successful response. You can use both the object ID and template ID of the directoryRole with this API. The template ID of a built-in role is immutable and can be seen in the role description on the Microsoft Entra admin center. For details, see Role template IDs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,3 +1,1 @@
-export * from './internalSponsorsRequestBuilderGetQueryParameters'
-export * from './internalSponsorsRequestBuilderGetRequestConfiguration'
-export * from './internalSponsorsRequestBuilderPostRequestConfiguration'
+export * from './internalSponsorsRequestBuilder'

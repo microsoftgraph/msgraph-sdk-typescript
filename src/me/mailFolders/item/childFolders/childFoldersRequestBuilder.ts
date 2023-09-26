@@ -1,20 +1,71 @@
 import { type MailFolderCollectionResponse } from '../../../../models/';
-import { createMailFolderCollectionResponseFromDiscriminatorValue } from '../../../../models/createMailFolderCollectionResponseFromDiscriminatorValue';
-import { createMailFolderFromDiscriminatorValue } from '../../../../models/createMailFolderFromDiscriminatorValue';
-import { deserializeIntoMailFolder } from '../../../../models/deserializeIntoMailFolder';
-import { type MailFolder } from '../../../../models/mailFolder';
+import { createMailFolderFromDiscriminatorValue, deserializeIntoMailFolder, serializeMailFolder, type MailFolder } from '../../../../models/mailFolder';
+import { createMailFolderCollectionResponseFromDiscriminatorValue } from '../../../../models/mailFolderCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeMailFolder } from '../../../../models/serializeMailFolder';
-import { type ChildFoldersRequestBuilderGetRequestConfiguration } from './childFoldersRequestBuilderGetRequestConfiguration';
-import { type ChildFoldersRequestBuilderPostRequestConfiguration } from './childFoldersRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { MailFolderItemRequestBuilder } from './item/mailFolderItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChildFoldersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Include Hidden Folders
+     */
+    includeHiddenFolders?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ChildFoldersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ChildFoldersRequestBuilderGetQueryParameters;
+}
+export interface ChildFoldersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
  */

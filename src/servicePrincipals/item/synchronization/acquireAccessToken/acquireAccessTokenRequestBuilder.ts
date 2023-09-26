@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type AcquireAccessTokenPostRequestBody } from './acquireAccessTokenPostRequestBody';
-import { type AcquireAccessTokenRequestBuilderPostRequestConfiguration } from './acquireAccessTokenRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAcquireAccessTokenPostRequestBody } from './deserializeIntoAcquireAccessTokenPostRequestBody';
-import { serializeAcquireAccessTokenPostRequestBody } from './serializeAcquireAccessTokenPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoAcquireAccessTokenPostRequestBody, serializeAcquireAccessTokenPostRequestBody, type AcquireAccessTokenPostRequestBody } from './acquireAccessTokenPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AcquireAccessTokenRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the acquireAccessToken method.
  */

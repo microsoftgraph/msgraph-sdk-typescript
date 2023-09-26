@@ -1,20 +1,71 @@
 import { type UnifiedRoleEligibilityScheduleInstanceCollectionResponse } from '../../../models/';
-import { createUnifiedRoleEligibilityScheduleInstanceCollectionResponseFromDiscriminatorValue } from '../../../models/createUnifiedRoleEligibilityScheduleInstanceCollectionResponseFromDiscriminatorValue';
-import { createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue } from '../../../models/createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleEligibilityScheduleInstance } from '../../../models/deserializeIntoUnifiedRoleEligibilityScheduleInstance';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleEligibilityScheduleInstance } from '../../../models/serializeUnifiedRoleEligibilityScheduleInstance';
-import { type UnifiedRoleEligibilityScheduleInstance } from '../../../models/unifiedRoleEligibilityScheduleInstance';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue, deserializeIntoUnifiedRoleEligibilityScheduleInstance, serializeUnifiedRoleEligibilityScheduleInstance, type UnifiedRoleEligibilityScheduleInstance } from '../../../models/unifiedRoleEligibilityScheduleInstance';
+import { createUnifiedRoleEligibilityScheduleInstanceCollectionResponseFromDiscriminatorValue } from '../../../models/unifiedRoleEligibilityScheduleInstanceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder } from './item/unifiedRoleEligibilityScheduleInstanceItemRequestBuilder';
-import { type RoleEligibilityScheduleInstancesRequestBuilderGetRequestConfiguration } from './roleEligibilityScheduleInstancesRequestBuilderGetRequestConfiguration';
-import { type RoleEligibilityScheduleInstancesRequestBuilderPostRequestConfiguration } from './roleEligibilityScheduleInstancesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RoleEligibilityScheduleInstancesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters;
+}
+export interface RoleEligibilityScheduleInstancesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
  */

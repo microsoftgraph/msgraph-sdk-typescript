@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type Article } from '../../../../models/security/article';
-import { createArticleFromDiscriminatorValue } from '../../../../models/security/createArticleFromDiscriminatorValue';
-import { deserializeIntoArticle } from '../../../../models/security/deserializeIntoArticle';
-import { serializeArticle } from '../../../../models/security/serializeArticle';
-import { type ArticleItemRequestBuilderDeleteRequestConfiguration } from './articleItemRequestBuilderDeleteRequestConfiguration';
-import { type ArticleItemRequestBuilderGetRequestConfiguration } from './articleItemRequestBuilderGetRequestConfiguration';
-import { type ArticleItemRequestBuilderPatchRequestConfiguration } from './articleItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createArticleFromDiscriminatorValue, deserializeIntoArticle, serializeArticle, type Article } from '../../../../models/security/article';
 import { IndicatorsRequestBuilder } from './indicators/indicatorsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ArticleItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ArticleItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ArticleItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ArticleItemRequestBuilderGetQueryParameters;
+}
+export interface ArticleItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the articles property of the microsoft.graph.security.threatIntelligence entity.
  */

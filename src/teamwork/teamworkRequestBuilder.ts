@@ -1,19 +1,46 @@
-import { createTeamworkFromDiscriminatorValue } from '../models/createTeamworkFromDiscriminatorValue';
-import { deserializeIntoTeamwork } from '../models/deserializeIntoTeamwork';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeTeamwork } from '../models/serializeTeamwork';
-import { type Teamwork } from '../models/teamwork';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createTeamworkFromDiscriminatorValue, deserializeIntoTeamwork, serializeTeamwork, type Teamwork } from '../models/teamwork';
 import { DeletedTeamsRequestBuilder } from './deletedTeams/deletedTeamsRequestBuilder';
 import { SendActivityNotificationToRecipientsRequestBuilder } from './sendActivityNotificationToRecipients/sendActivityNotificationToRecipientsRequestBuilder';
 import { TeamsAppSettingsRequestBuilder } from './teamsAppSettings/teamsAppSettingsRequestBuilder';
-import { type TeamworkRequestBuilderGetRequestConfiguration } from './teamworkRequestBuilderGetRequestConfiguration';
-import { type TeamworkRequestBuilderPatchRequestConfiguration } from './teamworkRequestBuilderPatchRequestConfiguration';
 import { WorkforceIntegrationsRequestBuilder } from './workforceIntegrations/workforceIntegrationsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamworkRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamworkRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamworkRequestBuilderGetQueryParameters;
+}
+export interface TeamworkRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the teamwork singleton.
  */

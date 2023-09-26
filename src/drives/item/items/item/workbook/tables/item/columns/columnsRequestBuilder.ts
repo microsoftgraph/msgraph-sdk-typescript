@@ -1,21 +1,72 @@
 import { type WorkbookTableColumnCollectionResponse } from '../../../../../../../../models/';
-import { createWorkbookTableColumnCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookTableColumnCollectionResponseFromDiscriminatorValue';
-import { createWorkbookTableColumnFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookTableColumnFromDiscriminatorValue';
-import { deserializeIntoWorkbookTableColumn } from '../../../../../../../../models/deserializeIntoWorkbookTableColumn';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookTableColumn } from '../../../../../../../../models/serializeWorkbookTableColumn';
-import { type WorkbookTableColumn } from '../../../../../../../../models/workbookTableColumn';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookTableColumnFromDiscriminatorValue, deserializeIntoWorkbookTableColumn, serializeWorkbookTableColumn, type WorkbookTableColumn } from '../../../../../../../../models/workbookTableColumn';
+import { createWorkbookTableColumnCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/workbookTableColumnCollectionResponse';
 import { AddRequestBuilder } from './add/addRequestBuilder';
-import { type ColumnsRequestBuilderGetRequestConfiguration } from './columnsRequestBuilderGetRequestConfiguration';
-import { type ColumnsRequestBuilderPostRequestConfiguration } from './columnsRequestBuilderPostRequestConfiguration';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookTableColumnItemRequestBuilder } from './item/workbookTableColumnItemRequestBuilder';
 import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ColumnsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ColumnsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ColumnsRequestBuilderGetQueryParameters;
+}
+export interface ColumnsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
  */
@@ -55,7 +106,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of tablecolumn objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableColumnCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablecolumn-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ColumnsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableColumnCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

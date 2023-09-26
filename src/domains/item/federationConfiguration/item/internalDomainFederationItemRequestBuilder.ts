@@ -1,16 +1,52 @@
-import { createInternalDomainFederationFromDiscriminatorValue } from '../../../../models/createInternalDomainFederationFromDiscriminatorValue';
-import { deserializeIntoInternalDomainFederation } from '../../../../models/deserializeIntoInternalDomainFederation';
-import { type InternalDomainFederation } from '../../../../models/internalDomainFederation';
+import { createInternalDomainFederationFromDiscriminatorValue, deserializeIntoInternalDomainFederation, serializeInternalDomainFederation, type InternalDomainFederation } from '../../../../models/internalDomainFederation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeInternalDomainFederation } from '../../../../models/serializeInternalDomainFederation';
-import { type InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration } from './internalDomainFederationItemRequestBuilderDeleteRequestConfiguration';
-import { type InternalDomainFederationItemRequestBuilderGetRequestConfiguration } from './internalDomainFederationItemRequestBuilderGetRequestConfiguration';
-import { type InternalDomainFederationItemRequestBuilderPatchRequestConfiguration } from './internalDomainFederationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface InternalDomainFederationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface InternalDomainFederationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InternalDomainFederationItemRequestBuilderGetQueryParameters;
+}
+export interface InternalDomainFederationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
  */

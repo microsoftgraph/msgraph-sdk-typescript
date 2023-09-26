@@ -1,21 +1,57 @@
-import { createTargetedManagedAppConfigurationFromDiscriminatorValue } from '../../../models/createTargetedManagedAppConfigurationFromDiscriminatorValue';
-import { deserializeIntoTargetedManagedAppConfiguration } from '../../../models/deserializeIntoTargetedManagedAppConfiguration';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeTargetedManagedAppConfiguration } from '../../../models/serializeTargetedManagedAppConfiguration';
-import { type TargetedManagedAppConfiguration } from '../../../models/targetedManagedAppConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createTargetedManagedAppConfigurationFromDiscriminatorValue, deserializeIntoTargetedManagedAppConfiguration, serializeTargetedManagedAppConfiguration, type TargetedManagedAppConfiguration } from '../../../models/targetedManagedAppConfiguration';
 import { AppsRequestBuilder } from './apps/appsRequestBuilder';
 import { AssignRequestBuilder } from './assign/assignRequestBuilder';
 import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
 import { DeploymentSummaryRequestBuilder } from './deploymentSummary/deploymentSummaryRequestBuilder';
 import { TargetAppsRequestBuilder } from './targetApps/targetAppsRequestBuilder';
-import { type TargetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration } from './targetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration';
-import { type TargetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration } from './targetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration';
-import { type TargetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration } from './targetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TargetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TargetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters;
+}
+export interface TargetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
  */

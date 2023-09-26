@@ -1,2 +1,1 @@
-export * from './parentHostRequestBuilderGetQueryParameters'
-export * from './parentHostRequestBuilderGetRequestConfiguration'
+export * from './parentHostRequestBuilder'

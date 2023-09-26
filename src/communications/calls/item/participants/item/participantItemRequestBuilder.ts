@@ -1,19 +1,55 @@
-import { createParticipantFromDiscriminatorValue } from '../../../../../models/createParticipantFromDiscriminatorValue';
-import { deserializeIntoParticipant } from '../../../../../models/deserializeIntoParticipant';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type Participant } from '../../../../../models/participant';
-import { serializeParticipant } from '../../../../../models/serializeParticipant';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createParticipantFromDiscriminatorValue, deserializeIntoParticipant, serializeParticipant, type Participant } from '../../../../../models/participant';
 import { MuteRequestBuilder } from './mute/muteRequestBuilder';
-import { type ParticipantItemRequestBuilderDeleteRequestConfiguration } from './participantItemRequestBuilderDeleteRequestConfiguration';
-import { type ParticipantItemRequestBuilderGetRequestConfiguration } from './participantItemRequestBuilderGetRequestConfiguration';
-import { type ParticipantItemRequestBuilderPatchRequestConfiguration } from './participantItemRequestBuilderPatchRequestConfiguration';
 import { StartHoldMusicRequestBuilder } from './startHoldMusic/startHoldMusicRequestBuilder';
 import { StopHoldMusicRequestBuilder } from './stopHoldMusic/stopHoldMusicRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ParticipantItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ParticipantItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ParticipantItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ParticipantItemRequestBuilderGetQueryParameters;
+}
+export interface ParticipantItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the participants property of the microsoft.graph.call entity.
  */

@@ -1,17 +1,53 @@
-import { createTokenIssuancePolicyFromDiscriminatorValue } from '../../../models/createTokenIssuancePolicyFromDiscriminatorValue';
-import { deserializeIntoTokenIssuancePolicy } from '../../../models/deserializeIntoTokenIssuancePolicy';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeTokenIssuancePolicy } from '../../../models/serializeTokenIssuancePolicy';
-import { type TokenIssuancePolicy } from '../../../models/tokenIssuancePolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createTokenIssuancePolicyFromDiscriminatorValue, deserializeIntoTokenIssuancePolicy, serializeTokenIssuancePolicy, type TokenIssuancePolicy } from '../../../models/tokenIssuancePolicy';
 import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
-import { type TokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration } from './tokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type TokenIssuancePolicyItemRequestBuilderGetRequestConfiguration } from './tokenIssuancePolicyItemRequestBuilderGetRequestConfiguration';
-import { type TokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration } from './tokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TokenIssuancePolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TokenIssuancePolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TokenIssuancePolicyItemRequestBuilderGetQueryParameters;
+}
+export interface TokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
  */

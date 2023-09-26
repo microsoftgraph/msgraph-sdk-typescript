@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createUnarchiveResponseFromDiscriminatorValue } from './createUnarchiveResponseFromDiscriminatorValue';
-import { deserializeIntoUnarchivePostRequestBody } from './deserializeIntoUnarchivePostRequestBody';
-import { deserializeIntoUnarchiveResponse } from './deserializeIntoUnarchiveResponse';
-import { serializeUnarchivePostRequestBody } from './serializeUnarchivePostRequestBody';
-import { serializeUnarchiveResponse } from './serializeUnarchiveResponse';
-import { type UnarchivePostRequestBody } from './unarchivePostRequestBody';
-import { type UnarchiveRequestBuilderPostRequestConfiguration } from './unarchiveRequestBuilderPostRequestConfiguration';
-import { type UnarchiveResponse } from './unarchiveResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoUnarchivePostRequestBody, serializeUnarchivePostRequestBody, type UnarchivePostRequestBody } from './unarchivePostRequestBody';
+import { createUnarchiveResponseFromDiscriminatorValue, deserializeIntoUnarchiveResponse, serializeUnarchiveResponse, type UnarchiveResponse } from './unarchiveResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnarchiveRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the unarchive method.
  */

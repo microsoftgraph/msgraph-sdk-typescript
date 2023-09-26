@@ -1,17 +1,53 @@
-import { createPrintServiceFromDiscriminatorValue } from '../../../models/createPrintServiceFromDiscriminatorValue';
-import { deserializeIntoPrintService } from '../../../models/deserializeIntoPrintService';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PrintService } from '../../../models/printService';
-import { serializePrintService } from '../../../models/serializePrintService';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPrintServiceFromDiscriminatorValue, deserializeIntoPrintService, serializePrintService, type PrintService } from '../../../models/printService';
 import { EndpointsRequestBuilder } from './endpoints/endpointsRequestBuilder';
-import { type PrintServiceItemRequestBuilderDeleteRequestConfiguration } from './printServiceItemRequestBuilderDeleteRequestConfiguration';
-import { type PrintServiceItemRequestBuilderGetRequestConfiguration } from './printServiceItemRequestBuilderGetRequestConfiguration';
-import { type PrintServiceItemRequestBuilderPatchRequestConfiguration } from './printServiceItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrintServiceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PrintServiceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PrintServiceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrintServiceItemRequestBuilderGetQueryParameters;
+}
+export interface PrintServiceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the services property of the microsoft.graph.print entity.
  */

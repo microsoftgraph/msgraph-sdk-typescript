@@ -1,13 +1,58 @@
 import { type WindowsUniversalAppXCollectionResponse } from '../../../models/';
-import { createWindowsUniversalAppXCollectionResponseFromDiscriminatorValue } from '../../../models/createWindowsUniversalAppXCollectionResponseFromDiscriminatorValue';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createWindowsUniversalAppXCollectionResponseFromDiscriminatorValue } from '../../../models/windowsUniversalAppXCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type GraphWindowsUniversalAppXRequestBuilderGetRequestConfiguration } from './graphWindowsUniversalAppXRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GraphWindowsUniversalAppXRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface GraphWindowsUniversalAppXRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GraphWindowsUniversalAppXRequestBuilderGetQueryParameters;
+}
 /**
  * Casts the previous resource to windowsUniversalAppX.
  */

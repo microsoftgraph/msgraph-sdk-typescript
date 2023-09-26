@@ -1,1 +1,1 @@
-export * from './syncMicrosoftStoreForBusinessAppsRequestBuilderPostRequestConfiguration'
+export * from './syncMicrosoftStoreForBusinessAppsRequestBuilder'

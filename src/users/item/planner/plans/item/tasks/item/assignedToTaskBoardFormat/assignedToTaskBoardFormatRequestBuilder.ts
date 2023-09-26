@@ -1,16 +1,52 @@
-import { createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue } from '../../../../../../../../models/createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue';
-import { deserializeIntoPlannerAssignedToTaskBoardTaskFormat } from '../../../../../../../../models/deserializeIntoPlannerAssignedToTaskBoardTaskFormat';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { type PlannerAssignedToTaskBoardTaskFormat } from '../../../../../../../../models/plannerAssignedToTaskBoardTaskFormat';
-import { serializePlannerAssignedToTaskBoardTaskFormat } from '../../../../../../../../models/serializePlannerAssignedToTaskBoardTaskFormat';
-import { type AssignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration } from './assignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
-import { type AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration } from './assignedToTaskBoardFormatRequestBuilderGetRequestConfiguration';
-import { type AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration } from './assignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue, deserializeIntoPlannerAssignedToTaskBoardTaskFormat, serializePlannerAssignedToTaskBoardTaskFormat, type PlannerAssignedToTaskBoardTaskFormat } from '../../../../../../../../models/plannerAssignedToTaskBoardTaskFormat';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AssignedToTaskBoardFormatRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AssignedToTaskBoardFormatRequestBuilderGetQueryParameters;
+}
+export interface AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.
  */

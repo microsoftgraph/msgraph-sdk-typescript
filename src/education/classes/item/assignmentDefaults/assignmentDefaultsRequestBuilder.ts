@@ -1,16 +1,52 @@
-import { createEducationAssignmentDefaultsFromDiscriminatorValue } from '../../../../models/createEducationAssignmentDefaultsFromDiscriminatorValue';
-import { deserializeIntoEducationAssignmentDefaults } from '../../../../models/deserializeIntoEducationAssignmentDefaults';
-import { type EducationAssignmentDefaults } from '../../../../models/educationAssignmentDefaults';
+import { createEducationAssignmentDefaultsFromDiscriminatorValue, deserializeIntoEducationAssignmentDefaults, serializeEducationAssignmentDefaults, type EducationAssignmentDefaults } from '../../../../models/educationAssignmentDefaults';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationAssignmentDefaults } from '../../../../models/serializeEducationAssignmentDefaults';
-import { type AssignmentDefaultsRequestBuilderDeleteRequestConfiguration } from './assignmentDefaultsRequestBuilderDeleteRequestConfiguration';
-import { type AssignmentDefaultsRequestBuilderGetRequestConfiguration } from './assignmentDefaultsRequestBuilderGetRequestConfiguration';
-import { type AssignmentDefaultsRequestBuilderPatchRequestConfiguration } from './assignmentDefaultsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignmentDefaultsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AssignmentDefaultsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AssignmentDefaultsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AssignmentDefaultsRequestBuilderGetQueryParameters;
+}
+export interface AssignmentDefaultsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignmentDefaults property of the microsoft.graph.educationClass entity.
  */

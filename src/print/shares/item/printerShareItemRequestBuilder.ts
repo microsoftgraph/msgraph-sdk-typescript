@@ -1,20 +1,56 @@
-import { createPrinterShareFromDiscriminatorValue } from '../../../models/createPrinterShareFromDiscriminatorValue';
-import { deserializeIntoPrinterShare } from '../../../models/deserializeIntoPrinterShare';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PrinterShare } from '../../../models/printerShare';
-import { serializePrinterShare } from '../../../models/serializePrinterShare';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPrinterShareFromDiscriminatorValue, deserializeIntoPrinterShare, serializePrinterShare, type PrinterShare } from '../../../models/printerShare';
 import { AllowedGroupsRequestBuilder } from './allowedGroups/allowedGroupsRequestBuilder';
 import { AllowedUsersRequestBuilder } from './allowedUsers/allowedUsersRequestBuilder';
 import { JobsRequestBuilder } from './jobs/jobsRequestBuilder';
 import { PrinterRequestBuilder } from './printer/printerRequestBuilder';
-import { type PrinterShareItemRequestBuilderDeleteRequestConfiguration } from './printerShareItemRequestBuilderDeleteRequestConfiguration';
-import { type PrinterShareItemRequestBuilderGetRequestConfiguration } from './printerShareItemRequestBuilderGetRequestConfiguration';
-import { type PrinterShareItemRequestBuilderPatchRequestConfiguration } from './printerShareItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrinterShareItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PrinterShareItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PrinterShareItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrinterShareItemRequestBuilderGetQueryParameters;
+}
+export interface PrinterShareItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the shares property of the microsoft.graph.print entity.
  */

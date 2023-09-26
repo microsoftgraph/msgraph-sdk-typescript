@@ -1,20 +1,56 @@
-import { createSectionGroupFromDiscriminatorValue } from '../../../../models/createSectionGroupFromDiscriminatorValue';
-import { deserializeIntoSectionGroup } from '../../../../models/deserializeIntoSectionGroup';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type SectionGroup } from '../../../../models/sectionGroup';
-import { serializeSectionGroup } from '../../../../models/serializeSectionGroup';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createSectionGroupFromDiscriminatorValue, deserializeIntoSectionGroup, serializeSectionGroup, type SectionGroup } from '../../../../models/sectionGroup';
 import { ParentNotebookRequestBuilder } from './parentNotebook/parentNotebookRequestBuilder';
 import { ParentSectionGroupRequestBuilder } from './parentSectionGroup/parentSectionGroupRequestBuilder';
-import { type SectionGroupItemRequestBuilderDeleteRequestConfiguration } from './sectionGroupItemRequestBuilderDeleteRequestConfiguration';
-import { type SectionGroupItemRequestBuilderGetRequestConfiguration } from './sectionGroupItemRequestBuilderGetRequestConfiguration';
-import { type SectionGroupItemRequestBuilderPatchRequestConfiguration } from './sectionGroupItemRequestBuilderPatchRequestConfiguration';
 import { SectionGroupsRequestBuilder } from './sectionGroups/sectionGroupsRequestBuilder';
 import { SectionsRequestBuilder } from './sections/sectionsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SectionGroupItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SectionGroupItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SectionGroupItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SectionGroupItemRequestBuilderGetQueryParameters;
+}
+export interface SectionGroupItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity.
  */

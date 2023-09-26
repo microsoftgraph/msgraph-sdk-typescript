@@ -1,12 +1,45 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { createReminderViewWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue } from './createReminderViewWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { type ReminderViewWithStartDateTimeWithEndDateTimeResponse } from './index';
-import { type ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration } from './reminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration';
+import { createReminderViewWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue } from './reminderViewWithStartDateTimeWithEndDateTimeResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to call the reminderView method.
  */

@@ -1,23 +1,59 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { createEdiscoverySearchFromDiscriminatorValue } from '../../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
-import { deserializeIntoEdiscoverySearch } from '../../../../../../models/security/deserializeIntoEdiscoverySearch';
-import { type EdiscoverySearch } from '../../../../../../models/security/ediscoverySearch';
-import { serializeEdiscoverySearch } from '../../../../../../models/security/serializeEdiscoverySearch';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createEdiscoverySearchFromDiscriminatorValue, deserializeIntoEdiscoverySearch, serializeEdiscoverySearch, type EdiscoverySearch } from '../../../../../../models/security/ediscoverySearch';
 import { AdditionalSourcesRequestBuilder } from './additionalSources/additionalSourcesRequestBuilder';
 import { AddToReviewSetOperationRequestBuilder } from './addToReviewSetOperation/addToReviewSetOperationRequestBuilder';
 import { CustodianSourcesRequestBuilder } from './custodianSources/custodianSourcesRequestBuilder';
-import { type EdiscoverySearchItemRequestBuilderDeleteRequestConfiguration } from './ediscoverySearchItemRequestBuilderDeleteRequestConfiguration';
-import { type EdiscoverySearchItemRequestBuilderGetRequestConfiguration } from './ediscoverySearchItemRequestBuilderGetRequestConfiguration';
-import { type EdiscoverySearchItemRequestBuilderPatchRequestConfiguration } from './ediscoverySearchItemRequestBuilderPatchRequestConfiguration';
 import { LastEstimateStatisticsOperationRequestBuilder } from './lastEstimateStatisticsOperation/lastEstimateStatisticsOperationRequestBuilder';
 import { MicrosoftGraphSecurityEstimateStatisticsRequestBuilder } from './microsoftGraphSecurityEstimateStatistics/microsoftGraphSecurityEstimateStatisticsRequestBuilder';
 import { MicrosoftGraphSecurityPurgeDataRequestBuilder } from './microsoftGraphSecurityPurgeData/microsoftGraphSecurityPurgeDataRequestBuilder';
 import { NoncustodialSourcesRequestBuilder } from './noncustodialSources/noncustodialSourcesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EdiscoverySearchItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EdiscoverySearchItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EdiscoverySearchItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EdiscoverySearchItemRequestBuilderGetQueryParameters;
+}
+export interface EdiscoverySearchItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
  */

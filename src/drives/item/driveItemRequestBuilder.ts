@@ -1,16 +1,8 @@
-import { createDriveFromDiscriminatorValue } from '../../models/createDriveFromDiscriminatorValue';
-import { deserializeIntoDrive } from '../../models/deserializeIntoDrive';
-import { type Drive } from '../../models/drive';
+import { createDriveFromDiscriminatorValue, deserializeIntoDrive, serializeDrive, type Drive } from '../../models/drive';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDrive } from '../../models/serializeDrive';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BundlesRequestBuilder } from './bundles/bundlesRequestBuilder';
 import { CreatedByUserRequestBuilder } from './createdByUser/createdByUserRequestBuilder';
-import { type DriveItemRequestBuilderDeleteRequestConfiguration } from './driveItemRequestBuilderDeleteRequestConfiguration';
-import { type DriveItemRequestBuilderGetRequestConfiguration } from './driveItemRequestBuilderGetRequestConfiguration';
-import { type DriveItemRequestBuilderPatchRequestConfiguration } from './driveItemRequestBuilderPatchRequestConfiguration';
 import { FollowingRequestBuilder } from './following/followingRequestBuilder';
 import { ItemsRequestBuilder } from './items/itemsRequestBuilder';
 import { LastModifiedByUserRequestBuilder } from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
@@ -22,6 +14,50 @@ import { SharedWithMeRequestBuilder } from './sharedWithMe/sharedWithMeRequestBu
 import { SpecialRequestBuilder } from './special/specialRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DriveItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DriveItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DriveItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DriveItemRequestBuilderGetQueryParameters;
+}
+export interface DriveItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of drive entities.
  */

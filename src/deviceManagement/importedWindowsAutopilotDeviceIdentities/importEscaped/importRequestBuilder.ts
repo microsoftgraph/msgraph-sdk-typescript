@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createImportResponseFromDiscriminatorValue } from './createImportResponseFromDiscriminatorValue';
-import { deserializeIntoImportPostRequestBody } from './deserializeIntoImportPostRequestBody';
-import { deserializeIntoImportResponse } from './deserializeIntoImportResponse';
-import { type ImportPostRequestBody } from './importPostRequestBody';
-import { type ImportRequestBuilderPostRequestConfiguration } from './importRequestBuilderPostRequestConfiguration';
-import { type ImportResponse } from './importResponse';
-import { serializeImportPostRequestBody } from './serializeImportPostRequestBody';
-import { serializeImportResponse } from './serializeImportResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoImportPostRequestBody, serializeImportPostRequestBody, type ImportPostRequestBody } from './importPostRequestBody';
+import { createImportResponseFromDiscriminatorValue, deserializeIntoImportResponse, serializeImportResponse, type ImportResponse } from './importResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ImportRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the import method.
  */

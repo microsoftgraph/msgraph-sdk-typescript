@@ -1,5 +1,2 @@
 export * from './applyTopPercentFilterPostRequestBody'
-export * from './applyTopPercentFilterRequestBuilderPostRequestConfiguration'
-export * from './createApplyTopPercentFilterPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoApplyTopPercentFilterPostRequestBody'
-export * from './serializeApplyTopPercentFilterPostRequestBody'
+export * from './applyTopPercentFilterRequestBuilder'

@@ -1,19 +1,70 @@
 import { type OnPremisesDirectorySynchronizationCollectionResponse } from '../../models/';
-import { createOnPremisesDirectorySynchronizationCollectionResponseFromDiscriminatorValue } from '../../models/createOnPremisesDirectorySynchronizationCollectionResponseFromDiscriminatorValue';
-import { createOnPremisesDirectorySynchronizationFromDiscriminatorValue } from '../../models/createOnPremisesDirectorySynchronizationFromDiscriminatorValue';
-import { deserializeIntoOnPremisesDirectorySynchronization } from '../../models/deserializeIntoOnPremisesDirectorySynchronization';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type OnPremisesDirectorySynchronization } from '../../models/onPremisesDirectorySynchronization';
-import { serializeOnPremisesDirectorySynchronization } from '../../models/serializeOnPremisesDirectorySynchronization';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createOnPremisesDirectorySynchronizationFromDiscriminatorValue, deserializeIntoOnPremisesDirectorySynchronization, serializeOnPremisesDirectorySynchronization, type OnPremisesDirectorySynchronization } from '../../models/onPremisesDirectorySynchronization';
+import { createOnPremisesDirectorySynchronizationCollectionResponseFromDiscriminatorValue } from '../../models/onPremisesDirectorySynchronizationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OnPremisesDirectorySynchronizationItemRequestBuilder } from './item/onPremisesDirectorySynchronizationItemRequestBuilder';
-import { type OnPremisesSynchronizationRequestBuilderGetRequestConfiguration } from './onPremisesSynchronizationRequestBuilderGetRequestConfiguration';
-import { type OnPremisesSynchronizationRequestBuilderPostRequestConfiguration } from './onPremisesSynchronizationRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OnPremisesSynchronizationRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OnPremisesSynchronizationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OnPremisesSynchronizationRequestBuilderGetQueryParameters;
+}
+export interface OnPremisesSynchronizationRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
  */

@@ -1,21 +1,72 @@
 import { type EducationCategoryCollectionResponse } from '../../../../../../models/';
-import { createEducationCategoryCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createEducationCategoryCollectionResponseFromDiscriminatorValue';
-import { createEducationCategoryFromDiscriminatorValue } from '../../../../../../models/createEducationCategoryFromDiscriminatorValue';
-import { deserializeIntoEducationCategory } from '../../../../../../models/deserializeIntoEducationCategory';
-import { type EducationCategory } from '../../../../../../models/educationCategory';
+import { createEducationCategoryFromDiscriminatorValue, deserializeIntoEducationCategory, serializeEducationCategory, type EducationCategory } from '../../../../../../models/educationCategory';
+import { createEducationCategoryCollectionResponseFromDiscriminatorValue } from '../../../../../../models/educationCategoryCollectionResponse';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationCategory } from '../../../../../../models/serializeEducationCategory';
-import { type CategoriesRequestBuilderGetRequestConfiguration } from './categoriesRequestBuilderGetRequestConfiguration';
-import { type CategoriesRequestBuilderPostRequestConfiguration } from './categoriesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { EducationCategoryItemRequestBuilder } from './item/educationCategoryItemRequestBuilder';
 import { RefRequestBuilder } from './ref/refRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CategoriesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface CategoriesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CategoriesRequestBuilderGetQueryParameters;
+}
+export interface CategoriesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the categories property of the microsoft.graph.educationAssignment entity.
  */

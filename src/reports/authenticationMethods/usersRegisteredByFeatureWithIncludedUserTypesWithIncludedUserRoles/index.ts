@@ -1,1 +1,1 @@
-export * from './usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilderGetRequestConfiguration'
+export * from './usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder'

@@ -1,19 +1,62 @@
 import { type CalendarCollectionResponse } from '../../../../../models/';
-import { type Calendar } from '../../../../../models/calendar';
-import { createCalendarCollectionResponseFromDiscriminatorValue } from '../../../../../models/createCalendarCollectionResponseFromDiscriminatorValue';
-import { createCalendarFromDiscriminatorValue } from '../../../../../models/createCalendarFromDiscriminatorValue';
-import { deserializeIntoCalendar } from '../../../../../models/deserializeIntoCalendar';
+import { createCalendarFromDiscriminatorValue, deserializeIntoCalendar, serializeCalendar, type Calendar } from '../../../../../models/calendar';
+import { createCalendarCollectionResponseFromDiscriminatorValue } from '../../../../../models/calendarCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeCalendar } from '../../../../../models/serializeCalendar';
-import { type CalendarsRequestBuilderGetRequestConfiguration } from './calendarsRequestBuilderGetRequestConfiguration';
-import { type CalendarsRequestBuilderPostRequestConfiguration } from './calendarsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { CalendarItemRequestBuilder } from './item/calendarItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CalendarsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface CalendarsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CalendarsRequestBuilderGetQueryParameters;
+}
+export interface CalendarsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity.
  */

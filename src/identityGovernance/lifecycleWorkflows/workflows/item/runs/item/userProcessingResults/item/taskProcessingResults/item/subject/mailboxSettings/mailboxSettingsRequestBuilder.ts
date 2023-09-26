@@ -1,15 +1,42 @@
-import { createMailboxSettingsFromDiscriminatorValue } from '../../../../../../../../../../../../models/createMailboxSettingsFromDiscriminatorValue';
-import { deserializeIntoMailboxSettings } from '../../../../../../../../../../../../models/deserializeIntoMailboxSettings';
-import { type MailboxSettings } from '../../../../../../../../../../../../models/mailboxSettings';
+import { createMailboxSettingsFromDiscriminatorValue, deserializeIntoMailboxSettings, serializeMailboxSettings, type MailboxSettings } from '../../../../../../../../../../../../models/mailboxSettings';
 import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeMailboxSettings } from '../../../../../../../../../../../../models/serializeMailboxSettings';
-import { type MailboxSettingsRequestBuilderGetRequestConfiguration } from './mailboxSettingsRequestBuilderGetRequestConfiguration';
-import { type MailboxSettingsRequestBuilderPatchRequestConfiguration } from './mailboxSettingsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MailboxSettingsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MailboxSettingsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MailboxSettingsRequestBuilderGetQueryParameters;
+}
+export interface MailboxSettingsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Builds and executes requests for operations under /identityGovernance/lifecycleWorkflows/workflows/{workflow-id}/runs/{run-id}/userProcessingResults/{userProcessingResult-id}/taskProcessingResults/{taskProcessingResult-id}/subject/mailboxSettings
  */

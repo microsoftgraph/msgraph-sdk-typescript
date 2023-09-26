@@ -1,16 +1,39 @@
-import { createInferenceClassificationFromDiscriminatorValue } from '../../../models/createInferenceClassificationFromDiscriminatorValue';
-import { deserializeIntoInferenceClassification } from '../../../models/deserializeIntoInferenceClassification';
-import { type InferenceClassification } from '../../../models/inferenceClassification';
+import { createInferenceClassificationFromDiscriminatorValue, deserializeIntoInferenceClassification, serializeInferenceClassification, type InferenceClassification } from '../../../models/inferenceClassification';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeInferenceClassification } from '../../../models/serializeInferenceClassification';
-import { type InferenceClassificationRequestBuilderGetRequestConfiguration } from './inferenceClassificationRequestBuilderGetRequestConfiguration';
-import { type InferenceClassificationRequestBuilderPatchRequestConfiguration } from './inferenceClassificationRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { OverridesRequestBuilder } from './overrides/overridesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InferenceClassificationRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface InferenceClassificationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InferenceClassificationRequestBuilderGetQueryParameters;
+}
+export interface InferenceClassificationRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the inferenceClassification property of the microsoft.graph.user entity.
  */

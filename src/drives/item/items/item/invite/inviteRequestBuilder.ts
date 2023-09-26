@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { createInviteResponseFromDiscriminatorValue } from './createInviteResponseFromDiscriminatorValue';
-import { deserializeIntoInvitePostRequestBody } from './deserializeIntoInvitePostRequestBody';
-import { deserializeIntoInviteResponse } from './deserializeIntoInviteResponse';
-import { type InvitePostRequestBody } from './invitePostRequestBody';
-import { type InviteRequestBuilderPostRequestConfiguration } from './inviteRequestBuilderPostRequestConfiguration';
-import { type InviteResponse } from './inviteResponse';
-import { serializeInvitePostRequestBody } from './serializeInvitePostRequestBody';
-import { serializeInviteResponse } from './serializeInviteResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoInvitePostRequestBody, serializeInvitePostRequestBody, type InvitePostRequestBody } from './invitePostRequestBody';
+import { createInviteResponseFromDiscriminatorValue, deserializeIntoInviteResponse, serializeInviteResponse, type InviteResponse } from './inviteResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InviteRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the invite method.
  */

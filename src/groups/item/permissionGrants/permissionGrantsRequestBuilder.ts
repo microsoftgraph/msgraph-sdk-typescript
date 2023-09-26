@@ -1,23 +1,74 @@
 import { type ResourceSpecificPermissionGrantCollectionResponse } from '../../../models/';
-import { createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue } from '../../../models/createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue';
-import { createResourceSpecificPermissionGrantFromDiscriminatorValue } from '../../../models/createResourceSpecificPermissionGrantFromDiscriminatorValue';
-import { deserializeIntoResourceSpecificPermissionGrant } from '../../../models/deserializeIntoResourceSpecificPermissionGrant';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type ResourceSpecificPermissionGrant } from '../../../models/resourceSpecificPermissionGrant';
-import { serializeResourceSpecificPermissionGrant } from '../../../models/serializeResourceSpecificPermissionGrant';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createResourceSpecificPermissionGrantFromDiscriminatorValue, deserializeIntoResourceSpecificPermissionGrant, serializeResourceSpecificPermissionGrant, type ResourceSpecificPermissionGrant } from '../../../models/resourceSpecificPermissionGrant';
+import { createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue } from '../../../models/resourceSpecificPermissionGrantCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
 import { ResourceSpecificPermissionGrantItemRequestBuilder } from './item/resourceSpecificPermissionGrantItemRequestBuilder';
-import { type PermissionGrantsRequestBuilderGetRequestConfiguration } from './permissionGrantsRequestBuilderGetRequestConfiguration';
-import { type PermissionGrantsRequestBuilderPostRequestConfiguration } from './permissionGrantsRequestBuilderPostRequestConfiguration';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PermissionGrantsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PermissionGrantsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PermissionGrantsRequestBuilderGetQueryParameters;
+}
+export interface PermissionGrantsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.
  */

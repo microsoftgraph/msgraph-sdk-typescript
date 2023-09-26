@@ -1,20 +1,48 @@
-import { createIdentityGovernanceFromDiscriminatorValue } from '../models/createIdentityGovernanceFromDiscriminatorValue';
-import { deserializeIntoIdentityGovernance } from '../models/deserializeIntoIdentityGovernance';
-import { type IdentityGovernance } from '../models/identityGovernance';
+import { createIdentityGovernanceFromDiscriminatorValue, deserializeIntoIdentityGovernance, serializeIdentityGovernance, type IdentityGovernance } from '../models/identityGovernance';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeIdentityGovernance } from '../models/serializeIdentityGovernance';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { AccessReviewsRequestBuilder } from './accessReviews/accessReviewsRequestBuilder';
 import { AppConsentRequestBuilder } from './appConsent/appConsentRequestBuilder';
 import { EntitlementManagementRequestBuilder } from './entitlementManagement/entitlementManagementRequestBuilder';
-import { type IdentityGovernanceRequestBuilderGetRequestConfiguration } from './identityGovernanceRequestBuilderGetRequestConfiguration';
-import { type IdentityGovernanceRequestBuilderPatchRequestConfiguration } from './identityGovernanceRequestBuilderPatchRequestConfiguration';
 import { LifecycleWorkflowsRequestBuilder } from './lifecycleWorkflows/lifecycleWorkflowsRequestBuilder';
+import { PrivilegedAccessRequestBuilder } from './privilegedAccess/privilegedAccessRequestBuilder';
 import { TermsOfUseRequestBuilder } from './termsOfUse/termsOfUseRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentityGovernanceRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentityGovernanceRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentityGovernanceRequestBuilderGetQueryParameters;
+}
+export interface IdentityGovernanceRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the identityGovernance singleton.
  */
@@ -42,6 +70,12 @@ export class IdentityGovernanceRequestBuilder extends BaseRequestBuilder {
      */
     public get lifecycleWorkflows(): LifecycleWorkflowsRequestBuilder {
         return new LifecycleWorkflowsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the privilegedAccess property of the microsoft.graph.identityGovernance entity.
+     */
+    public get privilegedAccess(): PrivilegedAccessRequestBuilder {
+        return new PrivilegedAccessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.

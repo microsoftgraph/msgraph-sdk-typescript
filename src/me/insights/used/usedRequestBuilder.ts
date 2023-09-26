@@ -1,19 +1,70 @@
 import { type UsedInsightCollectionResponse } from '../../../models/';
-import { createUsedInsightCollectionResponseFromDiscriminatorValue } from '../../../models/createUsedInsightCollectionResponseFromDiscriminatorValue';
-import { createUsedInsightFromDiscriminatorValue } from '../../../models/createUsedInsightFromDiscriminatorValue';
-import { deserializeIntoUsedInsight } from '../../../models/deserializeIntoUsedInsight';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUsedInsight } from '../../../models/serializeUsedInsight';
-import { type UsedInsight } from '../../../models/usedInsight';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUsedInsightFromDiscriminatorValue, deserializeIntoUsedInsight, serializeUsedInsight, type UsedInsight } from '../../../models/usedInsight';
+import { createUsedInsightCollectionResponseFromDiscriminatorValue } from '../../../models/usedInsightCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UsedInsightItemRequestBuilder } from './item/usedInsightItemRequestBuilder';
-import { type UsedRequestBuilderGetRequestConfiguration } from './usedRequestBuilderGetRequestConfiguration';
-import { type UsedRequestBuilderPostRequestConfiguration } from './usedRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UsedRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UsedRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UsedRequestBuilderGetQueryParameters;
+}
+export interface UsedRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
  */

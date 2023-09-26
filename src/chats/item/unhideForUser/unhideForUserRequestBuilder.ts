@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoUnhideForUserPostRequestBody } from './deserializeIntoUnhideForUserPostRequestBody';
-import { serializeUnhideForUserPostRequestBody } from './serializeUnhideForUserPostRequestBody';
-import { type UnhideForUserPostRequestBody } from './unhideForUserPostRequestBody';
-import { type UnhideForUserRequestBuilderPostRequestConfiguration } from './unhideForUserRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoUnhideForUserPostRequestBody, serializeUnhideForUserPostRequestBody, type UnhideForUserPostRequestBody } from './unhideForUserPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnhideForUserRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the unhideForUser method.
  */

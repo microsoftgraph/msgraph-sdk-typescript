@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoProtectPostRequestBody } from './deserializeIntoProtectPostRequestBody';
-import { type ProtectPostRequestBody } from './protectPostRequestBody';
-import { type ProtectRequestBuilderPostRequestConfiguration } from './protectRequestBuilderPostRequestConfiguration';
-import { serializeProtectPostRequestBody } from './serializeProtectPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoProtectPostRequestBody, serializeProtectPostRequestBody, type ProtectPostRequestBody } from './protectPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ProtectRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the protect method.
  */

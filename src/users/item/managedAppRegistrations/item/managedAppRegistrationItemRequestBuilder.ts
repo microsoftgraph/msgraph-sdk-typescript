@@ -1,12 +1,33 @@
 import { type ManagedAppRegistration } from '../../../../models/';
-import { createManagedAppRegistrationFromDiscriminatorValue } from '../../../../models/createManagedAppRegistrationFromDiscriminatorValue';
+import { createManagedAppRegistrationFromDiscriminatorValue } from '../../../../models/managedAppRegistration';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration } from './managedAppRegistrationItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ManagedAppRegistrationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ManagedAppRegistrationItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.user entity.
  */

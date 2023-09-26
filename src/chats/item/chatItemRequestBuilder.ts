@@ -1,14 +1,6 @@
-import { type Chat } from '../../models/chat';
-import { createChatFromDiscriminatorValue } from '../../models/createChatFromDiscriminatorValue';
-import { deserializeIntoChat } from '../../models/deserializeIntoChat';
+import { createChatFromDiscriminatorValue, deserializeIntoChat, serializeChat, type Chat } from '../../models/chat';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeChat } from '../../models/serializeChat';
-import { type ChatItemRequestBuilderDeleteRequestConfiguration } from './chatItemRequestBuilderDeleteRequestConfiguration';
-import { type ChatItemRequestBuilderGetRequestConfiguration } from './chatItemRequestBuilderGetRequestConfiguration';
-import { type ChatItemRequestBuilderPatchRequestConfiguration } from './chatItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { HideForUserRequestBuilder } from './hideForUser/hideForUserRequestBuilder';
 import { InstalledAppsRequestBuilder } from './installedApps/installedAppsRequestBuilder';
 import { LastMessagePreviewRequestBuilder } from './lastMessagePreview/lastMessagePreviewRequestBuilder';
@@ -23,6 +15,50 @@ import { TabsRequestBuilder } from './tabs/tabsRequestBuilder';
 import { UnhideForUserRequestBuilder } from './unhideForUser/unhideForUserRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChatItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ChatItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ChatItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ChatItemRequestBuilderGetQueryParameters;
+}
+export interface ChatItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of chat entities.
  */

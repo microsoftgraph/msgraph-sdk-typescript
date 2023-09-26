@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type UserSourceCollectionResponse } from '../../../../../../../models/security/';
-import { createUserSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/createUserSourceCollectionResponseFromDiscriminatorValue';
-import { createUserSourceFromDiscriminatorValue } from '../../../../../../../models/security/createUserSourceFromDiscriminatorValue';
-import { deserializeIntoUserSource } from '../../../../../../../models/security/deserializeIntoUserSource';
-import { serializeUserSource } from '../../../../../../../models/security/serializeUserSource';
-import { type UserSource } from '../../../../../../../models/security/userSource';
+import { createUserSourceFromDiscriminatorValue, deserializeIntoUserSource, serializeUserSource, type UserSource } from '../../../../../../../models/security/userSource';
+import { createUserSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/userSourceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserSourceItemRequestBuilder } from './item/userSourceItemRequestBuilder';
-import { type UserSourcesRequestBuilderGetRequestConfiguration } from './userSourcesRequestBuilderGetRequestConfiguration';
-import { type UserSourcesRequestBuilderPostRequestConfiguration } from './userSourcesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserSourcesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserSourcesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserSourcesRequestBuilderGetQueryParameters;
+}
+export interface UserSourcesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.
  */

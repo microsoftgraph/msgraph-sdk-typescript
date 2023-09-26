@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
 import { type TermCollectionResponse } from '../../../../../../../../../../../models/termStore/';
-import { createTermCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../models/termStore/createTermCollectionResponseFromDiscriminatorValue';
-import { createTermFromDiscriminatorValue } from '../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
-import { deserializeIntoTerm } from '../../../../../../../../../../../models/termStore/deserializeIntoTerm';
-import { serializeTerm } from '../../../../../../../../../../../models/termStore/serializeTerm';
-import { type Term } from '../../../../../../../../../../../models/termStore/term';
+import { createTermFromDiscriminatorValue, deserializeIntoTerm, serializeTerm, type Term } from '../../../../../../../../../../../models/termStore/term';
+import { createTermCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../models/termStore/termCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TermItemRequestBuilder } from './item/termItemRequestBuilder';
-import { type TermsRequestBuilderGetRequestConfiguration } from './termsRequestBuilderGetRequestConfiguration';
-import { type TermsRequestBuilderPostRequestConfiguration } from './termsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TermsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TermsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TermsRequestBuilderGetQueryParameters;
+}
+export interface TermsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.
  */

@@ -1,4 +1,1 @@
-export * from './analyticsRequestBuilderDeleteRequestConfiguration'
-export * from './analyticsRequestBuilderGetQueryParameters'
-export * from './analyticsRequestBuilderGetRequestConfiguration'
-export * from './analyticsRequestBuilderPatchRequestConfiguration'
+export * from './analyticsRequestBuilder'

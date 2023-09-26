@@ -7,3 +7,5 @@ export enum ManagedBrowserType {
     /** Microsoft Edge */
     MicrosoftEdge = "microsoftEdge",
 }
+// tslint:enable
+// eslint-enable

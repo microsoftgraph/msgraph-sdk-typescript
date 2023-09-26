@@ -1,17 +1,53 @@
-import { createWorkbookChartPointFormatFromDiscriminatorValue } from '../../../../../../../../../../../../../../models/createWorkbookChartPointFormatFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartPointFormat } from '../../../../../../../../../../../../../../models/deserializeIntoWorkbookChartPointFormat';
 import { type ODataError } from '../../../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartPointFormat } from '../../../../../../../../../../../../../../models/serializeWorkbookChartPointFormat';
-import { type WorkbookChartPointFormat } from '../../../../../../../../../../../../../../models/workbookChartPointFormat';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartPointFormatFromDiscriminatorValue, deserializeIntoWorkbookChartPointFormat, serializeWorkbookChartPointFormat, type WorkbookChartPointFormat } from '../../../../../../../../../../../../../../models/workbookChartPointFormat';
 import { FillRequestBuilder } from './fill/fillRequestBuilder';
-import { type FormatRequestBuilderDeleteRequestConfiguration } from './formatRequestBuilderDeleteRequestConfiguration';
-import { type FormatRequestBuilderGetRequestConfiguration } from './formatRequestBuilderGetRequestConfiguration';
-import { type FormatRequestBuilderPatchRequestConfiguration } from './formatRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FormatRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface FormatRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FormatRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FormatRequestBuilderGetQueryParameters;
+}
+export interface FormatRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the format property of the microsoft.graph.workbookChartPoint entity.
  */

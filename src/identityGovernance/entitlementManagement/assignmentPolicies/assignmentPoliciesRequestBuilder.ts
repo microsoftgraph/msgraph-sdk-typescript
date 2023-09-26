@@ -1,19 +1,70 @@
 import { type AccessPackageAssignmentPolicyCollectionResponse } from '../../../models/';
-import { type AccessPackageAssignmentPolicy } from '../../../models/accessPackageAssignmentPolicy';
-import { createAccessPackageAssignmentPolicyCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageAssignmentPolicyCollectionResponseFromDiscriminatorValue';
-import { createAccessPackageAssignmentPolicyFromDiscriminatorValue } from '../../../models/createAccessPackageAssignmentPolicyFromDiscriminatorValue';
-import { deserializeIntoAccessPackageAssignmentPolicy } from '../../../models/deserializeIntoAccessPackageAssignmentPolicy';
+import { createAccessPackageAssignmentPolicyFromDiscriminatorValue, deserializeIntoAccessPackageAssignmentPolicy, serializeAccessPackageAssignmentPolicy, type AccessPackageAssignmentPolicy } from '../../../models/accessPackageAssignmentPolicy';
+import { createAccessPackageAssignmentPolicyCollectionResponseFromDiscriminatorValue } from '../../../models/accessPackageAssignmentPolicyCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageAssignmentPolicy } from '../../../models/serializeAccessPackageAssignmentPolicy';
-import { type AssignmentPoliciesRequestBuilderGetRequestConfiguration } from './assignmentPoliciesRequestBuilderGetRequestConfiguration';
-import { type AssignmentPoliciesRequestBuilderPostRequestConfiguration } from './assignmentPoliciesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AccessPackageAssignmentPolicyItemRequestBuilder } from './item/accessPackageAssignmentPolicyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignmentPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AssignmentPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AssignmentPoliciesRequestBuilderGetQueryParameters;
+}
+export interface AssignmentPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.
  */

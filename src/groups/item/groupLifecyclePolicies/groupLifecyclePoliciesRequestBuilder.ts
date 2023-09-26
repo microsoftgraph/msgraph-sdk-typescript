@@ -1,19 +1,70 @@
 import { type GroupLifecyclePolicyCollectionResponse } from '../../../models/';
-import { createGroupLifecyclePolicyCollectionResponseFromDiscriminatorValue } from '../../../models/createGroupLifecyclePolicyCollectionResponseFromDiscriminatorValue';
-import { createGroupLifecyclePolicyFromDiscriminatorValue } from '../../../models/createGroupLifecyclePolicyFromDiscriminatorValue';
-import { deserializeIntoGroupLifecyclePolicy } from '../../../models/deserializeIntoGroupLifecyclePolicy';
-import { type GroupLifecyclePolicy } from '../../../models/groupLifecyclePolicy';
+import { createGroupLifecyclePolicyFromDiscriminatorValue, deserializeIntoGroupLifecyclePolicy, serializeGroupLifecyclePolicy, type GroupLifecyclePolicy } from '../../../models/groupLifecyclePolicy';
+import { createGroupLifecyclePolicyCollectionResponseFromDiscriminatorValue } from '../../../models/groupLifecyclePolicyCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeGroupLifecyclePolicy } from '../../../models/serializeGroupLifecyclePolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration } from './groupLifecyclePoliciesRequestBuilderGetRequestConfiguration';
-import { type GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration } from './groupLifecyclePoliciesRequestBuilderPostRequestConfiguration';
 import { GroupLifecyclePolicyItemRequestBuilder } from './item/groupLifecyclePolicyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GroupLifecyclePoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GroupLifecyclePoliciesRequestBuilderGetQueryParameters;
+}
+export interface GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
  */

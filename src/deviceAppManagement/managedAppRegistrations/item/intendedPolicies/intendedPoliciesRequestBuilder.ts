@@ -1,19 +1,70 @@
 import { type ManagedAppPolicyCollectionResponse } from '../../../../models/';
-import { createManagedAppPolicyCollectionResponseFromDiscriminatorValue } from '../../../../models/createManagedAppPolicyCollectionResponseFromDiscriminatorValue';
-import { createManagedAppPolicyFromDiscriminatorValue } from '../../../../models/createManagedAppPolicyFromDiscriminatorValue';
-import { deserializeIntoManagedAppPolicy } from '../../../../models/deserializeIntoManagedAppPolicy';
-import { type ManagedAppPolicy } from '../../../../models/managedAppPolicy';
+import { createManagedAppPolicyFromDiscriminatorValue, deserializeIntoManagedAppPolicy, serializeManagedAppPolicy, type ManagedAppPolicy } from '../../../../models/managedAppPolicy';
+import { createManagedAppPolicyCollectionResponseFromDiscriminatorValue } from '../../../../models/managedAppPolicyCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeManagedAppPolicy } from '../../../../models/serializeManagedAppPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type IntendedPoliciesRequestBuilderGetRequestConfiguration } from './intendedPoliciesRequestBuilderGetRequestConfiguration';
-import { type IntendedPoliciesRequestBuilderPostRequestConfiguration } from './intendedPoliciesRequestBuilderPostRequestConfiguration';
 import { ManagedAppPolicyItemRequestBuilder } from './item/managedAppPolicyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IntendedPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface IntendedPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IntendedPoliciesRequestBuilderGetQueryParameters;
+}
+export interface IntendedPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the intendedPolicies property of the microsoft.graph.managedAppRegistration entity.
  */

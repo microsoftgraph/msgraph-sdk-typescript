@@ -1,17 +1,53 @@
-import { type AccessReviewInstanceDecisionItem } from '../../../../../../../../models/accessReviewInstanceDecisionItem';
-import { createAccessReviewInstanceDecisionItemFromDiscriminatorValue } from '../../../../../../../../models/createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
-import { deserializeIntoAccessReviewInstanceDecisionItem } from '../../../../../../../../models/deserializeIntoAccessReviewInstanceDecisionItem';
+import { createAccessReviewInstanceDecisionItemFromDiscriminatorValue, deserializeIntoAccessReviewInstanceDecisionItem, serializeAccessReviewInstanceDecisionItem, type AccessReviewInstanceDecisionItem } from '../../../../../../../../models/accessReviewInstanceDecisionItem';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewInstanceDecisionItem } from '../../../../../../../../models/serializeAccessReviewInstanceDecisionItem';
-import { type AccessReviewInstanceDecisionItemItemRequestBuilderDeleteRequestConfiguration } from './accessReviewInstanceDecisionItemItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration } from './accessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration';
-import { type AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration } from './accessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { InsightsRequestBuilder } from './insights/insightsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessReviewInstanceDecisionItemItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters;
+}
+export interface AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
  */

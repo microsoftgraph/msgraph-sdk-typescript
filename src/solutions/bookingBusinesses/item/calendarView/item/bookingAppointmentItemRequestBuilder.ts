@@ -1,17 +1,61 @@
-import { type BookingAppointment } from '../../../../../models/bookingAppointment';
-import { createBookingAppointmentFromDiscriminatorValue } from '../../../../../models/createBookingAppointmentFromDiscriminatorValue';
-import { deserializeIntoBookingAppointment } from '../../../../../models/deserializeIntoBookingAppointment';
+import { createBookingAppointmentFromDiscriminatorValue, deserializeIntoBookingAppointment, serializeBookingAppointment, type BookingAppointment } from '../../../../../models/bookingAppointment';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingAppointment } from '../../../../../models/serializeBookingAppointment';
-import { type BookingAppointmentItemRequestBuilderDeleteRequestConfiguration } from './bookingAppointmentItemRequestBuilderDeleteRequestConfiguration';
-import { type BookingAppointmentItemRequestBuilderGetRequestConfiguration } from './bookingAppointmentItemRequestBuilderGetRequestConfiguration';
-import { type BookingAppointmentItemRequestBuilderPatchRequestConfiguration } from './bookingAppointmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CancelRequestBuilder } from './cancel/cancelRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BookingAppointmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BookingAppointmentItemRequestBuilderGetQueryParameters {
+    /**
+     * The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00
+     */
+    end?: string;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00
+     */
+    start?: string;
+}
+export interface BookingAppointmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BookingAppointmentItemRequestBuilderGetQueryParameters;
+}
+export interface BookingAppointmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
  */

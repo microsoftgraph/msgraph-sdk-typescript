@@ -1,17 +1,19 @@
-import { createStartHoldMusicOperationFromDiscriminatorValue } from '../../../../../../models/createStartHoldMusicOperationFromDiscriminatorValue';
-import { deserializeIntoStartHoldMusicOperation } from '../../../../../../models/deserializeIntoStartHoldMusicOperation';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeStartHoldMusicOperation } from '../../../../../../models/serializeStartHoldMusicOperation';
-import { type StartHoldMusicOperation } from '../../../../../../models/startHoldMusicOperation';
-import { deserializeIntoStartHoldMusicPostRequestBody } from './deserializeIntoStartHoldMusicPostRequestBody';
-import { serializeStartHoldMusicPostRequestBody } from './serializeStartHoldMusicPostRequestBody';
-import { type StartHoldMusicPostRequestBody } from './startHoldMusicPostRequestBody';
-import { type StartHoldMusicRequestBuilderPostRequestConfiguration } from './startHoldMusicRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createStartHoldMusicOperationFromDiscriminatorValue, deserializeIntoStartHoldMusicOperation, serializeStartHoldMusicOperation, type StartHoldMusicOperation } from '../../../../../../models/startHoldMusicOperation';
+import { deserializeIntoStartHoldMusicPostRequestBody, serializeStartHoldMusicPostRequestBody, type StartHoldMusicPostRequestBody } from './startHoldMusicPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface StartHoldMusicRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the startHoldMusic method.
  */

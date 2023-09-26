@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type CleanWindowsDevicePostRequestBody } from './cleanWindowsDevicePostRequestBody';
-import { type CleanWindowsDeviceRequestBuilderPostRequestConfiguration } from './cleanWindowsDeviceRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCleanWindowsDevicePostRequestBody } from './deserializeIntoCleanWindowsDevicePostRequestBody';
-import { serializeCleanWindowsDevicePostRequestBody } from './serializeCleanWindowsDevicePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoCleanWindowsDevicePostRequestBody, serializeCleanWindowsDevicePostRequestBody, type CleanWindowsDevicePostRequestBody } from './cleanWindowsDevicePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CleanWindowsDeviceRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the cleanWindowsDevice method.
  */

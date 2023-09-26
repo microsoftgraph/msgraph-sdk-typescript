@@ -1,17 +1,19 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { createQueryResponseFromDiscriminatorValue } from './createQueryResponseFromDiscriminatorValue';
-import { deserializeIntoQueryPostRequestBody } from './deserializeIntoQueryPostRequestBody';
-import { deserializeIntoQueryResponse } from './deserializeIntoQueryResponse';
-import { type QueryPostRequestBody } from './queryPostRequestBody';
-import { type QueryRequestBuilderPostRequestConfiguration } from './queryRequestBuilderPostRequestConfiguration';
-import { type QueryResponse } from './queryResponse';
-import { serializeQueryPostRequestBody } from './serializeQueryPostRequestBody';
-import { serializeQueryResponse } from './serializeQueryResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { deserializeIntoQueryPostRequestBody, serializeQueryPostRequestBody, type QueryPostRequestBody } from './queryPostRequestBody';
+import { createQueryResponseFromDiscriminatorValue, deserializeIntoQueryResponse, serializeQueryResponse, type QueryResponse } from './queryResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface QueryRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the query method.
  */

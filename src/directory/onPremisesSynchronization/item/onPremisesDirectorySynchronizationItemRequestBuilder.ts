@@ -1,16 +1,52 @@
-import { createOnPremisesDirectorySynchronizationFromDiscriminatorValue } from '../../../models/createOnPremisesDirectorySynchronizationFromDiscriminatorValue';
-import { deserializeIntoOnPremisesDirectorySynchronization } from '../../../models/deserializeIntoOnPremisesDirectorySynchronization';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type OnPremisesDirectorySynchronization } from '../../../models/onPremisesDirectorySynchronization';
-import { serializeOnPremisesDirectorySynchronization } from '../../../models/serializeOnPremisesDirectorySynchronization';
-import { type OnPremisesDirectorySynchronizationItemRequestBuilderDeleteRequestConfiguration } from './onPremisesDirectorySynchronizationItemRequestBuilderDeleteRequestConfiguration';
-import { type OnPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration } from './onPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration';
-import { type OnPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration } from './onPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createOnPremisesDirectorySynchronizationFromDiscriminatorValue, deserializeIntoOnPremisesDirectorySynchronization, serializeOnPremisesDirectorySynchronization, type OnPremisesDirectorySynchronization } from '../../../models/onPremisesDirectorySynchronization';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OnPremisesDirectorySynchronizationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OnPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters;
+}
+export interface OnPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
  */

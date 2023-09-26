@@ -1,14 +1,40 @@
 import { type Conversation } from '../../../../models/';
-import { createConversationFromDiscriminatorValue } from '../../../../models/createConversationFromDiscriminatorValue';
+import { createConversationFromDiscriminatorValue } from '../../../../models/conversation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type ConversationItemRequestBuilderDeleteRequestConfiguration } from './conversationItemRequestBuilderDeleteRequestConfiguration';
-import { type ConversationItemRequestBuilderGetRequestConfiguration } from './conversationItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { ThreadsRequestBuilder } from './threads/threadsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConversationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ConversationItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ConversationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConversationItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the conversations property of the microsoft.graph.group entity.
  */
@@ -30,7 +56,7 @@ export class ConversationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete conversation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/conversation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-delete-conversation?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConversationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(

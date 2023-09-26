@@ -1,21 +1,72 @@
 import { type IdentityUserFlowAttributeAssignmentCollectionResponse } from '../../../../models/';
-import { createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue } from '../../../../models/createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue';
-import { createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue } from '../../../../models/createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue';
-import { deserializeIntoIdentityUserFlowAttributeAssignment } from '../../../../models/deserializeIntoIdentityUserFlowAttributeAssignment';
-import { type IdentityUserFlowAttributeAssignment } from '../../../../models/identityUserFlowAttributeAssignment';
+import { createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue, deserializeIntoIdentityUserFlowAttributeAssignment, serializeIdentityUserFlowAttributeAssignment, type IdentityUserFlowAttributeAssignment } from '../../../../models/identityUserFlowAttributeAssignment';
+import { createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue } from '../../../../models/identityUserFlowAttributeAssignmentCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeIdentityUserFlowAttributeAssignment } from '../../../../models/serializeIdentityUserFlowAttributeAssignment';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { GetOrderRequestBuilder } from './getOrder/getOrderRequestBuilder';
 import { IdentityUserFlowAttributeAssignmentItemRequestBuilder } from './item/identityUserFlowAttributeAssignmentItemRequestBuilder';
 import { SetOrderRequestBuilder } from './setOrder/setOrderRequestBuilder';
-import { type UserAttributeAssignmentsRequestBuilderGetRequestConfiguration } from './userAttributeAssignmentsRequestBuilderGetRequestConfiguration';
-import { type UserAttributeAssignmentsRequestBuilderPostRequestConfiguration } from './userAttributeAssignmentsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserAttributeAssignmentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserAttributeAssignmentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserAttributeAssignmentsRequestBuilderGetQueryParameters;
+}
+export interface UserAttributeAssignmentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
  */

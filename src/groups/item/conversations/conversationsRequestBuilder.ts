@@ -1,19 +1,66 @@
 import { type ConversationCollectionResponse } from '../../../models/';
-import { type Conversation } from '../../../models/conversation';
-import { createConversationCollectionResponseFromDiscriminatorValue } from '../../../models/createConversationCollectionResponseFromDiscriminatorValue';
-import { createConversationFromDiscriminatorValue } from '../../../models/createConversationFromDiscriminatorValue';
-import { deserializeIntoConversation } from '../../../models/deserializeIntoConversation';
+import { createConversationFromDiscriminatorValue, deserializeIntoConversation, serializeConversation, type Conversation } from '../../../models/conversation';
+import { createConversationCollectionResponseFromDiscriminatorValue } from '../../../models/conversationCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeConversation } from '../../../models/serializeConversation';
-import { type ConversationsRequestBuilderGetRequestConfiguration } from './conversationsRequestBuilderGetRequestConfiguration';
-import { type ConversationsRequestBuilderPostRequestConfiguration } from './conversationsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ConversationItemRequestBuilder } from './item/conversationItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConversationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ConversationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConversationsRequestBuilderGetQueryParameters;
+}
+export interface ConversationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the conversations property of the microsoft.graph.group entity.
  */

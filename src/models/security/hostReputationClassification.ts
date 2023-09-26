@@ -5,3 +5,5 @@ export enum HostReputationClassification {
     Malicious = "malicious",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

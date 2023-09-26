@@ -1,17 +1,53 @@
-import { type ChatMessageHostedContent } from '../../../../../../../models/chatMessageHostedContent';
-import { createChatMessageHostedContentFromDiscriminatorValue } from '../../../../../../../models/createChatMessageHostedContentFromDiscriminatorValue';
-import { deserializeIntoChatMessageHostedContent } from '../../../../../../../models/deserializeIntoChatMessageHostedContent';
+import { createChatMessageHostedContentFromDiscriminatorValue, deserializeIntoChatMessageHostedContent, serializeChatMessageHostedContent, type ChatMessageHostedContent } from '../../../../../../../models/chatMessageHostedContent';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeChatMessageHostedContent } from '../../../../../../../models/serializeChatMessageHostedContent';
-import { type ChatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration } from './chatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration';
-import { type ChatMessageHostedContentItemRequestBuilderGetRequestConfiguration } from './chatMessageHostedContentItemRequestBuilderGetRequestConfiguration';
-import { type ChatMessageHostedContentItemRequestBuilderPatchRequestConfiguration } from './chatMessageHostedContentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { ContentRequestBuilder } from './value/contentRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ChatMessageHostedContentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ChatMessageHostedContentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ChatMessageHostedContentItemRequestBuilderGetQueryParameters;
+}
+export interface ChatMessageHostedContentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
  */

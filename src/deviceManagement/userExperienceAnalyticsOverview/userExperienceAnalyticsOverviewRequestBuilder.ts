@@ -1,16 +1,52 @@
-import { createUserExperienceAnalyticsOverviewFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsOverviewFromDiscriminatorValue';
-import { deserializeIntoUserExperienceAnalyticsOverview } from '../../models/deserializeIntoUserExperienceAnalyticsOverview';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeUserExperienceAnalyticsOverview } from '../../models/serializeUserExperienceAnalyticsOverview';
-import { type UserExperienceAnalyticsOverview } from '../../models/userExperienceAnalyticsOverview';
-import { type UserExperienceAnalyticsOverviewRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsOverviewRequestBuilderDeleteRequestConfiguration';
-import { type UserExperienceAnalyticsOverviewRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsOverviewRequestBuilderGetRequestConfiguration';
-import { type UserExperienceAnalyticsOverviewRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsOverviewRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsOverviewFromDiscriminatorValue, deserializeIntoUserExperienceAnalyticsOverview, serializeUserExperienceAnalyticsOverview, type UserExperienceAnalyticsOverview } from '../../models/userExperienceAnalyticsOverview';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserExperienceAnalyticsOverviewRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserExperienceAnalyticsOverviewRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserExperienceAnalyticsOverviewRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserExperienceAnalyticsOverviewRequestBuilderGetQueryParameters;
+}
+export interface UserExperienceAnalyticsOverviewRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userExperienceAnalyticsOverview property of the microsoft.graph.deviceManagement entity.
  */

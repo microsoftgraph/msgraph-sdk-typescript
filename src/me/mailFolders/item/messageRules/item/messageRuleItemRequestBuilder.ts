@@ -1,16 +1,48 @@
-import { createMessageRuleFromDiscriminatorValue } from '../../../../../models/createMessageRuleFromDiscriminatorValue';
-import { deserializeIntoMessageRule } from '../../../../../models/deserializeIntoMessageRule';
-import { type MessageRule } from '../../../../../models/messageRule';
+import { createMessageRuleFromDiscriminatorValue, deserializeIntoMessageRule, serializeMessageRule, type MessageRule } from '../../../../../models/messageRule';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeMessageRule } from '../../../../../models/serializeMessageRule';
-import { type MessageRuleItemRequestBuilderDeleteRequestConfiguration } from './messageRuleItemRequestBuilderDeleteRequestConfiguration';
-import { type MessageRuleItemRequestBuilderGetRequestConfiguration } from './messageRuleItemRequestBuilderGetRequestConfiguration';
-import { type MessageRuleItemRequestBuilderPatchRequestConfiguration } from './messageRuleItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MessageRuleItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MessageRuleItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MessageRuleItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MessageRuleItemRequestBuilderGetQueryParameters;
+}
+export interface MessageRuleItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
  */

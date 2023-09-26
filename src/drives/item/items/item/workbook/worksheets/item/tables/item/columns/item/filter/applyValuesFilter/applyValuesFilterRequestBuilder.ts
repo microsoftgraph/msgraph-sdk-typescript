@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type ApplyValuesFilterPostRequestBody } from './applyValuesFilterPostRequestBody';
-import { type ApplyValuesFilterRequestBuilderPostRequestConfiguration } from './applyValuesFilterRequestBuilderPostRequestConfiguration';
-import { deserializeIntoApplyValuesFilterPostRequestBody } from './deserializeIntoApplyValuesFilterPostRequestBody';
-import { serializeApplyValuesFilterPostRequestBody } from './serializeApplyValuesFilterPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoApplyValuesFilterPostRequestBody, serializeApplyValuesFilterPostRequestBody, type ApplyValuesFilterPostRequestBody } from './applyValuesFilterPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApplyValuesFilterRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the applyValuesFilter method.
  */

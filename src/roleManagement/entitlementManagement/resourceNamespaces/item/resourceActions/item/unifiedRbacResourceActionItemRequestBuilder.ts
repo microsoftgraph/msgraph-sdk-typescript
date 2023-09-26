@@ -1,16 +1,52 @@
-import { createUnifiedRbacResourceActionFromDiscriminatorValue } from '../../../../../../models/createUnifiedRbacResourceActionFromDiscriminatorValue';
-import { deserializeIntoUnifiedRbacResourceAction } from '../../../../../../models/deserializeIntoUnifiedRbacResourceAction';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRbacResourceAction } from '../../../../../../models/serializeUnifiedRbacResourceAction';
-import { type UnifiedRbacResourceAction } from '../../../../../../models/unifiedRbacResourceAction';
-import { type UnifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration } from './unifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration';
-import { type UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration } from './unifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration';
-import { type UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration } from './unifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createUnifiedRbacResourceActionFromDiscriminatorValue, deserializeIntoUnifiedRbacResourceAction, serializeUnifiedRbacResourceAction, type UnifiedRbacResourceAction } from '../../../../../../models/unifiedRbacResourceAction';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UnifiedRbacResourceActionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UnifiedRbacResourceActionItemRequestBuilderGetQueryParameters;
+}
+export interface UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
  */

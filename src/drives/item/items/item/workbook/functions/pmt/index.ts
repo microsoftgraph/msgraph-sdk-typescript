@@ -1,5 +1,2 @@
-export * from './createPmtPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoPmtPostRequestBody'
 export * from './pmtPostRequestBody'
-export * from './pmtRequestBuilderPostRequestConfiguration'
-export * from './serializePmtPostRequestBody'
+export * from './pmtRequestBuilder'

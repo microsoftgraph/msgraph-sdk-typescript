@@ -1,5 +1,2 @@
-export * from './createGamma_DistPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoGamma_DistPostRequestBody'
 export * from './gamma_DistPostRequestBody'
-export * from './gamma_DistRequestBuilderPostRequestConfiguration'
-export * from './serializeGamma_DistPostRequestBody'
+export * from './gamma_DistRequestBuilder'

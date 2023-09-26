@@ -1,16 +1,52 @@
-import { type BookingCustomQuestion } from '../../../../../models/bookingCustomQuestion';
-import { createBookingCustomQuestionFromDiscriminatorValue } from '../../../../../models/createBookingCustomQuestionFromDiscriminatorValue';
-import { deserializeIntoBookingCustomQuestion } from '../../../../../models/deserializeIntoBookingCustomQuestion';
+import { createBookingCustomQuestionFromDiscriminatorValue, deserializeIntoBookingCustomQuestion, serializeBookingCustomQuestion, type BookingCustomQuestion } from '../../../../../models/bookingCustomQuestion';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingCustomQuestion } from '../../../../../models/serializeBookingCustomQuestion';
-import { type BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration } from './bookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration';
-import { type BookingCustomQuestionItemRequestBuilderGetRequestConfiguration } from './bookingCustomQuestionItemRequestBuilderGetRequestConfiguration';
-import { type BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration } from './bookingCustomQuestionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BookingCustomQuestionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BookingCustomQuestionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BookingCustomQuestionItemRequestBuilderGetQueryParameters;
+}
+export interface BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
  */

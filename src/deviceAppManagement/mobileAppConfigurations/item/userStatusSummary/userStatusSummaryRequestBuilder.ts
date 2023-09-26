@@ -1,16 +1,52 @@
-import { createManagedDeviceMobileAppConfigurationUserSummaryFromDiscriminatorValue } from '../../../../models/createManagedDeviceMobileAppConfigurationUserSummaryFromDiscriminatorValue';
-import { deserializeIntoManagedDeviceMobileAppConfigurationUserSummary } from '../../../../models/deserializeIntoManagedDeviceMobileAppConfigurationUserSummary';
-import { type ManagedDeviceMobileAppConfigurationUserSummary } from '../../../../models/managedDeviceMobileAppConfigurationUserSummary';
+import { createManagedDeviceMobileAppConfigurationUserSummaryFromDiscriminatorValue, deserializeIntoManagedDeviceMobileAppConfigurationUserSummary, serializeManagedDeviceMobileAppConfigurationUserSummary, type ManagedDeviceMobileAppConfigurationUserSummary } from '../../../../models/managedDeviceMobileAppConfigurationUserSummary';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeManagedDeviceMobileAppConfigurationUserSummary } from '../../../../models/serializeManagedDeviceMobileAppConfigurationUserSummary';
-import { type UserStatusSummaryRequestBuilderDeleteRequestConfiguration } from './userStatusSummaryRequestBuilderDeleteRequestConfiguration';
-import { type UserStatusSummaryRequestBuilderGetRequestConfiguration } from './userStatusSummaryRequestBuilderGetRequestConfiguration';
-import { type UserStatusSummaryRequestBuilderPatchRequestConfiguration } from './userStatusSummaryRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserStatusSummaryRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserStatusSummaryRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserStatusSummaryRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserStatusSummaryRequestBuilderGetQueryParameters;
+}
+export interface UserStatusSummaryRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userStatusSummary property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
  */

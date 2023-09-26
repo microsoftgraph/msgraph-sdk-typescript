@@ -1,14 +1,6 @@
-import { type AccessPackageCatalog } from '../../../../models/accessPackageCatalog';
-import { createAccessPackageCatalogFromDiscriminatorValue } from '../../../../models/createAccessPackageCatalogFromDiscriminatorValue';
-import { deserializeIntoAccessPackageCatalog } from '../../../../models/deserializeIntoAccessPackageCatalog';
+import { createAccessPackageCatalogFromDiscriminatorValue, deserializeIntoAccessPackageCatalog, serializeAccessPackageCatalog, type AccessPackageCatalog } from '../../../../models/accessPackageCatalog';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageCatalog } from '../../../../models/serializeAccessPackageCatalog';
-import { type AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration } from './accessPackageCatalogItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessPackageCatalogItemRequestBuilderGetRequestConfiguration } from './accessPackageCatalogItemRequestBuilderGetRequestConfiguration';
-import { type AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration } from './accessPackageCatalogItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { AccessPackagesRequestBuilder } from './accessPackages/accessPackagesRequestBuilder';
 import { CustomWorkflowExtensionsRequestBuilder } from './customWorkflowExtensions/customWorkflowExtensionsRequestBuilder';
 import { ResourceRolesRequestBuilder } from './resourceRoles/resourceRolesRequestBuilder';
@@ -16,6 +8,50 @@ import { ResourcesRequestBuilder } from './resources/resourcesRequestBuilder';
 import { ResourceScopesRequestBuilder } from './resourceScopes/resourceScopesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessPackageCatalogItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessPackageCatalogItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessPackageCatalogItemRequestBuilderGetQueryParameters;
+}
+export interface AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
  */

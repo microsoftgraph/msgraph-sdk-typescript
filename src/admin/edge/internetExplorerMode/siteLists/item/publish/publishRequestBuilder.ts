@@ -1,17 +1,19 @@
-import { type BrowserSiteList } from '../../../../../../models/browserSiteList';
-import { createBrowserSiteListFromDiscriminatorValue } from '../../../../../../models/createBrowserSiteListFromDiscriminatorValue';
-import { deserializeIntoBrowserSiteList } from '../../../../../../models/deserializeIntoBrowserSiteList';
+import { createBrowserSiteListFromDiscriminatorValue, deserializeIntoBrowserSiteList, serializeBrowserSiteList, type BrowserSiteList } from '../../../../../../models/browserSiteList';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeBrowserSiteList } from '../../../../../../models/serializeBrowserSiteList';
-import { deserializeIntoPublishPostRequestBody } from './deserializeIntoPublishPostRequestBody';
-import { type PublishPostRequestBody } from './publishPostRequestBody';
-import { type PublishRequestBuilderPostRequestConfiguration } from './publishRequestBuilderPostRequestConfiguration';
-import { serializePublishPostRequestBody } from './serializePublishPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoPublishPostRequestBody, serializePublishPostRequestBody, type PublishPostRequestBody } from './publishPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PublishRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the publish method.
  */

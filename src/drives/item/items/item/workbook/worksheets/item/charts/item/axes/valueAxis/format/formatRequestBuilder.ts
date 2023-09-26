@@ -1,18 +1,54 @@
-import { createWorkbookChartAxisFormatFromDiscriminatorValue } from '../../../../../../../../../../../../models/createWorkbookChartAxisFormatFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartAxisFormat } from '../../../../../../../../../../../../models/deserializeIntoWorkbookChartAxisFormat';
 import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartAxisFormat } from '../../../../../../../../../../../../models/serializeWorkbookChartAxisFormat';
-import { type WorkbookChartAxisFormat } from '../../../../../../../../../../../../models/workbookChartAxisFormat';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartAxisFormatFromDiscriminatorValue, deserializeIntoWorkbookChartAxisFormat, serializeWorkbookChartAxisFormat, type WorkbookChartAxisFormat } from '../../../../../../../../../../../../models/workbookChartAxisFormat';
 import { FontRequestBuilder } from './font/fontRequestBuilder';
-import { type FormatRequestBuilderDeleteRequestConfiguration } from './formatRequestBuilderDeleteRequestConfiguration';
-import { type FormatRequestBuilderGetRequestConfiguration } from './formatRequestBuilderGetRequestConfiguration';
-import { type FormatRequestBuilderPatchRequestConfiguration } from './formatRequestBuilderPatchRequestConfiguration';
 import { LineRequestBuilder } from './line/lineRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FormatRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface FormatRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FormatRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FormatRequestBuilderGetQueryParameters;
+}
+export interface FormatRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the format property of the microsoft.graph.workbookChartAxis entity.
  */

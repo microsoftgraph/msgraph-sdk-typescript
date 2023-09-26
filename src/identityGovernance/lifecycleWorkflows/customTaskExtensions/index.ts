@@ -1,3 +1,1 @@
-export * from './customTaskExtensionsRequestBuilderGetQueryParameters'
-export * from './customTaskExtensionsRequestBuilderGetRequestConfiguration'
-export * from './customTaskExtensionsRequestBuilderPostRequestConfiguration'
+export * from './customTaskExtensionsRequestBuilder'

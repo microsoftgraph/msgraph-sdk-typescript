@@ -1,16 +1,52 @@
-import { createEmailAuthenticationMethodFromDiscriminatorValue } from '../../../../models/createEmailAuthenticationMethodFromDiscriminatorValue';
-import { deserializeIntoEmailAuthenticationMethod } from '../../../../models/deserializeIntoEmailAuthenticationMethod';
-import { type EmailAuthenticationMethod } from '../../../../models/emailAuthenticationMethod';
+import { createEmailAuthenticationMethodFromDiscriminatorValue, deserializeIntoEmailAuthenticationMethod, serializeEmailAuthenticationMethod, type EmailAuthenticationMethod } from '../../../../models/emailAuthenticationMethod';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeEmailAuthenticationMethod } from '../../../../models/serializeEmailAuthenticationMethod';
-import { type EmailAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './emailAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import { type EmailAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './emailAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
-import { type EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration } from './emailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EmailAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EmailAuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EmailAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EmailAuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
+export interface EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
  */

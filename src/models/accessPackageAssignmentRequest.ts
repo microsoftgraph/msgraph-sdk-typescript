@@ -1,57 +1,100 @@
-import { type AccessPackage } from './accessPackage';
-import { type AccessPackageAnswer } from './accessPackageAnswer';
-import { type AccessPackageAssignment } from './accessPackageAssignment';
+import { createAccessPackageFromDiscriminatorValue, serializeAccessPackage, type AccessPackage } from './accessPackage';
+import { createAccessPackageAnswerFromDiscriminatorValue, serializeAccessPackageAnswer, type AccessPackageAnswer } from './accessPackageAnswer';
+import { createAccessPackageAssignmentFromDiscriminatorValue, serializeAccessPackageAssignment, type AccessPackageAssignment } from './accessPackageAssignment';
 import { AccessPackageRequestState } from './accessPackageRequestState';
 import { AccessPackageRequestType } from './accessPackageRequestType';
-import { type AccessPackageSubject } from './accessPackageSubject';
-import { type CustomExtensionCalloutInstance } from './customExtensionCalloutInstance';
-import { type EntitlementManagementSchedule } from './entitlementManagementSchedule';
-import { type Entity } from './entity';
-import { type Parsable } from '@microsoft/kiota-abstractions';
+import { createAccessPackageSubjectFromDiscriminatorValue, serializeAccessPackageSubject, type AccessPackageSubject } from './accessPackageSubject';
+import { createCustomExtensionCalloutInstanceFromDiscriminatorValue, serializeCustomExtensionCalloutInstance, type CustomExtensionCalloutInstance } from './customExtensionCalloutInstance';
+import { createEntitlementManagementScheduleFromDiscriminatorValue, serializeEntitlementManagementSchedule, type EntitlementManagementSchedule } from './entitlementManagementSchedule';
+import { deserializeIntoEntity, serializeEntity, type Entity } from './entity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentRequest extends Entity, Parsable {
     /**
      * The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.
      */
-    accessPackage?: AccessPackage | undefined;
+    accessPackage?: AccessPackage;
     /**
      * Answers provided by the requestor to accessPackageQuestions asked of them at the time of request.
      */
-    answers?: AccessPackageAnswer[] | undefined;
+    answers?: AccessPackageAnswer[];
     /**
      * For a requestType of userAdd or adminAdd, this is an access package assignment requested to be created.  For a requestType of userRemove, adminRemove or systemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
      */
-    assignment?: AccessPackageAssignment | undefined;
+    assignment?: AccessPackageAssignment;
     /**
      * The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      */
-    completedDateTime?: Date | undefined;
+    completedDateTime?: Date;
     /**
      * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter.
      */
-    createdDateTime?: Date | undefined;
+    createdDateTime?: Date;
     /**
      * Information about all the custom extension calls that were made during the access package assignment workflow.
      */
-    customExtensionCalloutInstances?: CustomExtensionCalloutInstance[] | undefined;
+    customExtensionCalloutInstances?: CustomExtensionCalloutInstance[];
     /**
      * The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.
      */
-    requestor?: AccessPackageSubject | undefined;
+    requestor?: AccessPackageSubject;
     /**
      * The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd (not supported), unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set.
      */
-    requestType?: AccessPackageRequestType | undefined;
+    requestType?: AccessPackageRequestType;
     /**
      * The range of dates that access is to be assigned to the requestor. This property cannot be changed once set.
      */
-    schedule?: EntitlementManagementSchedule | undefined;
+    schedule?: EntitlementManagementSchedule;
     /**
      * The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only. Supports $filter (eq).
      */
-    state?: AccessPackageRequestState | undefined;
+    state?: AccessPackageRequestState;
     /**
      * More information on the request processing status. Read-only.
      */
-    status?: string | undefined;
+    status?: string;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function createAccessPackageAssignmentRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoAccessPackageAssignmentRequest;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function deserializeIntoAccessPackageAssignmentRequest(accessPackageAssignmentRequest: AccessPackageAssignmentRequest | undefined = {} as AccessPackageAssignmentRequest) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(accessPackageAssignmentRequest),
+        "accessPackage": n => { accessPackageAssignmentRequest.accessPackage = n.getObjectValue<AccessPackage>(createAccessPackageFromDiscriminatorValue); },
+        "answers": n => { accessPackageAssignmentRequest.answers = n.getCollectionOfObjectValues<AccessPackageAnswer>(createAccessPackageAnswerFromDiscriminatorValue); },
+        "assignment": n => { accessPackageAssignmentRequest.assignment = n.getObjectValue<AccessPackageAssignment>(createAccessPackageAssignmentFromDiscriminatorValue); },
+        "completedDateTime": n => { accessPackageAssignmentRequest.completedDateTime = n.getDateValue(); },
+        "createdDateTime": n => { accessPackageAssignmentRequest.createdDateTime = n.getDateValue(); },
+        "customExtensionCalloutInstances": n => { accessPackageAssignmentRequest.customExtensionCalloutInstances = n.getCollectionOfObjectValues<CustomExtensionCalloutInstance>(createCustomExtensionCalloutInstanceFromDiscriminatorValue); },
+        "requestor": n => { accessPackageAssignmentRequest.requestor = n.getObjectValue<AccessPackageSubject>(createAccessPackageSubjectFromDiscriminatorValue); },
+        "requestType": n => { accessPackageAssignmentRequest.requestType = n.getEnumValue<AccessPackageRequestType>(AccessPackageRequestType); },
+        "schedule": n => { accessPackageAssignmentRequest.schedule = n.getObjectValue<EntitlementManagementSchedule>(createEntitlementManagementScheduleFromDiscriminatorValue); },
+        "state": n => { accessPackageAssignmentRequest.state = n.getEnumValue<AccessPackageRequestState>(AccessPackageRequestState); },
+        "status": n => { accessPackageAssignmentRequest.status = n.getStringValue(); },
+    }
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function serializeAccessPackageAssignmentRequest(writer: SerializationWriter, accessPackageAssignmentRequest: AccessPackageAssignmentRequest | undefined = {} as AccessPackageAssignmentRequest) : void {
+        serializeEntity(writer, accessPackageAssignmentRequest)
+        writer.writeObjectValue<AccessPackage>("accessPackage", accessPackageAssignmentRequest.accessPackage, );
+        writer.writeCollectionOfObjectValues<AccessPackageAnswer>("answers", accessPackageAssignmentRequest.answers, );
+        writer.writeObjectValue<AccessPackageAssignment>("assignment", accessPackageAssignmentRequest.assignment, );
+        writer.writeDateValue("completedDateTime", accessPackageAssignmentRequest.completedDateTime);
+        writer.writeDateValue("createdDateTime", accessPackageAssignmentRequest.createdDateTime);
+        writer.writeCollectionOfObjectValues<CustomExtensionCalloutInstance>("customExtensionCalloutInstances", accessPackageAssignmentRequest.customExtensionCalloutInstances, );
+        writer.writeObjectValue<AccessPackageSubject>("requestor", accessPackageAssignmentRequest.requestor, );
+        writer.writeEnumValue<AccessPackageRequestType>("requestType", accessPackageAssignmentRequest.requestType);
+        writer.writeObjectValue<EntitlementManagementSchedule>("schedule", accessPackageAssignmentRequest.schedule, );
+        writer.writeEnumValue<AccessPackageRequestState>("state", accessPackageAssignmentRequest.state);
+        writer.writeStringValue("status", accessPackageAssignmentRequest.status);
 }

@@ -1,14 +1,59 @@
 import { type Fido2AuthenticationMethodCollectionResponse } from '../../../../models/';
-import { createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../../models/createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue';
+import { createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../../models/fido2AuthenticationMethodCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type Fido2MethodsRequestBuilderGetRequestConfiguration } from './fido2MethodsRequestBuilderGetRequestConfiguration';
 import { Fido2AuthenticationMethodItemRequestBuilder } from './item/fido2AuthenticationMethodItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface Fido2MethodsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface Fido2MethodsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: Fido2MethodsRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
  */

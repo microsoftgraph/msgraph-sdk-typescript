@@ -1,16 +1,52 @@
-import { createOfferShiftRequestFromDiscriminatorValue } from '../../../../../../models/createOfferShiftRequestFromDiscriminatorValue';
-import { deserializeIntoOfferShiftRequest } from '../../../../../../models/deserializeIntoOfferShiftRequest';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type OfferShiftRequest } from '../../../../../../models/offerShiftRequest';
-import { serializeOfferShiftRequest } from '../../../../../../models/serializeOfferShiftRequest';
-import { type OfferShiftRequestItemRequestBuilderDeleteRequestConfiguration } from './offerShiftRequestItemRequestBuilderDeleteRequestConfiguration';
-import { type OfferShiftRequestItemRequestBuilderGetRequestConfiguration } from './offerShiftRequestItemRequestBuilderGetRequestConfiguration';
-import { type OfferShiftRequestItemRequestBuilderPatchRequestConfiguration } from './offerShiftRequestItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createOfferShiftRequestFromDiscriminatorValue, deserializeIntoOfferShiftRequest, serializeOfferShiftRequest, type OfferShiftRequest } from '../../../../../../models/offerShiftRequest';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OfferShiftRequestItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OfferShiftRequestItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OfferShiftRequestItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OfferShiftRequestItemRequestBuilderGetQueryParameters;
+}
+export interface OfferShiftRequestItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
  */

@@ -1,14 +1,59 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type ArticleIndicatorCollectionResponse } from '../../../../../models/security/';
-import { createArticleIndicatorCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createArticleIndicatorCollectionResponseFromDiscriminatorValue';
+import { createArticleIndicatorCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/articleIndicatorCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type IndicatorsRequestBuilderGetRequestConfiguration } from './indicatorsRequestBuilderGetRequestConfiguration';
 import { ArticleIndicatorItemRequestBuilder } from './item/articleIndicatorItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IndicatorsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface IndicatorsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IndicatorsRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.article entity.
  */

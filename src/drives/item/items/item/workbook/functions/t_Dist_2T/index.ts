@@ -1,5 +1,2 @@
-export * from './createT_Dist_2TPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoT_Dist_2TPostRequestBody'
-export * from './serializeT_Dist_2TPostRequestBody'
 export * from './t_Dist_2TPostRequestBody'
-export * from './t_Dist_2TRequestBuilderPostRequestConfiguration'
+export * from './t_Dist_2TRequestBuilder'

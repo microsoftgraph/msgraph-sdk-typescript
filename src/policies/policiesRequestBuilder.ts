@@ -1,11 +1,6 @@
-import { createPolicyRootFromDiscriminatorValue } from '../models/createPolicyRootFromDiscriminatorValue';
-import { deserializeIntoPolicyRoot } from '../models/deserializeIntoPolicyRoot';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { type PolicyRoot } from '../models/policyRoot';
-import { serializePolicyRoot } from '../models/serializePolicyRoot';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createPolicyRootFromDiscriminatorValue, deserializeIntoPolicyRoot, serializePolicyRoot, type PolicyRoot } from '../models/policyRoot';
 import { ActivityBasedTimeoutPoliciesRequestBuilder } from './activityBasedTimeoutPolicies/activityBasedTimeoutPoliciesRequestBuilder';
 import { AdminConsentRequestPolicyRequestBuilder } from './adminConsentRequestPolicy/adminConsentRequestPolicyRequestBuilder';
 import { AppManagementPoliciesRequestBuilder } from './appManagementPolicies/appManagementPoliciesRequestBuilder';
@@ -21,14 +16,46 @@ import { FeatureRolloutPoliciesRequestBuilder } from './featureRolloutPolicies/f
 import { HomeRealmDiscoveryPoliciesRequestBuilder } from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
 import { IdentitySecurityDefaultsEnforcementPolicyRequestBuilder } from './identitySecurityDefaultsEnforcementPolicy/identitySecurityDefaultsEnforcementPolicyRequestBuilder';
 import { PermissionGrantPoliciesRequestBuilder } from './permissionGrantPolicies/permissionGrantPoliciesRequestBuilder';
-import { type PoliciesRequestBuilderGetRequestConfiguration } from './policiesRequestBuilderGetRequestConfiguration';
-import { type PoliciesRequestBuilderPatchRequestConfiguration } from './policiesRequestBuilderPatchRequestConfiguration';
 import { RoleManagementPoliciesRequestBuilder } from './roleManagementPolicies/roleManagementPoliciesRequestBuilder';
 import { RoleManagementPolicyAssignmentsRequestBuilder } from './roleManagementPolicyAssignments/roleManagementPolicyAssignmentsRequestBuilder';
 import { TokenIssuancePoliciesRequestBuilder } from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import { TokenLifetimePoliciesRequestBuilder } from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PoliciesRequestBuilderGetQueryParameters;
+}
+export interface PoliciesRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the policyRoot singleton.
  */

@@ -1,17 +1,19 @@
-import { createPasswordResetResponseFromDiscriminatorValue } from '../../../../../../models/createPasswordResetResponseFromDiscriminatorValue';
-import { deserializeIntoPasswordResetResponse } from '../../../../../../models/deserializeIntoPasswordResetResponse';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type PasswordResetResponse } from '../../../../../../models/passwordResetResponse';
-import { serializePasswordResetResponse } from '../../../../../../models/serializePasswordResetResponse';
-import { deserializeIntoResetPasswordPostRequestBody } from './deserializeIntoResetPasswordPostRequestBody';
-import { type ResetPasswordPostRequestBody } from './resetPasswordPostRequestBody';
-import { type ResetPasswordRequestBuilderPostRequestConfiguration } from './resetPasswordRequestBuilderPostRequestConfiguration';
-import { serializeResetPasswordPostRequestBody } from './serializeResetPasswordPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createPasswordResetResponseFromDiscriminatorValue, deserializeIntoPasswordResetResponse, serializePasswordResetResponse, type PasswordResetResponse } from '../../../../../../models/passwordResetResponse';
+import { deserializeIntoResetPasswordPostRequestBody, serializeResetPasswordPostRequestBody, type ResetPasswordPostRequestBody } from './resetPasswordPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ResetPasswordRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the resetPassword method.
  */

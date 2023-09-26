@@ -1,3 +1,1 @@
-export * from './roleEligibilitySchedulesRequestBuilderGetQueryParameters'
-export * from './roleEligibilitySchedulesRequestBuilderGetRequestConfiguration'
-export * from './roleEligibilitySchedulesRequestBuilderPostRequestConfiguration'
+export * from './roleEligibilitySchedulesRequestBuilder'

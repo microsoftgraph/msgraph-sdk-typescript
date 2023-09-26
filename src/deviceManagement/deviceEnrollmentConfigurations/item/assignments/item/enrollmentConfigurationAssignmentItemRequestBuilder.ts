@@ -1,16 +1,52 @@
-import { createEnrollmentConfigurationAssignmentFromDiscriminatorValue } from '../../../../../models/createEnrollmentConfigurationAssignmentFromDiscriminatorValue';
-import { deserializeIntoEnrollmentConfigurationAssignment } from '../../../../../models/deserializeIntoEnrollmentConfigurationAssignment';
-import { type EnrollmentConfigurationAssignment } from '../../../../../models/enrollmentConfigurationAssignment';
+import { createEnrollmentConfigurationAssignmentFromDiscriminatorValue, deserializeIntoEnrollmentConfigurationAssignment, serializeEnrollmentConfigurationAssignment, type EnrollmentConfigurationAssignment } from '../../../../../models/enrollmentConfigurationAssignment';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeEnrollmentConfigurationAssignment } from '../../../../../models/serializeEnrollmentConfigurationAssignment';
-import { type EnrollmentConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration } from './enrollmentConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type EnrollmentConfigurationAssignmentItemRequestBuilderGetRequestConfiguration } from './enrollmentConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type EnrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration } from './enrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EnrollmentConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EnrollmentConfigurationAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EnrollmentConfigurationAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EnrollmentConfigurationAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface EnrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceEnrollmentConfiguration entity.
  */

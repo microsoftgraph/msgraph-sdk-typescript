@@ -1,19 +1,70 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { type IncidentCollectionResponse } from '../../models/security/';
-import { createIncidentCollectionResponseFromDiscriminatorValue } from '../../models/security/createIncidentCollectionResponseFromDiscriminatorValue';
-import { createIncidentFromDiscriminatorValue } from '../../models/security/createIncidentFromDiscriminatorValue';
-import { deserializeIntoIncident } from '../../models/security/deserializeIntoIncident';
-import { type Incident } from '../../models/security/incident';
-import { serializeIncident } from '../../models/security/serializeIncident';
+import { createIncidentFromDiscriminatorValue, deserializeIntoIncident, serializeIncident, type Incident } from '../../models/security/incident';
+import { createIncidentCollectionResponseFromDiscriminatorValue } from '../../models/security/incidentCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type IncidentsRequestBuilderGetRequestConfiguration } from './incidentsRequestBuilderGetRequestConfiguration';
-import { type IncidentsRequestBuilderPostRequestConfiguration } from './incidentsRequestBuilderPostRequestConfiguration';
 import { IncidentItemRequestBuilder } from './item/incidentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IncidentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface IncidentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IncidentsRequestBuilderGetQueryParameters;
+}
+export interface IncidentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the incidents property of the microsoft.graph.security entity.
  */

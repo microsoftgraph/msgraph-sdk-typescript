@@ -1,24 +1,75 @@
 import { type DirectoryObjectCollectionResponse } from '../../../../../models/';
-import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
-import { createDirectoryObjectFromDiscriminatorValue } from '../../../../../models/createDirectoryObjectFromDiscriminatorValue';
-import { deserializeIntoDirectoryObject } from '../../../../../models/deserializeIntoDirectoryObject';
-import { type DirectoryObject } from '../../../../../models/directoryObject';
+import { createDirectoryObjectFromDiscriminatorValue, deserializeIntoDirectoryObject, serializeDirectoryObject, type DirectoryObject } from '../../../../../models/directoryObject';
+import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../../../../models/directoryObjectCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeDirectoryObject } from '../../../../../models/serializeDirectoryObject';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
-import { type InternalSponsorsRequestBuilderGetRequestConfiguration } from './internalSponsorsRequestBuilderGetRequestConfiguration';
-import { type InternalSponsorsRequestBuilderPostRequestConfiguration } from './internalSponsorsRequestBuilderPostRequestConfiguration';
 import { DirectoryObjectItemRequestBuilder } from './item/directoryObjectItemRequestBuilder';
 import { RefRequestBuilder } from './ref/refRequestBuilder';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InternalSponsorsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface InternalSponsorsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InternalSponsorsRequestBuilderGetQueryParameters;
+}
+export interface InternalSponsorsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the internalSponsors property of the microsoft.graph.connectedOrganization entity.
  */

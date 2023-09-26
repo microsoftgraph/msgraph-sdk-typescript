@@ -1,16 +1,52 @@
-import { createEducationCategoryFromDiscriminatorValue } from '../../../../../models/createEducationCategoryFromDiscriminatorValue';
-import { deserializeIntoEducationCategory } from '../../../../../models/deserializeIntoEducationCategory';
-import { type EducationCategory } from '../../../../../models/educationCategory';
+import { createEducationCategoryFromDiscriminatorValue, deserializeIntoEducationCategory, serializeEducationCategory, type EducationCategory } from '../../../../../models/educationCategory';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationCategory } from '../../../../../models/serializeEducationCategory';
-import { type EducationCategoryItemRequestBuilderDeleteRequestConfiguration } from './educationCategoryItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationCategoryItemRequestBuilderGetRequestConfiguration } from './educationCategoryItemRequestBuilderGetRequestConfiguration';
-import { type EducationCategoryItemRequestBuilderPatchRequestConfiguration } from './educationCategoryItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationCategoryItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationCategoryItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationCategoryItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationCategoryItemRequestBuilderGetQueryParameters;
+}
+export interface EducationCategoryItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
  */

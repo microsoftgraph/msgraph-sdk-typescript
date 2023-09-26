@@ -1,18 +1,54 @@
-import { createPrintDocumentFromDiscriminatorValue } from '../../../../../../../models/createPrintDocumentFromDiscriminatorValue';
-import { deserializeIntoPrintDocument } from '../../../../../../../models/deserializeIntoPrintDocument';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { type PrintDocument } from '../../../../../../../models/printDocument';
-import { serializePrintDocument } from '../../../../../../../models/serializePrintDocument';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createPrintDocumentFromDiscriminatorValue, deserializeIntoPrintDocument, serializePrintDocument, type PrintDocument } from '../../../../../../../models/printDocument';
 import { CreateUploadSessionRequestBuilder } from './createUploadSession/createUploadSessionRequestBuilder';
-import { type PrintDocumentItemRequestBuilderDeleteRequestConfiguration } from './printDocumentItemRequestBuilderDeleteRequestConfiguration';
-import { type PrintDocumentItemRequestBuilderGetRequestConfiguration } from './printDocumentItemRequestBuilderGetRequestConfiguration';
-import { type PrintDocumentItemRequestBuilderPatchRequestConfiguration } from './printDocumentItemRequestBuilderPatchRequestConfiguration';
 import { ContentRequestBuilder } from './value/contentRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrintDocumentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PrintDocumentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PrintDocumentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrintDocumentItemRequestBuilderGetQueryParameters;
+}
+export interface PrintDocumentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the documents property of the microsoft.graph.printJob entity.
  */

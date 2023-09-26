@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type ConfirmCompromisedPostRequestBody } from './confirmCompromisedPostRequestBody';
-import { type ConfirmCompromisedRequestBuilderPostRequestConfiguration } from './confirmCompromisedRequestBuilderPostRequestConfiguration';
-import { deserializeIntoConfirmCompromisedPostRequestBody } from './deserializeIntoConfirmCompromisedPostRequestBody';
-import { serializeConfirmCompromisedPostRequestBody } from './serializeConfirmCompromisedPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoConfirmCompromisedPostRequestBody, serializeConfirmCompromisedPostRequestBody, type ConfirmCompromisedPostRequestBody } from './confirmCompromisedPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConfirmCompromisedRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the confirmCompromised method.
  */

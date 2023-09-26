@@ -1,16 +1,8 @@
-import { createDeviceConfigurationFromDiscriminatorValue } from '../../../models/createDeviceConfigurationFromDiscriminatorValue';
-import { deserializeIntoDeviceConfiguration } from '../../../models/deserializeIntoDeviceConfiguration';
-import { type DeviceConfiguration } from '../../../models/deviceConfiguration';
+import { createDeviceConfigurationFromDiscriminatorValue, deserializeIntoDeviceConfiguration, serializeDeviceConfiguration, type DeviceConfiguration } from '../../../models/deviceConfiguration';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceConfiguration } from '../../../models/serializeDeviceConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AssignRequestBuilder } from './assign/assignRequestBuilder';
 import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
-import { type DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration } from './deviceConfigurationItemRequestBuilderDeleteRequestConfiguration';
-import { type DeviceConfigurationItemRequestBuilderGetRequestConfiguration } from './deviceConfigurationItemRequestBuilderGetRequestConfiguration';
-import { type DeviceConfigurationItemRequestBuilderPatchRequestConfiguration } from './deviceConfigurationItemRequestBuilderPatchRequestConfiguration';
 import { DeviceSettingStateSummariesRequestBuilder } from './deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
 import { DeviceStatusesRequestBuilder } from './deviceStatuses/deviceStatusesRequestBuilder';
 import { DeviceStatusOverviewRequestBuilder } from './deviceStatusOverview/deviceStatusOverviewRequestBuilder';
@@ -19,6 +11,50 @@ import { UserStatusesRequestBuilder } from './userStatuses/userStatusesRequestBu
 import { UserStatusOverviewRequestBuilder } from './userStatusOverview/userStatusOverviewRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceConfigurationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceConfigurationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceConfigurationItemRequestBuilderGetQueryParameters;
+}
+export interface DeviceConfigurationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
  */
@@ -74,9 +110,9 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a windows10EnterpriseModernAppManagementConfiguration.
+     * Deletes a androidWorkProfileCustomConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10enterprisemodernappmanagementconfiguration-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecustomconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -89,10 +125,10 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the androidWorkProfileCustomConfiguration object.
+     * Read properties and relationships of the windowsPhone81CustomConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecustomconfiguration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsphone81customconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfiguration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -114,11 +150,11 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder {
         return new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder(this.pathParameters, this.requestAdapter, secretReferenceValueId);
     };
     /**
-     * Update the properties of a windows81GeneralConfiguration object.
+     * Update the properties of a windows10TeamGeneralConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81generalconfiguration-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10teamgeneralconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceConfiguration, requestConfiguration?: DeviceConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfiguration | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -131,7 +167,7 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceConfiguration>(requestInfo, createDeviceConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a windows10EnterpriseModernAppManagementConfiguration.
+     * Deletes a androidWorkProfileCustomConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -147,7 +183,7 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the androidWorkProfileCustomConfiguration object.
+     * Read properties and relationships of the windowsPhone81CustomConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -165,7 +201,7 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a windows81GeneralConfiguration object.
+     * Update the properties of a windows10TeamGeneralConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

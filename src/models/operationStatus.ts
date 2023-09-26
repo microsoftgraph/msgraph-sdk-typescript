@@ -4,3 +4,5 @@ export enum OperationStatus {
     Completed = "Completed",
     Failed = "Failed",
 }
+// tslint:enable
+// eslint-enable

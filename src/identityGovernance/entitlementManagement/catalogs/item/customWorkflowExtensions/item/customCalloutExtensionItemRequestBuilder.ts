@@ -1,16 +1,52 @@
-import { createCustomCalloutExtensionFromDiscriminatorValue } from '../../../../../../models/createCustomCalloutExtensionFromDiscriminatorValue';
-import { type CustomCalloutExtension } from '../../../../../../models/customCalloutExtension';
-import { deserializeIntoCustomCalloutExtension } from '../../../../../../models/deserializeIntoCustomCalloutExtension';
+import { createCustomCalloutExtensionFromDiscriminatorValue, deserializeIntoCustomCalloutExtension, serializeCustomCalloutExtension, type CustomCalloutExtension } from '../../../../../../models/customCalloutExtension';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeCustomCalloutExtension } from '../../../../../../models/serializeCustomCalloutExtension';
-import { type CustomCalloutExtensionItemRequestBuilderDeleteRequestConfiguration } from './customCalloutExtensionItemRequestBuilderDeleteRequestConfiguration';
-import { type CustomCalloutExtensionItemRequestBuilderGetRequestConfiguration } from './customCalloutExtensionItemRequestBuilderGetRequestConfiguration';
-import { type CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration } from './customCalloutExtensionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CustomCalloutExtensionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CustomCalloutExtensionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CustomCalloutExtensionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CustomCalloutExtensionItemRequestBuilderGetQueryParameters;
+}
+export interface CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
  */

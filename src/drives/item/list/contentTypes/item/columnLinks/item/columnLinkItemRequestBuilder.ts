@@ -1,16 +1,52 @@
-import { type ColumnLink } from '../../../../../../../models/columnLink';
-import { createColumnLinkFromDiscriminatorValue } from '../../../../../../../models/createColumnLinkFromDiscriminatorValue';
-import { deserializeIntoColumnLink } from '../../../../../../../models/deserializeIntoColumnLink';
+import { createColumnLinkFromDiscriminatorValue, deserializeIntoColumnLink, serializeColumnLink, type ColumnLink } from '../../../../../../../models/columnLink';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeColumnLink } from '../../../../../../../models/serializeColumnLink';
-import { type ColumnLinkItemRequestBuilderDeleteRequestConfiguration } from './columnLinkItemRequestBuilderDeleteRequestConfiguration';
-import { type ColumnLinkItemRequestBuilderGetRequestConfiguration } from './columnLinkItemRequestBuilderGetRequestConfiguration';
-import { type ColumnLinkItemRequestBuilderPatchRequestConfiguration } from './columnLinkItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ColumnLinkItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ColumnLinkItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ColumnLinkItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ColumnLinkItemRequestBuilderGetQueryParameters;
+}
+export interface ColumnLinkItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.
  */

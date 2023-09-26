@@ -1,19 +1,70 @@
 import { type GovernanceInsightCollectionResponse } from '../../../../../../../../../../../models/';
-import { createGovernanceInsightCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../models/createGovernanceInsightCollectionResponseFromDiscriminatorValue';
-import { createGovernanceInsightFromDiscriminatorValue } from '../../../../../../../../../../../models/createGovernanceInsightFromDiscriminatorValue';
-import { deserializeIntoGovernanceInsight } from '../../../../../../../../../../../models/deserializeIntoGovernanceInsight';
-import { type GovernanceInsight } from '../../../../../../../../../../../models/governanceInsight';
+import { createGovernanceInsightFromDiscriminatorValue, deserializeIntoGovernanceInsight, serializeGovernanceInsight, type GovernanceInsight } from '../../../../../../../../../../../models/governanceInsight';
+import { createGovernanceInsightCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../models/governanceInsightCollectionResponse';
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeGovernanceInsight } from '../../../../../../../../../../../models/serializeGovernanceInsight';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type InsightsRequestBuilderGetRequestConfiguration } from './insightsRequestBuilderGetRequestConfiguration';
-import { type InsightsRequestBuilderPostRequestConfiguration } from './insightsRequestBuilderPostRequestConfiguration';
 import { GovernanceInsightItemRequestBuilder } from './item/governanceInsightItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InsightsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface InsightsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InsightsRequestBuilderGetQueryParameters;
+}
+export interface InsightsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
  */

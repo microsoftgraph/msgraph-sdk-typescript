@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryReviewSetQueryCollectionResponse } from '../../../../../../../models/security/';
-import { createEdiscoveryReviewSetQueryCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/createEdiscoveryReviewSetQueryCollectionResponseFromDiscriminatorValue';
-import { createEdiscoveryReviewSetQueryFromDiscriminatorValue } from '../../../../../../../models/security/createEdiscoveryReviewSetQueryFromDiscriminatorValue';
-import { deserializeIntoEdiscoveryReviewSetQuery } from '../../../../../../../models/security/deserializeIntoEdiscoveryReviewSetQuery';
-import { type EdiscoveryReviewSetQuery } from '../../../../../../../models/security/ediscoveryReviewSetQuery';
-import { serializeEdiscoveryReviewSetQuery } from '../../../../../../../models/security/serializeEdiscoveryReviewSetQuery';
+import { createEdiscoveryReviewSetQueryFromDiscriminatorValue, deserializeIntoEdiscoveryReviewSetQuery, serializeEdiscoveryReviewSetQuery, type EdiscoveryReviewSetQuery } from '../../../../../../../models/security/ediscoveryReviewSetQuery';
+import { createEdiscoveryReviewSetQueryCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/ediscoveryReviewSetQueryCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { EdiscoveryReviewSetQueryItemRequestBuilder } from './item/ediscoveryReviewSetQueryItemRequestBuilder';
-import { type QueriesRequestBuilderGetRequestConfiguration } from './queriesRequestBuilderGetRequestConfiguration';
-import { type QueriesRequestBuilderPostRequestConfiguration } from './queriesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface QueriesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface QueriesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: QueriesRequestBuilderGetQueryParameters;
+}
+export interface QueriesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
  */

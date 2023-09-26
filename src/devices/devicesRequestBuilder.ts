@@ -1,23 +1,74 @@
 import { type DeviceCollectionResponse } from '../models/';
-import { createDeviceCollectionResponseFromDiscriminatorValue } from '../models/createDeviceCollectionResponseFromDiscriminatorValue';
-import { createDeviceFromDiscriminatorValue } from '../models/createDeviceFromDiscriminatorValue';
-import { deserializeIntoDevice } from '../models/deserializeIntoDevice';
-import { type Device } from '../models/device';
+import { createDeviceFromDiscriminatorValue, deserializeIntoDevice, serializeDevice, type Device } from '../models/device';
+import { createDeviceCollectionResponseFromDiscriminatorValue } from '../models/deviceCollectionResponse';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeDevice } from '../models/serializeDevice';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
-import { type DevicesRequestBuilderGetRequestConfiguration } from './devicesRequestBuilderGetRequestConfiguration';
-import { type DevicesRequestBuilderPostRequestConfiguration } from './devicesRequestBuilderPostRequestConfiguration';
 import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
 import { DeviceItemRequestBuilder } from './item/deviceItemRequestBuilder';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DevicesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DevicesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DevicesRequestBuilderGetQueryParameters;
+}
+export interface DevicesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of device entities.
  */

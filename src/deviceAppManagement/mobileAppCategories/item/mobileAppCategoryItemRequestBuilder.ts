@@ -1,16 +1,52 @@
-import { createMobileAppCategoryFromDiscriminatorValue } from '../../../models/createMobileAppCategoryFromDiscriminatorValue';
-import { deserializeIntoMobileAppCategory } from '../../../models/deserializeIntoMobileAppCategory';
-import { type MobileAppCategory } from '../../../models/mobileAppCategory';
+import { createMobileAppCategoryFromDiscriminatorValue, deserializeIntoMobileAppCategory, serializeMobileAppCategory, type MobileAppCategory } from '../../../models/mobileAppCategory';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeMobileAppCategory } from '../../../models/serializeMobileAppCategory';
-import { type MobileAppCategoryItemRequestBuilderDeleteRequestConfiguration } from './mobileAppCategoryItemRequestBuilderDeleteRequestConfiguration';
-import { type MobileAppCategoryItemRequestBuilderGetRequestConfiguration } from './mobileAppCategoryItemRequestBuilderGetRequestConfiguration';
-import { type MobileAppCategoryItemRequestBuilderPatchRequestConfiguration } from './mobileAppCategoryItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MobileAppCategoryItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MobileAppCategoryItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MobileAppCategoryItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MobileAppCategoryItemRequestBuilderGetQueryParameters;
+}
+export interface MobileAppCategoryItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.
  */

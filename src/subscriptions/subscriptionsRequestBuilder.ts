@@ -1,18 +1,45 @@
 import { type SubscriptionCollectionResponse } from '../models/';
-import { createSubscriptionCollectionResponseFromDiscriminatorValue } from '../models/createSubscriptionCollectionResponseFromDiscriminatorValue';
-import { createSubscriptionFromDiscriminatorValue } from '../models/createSubscriptionFromDiscriminatorValue';
-import { deserializeIntoSubscription } from '../models/deserializeIntoSubscription';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeSubscription } from '../models/serializeSubscription';
-import { type Subscription } from '../models/subscription';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createSubscriptionFromDiscriminatorValue, deserializeIntoSubscription, serializeSubscription, type Subscription } from '../models/subscription';
+import { createSubscriptionCollectionResponseFromDiscriminatorValue } from '../models/subscriptionCollectionResponse';
 import { SubscriptionItemRequestBuilder } from './item/subscriptionItemRequestBuilder';
-import { type SubscriptionsRequestBuilderGetRequestConfiguration } from './subscriptionsRequestBuilderGetRequestConfiguration';
-import { type SubscriptionsRequestBuilderPostRequestConfiguration } from './subscriptionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SubscriptionsRequestBuilderGetQueryParameters {
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SubscriptionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SubscriptionsRequestBuilderGetQueryParameters;
+}
+export interface SubscriptionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of subscription entities.
  */

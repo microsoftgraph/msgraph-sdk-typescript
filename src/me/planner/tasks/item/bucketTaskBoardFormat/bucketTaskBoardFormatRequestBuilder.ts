@@ -1,16 +1,52 @@
-import { createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue } from '../../../../../models/createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue';
-import { deserializeIntoPlannerBucketTaskBoardTaskFormat } from '../../../../../models/deserializeIntoPlannerBucketTaskBoardTaskFormat';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type PlannerBucketTaskBoardTaskFormat } from '../../../../../models/plannerBucketTaskBoardTaskFormat';
-import { serializePlannerBucketTaskBoardTaskFormat } from '../../../../../models/serializePlannerBucketTaskBoardTaskFormat';
-import { type BucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration } from './bucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
-import { type BucketTaskBoardFormatRequestBuilderGetRequestConfiguration } from './bucketTaskBoardFormatRequestBuilderGetRequestConfiguration';
-import { type BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration } from './bucketTaskBoardFormatRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue, deserializeIntoPlannerBucketTaskBoardTaskFormat, serializePlannerBucketTaskBoardTaskFormat, type PlannerBucketTaskBoardTaskFormat } from '../../../../../models/plannerBucketTaskBoardTaskFormat';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BucketTaskBoardFormatRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BucketTaskBoardFormatRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BucketTaskBoardFormatRequestBuilderGetQueryParameters;
+}
+export interface BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the bucketTaskBoardFormat property of the microsoft.graph.plannerTask entity.
  */

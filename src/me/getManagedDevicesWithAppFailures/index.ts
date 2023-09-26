@@ -1,6 +1,2 @@
-export * from './createGetManagedDevicesWithAppFailuresResponseFromDiscriminatorValue'
-export * from './deserializeIntoGetManagedDevicesWithAppFailuresResponse'
-export * from './getManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters'
-export * from './getManagedDevicesWithAppFailuresRequestBuilderGetRequestConfiguration'
+export * from './getManagedDevicesWithAppFailuresRequestBuilder'
 export * from './getManagedDevicesWithAppFailuresResponse'
-export * from './serializeGetManagedDevicesWithAppFailuresResponse'

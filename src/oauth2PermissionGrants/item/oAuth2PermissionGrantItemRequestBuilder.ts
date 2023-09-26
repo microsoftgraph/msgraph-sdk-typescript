@@ -1,16 +1,52 @@
-import { createOAuth2PermissionGrantFromDiscriminatorValue } from '../../models/createOAuth2PermissionGrantFromDiscriminatorValue';
-import { deserializeIntoOAuth2PermissionGrant } from '../../models/deserializeIntoOAuth2PermissionGrant';
-import { type OAuth2PermissionGrant } from '../../models/oAuth2PermissionGrant';
+import { createOAuth2PermissionGrantFromDiscriminatorValue, deserializeIntoOAuth2PermissionGrant, serializeOAuth2PermissionGrant, type OAuth2PermissionGrant } from '../../models/oAuth2PermissionGrant';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeOAuth2PermissionGrant } from '../../models/serializeOAuth2PermissionGrant';
-import { type OAuth2PermissionGrantItemRequestBuilderDeleteRequestConfiguration } from './oAuth2PermissionGrantItemRequestBuilderDeleteRequestConfiguration';
-import { type OAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration } from './oAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration';
-import { type OAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration } from './oAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OAuth2PermissionGrantItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OAuth2PermissionGrantItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OAuth2PermissionGrantItemRequestBuilderGetQueryParameters;
+}
+export interface OAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of oAuth2PermissionGrant entities.
  */

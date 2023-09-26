@@ -1,12 +1,33 @@
 import { type EducationSchool } from '../../../../models/';
-import { createEducationSchoolFromDiscriminatorValue } from '../../../../models/createEducationSchoolFromDiscriminatorValue';
+import { createEducationSchoolFromDiscriminatorValue } from '../../../../models/educationSchool';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type EducationSchoolItemRequestBuilderGetRequestConfiguration } from './educationSchoolItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationSchoolItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationSchoolItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationSchoolItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationUser entity.
  */

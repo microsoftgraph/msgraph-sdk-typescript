@@ -1,2 +1,1 @@
-export * from './artifactRequestBuilderGetQueryParameters'
-export * from './artifactRequestBuilderGetRequestConfiguration'
+export * from './artifactRequestBuilder'

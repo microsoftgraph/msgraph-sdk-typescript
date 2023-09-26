@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createGetStaffAvailabilityResponseFromDiscriminatorValue } from './createGetStaffAvailabilityResponseFromDiscriminatorValue';
-import { deserializeIntoGetStaffAvailabilityPostRequestBody } from './deserializeIntoGetStaffAvailabilityPostRequestBody';
-import { deserializeIntoGetStaffAvailabilityResponse } from './deserializeIntoGetStaffAvailabilityResponse';
-import { type GetStaffAvailabilityPostRequestBody } from './getStaffAvailabilityPostRequestBody';
-import { type GetStaffAvailabilityRequestBuilderPostRequestConfiguration } from './getStaffAvailabilityRequestBuilderPostRequestConfiguration';
-import { type GetStaffAvailabilityResponse } from './getStaffAvailabilityResponse';
-import { serializeGetStaffAvailabilityPostRequestBody } from './serializeGetStaffAvailabilityPostRequestBody';
-import { serializeGetStaffAvailabilityResponse } from './serializeGetStaffAvailabilityResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetStaffAvailabilityPostRequestBody, serializeGetStaffAvailabilityPostRequestBody, type GetStaffAvailabilityPostRequestBody } from './getStaffAvailabilityPostRequestBody';
+import { createGetStaffAvailabilityResponseFromDiscriminatorValue, deserializeIntoGetStaffAvailabilityResponse, serializeGetStaffAvailabilityResponse, type GetStaffAvailabilityResponse } from './getStaffAvailabilityResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetStaffAvailabilityRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getStaffAvailability method.
  */

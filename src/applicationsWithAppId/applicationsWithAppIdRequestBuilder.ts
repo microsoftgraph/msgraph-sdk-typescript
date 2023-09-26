@@ -1,16 +1,52 @@
-import { type Application } from '../models/application';
-import { createApplicationFromDiscriminatorValue } from '../models/createApplicationFromDiscriminatorValue';
-import { deserializeIntoApplication } from '../models/deserializeIntoApplication';
+import { createApplicationFromDiscriminatorValue, deserializeIntoApplication, serializeApplication, type Application } from '../models/application';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeApplication } from '../models/serializeApplication';
-import { type ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration } from './applicationsWithAppIdRequestBuilderDeleteRequestConfiguration';
-import { type ApplicationsWithAppIdRequestBuilderGetRequestConfiguration } from './applicationsWithAppIdRequestBuilderGetRequestConfiguration';
-import { type ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration } from './applicationsWithAppIdRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ApplicationsWithAppIdRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ApplicationsWithAppIdRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ApplicationsWithAppIdRequestBuilderGetQueryParameters;
+}
+export interface ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of application entities.
  */

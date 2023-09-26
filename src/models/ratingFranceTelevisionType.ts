@@ -15,3 +15,5 @@ export enum RatingFranceTelevisionType {
     /** The -18 classification is not recommended for persons under 18 */
     AgesAbove18 = "agesAbove18",
 }
+// tslint:enable
+// eslint-enable

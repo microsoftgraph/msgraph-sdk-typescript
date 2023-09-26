@@ -1,16 +1,48 @@
-import { type CalendarPermission } from '../../../../../models/calendarPermission';
-import { createCalendarPermissionFromDiscriminatorValue } from '../../../../../models/createCalendarPermissionFromDiscriminatorValue';
-import { deserializeIntoCalendarPermission } from '../../../../../models/deserializeIntoCalendarPermission';
+import { createCalendarPermissionFromDiscriminatorValue, deserializeIntoCalendarPermission, serializeCalendarPermission, type CalendarPermission } from '../../../../../models/calendarPermission';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeCalendarPermission } from '../../../../../models/serializeCalendarPermission';
-import { type CalendarPermissionItemRequestBuilderDeleteRequestConfiguration } from './calendarPermissionItemRequestBuilderDeleteRequestConfiguration';
-import { type CalendarPermissionItemRequestBuilderGetRequestConfiguration } from './calendarPermissionItemRequestBuilderGetRequestConfiguration';
-import { type CalendarPermissionItemRequestBuilderPatchRequestConfiguration } from './calendarPermissionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CalendarPermissionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CalendarPermissionItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CalendarPermissionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CalendarPermissionItemRequestBuilderGetQueryParameters;
+}
+export interface CalendarPermissionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
  */

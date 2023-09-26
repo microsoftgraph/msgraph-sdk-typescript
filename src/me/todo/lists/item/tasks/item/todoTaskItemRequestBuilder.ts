@@ -1,21 +1,57 @@
-import { createTodoTaskFromDiscriminatorValue } from '../../../../../../models/createTodoTaskFromDiscriminatorValue';
-import { deserializeIntoTodoTask } from '../../../../../../models/deserializeIntoTodoTask';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeTodoTask } from '../../../../../../models/serializeTodoTask';
-import { type TodoTask } from '../../../../../../models/todoTask';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createTodoTaskFromDiscriminatorValue, deserializeIntoTodoTask, serializeTodoTask, type TodoTask } from '../../../../../../models/todoTask';
 import { AttachmentsRequestBuilder } from './attachments/attachmentsRequestBuilder';
 import { AttachmentSessionsRequestBuilder } from './attachmentSessions/attachmentSessionsRequestBuilder';
 import { ChecklistItemsRequestBuilder } from './checklistItems/checklistItemsRequestBuilder';
 import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
 import { LinkedResourcesRequestBuilder } from './linkedResources/linkedResourcesRequestBuilder';
-import { type TodoTaskItemRequestBuilderDeleteRequestConfiguration } from './todoTaskItemRequestBuilderDeleteRequestConfiguration';
-import { type TodoTaskItemRequestBuilderGetRequestConfiguration } from './todoTaskItemRequestBuilderGetRequestConfiguration';
-import { type TodoTaskItemRequestBuilderPatchRequestConfiguration } from './todoTaskItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TodoTaskItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TodoTaskItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TodoTaskItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TodoTaskItemRequestBuilderGetQueryParameters;
+}
+export interface TodoTaskItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
  */

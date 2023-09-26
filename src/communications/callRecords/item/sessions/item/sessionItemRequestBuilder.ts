@@ -1,17 +1,53 @@
-import { createSessionFromDiscriminatorValue } from '../../../../../models/callRecords/createSessionFromDiscriminatorValue';
-import { deserializeIntoSession } from '../../../../../models/callRecords/deserializeIntoSession';
-import { serializeSession } from '../../../../../models/callRecords/serializeSession';
-import { type Session } from '../../../../../models/callRecords/session';
+import { createSessionFromDiscriminatorValue, deserializeIntoSession, serializeSession, type Session } from '../../../../../models/callRecords/session';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { SegmentsRequestBuilder } from './segments/segmentsRequestBuilder';
-import { type SessionItemRequestBuilderDeleteRequestConfiguration } from './sessionItemRequestBuilderDeleteRequestConfiguration';
-import { type SessionItemRequestBuilderGetRequestConfiguration } from './sessionItemRequestBuilderGetRequestConfiguration';
-import { type SessionItemRequestBuilderPatchRequestConfiguration } from './sessionItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SessionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SessionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SessionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SessionItemRequestBuilderGetQueryParameters;
+}
+export interface SessionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
  */

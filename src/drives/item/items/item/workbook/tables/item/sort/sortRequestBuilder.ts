@@ -1,19 +1,55 @@
-import { createWorkbookTableSortFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookTableSortFromDiscriminatorValue';
-import { deserializeIntoWorkbookTableSort } from '../../../../../../../../models/deserializeIntoWorkbookTableSort';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookTableSort } from '../../../../../../../../models/serializeWorkbookTableSort';
-import { type WorkbookTableSort } from '../../../../../../../../models/workbookTableSort';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookTableSortFromDiscriminatorValue, deserializeIntoWorkbookTableSort, serializeWorkbookTableSort, type WorkbookTableSort } from '../../../../../../../../models/workbookTableSort';
 import { ApplyRequestBuilder } from './apply/applyRequestBuilder';
 import { ClearRequestBuilder } from './clear/clearRequestBuilder';
 import { ReapplyRequestBuilder } from './reapply/reapplyRequestBuilder';
-import { type SortRequestBuilderDeleteRequestConfiguration } from './sortRequestBuilderDeleteRequestConfiguration';
-import { type SortRequestBuilderGetRequestConfiguration } from './sortRequestBuilderGetRequestConfiguration';
-import { type SortRequestBuilderPatchRequestConfiguration } from './sortRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SortRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SortRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SortRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SortRequestBuilderGetQueryParameters;
+}
+export interface SortRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sort property of the microsoft.graph.workbookTable entity.
  */

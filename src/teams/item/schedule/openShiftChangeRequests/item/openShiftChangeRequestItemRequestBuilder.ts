@@ -1,16 +1,52 @@
-import { createOpenShiftChangeRequestFromDiscriminatorValue } from '../../../../../models/createOpenShiftChangeRequestFromDiscriminatorValue';
-import { deserializeIntoOpenShiftChangeRequest } from '../../../../../models/deserializeIntoOpenShiftChangeRequest';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type OpenShiftChangeRequest } from '../../../../../models/openShiftChangeRequest';
-import { serializeOpenShiftChangeRequest } from '../../../../../models/serializeOpenShiftChangeRequest';
-import { type OpenShiftChangeRequestItemRequestBuilderDeleteRequestConfiguration } from './openShiftChangeRequestItemRequestBuilderDeleteRequestConfiguration';
-import { type OpenShiftChangeRequestItemRequestBuilderGetRequestConfiguration } from './openShiftChangeRequestItemRequestBuilderGetRequestConfiguration';
-import { type OpenShiftChangeRequestItemRequestBuilderPatchRequestConfiguration } from './openShiftChangeRequestItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createOpenShiftChangeRequestFromDiscriminatorValue, deserializeIntoOpenShiftChangeRequest, serializeOpenShiftChangeRequest, type OpenShiftChangeRequest } from '../../../../../models/openShiftChangeRequest';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OpenShiftChangeRequestItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OpenShiftChangeRequestItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OpenShiftChangeRequestItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OpenShiftChangeRequestItemRequestBuilderGetQueryParameters;
+}
+export interface OpenShiftChangeRequestItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
  */

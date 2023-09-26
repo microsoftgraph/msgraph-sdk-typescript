@@ -1,21 +1,72 @@
 import { type RiskyUserCollectionResponse } from '../../models/';
-import { createRiskyUserCollectionResponseFromDiscriminatorValue } from '../../models/createRiskyUserCollectionResponseFromDiscriminatorValue';
-import { createRiskyUserFromDiscriminatorValue } from '../../models/createRiskyUserFromDiscriminatorValue';
-import { deserializeIntoRiskyUser } from '../../models/deserializeIntoRiskyUser';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type RiskyUser } from '../../models/riskyUser';
-import { serializeRiskyUser } from '../../models/serializeRiskyUser';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createRiskyUserFromDiscriminatorValue, deserializeIntoRiskyUser, serializeRiskyUser, type RiskyUser } from '../../models/riskyUser';
+import { createRiskyUserCollectionResponseFromDiscriminatorValue } from '../../models/riskyUserCollectionResponse';
 import { ConfirmCompromisedRequestBuilder } from './confirmCompromised/confirmCompromisedRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DismissRequestBuilder } from './dismiss/dismissRequestBuilder';
 import { RiskyUserItemRequestBuilder } from './item/riskyUserItemRequestBuilder';
-import { type RiskyUsersRequestBuilderGetRequestConfiguration } from './riskyUsersRequestBuilderGetRequestConfiguration';
-import { type RiskyUsersRequestBuilderPostRequestConfiguration } from './riskyUsersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RiskyUsersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RiskyUsersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RiskyUsersRequestBuilderGetQueryParameters;
+}
+export interface RiskyUsersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
  */

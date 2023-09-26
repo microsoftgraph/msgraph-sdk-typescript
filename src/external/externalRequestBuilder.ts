@@ -1,16 +1,43 @@
-import { createExternalFromDiscriminatorValue } from '../models/externalConnectors/createExternalFromDiscriminatorValue';
-import { deserializeIntoExternal } from '../models/externalConnectors/deserializeIntoExternal';
-import { type External } from '../models/externalConnectors/external';
-import { serializeExternal } from '../models/externalConnectors/serializeExternal';
+import { createExternalFromDiscriminatorValue, deserializeIntoExternal, serializeExternal, type External } from '../models/externalConnectors/external';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { ConnectionsRequestBuilder } from './connections/connectionsRequestBuilder';
-import { type ExternalRequestBuilderGetRequestConfiguration } from './externalRequestBuilderGetRequestConfiguration';
-import { type ExternalRequestBuilderPatchRequestConfiguration } from './externalRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExternalRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ExternalRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ExternalRequestBuilderGetQueryParameters;
+}
+export interface ExternalRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the external singleton.
  */

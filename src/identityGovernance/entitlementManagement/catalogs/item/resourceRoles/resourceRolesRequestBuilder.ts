@@ -1,19 +1,70 @@
 import { type AccessPackageResourceRoleCollectionResponse } from '../../../../../models/';
-import { type AccessPackageResourceRole } from '../../../../../models/accessPackageResourceRole';
-import { createAccessPackageResourceRoleCollectionResponseFromDiscriminatorValue } from '../../../../../models/createAccessPackageResourceRoleCollectionResponseFromDiscriminatorValue';
-import { createAccessPackageResourceRoleFromDiscriminatorValue } from '../../../../../models/createAccessPackageResourceRoleFromDiscriminatorValue';
-import { deserializeIntoAccessPackageResourceRole } from '../../../../../models/deserializeIntoAccessPackageResourceRole';
+import { createAccessPackageResourceRoleFromDiscriminatorValue, deserializeIntoAccessPackageResourceRole, serializeAccessPackageResourceRole, type AccessPackageResourceRole } from '../../../../../models/accessPackageResourceRole';
+import { createAccessPackageResourceRoleCollectionResponseFromDiscriminatorValue } from '../../../../../models/accessPackageResourceRoleCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageResourceRole } from '../../../../../models/serializeAccessPackageResourceRole';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AccessPackageResourceRoleItemRequestBuilder } from './item/accessPackageResourceRoleItemRequestBuilder';
-import { type ResourceRolesRequestBuilderGetRequestConfiguration } from './resourceRolesRequestBuilderGetRequestConfiguration';
-import { type ResourceRolesRequestBuilderPostRequestConfiguration } from './resourceRolesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ResourceRolesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ResourceRolesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ResourceRolesRequestBuilderGetQueryParameters;
+}
+export interface ResourceRolesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resourceRoles property of the microsoft.graph.accessPackageCatalog entity.
  */

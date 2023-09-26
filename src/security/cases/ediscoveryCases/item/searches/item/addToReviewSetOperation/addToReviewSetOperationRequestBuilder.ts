@@ -1,12 +1,33 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryAddToReviewSetOperation } from '../../../../../../../models/security/';
-import { createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue } from '../../../../../../../models/security/createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue';
-import { type AddToReviewSetOperationRequestBuilderGetRequestConfiguration } from './addToReviewSetOperationRequestBuilderGetRequestConfiguration';
+import { createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue } from '../../../../../../../models/security/ediscoveryAddToReviewSetOperation';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AddToReviewSetOperationRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AddToReviewSetOperationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AddToReviewSetOperationRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the addToReviewSetOperation property of the microsoft.graph.security.ediscoverySearch entity.
  */

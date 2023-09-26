@@ -4,3 +4,5 @@ export enum FeatureTargetType {
     Role = "role",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,17 +1,53 @@
-import { type AppLogCollectionRequest } from '../../../../../models/appLogCollectionRequest';
-import { createAppLogCollectionRequestFromDiscriminatorValue } from '../../../../../models/createAppLogCollectionRequestFromDiscriminatorValue';
-import { deserializeIntoAppLogCollectionRequest } from '../../../../../models/deserializeIntoAppLogCollectionRequest';
+import { createAppLogCollectionRequestFromDiscriminatorValue, deserializeIntoAppLogCollectionRequest, serializeAppLogCollectionRequest, type AppLogCollectionRequest } from '../../../../../models/appLogCollectionRequest';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeAppLogCollectionRequest } from '../../../../../models/serializeAppLogCollectionRequest';
-import { type AppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration } from './appLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration';
-import { type AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration } from './appLogCollectionRequestItemRequestBuilderGetRequestConfiguration';
-import { type AppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration } from './appLogCollectionRequestItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CreateDownloadUrlRequestBuilder } from './createDownloadUrl/createDownloadUrlRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AppLogCollectionRequestItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AppLogCollectionRequestItemRequestBuilderGetQueryParameters;
+}
+export interface AppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
  */

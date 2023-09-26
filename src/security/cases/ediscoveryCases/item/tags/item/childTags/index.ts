@@ -1,2 +1,1 @@
-export * from './childTagsRequestBuilderGetQueryParameters'
-export * from './childTagsRequestBuilderGetRequestConfiguration'
+export * from './childTagsRequestBuilder'

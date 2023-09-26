@@ -1,13 +1,43 @@
 import { type SoftwareOathAuthenticationMethod } from '../../../../models/';
-import { createSoftwareOathAuthenticationMethodFromDiscriminatorValue } from '../../../../models/createSoftwareOathAuthenticationMethodFromDiscriminatorValue';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './softwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import { type SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './softwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createSoftwareOathAuthenticationMethodFromDiscriminatorValue } from '../../../../models/softwareOathAuthenticationMethod';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
  */

@@ -1,17 +1,53 @@
-import { createWorkbookChartPointFromDiscriminatorValue } from '../../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartPoint } from '../../../../../../../../../../../../../models/deserializeIntoWorkbookChartPoint';
 import { type ODataError } from '../../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartPoint } from '../../../../../../../../../../../../../models/serializeWorkbookChartPoint';
-import { type WorkbookChartPoint } from '../../../../../../../../../../../../../models/workbookChartPoint';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartPointFromDiscriminatorValue, deserializeIntoWorkbookChartPoint, serializeWorkbookChartPoint, type WorkbookChartPoint } from '../../../../../../../../../../../../../models/workbookChartPoint';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
-import { type WorkbookChartPointItemRequestBuilderDeleteRequestConfiguration } from './workbookChartPointItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookChartPointItemRequestBuilderGetRequestConfiguration } from './workbookChartPointItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookChartPointItemRequestBuilderPatchRequestConfiguration } from './workbookChartPointItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookChartPointItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookChartPointItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookChartPointItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookChartPointItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookChartPointItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
  */

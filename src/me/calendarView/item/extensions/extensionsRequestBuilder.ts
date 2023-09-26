@@ -1,19 +1,66 @@
 import { type ExtensionCollectionResponse } from '../../../../models/';
-import { createExtensionCollectionResponseFromDiscriminatorValue } from '../../../../models/createExtensionCollectionResponseFromDiscriminatorValue';
-import { createExtensionFromDiscriminatorValue } from '../../../../models/createExtensionFromDiscriminatorValue';
-import { deserializeIntoExtension } from '../../../../models/deserializeIntoExtension';
-import { type Extension } from '../../../../models/extension';
+import { createExtensionFromDiscriminatorValue, deserializeIntoExtension, serializeExtension, type Extension } from '../../../../models/extension';
+import { createExtensionCollectionResponseFromDiscriminatorValue } from '../../../../models/extensionCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeExtension } from '../../../../models/serializeExtension';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type ExtensionsRequestBuilderGetRequestConfiguration } from './extensionsRequestBuilderGetRequestConfiguration';
-import { type ExtensionsRequestBuilderPostRequestConfiguration } from './extensionsRequestBuilderPostRequestConfiguration';
 import { ExtensionItemRequestBuilder } from './item/extensionItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExtensionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ExtensionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ExtensionsRequestBuilderGetQueryParameters;
+}
+export interface ExtensionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the extensions property of the microsoft.graph.event entity.
  */

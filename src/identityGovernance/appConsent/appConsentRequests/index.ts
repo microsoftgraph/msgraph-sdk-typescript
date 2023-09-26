@@ -1,3 +1,1 @@
-export * from './appConsentRequestsRequestBuilderGetQueryParameters'
-export * from './appConsentRequestsRequestBuilderGetRequestConfiguration'
-export * from './appConsentRequestsRequestBuilderPostRequestConfiguration'
+export * from './appConsentRequestsRequestBuilder'

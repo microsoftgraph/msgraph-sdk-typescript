@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoPurgeDataPostRequestBody } from './deserializeIntoPurgeDataPostRequestBody';
-import { type MicrosoftGraphSecurityPurgeDataRequestBuilderPostRequestConfiguration } from './microsoftGraphSecurityPurgeDataRequestBuilderPostRequestConfiguration';
-import { type PurgeDataPostRequestBody } from './purgeDataPostRequestBody';
-import { serializePurgeDataPostRequestBody } from './serializePurgeDataPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoPurgeDataPostRequestBody, serializePurgeDataPostRequestBody, type PurgeDataPostRequestBody } from './purgeDataPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MicrosoftGraphSecurityPurgeDataRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the purgeData method.
  */

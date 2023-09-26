@@ -1,6 +1,2 @@
-export * from './createGetAuditCategoriesResponseFromDiscriminatorValue'
-export * from './deserializeIntoGetAuditCategoriesResponse'
-export * from './getAuditCategoriesRequestBuilderGetQueryParameters'
-export * from './getAuditCategoriesRequestBuilderGetRequestConfiguration'
+export * from './getAuditCategoriesRequestBuilder'
 export * from './getAuditCategoriesResponse'
-export * from './serializeGetAuditCategoriesResponse'

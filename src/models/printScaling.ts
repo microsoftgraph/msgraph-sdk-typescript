@@ -6,3 +6,5 @@ export enum PrintScaling {
     None = "none",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

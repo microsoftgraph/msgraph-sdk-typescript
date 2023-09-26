@@ -1,20 +1,67 @@
 import { type ContactFolderCollectionResponse } from '../../../../models/';
-import { type ContactFolder } from '../../../../models/contactFolder';
-import { createContactFolderCollectionResponseFromDiscriminatorValue } from '../../../../models/createContactFolderCollectionResponseFromDiscriminatorValue';
-import { createContactFolderFromDiscriminatorValue } from '../../../../models/createContactFolderFromDiscriminatorValue';
-import { deserializeIntoContactFolder } from '../../../../models/deserializeIntoContactFolder';
+import { createContactFolderFromDiscriminatorValue, deserializeIntoContactFolder, serializeContactFolder, type ContactFolder } from '../../../../models/contactFolder';
+import { createContactFolderCollectionResponseFromDiscriminatorValue } from '../../../../models/contactFolderCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeContactFolder } from '../../../../models/serializeContactFolder';
-import { type ChildFoldersRequestBuilderGetRequestConfiguration } from './childFoldersRequestBuilderGetRequestConfiguration';
-import { type ChildFoldersRequestBuilderPostRequestConfiguration } from './childFoldersRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { ContactFolderItemRequestBuilder } from './item/contactFolderItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChildFoldersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ChildFoldersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ChildFoldersRequestBuilderGetQueryParameters;
+}
+export interface ChildFoldersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity.
  */

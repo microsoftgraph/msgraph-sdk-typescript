@@ -1,3 +1,1 @@
-export * from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetQueryParameters'
-export * from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderGetRequestConfiguration'
-export * from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilderPostRequestConfiguration'
+export * from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder'

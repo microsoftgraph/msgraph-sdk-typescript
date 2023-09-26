@@ -1,17 +1,53 @@
-import { createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue } from '../../../../../models/createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue';
-import { deserializeIntoTermsAndConditionsAcceptanceStatus } from '../../../../../models/deserializeIntoTermsAndConditionsAcceptanceStatus';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeTermsAndConditionsAcceptanceStatus } from '../../../../../models/serializeTermsAndConditionsAcceptanceStatus';
-import { type TermsAndConditionsAcceptanceStatus } from '../../../../../models/termsAndConditionsAcceptanceStatus';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue, deserializeIntoTermsAndConditionsAcceptanceStatus, serializeTermsAndConditionsAcceptanceStatus, type TermsAndConditionsAcceptanceStatus } from '../../../../../models/termsAndConditionsAcceptanceStatus';
 import { TermsAndConditionsRequestBuilder } from './termsAndConditions/termsAndConditionsRequestBuilder';
-import { type TermsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration } from './termsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration';
-import { type TermsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration } from './termsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration';
-import { type TermsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration } from './termsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TermsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TermsAndConditionsAcceptanceStatusItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TermsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TermsAndConditionsAcceptanceStatusItemRequestBuilderGetQueryParameters;
+}
+export interface TermsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
  */

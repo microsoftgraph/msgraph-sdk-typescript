@@ -1,8 +1,0 @@
-import { deserializeIntoUrlMatchInfo } from './deserializeIntoUrlMatchInfo';
-import { type UrlMatchInfo } from './index';
-import { type ParseNode } from '@microsoft/kiota-abstractions';
-
-export function createUrlMatchInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) {
-    if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return deserializeIntoUrlMatchInfo;
-}

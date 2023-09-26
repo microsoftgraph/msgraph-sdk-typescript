@@ -1,19 +1,62 @@
 import { type InferenceClassificationOverrideCollectionResponse } from '../../../../models/';
-import { createInferenceClassificationOverrideCollectionResponseFromDiscriminatorValue } from '../../../../models/createInferenceClassificationOverrideCollectionResponseFromDiscriminatorValue';
-import { createInferenceClassificationOverrideFromDiscriminatorValue } from '../../../../models/createInferenceClassificationOverrideFromDiscriminatorValue';
-import { deserializeIntoInferenceClassificationOverride } from '../../../../models/deserializeIntoInferenceClassificationOverride';
-import { type InferenceClassificationOverride } from '../../../../models/inferenceClassificationOverride';
+import { createInferenceClassificationOverrideFromDiscriminatorValue, deserializeIntoInferenceClassificationOverride, serializeInferenceClassificationOverride, type InferenceClassificationOverride } from '../../../../models/inferenceClassificationOverride';
+import { createInferenceClassificationOverrideCollectionResponseFromDiscriminatorValue } from '../../../../models/inferenceClassificationOverrideCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeInferenceClassificationOverride } from '../../../../models/serializeInferenceClassificationOverride';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { InferenceClassificationOverrideItemRequestBuilder } from './item/inferenceClassificationOverrideItemRequestBuilder';
-import { type OverridesRequestBuilderGetRequestConfiguration } from './overridesRequestBuilderGetRequestConfiguration';
-import { type OverridesRequestBuilderPostRequestConfiguration } from './overridesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OverridesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OverridesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OverridesRequestBuilderGetQueryParameters;
+}
+export interface OverridesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.
  */

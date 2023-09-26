@@ -1,17 +1,53 @@
-import { createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue } from '../../../../models/createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue';
-import { type CrossTenantAccessPolicyConfigurationPartner } from '../../../../models/crossTenantAccessPolicyConfigurationPartner';
-import { deserializeIntoCrossTenantAccessPolicyConfigurationPartner } from '../../../../models/deserializeIntoCrossTenantAccessPolicyConfigurationPartner';
+import { createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue, deserializeIntoCrossTenantAccessPolicyConfigurationPartner, serializeCrossTenantAccessPolicyConfigurationPartner, type CrossTenantAccessPolicyConfigurationPartner } from '../../../../models/crossTenantAccessPolicyConfigurationPartner';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeCrossTenantAccessPolicyConfigurationPartner } from '../../../../models/serializeCrossTenantAccessPolicyConfigurationPartner';
-import { type CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderDeleteRequestConfiguration } from './crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderDeleteRequestConfiguration';
-import { type CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetRequestConfiguration } from './crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetRequestConfiguration';
-import { type CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderPatchRequestConfiguration } from './crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { IdentitySynchronizationRequestBuilder } from './identitySynchronization/identitySynchronizationRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetQueryParameters;
+}
+export interface CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
  */

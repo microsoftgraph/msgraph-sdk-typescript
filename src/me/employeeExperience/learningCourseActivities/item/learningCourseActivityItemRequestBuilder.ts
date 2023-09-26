@@ -1,12 +1,33 @@
 import { type LearningCourseActivity } from '../../../../models/';
-import { createLearningCourseActivityFromDiscriminatorValue } from '../../../../models/createLearningCourseActivityFromDiscriminatorValue';
+import { createLearningCourseActivityFromDiscriminatorValue } from '../../../../models/learningCourseActivity';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type LearningCourseActivityItemRequestBuilderGetRequestConfiguration } from './learningCourseActivityItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LearningCourseActivityItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LearningCourseActivityItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LearningCourseActivityItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperienceUser entity.
  */

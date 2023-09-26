@@ -1,17 +1,53 @@
-import { type AppManagementPolicy } from '../../../models/appManagementPolicy';
-import { createAppManagementPolicyFromDiscriminatorValue } from '../../../models/createAppManagementPolicyFromDiscriminatorValue';
-import { deserializeIntoAppManagementPolicy } from '../../../models/deserializeIntoAppManagementPolicy';
+import { createAppManagementPolicyFromDiscriminatorValue, deserializeIntoAppManagementPolicy, serializeAppManagementPolicy, type AppManagementPolicy } from '../../../models/appManagementPolicy';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAppManagementPolicy } from '../../../models/serializeAppManagementPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
-import { type AppManagementPolicyItemRequestBuilderDeleteRequestConfiguration } from './appManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type AppManagementPolicyItemRequestBuilderGetRequestConfiguration } from './appManagementPolicyItemRequestBuilderGetRequestConfiguration';
-import { type AppManagementPolicyItemRequestBuilderPatchRequestConfiguration } from './appManagementPolicyItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AppManagementPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AppManagementPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AppManagementPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AppManagementPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface AppManagementPolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
  */

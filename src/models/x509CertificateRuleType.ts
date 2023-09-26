@@ -3,3 +3,5 @@ export enum X509CertificateRuleType {
     PolicyOID = "policyOID",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

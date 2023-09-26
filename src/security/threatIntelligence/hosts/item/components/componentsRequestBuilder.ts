@@ -1,14 +1,59 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type HostComponentCollectionResponse } from '../../../../../models/security/';
-import { createHostComponentCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createHostComponentCollectionResponseFromDiscriminatorValue';
-import { type ComponentsRequestBuilderGetRequestConfiguration } from './componentsRequestBuilderGetRequestConfiguration';
+import { createHostComponentCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/hostComponentCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { HostComponentItemRequestBuilder } from './item/hostComponentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ComponentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ComponentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ComponentsRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the components property of the microsoft.graph.security.host entity.
  */

@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createRemoveGroupResponseFromDiscriminatorValue } from './createRemoveGroupResponseFromDiscriminatorValue';
-import { deserializeIntoRemoveGroupPostRequestBody } from './deserializeIntoRemoveGroupPostRequestBody';
-import { deserializeIntoRemoveGroupResponse } from './deserializeIntoRemoveGroupResponse';
-import { type RemoveGroupPostRequestBody } from './removeGroupPostRequestBody';
-import { type RemoveGroupRequestBuilderPostRequestConfiguration } from './removeGroupRequestBuilderPostRequestConfiguration';
-import { type RemoveGroupResponse } from './removeGroupResponse';
-import { serializeRemoveGroupPostRequestBody } from './serializeRemoveGroupPostRequestBody';
-import { serializeRemoveGroupResponse } from './serializeRemoveGroupResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoRemoveGroupPostRequestBody, serializeRemoveGroupPostRequestBody, type RemoveGroupPostRequestBody } from './removeGroupPostRequestBody';
+import { createRemoveGroupResponseFromDiscriminatorValue, deserializeIntoRemoveGroupResponse, serializeRemoveGroupResponse, type RemoveGroupResponse } from './removeGroupResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RemoveGroupRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the removeGroup method.
  */

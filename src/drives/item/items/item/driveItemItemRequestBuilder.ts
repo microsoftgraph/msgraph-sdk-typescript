@@ -1,11 +1,6 @@
-import { createDriveItemFromDiscriminatorValue } from '../../../../models/createDriveItemFromDiscriminatorValue';
-import { deserializeIntoDriveItem } from '../../../../models/deserializeIntoDriveItem';
-import { type DriveItem } from '../../../../models/driveItem';
+import { createDriveItemFromDiscriminatorValue, deserializeIntoDriveItem, serializeDriveItem, type DriveItem } from '../../../../models/driveItem';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeDriveItem } from '../../../../models/serializeDriveItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { AnalyticsRequestBuilder } from './analytics/analyticsRequestBuilder';
 import { AssignSensitivityLabelRequestBuilder } from './assignSensitivityLabel/assignSensitivityLabelRequestBuilder';
 import { CheckinRequestBuilder } from './checkin/checkinRequestBuilder';
@@ -18,9 +13,6 @@ import { CreateLinkRequestBuilder } from './createLink/createLinkRequestBuilder'
 import { CreateUploadSessionRequestBuilder } from './createUploadSession/createUploadSessionRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { DeltaWithTokenRequestBuilder } from './deltaWithToken/deltaWithTokenRequestBuilder';
-import { type DriveItemItemRequestBuilderDeleteRequestConfiguration } from './driveItemItemRequestBuilderDeleteRequestConfiguration';
-import { type DriveItemItemRequestBuilderGetRequestConfiguration } from './driveItemItemRequestBuilderGetRequestConfiguration';
-import { type DriveItemItemRequestBuilderPatchRequestConfiguration } from './driveItemItemRequestBuilderPatchRequestConfiguration';
 import { ExtractSensitivityLabelsRequestBuilder } from './extractSensitivityLabels/extractSensitivityLabelsRequestBuilder';
 import { FollowRequestBuilder } from './follow/followRequestBuilder';
 import { GetActivitiesByIntervalRequestBuilder } from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
@@ -41,6 +33,50 @@ import { VersionsRequestBuilder } from './versions/versionsRequestBuilder';
 import { WorkbookRequestBuilder } from './workbook/workbookRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DriveItemItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DriveItemItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DriveItemItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DriveItemItemRequestBuilderGetQueryParameters;
+}
+export interface DriveItemItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the items property of the microsoft.graph.drive entity.
  */

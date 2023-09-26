@@ -1,17 +1,19 @@
-import { createIdentityApiConnectorFromDiscriminatorValue } from '../../../../../../models/createIdentityApiConnectorFromDiscriminatorValue';
-import { deserializeIntoIdentityApiConnector } from '../../../../../../models/deserializeIntoIdentityApiConnector';
-import { type IdentityApiConnector } from '../../../../../../models/identityApiConnector';
+import { createIdentityApiConnectorFromDiscriminatorValue, deserializeIntoIdentityApiConnector, serializeIdentityApiConnector, type IdentityApiConnector } from '../../../../../../models/identityApiConnector';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeIdentityApiConnector } from '../../../../../../models/serializeIdentityApiConnector';
-import { deserializeIntoUploadClientCertificatePostRequestBody } from './deserializeIntoUploadClientCertificatePostRequestBody';
-import { serializeUploadClientCertificatePostRequestBody } from './serializeUploadClientCertificatePostRequestBody';
-import { type UploadClientCertificatePostRequestBody } from './uploadClientCertificatePostRequestBody';
-import { type UploadClientCertificateRequestBuilderPostRequestConfiguration } from './uploadClientCertificateRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoUploadClientCertificatePostRequestBody, serializeUploadClientCertificatePostRequestBody, type UploadClientCertificatePostRequestBody } from './uploadClientCertificatePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UploadClientCertificateRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the uploadClientCertificate method.
  */

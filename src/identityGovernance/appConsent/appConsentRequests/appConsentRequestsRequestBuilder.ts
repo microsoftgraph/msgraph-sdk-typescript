@@ -1,20 +1,71 @@
 import { type AppConsentRequestCollectionResponse } from '../../../models/';
-import { type AppConsentRequest } from '../../../models/appConsentRequest';
-import { createAppConsentRequestCollectionResponseFromDiscriminatorValue } from '../../../models/createAppConsentRequestCollectionResponseFromDiscriminatorValue';
-import { createAppConsentRequestFromDiscriminatorValue } from '../../../models/createAppConsentRequestFromDiscriminatorValue';
-import { deserializeIntoAppConsentRequest } from '../../../models/deserializeIntoAppConsentRequest';
+import { createAppConsentRequestFromDiscriminatorValue, deserializeIntoAppConsentRequest, serializeAppConsentRequest, type AppConsentRequest } from '../../../models/appConsentRequest';
+import { createAppConsentRequestCollectionResponseFromDiscriminatorValue } from '../../../models/appConsentRequestCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAppConsentRequest } from '../../../models/serializeAppConsentRequest';
-import { type AppConsentRequestsRequestBuilderGetRequestConfiguration } from './appConsentRequestsRequestBuilderGetRequestConfiguration';
-import { type AppConsentRequestsRequestBuilderPostRequestConfiguration } from './appConsentRequestsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { AppConsentRequestItemRequestBuilder } from './item/appConsentRequestItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AppConsentRequestsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AppConsentRequestsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AppConsentRequestsRequestBuilderGetQueryParameters;
+}
+export interface AppConsentRequestsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
  */

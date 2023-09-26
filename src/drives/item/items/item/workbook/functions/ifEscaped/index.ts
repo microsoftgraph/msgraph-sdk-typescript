@@ -1,5 +1,2 @@
-export * from './createIfPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoIfPostRequestBody'
 export * from './ifPostRequestBody'
-export * from './ifRequestBuilderPostRequestConfiguration'
-export * from './serializeIfPostRequestBody'
+export * from './ifRequestBuilder'

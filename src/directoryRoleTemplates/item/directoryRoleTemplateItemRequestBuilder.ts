@@ -1,21 +1,57 @@
-import { createDirectoryRoleTemplateFromDiscriminatorValue } from '../../models/createDirectoryRoleTemplateFromDiscriminatorValue';
-import { deserializeIntoDirectoryRoleTemplate } from '../../models/deserializeIntoDirectoryRoleTemplate';
-import { type DirectoryRoleTemplate } from '../../models/directoryRoleTemplate';
+import { createDirectoryRoleTemplateFromDiscriminatorValue, deserializeIntoDirectoryRoleTemplate, serializeDirectoryRoleTemplate, type DirectoryRoleTemplate } from '../../models/directoryRoleTemplate';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDirectoryRoleTemplate } from '../../models/serializeDirectoryRoleTemplate';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import { type DirectoryRoleTemplateItemRequestBuilderDeleteRequestConfiguration } from './directoryRoleTemplateItemRequestBuilderDeleteRequestConfiguration';
-import { type DirectoryRoleTemplateItemRequestBuilderGetRequestConfiguration } from './directoryRoleTemplateItemRequestBuilderGetRequestConfiguration';
-import { type DirectoryRoleTemplateItemRequestBuilderPatchRequestConfiguration } from './directoryRoleTemplateItemRequestBuilderPatchRequestConfiguration';
 import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
 import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
 import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DirectoryRoleTemplateItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DirectoryRoleTemplateItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DirectoryRoleTemplateItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DirectoryRoleTemplateItemRequestBuilderGetQueryParameters;
+}
+export interface DirectoryRoleTemplateItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of directoryRoleTemplate entities.
  */

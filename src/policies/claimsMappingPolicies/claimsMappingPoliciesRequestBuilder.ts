@@ -1,19 +1,70 @@
 import { type ClaimsMappingPolicyCollectionResponse } from '../../models/';
-import { type ClaimsMappingPolicy } from '../../models/claimsMappingPolicy';
-import { createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue';
-import { createClaimsMappingPolicyFromDiscriminatorValue } from '../../models/createClaimsMappingPolicyFromDiscriminatorValue';
-import { deserializeIntoClaimsMappingPolicy } from '../../models/deserializeIntoClaimsMappingPolicy';
+import { createClaimsMappingPolicyFromDiscriminatorValue, deserializeIntoClaimsMappingPolicy, serializeClaimsMappingPolicy, type ClaimsMappingPolicy } from '../../models/claimsMappingPolicy';
+import { createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue } from '../../models/claimsMappingPolicyCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeClaimsMappingPolicy } from '../../models/serializeClaimsMappingPolicy';
-import { type ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration } from './claimsMappingPoliciesRequestBuilderGetRequestConfiguration';
-import { type ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration } from './claimsMappingPoliciesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ClaimsMappingPolicyItemRequestBuilder } from './item/claimsMappingPolicyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ClaimsMappingPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ClaimsMappingPoliciesRequestBuilderGetQueryParameters;
+}
+export interface ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
  */

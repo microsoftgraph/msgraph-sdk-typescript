@@ -1,1 +1,1 @@
-export * from './enableSmsSignInRequestBuilderPostRequestConfiguration'
+export * from './enableSmsSignInRequestBuilder'

@@ -1,19 +1,70 @@
 import { type TeamsAppInstallationCollectionResponse } from '../../../../../models/';
-import { createTeamsAppInstallationCollectionResponseFromDiscriminatorValue } from '../../../../../models/createTeamsAppInstallationCollectionResponseFromDiscriminatorValue';
-import { createTeamsAppInstallationFromDiscriminatorValue } from '../../../../../models/createTeamsAppInstallationFromDiscriminatorValue';
-import { deserializeIntoTeamsAppInstallation } from '../../../../../models/deserializeIntoTeamsAppInstallation';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeTeamsAppInstallation } from '../../../../../models/serializeTeamsAppInstallation';
-import { type TeamsAppInstallation } from '../../../../../models/teamsAppInstallation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createTeamsAppInstallationFromDiscriminatorValue, deserializeIntoTeamsAppInstallation, serializeTeamsAppInstallation, type TeamsAppInstallation } from '../../../../../models/teamsAppInstallation';
+import { createTeamsAppInstallationCollectionResponseFromDiscriminatorValue } from '../../../../../models/teamsAppInstallationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type InstalledAppsRequestBuilderGetRequestConfiguration } from './installedAppsRequestBuilderGetRequestConfiguration';
-import { type InstalledAppsRequestBuilderPostRequestConfiguration } from './installedAppsRequestBuilderPostRequestConfiguration';
 import { TeamsAppInstallationItemRequestBuilder } from './item/teamsAppInstallationItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InstalledAppsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface InstalledAppsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InstalledAppsRequestBuilderGetQueryParameters;
+}
+export interface InstalledAppsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.team entity.
  */

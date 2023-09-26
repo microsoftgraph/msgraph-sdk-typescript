@@ -1,21 +1,72 @@
 import { type WorkbookNamedItemCollectionResponse } from '../../../../../../../../models/';
-import { createWorkbookNamedItemCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookNamedItemCollectionResponseFromDiscriminatorValue';
-import { createWorkbookNamedItemFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookNamedItemFromDiscriminatorValue';
-import { deserializeIntoWorkbookNamedItem } from '../../../../../../../../models/deserializeIntoWorkbookNamedItem';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookNamedItem } from '../../../../../../../../models/serializeWorkbookNamedItem';
-import { type WorkbookNamedItem } from '../../../../../../../../models/workbookNamedItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookNamedItemFromDiscriminatorValue, deserializeIntoWorkbookNamedItem, serializeWorkbookNamedItem, type WorkbookNamedItem } from '../../../../../../../../models/workbookNamedItem';
+import { createWorkbookNamedItemCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/workbookNamedItemCollectionResponse';
 import { AddRequestBuilder } from './add/addRequestBuilder';
 import { AddFormulaLocalRequestBuilder } from './addFormulaLocal/addFormulaLocalRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookNamedItemItemRequestBuilder } from './item/workbookNamedItemItemRequestBuilder';
-import { type NamesRequestBuilderGetRequestConfiguration } from './namesRequestBuilderGetRequestConfiguration';
-import { type NamesRequestBuilderPostRequestConfiguration } from './namesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface NamesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface NamesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: NamesRequestBuilderGetQueryParameters;
+}
+export interface NamesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.
  */

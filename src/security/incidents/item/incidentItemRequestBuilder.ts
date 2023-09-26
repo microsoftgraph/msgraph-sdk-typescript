@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createIncidentFromDiscriminatorValue } from '../../../models/security/createIncidentFromDiscriminatorValue';
-import { deserializeIntoIncident } from '../../../models/security/deserializeIntoIncident';
-import { type Incident } from '../../../models/security/incident';
-import { serializeIncident } from '../../../models/security/serializeIncident';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createIncidentFromDiscriminatorValue, deserializeIntoIncident, serializeIncident, type Incident } from '../../../models/security/incident';
 import { AlertsRequestBuilder } from './alerts/alertsRequestBuilder';
-import { type IncidentItemRequestBuilderDeleteRequestConfiguration } from './incidentItemRequestBuilderDeleteRequestConfiguration';
-import { type IncidentItemRequestBuilderGetRequestConfiguration } from './incidentItemRequestBuilderGetRequestConfiguration';
-import { type IncidentItemRequestBuilderPatchRequestConfiguration } from './incidentItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IncidentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IncidentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IncidentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IncidentItemRequestBuilderGetQueryParameters;
+}
+export interface IncidentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the incidents property of the microsoft.graph.security entity.
  */

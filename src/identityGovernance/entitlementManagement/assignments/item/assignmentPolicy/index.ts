@@ -1,2 +1,1 @@
-export * from './assignmentPolicyRequestBuilderGetQueryParameters'
-export * from './assignmentPolicyRequestBuilderGetRequestConfiguration'
+export * from './assignmentPolicyRequestBuilder'

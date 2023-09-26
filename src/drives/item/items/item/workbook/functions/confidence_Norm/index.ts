@@ -1,5 +1,2 @@
 export * from './confidence_NormPostRequestBody'
-export * from './confidence_NormRequestBuilderPostRequestConfiguration'
-export * from './createConfidence_NormPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoConfidence_NormPostRequestBody'
-export * from './serializeConfidence_NormPostRequestBody'
+export * from './confidence_NormRequestBuilder'

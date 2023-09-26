@@ -1,18 +1,54 @@
-import { createListItemVersionFromDiscriminatorValue } from '../../../../../../../../../../models/createListItemVersionFromDiscriminatorValue';
-import { deserializeIntoListItemVersion } from '../../../../../../../../../../models/deserializeIntoListItemVersion';
-import { type ListItemVersion } from '../../../../../../../../../../models/listItemVersion';
+import { createListItemVersionFromDiscriminatorValue, deserializeIntoListItemVersion, serializeListItemVersion, type ListItemVersion } from '../../../../../../../../../../models/listItemVersion';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeListItemVersion } from '../../../../../../../../../../models/serializeListItemVersion';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
 import { FieldsRequestBuilder } from './fields/fieldsRequestBuilder';
-import { type ListItemVersionItemRequestBuilderDeleteRequestConfiguration } from './listItemVersionItemRequestBuilderDeleteRequestConfiguration';
-import { type ListItemVersionItemRequestBuilderGetRequestConfiguration } from './listItemVersionItemRequestBuilderGetRequestConfiguration';
-import { type ListItemVersionItemRequestBuilderPatchRequestConfiguration } from './listItemVersionItemRequestBuilderPatchRequestConfiguration';
 import { RestoreVersionRequestBuilder } from './restoreVersion/restoreVersionRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ListItemVersionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ListItemVersionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ListItemVersionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ListItemVersionItemRequestBuilderGetQueryParameters;
+}
+export interface ListItemVersionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
  */

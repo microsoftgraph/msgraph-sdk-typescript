@@ -1,20 +1,71 @@
 import { type ApprovalCollectionResponse } from '../../../models/';
-import { type Approval } from '../../../models/approval';
-import { createApprovalCollectionResponseFromDiscriminatorValue } from '../../../models/createApprovalCollectionResponseFromDiscriminatorValue';
-import { createApprovalFromDiscriminatorValue } from '../../../models/createApprovalFromDiscriminatorValue';
-import { deserializeIntoApproval } from '../../../models/deserializeIntoApproval';
+import { createApprovalFromDiscriminatorValue, deserializeIntoApproval, serializeApproval, type Approval } from '../../../models/approval';
+import { createApprovalCollectionResponseFromDiscriminatorValue } from '../../../models/approvalCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeApproval } from '../../../models/serializeApproval';
-import { type AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration } from './accessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration';
-import { type AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration } from './accessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { ApprovalItemRequestBuilder } from './item/approvalItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessPackageAssignmentApprovalsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessPackageAssignmentApprovalsRequestBuilderGetQueryParameters;
+}
+export interface AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
  */

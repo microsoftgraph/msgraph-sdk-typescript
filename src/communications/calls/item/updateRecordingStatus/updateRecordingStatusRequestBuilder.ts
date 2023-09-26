@@ -1,17 +1,19 @@
-import { createUpdateRecordingStatusOperationFromDiscriminatorValue } from '../../../../models/createUpdateRecordingStatusOperationFromDiscriminatorValue';
-import { deserializeIntoUpdateRecordingStatusOperation } from '../../../../models/deserializeIntoUpdateRecordingStatusOperation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUpdateRecordingStatusOperation } from '../../../../models/serializeUpdateRecordingStatusOperation';
-import { type UpdateRecordingStatusOperation } from '../../../../models/updateRecordingStatusOperation';
-import { deserializeIntoUpdateRecordingStatusPostRequestBody } from './deserializeIntoUpdateRecordingStatusPostRequestBody';
-import { serializeUpdateRecordingStatusPostRequestBody } from './serializeUpdateRecordingStatusPostRequestBody';
-import { type UpdateRecordingStatusPostRequestBody } from './updateRecordingStatusPostRequestBody';
-import { type UpdateRecordingStatusRequestBuilderPostRequestConfiguration } from './updateRecordingStatusRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUpdateRecordingStatusOperationFromDiscriminatorValue, deserializeIntoUpdateRecordingStatusOperation, serializeUpdateRecordingStatusOperation, type UpdateRecordingStatusOperation } from '../../../../models/updateRecordingStatusOperation';
+import { deserializeIntoUpdateRecordingStatusPostRequestBody, serializeUpdateRecordingStatusPostRequestBody, type UpdateRecordingStatusPostRequestBody } from './updateRecordingStatusPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UpdateRecordingStatusRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the updateRecordingStatus method.
  */

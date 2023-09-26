@@ -1,16 +1,48 @@
-import { createShiftFromDiscriminatorValue } from '../../../../../../../models/createShiftFromDiscriminatorValue';
-import { deserializeIntoShift } from '../../../../../../../models/deserializeIntoShift';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeShift } from '../../../../../../../models/serializeShift';
-import { type Shift } from '../../../../../../../models/shift';
-import { type ShiftItemRequestBuilderDeleteRequestConfiguration } from './shiftItemRequestBuilderDeleteRequestConfiguration';
-import { type ShiftItemRequestBuilderGetRequestConfiguration } from './shiftItemRequestBuilderGetRequestConfiguration';
-import { type ShiftItemRequestBuilderPatchRequestConfiguration } from './shiftItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createShiftFromDiscriminatorValue, deserializeIntoShift, serializeShift, type Shift } from '../../../../../../../models/shift';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ShiftItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ShiftItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ShiftItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ShiftItemRequestBuilderGetQueryParameters;
+}
+export interface ShiftItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
  */

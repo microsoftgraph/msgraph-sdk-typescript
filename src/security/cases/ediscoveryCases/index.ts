@@ -1,3 +1,1 @@
-export * from './ediscoveryCasesRequestBuilderGetQueryParameters'
-export * from './ediscoveryCasesRequestBuilderGetRequestConfiguration'
-export * from './ediscoveryCasesRequestBuilderPostRequestConfiguration'
+export * from './ediscoveryCasesRequestBuilder'

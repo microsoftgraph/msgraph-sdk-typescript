@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoExportPostRequestBody } from './deserializeIntoExportPostRequestBody';
-import { type ExportPostRequestBody } from './exportPostRequestBody';
-import { type MicrosoftGraphSecurityExportRequestBuilderPostRequestConfiguration } from './microsoftGraphSecurityExportRequestBuilderPostRequestConfiguration';
-import { serializeExportPostRequestBody } from './serializeExportPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoExportPostRequestBody, serializeExportPostRequestBody, type ExportPostRequestBody } from './exportPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MicrosoftGraphSecurityExportRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the export method.
  */

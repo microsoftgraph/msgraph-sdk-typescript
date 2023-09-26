@@ -4,3 +4,5 @@ export enum ScheduleChangeState {
     Declined = "declined",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

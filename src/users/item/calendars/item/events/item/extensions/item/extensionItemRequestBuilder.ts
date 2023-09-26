@@ -1,16 +1,52 @@
-import { createExtensionFromDiscriminatorValue } from '../../../../../../../../models/createExtensionFromDiscriminatorValue';
-import { deserializeIntoExtension } from '../../../../../../../../models/deserializeIntoExtension';
-import { type Extension } from '../../../../../../../../models/extension';
+import { createExtensionFromDiscriminatorValue, deserializeIntoExtension, serializeExtension, type Extension } from '../../../../../../../../models/extension';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeExtension } from '../../../../../../../../models/serializeExtension';
-import { type ExtensionItemRequestBuilderDeleteRequestConfiguration } from './extensionItemRequestBuilderDeleteRequestConfiguration';
-import { type ExtensionItemRequestBuilderGetRequestConfiguration } from './extensionItemRequestBuilderGetRequestConfiguration';
-import { type ExtensionItemRequestBuilderPatchRequestConfiguration } from './extensionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExtensionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ExtensionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ExtensionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ExtensionItemRequestBuilderGetQueryParameters;
+}
+export interface ExtensionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the extensions property of the microsoft.graph.event entity.
  */

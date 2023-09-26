@@ -1,5 +1,2 @@
-export * from './createDeltaPostRequestBodyFromDiscriminatorValue'
 export * from './deltaPostRequestBody'
-export * from './deltaRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoDeltaPostRequestBody'
-export * from './serializeDeltaPostRequestBody'
+export * from './deltaRequestBuilder'

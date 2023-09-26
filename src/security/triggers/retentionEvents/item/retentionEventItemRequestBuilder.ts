@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createRetentionEventFromDiscriminatorValue } from '../../../../models/security/createRetentionEventFromDiscriminatorValue';
-import { deserializeIntoRetentionEvent } from '../../../../models/security/deserializeIntoRetentionEvent';
-import { type RetentionEvent } from '../../../../models/security/retentionEvent';
-import { serializeRetentionEvent } from '../../../../models/security/serializeRetentionEvent';
-import { type RetentionEventItemRequestBuilderDeleteRequestConfiguration } from './retentionEventItemRequestBuilderDeleteRequestConfiguration';
-import { type RetentionEventItemRequestBuilderGetRequestConfiguration } from './retentionEventItemRequestBuilderGetRequestConfiguration';
-import { type RetentionEventItemRequestBuilderPatchRequestConfiguration } from './retentionEventItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createRetentionEventFromDiscriminatorValue, deserializeIntoRetentionEvent, serializeRetentionEvent, type RetentionEvent } from '../../../../models/security/retentionEvent';
 import { RetentionEventTypeRequestBuilder } from './retentionEventType/retentionEventTypeRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RetentionEventItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface RetentionEventItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface RetentionEventItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RetentionEventItemRequestBuilderGetQueryParameters;
+}
+export interface RetentionEventItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
  */

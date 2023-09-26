@@ -1,14 +1,59 @@
 import { type LearningCourseActivityCollectionResponse } from '../../../models/';
-import { createLearningCourseActivityCollectionResponseFromDiscriminatorValue } from '../../../models/createLearningCourseActivityCollectionResponseFromDiscriminatorValue';
+import { createLearningCourseActivityCollectionResponseFromDiscriminatorValue } from '../../../models/learningCourseActivityCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { LearningCourseActivityItemRequestBuilder } from './item/learningCourseActivityItemRequestBuilder';
-import { type LearningCourseActivitiesRequestBuilderGetRequestConfiguration } from './learningCourseActivitiesRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LearningCourseActivitiesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface LearningCourseActivitiesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LearningCourseActivitiesRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperienceUser entity.
  */

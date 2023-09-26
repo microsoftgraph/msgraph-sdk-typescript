@@ -1,19 +1,70 @@
 import { type DeviceManagementPartnerCollectionResponse } from '../../models/';
-import { createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue } from '../../models/createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue';
-import { createDeviceManagementPartnerFromDiscriminatorValue } from '../../models/createDeviceManagementPartnerFromDiscriminatorValue';
-import { deserializeIntoDeviceManagementPartner } from '../../models/deserializeIntoDeviceManagementPartner';
-import { type DeviceManagementPartner } from '../../models/deviceManagementPartner';
+import { createDeviceManagementPartnerFromDiscriminatorValue, deserializeIntoDeviceManagementPartner, serializeDeviceManagementPartner, type DeviceManagementPartner } from '../../models/deviceManagementPartner';
+import { createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue } from '../../models/deviceManagementPartnerCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDeviceManagementPartner } from '../../models/serializeDeviceManagementPartner';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DeviceManagementPartnersRequestBuilderGetRequestConfiguration } from './deviceManagementPartnersRequestBuilderGetRequestConfiguration';
-import { type DeviceManagementPartnersRequestBuilderPostRequestConfiguration } from './deviceManagementPartnersRequestBuilderPostRequestConfiguration';
 import { DeviceManagementPartnerItemRequestBuilder } from './item/deviceManagementPartnerItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceManagementPartnersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DeviceManagementPartnersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceManagementPartnersRequestBuilderGetQueryParameters;
+}
+export interface DeviceManagementPartnersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
  */

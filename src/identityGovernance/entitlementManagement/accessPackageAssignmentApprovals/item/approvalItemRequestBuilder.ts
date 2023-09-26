@@ -1,17 +1,53 @@
-import { type Approval } from '../../../../models/approval';
-import { createApprovalFromDiscriminatorValue } from '../../../../models/createApprovalFromDiscriminatorValue';
-import { deserializeIntoApproval } from '../../../../models/deserializeIntoApproval';
+import { createApprovalFromDiscriminatorValue, deserializeIntoApproval, serializeApproval, type Approval } from '../../../../models/approval';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeApproval } from '../../../../models/serializeApproval';
-import { type ApprovalItemRequestBuilderDeleteRequestConfiguration } from './approvalItemRequestBuilderDeleteRequestConfiguration';
-import { type ApprovalItemRequestBuilderGetRequestConfiguration } from './approvalItemRequestBuilderGetRequestConfiguration';
-import { type ApprovalItemRequestBuilderPatchRequestConfiguration } from './approvalItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { StagesRequestBuilder } from './stages/stagesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApprovalItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ApprovalItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ApprovalItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ApprovalItemRequestBuilderGetQueryParameters;
+}
+export interface ApprovalItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
  */

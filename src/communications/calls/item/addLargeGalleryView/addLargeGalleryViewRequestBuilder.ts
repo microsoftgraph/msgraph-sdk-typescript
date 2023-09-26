@@ -1,17 +1,19 @@
-import { type AddLargeGalleryViewOperation } from '../../../../models/addLargeGalleryViewOperation';
-import { createAddLargeGalleryViewOperationFromDiscriminatorValue } from '../../../../models/createAddLargeGalleryViewOperationFromDiscriminatorValue';
-import { deserializeIntoAddLargeGalleryViewOperation } from '../../../../models/deserializeIntoAddLargeGalleryViewOperation';
+import { createAddLargeGalleryViewOperationFromDiscriminatorValue, deserializeIntoAddLargeGalleryViewOperation, serializeAddLargeGalleryViewOperation, type AddLargeGalleryViewOperation } from '../../../../models/addLargeGalleryViewOperation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAddLargeGalleryViewOperation } from '../../../../models/serializeAddLargeGalleryViewOperation';
-import { type AddLargeGalleryViewPostRequestBody } from './addLargeGalleryViewPostRequestBody';
-import { type AddLargeGalleryViewRequestBuilderPostRequestConfiguration } from './addLargeGalleryViewRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAddLargeGalleryViewPostRequestBody } from './deserializeIntoAddLargeGalleryViewPostRequestBody';
-import { serializeAddLargeGalleryViewPostRequestBody } from './serializeAddLargeGalleryViewPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoAddLargeGalleryViewPostRequestBody, serializeAddLargeGalleryViewPostRequestBody, type AddLargeGalleryViewPostRequestBody } from './addLargeGalleryViewPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AddLargeGalleryViewRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the addLargeGalleryView method.
  */

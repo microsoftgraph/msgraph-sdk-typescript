@@ -1,20 +1,71 @@
 import { type ChatCollectionResponse } from '../models/';
-import { type Chat } from '../models/chat';
-import { createChatCollectionResponseFromDiscriminatorValue } from '../models/createChatCollectionResponseFromDiscriminatorValue';
-import { createChatFromDiscriminatorValue } from '../models/createChatFromDiscriminatorValue';
-import { deserializeIntoChat } from '../models/deserializeIntoChat';
+import { createChatFromDiscriminatorValue, deserializeIntoChat, serializeChat, type Chat } from '../models/chat';
+import { createChatCollectionResponseFromDiscriminatorValue } from '../models/chatCollectionResponse';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeChat } from '../models/serializeChat';
-import { type ChatsRequestBuilderGetRequestConfiguration } from './chatsRequestBuilderGetRequestConfiguration';
-import { type ChatsRequestBuilderPostRequestConfiguration } from './chatsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { GetAllMessagesRequestBuilder } from './getAllMessages/getAllMessagesRequestBuilder';
 import { ChatItemRequestBuilder } from './item/chatItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChatsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ChatsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ChatsRequestBuilderGetQueryParameters;
+}
+export interface ChatsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of chat entities.
  */

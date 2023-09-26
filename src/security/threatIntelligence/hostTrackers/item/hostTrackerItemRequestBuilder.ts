@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createHostTrackerFromDiscriminatorValue } from '../../../../models/security/createHostTrackerFromDiscriminatorValue';
-import { deserializeIntoHostTracker } from '../../../../models/security/deserializeIntoHostTracker';
-import { type HostTracker } from '../../../../models/security/hostTracker';
-import { serializeHostTracker } from '../../../../models/security/serializeHostTracker';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createHostTrackerFromDiscriminatorValue, deserializeIntoHostTracker, serializeHostTracker, type HostTracker } from '../../../../models/security/hostTracker';
 import { HostRequestBuilder } from './host/hostRequestBuilder';
-import { type HostTrackerItemRequestBuilderDeleteRequestConfiguration } from './hostTrackerItemRequestBuilderDeleteRequestConfiguration';
-import { type HostTrackerItemRequestBuilderGetRequestConfiguration } from './hostTrackerItemRequestBuilderGetRequestConfiguration';
-import { type HostTrackerItemRequestBuilderPatchRequestConfiguration } from './hostTrackerItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HostTrackerItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface HostTrackerItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface HostTrackerItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HostTrackerItemRequestBuilderGetQueryParameters;
+}
+export interface HostTrackerItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.
  */

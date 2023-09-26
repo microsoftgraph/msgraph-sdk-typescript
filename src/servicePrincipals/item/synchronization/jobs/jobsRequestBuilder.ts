@@ -1,20 +1,71 @@
 import { type SynchronizationJobCollectionResponse } from '../../../../models/';
-import { createSynchronizationJobCollectionResponseFromDiscriminatorValue } from '../../../../models/createSynchronizationJobCollectionResponseFromDiscriminatorValue';
-import { createSynchronizationJobFromDiscriminatorValue } from '../../../../models/createSynchronizationJobFromDiscriminatorValue';
-import { deserializeIntoSynchronizationJob } from '../../../../models/deserializeIntoSynchronizationJob';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeSynchronizationJob } from '../../../../models/serializeSynchronizationJob';
-import { type SynchronizationJob } from '../../../../models/synchronizationJob';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createSynchronizationJobFromDiscriminatorValue, deserializeIntoSynchronizationJob, serializeSynchronizationJob, type SynchronizationJob } from '../../../../models/synchronizationJob';
+import { createSynchronizationJobCollectionResponseFromDiscriminatorValue } from '../../../../models/synchronizationJobCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SynchronizationJobItemRequestBuilder } from './item/synchronizationJobItemRequestBuilder';
-import { type JobsRequestBuilderGetRequestConfiguration } from './jobsRequestBuilderGetRequestConfiguration';
-import { type JobsRequestBuilderPostRequestConfiguration } from './jobsRequestBuilderPostRequestConfiguration';
 import { ValidateCredentialsRequestBuilder } from './validateCredentials/validateCredentialsRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface JobsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface JobsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: JobsRequestBuilderGetQueryParameters;
+}
+export interface JobsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
  */

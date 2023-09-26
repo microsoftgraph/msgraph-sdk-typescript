@@ -1,19 +1,70 @@
 import { type AuthenticationContextClassReferenceCollectionResponse } from '../../../models/';
-import { type AuthenticationContextClassReference } from '../../../models/authenticationContextClassReference';
-import { createAuthenticationContextClassReferenceCollectionResponseFromDiscriminatorValue } from '../../../models/createAuthenticationContextClassReferenceCollectionResponseFromDiscriminatorValue';
-import { createAuthenticationContextClassReferenceFromDiscriminatorValue } from '../../../models/createAuthenticationContextClassReferenceFromDiscriminatorValue';
-import { deserializeIntoAuthenticationContextClassReference } from '../../../models/deserializeIntoAuthenticationContextClassReference';
+import { createAuthenticationContextClassReferenceFromDiscriminatorValue, deserializeIntoAuthenticationContextClassReference, serializeAuthenticationContextClassReference, type AuthenticationContextClassReference } from '../../../models/authenticationContextClassReference';
+import { createAuthenticationContextClassReferenceCollectionResponseFromDiscriminatorValue } from '../../../models/authenticationContextClassReferenceCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationContextClassReference } from '../../../models/serializeAuthenticationContextClassReference';
-import { type AuthenticationContextClassReferencesRequestBuilderGetRequestConfiguration } from './authenticationContextClassReferencesRequestBuilderGetRequestConfiguration';
-import { type AuthenticationContextClassReferencesRequestBuilderPostRequestConfiguration } from './authenticationContextClassReferencesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AuthenticationContextClassReferenceItemRequestBuilder } from './item/authenticationContextClassReferenceItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthenticationContextClassReferencesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AuthenticationContextClassReferencesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthenticationContextClassReferencesRequestBuilderGetQueryParameters;
+}
+export interface AuthenticationContextClassReferencesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
  */

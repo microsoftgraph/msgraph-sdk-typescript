@@ -1,3 +1,1 @@
-export * from './bookingCurrenciesRequestBuilderGetQueryParameters'
-export * from './bookingCurrenciesRequestBuilderGetRequestConfiguration'
-export * from './bookingCurrenciesRequestBuilderPostRequestConfiguration'
+export * from './bookingCurrenciesRequestBuilder'

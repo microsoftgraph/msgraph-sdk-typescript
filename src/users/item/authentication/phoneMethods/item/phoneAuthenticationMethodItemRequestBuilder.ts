@@ -1,18 +1,54 @@
-import { createPhoneAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/createPhoneAuthenticationMethodFromDiscriminatorValue';
-import { deserializeIntoPhoneAuthenticationMethod } from '../../../../../models/deserializeIntoPhoneAuthenticationMethod';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type PhoneAuthenticationMethod } from '../../../../../models/phoneAuthenticationMethod';
-import { serializePhoneAuthenticationMethod } from '../../../../../models/serializePhoneAuthenticationMethod';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createPhoneAuthenticationMethodFromDiscriminatorValue, deserializeIntoPhoneAuthenticationMethod, serializePhoneAuthenticationMethod, type PhoneAuthenticationMethod } from '../../../../../models/phoneAuthenticationMethod';
 import { DisableSmsSignInRequestBuilder } from './disableSmsSignIn/disableSmsSignInRequestBuilder';
 import { EnableSmsSignInRequestBuilder } from './enableSmsSignIn/enableSmsSignInRequestBuilder';
-import { type PhoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './phoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import { type PhoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './phoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
-import { type PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration } from './phoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PhoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PhoneAuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PhoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PhoneAuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
+export interface PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
  */

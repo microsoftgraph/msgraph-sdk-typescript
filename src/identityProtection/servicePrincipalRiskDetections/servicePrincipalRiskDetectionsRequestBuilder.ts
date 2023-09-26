@@ -1,19 +1,70 @@
 import { type ServicePrincipalRiskDetectionCollectionResponse } from '../../models/';
-import { createServicePrincipalRiskDetectionCollectionResponseFromDiscriminatorValue } from '../../models/createServicePrincipalRiskDetectionCollectionResponseFromDiscriminatorValue';
-import { createServicePrincipalRiskDetectionFromDiscriminatorValue } from '../../models/createServicePrincipalRiskDetectionFromDiscriminatorValue';
-import { deserializeIntoServicePrincipalRiskDetection } from '../../models/deserializeIntoServicePrincipalRiskDetection';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeServicePrincipalRiskDetection } from '../../models/serializeServicePrincipalRiskDetection';
-import { type ServicePrincipalRiskDetection } from '../../models/servicePrincipalRiskDetection';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createServicePrincipalRiskDetectionFromDiscriminatorValue, deserializeIntoServicePrincipalRiskDetection, serializeServicePrincipalRiskDetection, type ServicePrincipalRiskDetection } from '../../models/servicePrincipalRiskDetection';
+import { createServicePrincipalRiskDetectionCollectionResponseFromDiscriminatorValue } from '../../models/servicePrincipalRiskDetectionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ServicePrincipalRiskDetectionItemRequestBuilder } from './item/servicePrincipalRiskDetectionItemRequestBuilder';
-import { type ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration } from './servicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration';
-import { type ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration } from './servicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters;
+}
+export interface ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
  */

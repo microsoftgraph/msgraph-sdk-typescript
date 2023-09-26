@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type CheckinPostRequestBody } from './checkinPostRequestBody';
-import { type CheckinRequestBuilderPostRequestConfiguration } from './checkinRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCheckinPostRequestBody } from './deserializeIntoCheckinPostRequestBody';
-import { serializeCheckinPostRequestBody } from './serializeCheckinPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoCheckinPostRequestBody, serializeCheckinPostRequestBody, type CheckinPostRequestBody } from './checkinPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CheckinRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the checkin method.
  */

@@ -1,5 +1,2 @@
-export * from './createImArgumentPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoImArgumentPostRequestBody'
 export * from './imArgumentPostRequestBody'
-export * from './imArgumentRequestBuilderPostRequestConfiguration'
-export * from './serializeImArgumentPostRequestBody'
+export * from './imArgumentRequestBuilder'

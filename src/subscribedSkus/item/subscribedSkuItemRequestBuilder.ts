@@ -1,16 +1,48 @@
-import { createSubscribedSkuFromDiscriminatorValue } from '../../models/createSubscribedSkuFromDiscriminatorValue';
-import { deserializeIntoSubscribedSku } from '../../models/deserializeIntoSubscribedSku';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeSubscribedSku } from '../../models/serializeSubscribedSku';
-import { type SubscribedSku } from '../../models/subscribedSku';
-import { type SubscribedSkuItemRequestBuilderDeleteRequestConfiguration } from './subscribedSkuItemRequestBuilderDeleteRequestConfiguration';
-import { type SubscribedSkuItemRequestBuilderGetRequestConfiguration } from './subscribedSkuItemRequestBuilderGetRequestConfiguration';
-import { type SubscribedSkuItemRequestBuilderPatchRequestConfiguration } from './subscribedSkuItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createSubscribedSkuFromDiscriminatorValue, deserializeIntoSubscribedSku, serializeSubscribedSku, type SubscribedSku } from '../../models/subscribedSku';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SubscribedSkuItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SubscribedSkuItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SubscribedSkuItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SubscribedSkuItemRequestBuilderGetQueryParameters;
+}
+export interface SubscribedSkuItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of subscribedSku entities.
  */

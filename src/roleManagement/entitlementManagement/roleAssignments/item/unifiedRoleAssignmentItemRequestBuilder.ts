@@ -1,20 +1,56 @@
-import { createUnifiedRoleAssignmentFromDiscriminatorValue } from '../../../../models/createUnifiedRoleAssignmentFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleAssignment } from '../../../../models/deserializeIntoUnifiedRoleAssignment';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleAssignment } from '../../../../models/serializeUnifiedRoleAssignment';
-import { type UnifiedRoleAssignment } from '../../../../models/unifiedRoleAssignment';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleAssignmentFromDiscriminatorValue, deserializeIntoUnifiedRoleAssignment, serializeUnifiedRoleAssignment, type UnifiedRoleAssignment } from '../../../../models/unifiedRoleAssignment';
 import { AppScopeRequestBuilder } from './appScope/appScopeRequestBuilder';
 import { DirectoryScopeRequestBuilder } from './directoryScope/directoryScopeRequestBuilder';
 import { PrincipalRequestBuilder } from './principal/principalRequestBuilder';
 import { RoleDefinitionRequestBuilder } from './roleDefinition/roleDefinitionRequestBuilder';
-import { type UnifiedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration } from './unifiedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration } from './unifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type UnifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration } from './unifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnifiedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface UnifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.
  */

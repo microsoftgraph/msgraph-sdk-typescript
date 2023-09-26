@@ -10,3 +10,5 @@ export enum CallState {
     Terminated = "terminated",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

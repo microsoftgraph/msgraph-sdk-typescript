@@ -1,17 +1,53 @@
-import { createWindowsProtectionStateFromDiscriminatorValue } from '../../../../../models/createWindowsProtectionStateFromDiscriminatorValue';
-import { deserializeIntoWindowsProtectionState } from '../../../../../models/deserializeIntoWindowsProtectionState';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeWindowsProtectionState } from '../../../../../models/serializeWindowsProtectionState';
-import { type WindowsProtectionState } from '../../../../../models/windowsProtectionState';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createWindowsProtectionStateFromDiscriminatorValue, deserializeIntoWindowsProtectionState, serializeWindowsProtectionState, type WindowsProtectionState } from '../../../../../models/windowsProtectionState';
 import { DetectedMalwareStateRequestBuilder } from './detectedMalwareState/detectedMalwareStateRequestBuilder';
-import { type WindowsProtectionStateRequestBuilderDeleteRequestConfiguration } from './windowsProtectionStateRequestBuilderDeleteRequestConfiguration';
-import { type WindowsProtectionStateRequestBuilderGetRequestConfiguration } from './windowsProtectionStateRequestBuilderGetRequestConfiguration';
-import { type WindowsProtectionStateRequestBuilderPatchRequestConfiguration } from './windowsProtectionStateRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WindowsProtectionStateRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WindowsProtectionStateRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WindowsProtectionStateRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WindowsProtectionStateRequestBuilderGetQueryParameters;
+}
+export interface WindowsProtectionStateRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the windowsProtectionState property of the microsoft.graph.managedDevice entity.
  */

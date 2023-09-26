@@ -1,19 +1,70 @@
 import { type ThreatAssessmentResultCollectionResponse } from '../../../../models/';
-import { createThreatAssessmentResultCollectionResponseFromDiscriminatorValue } from '../../../../models/createThreatAssessmentResultCollectionResponseFromDiscriminatorValue';
-import { createThreatAssessmentResultFromDiscriminatorValue } from '../../../../models/createThreatAssessmentResultFromDiscriminatorValue';
-import { deserializeIntoThreatAssessmentResult } from '../../../../models/deserializeIntoThreatAssessmentResult';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeThreatAssessmentResult } from '../../../../models/serializeThreatAssessmentResult';
-import { type ThreatAssessmentResult } from '../../../../models/threatAssessmentResult';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createThreatAssessmentResultFromDiscriminatorValue, deserializeIntoThreatAssessmentResult, serializeThreatAssessmentResult, type ThreatAssessmentResult } from '../../../../models/threatAssessmentResult';
+import { createThreatAssessmentResultCollectionResponseFromDiscriminatorValue } from '../../../../models/threatAssessmentResultCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ThreatAssessmentResultItemRequestBuilder } from './item/threatAssessmentResultItemRequestBuilder';
-import { type ResultsRequestBuilderGetRequestConfiguration } from './resultsRequestBuilderGetRequestConfiguration';
-import { type ResultsRequestBuilderPostRequestConfiguration } from './resultsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ResultsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ResultsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ResultsRequestBuilderGetQueryParameters;
+}
+export interface ResultsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
  */

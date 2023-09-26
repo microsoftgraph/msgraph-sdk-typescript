@@ -5,3 +5,5 @@ export enum PrintColorMode {
     Auto = "auto",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type DataSourceCollectionResponse } from '../../../../../../../models/security/';
-import { createDataSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/createDataSourceCollectionResponseFromDiscriminatorValue';
-import { createDataSourceFromDiscriminatorValue } from '../../../../../../../models/security/createDataSourceFromDiscriminatorValue';
-import { type DataSource } from '../../../../../../../models/security/dataSource';
-import { deserializeIntoDataSource } from '../../../../../../../models/security/deserializeIntoDataSource';
-import { serializeDataSource } from '../../../../../../../models/security/serializeDataSource';
-import { type AdditionalSourcesRequestBuilderGetRequestConfiguration } from './additionalSourcesRequestBuilderGetRequestConfiguration';
-import { type AdditionalSourcesRequestBuilderPostRequestConfiguration } from './additionalSourcesRequestBuilderPostRequestConfiguration';
+import { createDataSourceFromDiscriminatorValue, deserializeIntoDataSource, serializeDataSource, type DataSource } from '../../../../../../../models/security/dataSource';
+import { createDataSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/dataSourceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DataSourceItemRequestBuilder } from './item/dataSourceItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AdditionalSourcesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AdditionalSourcesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AdditionalSourcesRequestBuilderGetQueryParameters;
+}
+export interface AdditionalSourcesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
  */

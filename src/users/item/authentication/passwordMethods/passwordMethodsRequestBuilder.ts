@@ -1,19 +1,70 @@
 import { type PasswordAuthenticationMethodCollectionResponse } from '../../../../models/';
-import { createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../../models/createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue';
-import { createPasswordAuthenticationMethodFromDiscriminatorValue } from '../../../../models/createPasswordAuthenticationMethodFromDiscriminatorValue';
-import { deserializeIntoPasswordAuthenticationMethod } from '../../../../models/deserializeIntoPasswordAuthenticationMethod';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type PasswordAuthenticationMethod } from '../../../../models/passwordAuthenticationMethod';
-import { serializePasswordAuthenticationMethod } from '../../../../models/serializePasswordAuthenticationMethod';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createPasswordAuthenticationMethodFromDiscriminatorValue, deserializeIntoPasswordAuthenticationMethod, serializePasswordAuthenticationMethod, type PasswordAuthenticationMethod } from '../../../../models/passwordAuthenticationMethod';
+import { createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../../models/passwordAuthenticationMethodCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PasswordAuthenticationMethodItemRequestBuilder } from './item/passwordAuthenticationMethodItemRequestBuilder';
-import { type PasswordMethodsRequestBuilderGetRequestConfiguration } from './passwordMethodsRequestBuilderGetRequestConfiguration';
-import { type PasswordMethodsRequestBuilderPostRequestConfiguration } from './passwordMethodsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PasswordMethodsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PasswordMethodsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PasswordMethodsRequestBuilderGetQueryParameters;
+}
+export interface PasswordMethodsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
  */

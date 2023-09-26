@@ -1,17 +1,53 @@
-import { createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue } from '../../../../../models/createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue';
-import { deserializeIntoIdentityUserFlowAttributeAssignment } from '../../../../../models/deserializeIntoIdentityUserFlowAttributeAssignment';
-import { type IdentityUserFlowAttributeAssignment } from '../../../../../models/identityUserFlowAttributeAssignment';
+import { createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue, deserializeIntoIdentityUserFlowAttributeAssignment, serializeIdentityUserFlowAttributeAssignment, type IdentityUserFlowAttributeAssignment } from '../../../../../models/identityUserFlowAttributeAssignment';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeIdentityUserFlowAttributeAssignment } from '../../../../../models/serializeIdentityUserFlowAttributeAssignment';
-import { type IdentityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration } from './identityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type IdentityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration } from './identityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type IdentityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration } from './identityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { UserAttributeRequestBuilder } from './userAttribute/userAttributeRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IdentityUserFlowAttributeAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentityUserFlowAttributeAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface IdentityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
  */

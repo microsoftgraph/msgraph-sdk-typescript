@@ -1,19 +1,70 @@
 import { type NamedLocationCollectionResponse } from '../../../models/';
-import { createNamedLocationCollectionResponseFromDiscriminatorValue } from '../../../models/createNamedLocationCollectionResponseFromDiscriminatorValue';
-import { createNamedLocationFromDiscriminatorValue } from '../../../models/createNamedLocationFromDiscriminatorValue';
-import { deserializeIntoNamedLocation } from '../../../models/deserializeIntoNamedLocation';
-import { type NamedLocation } from '../../../models/namedLocation';
+import { createNamedLocationFromDiscriminatorValue, deserializeIntoNamedLocation, serializeNamedLocation, type NamedLocation } from '../../../models/namedLocation';
+import { createNamedLocationCollectionResponseFromDiscriminatorValue } from '../../../models/namedLocationCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeNamedLocation } from '../../../models/serializeNamedLocation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { NamedLocationItemRequestBuilder } from './item/namedLocationItemRequestBuilder';
-import { type NamedLocationsRequestBuilderGetRequestConfiguration } from './namedLocationsRequestBuilderGetRequestConfiguration';
-import { type NamedLocationsRequestBuilderPostRequestConfiguration } from './namedLocationsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface NamedLocationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface NamedLocationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: NamedLocationsRequestBuilderGetQueryParameters;
+}
+export interface NamedLocationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
  */

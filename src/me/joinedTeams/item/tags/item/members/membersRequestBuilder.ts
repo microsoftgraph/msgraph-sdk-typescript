@@ -1,19 +1,70 @@
 import { type TeamworkTagMemberCollectionResponse } from '../../../../../../models/';
-import { createTeamworkTagMemberCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createTeamworkTagMemberCollectionResponseFromDiscriminatorValue';
-import { createTeamworkTagMemberFromDiscriminatorValue } from '../../../../../../models/createTeamworkTagMemberFromDiscriminatorValue';
-import { deserializeIntoTeamworkTagMember } from '../../../../../../models/deserializeIntoTeamworkTagMember';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeTeamworkTagMember } from '../../../../../../models/serializeTeamworkTagMember';
-import { type TeamworkTagMember } from '../../../../../../models/teamworkTagMember';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createTeamworkTagMemberFromDiscriminatorValue, deserializeIntoTeamworkTagMember, serializeTeamworkTagMember, type TeamworkTagMember } from '../../../../../../models/teamworkTagMember';
+import { createTeamworkTagMemberCollectionResponseFromDiscriminatorValue } from '../../../../../../models/teamworkTagMemberCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TeamworkTagMemberItemRequestBuilder } from './item/teamworkTagMemberItemRequestBuilder';
-import { type MembersRequestBuilderGetRequestConfiguration } from './membersRequestBuilderGetRequestConfiguration';
-import { type MembersRequestBuilderPostRequestConfiguration } from './membersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MembersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface MembersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MembersRequestBuilderGetQueryParameters;
+}
+export interface MembersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the members property of the microsoft.graph.teamworkTag entity.
  */

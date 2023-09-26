@@ -19,3 +19,5 @@ export enum RatingCanadaTelevisionType {
     /** The 18+ classification is intended for viewers ages 18 and older */
     AgesAbove18 = "agesAbove18",
 }
+// tslint:enable
+// eslint-enable

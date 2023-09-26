@@ -1,18 +1,54 @@
-import { createLearningProviderFromDiscriminatorValue } from '../../../models/createLearningProviderFromDiscriminatorValue';
-import { deserializeIntoLearningProvider } from '../../../models/deserializeIntoLearningProvider';
-import { type LearningProvider } from '../../../models/learningProvider';
+import { createLearningProviderFromDiscriminatorValue, deserializeIntoLearningProvider, serializeLearningProvider, type LearningProvider } from '../../../models/learningProvider';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeLearningProvider } from '../../../models/serializeLearningProvider';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { LearningContentsRequestBuilder } from './learningContents/learningContentsRequestBuilder';
 import { LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/learningCourseActivitiesRequestBuilder';
-import { type LearningProviderItemRequestBuilderDeleteRequestConfiguration } from './learningProviderItemRequestBuilderDeleteRequestConfiguration';
-import { type LearningProviderItemRequestBuilderGetRequestConfiguration } from './learningProviderItemRequestBuilderGetRequestConfiguration';
-import { type LearningProviderItemRequestBuilderPatchRequestConfiguration } from './learningProviderItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LearningProviderItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface LearningProviderItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LearningProviderItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LearningProviderItemRequestBuilderGetQueryParameters;
+}
+export interface LearningProviderItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
  */

@@ -1,19 +1,70 @@
 import { type BookingBusinessCollectionResponse } from '../../models/';
-import { type BookingBusiness } from '../../models/bookingBusiness';
-import { createBookingBusinessCollectionResponseFromDiscriminatorValue } from '../../models/createBookingBusinessCollectionResponseFromDiscriminatorValue';
-import { createBookingBusinessFromDiscriminatorValue } from '../../models/createBookingBusinessFromDiscriminatorValue';
-import { deserializeIntoBookingBusiness } from '../../models/deserializeIntoBookingBusiness';
+import { createBookingBusinessFromDiscriminatorValue, deserializeIntoBookingBusiness, serializeBookingBusiness, type BookingBusiness } from '../../models/bookingBusiness';
+import { createBookingBusinessCollectionResponseFromDiscriminatorValue } from '../../models/bookingBusinessCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeBookingBusiness } from '../../models/serializeBookingBusiness';
-import { type BookingBusinessesRequestBuilderGetRequestConfiguration } from './bookingBusinessesRequestBuilderGetRequestConfiguration';
-import { type BookingBusinessesRequestBuilderPostRequestConfiguration } from './bookingBusinessesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { BookingBusinessItemRequestBuilder } from './item/bookingBusinessItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BookingBusinessesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface BookingBusinessesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BookingBusinessesRequestBuilderGetQueryParameters;
+}
+export interface BookingBusinessesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
  */

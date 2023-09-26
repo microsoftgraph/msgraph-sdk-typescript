@@ -5,3 +5,5 @@ export enum ThreatCategory {
     Malware = "malware",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

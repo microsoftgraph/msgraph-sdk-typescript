@@ -1,19 +1,70 @@
 import { type IdentityCollectionResponse } from '../../../../../models/externalConnectors/';
-import { createIdentityCollectionResponseFromDiscriminatorValue } from '../../../../../models/externalConnectors/createIdentityCollectionResponseFromDiscriminatorValue';
-import { createIdentityFromDiscriminatorValue } from '../../../../../models/externalConnectors/createIdentityFromDiscriminatorValue';
-import { deserializeIntoIdentity } from '../../../../../models/externalConnectors/deserializeIntoIdentity';
-import { type Identity } from '../../../../../models/externalConnectors/identity';
-import { serializeIdentity } from '../../../../../models/externalConnectors/serializeIdentity';
+import { createIdentityFromDiscriminatorValue, deserializeIntoIdentity, serializeIdentity, type Identity } from '../../../../../models/externalConnectors/identity';
+import { createIdentityCollectionResponseFromDiscriminatorValue } from '../../../../../models/externalConnectors/identityCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { IdentityItemRequestBuilder } from './item/identityItemRequestBuilder';
-import { type MembersRequestBuilderGetRequestConfiguration } from './membersRequestBuilderGetRequestConfiguration';
-import { type MembersRequestBuilderPostRequestConfiguration } from './membersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MembersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface MembersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MembersRequestBuilderGetQueryParameters;
+}
+export interface MembersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.
  */

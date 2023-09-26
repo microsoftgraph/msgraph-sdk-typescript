@@ -1,12 +1,33 @@
 import { type OnenoteSection } from '../../../../../../../../../../../../../../models/';
-import { createOnenoteSectionFromDiscriminatorValue } from '../../../../../../../../../../../../../../models/createOnenoteSectionFromDiscriminatorValue';
 import { type ODataError } from '../../../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type ParentSectionRequestBuilderGetRequestConfiguration } from './parentSectionRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createOnenoteSectionFromDiscriminatorValue } from '../../../../../../../../../../../../../../models/onenoteSection';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ParentSectionRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ParentSectionRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ParentSectionRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the parentSection property of the microsoft.graph.onenotePage entity.
  */

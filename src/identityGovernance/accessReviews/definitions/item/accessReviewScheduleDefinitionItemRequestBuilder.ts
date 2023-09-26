@@ -1,18 +1,54 @@
-import { type AccessReviewScheduleDefinition } from '../../../../models/accessReviewScheduleDefinition';
-import { createAccessReviewScheduleDefinitionFromDiscriminatorValue } from '../../../../models/createAccessReviewScheduleDefinitionFromDiscriminatorValue';
-import { deserializeIntoAccessReviewScheduleDefinition } from '../../../../models/deserializeIntoAccessReviewScheduleDefinition';
+import { createAccessReviewScheduleDefinitionFromDiscriminatorValue, deserializeIntoAccessReviewScheduleDefinition, serializeAccessReviewScheduleDefinition, type AccessReviewScheduleDefinition } from '../../../../models/accessReviewScheduleDefinition';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewScheduleDefinition } from '../../../../models/serializeAccessReviewScheduleDefinition';
-import { type AccessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration } from './accessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration } from './accessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration';
-import { type AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration } from './accessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { InstancesRequestBuilder } from './instances/instancesRequestBuilder';
 import { StopRequestBuilder } from './stop/stopRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters;
+}
+export interface AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
  */

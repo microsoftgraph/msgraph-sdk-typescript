@@ -1,16 +1,52 @@
-import { createLicenseDetailsFromDiscriminatorValue } from '../../../models/createLicenseDetailsFromDiscriminatorValue';
-import { deserializeIntoLicenseDetails } from '../../../models/deserializeIntoLicenseDetails';
-import { type LicenseDetails } from '../../../models/licenseDetails';
+import { createLicenseDetailsFromDiscriminatorValue, deserializeIntoLicenseDetails, serializeLicenseDetails, type LicenseDetails } from '../../../models/licenseDetails';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeLicenseDetails } from '../../../models/serializeLicenseDetails';
-import { type LicenseDetailsItemRequestBuilderDeleteRequestConfiguration } from './licenseDetailsItemRequestBuilderDeleteRequestConfiguration';
-import { type LicenseDetailsItemRequestBuilderGetRequestConfiguration } from './licenseDetailsItemRequestBuilderGetRequestConfiguration';
-import { type LicenseDetailsItemRequestBuilderPatchRequestConfiguration } from './licenseDetailsItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LicenseDetailsItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface LicenseDetailsItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LicenseDetailsItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LicenseDetailsItemRequestBuilderGetQueryParameters;
+}
+export interface LicenseDetailsItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
  */

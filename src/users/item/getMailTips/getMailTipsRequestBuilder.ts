@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createGetMailTipsResponseFromDiscriminatorValue } from './createGetMailTipsResponseFromDiscriminatorValue';
-import { deserializeIntoGetMailTipsPostRequestBody } from './deserializeIntoGetMailTipsPostRequestBody';
-import { deserializeIntoGetMailTipsResponse } from './deserializeIntoGetMailTipsResponse';
-import { type GetMailTipsPostRequestBody } from './getMailTipsPostRequestBody';
-import { type GetMailTipsRequestBuilderPostRequestConfiguration } from './getMailTipsRequestBuilderPostRequestConfiguration';
-import { type GetMailTipsResponse } from './getMailTipsResponse';
-import { serializeGetMailTipsPostRequestBody } from './serializeGetMailTipsPostRequestBody';
-import { serializeGetMailTipsResponse } from './serializeGetMailTipsResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetMailTipsPostRequestBody, serializeGetMailTipsPostRequestBody, type GetMailTipsPostRequestBody } from './getMailTipsPostRequestBody';
+import { createGetMailTipsResponseFromDiscriminatorValue, deserializeIntoGetMailTipsResponse, serializeGetMailTipsResponse, type GetMailTipsResponse } from './getMailTipsResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetMailTipsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getMailTips method.
  */

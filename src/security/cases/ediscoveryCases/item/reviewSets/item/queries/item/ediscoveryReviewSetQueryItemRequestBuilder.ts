@@ -1,18 +1,54 @@
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { createEdiscoveryReviewSetQueryFromDiscriminatorValue } from '../../../../../../../../models/security/createEdiscoveryReviewSetQueryFromDiscriminatorValue';
-import { deserializeIntoEdiscoveryReviewSetQuery } from '../../../../../../../../models/security/deserializeIntoEdiscoveryReviewSetQuery';
-import { type EdiscoveryReviewSetQuery } from '../../../../../../../../models/security/ediscoveryReviewSetQuery';
-import { serializeEdiscoveryReviewSetQuery } from '../../../../../../../../models/security/serializeEdiscoveryReviewSetQuery';
-import { type EdiscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration } from './ediscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration';
-import { type EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration } from './ediscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration';
-import { type EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration } from './ediscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createEdiscoveryReviewSetQueryFromDiscriminatorValue, deserializeIntoEdiscoveryReviewSetQuery, serializeEdiscoveryReviewSetQuery, type EdiscoveryReviewSetQuery } from '../../../../../../../../models/security/ediscoveryReviewSetQuery';
 import { MicrosoftGraphSecurityApplyTagsRequestBuilder } from './microsoftGraphSecurityApplyTags/microsoftGraphSecurityApplyTagsRequestBuilder';
 import { MicrosoftGraphSecurityExportRequestBuilder } from './microsoftGraphSecurityExport/microsoftGraphSecurityExportRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EdiscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EdiscoveryReviewSetQueryItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EdiscoveryReviewSetQueryItemRequestBuilderGetQueryParameters;
+}
+export interface EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
  */

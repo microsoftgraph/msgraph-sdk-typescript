@@ -1,19 +1,70 @@
 import { type SecureScoreCollectionResponse } from '../../models/';
-import { createSecureScoreCollectionResponseFromDiscriminatorValue } from '../../models/createSecureScoreCollectionResponseFromDiscriminatorValue';
-import { createSecureScoreFromDiscriminatorValue } from '../../models/createSecureScoreFromDiscriminatorValue';
-import { deserializeIntoSecureScore } from '../../models/deserializeIntoSecureScore';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type SecureScore } from '../../models/secureScore';
-import { serializeSecureScore } from '../../models/serializeSecureScore';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createSecureScoreFromDiscriminatorValue, deserializeIntoSecureScore, serializeSecureScore, type SecureScore } from '../../models/secureScore';
+import { createSecureScoreCollectionResponseFromDiscriminatorValue } from '../../models/secureScoreCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SecureScoreItemRequestBuilder } from './item/secureScoreItemRequestBuilder';
-import { type SecureScoresRequestBuilderGetRequestConfiguration } from './secureScoresRequestBuilderGetRequestConfiguration';
-import { type SecureScoresRequestBuilderPostRequestConfiguration } from './secureScoresRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SecureScoresRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SecureScoresRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SecureScoresRequestBuilderGetQueryParameters;
+}
+export interface SecureScoresRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
  */

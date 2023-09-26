@@ -1,17 +1,53 @@
-import { type AgreementFile } from '../../../../../models/agreementFile';
-import { createAgreementFileFromDiscriminatorValue } from '../../../../../models/createAgreementFileFromDiscriminatorValue';
-import { deserializeIntoAgreementFile } from '../../../../../models/deserializeIntoAgreementFile';
+import { createAgreementFileFromDiscriminatorValue, deserializeIntoAgreementFile, serializeAgreementFile, type AgreementFile } from '../../../../../models/agreementFile';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeAgreementFile } from '../../../../../models/serializeAgreementFile';
-import { type FileRequestBuilderDeleteRequestConfiguration } from './fileRequestBuilderDeleteRequestConfiguration';
-import { type FileRequestBuilderGetRequestConfiguration } from './fileRequestBuilderGetRequestConfiguration';
-import { type FileRequestBuilderPatchRequestConfiguration } from './fileRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { LocalizationsRequestBuilder } from './localizations/localizationsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FileRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface FileRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FileRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FileRequestBuilderGetQueryParameters;
+}
+export interface FileRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the file property of the microsoft.graph.agreement entity.
  */

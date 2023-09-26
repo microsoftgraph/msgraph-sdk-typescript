@@ -1,17 +1,44 @@
-import { createInformationProtectionFromDiscriminatorValue } from '../models/createInformationProtectionFromDiscriminatorValue';
-import { deserializeIntoInformationProtection } from '../models/deserializeIntoInformationProtection';
-import { type InformationProtection } from '../models/informationProtection';
+import { createInformationProtectionFromDiscriminatorValue, deserializeIntoInformationProtection, serializeInformationProtection, type InformationProtection } from '../models/informationProtection';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeInformationProtection } from '../models/serializeInformationProtection';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { BitlockerRequestBuilder } from './bitlocker/bitlockerRequestBuilder';
-import { type InformationProtectionRequestBuilderGetRequestConfiguration } from './informationProtectionRequestBuilderGetRequestConfiguration';
-import { type InformationProtectionRequestBuilderPatchRequestConfiguration } from './informationProtectionRequestBuilderPatchRequestConfiguration';
 import { ThreatAssessmentRequestsRequestBuilder } from './threatAssessmentRequests/threatAssessmentRequestsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InformationProtectionRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface InformationProtectionRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InformationProtectionRequestBuilderGetQueryParameters;
+}
+export interface InformationProtectionRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the informationProtection singleton.
  */

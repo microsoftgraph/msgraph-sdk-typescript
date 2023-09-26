@@ -1,19 +1,70 @@
 import { type AlertCollectionResponse } from '../../models/';
-import { type Alert } from '../../models/alert';
-import { createAlertCollectionResponseFromDiscriminatorValue } from '../../models/createAlertCollectionResponseFromDiscriminatorValue';
-import { createAlertFromDiscriminatorValue } from '../../models/createAlertFromDiscriminatorValue';
-import { deserializeIntoAlert } from '../../models/deserializeIntoAlert';
+import { createAlertFromDiscriminatorValue, deserializeIntoAlert, serializeAlert, type Alert } from '../../models/alert';
+import { createAlertCollectionResponseFromDiscriminatorValue } from '../../models/alertCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAlert } from '../../models/serializeAlert';
-import { type AlertsRequestBuilderGetRequestConfiguration } from './alertsRequestBuilderGetRequestConfiguration';
-import { type AlertsRequestBuilderPostRequestConfiguration } from './alertsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AlertItemRequestBuilder } from './item/alertItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AlertsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AlertsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AlertsRequestBuilderGetQueryParameters;
+}
+export interface AlertsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the alerts property of the microsoft.graph.security entity.
  */

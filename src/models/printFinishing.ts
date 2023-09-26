@@ -20,3 +20,5 @@ export enum PrintFinishing {
     StapleDualBottom = "stapleDualBottom",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

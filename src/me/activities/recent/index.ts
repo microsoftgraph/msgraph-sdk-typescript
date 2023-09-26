@@ -1,6 +1,2 @@
-export * from './createRecentResponseFromDiscriminatorValue'
-export * from './deserializeIntoRecentResponse'
-export * from './recentRequestBuilderGetQueryParameters'
-export * from './recentRequestBuilderGetRequestConfiguration'
+export * from './recentRequestBuilder'
 export * from './recentResponse'
-export * from './serializeRecentResponse'

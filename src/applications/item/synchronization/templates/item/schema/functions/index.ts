@@ -1,6 +1,2 @@
-export * from './createFunctionsResponseFromDiscriminatorValue'
-export * from './deserializeIntoFunctionsResponse'
-export * from './functionsRequestBuilderGetQueryParameters'
-export * from './functionsRequestBuilderGetRequestConfiguration'
+export * from './functionsRequestBuilder'
 export * from './functionsResponse'
-export * from './serializeFunctionsResponse'

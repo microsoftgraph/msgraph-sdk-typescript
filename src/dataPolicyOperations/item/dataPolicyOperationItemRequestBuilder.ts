@@ -1,16 +1,52 @@
-import { createDataPolicyOperationFromDiscriminatorValue } from '../../models/createDataPolicyOperationFromDiscriminatorValue';
-import { type DataPolicyOperation } from '../../models/dataPolicyOperation';
-import { deserializeIntoDataPolicyOperation } from '../../models/deserializeIntoDataPolicyOperation';
+import { createDataPolicyOperationFromDiscriminatorValue, deserializeIntoDataPolicyOperation, serializeDataPolicyOperation, type DataPolicyOperation } from '../../models/dataPolicyOperation';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDataPolicyOperation } from '../../models/serializeDataPolicyOperation';
-import { type DataPolicyOperationItemRequestBuilderDeleteRequestConfiguration } from './dataPolicyOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type DataPolicyOperationItemRequestBuilderGetRequestConfiguration } from './dataPolicyOperationItemRequestBuilderGetRequestConfiguration';
-import { type DataPolicyOperationItemRequestBuilderPatchRequestConfiguration } from './dataPolicyOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DataPolicyOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DataPolicyOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DataPolicyOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DataPolicyOperationItemRequestBuilderGetQueryParameters;
+}
+export interface DataPolicyOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of dataPolicyOperation entities.
  */

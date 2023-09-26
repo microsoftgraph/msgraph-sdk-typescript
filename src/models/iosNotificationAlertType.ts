@@ -11,3 +11,5 @@ export enum IosNotificationAlertType {
     /** None. */
     None = "none",
 }
+// tslint:enable
+// eslint-enable

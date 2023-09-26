@@ -1,17 +1,53 @@
-import { createRiskyServicePrincipalFromDiscriminatorValue } from '../../../models/createRiskyServicePrincipalFromDiscriminatorValue';
-import { deserializeIntoRiskyServicePrincipal } from '../../../models/deserializeIntoRiskyServicePrincipal';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type RiskyServicePrincipal } from '../../../models/riskyServicePrincipal';
-import { serializeRiskyServicePrincipal } from '../../../models/serializeRiskyServicePrincipal';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createRiskyServicePrincipalFromDiscriminatorValue, deserializeIntoRiskyServicePrincipal, serializeRiskyServicePrincipal, type RiskyServicePrincipal } from '../../../models/riskyServicePrincipal';
 import { HistoryRequestBuilder } from './history/historyRequestBuilder';
-import { type RiskyServicePrincipalItemRequestBuilderDeleteRequestConfiguration } from './riskyServicePrincipalItemRequestBuilderDeleteRequestConfiguration';
-import { type RiskyServicePrincipalItemRequestBuilderGetRequestConfiguration } from './riskyServicePrincipalItemRequestBuilderGetRequestConfiguration';
-import { type RiskyServicePrincipalItemRequestBuilderPatchRequestConfiguration } from './riskyServicePrincipalItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RiskyServicePrincipalItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface RiskyServicePrincipalItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface RiskyServicePrincipalItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RiskyServicePrincipalItemRequestBuilderGetQueryParameters;
+}
+export interface RiskyServicePrincipalItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
  */

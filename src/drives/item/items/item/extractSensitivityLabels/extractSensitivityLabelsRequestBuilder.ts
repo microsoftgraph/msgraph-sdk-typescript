@@ -1,12 +1,19 @@
 import { type ExtractSensitivityLabelsResult } from '../../../../../models/';
-import { createExtractSensitivityLabelsResultFromDiscriminatorValue } from '../../../../../models/createExtractSensitivityLabelsResultFromDiscriminatorValue';
+import { createExtractSensitivityLabelsResultFromDiscriminatorValue } from '../../../../../models/extractSensitivityLabelsResult';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type ExtractSensitivityLabelsRequestBuilderPostRequestConfiguration } from './extractSensitivityLabelsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExtractSensitivityLabelsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the extractSensitivityLabels method.
  */

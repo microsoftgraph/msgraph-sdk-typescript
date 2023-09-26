@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { createGetMemberObjectsResponseFromDiscriminatorValue } from './createGetMemberObjectsResponseFromDiscriminatorValue';
-import { deserializeIntoGetMemberObjectsPostRequestBody } from './deserializeIntoGetMemberObjectsPostRequestBody';
-import { deserializeIntoGetMemberObjectsResponse } from './deserializeIntoGetMemberObjectsResponse';
-import { type GetMemberObjectsPostRequestBody } from './getMemberObjectsPostRequestBody';
-import { type GetMemberObjectsRequestBuilderPostRequestConfiguration } from './getMemberObjectsRequestBuilderPostRequestConfiguration';
-import { type GetMemberObjectsResponse } from './getMemberObjectsResponse';
-import { serializeGetMemberObjectsPostRequestBody } from './serializeGetMemberObjectsPostRequestBody';
-import { serializeGetMemberObjectsResponse } from './serializeGetMemberObjectsResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetMemberObjectsPostRequestBody, serializeGetMemberObjectsPostRequestBody, type GetMemberObjectsPostRequestBody } from './getMemberObjectsPostRequestBody';
+import { createGetMemberObjectsResponseFromDiscriminatorValue, deserializeIntoGetMemberObjectsResponse, serializeGetMemberObjectsResponse, type GetMemberObjectsResponse } from './getMemberObjectsResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetMemberObjectsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getMemberObjects method.
  */

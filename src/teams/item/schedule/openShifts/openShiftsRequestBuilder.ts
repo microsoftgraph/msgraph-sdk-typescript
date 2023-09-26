@@ -1,19 +1,70 @@
 import { type OpenShiftCollectionResponse } from '../../../../models/';
-import { createOpenShiftCollectionResponseFromDiscriminatorValue } from '../../../../models/createOpenShiftCollectionResponseFromDiscriminatorValue';
-import { createOpenShiftFromDiscriminatorValue } from '../../../../models/createOpenShiftFromDiscriminatorValue';
-import { deserializeIntoOpenShift } from '../../../../models/deserializeIntoOpenShift';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type OpenShift } from '../../../../models/openShift';
-import { serializeOpenShift } from '../../../../models/serializeOpenShift';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createOpenShiftFromDiscriminatorValue, deserializeIntoOpenShift, serializeOpenShift, type OpenShift } from '../../../../models/openShift';
+import { createOpenShiftCollectionResponseFromDiscriminatorValue } from '../../../../models/openShiftCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OpenShiftItemRequestBuilder } from './item/openShiftItemRequestBuilder';
-import { type OpenShiftsRequestBuilderGetRequestConfiguration } from './openShiftsRequestBuilderGetRequestConfiguration';
-import { type OpenShiftsRequestBuilderPostRequestConfiguration } from './openShiftsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OpenShiftsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OpenShiftsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OpenShiftsRequestBuilderGetQueryParameters;
+}
+export interface OpenShiftsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
  */

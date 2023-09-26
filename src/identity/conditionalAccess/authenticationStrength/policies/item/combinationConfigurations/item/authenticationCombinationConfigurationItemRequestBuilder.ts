@@ -1,16 +1,52 @@
-import { type AuthenticationCombinationConfiguration } from '../../../../../../../models/authenticationCombinationConfiguration';
-import { createAuthenticationCombinationConfigurationFromDiscriminatorValue } from '../../../../../../../models/createAuthenticationCombinationConfigurationFromDiscriminatorValue';
-import { deserializeIntoAuthenticationCombinationConfiguration } from '../../../../../../../models/deserializeIntoAuthenticationCombinationConfiguration';
+import { createAuthenticationCombinationConfigurationFromDiscriminatorValue, deserializeIntoAuthenticationCombinationConfiguration, serializeAuthenticationCombinationConfiguration, type AuthenticationCombinationConfiguration } from '../../../../../../../models/authenticationCombinationConfiguration';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationCombinationConfiguration } from '../../../../../../../models/serializeAuthenticationCombinationConfiguration';
-import { type AuthenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration } from './authenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration';
-import { type AuthenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration } from './authenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration';
-import { type AuthenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration } from './authenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AuthenticationCombinationConfigurationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AuthenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthenticationCombinationConfigurationItemRequestBuilderGetQueryParameters;
+}
+export interface AuthenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
  */
@@ -55,7 +91,7 @@ export class AuthenticationCombinationConfigurationItemRequestBuilder extends Ba
         return this.requestAdapter.sendAsync<AuthenticationCombinationConfiguration>(requestInfo, createAuthenticationCombinationConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations may be updated as they are the only type of authenticationCombinationConfiguration that may be created.
+     * Update the properties of an authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations may be updated as they're the only type of authenticationCombinationConfiguration that may be created.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationCombinationConfiguration
@@ -106,7 +142,7 @@ export class AuthenticationCombinationConfigurationItemRequestBuilder extends Ba
         return requestInfo;
     };
     /**
-     * Update the properties of an authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations may be updated as they are the only type of authenticationCombinationConfiguration that may be created.
+     * Update the properties of an authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations may be updated as they're the only type of authenticationCombinationConfiguration that may be created.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

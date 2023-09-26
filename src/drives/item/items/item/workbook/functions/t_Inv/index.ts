@@ -1,5 +1,2 @@
-export * from './createT_InvPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoT_InvPostRequestBody'
-export * from './serializeT_InvPostRequestBody'
 export * from './t_InvPostRequestBody'
-export * from './t_InvRequestBuilderPostRequestConfiguration'
+export * from './t_InvRequestBuilder'

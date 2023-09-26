@@ -1,3 +1,1 @@
-export * from './runsRequestBuilderGetQueryParameters'
-export * from './runsRequestBuilderGetRequestConfiguration'
-export * from './runsRequestBuilderPostRequestConfiguration'
+export * from './runsRequestBuilder'

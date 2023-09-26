@@ -1,11 +1,6 @@
-import { createWorkbookFilterFromDiscriminatorValue } from '../../../../../../../../../../../../models/createWorkbookFilterFromDiscriminatorValue';
-import { deserializeIntoWorkbookFilter } from '../../../../../../../../../../../../models/deserializeIntoWorkbookFilter';
 import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookFilter } from '../../../../../../../../../../../../models/serializeWorkbookFilter';
-import { type WorkbookFilter } from '../../../../../../../../../../../../models/workbookFilter';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookFilterFromDiscriminatorValue, deserializeIntoWorkbookFilter, serializeWorkbookFilter, type WorkbookFilter } from '../../../../../../../../../../../../models/workbookFilter';
 import { ApplyRequestBuilder } from './apply/applyRequestBuilder';
 import { ApplyBottomItemsFilterRequestBuilder } from './applyBottomItemsFilter/applyBottomItemsFilterRequestBuilder';
 import { ApplyBottomPercentFilterRequestBuilder } from './applyBottomPercentFilter/applyBottomPercentFilterRequestBuilder';
@@ -18,11 +13,52 @@ import { ApplyTopItemsFilterRequestBuilder } from './applyTopItemsFilter/applyTo
 import { ApplyTopPercentFilterRequestBuilder } from './applyTopPercentFilter/applyTopPercentFilterRequestBuilder';
 import { ApplyValuesFilterRequestBuilder } from './applyValuesFilter/applyValuesFilterRequestBuilder';
 import { ClearRequestBuilder } from './clear/clearRequestBuilder';
-import { type FilterRequestBuilderDeleteRequestConfiguration } from './filterRequestBuilderDeleteRequestConfiguration';
-import { type FilterRequestBuilderGetRequestConfiguration } from './filterRequestBuilderGetRequestConfiguration';
-import { type FilterRequestBuilderPatchRequestConfiguration } from './filterRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FilterRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface FilterRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FilterRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FilterRequestBuilderGetQueryParameters;
+}
+export interface FilterRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the filter property of the microsoft.graph.workbookTableColumn entity.
  */

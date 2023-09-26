@@ -7,3 +7,5 @@ export enum VppTokenAccountType {
     /** Apple Volume Purchase Program token associated with an education program. */
     Education = "education",
 }
+// tslint:enable
+// eslint-enable

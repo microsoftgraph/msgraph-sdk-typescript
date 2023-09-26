@@ -1,17 +1,19 @@
-import { createUploadSessionFromDiscriminatorValue } from '../../../../../../../../../../models/createUploadSessionFromDiscriminatorValue';
-import { deserializeIntoUploadSession } from '../../../../../../../../../../models/deserializeIntoUploadSession';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeUploadSession } from '../../../../../../../../../../models/serializeUploadSession';
-import { type UploadSession } from '../../../../../../../../../../models/uploadSession';
-import { type CreateUploadSessionPostRequestBody } from './createUploadSessionPostRequestBody';
-import { type CreateUploadSessionRequestBuilderPostRequestConfiguration } from './createUploadSessionRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCreateUploadSessionPostRequestBody } from './deserializeIntoCreateUploadSessionPostRequestBody';
-import { serializeCreateUploadSessionPostRequestBody } from './serializeCreateUploadSessionPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { createUploadSessionFromDiscriminatorValue, deserializeIntoUploadSession, serializeUploadSession, type UploadSession } from '../../../../../../../../../../models/uploadSession';
+import { deserializeIntoCreateUploadSessionPostRequestBody, serializeCreateUploadSessionPostRequestBody, type CreateUploadSessionPostRequestBody } from './createUploadSessionPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CreateUploadSessionRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the createUploadSession method.
  */

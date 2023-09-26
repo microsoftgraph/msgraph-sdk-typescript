@@ -1,19 +1,70 @@
 import { type B2xIdentityUserFlowCollectionResponse } from '../../models/';
-import { type B2xIdentityUserFlow } from '../../models/b2xIdentityUserFlow';
-import { createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue } from '../../models/createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue';
-import { createB2xIdentityUserFlowFromDiscriminatorValue } from '../../models/createB2xIdentityUserFlowFromDiscriminatorValue';
-import { deserializeIntoB2xIdentityUserFlow } from '../../models/deserializeIntoB2xIdentityUserFlow';
+import { createB2xIdentityUserFlowFromDiscriminatorValue, deserializeIntoB2xIdentityUserFlow, serializeB2xIdentityUserFlow, type B2xIdentityUserFlow } from '../../models/b2xIdentityUserFlow';
+import { createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue } from '../../models/b2xIdentityUserFlowCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeB2xIdentityUserFlow } from '../../models/serializeB2xIdentityUserFlow';
-import { type B2xUserFlowsRequestBuilderGetRequestConfiguration } from './b2xUserFlowsRequestBuilderGetRequestConfiguration';
-import { type B2xUserFlowsRequestBuilderPostRequestConfiguration } from './b2xUserFlowsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { B2xIdentityUserFlowItemRequestBuilder } from './item/b2xIdentityUserFlowItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface B2xUserFlowsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface B2xUserFlowsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: B2xUserFlowsRequestBuilderGetQueryParameters;
+}
+export interface B2xUserFlowsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
  */

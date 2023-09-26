@@ -1,11 +1,6 @@
-import { createUserFromDiscriminatorValue } from '../models/createUserFromDiscriminatorValue';
-import { deserializeIntoUser } from '../models/deserializeIntoUser';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeUser } from '../models/serializeUser';
-import { type User } from '../models/user';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createUserFromDiscriminatorValue, deserializeIntoUser, serializeUser, type User } from '../models/user';
 import { ActivitiesRequestBuilder } from './activities/activitiesRequestBuilder';
 import { AgreementAcceptancesRequestBuilder } from './agreementAcceptances/agreementAcceptancesRequestBuilder';
 import { AppRoleAssignmentsRequestBuilder } from './appRoleAssignments/appRoleAssignmentsRequestBuilder';
@@ -50,8 +45,6 @@ import { ManagedAppRegistrationsRequestBuilder } from './managedAppRegistrations
 import { ManagedDevicesRequestBuilder } from './managedDevices/managedDevicesRequestBuilder';
 import { ManagerRequestBuilder } from './manager/managerRequestBuilder';
 import { MemberOfRequestBuilder } from './memberOf/memberOfRequestBuilder';
-import { type MeRequestBuilderGetRequestConfiguration } from './meRequestBuilderGetRequestConfiguration';
-import { type MeRequestBuilderPatchRequestConfiguration } from './meRequestBuilderPatchRequestConfiguration';
 import { MessagesRequestBuilder } from './messages/messagesRequestBuilder';
 import { Oauth2PermissionGrantsRequestBuilder } from './oauth2PermissionGrants/oauth2PermissionGrantsRequestBuilder';
 import { OnenoteRequestBuilder } from './onenote/onenoteRequestBuilder';
@@ -73,6 +66,7 @@ import { RetryServiceProvisioningRequestBuilder } from './retryServiceProvisioni
 import { RevokeSignInSessionsRequestBuilder } from './revokeSignInSessions/revokeSignInSessionsRequestBuilder';
 import { ScopedRoleMemberOfRequestBuilder } from './scopedRoleMemberOf/scopedRoleMemberOfRequestBuilder';
 import { SendMailRequestBuilder } from './sendMail/sendMailRequestBuilder';
+import { ServiceProvisioningErrorsRequestBuilder } from './serviceProvisioningErrors/serviceProvisioningErrorsRequestBuilder';
 import { SettingsRequestBuilder } from './settings/settingsRequestBuilder';
 import { TeamworkRequestBuilder } from './teamwork/teamworkRequestBuilder';
 import { TodoRequestBuilder } from './todo/todoRequestBuilder';
@@ -81,6 +75,40 @@ import { TranslateExchangeIdsRequestBuilder } from './translateExchangeIds/trans
 import { WipeManagedAppRegistrationsByDeviceTagRequestBuilder } from './wipeManagedAppRegistrationsByDeviceTag/wipeManagedAppRegistrationsByDeviceTagRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MeRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MeRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MeRequestBuilderGetQueryParameters;
+}
+export interface MeRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the user singleton.
  */
@@ -464,6 +492,12 @@ export class MeRequestBuilder extends BaseRequestBuilder {
         return new SendMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * The serviceProvisioningErrors property
+     */
+    public get serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder {
+        return new ServiceProvisioningErrorsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Provides operations to manage the settings property of the microsoft.graph.user entity.
      */
     public get settings(): SettingsRequestBuilder {
@@ -519,10 +553,10 @@ export class MeRequestBuilder extends BaseRequestBuilder {
         return new ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder(this.pathParameters, this.requestAdapter, skip, top);
     };
     /**
-     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
+     * Retrieve the properties and relationships of user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MeRequestBuilderGetRequestConfiguration | undefined) : Promise<User | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -563,7 +597,7 @@ export class MeRequestBuilder extends BaseRequestBuilder {
         return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, startDateTime);
     };
     /**
-     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
+     * Retrieve the properties and relationships of user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

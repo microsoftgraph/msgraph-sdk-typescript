@@ -1,20 +1,71 @@
 import { type IdentityProviderCollectionResponse } from '../models/';
-import { createIdentityProviderCollectionResponseFromDiscriminatorValue } from '../models/createIdentityProviderCollectionResponseFromDiscriminatorValue';
-import { createIdentityProviderFromDiscriminatorValue } from '../models/createIdentityProviderFromDiscriminatorValue';
-import { deserializeIntoIdentityProvider } from '../models/deserializeIntoIdentityProvider';
-import { type IdentityProvider } from '../models/identityProvider';
+import { createIdentityProviderFromDiscriminatorValue, deserializeIntoIdentityProvider, serializeIdentityProvider, type IdentityProvider } from '../models/identityProvider';
+import { createIdentityProviderCollectionResponseFromDiscriminatorValue } from '../models/identityProviderCollectionResponse';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeIdentityProvider } from '../models/serializeIdentityProvider';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { AvailableProviderTypesRequestBuilder } from './availableProviderTypes/availableProviderTypesRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type IdentityProvidersRequestBuilderGetRequestConfiguration } from './identityProvidersRequestBuilderGetRequestConfiguration';
-import { type IdentityProvidersRequestBuilderPostRequestConfiguration } from './identityProvidersRequestBuilderPostRequestConfiguration';
 import { IdentityProviderItemRequestBuilder } from './item/identityProviderItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentityProvidersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface IdentityProvidersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentityProvidersRequestBuilderGetQueryParameters;
+}
+export interface IdentityProvidersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of identityProvider entities.
  */

@@ -5,3 +5,5 @@ export enum AlertStatus {
     Resolved = "resolved",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

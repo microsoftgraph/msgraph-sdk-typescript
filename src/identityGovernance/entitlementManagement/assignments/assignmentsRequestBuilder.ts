@@ -1,22 +1,73 @@
 import { type AccessPackageAssignmentCollectionResponse } from '../../../models/';
-import { type AccessPackageAssignment } from '../../../models/accessPackageAssignment';
-import { createAccessPackageAssignmentCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageAssignmentCollectionResponseFromDiscriminatorValue';
-import { createAccessPackageAssignmentFromDiscriminatorValue } from '../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
-import { deserializeIntoAccessPackageAssignment } from '../../../models/deserializeIntoAccessPackageAssignment';
+import { createAccessPackageAssignmentFromDiscriminatorValue, deserializeIntoAccessPackageAssignment, serializeAccessPackageAssignment, type AccessPackageAssignment } from '../../../models/accessPackageAssignment';
+import { createAccessPackageAssignmentCollectionResponseFromDiscriminatorValue } from '../../../models/accessPackageAssignmentCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageAssignment } from '../../../models/serializeAccessPackageAssignment';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AdditionalAccessRequestBuilder } from './additionalAccess/additionalAccessRequestBuilder';
 import { AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder } from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId/additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder';
-import { type AssignmentsRequestBuilderGetRequestConfiguration } from './assignmentsRequestBuilderGetRequestConfiguration';
-import { type AssignmentsRequestBuilderPostRequestConfiguration } from './assignmentsRequestBuilderPostRequestConfiguration';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { AccessPackageAssignmentItemRequestBuilder } from './item/accessPackageAssignmentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignmentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AssignmentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AssignmentsRequestBuilderGetQueryParameters;
+}
+export interface AssignmentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
  */

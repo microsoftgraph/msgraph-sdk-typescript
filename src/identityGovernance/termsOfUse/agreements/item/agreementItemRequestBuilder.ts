@@ -1,19 +1,55 @@
-import { type Agreement } from '../../../../models/agreement';
-import { createAgreementFromDiscriminatorValue } from '../../../../models/createAgreementFromDiscriminatorValue';
-import { deserializeIntoAgreement } from '../../../../models/deserializeIntoAgreement';
+import { createAgreementFromDiscriminatorValue, deserializeIntoAgreement, serializeAgreement, type Agreement } from '../../../../models/agreement';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAgreement } from '../../../../models/serializeAgreement';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { AcceptancesRequestBuilder } from './acceptances/acceptancesRequestBuilder';
-import { type AgreementItemRequestBuilderDeleteRequestConfiguration } from './agreementItemRequestBuilderDeleteRequestConfiguration';
-import { type AgreementItemRequestBuilderGetRequestConfiguration } from './agreementItemRequestBuilderGetRequestConfiguration';
-import { type AgreementItemRequestBuilderPatchRequestConfiguration } from './agreementItemRequestBuilderPatchRequestConfiguration';
 import { FileRequestBuilder } from './file/fileRequestBuilder';
 import { FilesRequestBuilder } from './files/filesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AgreementItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AgreementItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AgreementItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AgreementItemRequestBuilderGetQueryParameters;
+}
+export interface AgreementItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
  */

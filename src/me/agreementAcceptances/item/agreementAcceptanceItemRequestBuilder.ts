@@ -1,12 +1,33 @@
 import { type AgreementAcceptance } from '../../../models/';
-import { createAgreementAcceptanceFromDiscriminatorValue } from '../../../models/createAgreementAcceptanceFromDiscriminatorValue';
+import { createAgreementAcceptanceFromDiscriminatorValue } from '../../../models/agreementAcceptance';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type AgreementAcceptanceItemRequestBuilderGetRequestConfiguration } from './agreementAcceptanceItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AgreementAcceptanceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AgreementAcceptanceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AgreementAcceptanceItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the agreementAcceptances property of the microsoft.graph.user entity.
  */

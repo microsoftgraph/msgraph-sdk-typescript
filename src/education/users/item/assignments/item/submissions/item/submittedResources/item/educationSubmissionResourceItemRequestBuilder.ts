@@ -1,16 +1,52 @@
-import { createEducationSubmissionResourceFromDiscriminatorValue } from '../../../../../../../../../models/createEducationSubmissionResourceFromDiscriminatorValue';
-import { deserializeIntoEducationSubmissionResource } from '../../../../../../../../../models/deserializeIntoEducationSubmissionResource';
-import { type EducationSubmissionResource } from '../../../../../../../../../models/educationSubmissionResource';
+import { createEducationSubmissionResourceFromDiscriminatorValue, deserializeIntoEducationSubmissionResource, serializeEducationSubmissionResource, type EducationSubmissionResource } from '../../../../../../../../../models/educationSubmissionResource';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationSubmissionResource } from '../../../../../../../../../models/serializeEducationSubmissionResource';
-import { type EducationSubmissionResourceItemRequestBuilderDeleteRequestConfiguration } from './educationSubmissionResourceItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationSubmissionResourceItemRequestBuilderGetRequestConfiguration } from './educationSubmissionResourceItemRequestBuilderGetRequestConfiguration';
-import { type EducationSubmissionResourceItemRequestBuilderPatchRequestConfiguration } from './educationSubmissionResourceItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationSubmissionResourceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationSubmissionResourceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationSubmissionResourceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationSubmissionResourceItemRequestBuilderGetQueryParameters;
+}
+export interface EducationSubmissionResourceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
  */

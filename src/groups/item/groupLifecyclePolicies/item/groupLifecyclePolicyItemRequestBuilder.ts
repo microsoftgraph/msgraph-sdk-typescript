@@ -1,18 +1,54 @@
-import { createGroupLifecyclePolicyFromDiscriminatorValue } from '../../../../models/createGroupLifecyclePolicyFromDiscriminatorValue';
-import { deserializeIntoGroupLifecyclePolicy } from '../../../../models/deserializeIntoGroupLifecyclePolicy';
-import { type GroupLifecyclePolicy } from '../../../../models/groupLifecyclePolicy';
+import { createGroupLifecyclePolicyFromDiscriminatorValue, deserializeIntoGroupLifecyclePolicy, serializeGroupLifecyclePolicy, type GroupLifecyclePolicy } from '../../../../models/groupLifecyclePolicy';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeGroupLifecyclePolicy } from '../../../../models/serializeGroupLifecyclePolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { AddGroupRequestBuilder } from './addGroup/addGroupRequestBuilder';
-import { type GroupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration } from './groupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type GroupLifecyclePolicyItemRequestBuilderGetRequestConfiguration } from './groupLifecyclePolicyItemRequestBuilderGetRequestConfiguration';
-import { type GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration } from './groupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration';
 import { RemoveGroupRequestBuilder } from './removeGroup/removeGroupRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GroupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface GroupLifecyclePolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface GroupLifecyclePolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GroupLifecyclePolicyItemRequestBuilderGetQueryParameters;
+}
+export interface GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
  */

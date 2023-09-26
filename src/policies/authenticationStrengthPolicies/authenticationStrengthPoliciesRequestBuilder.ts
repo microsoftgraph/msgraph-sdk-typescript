@@ -1,19 +1,70 @@
 import { type AuthenticationStrengthPolicyCollectionResponse } from '../../models/';
-import { type AuthenticationStrengthPolicy } from '../../models/authenticationStrengthPolicy';
-import { createAuthenticationStrengthPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createAuthenticationStrengthPolicyCollectionResponseFromDiscriminatorValue';
-import { createAuthenticationStrengthPolicyFromDiscriminatorValue } from '../../models/createAuthenticationStrengthPolicyFromDiscriminatorValue';
-import { deserializeIntoAuthenticationStrengthPolicy } from '../../models/deserializeIntoAuthenticationStrengthPolicy';
+import { createAuthenticationStrengthPolicyFromDiscriminatorValue, deserializeIntoAuthenticationStrengthPolicy, serializeAuthenticationStrengthPolicy, type AuthenticationStrengthPolicy } from '../../models/authenticationStrengthPolicy';
+import { createAuthenticationStrengthPolicyCollectionResponseFromDiscriminatorValue } from '../../models/authenticationStrengthPolicyCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationStrengthPolicy } from '../../models/serializeAuthenticationStrengthPolicy';
-import { type AuthenticationStrengthPoliciesRequestBuilderGetRequestConfiguration } from './authenticationStrengthPoliciesRequestBuilderGetRequestConfiguration';
-import { type AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration } from './authenticationStrengthPoliciesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AuthenticationStrengthPolicyItemRequestBuilder } from './item/authenticationStrengthPolicyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthenticationStrengthPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AuthenticationStrengthPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthenticationStrengthPoliciesRequestBuilderGetQueryParameters;
+}
+export interface AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
  */

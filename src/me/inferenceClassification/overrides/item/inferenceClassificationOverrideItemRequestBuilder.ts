@@ -1,16 +1,48 @@
-import { createInferenceClassificationOverrideFromDiscriminatorValue } from '../../../../models/createInferenceClassificationOverrideFromDiscriminatorValue';
-import { deserializeIntoInferenceClassificationOverride } from '../../../../models/deserializeIntoInferenceClassificationOverride';
-import { type InferenceClassificationOverride } from '../../../../models/inferenceClassificationOverride';
+import { createInferenceClassificationOverrideFromDiscriminatorValue, deserializeIntoInferenceClassificationOverride, serializeInferenceClassificationOverride, type InferenceClassificationOverride } from '../../../../models/inferenceClassificationOverride';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeInferenceClassificationOverride } from '../../../../models/serializeInferenceClassificationOverride';
-import { type InferenceClassificationOverrideItemRequestBuilderDeleteRequestConfiguration } from './inferenceClassificationOverrideItemRequestBuilderDeleteRequestConfiguration';
-import { type InferenceClassificationOverrideItemRequestBuilderGetRequestConfiguration } from './inferenceClassificationOverrideItemRequestBuilderGetRequestConfiguration';
-import { type InferenceClassificationOverrideItemRequestBuilderPatchRequestConfiguration } from './inferenceClassificationOverrideItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InferenceClassificationOverrideItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface InferenceClassificationOverrideItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface InferenceClassificationOverrideItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InferenceClassificationOverrideItemRequestBuilderGetQueryParameters;
+}
+export interface InferenceClassificationOverrideItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.
  */

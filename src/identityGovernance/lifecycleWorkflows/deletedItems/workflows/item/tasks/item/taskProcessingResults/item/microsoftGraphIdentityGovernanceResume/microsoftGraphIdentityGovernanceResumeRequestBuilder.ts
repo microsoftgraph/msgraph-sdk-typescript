@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoResumePostRequestBody } from './deserializeIntoResumePostRequestBody';
-import { type MicrosoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration } from './microsoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration';
-import { type ResumePostRequestBody } from './resumePostRequestBody';
-import { serializeResumePostRequestBody } from './serializeResumePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoResumePostRequestBody, serializeResumePostRequestBody, type ResumePostRequestBody } from './resumePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MicrosoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the resume method.
  */

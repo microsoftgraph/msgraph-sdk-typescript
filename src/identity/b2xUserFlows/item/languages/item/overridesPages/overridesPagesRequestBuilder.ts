@@ -1,19 +1,70 @@
 import { type UserFlowLanguagePageCollectionResponse } from '../../../../../../models/';
-import { createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue';
-import { createUserFlowLanguagePageFromDiscriminatorValue } from '../../../../../../models/createUserFlowLanguagePageFromDiscriminatorValue';
-import { deserializeIntoUserFlowLanguagePage } from '../../../../../../models/deserializeIntoUserFlowLanguagePage';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeUserFlowLanguagePage } from '../../../../../../models/serializeUserFlowLanguagePage';
-import { type UserFlowLanguagePage } from '../../../../../../models/userFlowLanguagePage';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createUserFlowLanguagePageFromDiscriminatorValue, deserializeIntoUserFlowLanguagePage, serializeUserFlowLanguagePage, type UserFlowLanguagePage } from '../../../../../../models/userFlowLanguagePage';
+import { createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue } from '../../../../../../models/userFlowLanguagePageCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserFlowLanguagePageItemRequestBuilder } from './item/userFlowLanguagePageItemRequestBuilder';
-import { type OverridesPagesRequestBuilderGetRequestConfiguration } from './overridesPagesRequestBuilderGetRequestConfiguration';
-import { type OverridesPagesRequestBuilderPostRequestConfiguration } from './overridesPagesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OverridesPagesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OverridesPagesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OverridesPagesRequestBuilderGetQueryParameters;
+}
+export interface OverridesPagesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the overridesPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
  */

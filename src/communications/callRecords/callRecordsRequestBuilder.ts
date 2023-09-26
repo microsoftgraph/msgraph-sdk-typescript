@@ -1,21 +1,72 @@
 import { type CallRecordCollectionResponse } from '../../models/callRecords/';
-import { type CallRecord } from '../../models/callRecords/callRecord';
-import { createCallRecordCollectionResponseFromDiscriminatorValue } from '../../models/callRecords/createCallRecordCollectionResponseFromDiscriminatorValue';
-import { createCallRecordFromDiscriminatorValue } from '../../models/callRecords/createCallRecordFromDiscriminatorValue';
-import { deserializeIntoCallRecord } from '../../models/callRecords/deserializeIntoCallRecord';
-import { serializeCallRecord } from '../../models/callRecords/serializeCallRecord';
+import { createCallRecordFromDiscriminatorValue, deserializeIntoCallRecord, serializeCallRecord, type CallRecord } from '../../models/callRecords/callRecord';
+import { createCallRecordCollectionResponseFromDiscriminatorValue } from '../../models/callRecords/callRecordCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type CallRecordsRequestBuilderGetRequestConfiguration } from './callRecordsRequestBuilderGetRequestConfiguration';
-import { type CallRecordsRequestBuilderPostRequestConfiguration } from './callRecordsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { CallRecordItemRequestBuilder } from './item/callRecordItemRequestBuilder';
 import { MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder } from './microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder';
 import { MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder } from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CallRecordsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface CallRecordsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CallRecordsRequestBuilderGetQueryParameters;
+}
+export interface CallRecordsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
  */

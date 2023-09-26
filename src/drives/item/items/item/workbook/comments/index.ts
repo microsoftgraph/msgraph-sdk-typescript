@@ -1,3 +1,1 @@
-export * from './commentsRequestBuilderGetQueryParameters'
-export * from './commentsRequestBuilderGetRequestConfiguration'
-export * from './commentsRequestBuilderPostRequestConfiguration'
+export * from './commentsRequestBuilder'

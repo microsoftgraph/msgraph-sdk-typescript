@@ -1,3 +1,1 @@
-export * from './federationConfigurationRequestBuilderGetQueryParameters'
-export * from './federationConfigurationRequestBuilderGetRequestConfiguration'
-export * from './federationConfigurationRequestBuilderPostRequestConfiguration'
+export * from './federationConfigurationRequestBuilder'

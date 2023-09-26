@@ -1,20 +1,67 @@
 import { type ContactCollectionResponse } from '../../../../../models/';
-import { type Contact } from '../../../../../models/contact';
-import { createContactCollectionResponseFromDiscriminatorValue } from '../../../../../models/createContactCollectionResponseFromDiscriminatorValue';
-import { createContactFromDiscriminatorValue } from '../../../../../models/createContactFromDiscriminatorValue';
-import { deserializeIntoContact } from '../../../../../models/deserializeIntoContact';
+import { createContactFromDiscriminatorValue, deserializeIntoContact, serializeContact, type Contact } from '../../../../../models/contact';
+import { createContactCollectionResponseFromDiscriminatorValue } from '../../../../../models/contactCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeContact } from '../../../../../models/serializeContact';
-import { type ContactsRequestBuilderGetRequestConfiguration } from './contactsRequestBuilderGetRequestConfiguration';
-import { type ContactsRequestBuilderPostRequestConfiguration } from './contactsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { ContactItemRequestBuilder } from './item/contactItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContactsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ContactsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContactsRequestBuilderGetQueryParameters;
+}
+export interface ContactsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the contacts property of the microsoft.graph.contactFolder entity.
  */

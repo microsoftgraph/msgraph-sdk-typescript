@@ -1,19 +1,70 @@
 import { type AccessReviewHistoryInstanceCollectionResponse } from '../../../../../models/';
-import { type AccessReviewHistoryInstance } from '../../../../../models/accessReviewHistoryInstance';
-import { createAccessReviewHistoryInstanceCollectionResponseFromDiscriminatorValue } from '../../../../../models/createAccessReviewHistoryInstanceCollectionResponseFromDiscriminatorValue';
-import { createAccessReviewHistoryInstanceFromDiscriminatorValue } from '../../../../../models/createAccessReviewHistoryInstanceFromDiscriminatorValue';
-import { deserializeIntoAccessReviewHistoryInstance } from '../../../../../models/deserializeIntoAccessReviewHistoryInstance';
+import { createAccessReviewHistoryInstanceFromDiscriminatorValue, deserializeIntoAccessReviewHistoryInstance, serializeAccessReviewHistoryInstance, type AccessReviewHistoryInstance } from '../../../../../models/accessReviewHistoryInstance';
+import { createAccessReviewHistoryInstanceCollectionResponseFromDiscriminatorValue } from '../../../../../models/accessReviewHistoryInstanceCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewHistoryInstance } from '../../../../../models/serializeAccessReviewHistoryInstance';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type InstancesRequestBuilderGetRequestConfiguration } from './instancesRequestBuilderGetRequestConfiguration';
-import { type InstancesRequestBuilderPostRequestConfiguration } from './instancesRequestBuilderPostRequestConfiguration';
 import { AccessReviewHistoryInstanceItemRequestBuilder } from './item/accessReviewHistoryInstanceItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InstancesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface InstancesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InstancesRequestBuilderGetQueryParameters;
+}
+export interface InstancesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
  */

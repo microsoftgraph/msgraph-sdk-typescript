@@ -1,19 +1,70 @@
 import { type ComplianceManagementPartnerCollectionResponse } from '../../models/';
-import { type ComplianceManagementPartner } from '../../models/complianceManagementPartner';
-import { createComplianceManagementPartnerCollectionResponseFromDiscriminatorValue } from '../../models/createComplianceManagementPartnerCollectionResponseFromDiscriminatorValue';
-import { createComplianceManagementPartnerFromDiscriminatorValue } from '../../models/createComplianceManagementPartnerFromDiscriminatorValue';
-import { deserializeIntoComplianceManagementPartner } from '../../models/deserializeIntoComplianceManagementPartner';
+import { createComplianceManagementPartnerFromDiscriminatorValue, deserializeIntoComplianceManagementPartner, serializeComplianceManagementPartner, type ComplianceManagementPartner } from '../../models/complianceManagementPartner';
+import { createComplianceManagementPartnerCollectionResponseFromDiscriminatorValue } from '../../models/complianceManagementPartnerCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeComplianceManagementPartner } from '../../models/serializeComplianceManagementPartner';
-import { type ComplianceManagementPartnersRequestBuilderGetRequestConfiguration } from './complianceManagementPartnersRequestBuilderGetRequestConfiguration';
-import { type ComplianceManagementPartnersRequestBuilderPostRequestConfiguration } from './complianceManagementPartnersRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ComplianceManagementPartnerItemRequestBuilder } from './item/complianceManagementPartnerItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ComplianceManagementPartnersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ComplianceManagementPartnersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ComplianceManagementPartnersRequestBuilderGetQueryParameters;
+}
+export interface ComplianceManagementPartnersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
  */

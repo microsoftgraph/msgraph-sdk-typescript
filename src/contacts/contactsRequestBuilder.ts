@@ -1,15 +1,8 @@
 import { type OrgContactCollectionResponse } from '../models/';
-import { createOrgContactCollectionResponseFromDiscriminatorValue } from '../models/createOrgContactCollectionResponseFromDiscriminatorValue';
-import { createOrgContactFromDiscriminatorValue } from '../models/createOrgContactFromDiscriminatorValue';
-import { deserializeIntoOrgContact } from '../models/deserializeIntoOrgContact';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { type OrgContact } from '../models/orgContact';
-import { serializeOrgContact } from '../models/serializeOrgContact';
-import { type ContactsRequestBuilderGetRequestConfiguration } from './contactsRequestBuilderGetRequestConfiguration';
-import { type ContactsRequestBuilderPostRequestConfiguration } from './contactsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createOrgContactFromDiscriminatorValue, deserializeIntoOrgContact, serializeOrgContact, type OrgContact } from '../models/orgContact';
+import { createOrgContactCollectionResponseFromDiscriminatorValue } from '../models/orgContactCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
@@ -18,6 +11,64 @@ import { OrgContactItemRequestBuilder } from './item/orgContactItemRequestBuilde
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContactsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ContactsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContactsRequestBuilderGetQueryParameters;
+}
+export interface ContactsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of orgContact entities.
  */

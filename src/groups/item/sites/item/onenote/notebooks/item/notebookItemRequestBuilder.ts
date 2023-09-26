@@ -1,19 +1,55 @@
-import { createNotebookFromDiscriminatorValue } from '../../../../../../../models/createNotebookFromDiscriminatorValue';
-import { deserializeIntoNotebook } from '../../../../../../../models/deserializeIntoNotebook';
-import { type Notebook } from '../../../../../../../models/notebook';
+import { createNotebookFromDiscriminatorValue, deserializeIntoNotebook, serializeNotebook, type Notebook } from '../../../../../../../models/notebook';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeNotebook } from '../../../../../../../models/serializeNotebook';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { CopyNotebookRequestBuilder } from './copyNotebook/copyNotebookRequestBuilder';
-import { type NotebookItemRequestBuilderDeleteRequestConfiguration } from './notebookItemRequestBuilderDeleteRequestConfiguration';
-import { type NotebookItemRequestBuilderGetRequestConfiguration } from './notebookItemRequestBuilderGetRequestConfiguration';
-import { type NotebookItemRequestBuilderPatchRequestConfiguration } from './notebookItemRequestBuilderPatchRequestConfiguration';
 import { SectionGroupsRequestBuilder } from './sectionGroups/sectionGroupsRequestBuilder';
 import { SectionsRequestBuilder } from './sections/sectionsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface NotebookItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface NotebookItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface NotebookItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: NotebookItemRequestBuilderGetQueryParameters;
+}
+export interface NotebookItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
  */

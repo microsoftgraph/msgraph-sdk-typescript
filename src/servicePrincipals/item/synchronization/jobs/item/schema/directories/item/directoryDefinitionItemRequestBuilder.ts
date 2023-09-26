@@ -1,17 +1,53 @@
-import { createDirectoryDefinitionFromDiscriminatorValue } from '../../../../../../../../models/createDirectoryDefinitionFromDiscriminatorValue';
-import { deserializeIntoDirectoryDefinition } from '../../../../../../../../models/deserializeIntoDirectoryDefinition';
-import { type DirectoryDefinition } from '../../../../../../../../models/directoryDefinition';
+import { createDirectoryDefinitionFromDiscriminatorValue, deserializeIntoDirectoryDefinition, serializeDirectoryDefinition, type DirectoryDefinition } from '../../../../../../../../models/directoryDefinition';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeDirectoryDefinition } from '../../../../../../../../models/serializeDirectoryDefinition';
-import { type DirectoryDefinitionItemRequestBuilderDeleteRequestConfiguration } from './directoryDefinitionItemRequestBuilderDeleteRequestConfiguration';
-import { type DirectoryDefinitionItemRequestBuilderGetRequestConfiguration } from './directoryDefinitionItemRequestBuilderGetRequestConfiguration';
-import { type DirectoryDefinitionItemRequestBuilderPatchRequestConfiguration } from './directoryDefinitionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { DiscoverRequestBuilder } from './discover/discoverRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DirectoryDefinitionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DirectoryDefinitionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DirectoryDefinitionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DirectoryDefinitionItemRequestBuilderGetQueryParameters;
+}
+export interface DirectoryDefinitionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
  */

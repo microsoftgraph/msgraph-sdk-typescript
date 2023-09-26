@@ -1,16 +1,52 @@
-import { createIdentityProviderBaseFromDiscriminatorValue } from '../../../models/createIdentityProviderBaseFromDiscriminatorValue';
-import { deserializeIntoIdentityProviderBase } from '../../../models/deserializeIntoIdentityProviderBase';
-import { type IdentityProviderBase } from '../../../models/identityProviderBase';
+import { createIdentityProviderBaseFromDiscriminatorValue, deserializeIntoIdentityProviderBase, serializeIdentityProviderBase, type IdentityProviderBase } from '../../../models/identityProviderBase';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeIdentityProviderBase } from '../../../models/serializeIdentityProviderBase';
-import { type IdentityProviderBaseItemRequestBuilderDeleteRequestConfiguration } from './identityProviderBaseItemRequestBuilderDeleteRequestConfiguration';
-import { type IdentityProviderBaseItemRequestBuilderGetRequestConfiguration } from './identityProviderBaseItemRequestBuilderGetRequestConfiguration';
-import { type IdentityProviderBaseItemRequestBuilderPatchRequestConfiguration } from './identityProviderBaseItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentityProviderBaseItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IdentityProviderBaseItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentityProviderBaseItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentityProviderBaseItemRequestBuilderGetQueryParameters;
+}
+export interface IdentityProviderBaseItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
  */

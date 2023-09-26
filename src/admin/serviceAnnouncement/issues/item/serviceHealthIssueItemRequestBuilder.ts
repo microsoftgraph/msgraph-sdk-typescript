@@ -1,17 +1,53 @@
-import { createServiceHealthIssueFromDiscriminatorValue } from '../../../../models/createServiceHealthIssueFromDiscriminatorValue';
-import { deserializeIntoServiceHealthIssue } from '../../../../models/deserializeIntoServiceHealthIssue';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeServiceHealthIssue } from '../../../../models/serializeServiceHealthIssue';
-import { type ServiceHealthIssue } from '../../../../models/serviceHealthIssue';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createServiceHealthIssueFromDiscriminatorValue, deserializeIntoServiceHealthIssue, serializeServiceHealthIssue, type ServiceHealthIssue } from '../../../../models/serviceHealthIssue';
 import { IncidentReportRequestBuilder } from './incidentReport/incidentReportRequestBuilder';
-import { type ServiceHealthIssueItemRequestBuilderDeleteRequestConfiguration } from './serviceHealthIssueItemRequestBuilderDeleteRequestConfiguration';
-import { type ServiceHealthIssueItemRequestBuilderGetRequestConfiguration } from './serviceHealthIssueItemRequestBuilderGetRequestConfiguration';
-import { type ServiceHealthIssueItemRequestBuilderPatchRequestConfiguration } from './serviceHealthIssueItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServiceHealthIssueItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ServiceHealthIssueItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ServiceHealthIssueItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServiceHealthIssueItemRequestBuilderGetQueryParameters;
+}
+export interface ServiceHealthIssueItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
  */

@@ -1,16 +1,48 @@
-import { createSchedulingGroupFromDiscriminatorValue } from '../../../../../../models/createSchedulingGroupFromDiscriminatorValue';
-import { deserializeIntoSchedulingGroup } from '../../../../../../models/deserializeIntoSchedulingGroup';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type SchedulingGroup } from '../../../../../../models/schedulingGroup';
-import { serializeSchedulingGroup } from '../../../../../../models/serializeSchedulingGroup';
-import { type SchedulingGroupItemRequestBuilderDeleteRequestConfiguration } from './schedulingGroupItemRequestBuilderDeleteRequestConfiguration';
-import { type SchedulingGroupItemRequestBuilderGetRequestConfiguration } from './schedulingGroupItemRequestBuilderGetRequestConfiguration';
-import { type SchedulingGroupItemRequestBuilderPatchRequestConfiguration } from './schedulingGroupItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createSchedulingGroupFromDiscriminatorValue, deserializeIntoSchedulingGroup, serializeSchedulingGroup, type SchedulingGroup } from '../../../../../../models/schedulingGroup';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SchedulingGroupItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SchedulingGroupItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SchedulingGroupItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SchedulingGroupItemRequestBuilderGetQueryParameters;
+}
+export interface SchedulingGroupItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
  */

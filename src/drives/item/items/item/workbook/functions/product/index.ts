@@ -1,5 +1,2 @@
-export * from './createProductPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoProductPostRequestBody'
 export * from './productPostRequestBody'
-export * from './productRequestBuilderPostRequestConfiguration'
-export * from './serializeProductPostRequestBody'
+export * from './productRequestBuilder'

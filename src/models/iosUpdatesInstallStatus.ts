@@ -18,3 +18,5 @@ export enum IosUpdatesInstallStatus {
     Idle = "idle",
     Unknown = "unknown",
 }
+// tslint:enable
+// eslint-enable

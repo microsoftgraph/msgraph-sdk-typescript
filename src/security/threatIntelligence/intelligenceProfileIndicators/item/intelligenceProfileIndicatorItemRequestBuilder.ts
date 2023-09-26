@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createIntelligenceProfileIndicatorFromDiscriminatorValue } from '../../../../models/security/createIntelligenceProfileIndicatorFromDiscriminatorValue';
-import { deserializeIntoIntelligenceProfileIndicator } from '../../../../models/security/deserializeIntoIntelligenceProfileIndicator';
-import { type IntelligenceProfileIndicator } from '../../../../models/security/intelligenceProfileIndicator';
-import { serializeIntelligenceProfileIndicator } from '../../../../models/security/serializeIntelligenceProfileIndicator';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createIntelligenceProfileIndicatorFromDiscriminatorValue, deserializeIntoIntelligenceProfileIndicator, serializeIntelligenceProfileIndicator, type IntelligenceProfileIndicator } from '../../../../models/security/intelligenceProfileIndicator';
 import { ArtifactRequestBuilder } from './artifact/artifactRequestBuilder';
-import { type IntelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration } from './intelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration';
-import { type IntelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration } from './intelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration';
-import { type IntelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration } from './intelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IntelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IntelligenceProfileIndicatorItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IntelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IntelligenceProfileIndicatorItemRequestBuilderGetQueryParameters;
+}
+export interface IntelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.
  */

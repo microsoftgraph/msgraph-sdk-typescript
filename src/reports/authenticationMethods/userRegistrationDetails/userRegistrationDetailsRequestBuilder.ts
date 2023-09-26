@@ -1,19 +1,70 @@
 import { type UserRegistrationDetailsCollectionResponse } from '../../../models/';
-import { createUserRegistrationDetailsCollectionResponseFromDiscriminatorValue } from '../../../models/createUserRegistrationDetailsCollectionResponseFromDiscriminatorValue';
-import { createUserRegistrationDetailsFromDiscriminatorValue } from '../../../models/createUserRegistrationDetailsFromDiscriminatorValue';
-import { deserializeIntoUserRegistrationDetails } from '../../../models/deserializeIntoUserRegistrationDetails';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUserRegistrationDetails } from '../../../models/serializeUserRegistrationDetails';
-import { type UserRegistrationDetails } from '../../../models/userRegistrationDetails';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUserRegistrationDetailsFromDiscriminatorValue, deserializeIntoUserRegistrationDetails, serializeUserRegistrationDetails, type UserRegistrationDetails } from '../../../models/userRegistrationDetails';
+import { createUserRegistrationDetailsCollectionResponseFromDiscriminatorValue } from '../../../models/userRegistrationDetailsCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserRegistrationDetailsItemRequestBuilder } from './item/userRegistrationDetailsItemRequestBuilder';
-import { type UserRegistrationDetailsRequestBuilderGetRequestConfiguration } from './userRegistrationDetailsRequestBuilderGetRequestConfiguration';
-import { type UserRegistrationDetailsRequestBuilderPostRequestConfiguration } from './userRegistrationDetailsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserRegistrationDetailsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserRegistrationDetailsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserRegistrationDetailsRequestBuilderGetQueryParameters;
+}
+export interface UserRegistrationDetailsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
  */

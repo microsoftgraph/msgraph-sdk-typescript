@@ -1,18 +1,54 @@
-import { createTodoTaskListFromDiscriminatorValue } from '../../../../models/createTodoTaskListFromDiscriminatorValue';
-import { deserializeIntoTodoTaskList } from '../../../../models/deserializeIntoTodoTaskList';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeTodoTaskList } from '../../../../models/serializeTodoTaskList';
-import { type TodoTaskList } from '../../../../models/todoTaskList';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createTodoTaskListFromDiscriminatorValue, deserializeIntoTodoTaskList, serializeTodoTaskList, type TodoTaskList } from '../../../../models/todoTaskList';
 import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
 import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
-import { type TodoTaskListItemRequestBuilderDeleteRequestConfiguration } from './todoTaskListItemRequestBuilderDeleteRequestConfiguration';
-import { type TodoTaskListItemRequestBuilderGetRequestConfiguration } from './todoTaskListItemRequestBuilderGetRequestConfiguration';
-import { type TodoTaskListItemRequestBuilderPatchRequestConfiguration } from './todoTaskListItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TodoTaskListItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TodoTaskListItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TodoTaskListItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TodoTaskListItemRequestBuilderGetQueryParameters;
+}
+export interface TodoTaskListItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the lists property of the microsoft.graph.todo entity.
  */

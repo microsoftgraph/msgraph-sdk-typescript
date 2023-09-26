@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type ApplyTagsPostRequestBody } from './applyTagsPostRequestBody';
-import { deserializeIntoApplyTagsPostRequestBody } from './deserializeIntoApplyTagsPostRequestBody';
-import { type MicrosoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration } from './microsoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration';
-import { serializeApplyTagsPostRequestBody } from './serializeApplyTagsPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoApplyTagsPostRequestBody, serializeApplyTagsPostRequestBody, type ApplyTagsPostRequestBody } from './applyTagsPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MicrosoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the applyTags method.
  */

@@ -1,19 +1,70 @@
 import { type TargetedManagedAppPolicyAssignmentCollectionResponse } from '../../../../models/';
-import { createTargetedManagedAppPolicyAssignmentCollectionResponseFromDiscriminatorValue } from '../../../../models/createTargetedManagedAppPolicyAssignmentCollectionResponseFromDiscriminatorValue';
-import { createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue } from '../../../../models/createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
-import { deserializeIntoTargetedManagedAppPolicyAssignment } from '../../../../models/deserializeIntoTargetedManagedAppPolicyAssignment';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeTargetedManagedAppPolicyAssignment } from '../../../../models/serializeTargetedManagedAppPolicyAssignment';
-import { type TargetedManagedAppPolicyAssignment } from '../../../../models/targetedManagedAppPolicyAssignment';
-import { type AssignmentsRequestBuilderGetRequestConfiguration } from './assignmentsRequestBuilderGetRequestConfiguration';
-import { type AssignmentsRequestBuilderPostRequestConfiguration } from './assignmentsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue, deserializeIntoTargetedManagedAppPolicyAssignment, serializeTargetedManagedAppPolicyAssignment, type TargetedManagedAppPolicyAssignment } from '../../../../models/targetedManagedAppPolicyAssignment';
+import { createTargetedManagedAppPolicyAssignmentCollectionResponseFromDiscriminatorValue } from '../../../../models/targetedManagedAppPolicyAssignmentCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TargetedManagedAppPolicyAssignmentItemRequestBuilder } from './item/targetedManagedAppPolicyAssignmentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignmentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AssignmentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AssignmentsRequestBuilderGetQueryParameters;
+}
+export interface AssignmentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppConfiguration entity.
  */

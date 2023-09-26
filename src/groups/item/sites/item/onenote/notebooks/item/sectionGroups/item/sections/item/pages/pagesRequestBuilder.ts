@@ -1,19 +1,70 @@
 import { type OnenotePageCollectionResponse } from '../../../../../../../../../../../../models/';
-import { createOnenotePageCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../../models/createOnenotePageCollectionResponseFromDiscriminatorValue';
-import { createOnenotePageFromDiscriminatorValue } from '../../../../../../../../../../../../models/createOnenotePageFromDiscriminatorValue';
-import { deserializeIntoOnenotePage } from '../../../../../../../../../../../../models/deserializeIntoOnenotePage';
 import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type OnenotePage } from '../../../../../../../../../../../../models/onenotePage';
-import { serializeOnenotePage } from '../../../../../../../../../../../../models/serializeOnenotePage';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createOnenotePageFromDiscriminatorValue, deserializeIntoOnenotePage, serializeOnenotePage, type OnenotePage } from '../../../../../../../../../../../../models/onenotePage';
+import { createOnenotePageCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../../models/onenotePageCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OnenotePageItemRequestBuilder } from './item/onenotePageItemRequestBuilder';
-import { type PagesRequestBuilderGetRequestConfiguration } from './pagesRequestBuilderGetRequestConfiguration';
-import { type PagesRequestBuilderPostRequestConfiguration } from './pagesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PagesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PagesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PagesRequestBuilderGetQueryParameters;
+}
+export interface PagesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
  */

@@ -1,11 +1,6 @@
-import { createTeamFromDiscriminatorValue } from '../../models/createTeamFromDiscriminatorValue';
-import { deserializeIntoTeam } from '../../models/deserializeIntoTeam';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeTeam } from '../../models/serializeTeam';
-import { type Team } from '../../models/team';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createTeamFromDiscriminatorValue, deserializeIntoTeam, serializeTeam, type Team } from '../../models/team';
 import { AllChannelsRequestBuilder } from './allChannels/allChannelsRequestBuilder';
 import { ArchiveRequestBuilder } from './archive/archiveRequestBuilder';
 import { ChannelsRequestBuilder } from './channels/channelsRequestBuilder';
@@ -22,13 +17,54 @@ import { PrimaryChannelRequestBuilder } from './primaryChannel/primaryChannelReq
 import { ScheduleRequestBuilder } from './schedule/scheduleRequestBuilder';
 import { SendActivityNotificationRequestBuilder } from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import { TagsRequestBuilder } from './tags/tagsRequestBuilder';
-import { type TeamItemRequestBuilderDeleteRequestConfiguration } from './teamItemRequestBuilderDeleteRequestConfiguration';
-import { type TeamItemRequestBuilderGetRequestConfiguration } from './teamItemRequestBuilderGetRequestConfiguration';
-import { type TeamItemRequestBuilderPatchRequestConfiguration } from './teamItemRequestBuilderPatchRequestConfiguration';
 import { TemplateRequestBuilder } from './template/templateRequestBuilder';
 import { UnarchiveRequestBuilder } from './unarchive/unarchiveRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TeamItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamItemRequestBuilderGetQueryParameters;
+}
+export interface TeamItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of team entities.
  */

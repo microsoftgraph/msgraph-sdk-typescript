@@ -1,15 +1,42 @@
-import { createLifecycleManagementSettingsFromDiscriminatorValue } from '../../../models/identityGovernance/createLifecycleManagementSettingsFromDiscriminatorValue';
-import { deserializeIntoLifecycleManagementSettings } from '../../../models/identityGovernance/deserializeIntoLifecycleManagementSettings';
-import { type LifecycleManagementSettings } from '../../../models/identityGovernance/lifecycleManagementSettings';
-import { serializeLifecycleManagementSettings } from '../../../models/identityGovernance/serializeLifecycleManagementSettings';
+import { createLifecycleManagementSettingsFromDiscriminatorValue, deserializeIntoLifecycleManagementSettings, serializeLifecycleManagementSettings, type LifecycleManagementSettings } from '../../../models/identityGovernance/lifecycleManagementSettings';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type SettingsRequestBuilderGetRequestConfiguration } from './settingsRequestBuilderGetRequestConfiguration';
-import { type SettingsRequestBuilderPatchRequestConfiguration } from './settingsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SettingsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SettingsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SettingsRequestBuilderGetQueryParameters;
+}
+export interface SettingsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the settings property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
  */

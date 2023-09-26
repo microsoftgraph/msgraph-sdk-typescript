@@ -1,17 +1,53 @@
-import { createItemActivityFromDiscriminatorValue } from '../../../../../../../models/createItemActivityFromDiscriminatorValue';
-import { deserializeIntoItemActivity } from '../../../../../../../models/deserializeIntoItemActivity';
-import { type ItemActivity } from '../../../../../../../models/itemActivity';
+import { createItemActivityFromDiscriminatorValue, deserializeIntoItemActivity, serializeItemActivity, type ItemActivity } from '../../../../../../../models/itemActivity';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeItemActivity } from '../../../../../../../models/serializeItemActivity';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { DriveItemRequestBuilder } from './driveItem/driveItemRequestBuilder';
-import { type ItemActivityItemRequestBuilderDeleteRequestConfiguration } from './itemActivityItemRequestBuilderDeleteRequestConfiguration';
-import { type ItemActivityItemRequestBuilderGetRequestConfiguration } from './itemActivityItemRequestBuilderGetRequestConfiguration';
-import { type ItemActivityItemRequestBuilderPatchRequestConfiguration } from './itemActivityItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ItemActivityItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ItemActivityItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ItemActivityItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ItemActivityItemRequestBuilderGetQueryParameters;
+}
+export interface ItemActivityItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the activities property of the microsoft.graph.itemActivityStat entity.
  */

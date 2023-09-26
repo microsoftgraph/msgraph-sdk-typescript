@@ -1,17 +1,30 @@
-import { createPlaceFromDiscriminatorValue } from '../../models/createPlaceFromDiscriminatorValue';
-import { deserializeIntoPlace } from '../../models/deserializeIntoPlace';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type Place } from '../../models/place';
-import { serializePlace } from '../../models/serializePlace';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createPlaceFromDiscriminatorValue, deserializeIntoPlace, serializePlace, type Place } from '../../models/place';
 import { GraphRoomRequestBuilder } from './graphRoom/graphRoomRequestBuilder';
 import { GraphRoomListRequestBuilder } from './graphRoomList/graphRoomListRequestBuilder';
-import { type PlaceItemRequestBuilderDeleteRequestConfiguration } from './placeItemRequestBuilderDeleteRequestConfiguration';
-import { type PlaceItemRequestBuilderPatchRequestConfiguration } from './placeItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PlaceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PlaceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of place entities.
  */

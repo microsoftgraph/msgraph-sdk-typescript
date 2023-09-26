@@ -1,151 +1,236 @@
-import { type BooleanColumn } from './booleanColumn';
-import { type CalculatedColumn } from './calculatedColumn';
-import { type ChoiceColumn } from './choiceColumn';
+import { createBooleanColumnFromDiscriminatorValue, serializeBooleanColumn, type BooleanColumn } from './booleanColumn';
+import { createCalculatedColumnFromDiscriminatorValue, serializeCalculatedColumn, type CalculatedColumn } from './calculatedColumn';
+import { createChoiceColumnFromDiscriminatorValue, serializeChoiceColumn, type ChoiceColumn } from './choiceColumn';
 import { ColumnTypes } from './columnTypes';
-import { type ColumnValidation } from './columnValidation';
-import { type ContentApprovalStatusColumn } from './contentApprovalStatusColumn';
-import { type ContentTypeInfo } from './contentTypeInfo';
-import { type CurrencyColumn } from './currencyColumn';
-import { type DateTimeColumn } from './dateTimeColumn';
-import { type DefaultColumnValue } from './defaultColumnValue';
-import { type Entity } from './entity';
-import { type GeolocationColumn } from './geolocationColumn';
-import { type HyperlinkOrPictureColumn } from './hyperlinkOrPictureColumn';
-import { type LookupColumn } from './lookupColumn';
-import { type NumberColumn } from './numberColumn';
-import { type PersonOrGroupColumn } from './personOrGroupColumn';
-import { type TermColumn } from './termColumn';
-import { type TextColumn } from './textColumn';
-import { type ThumbnailColumn } from './thumbnailColumn';
-import { type Parsable } from '@microsoft/kiota-abstractions';
+import { createColumnValidationFromDiscriminatorValue, serializeColumnValidation, type ColumnValidation } from './columnValidation';
+import { createContentApprovalStatusColumnFromDiscriminatorValue, serializeContentApprovalStatusColumn, type ContentApprovalStatusColumn } from './contentApprovalStatusColumn';
+import { createContentTypeInfoFromDiscriminatorValue, serializeContentTypeInfo, type ContentTypeInfo } from './contentTypeInfo';
+import { createCurrencyColumnFromDiscriminatorValue, serializeCurrencyColumn, type CurrencyColumn } from './currencyColumn';
+import { createDateTimeColumnFromDiscriminatorValue, serializeDateTimeColumn, type DateTimeColumn } from './dateTimeColumn';
+import { createDefaultColumnValueFromDiscriminatorValue, serializeDefaultColumnValue, type DefaultColumnValue } from './defaultColumnValue';
+import { deserializeIntoEntity, serializeEntity, type Entity } from './entity';
+import { createGeolocationColumnFromDiscriminatorValue, serializeGeolocationColumn, type GeolocationColumn } from './geolocationColumn';
+import { createHyperlinkOrPictureColumnFromDiscriminatorValue, serializeHyperlinkOrPictureColumn, type HyperlinkOrPictureColumn } from './hyperlinkOrPictureColumn';
+import { createLookupColumnFromDiscriminatorValue, serializeLookupColumn, type LookupColumn } from './lookupColumn';
+import { createNumberColumnFromDiscriminatorValue, serializeNumberColumn, type NumberColumn } from './numberColumn';
+import { createPersonOrGroupColumnFromDiscriminatorValue, serializePersonOrGroupColumn, type PersonOrGroupColumn } from './personOrGroupColumn';
+import { createTermColumnFromDiscriminatorValue, serializeTermColumn, type TermColumn } from './termColumn';
+import { createTextColumnFromDiscriminatorValue, serializeTextColumn, type TextColumn } from './textColumn';
+import { createThumbnailColumnFromDiscriminatorValue, serializeThumbnailColumn, type ThumbnailColumn } from './thumbnailColumn';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface ColumnDefinition extends Entity, Parsable {
     /**
      * This column stores boolean values.
      */
-    boolean?: BooleanColumn | undefined;
+    boolean?: BooleanColumn;
     /**
      * This column's data is calculated based on other columns.
      */
-    calculated?: CalculatedColumn | undefined;
+    calculated?: CalculatedColumn;
     /**
      * This column stores data from a list of choices.
      */
-    choice?: ChoiceColumn | undefined;
+    choice?: ChoiceColumn;
     /**
      * For site columns, the name of the group this column belongs to. Helps organize related columns.
      */
-    columnGroup?: string | undefined;
+    columnGroup?: string;
     /**
      * This column stores content approval status.
      */
-    contentApprovalStatus?: ContentApprovalStatusColumn | undefined;
+    contentApprovalStatus?: ContentApprovalStatusColumn;
     /**
      * This column stores currency values.
      */
-    currency?: CurrencyColumn | undefined;
+    currency?: CurrencyColumn;
     /**
      * This column stores DateTime values.
      */
-    dateTime?: DateTimeColumn | undefined;
+    dateTime?: DateTimeColumn;
     /**
      * The default value for this column.
      */
-    defaultValue?: DefaultColumnValue | undefined;
+    defaultValue?: DefaultColumnValue;
     /**
      * The user-facing description of the column.
      */
-    description?: string | undefined;
+    description?: string;
     /**
      * The user-facing name of the column.
      */
-    displayName?: string | undefined;
+    displayName?: string;
     /**
      * If true, no two list items may have the same value for this column.
      */
-    enforceUniqueValues?: boolean | undefined;
+    enforceUniqueValues?: boolean;
     /**
      * This column stores a geolocation.
      */
-    geolocation?: GeolocationColumn | undefined;
+    geolocation?: GeolocationColumn;
     /**
      * Specifies whether the column is displayed in the user interface.
      */
-    hidden?: boolean | undefined;
+    hidden?: boolean;
     /**
      * This column stores hyperlink or picture values.
      */
-    hyperlinkOrPicture?: HyperlinkOrPictureColumn | undefined;
+    hyperlinkOrPicture?: HyperlinkOrPictureColumn;
     /**
      * Specifies whether the column values can be used for sorting and searching.
      */
-    indexed?: boolean | undefined;
+    indexed?: boolean;
     /**
      * Indicates whether this column can be deleted.
      */
-    isDeletable?: boolean | undefined;
+    isDeletable?: boolean;
     /**
      * Indicates whether values in the column can be reordered. Read-only.
      */
-    isReorderable?: boolean | undefined;
+    isReorderable?: boolean;
     /**
      * Specifies whether the column can be changed.
      */
-    isSealed?: boolean | undefined;
+    isSealed?: boolean;
     /**
      * This column's data is looked up from another source in the site.
      */
-    lookup?: LookupColumn | undefined;
+    lookup?: LookupColumn;
     /**
      * The API-facing name of the column as it appears in the [fields][] on a [listItem][]. For the user-facing name, see displayName.
      */
-    name?: string | undefined;
+    name?: string;
     /**
      * This column stores number values.
      */
-    number?: NumberColumn | undefined;
+    number?: NumberColumn;
     /**
      * This column stores Person or Group values.
      */
-    personOrGroup?: PersonOrGroupColumn | undefined;
+    personOrGroup?: PersonOrGroupColumn;
     /**
      * If 'true', changes to this column will be propagated to lists that implement the column.
      */
-    propagateChanges?: boolean | undefined;
+    propagateChanges?: boolean;
     /**
      * Specifies whether the column values can be modified.
      */
-    readOnly?: boolean | undefined;
+    readOnly?: boolean;
     /**
      * Specifies whether the column value isn't optional.
      */
-    required?: boolean | undefined;
+    required?: boolean;
     /**
      * The source column for the content type column.
      */
-    sourceColumn?: ColumnDefinition | undefined;
+    sourceColumn?: ColumnDefinition;
     /**
      * ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only.
      */
-    sourceContentType?: ContentTypeInfo | undefined;
+    sourceContentType?: ContentTypeInfo;
     /**
      * This column stores taxonomy terms.
      */
-    term?: TermColumn | undefined;
+    term?: TermColumn;
     /**
      * This column stores text values.
      */
-    text?: TextColumn | undefined;
+    text?: TextColumn;
     /**
      * This column stores thumbnail values.
      */
-    thumbnail?: ThumbnailColumn | undefined;
+    thumbnail?: ThumbnailColumn;
     /**
      * For site columns, the type of column. Read-only.
      */
-    type?: ColumnTypes | undefined;
+    type?: ColumnTypes;
     /**
      * This column stores validation formula and message for the column.
      */
-    validation?: ColumnValidation | undefined;
+    validation?: ColumnValidation;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function createColumnDefinitionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoColumnDefinition;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function deserializeIntoColumnDefinition(columnDefinition: ColumnDefinition | undefined = {} as ColumnDefinition) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(columnDefinition),
+        "boolean": n => { columnDefinition.boolean = n.getObjectValue<BooleanColumn>(createBooleanColumnFromDiscriminatorValue); },
+        "calculated": n => { columnDefinition.calculated = n.getObjectValue<CalculatedColumn>(createCalculatedColumnFromDiscriminatorValue); },
+        "choice": n => { columnDefinition.choice = n.getObjectValue<ChoiceColumn>(createChoiceColumnFromDiscriminatorValue); },
+        "columnGroup": n => { columnDefinition.columnGroup = n.getStringValue(); },
+        "contentApprovalStatus": n => { columnDefinition.contentApprovalStatus = n.getObjectValue<ContentApprovalStatusColumn>(createContentApprovalStatusColumnFromDiscriminatorValue); },
+        "currency": n => { columnDefinition.currency = n.getObjectValue<CurrencyColumn>(createCurrencyColumnFromDiscriminatorValue); },
+        "dateTime": n => { columnDefinition.dateTime = n.getObjectValue<DateTimeColumn>(createDateTimeColumnFromDiscriminatorValue); },
+        "defaultValue": n => { columnDefinition.defaultValue = n.getObjectValue<DefaultColumnValue>(createDefaultColumnValueFromDiscriminatorValue); },
+        "description": n => { columnDefinition.description = n.getStringValue(); },
+        "displayName": n => { columnDefinition.displayName = n.getStringValue(); },
+        "enforceUniqueValues": n => { columnDefinition.enforceUniqueValues = n.getBooleanValue(); },
+        "geolocation": n => { columnDefinition.geolocation = n.getObjectValue<GeolocationColumn>(createGeolocationColumnFromDiscriminatorValue); },
+        "hidden": n => { columnDefinition.hidden = n.getBooleanValue(); },
+        "hyperlinkOrPicture": n => { columnDefinition.hyperlinkOrPicture = n.getObjectValue<HyperlinkOrPictureColumn>(createHyperlinkOrPictureColumnFromDiscriminatorValue); },
+        "indexed": n => { columnDefinition.indexed = n.getBooleanValue(); },
+        "isDeletable": n => { columnDefinition.isDeletable = n.getBooleanValue(); },
+        "isReorderable": n => { columnDefinition.isReorderable = n.getBooleanValue(); },
+        "isSealed": n => { columnDefinition.isSealed = n.getBooleanValue(); },
+        "lookup": n => { columnDefinition.lookup = n.getObjectValue<LookupColumn>(createLookupColumnFromDiscriminatorValue); },
+        "name": n => { columnDefinition.name = n.getStringValue(); },
+        "number": n => { columnDefinition.number = n.getObjectValue<NumberColumn>(createNumberColumnFromDiscriminatorValue); },
+        "personOrGroup": n => { columnDefinition.personOrGroup = n.getObjectValue<PersonOrGroupColumn>(createPersonOrGroupColumnFromDiscriminatorValue); },
+        "propagateChanges": n => { columnDefinition.propagateChanges = n.getBooleanValue(); },
+        "readOnly": n => { columnDefinition.readOnly = n.getBooleanValue(); },
+        "required": n => { columnDefinition.required = n.getBooleanValue(); },
+        "sourceColumn": n => { columnDefinition.sourceColumn = n.getObjectValue<ColumnDefinition>(createColumnDefinitionFromDiscriminatorValue); },
+        "sourceContentType": n => { columnDefinition.sourceContentType = n.getObjectValue<ContentTypeInfo>(createContentTypeInfoFromDiscriminatorValue); },
+        "term": n => { columnDefinition.term = n.getObjectValue<TermColumn>(createTermColumnFromDiscriminatorValue); },
+        "text": n => { columnDefinition.text = n.getObjectValue<TextColumn>(createTextColumnFromDiscriminatorValue); },
+        "thumbnail": n => { columnDefinition.thumbnail = n.getObjectValue<ThumbnailColumn>(createThumbnailColumnFromDiscriminatorValue); },
+        "type": n => { columnDefinition.type = n.getEnumValue<ColumnTypes>(ColumnTypes); },
+        "validation": n => { columnDefinition.validation = n.getObjectValue<ColumnValidation>(createColumnValidationFromDiscriminatorValue); },
+    }
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function serializeColumnDefinition(writer: SerializationWriter, columnDefinition: ColumnDefinition | undefined = {} as ColumnDefinition) : void {
+        serializeEntity(writer, columnDefinition)
+        writer.writeObjectValue<BooleanColumn>("boolean", columnDefinition.boolean, );
+        writer.writeObjectValue<CalculatedColumn>("calculated", columnDefinition.calculated, );
+        writer.writeObjectValue<ChoiceColumn>("choice", columnDefinition.choice, );
+        writer.writeStringValue("columnGroup", columnDefinition.columnGroup);
+        writer.writeObjectValue<ContentApprovalStatusColumn>("contentApprovalStatus", columnDefinition.contentApprovalStatus, );
+        writer.writeObjectValue<CurrencyColumn>("currency", columnDefinition.currency, );
+        writer.writeObjectValue<DateTimeColumn>("dateTime", columnDefinition.dateTime, );
+        writer.writeObjectValue<DefaultColumnValue>("defaultValue", columnDefinition.defaultValue, );
+        writer.writeStringValue("description", columnDefinition.description);
+        writer.writeStringValue("displayName", columnDefinition.displayName);
+        writer.writeBooleanValue("enforceUniqueValues", columnDefinition.enforceUniqueValues);
+        writer.writeObjectValue<GeolocationColumn>("geolocation", columnDefinition.geolocation, );
+        writer.writeBooleanValue("hidden", columnDefinition.hidden);
+        writer.writeObjectValue<HyperlinkOrPictureColumn>("hyperlinkOrPicture", columnDefinition.hyperlinkOrPicture, );
+        writer.writeBooleanValue("indexed", columnDefinition.indexed);
+        writer.writeBooleanValue("isDeletable", columnDefinition.isDeletable);
+        writer.writeBooleanValue("isReorderable", columnDefinition.isReorderable);
+        writer.writeBooleanValue("isSealed", columnDefinition.isSealed);
+        writer.writeObjectValue<LookupColumn>("lookup", columnDefinition.lookup, );
+        writer.writeStringValue("name", columnDefinition.name);
+        writer.writeObjectValue<NumberColumn>("number", columnDefinition.number, );
+        writer.writeObjectValue<PersonOrGroupColumn>("personOrGroup", columnDefinition.personOrGroup, );
+        writer.writeBooleanValue("propagateChanges", columnDefinition.propagateChanges);
+        writer.writeBooleanValue("readOnly", columnDefinition.readOnly);
+        writer.writeBooleanValue("required", columnDefinition.required);
+        writer.writeObjectValue<ColumnDefinition>("sourceColumn", columnDefinition.sourceColumn, );
+        writer.writeObjectValue<ContentTypeInfo>("sourceContentType", columnDefinition.sourceContentType, );
+        writer.writeObjectValue<TermColumn>("term", columnDefinition.term, );
+        writer.writeObjectValue<TextColumn>("text", columnDefinition.text, );
+        writer.writeObjectValue<ThumbnailColumn>("thumbnail", columnDefinition.thumbnail, );
+        writer.writeEnumValue<ColumnTypes>("type", columnDefinition.type);
+        writer.writeObjectValue<ColumnValidation>("validation", columnDefinition.validation, );
 }

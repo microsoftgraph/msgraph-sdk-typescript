@@ -1,17 +1,19 @@
-import { createInviteParticipantsOperationFromDiscriminatorValue } from '../../../../../models/createInviteParticipantsOperationFromDiscriminatorValue';
-import { deserializeIntoInviteParticipantsOperation } from '../../../../../models/deserializeIntoInviteParticipantsOperation';
-import { type InviteParticipantsOperation } from '../../../../../models/inviteParticipantsOperation';
+import { createInviteParticipantsOperationFromDiscriminatorValue, deserializeIntoInviteParticipantsOperation, serializeInviteParticipantsOperation, type InviteParticipantsOperation } from '../../../../../models/inviteParticipantsOperation';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeInviteParticipantsOperation } from '../../../../../models/serializeInviteParticipantsOperation';
-import { deserializeIntoInvitePostRequestBody } from './deserializeIntoInvitePostRequestBody';
-import { type InvitePostRequestBody } from './invitePostRequestBody';
-import { type InviteRequestBuilderPostRequestConfiguration } from './inviteRequestBuilderPostRequestConfiguration';
-import { serializeInvitePostRequestBody } from './serializeInvitePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoInvitePostRequestBody, serializeInvitePostRequestBody, type InvitePostRequestBody } from './invitePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InviteRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the invite method.
  */

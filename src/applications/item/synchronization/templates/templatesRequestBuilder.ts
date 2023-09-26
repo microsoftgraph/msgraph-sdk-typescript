@@ -1,19 +1,70 @@
 import { type SynchronizationTemplateCollectionResponse } from '../../../../models/';
-import { createSynchronizationTemplateCollectionResponseFromDiscriminatorValue } from '../../../../models/createSynchronizationTemplateCollectionResponseFromDiscriminatorValue';
-import { createSynchronizationTemplateFromDiscriminatorValue } from '../../../../models/createSynchronizationTemplateFromDiscriminatorValue';
-import { deserializeIntoSynchronizationTemplate } from '../../../../models/deserializeIntoSynchronizationTemplate';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeSynchronizationTemplate } from '../../../../models/serializeSynchronizationTemplate';
-import { type SynchronizationTemplate } from '../../../../models/synchronizationTemplate';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createSynchronizationTemplateFromDiscriminatorValue, deserializeIntoSynchronizationTemplate, serializeSynchronizationTemplate, type SynchronizationTemplate } from '../../../../models/synchronizationTemplate';
+import { createSynchronizationTemplateCollectionResponseFromDiscriminatorValue } from '../../../../models/synchronizationTemplateCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SynchronizationTemplateItemRequestBuilder } from './item/synchronizationTemplateItemRequestBuilder';
-import { type TemplatesRequestBuilderGetRequestConfiguration } from './templatesRequestBuilderGetRequestConfiguration';
-import { type TemplatesRequestBuilderPostRequestConfiguration } from './templatesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TemplatesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TemplatesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TemplatesRequestBuilderGetQueryParameters;
+}
+export interface TemplatesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
  */

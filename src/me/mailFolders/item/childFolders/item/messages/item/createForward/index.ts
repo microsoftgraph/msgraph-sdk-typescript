@@ -1,5 +1,2 @@
-export * from './createCreateForwardPostRequestBodyFromDiscriminatorValue'
 export * from './createForwardPostRequestBody'
-export * from './createForwardRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoCreateForwardPostRequestBody'
-export * from './serializeCreateForwardPostRequestBody'
+export * from './createForwardRequestBuilder'

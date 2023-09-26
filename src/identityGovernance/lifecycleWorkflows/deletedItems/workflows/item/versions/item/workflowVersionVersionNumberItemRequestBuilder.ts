@@ -1,15 +1,36 @@
 import { type WorkflowVersion } from '../../../../../../../models/identityGovernance/';
-import { createWorkflowVersionFromDiscriminatorValue } from '../../../../../../../models/identityGovernance/createWorkflowVersionFromDiscriminatorValue';
+import { createWorkflowVersionFromDiscriminatorValue } from '../../../../../../../models/identityGovernance/workflowVersion';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { CreatedByRequestBuilder } from './createdBy/createdByRequestBuilder';
 import { LastModifiedByRequestBuilder } from './lastModifiedBy/lastModifiedByRequestBuilder';
 import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
-import { type WorkflowVersionVersionNumberItemRequestBuilderGetRequestConfiguration } from './workflowVersionVersionNumberItemRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkflowVersionVersionNumberItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
  */

@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoGetHistoricalReportPostRequestBody } from './deserializeIntoGetHistoricalReportPostRequestBody';
-import { type GetHistoricalReportPostRequestBody } from './getHistoricalReportPostRequestBody';
-import { type GetHistoricalReportRequestBuilderPostRequestConfiguration } from './getHistoricalReportRequestBuilderPostRequestConfiguration';
-import { serializeGetHistoricalReportPostRequestBody } from './serializeGetHistoricalReportPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetHistoricalReportPostRequestBody, serializeGetHistoricalReportPostRequestBody, type GetHistoricalReportPostRequestBody } from './getHistoricalReportPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetHistoricalReportRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getHistoricalReport method.
  */

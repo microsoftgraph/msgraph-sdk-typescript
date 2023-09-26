@@ -1,17 +1,53 @@
-import { createServiceAnnouncementAttachmentFromDiscriminatorValue } from '../../../../../../models/createServiceAnnouncementAttachmentFromDiscriminatorValue';
-import { deserializeIntoServiceAnnouncementAttachment } from '../../../../../../models/deserializeIntoServiceAnnouncementAttachment';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeServiceAnnouncementAttachment } from '../../../../../../models/serializeServiceAnnouncementAttachment';
-import { type ServiceAnnouncementAttachment } from '../../../../../../models/serviceAnnouncementAttachment';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createServiceAnnouncementAttachmentFromDiscriminatorValue, deserializeIntoServiceAnnouncementAttachment, serializeServiceAnnouncementAttachment, type ServiceAnnouncementAttachment } from '../../../../../../models/serviceAnnouncementAttachment';
 import { ContentRequestBuilder } from './content/contentRequestBuilder';
-import { type ServiceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration } from './serviceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration';
-import { type ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration } from './serviceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration';
-import { type ServiceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration } from './serviceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServiceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ServiceAnnouncementAttachmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServiceAnnouncementAttachmentItemRequestBuilderGetQueryParameters;
+}
+export interface ServiceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
  */

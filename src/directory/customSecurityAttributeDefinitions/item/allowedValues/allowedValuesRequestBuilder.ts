@@ -1,19 +1,70 @@
 import { type AllowedValueCollectionResponse } from '../../../../models/';
-import { type AllowedValue } from '../../../../models/allowedValue';
-import { createAllowedValueCollectionResponseFromDiscriminatorValue } from '../../../../models/createAllowedValueCollectionResponseFromDiscriminatorValue';
-import { createAllowedValueFromDiscriminatorValue } from '../../../../models/createAllowedValueFromDiscriminatorValue';
-import { deserializeIntoAllowedValue } from '../../../../models/deserializeIntoAllowedValue';
+import { createAllowedValueFromDiscriminatorValue, deserializeIntoAllowedValue, serializeAllowedValue, type AllowedValue } from '../../../../models/allowedValue';
+import { createAllowedValueCollectionResponseFromDiscriminatorValue } from '../../../../models/allowedValueCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAllowedValue } from '../../../../models/serializeAllowedValue';
-import { type AllowedValuesRequestBuilderGetRequestConfiguration } from './allowedValuesRequestBuilderGetRequestConfiguration';
-import { type AllowedValuesRequestBuilderPostRequestConfiguration } from './allowedValuesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AllowedValueItemRequestBuilder } from './item/allowedValueItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AllowedValuesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AllowedValuesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AllowedValuesRequestBuilderGetQueryParameters;
+}
+export interface AllowedValuesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
  */

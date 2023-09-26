@@ -1,15 +1,42 @@
-import { type Compliance } from '../models/compliance';
-import { createComplianceFromDiscriminatorValue } from '../models/createComplianceFromDiscriminatorValue';
-import { deserializeIntoCompliance } from '../models/deserializeIntoCompliance';
+import { createComplianceFromDiscriminatorValue, deserializeIntoCompliance, serializeCompliance, type Compliance } from '../models/compliance';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeCompliance } from '../models/serializeCompliance';
-import { type ComplianceRequestBuilderGetRequestConfiguration } from './complianceRequestBuilderGetRequestConfiguration';
-import { type ComplianceRequestBuilderPatchRequestConfiguration } from './complianceRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ComplianceRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ComplianceRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ComplianceRequestBuilderGetQueryParameters;
+}
+export interface ComplianceRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the compliance singleton.
  */

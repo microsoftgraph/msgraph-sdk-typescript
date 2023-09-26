@@ -6,3 +6,5 @@ export enum DirectoryDefinitionDiscoverabilities {
     ReferenceAttributes = "ReferenceAttributes",
     UnknownFutureValue = "UnknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

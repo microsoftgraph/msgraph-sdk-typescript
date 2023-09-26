@@ -1,6 +1,2 @@
-export * from './createSummarizeDevicePerformanceDevicesWithSummarizeByResponseFromDiscriminatorValue'
-export * from './deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByResponse'
-export * from './serializeSummarizeDevicePerformanceDevicesWithSummarizeByResponse'
-export * from './summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters'
-export * from './summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetRequestConfiguration'
+export * from './summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder'
 export * from './summarizeDevicePerformanceDevicesWithSummarizeByResponse'

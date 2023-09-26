@@ -1,17 +1,53 @@
-import { type AccessReviewHistoryDefinition } from '../../../../models/accessReviewHistoryDefinition';
-import { createAccessReviewHistoryDefinitionFromDiscriminatorValue } from '../../../../models/createAccessReviewHistoryDefinitionFromDiscriminatorValue';
-import { deserializeIntoAccessReviewHistoryDefinition } from '../../../../models/deserializeIntoAccessReviewHistoryDefinition';
+import { createAccessReviewHistoryDefinitionFromDiscriminatorValue, deserializeIntoAccessReviewHistoryDefinition, serializeAccessReviewHistoryDefinition, type AccessReviewHistoryDefinition } from '../../../../models/accessReviewHistoryDefinition';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewHistoryDefinition } from '../../../../models/serializeAccessReviewHistoryDefinition';
-import { type AccessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguration } from './accessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration } from './accessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration';
-import { type AccessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration } from './accessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { InstancesRequestBuilder } from './instances/instancesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters;
+}
+export interface AccessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
  */

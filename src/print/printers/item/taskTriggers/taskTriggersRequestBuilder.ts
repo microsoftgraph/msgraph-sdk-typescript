@@ -1,19 +1,70 @@
 import { type PrintTaskTriggerCollectionResponse } from '../../../../models/';
-import { createPrintTaskTriggerCollectionResponseFromDiscriminatorValue } from '../../../../models/createPrintTaskTriggerCollectionResponseFromDiscriminatorValue';
-import { createPrintTaskTriggerFromDiscriminatorValue } from '../../../../models/createPrintTaskTriggerFromDiscriminatorValue';
-import { deserializeIntoPrintTaskTrigger } from '../../../../models/deserializeIntoPrintTaskTrigger';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type PrintTaskTrigger } from '../../../../models/printTaskTrigger';
-import { serializePrintTaskTrigger } from '../../../../models/serializePrintTaskTrigger';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createPrintTaskTriggerFromDiscriminatorValue, deserializeIntoPrintTaskTrigger, serializePrintTaskTrigger, type PrintTaskTrigger } from '../../../../models/printTaskTrigger';
+import { createPrintTaskTriggerCollectionResponseFromDiscriminatorValue } from '../../../../models/printTaskTriggerCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PrintTaskTriggerItemRequestBuilder } from './item/printTaskTriggerItemRequestBuilder';
-import { type TaskTriggersRequestBuilderGetRequestConfiguration } from './taskTriggersRequestBuilderGetRequestConfiguration';
-import { type TaskTriggersRequestBuilderPostRequestConfiguration } from './taskTriggersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TaskTriggersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TaskTriggersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TaskTriggersRequestBuilderGetQueryParameters;
+}
+export interface TaskTriggersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
  */

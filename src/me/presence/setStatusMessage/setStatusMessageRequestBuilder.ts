@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoSetStatusMessagePostRequestBody } from './deserializeIntoSetStatusMessagePostRequestBody';
-import { serializeSetStatusMessagePostRequestBody } from './serializeSetStatusMessagePostRequestBody';
-import { type SetStatusMessagePostRequestBody } from './setStatusMessagePostRequestBody';
-import { type SetStatusMessageRequestBuilderPostRequestConfiguration } from './setStatusMessageRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoSetStatusMessagePostRequestBody, serializeSetStatusMessagePostRequestBody, type SetStatusMessagePostRequestBody } from './setStatusMessagePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SetStatusMessageRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the setStatusMessage method.
  */

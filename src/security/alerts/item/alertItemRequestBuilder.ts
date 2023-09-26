@@ -1,15 +1,42 @@
-import { type Alert } from '../../../models/alert';
-import { createAlertFromDiscriminatorValue } from '../../../models/createAlertFromDiscriminatorValue';
-import { deserializeIntoAlert } from '../../../models/deserializeIntoAlert';
+import { createAlertFromDiscriminatorValue, deserializeIntoAlert, serializeAlert, type Alert } from '../../../models/alert';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAlert } from '../../../models/serializeAlert';
-import { type AlertItemRequestBuilderGetRequestConfiguration } from './alertItemRequestBuilderGetRequestConfiguration';
-import { type AlertItemRequestBuilderPatchRequestConfiguration } from './alertItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AlertItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AlertItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AlertItemRequestBuilderGetQueryParameters;
+}
+export interface AlertItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the alerts property of the microsoft.graph.security entity.
  */

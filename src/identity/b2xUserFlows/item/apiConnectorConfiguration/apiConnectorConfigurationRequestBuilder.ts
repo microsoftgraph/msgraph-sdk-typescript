@@ -1,14 +1,35 @@
 import { type UserFlowApiConnectorConfiguration } from '../../../../models/';
-import { createUserFlowApiConnectorConfigurationFromDiscriminatorValue } from '../../../../models/createUserFlowApiConnectorConfigurationFromDiscriminatorValue';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type ApiConnectorConfigurationRequestBuilderGetRequestConfiguration } from './apiConnectorConfigurationRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUserFlowApiConnectorConfigurationFromDiscriminatorValue } from '../../../../models/userFlowApiConnectorConfiguration';
 import { PostAttributeCollectionRequestBuilder } from './postAttributeCollection/postAttributeCollectionRequestBuilder';
 import { PostFederationSignupRequestBuilder } from './postFederationSignup/postFederationSignupRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApiConnectorConfigurationRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ApiConnectorConfigurationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ApiConnectorConfigurationRequestBuilderGetQueryParameters;
+}
 /**
  * Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/apiConnectorConfiguration
  */

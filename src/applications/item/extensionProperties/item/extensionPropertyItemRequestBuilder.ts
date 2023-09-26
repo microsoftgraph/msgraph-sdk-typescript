@@ -1,16 +1,52 @@
-import { createExtensionPropertyFromDiscriminatorValue } from '../../../../models/createExtensionPropertyFromDiscriminatorValue';
-import { deserializeIntoExtensionProperty } from '../../../../models/deserializeIntoExtensionProperty';
-import { type ExtensionProperty } from '../../../../models/extensionProperty';
+import { createExtensionPropertyFromDiscriminatorValue, deserializeIntoExtensionProperty, serializeExtensionProperty, type ExtensionProperty } from '../../../../models/extensionProperty';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeExtensionProperty } from '../../../../models/serializeExtensionProperty';
-import { type ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration } from './extensionPropertyItemRequestBuilderDeleteRequestConfiguration';
-import { type ExtensionPropertyItemRequestBuilderGetRequestConfiguration } from './extensionPropertyItemRequestBuilderGetRequestConfiguration';
-import { type ExtensionPropertyItemRequestBuilderPatchRequestConfiguration } from './extensionPropertyItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ExtensionPropertyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ExtensionPropertyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ExtensionPropertyItemRequestBuilderGetQueryParameters;
+}
+export interface ExtensionPropertyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
  */

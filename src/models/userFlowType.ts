@@ -7,3 +7,5 @@ export enum UserFlowType {
     ResourceOwner = "resourceOwner",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

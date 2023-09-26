@@ -1,2 +1,1 @@
-export * from './subjectRequestBuilderGetQueryParameters'
-export * from './subjectRequestBuilderGetRequestConfiguration'
+export * from './subjectRequestBuilder'

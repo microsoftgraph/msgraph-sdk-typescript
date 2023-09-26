@@ -1,17 +1,53 @@
-import { createTeamsTabFromDiscriminatorValue } from '../../../../../../../models/createTeamsTabFromDiscriminatorValue';
-import { deserializeIntoTeamsTab } from '../../../../../../../models/deserializeIntoTeamsTab';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeTeamsTab } from '../../../../../../../models/serializeTeamsTab';
-import { type TeamsTab } from '../../../../../../../models/teamsTab';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createTeamsTabFromDiscriminatorValue, deserializeIntoTeamsTab, serializeTeamsTab, type TeamsTab } from '../../../../../../../models/teamsTab';
 import { TeamsAppRequestBuilder } from './teamsApp/teamsAppRequestBuilder';
-import { type TeamsTabItemRequestBuilderDeleteRequestConfiguration } from './teamsTabItemRequestBuilderDeleteRequestConfiguration';
-import { type TeamsTabItemRequestBuilderGetRequestConfiguration } from './teamsTabItemRequestBuilderGetRequestConfiguration';
-import { type TeamsTabItemRequestBuilderPatchRequestConfiguration } from './teamsTabItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamsTabItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TeamsTabItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamsTabItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamsTabItemRequestBuilderGetQueryParameters;
+}
+export interface TeamsTabItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
  */

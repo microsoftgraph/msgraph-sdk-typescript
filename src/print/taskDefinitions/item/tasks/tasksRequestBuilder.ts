@@ -1,19 +1,70 @@
 import { type PrintTaskCollectionResponse } from '../../../../models/';
-import { createPrintTaskCollectionResponseFromDiscriminatorValue } from '../../../../models/createPrintTaskCollectionResponseFromDiscriminatorValue';
-import { createPrintTaskFromDiscriminatorValue } from '../../../../models/createPrintTaskFromDiscriminatorValue';
-import { deserializeIntoPrintTask } from '../../../../models/deserializeIntoPrintTask';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type PrintTask } from '../../../../models/printTask';
-import { serializePrintTask } from '../../../../models/serializePrintTask';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createPrintTaskFromDiscriminatorValue, deserializeIntoPrintTask, serializePrintTask, type PrintTask } from '../../../../models/printTask';
+import { createPrintTaskCollectionResponseFromDiscriminatorValue } from '../../../../models/printTaskCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PrintTaskItemRequestBuilder } from './item/printTaskItemRequestBuilder';
-import { type TasksRequestBuilderGetRequestConfiguration } from './tasksRequestBuilderGetRequestConfiguration';
-import { type TasksRequestBuilderPostRequestConfiguration } from './tasksRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TasksRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TasksRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TasksRequestBuilderGetQueryParameters;
+}
+export interface TasksRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.printTaskDefinition entity.
  */

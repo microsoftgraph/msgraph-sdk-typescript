@@ -1,16 +1,52 @@
-import { createRiskDetectionFromDiscriminatorValue } from '../../../models/createRiskDetectionFromDiscriminatorValue';
-import { deserializeIntoRiskDetection } from '../../../models/deserializeIntoRiskDetection';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type RiskDetection } from '../../../models/riskDetection';
-import { serializeRiskDetection } from '../../../models/serializeRiskDetection';
-import { type RiskDetectionItemRequestBuilderDeleteRequestConfiguration } from './riskDetectionItemRequestBuilderDeleteRequestConfiguration';
-import { type RiskDetectionItemRequestBuilderGetRequestConfiguration } from './riskDetectionItemRequestBuilderGetRequestConfiguration';
-import { type RiskDetectionItemRequestBuilderPatchRequestConfiguration } from './riskDetectionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createRiskDetectionFromDiscriminatorValue, deserializeIntoRiskDetection, serializeRiskDetection, type RiskDetection } from '../../../models/riskDetection';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RiskDetectionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface RiskDetectionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface RiskDetectionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RiskDetectionItemRequestBuilderGetQueryParameters;
+}
+export interface RiskDetectionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
  */

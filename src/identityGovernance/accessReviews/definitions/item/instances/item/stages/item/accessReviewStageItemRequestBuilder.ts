@@ -1,18 +1,54 @@
-import { type AccessReviewStage } from '../../../../../../../../models/accessReviewStage';
-import { createAccessReviewStageFromDiscriminatorValue } from '../../../../../../../../models/createAccessReviewStageFromDiscriminatorValue';
-import { deserializeIntoAccessReviewStage } from '../../../../../../../../models/deserializeIntoAccessReviewStage';
+import { createAccessReviewStageFromDiscriminatorValue, deserializeIntoAccessReviewStage, serializeAccessReviewStage, type AccessReviewStage } from '../../../../../../../../models/accessReviewStage';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewStage } from '../../../../../../../../models/serializeAccessReviewStage';
-import { type AccessReviewStageItemRequestBuilderDeleteRequestConfiguration } from './accessReviewStageItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessReviewStageItemRequestBuilderGetRequestConfiguration } from './accessReviewStageItemRequestBuilderGetRequestConfiguration';
-import { type AccessReviewStageItemRequestBuilderPatchRequestConfiguration } from './accessReviewStageItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { DecisionsRequestBuilder } from './decisions/decisionsRequestBuilder';
 import { StopRequestBuilder } from './stop/stopRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessReviewStageItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessReviewStageItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessReviewStageItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessReviewStageItemRequestBuilderGetQueryParameters;
+}
+export interface AccessReviewStageItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
  */

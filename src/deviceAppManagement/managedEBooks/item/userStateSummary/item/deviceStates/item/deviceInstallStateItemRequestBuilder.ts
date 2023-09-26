@@ -1,16 +1,52 @@
-import { createDeviceInstallStateFromDiscriminatorValue } from '../../../../../../../models/createDeviceInstallStateFromDiscriminatorValue';
-import { deserializeIntoDeviceInstallState } from '../../../../../../../models/deserializeIntoDeviceInstallState';
-import { type DeviceInstallState } from '../../../../../../../models/deviceInstallState';
+import { createDeviceInstallStateFromDiscriminatorValue, deserializeIntoDeviceInstallState, serializeDeviceInstallState, type DeviceInstallState } from '../../../../../../../models/deviceInstallState';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceInstallState } from '../../../../../../../models/serializeDeviceInstallState';
-import { type DeviceInstallStateItemRequestBuilderDeleteRequestConfiguration } from './deviceInstallStateItemRequestBuilderDeleteRequestConfiguration';
-import { type DeviceInstallStateItemRequestBuilderGetRequestConfiguration } from './deviceInstallStateItemRequestBuilderGetRequestConfiguration';
-import { type DeviceInstallStateItemRequestBuilderPatchRequestConfiguration } from './deviceInstallStateItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceInstallStateItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceInstallStateItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceInstallStateItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceInstallStateItemRequestBuilderGetQueryParameters;
+}
+export interface DeviceInstallStateItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity.
  */

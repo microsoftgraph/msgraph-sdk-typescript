@@ -1,3 +1,1 @@
-export * from './userExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetQueryParameters'
-export * from './userExperienceAnalyticsDeviceStartupProcessesRequestBuilderGetRequestConfiguration'
-export * from './userExperienceAnalyticsDeviceStartupProcessesRequestBuilderPostRequestConfiguration'
+export * from './userExperienceAnalyticsDeviceStartupProcessesRequestBuilder'

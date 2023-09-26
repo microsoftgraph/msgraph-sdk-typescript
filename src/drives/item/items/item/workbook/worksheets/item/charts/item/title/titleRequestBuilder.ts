@@ -1,17 +1,53 @@
-import { createWorkbookChartTitleFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookChartTitleFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartTitle } from '../../../../../../../../../../models/deserializeIntoWorkbookChartTitle';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartTitle } from '../../../../../../../../../../models/serializeWorkbookChartTitle';
-import { type WorkbookChartTitle } from '../../../../../../../../../../models/workbookChartTitle';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartTitleFromDiscriminatorValue, deserializeIntoWorkbookChartTitle, serializeWorkbookChartTitle, type WorkbookChartTitle } from '../../../../../../../../../../models/workbookChartTitle';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
-import { type TitleRequestBuilderDeleteRequestConfiguration } from './titleRequestBuilderDeleteRequestConfiguration';
-import { type TitleRequestBuilderGetRequestConfiguration } from './titleRequestBuilderGetRequestConfiguration';
-import { type TitleRequestBuilderPatchRequestConfiguration } from './titleRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TitleRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TitleRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TitleRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TitleRequestBuilderGetQueryParameters;
+}
+export interface TitleRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the title property of the microsoft.graph.workbookChart entity.
  */

@@ -1,13 +1,43 @@
 import { type CertificateBasedAuthConfiguration } from '../../../../models/';
-import { createCertificateBasedAuthConfigurationFromDiscriminatorValue } from '../../../../models/createCertificateBasedAuthConfigurationFromDiscriminatorValue';
+import { createCertificateBasedAuthConfigurationFromDiscriminatorValue } from '../../../../models/certificateBasedAuthConfiguration';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration } from './certificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration';
-import { type CertificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration } from './certificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CertificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the certificateBasedAuthConfiguration property of the microsoft.graph.organization entity.
  */

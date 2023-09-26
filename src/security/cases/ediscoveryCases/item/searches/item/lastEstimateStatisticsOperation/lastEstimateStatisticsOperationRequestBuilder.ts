@@ -1,12 +1,33 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryEstimateOperation } from '../../../../../../../models/security/';
-import { createEdiscoveryEstimateOperationFromDiscriminatorValue } from '../../../../../../../models/security/createEdiscoveryEstimateOperationFromDiscriminatorValue';
-import { type LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration } from './lastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration';
+import { createEdiscoveryEstimateOperationFromDiscriminatorValue } from '../../../../../../../models/security/ediscoveryEstimateOperation';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LastEstimateStatisticsOperationRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LastEstimateStatisticsOperationRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.security.ediscoverySearch entity.
  */

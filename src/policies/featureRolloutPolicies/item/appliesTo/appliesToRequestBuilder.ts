@@ -1,15 +1,8 @@
 import { type DirectoryObjectCollectionResponse } from '../../../../models/';
-import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
-import { createDirectoryObjectFromDiscriminatorValue } from '../../../../models/createDirectoryObjectFromDiscriminatorValue';
-import { deserializeIntoDirectoryObject } from '../../../../models/deserializeIntoDirectoryObject';
-import { type DirectoryObject } from '../../../../models/directoryObject';
+import { createDirectoryObjectFromDiscriminatorValue, deserializeIntoDirectoryObject, serializeDirectoryObject, type DirectoryObject } from '../../../../models/directoryObject';
+import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../../../models/directoryObjectCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeDirectoryObject } from '../../../../models/serializeDirectoryObject';
-import { type AppliesToRequestBuilderGetRequestConfiguration } from './appliesToRequestBuilderGetRequestConfiguration';
-import { type AppliesToRequestBuilderPostRequestConfiguration } from './appliesToRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
@@ -19,6 +12,64 @@ import { RefRequestBuilder } from './ref/refRequestBuilder';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AppliesToRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AppliesToRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AppliesToRequestBuilderGetQueryParameters;
+}
+export interface AppliesToRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appliesTo property of the microsoft.graph.featureRolloutPolicy entity.
  */

@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type HostCollectionResponse } from '../../../models/security/';
-import { createHostCollectionResponseFromDiscriminatorValue } from '../../../models/security/createHostCollectionResponseFromDiscriminatorValue';
-import { createHostFromDiscriminatorValue } from '../../../models/security/createHostFromDiscriminatorValue';
-import { deserializeIntoHost } from '../../../models/security/deserializeIntoHost';
-import { type Host } from '../../../models/security/host';
-import { serializeHost } from '../../../models/security/serializeHost';
+import { createHostFromDiscriminatorValue, deserializeIntoHost, serializeHost, type Host } from '../../../models/security/host';
+import { createHostCollectionResponseFromDiscriminatorValue } from '../../../models/security/hostCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HostsRequestBuilderGetRequestConfiguration } from './hostsRequestBuilderGetRequestConfiguration';
-import { type HostsRequestBuilderPostRequestConfiguration } from './hostsRequestBuilderPostRequestConfiguration';
 import { HostItemRequestBuilder } from './item/hostItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HostsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HostsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HostsRequestBuilderGetQueryParameters;
+}
+export interface HostsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the hosts property of the microsoft.graph.security.threatIntelligence entity.
  */

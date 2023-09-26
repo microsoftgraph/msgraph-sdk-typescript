@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createFavoriteResponseFromDiscriminatorValue } from './createFavoriteResponseFromDiscriminatorValue';
-import { deserializeIntoFavoritePostRequestBody } from './deserializeIntoFavoritePostRequestBody';
-import { deserializeIntoFavoriteResponse } from './deserializeIntoFavoriteResponse';
-import { type FavoritePostRequestBody } from './favoritePostRequestBody';
-import { type FavoriteRequestBuilderPostRequestConfiguration } from './favoriteRequestBuilderPostRequestConfiguration';
-import { type FavoriteResponse } from './favoriteResponse';
-import { serializeFavoritePostRequestBody } from './serializeFavoritePostRequestBody';
-import { serializeFavoriteResponse } from './serializeFavoriteResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoFavoritePostRequestBody, serializeFavoritePostRequestBody, type FavoritePostRequestBody } from './favoritePostRequestBody';
+import { createFavoriteResponseFromDiscriminatorValue, deserializeIntoFavoriteResponse, serializeFavoriteResponse, type FavoriteResponse } from './favoriteResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FavoriteRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the favorite method.
  */

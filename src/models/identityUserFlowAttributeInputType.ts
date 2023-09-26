@@ -6,3 +6,5 @@ export enum IdentityUserFlowAttributeInputType {
     EmailBox = "emailBox",
     CheckboxMultiSelect = "checkboxMultiSelect",
 }
+// tslint:enable
+// eslint-enable

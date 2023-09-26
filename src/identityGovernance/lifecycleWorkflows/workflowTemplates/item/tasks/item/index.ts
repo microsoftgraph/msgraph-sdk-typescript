@@ -1,2 +1,1 @@
-export * from './taskItemRequestBuilderGetQueryParameters'
-export * from './taskItemRequestBuilderGetRequestConfiguration'
+export * from './taskItemRequestBuilder'

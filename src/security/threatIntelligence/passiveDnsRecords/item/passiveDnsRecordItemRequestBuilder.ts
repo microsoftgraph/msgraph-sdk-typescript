@@ -1,18 +1,54 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createPassiveDnsRecordFromDiscriminatorValue } from '../../../../models/security/createPassiveDnsRecordFromDiscriminatorValue';
-import { deserializeIntoPassiveDnsRecord } from '../../../../models/security/deserializeIntoPassiveDnsRecord';
-import { type PassiveDnsRecord } from '../../../../models/security/passiveDnsRecord';
-import { serializePassiveDnsRecord } from '../../../../models/security/serializePassiveDnsRecord';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createPassiveDnsRecordFromDiscriminatorValue, deserializeIntoPassiveDnsRecord, serializePassiveDnsRecord, type PassiveDnsRecord } from '../../../../models/security/passiveDnsRecord';
 import { ArtifactRequestBuilder } from './artifact/artifactRequestBuilder';
 import { ParentHostRequestBuilder } from './parentHost/parentHostRequestBuilder';
-import { type PassiveDnsRecordItemRequestBuilderDeleteRequestConfiguration } from './passiveDnsRecordItemRequestBuilderDeleteRequestConfiguration';
-import { type PassiveDnsRecordItemRequestBuilderGetRequestConfiguration } from './passiveDnsRecordItemRequestBuilderGetRequestConfiguration';
-import { type PassiveDnsRecordItemRequestBuilderPatchRequestConfiguration } from './passiveDnsRecordItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PassiveDnsRecordItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PassiveDnsRecordItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PassiveDnsRecordItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PassiveDnsRecordItemRequestBuilderGetQueryParameters;
+}
+export interface PassiveDnsRecordItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the passiveDnsRecords property of the microsoft.graph.security.threatIntelligence entity.
  */

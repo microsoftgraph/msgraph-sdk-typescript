@@ -1,13 +1,43 @@
 import { type Fido2AuthenticationMethod } from '../../../../../models/';
-import { createFido2AuthenticationMethodFromDiscriminatorValue } from '../../../../../models/createFido2AuthenticationMethodFromDiscriminatorValue';
+import { createFido2AuthenticationMethodFromDiscriminatorValue } from '../../../../../models/fido2AuthenticationMethod';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type Fido2AuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './fido2AuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import { type Fido2AuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './fido2AuthenticationMethodItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface Fido2AuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface Fido2AuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
  */

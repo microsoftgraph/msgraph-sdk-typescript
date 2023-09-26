@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type EdiscoverySearchCollectionResponse } from '../../../../../models/security/';
-import { createEdiscoverySearchCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createEdiscoverySearchCollectionResponseFromDiscriminatorValue';
-import { createEdiscoverySearchFromDiscriminatorValue } from '../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
-import { deserializeIntoEdiscoverySearch } from '../../../../../models/security/deserializeIntoEdiscoverySearch';
-import { type EdiscoverySearch } from '../../../../../models/security/ediscoverySearch';
-import { serializeEdiscoverySearch } from '../../../../../models/security/serializeEdiscoverySearch';
+import { createEdiscoverySearchFromDiscriminatorValue, deserializeIntoEdiscoverySearch, serializeEdiscoverySearch, type EdiscoverySearch } from '../../../../../models/security/ediscoverySearch';
+import { createEdiscoverySearchCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/ediscoverySearchCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { EdiscoverySearchItemRequestBuilder } from './item/ediscoverySearchItemRequestBuilder';
-import { type SearchesRequestBuilderGetRequestConfiguration } from './searchesRequestBuilderGetRequestConfiguration';
-import { type SearchesRequestBuilderPostRequestConfiguration } from './searchesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SearchesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SearchesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SearchesRequestBuilderGetQueryParameters;
+}
+export interface SearchesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
  */

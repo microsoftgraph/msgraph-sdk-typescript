@@ -1,11 +1,6 @@
-import { createWorkbookWorksheetFromDiscriminatorValue } from '../../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
-import { deserializeIntoWorkbookWorksheet } from '../../../../../../../models/deserializeIntoWorkbookWorksheet';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookWorksheet } from '../../../../../../../models/serializeWorkbookWorksheet';
-import { type WorkbookWorksheet } from '../../../../../../../models/workbookWorksheet';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookWorksheetFromDiscriminatorValue, deserializeIntoWorkbookWorksheet, serializeWorkbookWorksheet, type WorkbookWorksheet } from '../../../../../../../models/workbookWorksheet';
 import { CellWithRowWithColumnRequestBuilder } from './cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
 import { ChartsRequestBuilder } from './charts/chartsRequestBuilder';
 import { NamesRequestBuilder } from './names/namesRequestBuilder';
@@ -16,11 +11,52 @@ import { RangeWithAddressRequestBuilder } from './rangeWithAddress/rangeWithAddr
 import { TablesRequestBuilder } from './tables/tablesRequestBuilder';
 import { UsedRangeRequestBuilder } from './usedRange/usedRangeRequestBuilder';
 import { UsedRangeWithValuesOnlyRequestBuilder } from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
-import { type WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration } from './workbookWorksheetItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookWorksheetItemRequestBuilderGetRequestConfiguration } from './workbookWorksheetItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration } from './workbookWorksheetItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookWorksheetItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookWorksheetItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookWorksheetItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
  */

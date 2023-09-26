@@ -1,16 +1,52 @@
-import { createDeviceManagementExportJobFromDiscriminatorValue } from '../../../../models/createDeviceManagementExportJobFromDiscriminatorValue';
-import { deserializeIntoDeviceManagementExportJob } from '../../../../models/deserializeIntoDeviceManagementExportJob';
-import { type DeviceManagementExportJob } from '../../../../models/deviceManagementExportJob';
+import { createDeviceManagementExportJobFromDiscriminatorValue, deserializeIntoDeviceManagementExportJob, serializeDeviceManagementExportJob, type DeviceManagementExportJob } from '../../../../models/deviceManagementExportJob';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceManagementExportJob } from '../../../../models/serializeDeviceManagementExportJob';
-import { type DeviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration } from './deviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration';
-import { type DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration } from './deviceManagementExportJobItemRequestBuilderGetRequestConfiguration';
-import { type DeviceManagementExportJobItemRequestBuilderPatchRequestConfiguration } from './deviceManagementExportJobItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceManagementExportJobItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceManagementExportJobItemRequestBuilderGetQueryParameters;
+}
+export interface DeviceManagementExportJobItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
  */

@@ -13,3 +13,5 @@ export enum ApplicationGuardBlockFileTransferType {
     /** Block clipboard to transfer Text file */
     BlockTextFile = "blockTextFile",
 }
+// tslint:enable
+// eslint-enable

@@ -1,6 +1,2 @@
-export * from './allowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters'
-export * from './allowedCalendarSharingRolesWithUserRequestBuilderGetRequestConfiguration'
+export * from './allowedCalendarSharingRolesWithUserRequestBuilder'
 export * from './allowedCalendarSharingRolesWithUserResponse'
-export * from './createAllowedCalendarSharingRolesWithUserResponseFromDiscriminatorValue'
-export * from './deserializeIntoAllowedCalendarSharingRolesWithUserResponse'
-export * from './serializeAllowedCalendarSharingRolesWithUserResponse'

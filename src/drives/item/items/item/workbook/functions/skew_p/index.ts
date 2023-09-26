@@ -1,5 +1,2 @@
-export * from './createSkew_pPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoSkew_pPostRequestBody'
-export * from './serializeSkew_pPostRequestBody'
 export * from './skew_pPostRequestBody'
-export * from './skew_pRequestBuilderPostRequestConfiguration'
+export * from './skew_pRequestBuilder'

@@ -1,5 +1,2 @@
-export * from './createNominalPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoNominalPostRequestBody'
 export * from './nominalPostRequestBody'
-export * from './nominalRequestBuilderPostRequestConfiguration'
-export * from './serializeNominalPostRequestBody'
+export * from './nominalRequestBuilder'

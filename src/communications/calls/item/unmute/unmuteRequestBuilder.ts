@@ -1,17 +1,19 @@
-import { createUnmuteParticipantOperationFromDiscriminatorValue } from '../../../../models/createUnmuteParticipantOperationFromDiscriminatorValue';
-import { deserializeIntoUnmuteParticipantOperation } from '../../../../models/deserializeIntoUnmuteParticipantOperation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUnmuteParticipantOperation } from '../../../../models/serializeUnmuteParticipantOperation';
-import { type UnmuteParticipantOperation } from '../../../../models/unmuteParticipantOperation';
-import { deserializeIntoUnmutePostRequestBody } from './deserializeIntoUnmutePostRequestBody';
-import { serializeUnmutePostRequestBody } from './serializeUnmutePostRequestBody';
-import { type UnmutePostRequestBody } from './unmutePostRequestBody';
-import { type UnmuteRequestBuilderPostRequestConfiguration } from './unmuteRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUnmuteParticipantOperationFromDiscriminatorValue, deserializeIntoUnmuteParticipantOperation, serializeUnmuteParticipantOperation, type UnmuteParticipantOperation } from '../../../../models/unmuteParticipantOperation';
+import { deserializeIntoUnmutePostRequestBody, serializeUnmutePostRequestBody, type UnmutePostRequestBody } from './unmutePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnmuteRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the unmute method.
  */

@@ -1,16 +1,52 @@
-import { type BrowserSite } from '../../../../../../../models/browserSite';
-import { createBrowserSiteFromDiscriminatorValue } from '../../../../../../../models/createBrowserSiteFromDiscriminatorValue';
-import { deserializeIntoBrowserSite } from '../../../../../../../models/deserializeIntoBrowserSite';
+import { createBrowserSiteFromDiscriminatorValue, deserializeIntoBrowserSite, serializeBrowserSite, type BrowserSite } from '../../../../../../../models/browserSite';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeBrowserSite } from '../../../../../../../models/serializeBrowserSite';
-import { type BrowserSiteItemRequestBuilderDeleteRequestConfiguration } from './browserSiteItemRequestBuilderDeleteRequestConfiguration';
-import { type BrowserSiteItemRequestBuilderGetRequestConfiguration } from './browserSiteItemRequestBuilderGetRequestConfiguration';
-import { type BrowserSiteItemRequestBuilderPatchRequestConfiguration } from './browserSiteItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BrowserSiteItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BrowserSiteItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BrowserSiteItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BrowserSiteItemRequestBuilderGetQueryParameters;
+}
+export interface BrowserSiteItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
  */

@@ -1,16 +1,52 @@
-import { type AdminConsentRequestPolicy } from '../../models/adminConsentRequestPolicy';
-import { createAdminConsentRequestPolicyFromDiscriminatorValue } from '../../models/createAdminConsentRequestPolicyFromDiscriminatorValue';
-import { deserializeIntoAdminConsentRequestPolicy } from '../../models/deserializeIntoAdminConsentRequestPolicy';
+import { createAdminConsentRequestPolicyFromDiscriminatorValue, deserializeIntoAdminConsentRequestPolicy, serializeAdminConsentRequestPolicy, type AdminConsentRequestPolicy } from '../../models/adminConsentRequestPolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAdminConsentRequestPolicy } from '../../models/serializeAdminConsentRequestPolicy';
-import { type AdminConsentRequestPolicyRequestBuilderDeleteRequestConfiguration } from './adminConsentRequestPolicyRequestBuilderDeleteRequestConfiguration';
-import { type AdminConsentRequestPolicyRequestBuilderGetRequestConfiguration } from './adminConsentRequestPolicyRequestBuilderGetRequestConfiguration';
-import { type AdminConsentRequestPolicyRequestBuilderPatchRequestConfiguration } from './adminConsentRequestPolicyRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AdminConsentRequestPolicyRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AdminConsentRequestPolicyRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AdminConsentRequestPolicyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AdminConsentRequestPolicyRequestBuilderGetQueryParameters;
+}
+export interface AdminConsentRequestPolicyRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the adminConsentRequestPolicy property of the microsoft.graph.policyRoot entity.
  */

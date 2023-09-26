@@ -1,6 +1,2 @@
-export * from './availableProviderTypesRequestBuilderGetQueryParameters'
-export * from './availableProviderTypesRequestBuilderGetRequestConfiguration'
+export * from './availableProviderTypesRequestBuilder'
 export * from './availableProviderTypesResponse'
-export * from './createAvailableProviderTypesResponseFromDiscriminatorValue'
-export * from './deserializeIntoAvailableProviderTypesResponse'
-export * from './serializeAvailableProviderTypesResponse'

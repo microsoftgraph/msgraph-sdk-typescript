@@ -1,6 +1,2 @@
-export * from './additionalAccessRequestBuilderGetQueryParameters'
-export * from './additionalAccessRequestBuilderGetRequestConfiguration'
+export * from './additionalAccessRequestBuilder'
 export * from './additionalAccessResponse'
-export * from './createAdditionalAccessResponseFromDiscriminatorValue'
-export * from './deserializeIntoAdditionalAccessResponse'
-export * from './serializeAdditionalAccessResponse'

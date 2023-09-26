@@ -1,22 +1,73 @@
 import { type ContentTypeCollectionResponse } from '../../../../../models/';
-import { type ContentType } from '../../../../../models/contentType';
-import { createContentTypeCollectionResponseFromDiscriminatorValue } from '../../../../../models/createContentTypeCollectionResponseFromDiscriminatorValue';
-import { createContentTypeFromDiscriminatorValue } from '../../../../../models/createContentTypeFromDiscriminatorValue';
-import { deserializeIntoContentType } from '../../../../../models/deserializeIntoContentType';
+import { createContentTypeFromDiscriminatorValue, deserializeIntoContentType, serializeContentType, type ContentType } from '../../../../../models/contentType';
+import { createContentTypeCollectionResponseFromDiscriminatorValue } from '../../../../../models/contentTypeCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeContentType } from '../../../../../models/serializeContentType';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { AddCopyRequestBuilder } from './addCopy/addCopyRequestBuilder';
 import { AddCopyFromContentTypeHubRequestBuilder } from './addCopyFromContentTypeHub/addCopyFromContentTypeHubRequestBuilder';
-import { type ContentTypesRequestBuilderGetRequestConfiguration } from './contentTypesRequestBuilderGetRequestConfiguration';
-import { type ContentTypesRequestBuilderPostRequestConfiguration } from './contentTypesRequestBuilderPostRequestConfiguration';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { GetCompatibleHubContentTypesRequestBuilder } from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
 import { ContentTypeItemRequestBuilder } from './item/contentTypeItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContentTypesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ContentTypesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContentTypesRequestBuilderGetQueryParameters;
+}
+export interface ContentTypesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
  */

@@ -1,19 +1,70 @@
 import { type MdmWindowsInformationProtectionPolicyCollectionResponse } from '../../models/';
-import { createMdmWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createMdmWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue';
-import { createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue } from '../../models/createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue';
-import { deserializeIntoMdmWindowsInformationProtectionPolicy } from '../../models/deserializeIntoMdmWindowsInformationProtectionPolicy';
-import { type MdmWindowsInformationProtectionPolicy } from '../../models/mdmWindowsInformationProtectionPolicy';
+import { createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue, deserializeIntoMdmWindowsInformationProtectionPolicy, serializeMdmWindowsInformationProtectionPolicy, type MdmWindowsInformationProtectionPolicy } from '../../models/mdmWindowsInformationProtectionPolicy';
+import { createMdmWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue } from '../../models/mdmWindowsInformationProtectionPolicyCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeMdmWindowsInformationProtectionPolicy } from '../../models/serializeMdmWindowsInformationProtectionPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { MdmWindowsInformationProtectionPolicyItemRequestBuilder } from './item/mdmWindowsInformationProtectionPolicyItemRequestBuilder';
-import { type MdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration } from './mdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration';
-import { type MdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration } from './mdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface MdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryParameters;
+}
+export interface MdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
  */

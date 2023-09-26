@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoGetConfigurationPolicyNonComplianceReportPostRequestBody } from './deserializeIntoGetConfigurationPolicyNonComplianceReportPostRequestBody';
-import { type GetConfigurationPolicyNonComplianceReportPostRequestBody } from './getConfigurationPolicyNonComplianceReportPostRequestBody';
-import { type GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration } from './getConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration';
-import { serializeGetConfigurationPolicyNonComplianceReportPostRequestBody } from './serializeGetConfigurationPolicyNonComplianceReportPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetConfigurationPolicyNonComplianceReportPostRequestBody, serializeGetConfigurationPolicyNonComplianceReportPostRequestBody, type GetConfigurationPolicyNonComplianceReportPostRequestBody } from './getConfigurationPolicyNonComplianceReportPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getConfigurationPolicyNonComplianceReport method.
  */

@@ -1,16 +1,52 @@
-import { createSchemaFromDiscriminatorValue } from '../../../../models/externalConnectors/createSchemaFromDiscriminatorValue';
-import { deserializeIntoSchema } from '../../../../models/externalConnectors/deserializeIntoSchema';
-import { type Schema } from '../../../../models/externalConnectors/schema';
-import { serializeSchema } from '../../../../models/externalConnectors/serializeSchema';
+import { createSchemaFromDiscriminatorValue, deserializeIntoSchema, serializeSchema, type Schema } from '../../../../models/externalConnectors/schema';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type SchemaRequestBuilderDeleteRequestConfiguration } from './schemaRequestBuilderDeleteRequestConfiguration';
-import { type SchemaRequestBuilderGetRequestConfiguration } from './schemaRequestBuilderGetRequestConfiguration';
-import { type SchemaRequestBuilderPatchRequestConfiguration } from './schemaRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SchemaRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SchemaRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SchemaRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SchemaRequestBuilderGetQueryParameters;
+}
+export interface SchemaRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the schema property of the microsoft.graph.externalConnectors.externalConnection entity.
  */

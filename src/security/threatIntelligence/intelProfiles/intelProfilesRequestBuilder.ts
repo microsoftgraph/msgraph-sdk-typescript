@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type IntelligenceProfileCollectionResponse } from '../../../models/security/';
-import { createIntelligenceProfileCollectionResponseFromDiscriminatorValue } from '../../../models/security/createIntelligenceProfileCollectionResponseFromDiscriminatorValue';
-import { createIntelligenceProfileFromDiscriminatorValue } from '../../../models/security/createIntelligenceProfileFromDiscriminatorValue';
-import { deserializeIntoIntelligenceProfile } from '../../../models/security/deserializeIntoIntelligenceProfile';
-import { type IntelligenceProfile } from '../../../models/security/intelligenceProfile';
-import { serializeIntelligenceProfile } from '../../../models/security/serializeIntelligenceProfile';
+import { createIntelligenceProfileFromDiscriminatorValue, deserializeIntoIntelligenceProfile, serializeIntelligenceProfile, type IntelligenceProfile } from '../../../models/security/intelligenceProfile';
+import { createIntelligenceProfileCollectionResponseFromDiscriminatorValue } from '../../../models/security/intelligenceProfileCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type IntelProfilesRequestBuilderGetRequestConfiguration } from './intelProfilesRequestBuilderGetRequestConfiguration';
-import { type IntelProfilesRequestBuilderPostRequestConfiguration } from './intelProfilesRequestBuilderPostRequestConfiguration';
 import { IntelligenceProfileItemRequestBuilder } from './item/intelligenceProfileItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IntelProfilesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface IntelProfilesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IntelProfilesRequestBuilderGetQueryParameters;
+}
+export interface IntelProfilesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the intelProfiles property of the microsoft.graph.security.threatIntelligence entity.
  */

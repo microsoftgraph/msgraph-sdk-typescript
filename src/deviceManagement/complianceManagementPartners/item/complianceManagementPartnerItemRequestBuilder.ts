@@ -1,16 +1,52 @@
-import { type ComplianceManagementPartner } from '../../../models/complianceManagementPartner';
-import { createComplianceManagementPartnerFromDiscriminatorValue } from '../../../models/createComplianceManagementPartnerFromDiscriminatorValue';
-import { deserializeIntoComplianceManagementPartner } from '../../../models/deserializeIntoComplianceManagementPartner';
+import { createComplianceManagementPartnerFromDiscriminatorValue, deserializeIntoComplianceManagementPartner, serializeComplianceManagementPartner, type ComplianceManagementPartner } from '../../../models/complianceManagementPartner';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeComplianceManagementPartner } from '../../../models/serializeComplianceManagementPartner';
-import { type ComplianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration } from './complianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
-import { type ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration } from './complianceManagementPartnerItemRequestBuilderGetRequestConfiguration';
-import { type ComplianceManagementPartnerItemRequestBuilderPatchRequestConfiguration } from './complianceManagementPartnerItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ComplianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ComplianceManagementPartnerItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ComplianceManagementPartnerItemRequestBuilderGetQueryParameters;
+}
+export interface ComplianceManagementPartnerItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
  */

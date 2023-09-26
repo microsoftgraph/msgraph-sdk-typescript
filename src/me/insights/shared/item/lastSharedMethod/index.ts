@@ -1,2 +1,1 @@
-export * from './lastSharedMethodRequestBuilderGetQueryParameters'
-export * from './lastSharedMethodRequestBuilderGetRequestConfiguration'
+export * from './lastSharedMethodRequestBuilder'

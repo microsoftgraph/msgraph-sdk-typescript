@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoMarkChatUnreadForUserPostRequestBody } from './deserializeIntoMarkChatUnreadForUserPostRequestBody';
-import { type MarkChatUnreadForUserPostRequestBody } from './markChatUnreadForUserPostRequestBody';
-import { type MarkChatUnreadForUserRequestBuilderPostRequestConfiguration } from './markChatUnreadForUserRequestBuilderPostRequestConfiguration';
-import { serializeMarkChatUnreadForUserPostRequestBody } from './serializeMarkChatUnreadForUserPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoMarkChatUnreadForUserPostRequestBody, serializeMarkChatUnreadForUserPostRequestBody, type MarkChatUnreadForUserPostRequestBody } from './markChatUnreadForUserPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MarkChatUnreadForUserRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the markChatUnreadForUser method.
  */

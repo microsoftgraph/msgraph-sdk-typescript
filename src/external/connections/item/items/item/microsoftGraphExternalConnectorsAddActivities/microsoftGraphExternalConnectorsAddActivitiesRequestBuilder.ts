@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type AddActivitiesPostRequestBody } from './addActivitiesPostRequestBody';
-import { type AddActivitiesResponse } from './addActivitiesResponse';
-import { createAddActivitiesResponseFromDiscriminatorValue } from './createAddActivitiesResponseFromDiscriminatorValue';
-import { deserializeIntoAddActivitiesPostRequestBody } from './deserializeIntoAddActivitiesPostRequestBody';
-import { deserializeIntoAddActivitiesResponse } from './deserializeIntoAddActivitiesResponse';
-import { type MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration } from './microsoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration';
-import { serializeAddActivitiesPostRequestBody } from './serializeAddActivitiesPostRequestBody';
-import { serializeAddActivitiesResponse } from './serializeAddActivitiesResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoAddActivitiesPostRequestBody, serializeAddActivitiesPostRequestBody, type AddActivitiesPostRequestBody } from './addActivitiesPostRequestBody';
+import { createAddActivitiesResponseFromDiscriminatorValue, deserializeIntoAddActivitiesResponse, serializeAddActivitiesResponse, type AddActivitiesResponse } from './addActivitiesResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the addActivities method.
  */

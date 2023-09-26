@@ -1,16 +1,52 @@
-import { createDirectoryAuditFromDiscriminatorValue } from '../../../models/createDirectoryAuditFromDiscriminatorValue';
-import { deserializeIntoDirectoryAudit } from '../../../models/deserializeIntoDirectoryAudit';
-import { type DirectoryAudit } from '../../../models/directoryAudit';
+import { createDirectoryAuditFromDiscriminatorValue, deserializeIntoDirectoryAudit, serializeDirectoryAudit, type DirectoryAudit } from '../../../models/directoryAudit';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDirectoryAudit } from '../../../models/serializeDirectoryAudit';
-import { type DirectoryAuditItemRequestBuilderDeleteRequestConfiguration } from './directoryAuditItemRequestBuilderDeleteRequestConfiguration';
-import { type DirectoryAuditItemRequestBuilderGetRequestConfiguration } from './directoryAuditItemRequestBuilderGetRequestConfiguration';
-import { type DirectoryAuditItemRequestBuilderPatchRequestConfiguration } from './directoryAuditItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DirectoryAuditItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DirectoryAuditItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DirectoryAuditItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DirectoryAuditItemRequestBuilderGetQueryParameters;
+}
+export interface DirectoryAuditItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
  */

@@ -1,17 +1,19 @@
-import { createPlayPromptOperationFromDiscriminatorValue } from '../../../../models/createPlayPromptOperationFromDiscriminatorValue';
-import { deserializeIntoPlayPromptOperation } from '../../../../models/deserializeIntoPlayPromptOperation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type PlayPromptOperation } from '../../../../models/playPromptOperation';
-import { serializePlayPromptOperation } from '../../../../models/serializePlayPromptOperation';
-import { deserializeIntoPlayPromptPostRequestBody } from './deserializeIntoPlayPromptPostRequestBody';
-import { type PlayPromptPostRequestBody } from './playPromptPostRequestBody';
-import { type PlayPromptRequestBuilderPostRequestConfiguration } from './playPromptRequestBuilderPostRequestConfiguration';
-import { serializePlayPromptPostRequestBody } from './serializePlayPromptPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createPlayPromptOperationFromDiscriminatorValue, deserializeIntoPlayPromptOperation, serializePlayPromptOperation, type PlayPromptOperation } from '../../../../models/playPromptOperation';
+import { deserializeIntoPlayPromptPostRequestBody, serializePlayPromptPostRequestBody, type PlayPromptPostRequestBody } from './playPromptPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PlayPromptRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the playPrompt method.
  */

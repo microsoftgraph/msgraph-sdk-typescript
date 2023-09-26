@@ -1,16 +1,52 @@
-import { createThreatAssessmentResultFromDiscriminatorValue } from '../../../../../models/createThreatAssessmentResultFromDiscriminatorValue';
-import { deserializeIntoThreatAssessmentResult } from '../../../../../models/deserializeIntoThreatAssessmentResult';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeThreatAssessmentResult } from '../../../../../models/serializeThreatAssessmentResult';
-import { type ThreatAssessmentResult } from '../../../../../models/threatAssessmentResult';
-import { type ThreatAssessmentResultItemRequestBuilderDeleteRequestConfiguration } from './threatAssessmentResultItemRequestBuilderDeleteRequestConfiguration';
-import { type ThreatAssessmentResultItemRequestBuilderGetRequestConfiguration } from './threatAssessmentResultItemRequestBuilderGetRequestConfiguration';
-import { type ThreatAssessmentResultItemRequestBuilderPatchRequestConfiguration } from './threatAssessmentResultItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createThreatAssessmentResultFromDiscriminatorValue, deserializeIntoThreatAssessmentResult, serializeThreatAssessmentResult, type ThreatAssessmentResult } from '../../../../../models/threatAssessmentResult';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ThreatAssessmentResultItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ThreatAssessmentResultItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ThreatAssessmentResultItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ThreatAssessmentResultItemRequestBuilderGetQueryParameters;
+}
+export interface ThreatAssessmentResultItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
  */

@@ -1,20 +1,71 @@
 import { type CallCollectionResponse } from '../../models/';
-import { type Call } from '../../models/call';
-import { createCallCollectionResponseFromDiscriminatorValue } from '../../models/createCallCollectionResponseFromDiscriminatorValue';
-import { createCallFromDiscriminatorValue } from '../../models/createCallFromDiscriminatorValue';
-import { deserializeIntoCall } from '../../models/deserializeIntoCall';
+import { createCallFromDiscriminatorValue, deserializeIntoCall, serializeCall, type Call } from '../../models/call';
+import { createCallCollectionResponseFromDiscriminatorValue } from '../../models/callCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeCall } from '../../models/serializeCall';
-import { type CallsRequestBuilderGetRequestConfiguration } from './callsRequestBuilderGetRequestConfiguration';
-import { type CallsRequestBuilderPostRequestConfiguration } from './callsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { CallItemRequestBuilder } from './item/callItemRequestBuilder';
 import { LogTeleconferenceDeviceQualityRequestBuilder } from './logTeleconferenceDeviceQuality/logTeleconferenceDeviceQualityRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CallsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface CallsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CallsRequestBuilderGetQueryParameters;
+}
+export interface CallsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
  */

@@ -1,17 +1,49 @@
-import { type CalendarGroup } from '../../../models/calendarGroup';
-import { createCalendarGroupFromDiscriminatorValue } from '../../../models/createCalendarGroupFromDiscriminatorValue';
-import { deserializeIntoCalendarGroup } from '../../../models/deserializeIntoCalendarGroup';
+import { createCalendarGroupFromDiscriminatorValue, deserializeIntoCalendarGroup, serializeCalendarGroup, type CalendarGroup } from '../../../models/calendarGroup';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeCalendarGroup } from '../../../models/serializeCalendarGroup';
-import { type CalendarGroupItemRequestBuilderDeleteRequestConfiguration } from './calendarGroupItemRequestBuilderDeleteRequestConfiguration';
-import { type CalendarGroupItemRequestBuilderGetRequestConfiguration } from './calendarGroupItemRequestBuilderGetRequestConfiguration';
-import { type CalendarGroupItemRequestBuilderPatchRequestConfiguration } from './calendarGroupItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CalendarsRequestBuilder } from './calendars/calendarsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CalendarGroupItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CalendarGroupItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CalendarGroupItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CalendarGroupItemRequestBuilderGetQueryParameters;
+}
+export interface CalendarGroupItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
  */

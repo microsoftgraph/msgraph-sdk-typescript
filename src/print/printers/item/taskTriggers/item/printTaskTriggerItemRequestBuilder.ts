@@ -1,17 +1,53 @@
-import { createPrintTaskTriggerFromDiscriminatorValue } from '../../../../../models/createPrintTaskTriggerFromDiscriminatorValue';
-import { deserializeIntoPrintTaskTrigger } from '../../../../../models/deserializeIntoPrintTaskTrigger';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type PrintTaskTrigger } from '../../../../../models/printTaskTrigger';
-import { serializePrintTaskTrigger } from '../../../../../models/serializePrintTaskTrigger';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createPrintTaskTriggerFromDiscriminatorValue, deserializeIntoPrintTaskTrigger, serializePrintTaskTrigger, type PrintTaskTrigger } from '../../../../../models/printTaskTrigger';
 import { DefinitionRequestBuilder } from './definition/definitionRequestBuilder';
-import { type PrintTaskTriggerItemRequestBuilderDeleteRequestConfiguration } from './printTaskTriggerItemRequestBuilderDeleteRequestConfiguration';
-import { type PrintTaskTriggerItemRequestBuilderGetRequestConfiguration } from './printTaskTriggerItemRequestBuilderGetRequestConfiguration';
-import { type PrintTaskTriggerItemRequestBuilderPatchRequestConfiguration } from './printTaskTriggerItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrintTaskTriggerItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PrintTaskTriggerItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PrintTaskTriggerItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrintTaskTriggerItemRequestBuilderGetQueryParameters;
+}
+export interface PrintTaskTriggerItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
  */

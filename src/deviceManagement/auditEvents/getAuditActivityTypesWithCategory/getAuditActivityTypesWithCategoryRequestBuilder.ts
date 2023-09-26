@@ -1,12 +1,45 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createGetAuditActivityTypesWithCategoryResponseFromDiscriminatorValue } from './createGetAuditActivityTypesWithCategoryResponseFromDiscriminatorValue';
-import { type GetAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration } from './getAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createGetAuditActivityTypesWithCategoryResponseFromDiscriminatorValue } from './getAuditActivityTypesWithCategoryResponse';
 import { type GetAuditActivityTypesWithCategoryResponse } from './index';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface GetAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to call the getAuditActivityTypes method.
  */

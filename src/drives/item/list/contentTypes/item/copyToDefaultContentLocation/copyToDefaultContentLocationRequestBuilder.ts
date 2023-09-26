@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type CopyToDefaultContentLocationPostRequestBody } from './copyToDefaultContentLocationPostRequestBody';
-import { type CopyToDefaultContentLocationRequestBuilderPostRequestConfiguration } from './copyToDefaultContentLocationRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCopyToDefaultContentLocationPostRequestBody } from './deserializeIntoCopyToDefaultContentLocationPostRequestBody';
-import { serializeCopyToDefaultContentLocationPostRequestBody } from './serializeCopyToDefaultContentLocationPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoCopyToDefaultContentLocationPostRequestBody, serializeCopyToDefaultContentLocationPostRequestBody, type CopyToDefaultContentLocationPostRequestBody } from './copyToDefaultContentLocationPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CopyToDefaultContentLocationRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the copyToDefaultContentLocation method.
  */

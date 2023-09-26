@@ -1,16 +1,52 @@
-import { type BookingService } from '../../../../../models/bookingService';
-import { createBookingServiceFromDiscriminatorValue } from '../../../../../models/createBookingServiceFromDiscriminatorValue';
-import { deserializeIntoBookingService } from '../../../../../models/deserializeIntoBookingService';
+import { createBookingServiceFromDiscriminatorValue, deserializeIntoBookingService, serializeBookingService, type BookingService } from '../../../../../models/bookingService';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingService } from '../../../../../models/serializeBookingService';
-import { type BookingServiceItemRequestBuilderDeleteRequestConfiguration } from './bookingServiceItemRequestBuilderDeleteRequestConfiguration';
-import { type BookingServiceItemRequestBuilderGetRequestConfiguration } from './bookingServiceItemRequestBuilderGetRequestConfiguration';
-import { type BookingServiceItemRequestBuilderPatchRequestConfiguration } from './bookingServiceItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BookingServiceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BookingServiceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BookingServiceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BookingServiceItemRequestBuilderGetQueryParameters;
+}
+export interface BookingServiceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
  */

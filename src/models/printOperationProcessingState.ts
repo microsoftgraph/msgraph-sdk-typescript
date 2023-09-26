@@ -5,3 +5,5 @@ export enum PrintOperationProcessingState {
     Failed = "failed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,2 +1,1 @@
-export * from './intelligenceProfileIndicatorItemRequestBuilderGetQueryParameters'
-export * from './intelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration'
+export * from './intelligenceProfileIndicatorItemRequestBuilder'

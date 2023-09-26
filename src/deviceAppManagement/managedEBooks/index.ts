@@ -1,3 +1,1 @@
-export * from './managedEBooksRequestBuilderGetQueryParameters'
-export * from './managedEBooksRequestBuilderGetRequestConfiguration'
-export * from './managedEBooksRequestBuilderPostRequestConfiguration'
+export * from './managedEBooksRequestBuilder'

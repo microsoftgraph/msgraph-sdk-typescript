@@ -1,1 +1,1 @@
-export * from './unarchiveRequestBuilderPostRequestConfiguration'
+export * from './unarchiveRequestBuilder'

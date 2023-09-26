@@ -1,19 +1,70 @@
 import { type DelegatedAdminRelationshipRequestCollectionResponse } from '../../../../models/';
-import { createDelegatedAdminRelationshipRequestCollectionResponseFromDiscriminatorValue } from '../../../../models/createDelegatedAdminRelationshipRequestCollectionResponseFromDiscriminatorValue';
-import { createDelegatedAdminRelationshipRequestFromDiscriminatorValue } from '../../../../models/createDelegatedAdminRelationshipRequestFromDiscriminatorValue';
-import { type DelegatedAdminRelationshipRequest } from '../../../../models/delegatedAdminRelationshipRequest';
-import { deserializeIntoDelegatedAdminRelationshipRequest } from '../../../../models/deserializeIntoDelegatedAdminRelationshipRequest';
+import { createDelegatedAdminRelationshipRequestFromDiscriminatorValue, deserializeIntoDelegatedAdminRelationshipRequest, serializeDelegatedAdminRelationshipRequest, type DelegatedAdminRelationshipRequest } from '../../../../models/delegatedAdminRelationshipRequest';
+import { createDelegatedAdminRelationshipRequestCollectionResponseFromDiscriminatorValue } from '../../../../models/delegatedAdminRelationshipRequestCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeDelegatedAdminRelationshipRequest } from '../../../../models/serializeDelegatedAdminRelationshipRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DelegatedAdminRelationshipRequestItemRequestBuilder } from './item/delegatedAdminRelationshipRequestItemRequestBuilder';
-import { type RequestsRequestBuilderGetRequestConfiguration } from './requestsRequestBuilderGetRequestConfiguration';
-import { type RequestsRequestBuilderPostRequestConfiguration } from './requestsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RequestsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RequestsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RequestsRequestBuilderGetQueryParameters;
+}
+export interface RequestsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
  */

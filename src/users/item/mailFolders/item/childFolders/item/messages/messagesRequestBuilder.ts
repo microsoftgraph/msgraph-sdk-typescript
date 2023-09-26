@@ -1,20 +1,71 @@
 import { type MessageCollectionResponse } from '../../../../../../../models/';
-import { createMessageCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createMessageCollectionResponseFromDiscriminatorValue';
-import { createMessageFromDiscriminatorValue } from '../../../../../../../models/createMessageFromDiscriminatorValue';
-import { deserializeIntoMessage } from '../../../../../../../models/deserializeIntoMessage';
-import { type Message } from '../../../../../../../models/message';
+import { createMessageFromDiscriminatorValue, deserializeIntoMessage, serializeMessage, type Message } from '../../../../../../../models/message';
+import { createMessageCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/messageCollectionResponse';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeMessage } from '../../../../../../../models/serializeMessage';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { MessageItemRequestBuilder } from './item/messageItemRequestBuilder';
-import { type MessagesRequestBuilderGetRequestConfiguration } from './messagesRequestBuilderGetRequestConfiguration';
-import { type MessagesRequestBuilderPostRequestConfiguration } from './messagesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MessagesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface MessagesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MessagesRequestBuilderGetQueryParameters;
+}
+export interface MessagesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
  */

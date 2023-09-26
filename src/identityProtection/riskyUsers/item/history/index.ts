@@ -1,3 +1,1 @@
-export * from './historyRequestBuilderGetQueryParameters'
-export * from './historyRequestBuilderGetRequestConfiguration'
-export * from './historyRequestBuilderPostRequestConfiguration'
+export * from './historyRequestBuilder'

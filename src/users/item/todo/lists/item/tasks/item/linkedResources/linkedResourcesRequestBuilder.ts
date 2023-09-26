@@ -1,19 +1,70 @@
 import { type LinkedResourceCollectionResponse } from '../../../../../../../../models/';
-import { createLinkedResourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createLinkedResourceCollectionResponseFromDiscriminatorValue';
-import { createLinkedResourceFromDiscriminatorValue } from '../../../../../../../../models/createLinkedResourceFromDiscriminatorValue';
-import { deserializeIntoLinkedResource } from '../../../../../../../../models/deserializeIntoLinkedResource';
-import { type LinkedResource } from '../../../../../../../../models/linkedResource';
+import { createLinkedResourceFromDiscriminatorValue, deserializeIntoLinkedResource, serializeLinkedResource, type LinkedResource } from '../../../../../../../../models/linkedResource';
+import { createLinkedResourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/linkedResourceCollectionResponse';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeLinkedResource } from '../../../../../../../../models/serializeLinkedResource';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { LinkedResourceItemRequestBuilder } from './item/linkedResourceItemRequestBuilder';
-import { type LinkedResourcesRequestBuilderGetRequestConfiguration } from './linkedResourcesRequestBuilderGetRequestConfiguration';
-import { type LinkedResourcesRequestBuilderPostRequestConfiguration } from './linkedResourcesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LinkedResourcesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface LinkedResourcesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LinkedResourcesRequestBuilderGetQueryParameters;
+}
+export interface LinkedResourcesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
  */

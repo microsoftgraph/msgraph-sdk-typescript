@@ -1,6 +1,2 @@
-export * from './createSharedWithMeResponseFromDiscriminatorValue'
-export * from './deserializeIntoSharedWithMeResponse'
-export * from './serializeSharedWithMeResponse'
-export * from './sharedWithMeRequestBuilderGetQueryParameters'
-export * from './sharedWithMeRequestBuilderGetRequestConfiguration'
+export * from './sharedWithMeRequestBuilder'
 export * from './sharedWithMeResponse'

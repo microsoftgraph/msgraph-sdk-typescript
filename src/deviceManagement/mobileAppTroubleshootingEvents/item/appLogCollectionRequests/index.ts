@@ -1,3 +1,1 @@
-export * from './appLogCollectionRequestsRequestBuilderGetQueryParameters'
-export * from './appLogCollectionRequestsRequestBuilderGetRequestConfiguration'
-export * from './appLogCollectionRequestsRequestBuilderPostRequestConfiguration'
+export * from './appLogCollectionRequestsRequestBuilder'

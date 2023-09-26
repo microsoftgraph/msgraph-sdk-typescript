@@ -1,3 +1,1 @@
-export * from './articleIndicatorsRequestBuilderGetQueryParameters'
-export * from './articleIndicatorsRequestBuilderGetRequestConfiguration'
-export * from './articleIndicatorsRequestBuilderPostRequestConfiguration'
+export * from './articleIndicatorsRequestBuilder'

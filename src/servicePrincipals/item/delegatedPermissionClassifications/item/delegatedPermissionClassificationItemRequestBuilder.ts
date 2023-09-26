@@ -1,16 +1,52 @@
-import { createDelegatedPermissionClassificationFromDiscriminatorValue } from '../../../../models/createDelegatedPermissionClassificationFromDiscriminatorValue';
-import { type DelegatedPermissionClassification } from '../../../../models/delegatedPermissionClassification';
-import { deserializeIntoDelegatedPermissionClassification } from '../../../../models/deserializeIntoDelegatedPermissionClassification';
+import { createDelegatedPermissionClassificationFromDiscriminatorValue, deserializeIntoDelegatedPermissionClassification, serializeDelegatedPermissionClassification, type DelegatedPermissionClassification } from '../../../../models/delegatedPermissionClassification';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeDelegatedPermissionClassification } from '../../../../models/serializeDelegatedPermissionClassification';
-import { type DelegatedPermissionClassificationItemRequestBuilderDeleteRequestConfiguration } from './delegatedPermissionClassificationItemRequestBuilderDeleteRequestConfiguration';
-import { type DelegatedPermissionClassificationItemRequestBuilderGetRequestConfiguration } from './delegatedPermissionClassificationItemRequestBuilderGetRequestConfiguration';
-import { type DelegatedPermissionClassificationItemRequestBuilderPatchRequestConfiguration } from './delegatedPermissionClassificationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DelegatedPermissionClassificationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DelegatedPermissionClassificationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DelegatedPermissionClassificationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DelegatedPermissionClassificationItemRequestBuilderGetQueryParameters;
+}
+export interface DelegatedPermissionClassificationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the delegatedPermissionClassifications property of the microsoft.graph.servicePrincipal entity.
  */

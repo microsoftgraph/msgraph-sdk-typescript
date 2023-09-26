@@ -13,3 +13,5 @@ export enum DiagnosticDataSubmissionMode {
     /** Sends full telemetry data including diagnostic data, such as system state. */
     Full = "full",
 }
+// tslint:enable
+// eslint-enable

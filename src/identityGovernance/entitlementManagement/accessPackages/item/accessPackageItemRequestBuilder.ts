@@ -1,14 +1,6 @@
-import { type AccessPackage } from '../../../../models/accessPackage';
-import { createAccessPackageFromDiscriminatorValue } from '../../../../models/createAccessPackageFromDiscriminatorValue';
-import { deserializeIntoAccessPackage } from '../../../../models/deserializeIntoAccessPackage';
+import { createAccessPackageFromDiscriminatorValue, deserializeIntoAccessPackage, serializeAccessPackage, type AccessPackage } from '../../../../models/accessPackage';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackage } from '../../../../models/serializeAccessPackage';
-import { type AccessPackageItemRequestBuilderDeleteRequestConfiguration } from './accessPackageItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessPackageItemRequestBuilderGetRequestConfiguration } from './accessPackageItemRequestBuilderGetRequestConfiguration';
-import { type AccessPackageItemRequestBuilderPatchRequestConfiguration } from './accessPackageItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { AccessPackagesIncompatibleWithRequestBuilder } from './accessPackagesIncompatibleWith/accessPackagesIncompatibleWithRequestBuilder';
 import { AssignmentPoliciesRequestBuilder } from './assignmentPolicies/assignmentPoliciesRequestBuilder';
 import { CatalogRequestBuilder } from './catalog/catalogRequestBuilder';
@@ -18,6 +10,50 @@ import { IncompatibleGroupsRequestBuilder } from './incompatibleGroups/incompati
 import { ResourceRoleScopesRequestBuilder } from './resourceRoleScopes/resourceRoleScopesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessPackageItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessPackageItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessPackageItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessPackageItemRequestBuilderGetQueryParameters;
+}
+export interface AccessPackageItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
  */
@@ -88,10 +124,10 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve an access package with a list of accessPackageResourceRoleScope objects. These objects represent the resource roles that an access package assigns to each subject. Each object links to an accessPackageResourceRole and an accessPackageResourceScope.
+     * Retrieve the properties and relationships of an accessPackage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackage
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-list-resourcerolescopes?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackage | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -137,7 +173,7 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve an access package with a list of accessPackageResourceRoleScope objects. These objects represent the resource roles that an access package assigns to each subject. Each object links to an accessPackageResourceRole and an accessPackageResourceScope.
+     * Retrieve the properties and relationships of an accessPackage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

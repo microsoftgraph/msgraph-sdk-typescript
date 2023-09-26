@@ -1,3 +1,1 @@
-export * from './managedAppPoliciesRequestBuilderGetQueryParameters'
-export * from './managedAppPoliciesRequestBuilderGetRequestConfiguration'
-export * from './managedAppPoliciesRequestBuilderPostRequestConfiguration'
+export * from './managedAppPoliciesRequestBuilder'

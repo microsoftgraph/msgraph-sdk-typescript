@@ -1,22 +1,58 @@
-import { createSubjectRightsRequestFromDiscriminatorValue } from '../../../models/createSubjectRightsRequestFromDiscriminatorValue';
-import { deserializeIntoSubjectRightsRequest } from '../../../models/deserializeIntoSubjectRightsRequest';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeSubjectRightsRequest } from '../../../models/serializeSubjectRightsRequest';
-import { type SubjectRightsRequest } from '../../../models/subjectRightsRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createSubjectRightsRequestFromDiscriminatorValue, deserializeIntoSubjectRightsRequest, serializeSubjectRightsRequest, type SubjectRightsRequest } from '../../../models/subjectRightsRequest';
 import { ApproversRequestBuilder } from './approvers/approversRequestBuilder';
 import { CollaboratorsRequestBuilder } from './collaborators/collaboratorsRequestBuilder';
 import { GetFinalAttachmentRequestBuilder } from './getFinalAttachment/getFinalAttachmentRequestBuilder';
 import { GetFinalReportRequestBuilder } from './getFinalReport/getFinalReportRequestBuilder';
 import { NotesRequestBuilder } from './notes/notesRequestBuilder';
-import { type SubjectRightsRequestItemRequestBuilderDeleteRequestConfiguration } from './subjectRightsRequestItemRequestBuilderDeleteRequestConfiguration';
-import { type SubjectRightsRequestItemRequestBuilderGetRequestConfiguration } from './subjectRightsRequestItemRequestBuilderGetRequestConfiguration';
-import { type SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration } from './subjectRightsRequestItemRequestBuilderPatchRequestConfiguration';
 import { TeamRequestBuilder } from './team/teamRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SubjectRightsRequestItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SubjectRightsRequestItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SubjectRightsRequestItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SubjectRightsRequestItemRequestBuilderGetQueryParameters;
+}
+export interface SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
  */

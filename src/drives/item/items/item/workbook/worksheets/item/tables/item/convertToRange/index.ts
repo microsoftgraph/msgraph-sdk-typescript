@@ -1,1 +1,1 @@
-export * from './convertToRangeRequestBuilderPostRequestConfiguration'
+export * from './convertToRangeRequestBuilder'

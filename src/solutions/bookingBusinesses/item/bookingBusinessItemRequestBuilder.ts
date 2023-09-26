@@ -1,15 +1,7 @@
-import { type BookingBusiness } from '../../../models/bookingBusiness';
-import { createBookingBusinessFromDiscriminatorValue } from '../../../models/createBookingBusinessFromDiscriminatorValue';
-import { deserializeIntoBookingBusiness } from '../../../models/deserializeIntoBookingBusiness';
+import { createBookingBusinessFromDiscriminatorValue, deserializeIntoBookingBusiness, serializeBookingBusiness, type BookingBusiness } from '../../../models/bookingBusiness';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeBookingBusiness } from '../../../models/serializeBookingBusiness';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AppointmentsRequestBuilder } from './appointments/appointmentsRequestBuilder';
-import { type BookingBusinessItemRequestBuilderDeleteRequestConfiguration } from './bookingBusinessItemRequestBuilderDeleteRequestConfiguration';
-import { type BookingBusinessItemRequestBuilderGetRequestConfiguration } from './bookingBusinessItemRequestBuilderGetRequestConfiguration';
-import { type BookingBusinessItemRequestBuilderPatchRequestConfiguration } from './bookingBusinessItemRequestBuilderPatchRequestConfiguration';
 import { CalendarViewRequestBuilder } from './calendarView/calendarViewRequestBuilder';
 import { CustomersRequestBuilder } from './customers/customersRequestBuilder';
 import { CustomQuestionsRequestBuilder } from './customQuestions/customQuestionsRequestBuilder';
@@ -20,6 +12,50 @@ import { StaffMembersRequestBuilder } from './staffMembers/staffMembersRequestBu
 import { UnpublishRequestBuilder } from './unpublish/unpublishRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BookingBusinessItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BookingBusinessItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BookingBusinessItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BookingBusinessItemRequestBuilderGetQueryParameters;
+}
+export interface BookingBusinessItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
  */

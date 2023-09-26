@@ -1,16 +1,48 @@
-import { createTimeOffFromDiscriminatorValue } from '../../../../../../../models/createTimeOffFromDiscriminatorValue';
-import { deserializeIntoTimeOff } from '../../../../../../../models/deserializeIntoTimeOff';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeTimeOff } from '../../../../../../../models/serializeTimeOff';
-import { type TimeOff } from '../../../../../../../models/timeOff';
-import { type TimeOffItemRequestBuilderDeleteRequestConfiguration } from './timeOffItemRequestBuilderDeleteRequestConfiguration';
-import { type TimeOffItemRequestBuilderGetRequestConfiguration } from './timeOffItemRequestBuilderGetRequestConfiguration';
-import { type TimeOffItemRequestBuilderPatchRequestConfiguration } from './timeOffItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createTimeOffFromDiscriminatorValue, deserializeIntoTimeOff, serializeTimeOff, type TimeOff } from '../../../../../../../models/timeOff';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TimeOffItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TimeOffItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TimeOffItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TimeOffItemRequestBuilderGetQueryParameters;
+}
+export interface TimeOffItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the timesOff property of the microsoft.graph.schedule entity.
  */

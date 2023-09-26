@@ -1,19 +1,70 @@
 import { type RiskyUserHistoryItemCollectionResponse } from '../../../../models/';
-import { createRiskyUserHistoryItemCollectionResponseFromDiscriminatorValue } from '../../../../models/createRiskyUserHistoryItemCollectionResponseFromDiscriminatorValue';
-import { createRiskyUserHistoryItemFromDiscriminatorValue } from '../../../../models/createRiskyUserHistoryItemFromDiscriminatorValue';
-import { deserializeIntoRiskyUserHistoryItem } from '../../../../models/deserializeIntoRiskyUserHistoryItem';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type RiskyUserHistoryItem } from '../../../../models/riskyUserHistoryItem';
-import { serializeRiskyUserHistoryItem } from '../../../../models/serializeRiskyUserHistoryItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createRiskyUserHistoryItemFromDiscriminatorValue, deserializeIntoRiskyUserHistoryItem, serializeRiskyUserHistoryItem, type RiskyUserHistoryItem } from '../../../../models/riskyUserHistoryItem';
+import { createRiskyUserHistoryItemCollectionResponseFromDiscriminatorValue } from '../../../../models/riskyUserHistoryItemCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HistoryRequestBuilderGetRequestConfiguration } from './historyRequestBuilderGetRequestConfiguration';
-import { type HistoryRequestBuilderPostRequestConfiguration } from './historyRequestBuilderPostRequestConfiguration';
 import { RiskyUserHistoryItemItemRequestBuilder } from './item/riskyUserHistoryItemItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HistoryRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HistoryRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HistoryRequestBuilderGetQueryParameters;
+}
+export interface HistoryRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyUser entity.
  */
@@ -44,10 +95,10 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityProtection/riskyUsers/{riskyUser%2Did}/history{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the riskyUserHistoryItems from the history navigation property.
+     * Read the properties and relationships of a riskyUserHistoryItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyUserHistoryItemCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/riskyuser-list-history?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/riskyuser-get-riskyuserhistoryitem?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HistoryRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskyUserHistoryItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +127,7 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RiskyUserHistoryItem>(requestInfo, createRiskyUserHistoryItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the riskyUserHistoryItems from the history navigation property.
+     * Read the properties and relationships of a riskyUserHistoryItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

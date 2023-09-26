@@ -1,9 +1,7 @@
 import { type Workflow } from '../../../../../models/identityGovernance/';
-import { createWorkflowFromDiscriminatorValue } from '../../../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
+import { createWorkflowFromDiscriminatorValue } from '../../../../../models/identityGovernance/workflow';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CreatedByRequestBuilder } from './createdBy/createdByRequestBuilder';
 import { ExecutionScopeRequestBuilder } from './executionScope/executionScopeRequestBuilder';
 import { LastModifiedByRequestBuilder } from './lastModifiedBy/lastModifiedByRequestBuilder';
@@ -15,10 +13,42 @@ import { TaskReportsRequestBuilder } from './taskReports/taskReportsRequestBuild
 import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
 import { UserProcessingResultsRequestBuilder } from './userProcessingResults/userProcessingResultsRequestBuilder';
 import { VersionsRequestBuilder } from './versions/versionsRequestBuilder';
-import { type WorkflowItemRequestBuilderDeleteRequestConfiguration } from './workflowItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkflowItemRequestBuilderGetRequestConfiguration } from './workflowItemRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkflowItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkflowItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkflowItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkflowItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.
  */

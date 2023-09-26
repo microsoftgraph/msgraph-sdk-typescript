@@ -1,6 +1,2 @@
-export * from './createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue'
-export * from './deserializeIntoSupportedTimeZonesWithTimeZoneStandardResponse'
-export * from './serializeSupportedTimeZonesWithTimeZoneStandardResponse'
-export * from './supportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters'
-export * from './supportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration'
+export * from './supportedTimeZonesWithTimeZoneStandardRequestBuilder'
 export * from './supportedTimeZonesWithTimeZoneStandardResponse'

@@ -1,19 +1,55 @@
-import { type BrowserSiteList } from '../../../../../models/browserSiteList';
-import { createBrowserSiteListFromDiscriminatorValue } from '../../../../../models/createBrowserSiteListFromDiscriminatorValue';
-import { deserializeIntoBrowserSiteList } from '../../../../../models/deserializeIntoBrowserSiteList';
+import { createBrowserSiteListFromDiscriminatorValue, deserializeIntoBrowserSiteList, serializeBrowserSiteList, type BrowserSiteList } from '../../../../../models/browserSiteList';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeBrowserSiteList } from '../../../../../models/serializeBrowserSiteList';
-import { type BrowserSiteListItemRequestBuilderDeleteRequestConfiguration } from './browserSiteListItemRequestBuilderDeleteRequestConfiguration';
-import { type BrowserSiteListItemRequestBuilderGetRequestConfiguration } from './browserSiteListItemRequestBuilderGetRequestConfiguration';
-import { type BrowserSiteListItemRequestBuilderPatchRequestConfiguration } from './browserSiteListItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { PublishRequestBuilder } from './publish/publishRequestBuilder';
 import { SharedCookiesRequestBuilder } from './sharedCookies/sharedCookiesRequestBuilder';
 import { SitesRequestBuilder } from './sites/sitesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BrowserSiteListItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BrowserSiteListItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BrowserSiteListItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BrowserSiteListItemRequestBuilderGetQueryParameters;
+}
+export interface BrowserSiteListItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
  */

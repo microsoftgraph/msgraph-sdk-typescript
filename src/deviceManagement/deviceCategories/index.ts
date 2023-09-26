@@ -1,3 +1,1 @@
-export * from './deviceCategoriesRequestBuilderGetQueryParameters'
-export * from './deviceCategoriesRequestBuilderGetRequestConfiguration'
-export * from './deviceCategoriesRequestBuilderPostRequestConfiguration'
+export * from './deviceCategoriesRequestBuilder'

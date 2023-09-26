@@ -7,3 +7,5 @@ export enum SharedPCAllowedAccountType {
     /** Only domain-joined accounts. */
     Domain = "domain",
 }
+// tslint:enable
+// eslint-enable

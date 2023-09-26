@@ -1,16 +1,52 @@
-import { type ConversationMember } from '../../../../models/conversationMember';
-import { createConversationMemberFromDiscriminatorValue } from '../../../../models/createConversationMemberFromDiscriminatorValue';
-import { deserializeIntoConversationMember } from '../../../../models/deserializeIntoConversationMember';
+import { createConversationMemberFromDiscriminatorValue, deserializeIntoConversationMember, serializeConversationMember, type ConversationMember } from '../../../../models/conversationMember';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeConversationMember } from '../../../../models/serializeConversationMember';
-import { type ConversationMemberItemRequestBuilderDeleteRequestConfiguration } from './conversationMemberItemRequestBuilderDeleteRequestConfiguration';
-import { type ConversationMemberItemRequestBuilderGetRequestConfiguration } from './conversationMemberItemRequestBuilderGetRequestConfiguration';
-import { type ConversationMemberItemRequestBuilderPatchRequestConfiguration } from './conversationMemberItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConversationMemberItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ConversationMemberItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ConversationMemberItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConversationMemberItemRequestBuilderGetQueryParameters;
+}
+export interface ConversationMemberItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the members property of the microsoft.graph.chat entity.
  */

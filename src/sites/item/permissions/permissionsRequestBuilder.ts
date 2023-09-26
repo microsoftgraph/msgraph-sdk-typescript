@@ -1,19 +1,70 @@
 import { type PermissionCollectionResponse } from '../../../models/';
-import { createPermissionCollectionResponseFromDiscriminatorValue } from '../../../models/createPermissionCollectionResponseFromDiscriminatorValue';
-import { createPermissionFromDiscriminatorValue } from '../../../models/createPermissionFromDiscriminatorValue';
-import { deserializeIntoPermission } from '../../../models/deserializeIntoPermission';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type Permission } from '../../../models/permission';
-import { serializePermission } from '../../../models/serializePermission';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPermissionFromDiscriminatorValue, deserializeIntoPermission, serializePermission, type Permission } from '../../../models/permission';
+import { createPermissionCollectionResponseFromDiscriminatorValue } from '../../../models/permissionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PermissionItemRequestBuilder } from './item/permissionItemRequestBuilder';
-import { type PermissionsRequestBuilderGetRequestConfiguration } from './permissionsRequestBuilderGetRequestConfiguration';
-import { type PermissionsRequestBuilderPostRequestConfiguration } from './permissionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PermissionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PermissionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PermissionsRequestBuilderGetQueryParameters;
+}
+export interface PermissionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the permissions property of the microsoft.graph.site entity.
  */

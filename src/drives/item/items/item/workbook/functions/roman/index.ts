@@ -1,5 +1,2 @@
-export * from './createRomanPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoRomanPostRequestBody'
 export * from './romanPostRequestBody'
-export * from './romanRequestBuilderPostRequestConfiguration'
-export * from './serializeRomanPostRequestBody'
+export * from './romanRequestBuilder'

@@ -1,20 +1,71 @@
 import { type UnifiedRoleAssignmentScheduleRequestCollectionResponse } from '../../../models/';
-import { createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue } from '../../../models/createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue';
-import { createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue } from '../../../models/createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleAssignmentScheduleRequest } from '../../../models/deserializeIntoUnifiedRoleAssignmentScheduleRequest';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleAssignmentScheduleRequest } from '../../../models/serializeUnifiedRoleAssignmentScheduleRequest';
-import { type UnifiedRoleAssignmentScheduleRequest } from '../../../models/unifiedRoleAssignmentScheduleRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue, deserializeIntoUnifiedRoleAssignmentScheduleRequest, serializeUnifiedRoleAssignmentScheduleRequest, type UnifiedRoleAssignmentScheduleRequest } from '../../../models/unifiedRoleAssignmentScheduleRequest';
+import { createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue } from '../../../models/unifiedRoleAssignmentScheduleRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { UnifiedRoleAssignmentScheduleRequestItemRequestBuilder } from './item/unifiedRoleAssignmentScheduleRequestItemRequestBuilder';
-import { type RoleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration } from './roleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration';
-import { type RoleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration } from './roleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RoleAssignmentScheduleRequestsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RoleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RoleAssignmentScheduleRequestsRequestBuilderGetQueryParameters;
+}
+export interface RoleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
  */

@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { createGroupFromDiscriminatorValue } from '../../../../../../../models/termStore/createGroupFromDiscriminatorValue';
-import { deserializeIntoGroup } from '../../../../../../../models/termStore/deserializeIntoGroup';
-import { type Group } from '../../../../../../../models/termStore/group';
-import { serializeGroup } from '../../../../../../../models/termStore/serializeGroup';
-import { type GroupItemRequestBuilderDeleteRequestConfiguration } from './groupItemRequestBuilderDeleteRequestConfiguration';
-import { type GroupItemRequestBuilderGetRequestConfiguration } from './groupItemRequestBuilderGetRequestConfiguration';
-import { type GroupItemRequestBuilderPatchRequestConfiguration } from './groupItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createGroupFromDiscriminatorValue, deserializeIntoGroup, serializeGroup, type Group } from '../../../../../../../models/termStore/group';
 import { SetsRequestBuilder } from './sets/setsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GroupItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface GroupItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface GroupItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GroupItemRequestBuilderGetQueryParameters;
+}
+export interface GroupItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
  */

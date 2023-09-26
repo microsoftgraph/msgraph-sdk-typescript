@@ -1,14 +1,6 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { createEdiscoveryCustodianFromDiscriminatorValue } from '../../../../../../models/security/createEdiscoveryCustodianFromDiscriminatorValue';
-import { deserializeIntoEdiscoveryCustodian } from '../../../../../../models/security/deserializeIntoEdiscoveryCustodian';
-import { type EdiscoveryCustodian } from '../../../../../../models/security/ediscoveryCustodian';
-import { serializeEdiscoveryCustodian } from '../../../../../../models/security/serializeEdiscoveryCustodian';
-import { type EdiscoveryCustodianItemRequestBuilderDeleteRequestConfiguration } from './ediscoveryCustodianItemRequestBuilderDeleteRequestConfiguration';
-import { type EdiscoveryCustodianItemRequestBuilderGetRequestConfiguration } from './ediscoveryCustodianItemRequestBuilderGetRequestConfiguration';
-import { type EdiscoveryCustodianItemRequestBuilderPatchRequestConfiguration } from './ediscoveryCustodianItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createEdiscoveryCustodianFromDiscriminatorValue, deserializeIntoEdiscoveryCustodian, serializeEdiscoveryCustodian, type EdiscoveryCustodian } from '../../../../../../models/security/ediscoveryCustodian';
 import { LastIndexOperationRequestBuilder } from './lastIndexOperation/lastIndexOperationRequestBuilder';
 import { MicrosoftGraphSecurityActivateRequestBuilder } from './microsoftGraphSecurityActivate/microsoftGraphSecurityActivateRequestBuilder';
 import { MicrosoftGraphSecurityApplyHoldRequestBuilder } from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
@@ -20,6 +12,50 @@ import { UnifiedGroupSourcesRequestBuilder } from './unifiedGroupSources/unified
 import { UserSourcesRequestBuilder } from './userSources/userSourcesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EdiscoveryCustodianItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EdiscoveryCustodianItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EdiscoveryCustodianItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EdiscoveryCustodianItemRequestBuilderGetQueryParameters;
+}
+export interface EdiscoveryCustodianItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
  */

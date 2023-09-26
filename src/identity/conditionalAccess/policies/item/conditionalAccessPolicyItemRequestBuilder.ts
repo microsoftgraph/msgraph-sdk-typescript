@@ -1,16 +1,52 @@
-import { type ConditionalAccessPolicy } from '../../../../models/conditionalAccessPolicy';
-import { createConditionalAccessPolicyFromDiscriminatorValue } from '../../../../models/createConditionalAccessPolicyFromDiscriminatorValue';
-import { deserializeIntoConditionalAccessPolicy } from '../../../../models/deserializeIntoConditionalAccessPolicy';
+import { createConditionalAccessPolicyFromDiscriminatorValue, deserializeIntoConditionalAccessPolicy, serializeConditionalAccessPolicy, type ConditionalAccessPolicy } from '../../../../models/conditionalAccessPolicy';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeConditionalAccessPolicy } from '../../../../models/serializeConditionalAccessPolicy';
-import { type ConditionalAccessPolicyItemRequestBuilderDeleteRequestConfiguration } from './conditionalAccessPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type ConditionalAccessPolicyItemRequestBuilderGetRequestConfiguration } from './conditionalAccessPolicyItemRequestBuilderGetRequestConfiguration';
-import { type ConditionalAccessPolicyItemRequestBuilderPatchRequestConfiguration } from './conditionalAccessPolicyItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConditionalAccessPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ConditionalAccessPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ConditionalAccessPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConditionalAccessPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface ConditionalAccessPolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
  */

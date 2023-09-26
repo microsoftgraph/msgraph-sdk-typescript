@@ -1,24 +1,60 @@
-import { createListFromDiscriminatorValue } from '../../../../../../models/createListFromDiscriminatorValue';
-import { deserializeIntoList } from '../../../../../../models/deserializeIntoList';
-import { type List } from '../../../../../../models/list';
+import { createListFromDiscriminatorValue, deserializeIntoList, serializeList, type List } from '../../../../../../models/list';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeList } from '../../../../../../models/serializeList';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { ColumnsRequestBuilder } from './columns/columnsRequestBuilder';
 import { ContentTypesRequestBuilder } from './contentTypes/contentTypesRequestBuilder';
 import { CreatedByUserRequestBuilder } from './createdByUser/createdByUserRequestBuilder';
 import { DriveRequestBuilder } from './drive/driveRequestBuilder';
 import { ItemsRequestBuilder } from './items/itemsRequestBuilder';
 import { LastModifiedByUserRequestBuilder } from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
-import { type ListItemRequestBuilderDeleteRequestConfiguration } from './listItemRequestBuilderDeleteRequestConfiguration';
-import { type ListItemRequestBuilderGetRequestConfiguration } from './listItemRequestBuilderGetRequestConfiguration';
-import { type ListItemRequestBuilderPatchRequestConfiguration } from './listItemRequestBuilderPatchRequestConfiguration';
 import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
 import { SubscriptionsRequestBuilder } from './subscriptions/subscriptionsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ListItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ListItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ListItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ListItemRequestBuilderGetQueryParameters;
+}
+export interface ListItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the lists property of the microsoft.graph.site entity.
  */
@@ -94,10 +130,10 @@ export class ListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get a list of rich long-running operations associated with a list.
+     * Returns the metadata for a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of List
-     * @see {@link https://learn.microsoft.com/graph/api/list-list-operations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/list-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ListItemRequestBuilderGetRequestConfiguration | undefined) : Promise<List | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -142,7 +178,7 @@ export class ListItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get a list of rich long-running operations associated with a list.
+     * Returns the metadata for a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
