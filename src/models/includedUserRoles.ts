@@ -5,3 +5,5 @@ export enum IncludedUserRoles {
     User = "user",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

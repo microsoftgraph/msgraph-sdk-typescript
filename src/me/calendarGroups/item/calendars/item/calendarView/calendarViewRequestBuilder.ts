@@ -1,15 +1,52 @@
 import { type EventCollectionResponse } from '../../../../../../models/';
-import { createEventCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createEventCollectionResponseFromDiscriminatorValue';
+import { createEventCollectionResponseFromDiscriminatorValue } from '../../../../../../models/eventCollectionResponse';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type CalendarViewRequestBuilderGetRequestConfiguration } from './calendarViewRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { EventItemRequestBuilder } from './item/eventItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CalendarViewRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface CalendarViewRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CalendarViewRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
  */
@@ -46,7 +83,7 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/calendarView{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Get the occurrences, exceptions and single instances of events in a calendar view defined by a time range,from a user's default calendar (../me/calendarView) or some other calendar of the user's.
+     * Get the occurrences, exceptions and single instances of events in a calendar view defined by a time range,from a user's default calendar (../me/calendarView) or some other calendar of the user's. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EventCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/calendar-list-calendarview?view=graph-rest-1.0|Find more info here}
@@ -62,7 +99,7 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EventCollectionResponse>(requestInfo, createEventCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the occurrences, exceptions and single instances of events in a calendar view defined by a time range,from a user's default calendar (../me/calendarView) or some other calendar of the user's.
+     * Get the occurrences, exceptions and single instances of events in a calendar view defined by a time range,from a user's default calendar (../me/calendarView) or some other calendar of the user's. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

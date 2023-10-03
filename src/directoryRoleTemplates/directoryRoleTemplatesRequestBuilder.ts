@@ -1,23 +1,70 @@
 import { type DirectoryRoleTemplateCollectionResponse } from '../models/';
-import { createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue } from '../models/createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue';
-import { createDirectoryRoleTemplateFromDiscriminatorValue } from '../models/createDirectoryRoleTemplateFromDiscriminatorValue';
-import { deserializeIntoDirectoryRoleTemplate } from '../models/deserializeIntoDirectoryRoleTemplate';
-import { type DirectoryRoleTemplate } from '../models/directoryRoleTemplate';
+import { createDirectoryRoleTemplateFromDiscriminatorValue, deserializeIntoDirectoryRoleTemplate, serializeDirectoryRoleTemplate, type DirectoryRoleTemplate } from '../models/directoryRoleTemplate';
+import { createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue } from '../models/directoryRoleTemplateCollectionResponse';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeDirectoryRoleTemplate } from '../models/serializeDirectoryRoleTemplate';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
-import { type DirectoryRoleTemplatesRequestBuilderGetRequestConfiguration } from './directoryRoleTemplatesRequestBuilderGetRequestConfiguration';
-import { type DirectoryRoleTemplatesRequestBuilderPostRequestConfiguration } from './directoryRoleTemplatesRequestBuilderPostRequestConfiguration';
 import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
 import { DirectoryRoleTemplateItemRequestBuilder } from './item/directoryRoleTemplateItemRequestBuilder';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DirectoryRoleTemplatesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+}
+export interface DirectoryRoleTemplatesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DirectoryRoleTemplatesRequestBuilderGetQueryParameters;
+}
+export interface DirectoryRoleTemplatesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of directoryRoleTemplate entities.
  */
@@ -72,7 +119,7 @@ export class DirectoryRoleTemplatesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directoryRoleTemplates{?%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of directoryRoleTemplate objects.
+     * Retrieve a list of directoryRoleTemplate objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryRoleTemplateCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryroletemplate-list?view=graph-rest-1.0|Find more info here}
@@ -104,7 +151,7 @@ export class DirectoryRoleTemplatesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DirectoryRoleTemplate>(requestInfo, createDirectoryRoleTemplateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of directoryRoleTemplate objects.
+     * Retrieve a list of directoryRoleTemplate objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

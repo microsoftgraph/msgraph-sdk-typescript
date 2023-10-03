@@ -1,16 +1,52 @@
-import { type AuditEvent } from '../../../models/auditEvent';
-import { createAuditEventFromDiscriminatorValue } from '../../../models/createAuditEventFromDiscriminatorValue';
-import { deserializeIntoAuditEvent } from '../../../models/deserializeIntoAuditEvent';
+import { createAuditEventFromDiscriminatorValue, deserializeIntoAuditEvent, serializeAuditEvent, type AuditEvent } from '../../../models/auditEvent';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAuditEvent } from '../../../models/serializeAuditEvent';
-import { type AuditEventItemRequestBuilderDeleteRequestConfiguration } from './auditEventItemRequestBuilderDeleteRequestConfiguration';
-import { type AuditEventItemRequestBuilderGetRequestConfiguration } from './auditEventItemRequestBuilderGetRequestConfiguration';
-import { type AuditEventItemRequestBuilderPatchRequestConfiguration } from './auditEventItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuditEventItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AuditEventItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AuditEventItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuditEventItemRequestBuilderGetQueryParameters;
+}
+export interface AuditEventItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
  */

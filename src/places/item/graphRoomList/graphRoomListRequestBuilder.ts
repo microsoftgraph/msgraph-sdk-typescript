@@ -1,16 +1,44 @@
 import { type RoomList } from '../../../models/';
-import { createRoomListFromDiscriminatorValue } from '../../../models/createRoomListFromDiscriminatorValue';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type GraphRoomListRequestBuilderGetRequestConfiguration } from './graphRoomListRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createRoomListFromDiscriminatorValue } from '../../../models/roomList';
+import { RoomsRequestBuilder } from './rooms/roomsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GraphRoomListRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface GraphRoomListRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GraphRoomListRequestBuilderGetQueryParameters;
+}
 /**
  * Casts the previous resource to roomList.
  */
 export class GraphRoomListRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
+     */
+    public get rooms(): RoomsRequestBuilder {
+        return new RoomsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new GraphRoomListRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

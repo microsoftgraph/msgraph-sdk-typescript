@@ -1,18 +1,54 @@
-import { type ContactFolder } from '../../../../models/contactFolder';
-import { createContactFolderFromDiscriminatorValue } from '../../../../models/createContactFolderFromDiscriminatorValue';
-import { deserializeIntoContactFolder } from '../../../../models/deserializeIntoContactFolder';
+import { createContactFolderFromDiscriminatorValue, deserializeIntoContactFolder, serializeContactFolder, type ContactFolder } from '../../../../models/contactFolder';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeContactFolder } from '../../../../models/serializeContactFolder';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { ChildFoldersRequestBuilder } from './childFolders/childFoldersRequestBuilder';
-import { type ContactFolderItemRequestBuilderDeleteRequestConfiguration } from './contactFolderItemRequestBuilderDeleteRequestConfiguration';
-import { type ContactFolderItemRequestBuilderGetRequestConfiguration } from './contactFolderItemRequestBuilderGetRequestConfiguration';
-import { type ContactFolderItemRequestBuilderPatchRequestConfiguration } from './contactFolderItemRequestBuilderPatchRequestConfiguration';
 import { ContactsRequestBuilder } from './contacts/contactsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContactFolderItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ContactFolderItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ContactFolderItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContactFolderItemRequestBuilderGetQueryParameters;
+}
+export interface ContactFolderItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
  */
@@ -38,7 +74,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete contactFolder other than the default contactFolder.
+     * Delete contactFolder other than the default contactFolder. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/contactfolder-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -53,7 +89,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get a contact folder by using the contact folder ID. There are two scenarios where an app can get another user's contact folder:
+     * Get a contact folder by using the contact folder ID. There are two scenarios where an app can get another user's contact folder: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContactFolder
      * @see {@link https://learn.microsoft.com/graph/api/contactfolder-get?view=graph-rest-1.0|Find more info here}
@@ -69,7 +105,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ContactFolder>(requestInfo, createContactFolderFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of contactfolder object.
+     * Update the properties of contactfolder object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContactFolder
@@ -86,7 +122,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ContactFolder>(requestInfo, createContactFolderFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete contactFolder other than the default contactFolder.
+     * Delete contactFolder other than the default contactFolder. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +138,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get a contact folder by using the contact folder ID. There are two scenarios where an app can get another user's contact folder:
+     * Get a contact folder by using the contact folder ID. There are two scenarios where an app can get another user's contact folder: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -120,7 +156,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of contactfolder object.
+     * Update the properties of contactfolder object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

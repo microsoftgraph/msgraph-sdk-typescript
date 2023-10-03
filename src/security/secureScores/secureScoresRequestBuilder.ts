@@ -1,19 +1,70 @@
 import { type SecureScoreCollectionResponse } from '../../models/';
-import { createSecureScoreCollectionResponseFromDiscriminatorValue } from '../../models/createSecureScoreCollectionResponseFromDiscriminatorValue';
-import { createSecureScoreFromDiscriminatorValue } from '../../models/createSecureScoreFromDiscriminatorValue';
-import { deserializeIntoSecureScore } from '../../models/deserializeIntoSecureScore';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type SecureScore } from '../../models/secureScore';
-import { serializeSecureScore } from '../../models/serializeSecureScore';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createSecureScoreFromDiscriminatorValue, deserializeIntoSecureScore, serializeSecureScore, type SecureScore } from '../../models/secureScore';
+import { createSecureScoreCollectionResponseFromDiscriminatorValue } from '../../models/secureScoreCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SecureScoreItemRequestBuilder } from './item/secureScoreItemRequestBuilder';
-import { type SecureScoresRequestBuilderGetRequestConfiguration } from './secureScoresRequestBuilderGetRequestConfiguration';
-import { type SecureScoresRequestBuilderPostRequestConfiguration } from './secureScoresRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SecureScoresRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SecureScoresRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SecureScoresRequestBuilderGetQueryParameters;
+}
+export interface SecureScoresRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
  */
@@ -44,7 +95,7 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/secureScores{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of secureScore objects.
+     * Retrieve a list of secureScore objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SecureScoreCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-list-securescores?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SecureScore>(requestInfo, createSecureScoreFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of secureScore objects.
+     * Retrieve a list of secureScore objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

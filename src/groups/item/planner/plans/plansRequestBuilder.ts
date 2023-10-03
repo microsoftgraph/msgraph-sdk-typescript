@@ -1,19 +1,70 @@
 import { type PlannerPlanCollectionResponse } from '../../../../models/';
-import { createPlannerPlanCollectionResponseFromDiscriminatorValue } from '../../../../models/createPlannerPlanCollectionResponseFromDiscriminatorValue';
-import { createPlannerPlanFromDiscriminatorValue } from '../../../../models/createPlannerPlanFromDiscriminatorValue';
-import { deserializeIntoPlannerPlan } from '../../../../models/deserializeIntoPlannerPlan';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type PlannerPlan } from '../../../../models/plannerPlan';
-import { serializePlannerPlan } from '../../../../models/serializePlannerPlan';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createPlannerPlanFromDiscriminatorValue, deserializeIntoPlannerPlan, serializePlannerPlan, type PlannerPlan } from '../../../../models/plannerPlan';
+import { createPlannerPlanCollectionResponseFromDiscriminatorValue } from '../../../../models/plannerPlanCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PlannerPlanItemRequestBuilder } from './item/plannerPlanItemRequestBuilder';
-import { type PlansRequestBuilderGetRequestConfiguration } from './plansRequestBuilderGetRequestConfiguration';
-import { type PlansRequestBuilderPostRequestConfiguration } from './plansRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PlansRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PlansRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PlansRequestBuilderGetQueryParameters;
+}
+export interface PlansRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity.
  */
@@ -44,7 +95,7 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/planner/plans{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of plannerPlan objects owned by a group object.
+     * Retrieve a list of plannerPlan objects owned by a group object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerPlanCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/plannergroup-list-plans?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerPlan>(requestInfo, createPlannerPlanFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of plannerPlan objects owned by a group object.
+     * Retrieve a list of plannerPlan objects owned by a group object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,17 +1,19 @@
-import { createWorkbookFunctionResultFromDiscriminatorValue } from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
-import { deserializeIntoWorkbookFunctionResult } from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookFunctionResult } from '../../../../../../../models/serializeWorkbookFunctionResult';
-import { type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
-import { deserializeIntoIsrefPostRequestBody } from './deserializeIntoIsrefPostRequestBody';
-import { type IsrefPostRequestBody } from './isrefPostRequestBody';
-import { type IsrefRequestBuilderPostRequestConfiguration } from './isrefRequestBuilderPostRequestConfiguration';
-import { serializeIsrefPostRequestBody } from './serializeIsrefPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookFunctionResultFromDiscriminatorValue, deserializeIntoWorkbookFunctionResult, serializeWorkbookFunctionResult, type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
+import { deserializeIntoIsrefPostRequestBody, serializeIsrefPostRequestBody, type IsrefPostRequestBody } from './isrefPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IsrefRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the isref method.
  */

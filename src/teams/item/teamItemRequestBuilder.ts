@@ -1,11 +1,6 @@
-import { createTeamFromDiscriminatorValue } from '../../models/createTeamFromDiscriminatorValue';
-import { deserializeIntoTeam } from '../../models/deserializeIntoTeam';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeTeam } from '../../models/serializeTeam';
-import { type Team } from '../../models/team';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createTeamFromDiscriminatorValue, deserializeIntoTeam, serializeTeam, type Team } from '../../models/team';
 import { AllChannelsRequestBuilder } from './allChannels/allChannelsRequestBuilder';
 import { ArchiveRequestBuilder } from './archive/archiveRequestBuilder';
 import { ChannelsRequestBuilder } from './channels/channelsRequestBuilder';
@@ -22,13 +17,54 @@ import { PrimaryChannelRequestBuilder } from './primaryChannel/primaryChannelReq
 import { ScheduleRequestBuilder } from './schedule/scheduleRequestBuilder';
 import { SendActivityNotificationRequestBuilder } from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import { TagsRequestBuilder } from './tags/tagsRequestBuilder';
-import { type TeamItemRequestBuilderDeleteRequestConfiguration } from './teamItemRequestBuilderDeleteRequestConfiguration';
-import { type TeamItemRequestBuilderGetRequestConfiguration } from './teamItemRequestBuilderGetRequestConfiguration';
-import { type TeamItemRequestBuilderPatchRequestConfiguration } from './teamItemRequestBuilderPatchRequestConfiguration';
 import { TemplateRequestBuilder } from './template/templateRequestBuilder';
 import { UnarchiveRequestBuilder } from './unarchive/unarchiveRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TeamItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamItemRequestBuilderGetQueryParameters;
+}
+export interface TeamItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of team entities.
  */
@@ -164,7 +200,7 @@ export class TeamItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of the specified team.
+     * Retrieve the properties and relationships of the specified team. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Team
      * @see {@link https://learn.microsoft.com/graph/api/team-get?view=graph-rest-1.0|Find more info here}
@@ -180,7 +216,7 @@ export class TeamItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Team>(requestInfo, createTeamFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of the specified team.
+     * Update the properties of the specified team. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Team
@@ -213,7 +249,7 @@ export class TeamItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of the specified team.
+     * Retrieve the properties and relationships of the specified team. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -231,7 +267,7 @@ export class TeamItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of the specified team.
+     * Update the properties of the specified team. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

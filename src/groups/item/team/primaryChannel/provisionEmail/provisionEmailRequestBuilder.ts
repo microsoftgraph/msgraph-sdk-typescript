@@ -1,12 +1,19 @@
 import { type ProvisionChannelEmailResult } from '../../../../../models/';
-import { createProvisionChannelEmailResultFromDiscriminatorValue } from '../../../../../models/createProvisionChannelEmailResultFromDiscriminatorValue';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type ProvisionEmailRequestBuilderPostRequestConfiguration } from './provisionEmailRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createProvisionChannelEmailResultFromDiscriminatorValue } from '../../../../../models/provisionChannelEmailResult';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ProvisionEmailRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the provisionEmail method.
  */
@@ -20,7 +27,7 @@ export class ProvisionEmailRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/primaryChannel/provisionEmail");
     };
     /**
-     * Provision an email address for a channel. Microsoft Teams doesn't automatically provision an email address for a channel by default. To have Teams provision an email address, you can call provisionEmail, or through the Teams user interface, select Get email address, which triggers Teams to generate an email address if it has not already provisioned one. To remove the email address of a channel, use the removeEmail method.
+     * Provision an email address for a channel. Microsoft Teams doesn't automatically provision an email address for a channel by default. To have Teams provision an email address, you can call provisionEmail, or through the Teams user interface, select Get email address, which triggers Teams to generate an email address if it has not already provisioned one. To remove the email address of a channel, use the removeEmail method. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProvisionChannelEmailResult
      * @see {@link https://learn.microsoft.com/graph/api/channel-provisionemail?view=graph-rest-1.0|Find more info here}
@@ -36,7 +43,7 @@ export class ProvisionEmailRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ProvisionChannelEmailResult>(requestInfo, createProvisionChannelEmailResultFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Provision an email address for a channel. Microsoft Teams doesn't automatically provision an email address for a channel by default. To have Teams provision an email address, you can call provisionEmail, or through the Teams user interface, select Get email address, which triggers Teams to generate an email address if it has not already provisioned one. To remove the email address of a channel, use the removeEmail method.
+     * Provision an email address for a channel. Microsoft Teams doesn't automatically provision an email address for a channel by default. To have Teams provision an email address, you can call provisionEmail, or through the Teams user interface, select Get email address, which triggers Teams to generate an email address if it has not already provisioned one. To remove the email address of a channel, use the removeEmail method. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

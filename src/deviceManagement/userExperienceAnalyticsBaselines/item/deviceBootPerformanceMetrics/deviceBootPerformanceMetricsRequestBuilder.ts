@@ -1,12 +1,33 @@
 import { type UserExperienceAnalyticsCategory } from '../../../../models/';
-import { createUserExperienceAnalyticsCategoryFromDiscriminatorValue } from '../../../../models/createUserExperienceAnalyticsCategoryFromDiscriminatorValue';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type DeviceBootPerformanceMetricsRequestBuilderGetRequestConfiguration } from './deviceBootPerformanceMetricsRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsCategoryFromDiscriminatorValue } from '../../../../models/userExperienceAnalyticsCategory';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceBootPerformanceMetricsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceBootPerformanceMetricsRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the deviceBootPerformanceMetrics property of the microsoft.graph.userExperienceAnalyticsBaseline entity.
  */

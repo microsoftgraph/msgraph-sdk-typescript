@@ -1,19 +1,70 @@
 import { type ConditionalAccessPolicyCollectionResponse } from '../../models/';
-import { type ConditionalAccessPolicy } from '../../models/conditionalAccessPolicy';
-import { createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue';
-import { createConditionalAccessPolicyFromDiscriminatorValue } from '../../models/createConditionalAccessPolicyFromDiscriminatorValue';
-import { deserializeIntoConditionalAccessPolicy } from '../../models/deserializeIntoConditionalAccessPolicy';
+import { createConditionalAccessPolicyFromDiscriminatorValue, deserializeIntoConditionalAccessPolicy, serializeConditionalAccessPolicy, type ConditionalAccessPolicy } from '../../models/conditionalAccessPolicy';
+import { createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue } from '../../models/conditionalAccessPolicyCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeConditionalAccessPolicy } from '../../models/serializeConditionalAccessPolicy';
-import { type ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration } from './conditionalAccessPoliciesRequestBuilderGetRequestConfiguration';
-import { type ConditionalAccessPoliciesRequestBuilderPostRequestConfiguration } from './conditionalAccessPoliciesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ConditionalAccessPolicyItemRequestBuilder } from './item/conditionalAccessPolicyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConditionalAccessPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConditionalAccessPoliciesRequestBuilderGetQueryParameters;
+}
+export interface ConditionalAccessPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
  */

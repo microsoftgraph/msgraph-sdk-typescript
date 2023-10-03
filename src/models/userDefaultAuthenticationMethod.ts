@@ -8,3 +8,5 @@ export enum UserDefaultAuthenticationMethod {
     None = "none",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

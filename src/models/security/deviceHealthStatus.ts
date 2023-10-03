@@ -7,3 +7,5 @@ export enum DeviceHealthStatus {
     Unknown = "unknown",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,17 +1,53 @@
-import { createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue } from '../../../models/createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleManagementPolicyAssignment } from '../../../models/deserializeIntoUnifiedRoleManagementPolicyAssignment';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleManagementPolicyAssignment } from '../../../models/serializeUnifiedRoleManagementPolicyAssignment';
-import { type UnifiedRoleManagementPolicyAssignment } from '../../../models/unifiedRoleManagementPolicyAssignment';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue, deserializeIntoUnifiedRoleManagementPolicyAssignment, serializeUnifiedRoleManagementPolicyAssignment, type UnifiedRoleManagementPolicyAssignment } from '../../../models/unifiedRoleManagementPolicyAssignment';
 import { PolicyRequestBuilder } from './policy/policyRequestBuilder';
-import { type UnifiedRoleManagementPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration } from './unifiedRoleManagementPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration } from './unifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type UnifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration } from './unifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnifiedRoleManagementPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface UnifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
  */
@@ -45,7 +81,7 @@ export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends Bas
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the details of a role management policy assignment including the policy and rules associated with the Azure AD role.
+     * Get the details of a role management policy assignment including the policy and rules associated with the Azure AD role. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleManagementPolicyAssignment
      * @see {@link https://learn.microsoft.com/graph/api/unifiedrolemanagementpolicyassignment-get?view=graph-rest-1.0|Find more info here}
@@ -93,7 +129,7 @@ export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends Bas
         return requestInfo;
     };
     /**
-     * Get the details of a role management policy assignment including the policy and rules associated with the Azure AD role.
+     * Get the details of a role management policy assignment including the policy and rules associated with the Azure AD role. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

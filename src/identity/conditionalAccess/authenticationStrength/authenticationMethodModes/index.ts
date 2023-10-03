@@ -1,3 +1,1 @@
-export * from './authenticationMethodModesRequestBuilderGetQueryParameters'
-export * from './authenticationMethodModesRequestBuilderGetRequestConfiguration'
-export * from './authenticationMethodModesRequestBuilderPostRequestConfiguration'
+export * from './authenticationMethodModesRequestBuilder'

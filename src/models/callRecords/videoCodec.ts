@@ -12,3 +12,5 @@ export enum VideoCodec {
     Xrtvc1 = "xrtvc1",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

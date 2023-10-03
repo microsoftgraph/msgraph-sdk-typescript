@@ -1,19 +1,56 @@
-import { createOnlineMeetingFromDiscriminatorValue } from '../../../models/createOnlineMeetingFromDiscriminatorValue';
-import { deserializeIntoOnlineMeeting } from '../../../models/deserializeIntoOnlineMeeting';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type OnlineMeeting } from '../../../models/onlineMeeting';
-import { serializeOnlineMeeting } from '../../../models/serializeOnlineMeeting';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createOnlineMeetingFromDiscriminatorValue, deserializeIntoOnlineMeeting, serializeOnlineMeeting, type OnlineMeeting } from '../../../models/onlineMeeting';
 import { AttendanceReportsRequestBuilder } from './attendanceReports/attendanceReportsRequestBuilder';
 import { AttendeeReportRequestBuilder } from './attendeeReport/attendeeReportRequestBuilder';
 import { GetVirtualAppointmentJoinWebUrlRequestBuilder } from './getVirtualAppointmentJoinWebUrl/getVirtualAppointmentJoinWebUrlRequestBuilder';
-import { type OnlineMeetingItemRequestBuilderDeleteRequestConfiguration } from './onlineMeetingItemRequestBuilderDeleteRequestConfiguration';
-import { type OnlineMeetingItemRequestBuilderGetRequestConfiguration } from './onlineMeetingItemRequestBuilderGetRequestConfiguration';
-import { type OnlineMeetingItemRequestBuilderPatchRequestConfiguration } from './onlineMeetingItemRequestBuilderPatchRequestConfiguration';
+import { TranscriptsRequestBuilder } from './transcripts/transcriptsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OnlineMeetingItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OnlineMeetingItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OnlineMeetingItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OnlineMeetingItemRequestBuilderGetQueryParameters;
+}
+export interface OnlineMeetingItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
  */
@@ -35,6 +72,12 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
      */
     public get getVirtualAppointmentJoinWebUrl(): GetVirtualAppointmentJoinWebUrlRequestBuilder {
         return new GetVirtualAppointmentJoinWebUrlRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
+     */
+    public get transcripts(): TranscriptsRequestBuilder {
+        return new TranscriptsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new OnlineMeetingItemRequestBuilder and sets the default values.

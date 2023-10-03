@@ -1,15 +1,60 @@
 import { type UserProcessingResultCollectionResponse } from '../../../../../models/identityGovernance/';
-import { createUserProcessingResultCollectionResponseFromDiscriminatorValue } from '../../../../../models/identityGovernance/createUserProcessingResultCollectionResponseFromDiscriminatorValue';
+import { createUserProcessingResultCollectionResponseFromDiscriminatorValue } from '../../../../../models/identityGovernance/userProcessingResultCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserProcessingResultItemRequestBuilder } from './item/userProcessingResultItemRequestBuilder';
 import { MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder } from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder';
-import { type UserProcessingResultsRequestBuilderGetRequestConfiguration } from './userProcessingResultsRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserProcessingResultsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserProcessingResultsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserProcessingResultsRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
  */
@@ -40,7 +85,7 @@ export class UserProcessingResultsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/userProcessingResults{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the userProcessingResult resources for a workflow.
+     * Get the userProcessingResult resources for a workflow. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserProcessingResultCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-list-userprocessingresults?view=graph-rest-1.0|Find more info here}
@@ -67,7 +112,7 @@ export class UserProcessingResultsRequestBuilder extends BaseRequestBuilder {
         return new MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, startDateTime);
     };
     /**
-     * Get the userProcessingResult resources for a workflow.
+     * Get the userProcessingResult resources for a workflow. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

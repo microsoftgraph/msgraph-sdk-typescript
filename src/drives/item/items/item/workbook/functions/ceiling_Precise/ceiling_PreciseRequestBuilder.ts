@@ -1,17 +1,19 @@
-import { createWorkbookFunctionResultFromDiscriminatorValue } from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
-import { deserializeIntoWorkbookFunctionResult } from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookFunctionResult } from '../../../../../../../models/serializeWorkbookFunctionResult';
-import { type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
-import { type Ceiling_PrecisePostRequestBody } from './ceiling_PrecisePostRequestBody';
-import { type Ceiling_PreciseRequestBuilderPostRequestConfiguration } from './ceiling_PreciseRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCeiling_PrecisePostRequestBody } from './deserializeIntoCeiling_PrecisePostRequestBody';
-import { serializeCeiling_PrecisePostRequestBody } from './serializeCeiling_PrecisePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookFunctionResultFromDiscriminatorValue, deserializeIntoWorkbookFunctionResult, serializeWorkbookFunctionResult, type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
+import { deserializeIntoCeiling_PrecisePostRequestBody, serializeCeiling_PrecisePostRequestBody, type Ceiling_PrecisePostRequestBody } from './ceiling_PrecisePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface Ceiling_PreciseRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the ceiling_Precise method.
  */

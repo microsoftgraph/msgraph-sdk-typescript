@@ -1,3 +1,1 @@
-export * from './complianceRequestBuilderGetQueryParameters'
-export * from './complianceRequestBuilderGetRequestConfiguration'
-export * from './complianceRequestBuilderPatchRequestConfiguration'
+export * from './complianceRequestBuilder'

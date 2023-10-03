@@ -1,20 +1,56 @@
-import { createUnifiedRoleAssignmentFromDiscriminatorValue } from '../../../../models/createUnifiedRoleAssignmentFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleAssignment } from '../../../../models/deserializeIntoUnifiedRoleAssignment';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleAssignment } from '../../../../models/serializeUnifiedRoleAssignment';
-import { type UnifiedRoleAssignment } from '../../../../models/unifiedRoleAssignment';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleAssignmentFromDiscriminatorValue, deserializeIntoUnifiedRoleAssignment, serializeUnifiedRoleAssignment, type UnifiedRoleAssignment } from '../../../../models/unifiedRoleAssignment';
 import { AppScopeRequestBuilder } from './appScope/appScopeRequestBuilder';
 import { DirectoryScopeRequestBuilder } from './directoryScope/directoryScopeRequestBuilder';
 import { PrincipalRequestBuilder } from './principal/principalRequestBuilder';
 import { RoleDefinitionRequestBuilder } from './roleDefinition/roleDefinitionRequestBuilder';
-import { type UnifiedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration } from './unifiedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration } from './unifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type UnifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration } from './unifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnifiedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface UnifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.
  */
@@ -52,7 +88,7 @@ export class UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/roleManagement/entitlementManagement/roleAssignments/{unifiedRoleAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a unifiedRoleAssignment object.
+     * Delete a unifiedRoleAssignment object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignment-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -67,7 +103,7 @@ export class UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a unifiedRoleAssignment object.
+     * Retrieve the properties and relationships of a unifiedRoleAssignment object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleAssignment
      * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignment-get?view=graph-rest-1.0|Find more info here}
@@ -99,7 +135,7 @@ export class UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<UnifiedRoleAssignment>(requestInfo, createUnifiedRoleAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a unifiedRoleAssignment object.
+     * Delete a unifiedRoleAssignment object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -115,7 +151,7 @@ export class UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a unifiedRoleAssignment object.
+     * Retrieve the properties and relationships of a unifiedRoleAssignment object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

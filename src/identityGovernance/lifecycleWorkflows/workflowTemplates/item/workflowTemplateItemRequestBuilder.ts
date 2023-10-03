@@ -1,13 +1,34 @@
 import { type WorkflowTemplate } from '../../../../models/identityGovernance/';
-import { createWorkflowTemplateFromDiscriminatorValue } from '../../../../models/identityGovernance/createWorkflowTemplateFromDiscriminatorValue';
+import { createWorkflowTemplateFromDiscriminatorValue } from '../../../../models/identityGovernance/workflowTemplate';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
-import { type WorkflowTemplateItemRequestBuilderGetRequestConfiguration } from './workflowTemplateItemRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkflowTemplateItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkflowTemplateItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkflowTemplateItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
  */
@@ -27,7 +48,7 @@ export class WorkflowTemplateItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/workflowTemplates/{workflowTemplate%2Did}{?%24select,%24expand}");
     };
     /**
-     * Read the properties and relationships of a workflowTemplate object.
+     * Read the properties and relationships of a workflowTemplate object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkflowTemplate
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflowtemplate-get?view=graph-rest-1.0|Find more info here}
@@ -43,7 +64,7 @@ export class WorkflowTemplateItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkflowTemplate>(requestInfo, createWorkflowTemplateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the properties and relationships of a workflowTemplate object.
+     * Read the properties and relationships of a workflowTemplate object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

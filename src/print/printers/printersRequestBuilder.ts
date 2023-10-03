@@ -1,20 +1,71 @@
 import { type PrinterCollectionResponse } from '../../models/';
-import { createPrinterCollectionResponseFromDiscriminatorValue } from '../../models/createPrinterCollectionResponseFromDiscriminatorValue';
-import { createPrinterFromDiscriminatorValue } from '../../models/createPrinterFromDiscriminatorValue';
-import { deserializeIntoPrinter } from '../../models/deserializeIntoPrinter';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type Printer } from '../../models/printer';
-import { serializePrinter } from '../../models/serializePrinter';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createPrinterFromDiscriminatorValue, deserializeIntoPrinter, serializePrinter, type Printer } from '../../models/printer';
+import { createPrinterCollectionResponseFromDiscriminatorValue } from '../../models/printerCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { CreateRequestBuilder } from './create/createRequestBuilder';
 import { PrinterItemRequestBuilder } from './item/printerItemRequestBuilder';
-import { type PrintersRequestBuilderGetRequestConfiguration } from './printersRequestBuilderGetRequestConfiguration';
-import { type PrintersRequestBuilderPostRequestConfiguration } from './printersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrintersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PrintersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrintersRequestBuilderGetQueryParameters;
+}
+export interface PrintersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the printers property of the microsoft.graph.print entity.
  */
@@ -51,7 +102,7 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/printers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the list of printers that are registered in the tenant.
+     * Retrieve the list of printers that are registered in the tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrinterCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/print-list-printers?view=graph-rest-1.0|Find more info here}
@@ -83,7 +134,7 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the list of printers that are registered in the tenant.
+     * Retrieve the list of printers that are registered in the tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

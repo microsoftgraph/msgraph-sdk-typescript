@@ -7,3 +7,5 @@ export enum CaseStatus {
     ClosedWithError = "closedWithError",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type GroupCollectionResponse } from '../../../../../models/termStore/';
-import { createGroupCollectionResponseFromDiscriminatorValue } from '../../../../../models/termStore/createGroupCollectionResponseFromDiscriminatorValue';
-import { createGroupFromDiscriminatorValue } from '../../../../../models/termStore/createGroupFromDiscriminatorValue';
-import { deserializeIntoGroup } from '../../../../../models/termStore/deserializeIntoGroup';
-import { type Group } from '../../../../../models/termStore/group';
-import { serializeGroup } from '../../../../../models/termStore/serializeGroup';
+import { createGroupFromDiscriminatorValue, deserializeIntoGroup, serializeGroup, type Group } from '../../../../../models/termStore/group';
+import { createGroupCollectionResponseFromDiscriminatorValue } from '../../../../../models/termStore/groupCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type GroupsRequestBuilderGetRequestConfiguration } from './groupsRequestBuilderGetRequestConfiguration';
-import { type GroupsRequestBuilderPostRequestConfiguration } from './groupsRequestBuilderPostRequestConfiguration';
 import { GroupItemRequestBuilder } from './item/groupItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GroupsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface GroupsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GroupsRequestBuilderGetQueryParameters;
+}
+export interface GroupsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
  */
@@ -44,7 +95,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/groups{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of group objects in a term store.
+     * Get a list of group objects in a term store. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/termstore-list-groups?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<GroupCollectionResponse>(requestInfo, createGroupCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new group object in a term store.
+     * Create a new group object in a term store. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Group
@@ -77,7 +128,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Group>(requestInfo, createGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of group objects in a term store.
+     * Get a list of group objects in a term store. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new group object in a term store.
+     * Create a new group object in a term store. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

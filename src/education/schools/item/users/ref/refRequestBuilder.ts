@@ -1,16 +1,60 @@
 import { type StringCollectionResponse } from '../../../../../models/';
-import { createStringCollectionResponseFromDiscriminatorValue } from '../../../../../models/createStringCollectionResponseFromDiscriminatorValue';
-import { deserializeIntoReferenceCreate } from '../../../../../models/deserializeIntoReferenceCreate';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type ReferenceCreate } from '../../../../../models/referenceCreate';
-import { serializeReferenceCreate } from '../../../../../models/serializeReferenceCreate';
-import { type RefRequestBuilderGetRequestConfiguration } from './refRequestBuilderGetRequestConfiguration';
-import { type RefRequestBuilderPostRequestConfiguration } from './refRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoReferenceCreate, serializeReferenceCreate, type ReferenceCreate } from '../../../../../models/referenceCreate';
+import { createStringCollectionResponseFromDiscriminatorValue } from '../../../../../models/stringCollectionResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RefRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RefRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RefRequestBuilderGetQueryParameters;
+}
+export interface RefRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of educationRoot entities.
  */
@@ -24,7 +68,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/schools/{educationSchool%2Did}/users/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby}");
     };
     /**
-     * Get the educationUser resources associated with an educationSchool.
+     * Get the educationUser resources associated with an educationSchool. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of StringCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/educationschool-list-users?view=graph-rest-1.0|Find more info here}
@@ -40,7 +84,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<StringCollectionResponse>(requestInfo, createStringCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add a user to a school.
+     * Add a user to a school. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/educationschool-post-users?view=graph-rest-1.0|Find more info here}
@@ -56,7 +100,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the educationUser resources associated with an educationSchool.
+     * Get the educationUser resources associated with an educationSchool. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -74,7 +118,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add a user to a school.
+     * Add a user to a school. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

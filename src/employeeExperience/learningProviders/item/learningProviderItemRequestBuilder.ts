@@ -1,18 +1,54 @@
-import { createLearningProviderFromDiscriminatorValue } from '../../../models/createLearningProviderFromDiscriminatorValue';
-import { deserializeIntoLearningProvider } from '../../../models/deserializeIntoLearningProvider';
-import { type LearningProvider } from '../../../models/learningProvider';
+import { createLearningProviderFromDiscriminatorValue, deserializeIntoLearningProvider, serializeLearningProvider, type LearningProvider } from '../../../models/learningProvider';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeLearningProvider } from '../../../models/serializeLearningProvider';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { LearningContentsRequestBuilder } from './learningContents/learningContentsRequestBuilder';
 import { LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/learningCourseActivitiesRequestBuilder';
-import { type LearningProviderItemRequestBuilderDeleteRequestConfiguration } from './learningProviderItemRequestBuilderDeleteRequestConfiguration';
-import { type LearningProviderItemRequestBuilderGetRequestConfiguration } from './learningProviderItemRequestBuilderGetRequestConfiguration';
-import { type LearningProviderItemRequestBuilderPatchRequestConfiguration } from './learningProviderItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LearningProviderItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface LearningProviderItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LearningProviderItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LearningProviderItemRequestBuilderGetQueryParameters;
+}
+export interface LearningProviderItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
  */
@@ -53,7 +89,7 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a learningProvider object.
+     * Read the properties and relationships of a learningProvider object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningProvider
      * @see {@link https://learn.microsoft.com/graph/api/learningprovider-get?view=graph-rest-1.0|Find more info here}
@@ -69,7 +105,7 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<LearningProvider>(requestInfo, createLearningProviderFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a learningProvider object.
+     * Update the properties of a learningProvider object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningProvider
@@ -102,7 +138,7 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a learningProvider object.
+     * Read the properties and relationships of a learningProvider object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -120,7 +156,7 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a learningProvider object.
+     * Update the properties of a learningProvider object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

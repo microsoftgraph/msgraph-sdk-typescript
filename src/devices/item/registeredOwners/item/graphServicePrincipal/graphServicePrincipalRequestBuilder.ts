@@ -1,12 +1,33 @@
 import { type ServicePrincipal } from '../../../../../models/';
-import { createServicePrincipalFromDiscriminatorValue } from '../../../../../models/createServicePrincipalFromDiscriminatorValue';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type GraphServicePrincipalRequestBuilderGetRequestConfiguration } from './graphServicePrincipalRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createServicePrincipalFromDiscriminatorValue } from '../../../../../models/servicePrincipal';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GraphServicePrincipalRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface GraphServicePrincipalRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GraphServicePrincipalRequestBuilderGetQueryParameters;
+}
 /**
  * Casts the previous resource to servicePrincipal.
  */

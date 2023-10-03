@@ -1,20 +1,71 @@
 import { type WorkbookWorksheetCollectionResponse } from '../../../../../../models/';
-import { createWorkbookWorksheetCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createWorkbookWorksheetCollectionResponseFromDiscriminatorValue';
-import { createWorkbookWorksheetFromDiscriminatorValue } from '../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
-import { deserializeIntoWorkbookWorksheet } from '../../../../../../models/deserializeIntoWorkbookWorksheet';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookWorksheet } from '../../../../../../models/serializeWorkbookWorksheet';
-import { type WorkbookWorksheet } from '../../../../../../models/workbookWorksheet';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookWorksheetFromDiscriminatorValue, deserializeIntoWorkbookWorksheet, serializeWorkbookWorksheet, type WorkbookWorksheet } from '../../../../../../models/workbookWorksheet';
+import { createWorkbookWorksheetCollectionResponseFromDiscriminatorValue } from '../../../../../../models/workbookWorksheetCollectionResponse';
 import { AddRequestBuilder } from './add/addRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookWorksheetItemRequestBuilder } from './item/workbookWorksheetItemRequestBuilder';
-import { type WorksheetsRequestBuilderGetRequestConfiguration } from './worksheetsRequestBuilderGetRequestConfiguration';
-import { type WorksheetsRequestBuilderPostRequestConfiguration } from './worksheetsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorksheetsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface WorksheetsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorksheetsRequestBuilderGetQueryParameters;
+}
+export interface WorksheetsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
  */
@@ -51,10 +102,10 @@ export class WorksheetsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of worksheet objects.
+     * Retrieve a list of worksheet objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheetCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/worksheet-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-worksheets?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorksheetsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookWorksheetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -83,7 +134,7 @@ export class WorksheetsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookWorksheet>(requestInfo, createWorkbookWorksheetFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of worksheet objects.
+     * Retrieve a list of worksheet objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

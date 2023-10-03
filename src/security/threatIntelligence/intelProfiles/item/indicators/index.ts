@@ -1,2 +1,1 @@
-export * from './indicatorsRequestBuilderGetQueryParameters'
-export * from './indicatorsRequestBuilderGetRequestConfiguration'
+export * from './indicatorsRequestBuilder'

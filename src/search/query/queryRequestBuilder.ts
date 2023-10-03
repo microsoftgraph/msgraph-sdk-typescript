@@ -1,17 +1,19 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { createQueryResponseFromDiscriminatorValue } from './createQueryResponseFromDiscriminatorValue';
-import { deserializeIntoQueryPostRequestBody } from './deserializeIntoQueryPostRequestBody';
-import { deserializeIntoQueryResponse } from './deserializeIntoQueryResponse';
-import { type QueryPostRequestBody } from './queryPostRequestBody';
-import { type QueryRequestBuilderPostRequestConfiguration } from './queryRequestBuilderPostRequestConfiguration';
-import { type QueryResponse } from './queryResponse';
-import { serializeQueryPostRequestBody } from './serializeQueryPostRequestBody';
-import { serializeQueryResponse } from './serializeQueryResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { deserializeIntoQueryPostRequestBody, serializeQueryPostRequestBody, type QueryPostRequestBody } from './queryPostRequestBody';
+import { createQueryPostResponseFromDiscriminatorValue, deserializeIntoQueryPostResponse, serializeQueryPostResponse, type QueryPostResponse } from './queryPostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface QueryRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the query method.
  */
@@ -25,13 +27,13 @@ export class QueryRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/search/query");
     };
     /**
-     * Runs the query specified in the request body. Search results are provided in the response.
+     * Runs the query specified in the request body. Search results are provided in the response. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of QueryResponse
+     * @returns a Promise of QueryPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/search-query?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: QueryPostRequestBody, requestConfiguration?: QueryRequestBuilderPostRequestConfiguration | undefined) : Promise<QueryResponse | undefined> {
+    public post(body: QueryPostRequestBody, requestConfiguration?: QueryRequestBuilderPostRequestConfiguration | undefined) : Promise<QueryPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class QueryRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<QueryResponse>(requestInfo, createQueryResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<QueryPostResponse>(requestInfo, createQueryPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Runs the query specified in the request body. Search results are provided in the response.
+     * Runs the query specified in the request body. Search results are provided in the response. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

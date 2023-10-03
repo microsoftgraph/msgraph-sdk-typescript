@@ -1,18 +1,54 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { createStoreFromDiscriminatorValue } from '../../../../../models/termStore/createStoreFromDiscriminatorValue';
-import { deserializeIntoStore } from '../../../../../models/termStore/deserializeIntoStore';
-import { serializeStore } from '../../../../../models/termStore/serializeStore';
-import { type Store } from '../../../../../models/termStore/store';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createStoreFromDiscriminatorValue, deserializeIntoStore, serializeStore, type Store } from '../../../../../models/termStore/store';
 import { GroupsRequestBuilder } from './groups/groupsRequestBuilder';
 import { SetsRequestBuilder } from './sets/setsRequestBuilder';
-import { type TermStoreRequestBuilderDeleteRequestConfiguration } from './termStoreRequestBuilderDeleteRequestConfiguration';
-import { type TermStoreRequestBuilderGetRequestConfiguration } from './termStoreRequestBuilderGetRequestConfiguration';
-import { type TermStoreRequestBuilderPatchRequestConfiguration } from './termStoreRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TermStoreRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TermStoreRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TermStoreRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TermStoreRequestBuilderGetQueryParameters;
+}
+export interface TermStoreRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the termStore property of the microsoft.graph.site entity.
  */
@@ -52,7 +88,7 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a store object.
+     * Read the properties and relationships of a store object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Store
      * @see {@link https://learn.microsoft.com/graph/api/termstore-store-get?view=graph-rest-1.0|Find more info here}
@@ -68,7 +104,7 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Store>(requestInfo, createStoreFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a store object.
+     * Update the properties of a store object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Store
@@ -101,7 +137,7 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a store object.
+     * Read the properties and relationships of a store object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,7 +155,7 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a store object.
+     * Update the properties of a store object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

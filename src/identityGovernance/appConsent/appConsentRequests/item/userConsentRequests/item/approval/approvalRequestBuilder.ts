@@ -1,17 +1,53 @@
-import { type Approval } from '../../../../../../../models/approval';
-import { createApprovalFromDiscriminatorValue } from '../../../../../../../models/createApprovalFromDiscriminatorValue';
-import { deserializeIntoApproval } from '../../../../../../../models/deserializeIntoApproval';
+import { createApprovalFromDiscriminatorValue, deserializeIntoApproval, serializeApproval, type Approval } from '../../../../../../../models/approval';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeApproval } from '../../../../../../../models/serializeApproval';
-import { type ApprovalRequestBuilderDeleteRequestConfiguration } from './approvalRequestBuilderDeleteRequestConfiguration';
-import { type ApprovalRequestBuilderGetRequestConfiguration } from './approvalRequestBuilderGetRequestConfiguration';
-import { type ApprovalRequestBuilderPatchRequestConfiguration } from './approvalRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { StagesRequestBuilder } from './stages/stagesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApprovalRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ApprovalRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ApprovalRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ApprovalRequestBuilderGetQueryParameters;
+}
+export interface ApprovalRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the approval property of the microsoft.graph.userConsentRequest entity.
  */

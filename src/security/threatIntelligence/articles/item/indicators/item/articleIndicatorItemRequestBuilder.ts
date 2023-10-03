@@ -1,12 +1,33 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { type ArticleIndicator } from '../../../../../../models/security/';
-import { createArticleIndicatorFromDiscriminatorValue } from '../../../../../../models/security/createArticleIndicatorFromDiscriminatorValue';
-import { type ArticleIndicatorItemRequestBuilderGetRequestConfiguration } from './articleIndicatorItemRequestBuilderGetRequestConfiguration';
+import { createArticleIndicatorFromDiscriminatorValue } from '../../../../../../models/security/articleIndicator';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ArticleIndicatorItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ArticleIndicatorItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ArticleIndicatorItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.article entity.
  */

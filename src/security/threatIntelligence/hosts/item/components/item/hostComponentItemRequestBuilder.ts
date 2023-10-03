@@ -1,12 +1,33 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { type HostComponent } from '../../../../../../models/security/';
-import { createHostComponentFromDiscriminatorValue } from '../../../../../../models/security/createHostComponentFromDiscriminatorValue';
-import { type HostComponentItemRequestBuilderGetRequestConfiguration } from './hostComponentItemRequestBuilderGetRequestConfiguration';
+import { createHostComponentFromDiscriminatorValue } from '../../../../../../models/security/hostComponent';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HostComponentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface HostComponentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HostComponentItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the components property of the microsoft.graph.security.host entity.
  */

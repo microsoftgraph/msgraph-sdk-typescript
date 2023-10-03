@@ -1,19 +1,70 @@
 import { type AccessPackageCatalogCollectionResponse } from '../../../models/';
-import { type AccessPackageCatalog } from '../../../models/accessPackageCatalog';
-import { createAccessPackageCatalogCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageCatalogCollectionResponseFromDiscriminatorValue';
-import { createAccessPackageCatalogFromDiscriminatorValue } from '../../../models/createAccessPackageCatalogFromDiscriminatorValue';
-import { deserializeIntoAccessPackageCatalog } from '../../../models/deserializeIntoAccessPackageCatalog';
+import { createAccessPackageCatalogFromDiscriminatorValue, deserializeIntoAccessPackageCatalog, serializeAccessPackageCatalog, type AccessPackageCatalog } from '../../../models/accessPackageCatalog';
+import { createAccessPackageCatalogCollectionResponseFromDiscriminatorValue } from '../../../models/accessPackageCatalogCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageCatalog } from '../../../models/serializeAccessPackageCatalog';
-import { type CatalogsRequestBuilderGetRequestConfiguration } from './catalogsRequestBuilderGetRequestConfiguration';
-import { type CatalogsRequestBuilderPostRequestConfiguration } from './catalogsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AccessPackageCatalogItemRequestBuilder } from './item/accessPackageCatalogItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CatalogsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface CatalogsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CatalogsRequestBuilderGetQueryParameters;
+}
+export interface CatalogsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
  */
@@ -44,7 +95,7 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/catalogs{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of accessPackageCatalog objects.
+     * Retrieve a list of accessPackageCatalog objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCatalogCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-catalogs?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageCatalogCollectionResponse>(requestInfo, createAccessPackageCatalogCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new accessPackageCatalog object.
+     * Create a new accessPackageCatalog object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCatalog
@@ -77,7 +128,7 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageCatalog>(requestInfo, createAccessPackageCatalogFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of accessPackageCatalog objects.
+     * Retrieve a list of accessPackageCatalog objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new accessPackageCatalog object.
+     * Create a new accessPackageCatalog object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

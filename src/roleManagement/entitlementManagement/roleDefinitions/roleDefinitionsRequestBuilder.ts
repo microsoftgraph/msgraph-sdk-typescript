@@ -1,19 +1,70 @@
 import { type UnifiedRoleDefinitionCollectionResponse } from '../../../models/';
-import { createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue } from '../../../models/createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue';
-import { createUnifiedRoleDefinitionFromDiscriminatorValue } from '../../../models/createUnifiedRoleDefinitionFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleDefinition } from '../../../models/deserializeIntoUnifiedRoleDefinition';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleDefinition } from '../../../models/serializeUnifiedRoleDefinition';
-import { type UnifiedRoleDefinition } from '../../../models/unifiedRoleDefinition';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleDefinitionFromDiscriminatorValue, deserializeIntoUnifiedRoleDefinition, serializeUnifiedRoleDefinition, type UnifiedRoleDefinition } from '../../../models/unifiedRoleDefinition';
+import { createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue } from '../../../models/unifiedRoleDefinitionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UnifiedRoleDefinitionItemRequestBuilder } from './item/unifiedRoleDefinitionItemRequestBuilder';
-import { type RoleDefinitionsRequestBuilderGetRequestConfiguration } from './roleDefinitionsRequestBuilderGetRequestConfiguration';
-import { type RoleDefinitionsRequestBuilderPostRequestConfiguration } from './roleDefinitionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RoleDefinitionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RoleDefinitionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RoleDefinitionsRequestBuilderGetQueryParameters;
+}
+export interface RoleDefinitionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
  */
@@ -44,7 +95,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/roleManagement/entitlementManagement/roleDefinitions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of unifiedRoleDefinition objects for the provider. The following RBAC providers are currently supported:- directory (Azure AD)- entitlement management (Azure AD)
+     * Get a list of unifiedRoleDefinition objects for the provider. The following RBAC providers are currently supported:- directory (Azure AD)- entitlement management (Azure AD) This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleDefinitionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UnifiedRoleDefinitionCollectionResponse>(requestInfo, createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new custom unifiedRoleDefinition object. This feature requires an Azure AD Premium P1 or P2 license.
+     * Create a new custom unifiedRoleDefinition object. This feature requires an Azure AD Premium P1 or P2 license. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleDefinition
@@ -77,7 +128,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UnifiedRoleDefinition>(requestInfo, createUnifiedRoleDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of unifiedRoleDefinition objects for the provider. The following RBAC providers are currently supported:- directory (Azure AD)- entitlement management (Azure AD)
+     * Get a list of unifiedRoleDefinition objects for the provider. The following RBAC providers are currently supported:- directory (Azure AD)- entitlement management (Azure AD) This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new custom unifiedRoleDefinition object. This feature requires an Azure AD Premium P1 or P2 license.
+     * Create a new custom unifiedRoleDefinition object. This feature requires an Azure AD Premium P1 or P2 license. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

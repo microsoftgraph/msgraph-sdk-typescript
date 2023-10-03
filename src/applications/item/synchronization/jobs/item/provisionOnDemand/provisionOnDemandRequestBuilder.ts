@@ -1,17 +1,19 @@
-import { createStringKeyStringValuePairFromDiscriminatorValue } from '../../../../../../models/createStringKeyStringValuePairFromDiscriminatorValue';
-import { deserializeIntoStringKeyStringValuePair } from '../../../../../../models/deserializeIntoStringKeyStringValuePair';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeStringKeyStringValuePair } from '../../../../../../models/serializeStringKeyStringValuePair';
-import { type StringKeyStringValuePair } from '../../../../../../models/stringKeyStringValuePair';
-import { deserializeIntoProvisionOnDemandPostRequestBody } from './deserializeIntoProvisionOnDemandPostRequestBody';
-import { type ProvisionOnDemandPostRequestBody } from './provisionOnDemandPostRequestBody';
-import { type ProvisionOnDemandRequestBuilderPostRequestConfiguration } from './provisionOnDemandRequestBuilderPostRequestConfiguration';
-import { serializeProvisionOnDemandPostRequestBody } from './serializeProvisionOnDemandPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createStringKeyStringValuePairFromDiscriminatorValue, deserializeIntoStringKeyStringValuePair, serializeStringKeyStringValuePair, type StringKeyStringValuePair } from '../../../../../../models/stringKeyStringValuePair';
+import { deserializeIntoProvisionOnDemandPostRequestBody, serializeProvisionOnDemandPostRequestBody, type ProvisionOnDemandPostRequestBody } from './provisionOnDemandPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ProvisionOnDemandRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the provisionOnDemand method.
  */
@@ -25,7 +27,7 @@ export class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/synchronization/jobs/{synchronizationJob%2Did}/provisionOnDemand");
     };
     /**
-     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds. 
+     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds.  This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of StringKeyStringValuePair
@@ -42,7 +44,7 @@ export class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<StringKeyStringValuePair>(requestInfo, createStringKeyStringValuePairFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds. 
+     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds.  This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

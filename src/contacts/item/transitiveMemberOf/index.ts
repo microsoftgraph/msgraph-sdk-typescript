@@ -1,2 +1,1 @@
-export * from './transitiveMemberOfRequestBuilderGetQueryParameters'
-export * from './transitiveMemberOfRequestBuilderGetRequestConfiguration'
+export * from './transitiveMemberOfRequestBuilder'

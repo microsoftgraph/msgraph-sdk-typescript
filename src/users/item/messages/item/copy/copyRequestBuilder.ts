@@ -1,17 +1,19 @@
-import { createMessageFromDiscriminatorValue } from '../../../../../models/createMessageFromDiscriminatorValue';
-import { deserializeIntoMessage } from '../../../../../models/deserializeIntoMessage';
-import { type Message } from '../../../../../models/message';
+import { createMessageFromDiscriminatorValue, deserializeIntoMessage, serializeMessage, type Message } from '../../../../../models/message';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeMessage } from '../../../../../models/serializeMessage';
-import { type CopyPostRequestBody } from './copyPostRequestBody';
-import { type CopyRequestBuilderPostRequestConfiguration } from './copyRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCopyPostRequestBody } from './deserializeIntoCopyPostRequestBody';
-import { serializeCopyPostRequestBody } from './serializeCopyPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoCopyPostRequestBody, serializeCopyPostRequestBody, type CopyPostRequestBody } from './copyPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CopyRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the copy method.
  */
@@ -25,7 +27,7 @@ export class CopyRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/messages/{message%2Did}/copy");
     };
     /**
-     * Copy a message to a folder within the user's mailbox.
+     * Copy a message to a folder within the user's mailbox. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Message
@@ -42,7 +44,7 @@ export class CopyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Copy a message to a folder within the user's mailbox.
+     * Copy a message to a folder within the user's mailbox. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

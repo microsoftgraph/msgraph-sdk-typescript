@@ -1,12 +1,33 @@
 import { type UserActivity } from '../../../../../../models/';
-import { createUserActivityFromDiscriminatorValue } from '../../../../../../models/createUserActivityFromDiscriminatorValue';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type ActivityRequestBuilderGetRequestConfiguration } from './activityRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createUserActivityFromDiscriminatorValue } from '../../../../../../models/userActivity';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ActivityRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ActivityRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ActivityRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the activity property of the microsoft.graph.activityHistoryItem entity.
  */

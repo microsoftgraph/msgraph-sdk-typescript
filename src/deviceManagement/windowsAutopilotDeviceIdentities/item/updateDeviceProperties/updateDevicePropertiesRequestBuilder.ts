@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoUpdateDevicePropertiesPostRequestBody } from './deserializeIntoUpdateDevicePropertiesPostRequestBody';
-import { serializeUpdateDevicePropertiesPostRequestBody } from './serializeUpdateDevicePropertiesPostRequestBody';
-import { type UpdateDevicePropertiesPostRequestBody } from './updateDevicePropertiesPostRequestBody';
-import { type UpdateDevicePropertiesRequestBuilderPostRequestConfiguration } from './updateDevicePropertiesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoUpdateDevicePropertiesPostRequestBody, serializeUpdateDevicePropertiesPostRequestBody, type UpdateDevicePropertiesPostRequestBody } from './updateDevicePropertiesPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UpdateDevicePropertiesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the updateDeviceProperties method.
  */

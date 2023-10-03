@@ -1,17 +1,53 @@
-import { createWorkbookChartPointFromDiscriminatorValue } from '../../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartPoint } from '../../../../../../../../../../../../../models/deserializeIntoWorkbookChartPoint';
 import { type ODataError } from '../../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartPoint } from '../../../../../../../../../../../../../models/serializeWorkbookChartPoint';
-import { type WorkbookChartPoint } from '../../../../../../../../../../../../../models/workbookChartPoint';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartPointFromDiscriminatorValue, deserializeIntoWorkbookChartPoint, serializeWorkbookChartPoint, type WorkbookChartPoint } from '../../../../../../../../../../../../../models/workbookChartPoint';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
-import { type WorkbookChartPointItemRequestBuilderDeleteRequestConfiguration } from './workbookChartPointItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookChartPointItemRequestBuilderGetRequestConfiguration } from './workbookChartPointItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookChartPointItemRequestBuilderPatchRequestConfiguration } from './workbookChartPointItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookChartPointItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookChartPointItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookChartPointItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookChartPointItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookChartPointItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
  */
@@ -45,7 +81,7 @@ export class WorkbookChartPointItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of chartpoint object.
+     * Retrieve the properties and relationships of chartpoint object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartPoint
      * @see {@link https://learn.microsoft.com/graph/api/chartpoint-get?view=graph-rest-1.0|Find more info here}
@@ -93,7 +129,7 @@ export class WorkbookChartPointItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of chartpoint object.
+     * Retrieve the properties and relationships of chartpoint object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

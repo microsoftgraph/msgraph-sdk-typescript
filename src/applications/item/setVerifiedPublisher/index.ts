@@ -1,5 +1,2 @@
-export * from './createSetVerifiedPublisherPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoSetVerifiedPublisherPostRequestBody'
-export * from './serializeSetVerifiedPublisherPostRequestBody'
 export * from './setVerifiedPublisherPostRequestBody'
-export * from './setVerifiedPublisherRequestBuilderPostRequestConfiguration'
+export * from './setVerifiedPublisherRequestBuilder'

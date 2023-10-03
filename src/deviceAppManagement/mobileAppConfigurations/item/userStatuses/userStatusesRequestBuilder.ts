@@ -1,19 +1,70 @@
 import { type ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse } from '../../../../models/';
-import { createManagedDeviceMobileAppConfigurationUserStatusCollectionResponseFromDiscriminatorValue } from '../../../../models/createManagedDeviceMobileAppConfigurationUserStatusCollectionResponseFromDiscriminatorValue';
-import { createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue } from '../../../../models/createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue';
-import { deserializeIntoManagedDeviceMobileAppConfigurationUserStatus } from '../../../../models/deserializeIntoManagedDeviceMobileAppConfigurationUserStatus';
-import { type ManagedDeviceMobileAppConfigurationUserStatus } from '../../../../models/managedDeviceMobileAppConfigurationUserStatus';
+import { createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue, deserializeIntoManagedDeviceMobileAppConfigurationUserStatus, serializeManagedDeviceMobileAppConfigurationUserStatus, type ManagedDeviceMobileAppConfigurationUserStatus } from '../../../../models/managedDeviceMobileAppConfigurationUserStatus';
+import { createManagedDeviceMobileAppConfigurationUserStatusCollectionResponseFromDiscriminatorValue } from '../../../../models/managedDeviceMobileAppConfigurationUserStatusCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeManagedDeviceMobileAppConfigurationUserStatus } from '../../../../models/serializeManagedDeviceMobileAppConfigurationUserStatus';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder } from './item/managedDeviceMobileAppConfigurationUserStatusItemRequestBuilder';
-import { type UserStatusesRequestBuilderGetRequestConfiguration } from './userStatusesRequestBuilderGetRequestConfiguration';
-import { type UserStatusesRequestBuilderPostRequestConfiguration } from './userStatusesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserStatusesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserStatusesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserStatusesRequestBuilderGetQueryParameters;
+}
+export interface UserStatusesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
  */

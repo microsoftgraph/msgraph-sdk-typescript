@@ -1,19 +1,70 @@
 import { type EducationSubmissionResourceCollectionResponse } from '../../../../../../../../models/';
-import { createEducationSubmissionResourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createEducationSubmissionResourceCollectionResponseFromDiscriminatorValue';
-import { createEducationSubmissionResourceFromDiscriminatorValue } from '../../../../../../../../models/createEducationSubmissionResourceFromDiscriminatorValue';
-import { deserializeIntoEducationSubmissionResource } from '../../../../../../../../models/deserializeIntoEducationSubmissionResource';
-import { type EducationSubmissionResource } from '../../../../../../../../models/educationSubmissionResource';
+import { createEducationSubmissionResourceFromDiscriminatorValue, deserializeIntoEducationSubmissionResource, serializeEducationSubmissionResource, type EducationSubmissionResource } from '../../../../../../../../models/educationSubmissionResource';
+import { createEducationSubmissionResourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/educationSubmissionResourceCollectionResponse';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationSubmissionResource } from '../../../../../../../../models/serializeEducationSubmissionResource';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { EducationSubmissionResourceItemRequestBuilder } from './item/educationSubmissionResourceItemRequestBuilder';
-import { type SubmittedResourcesRequestBuilderGetRequestConfiguration } from './submittedResourcesRequestBuilderGetRequestConfiguration';
-import { type SubmittedResourcesRequestBuilderPostRequestConfiguration } from './submittedResourcesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SubmittedResourcesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SubmittedResourcesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SubmittedResourcesRequestBuilderGetQueryParameters;
+}
+export interface SubmittedResourcesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
  */
@@ -44,7 +95,7 @@ export class SubmittedResourcesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/submittedResources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List the educationSubmissionResource objects that have officially been submitted for grading. Only teachers, students, and applications with application permissions can perform this operation. The student who owns the submission cannot change the submitted list without resubmitting the assignment. This is a wrapper around the real resource and can contain a pointer back to the actual assignment resource if this resource was copied from the assignment.
+     * List the educationSubmissionResource objects that have officially been submitted for grading. Only teachers, students, and applications with application permissions can perform this operation. The student who owns the submission cannot change the submitted list without resubmitting the assignment. This is a wrapper around the real resource and can contain a pointer back to the actual assignment resource if this resource was copied from the assignment. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSubmissionResourceCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/educationsubmission-list-submittedresources?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class SubmittedResourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationSubmissionResource>(requestInfo, createEducationSubmissionResourceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List the educationSubmissionResource objects that have officially been submitted for grading. Only teachers, students, and applications with application permissions can perform this operation. The student who owns the submission cannot change the submitted list without resubmitting the assignment. This is a wrapper around the real resource and can contain a pointer back to the actual assignment resource if this resource was copied from the assignment.
+     * List the educationSubmissionResource objects that have officially been submitted for grading. Only teachers, students, and applications with application permissions can perform this operation. The student who owns the submission cannot change the submitted list without resubmitting the assignment. This is a wrapper around the real resource and can contain a pointer back to the actual assignment resource if this resource was copied from the assignment. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

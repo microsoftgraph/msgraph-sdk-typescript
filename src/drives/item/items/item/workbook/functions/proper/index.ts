@@ -1,5 +1,2 @@
-export * from './createProperPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoProperPostRequestBody'
 export * from './properPostRequestBody'
-export * from './properRequestBuilderPostRequestConfiguration'
-export * from './serializeProperPostRequestBody'
+export * from './properRequestBuilder'

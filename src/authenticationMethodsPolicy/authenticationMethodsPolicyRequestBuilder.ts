@@ -1,16 +1,43 @@
-import { type AuthenticationMethodsPolicy } from '../models/authenticationMethodsPolicy';
-import { createAuthenticationMethodsPolicyFromDiscriminatorValue } from '../models/createAuthenticationMethodsPolicyFromDiscriminatorValue';
-import { deserializeIntoAuthenticationMethodsPolicy } from '../models/deserializeIntoAuthenticationMethodsPolicy';
+import { createAuthenticationMethodsPolicyFromDiscriminatorValue, deserializeIntoAuthenticationMethodsPolicy, serializeAuthenticationMethodsPolicy, type AuthenticationMethodsPolicy } from '../models/authenticationMethodsPolicy';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationMethodsPolicy } from '../models/serializeAuthenticationMethodsPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { AuthenticationMethodConfigurationsRequestBuilder } from './authenticationMethodConfigurations/authenticationMethodConfigurationsRequestBuilder';
-import { type AuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration } from './authenticationMethodsPolicyRequestBuilderGetRequestConfiguration';
-import { type AuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration } from './authenticationMethodsPolicyRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthenticationMethodsPolicyRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthenticationMethodsPolicyRequestBuilderGetQueryParameters;
+}
+export interface AuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the authenticationMethodsPolicy singleton.
  */

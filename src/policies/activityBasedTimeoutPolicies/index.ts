@@ -1,3 +1,1 @@
-export * from './activityBasedTimeoutPoliciesRequestBuilderGetQueryParameters'
-export * from './activityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration'
-export * from './activityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration'
+export * from './activityBasedTimeoutPoliciesRequestBuilder'

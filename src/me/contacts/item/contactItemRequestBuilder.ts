@@ -1,18 +1,54 @@
-import { type Contact } from '../../../models/contact';
-import { createContactFromDiscriminatorValue } from '../../../models/createContactFromDiscriminatorValue';
-import { deserializeIntoContact } from '../../../models/deserializeIntoContact';
+import { createContactFromDiscriminatorValue, deserializeIntoContact, serializeContact, type Contact } from '../../../models/contact';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeContact } from '../../../models/serializeContact';
-import { type ContactItemRequestBuilderDeleteRequestConfiguration } from './contactItemRequestBuilderDeleteRequestConfiguration';
-import { type ContactItemRequestBuilderGetRequestConfiguration } from './contactItemRequestBuilderGetRequestConfiguration';
-import { type ContactItemRequestBuilderPatchRequestConfiguration } from './contactItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
 import { PhotoRequestBuilder } from './photo/photoRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContactItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ContactItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ContactItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContactItemRequestBuilderGetQueryParameters;
+}
+export interface ContactItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the contacts property of the microsoft.graph.user entity.
  */
@@ -38,7 +74,7 @@ export class ContactItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/contacts/{contact%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a contact.
+     * Delete a contact. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/contact-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -53,7 +89,7 @@ export class ContactItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a contact object. There are two scenarios where an app can get a contact in another user's contact folder:
+     * Retrieve the properties and relationships of a contact object. There are two scenarios where an app can get a contact in another user's contact folder: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Contact
      * @see {@link https://learn.microsoft.com/graph/api/contact-get?view=graph-rest-1.0|Find more info here}
@@ -69,7 +105,7 @@ export class ContactItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Contact>(requestInfo, createContactFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a contact object.
+     * Update the properties of a contact object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Contact
@@ -86,7 +122,7 @@ export class ContactItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Contact>(requestInfo, createContactFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a contact.
+     * Delete a contact. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +138,7 @@ export class ContactItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a contact object. There are two scenarios where an app can get a contact in another user's contact folder:
+     * Retrieve the properties and relationships of a contact object. There are two scenarios where an app can get a contact in another user's contact folder: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -120,7 +156,7 @@ export class ContactItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a contact object.
+     * Update the properties of a contact object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

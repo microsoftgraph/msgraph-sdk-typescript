@@ -1,16 +1,52 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { createDataSourceFromDiscriminatorValue } from '../../../../../../../models/security/createDataSourceFromDiscriminatorValue';
-import { type DataSource } from '../../../../../../../models/security/dataSource';
-import { deserializeIntoDataSource } from '../../../../../../../models/security/deserializeIntoDataSource';
-import { serializeDataSource } from '../../../../../../../models/security/serializeDataSource';
-import { type DataSourceRequestBuilderDeleteRequestConfiguration } from './dataSourceRequestBuilderDeleteRequestConfiguration';
-import { type DataSourceRequestBuilderGetRequestConfiguration } from './dataSourceRequestBuilderGetRequestConfiguration';
-import { type DataSourceRequestBuilderPatchRequestConfiguration } from './dataSourceRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createDataSourceFromDiscriminatorValue, deserializeIntoDataSource, serializeDataSource, type DataSource } from '../../../../../../../models/security/dataSource';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DataSourceRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DataSourceRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DataSourceRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DataSourceRequestBuilderGetQueryParameters;
+}
+export interface DataSourceRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the dataSource property of the microsoft.graph.security.ediscoveryNoncustodialDataSource entity.
  */

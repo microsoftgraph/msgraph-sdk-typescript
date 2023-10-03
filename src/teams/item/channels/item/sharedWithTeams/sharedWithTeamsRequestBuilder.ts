@@ -1,19 +1,70 @@
 import { type SharedWithChannelTeamInfoCollectionResponse } from '../../../../../models/';
-import { createSharedWithChannelTeamInfoCollectionResponseFromDiscriminatorValue } from '../../../../../models/createSharedWithChannelTeamInfoCollectionResponseFromDiscriminatorValue';
-import { createSharedWithChannelTeamInfoFromDiscriminatorValue } from '../../../../../models/createSharedWithChannelTeamInfoFromDiscriminatorValue';
-import { deserializeIntoSharedWithChannelTeamInfo } from '../../../../../models/deserializeIntoSharedWithChannelTeamInfo';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeSharedWithChannelTeamInfo } from '../../../../../models/serializeSharedWithChannelTeamInfo';
-import { type SharedWithChannelTeamInfo } from '../../../../../models/sharedWithChannelTeamInfo';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createSharedWithChannelTeamInfoFromDiscriminatorValue, deserializeIntoSharedWithChannelTeamInfo, serializeSharedWithChannelTeamInfo, type SharedWithChannelTeamInfo } from '../../../../../models/sharedWithChannelTeamInfo';
+import { createSharedWithChannelTeamInfoCollectionResponseFromDiscriminatorValue } from '../../../../../models/sharedWithChannelTeamInfoCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SharedWithChannelTeamInfoItemRequestBuilder } from './item/sharedWithChannelTeamInfoItemRequestBuilder';
-import { type SharedWithTeamsRequestBuilderGetRequestConfiguration } from './sharedWithTeamsRequestBuilderGetRequestConfiguration';
-import { type SharedWithTeamsRequestBuilderPostRequestConfiguration } from './sharedWithTeamsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SharedWithTeamsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SharedWithTeamsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SharedWithTeamsRequestBuilderGetQueryParameters;
+}
+export interface SharedWithTeamsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
  */
@@ -44,7 +95,7 @@ export class SharedWithTeamsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/channels/{channel%2Did}/sharedWithTeams{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared.
+     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SharedWithChannelTeamInfoCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/sharedwithchannelteaminfo-list?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class SharedWithTeamsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SharedWithChannelTeamInfo>(requestInfo, createSharedWithChannelTeamInfoFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared.
+     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

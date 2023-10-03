@@ -1,4 +1,1 @@
-export * from './richLongRunningOperationItemRequestBuilderDeleteRequestConfiguration'
-export * from './richLongRunningOperationItemRequestBuilderGetQueryParameters'
-export * from './richLongRunningOperationItemRequestBuilderGetRequestConfiguration'
-export * from './richLongRunningOperationItemRequestBuilderPatchRequestConfiguration'
+export * from './richLongRunningOperationItemRequestBuilder'

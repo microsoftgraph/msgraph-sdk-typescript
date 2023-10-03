@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type HostCookieCollectionResponse } from '../../../models/security/';
-import { createHostCookieCollectionResponseFromDiscriminatorValue } from '../../../models/security/createHostCookieCollectionResponseFromDiscriminatorValue';
-import { createHostCookieFromDiscriminatorValue } from '../../../models/security/createHostCookieFromDiscriminatorValue';
-import { deserializeIntoHostCookie } from '../../../models/security/deserializeIntoHostCookie';
-import { type HostCookie } from '../../../models/security/hostCookie';
-import { serializeHostCookie } from '../../../models/security/serializeHostCookie';
+import { createHostCookieFromDiscriminatorValue, deserializeIntoHostCookie, serializeHostCookie, type HostCookie } from '../../../models/security/hostCookie';
+import { createHostCookieCollectionResponseFromDiscriminatorValue } from '../../../models/security/hostCookieCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HostCookiesRequestBuilderGetRequestConfiguration } from './hostCookiesRequestBuilderGetRequestConfiguration';
-import { type HostCookiesRequestBuilderPostRequestConfiguration } from './hostCookiesRequestBuilderPostRequestConfiguration';
 import { HostCookieItemRequestBuilder } from './item/hostCookieItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HostCookiesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HostCookiesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HostCookiesRequestBuilderGetQueryParameters;
+}
+export interface HostCookiesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -44,7 +95,7 @@ export class HostCookiesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/hostCookies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read the properties and relationships of a hostCookie object.
+     * Read the properties and relationships of a hostCookie object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostCookieCollectionResponse
      */
@@ -75,7 +126,7 @@ export class HostCookiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<HostCookie>(requestInfo, createHostCookieFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the properties and relationships of a hostCookie object.
+     * Read the properties and relationships of a hostCookie object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

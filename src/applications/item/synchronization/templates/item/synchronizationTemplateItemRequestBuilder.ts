@@ -1,17 +1,53 @@
-import { createSynchronizationTemplateFromDiscriminatorValue } from '../../../../../models/createSynchronizationTemplateFromDiscriminatorValue';
-import { deserializeIntoSynchronizationTemplate } from '../../../../../models/deserializeIntoSynchronizationTemplate';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeSynchronizationTemplate } from '../../../../../models/serializeSynchronizationTemplate';
-import { type SynchronizationTemplate } from '../../../../../models/synchronizationTemplate';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createSynchronizationTemplateFromDiscriminatorValue, deserializeIntoSynchronizationTemplate, serializeSynchronizationTemplate, type SynchronizationTemplate } from '../../../../../models/synchronizationTemplate';
 import { SchemaRequestBuilder } from './schema/schemaRequestBuilder';
-import { type SynchronizationTemplateItemRequestBuilderDeleteRequestConfiguration } from './synchronizationTemplateItemRequestBuilderDeleteRequestConfiguration';
-import { type SynchronizationTemplateItemRequestBuilderGetRequestConfiguration } from './synchronizationTemplateItemRequestBuilderGetRequestConfiguration';
-import { type SynchronizationTemplateItemRequestBuilderPatchRequestConfiguration } from './synchronizationTemplateItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SynchronizationTemplateItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SynchronizationTemplateItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SynchronizationTemplateItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SynchronizationTemplateItemRequestBuilderGetQueryParameters;
+}
+export interface SynchronizationTemplateItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
  */
@@ -45,7 +81,7 @@ export class SynchronizationTemplateItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Pre-configured synchronization settings for a particular application.
+     * Preconfigured synchronization settings for a particular application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationTemplate
      */
@@ -60,7 +96,7 @@ export class SynchronizationTemplateItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<SynchronizationTemplate>(requestInfo, createSynchronizationTemplateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update (override) the synchronization template associated with a given application.
+     * Update (override) the synchronization template associated with a given application. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationTemplate
@@ -93,7 +129,7 @@ export class SynchronizationTemplateItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Pre-configured synchronization settings for a particular application.
+     * Preconfigured synchronization settings for a particular application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +147,7 @@ export class SynchronizationTemplateItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Update (override) the synchronization template associated with a given application.
+     * Update (override) the synchronization template associated with a given application. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

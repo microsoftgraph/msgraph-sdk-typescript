@@ -1,19 +1,70 @@
 import { type DeviceCompliancePolicyAssignmentCollectionResponse } from '../../../../models/';
-import { createDeviceCompliancePolicyAssignmentCollectionResponseFromDiscriminatorValue } from '../../../../models/createDeviceCompliancePolicyAssignmentCollectionResponseFromDiscriminatorValue';
-import { createDeviceCompliancePolicyAssignmentFromDiscriminatorValue } from '../../../../models/createDeviceCompliancePolicyAssignmentFromDiscriminatorValue';
-import { deserializeIntoDeviceCompliancePolicyAssignment } from '../../../../models/deserializeIntoDeviceCompliancePolicyAssignment';
-import { type DeviceCompliancePolicyAssignment } from '../../../../models/deviceCompliancePolicyAssignment';
+import { createDeviceCompliancePolicyAssignmentFromDiscriminatorValue, deserializeIntoDeviceCompliancePolicyAssignment, serializeDeviceCompliancePolicyAssignment, type DeviceCompliancePolicyAssignment } from '../../../../models/deviceCompliancePolicyAssignment';
+import { createDeviceCompliancePolicyAssignmentCollectionResponseFromDiscriminatorValue } from '../../../../models/deviceCompliancePolicyAssignmentCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceCompliancePolicyAssignment } from '../../../../models/serializeDeviceCompliancePolicyAssignment';
-import { type AssignmentsRequestBuilderGetRequestConfiguration } from './assignmentsRequestBuilderGetRequestConfiguration';
-import { type AssignmentsRequestBuilderPostRequestConfiguration } from './assignmentsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeviceCompliancePolicyAssignmentItemRequestBuilder } from './item/deviceCompliancePolicyAssignmentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignmentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AssignmentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AssignmentsRequestBuilderGetQueryParameters;
+}
+export interface AssignmentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity.
  */

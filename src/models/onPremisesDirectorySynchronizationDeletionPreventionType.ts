@@ -4,3 +4,5 @@ export enum OnPremisesDirectorySynchronizationDeletionPreventionType {
     EnabledForPercentage = "enabledForPercentage",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

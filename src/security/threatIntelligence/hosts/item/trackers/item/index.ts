@@ -1,2 +1,1 @@
-export * from './hostTrackerItemRequestBuilderGetQueryParameters'
-export * from './hostTrackerItemRequestBuilderGetRequestConfiguration'
+export * from './hostTrackerItemRequestBuilder'

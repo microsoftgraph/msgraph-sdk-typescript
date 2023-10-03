@@ -3,3 +3,5 @@ export enum AttributeMappingSourceType {
     Constant = "Constant",
     FunctionEscaped = "Function",
 }
+// tslint:enable
+// eslint-enable

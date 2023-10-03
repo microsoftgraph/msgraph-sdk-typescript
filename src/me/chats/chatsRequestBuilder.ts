@@ -1,20 +1,71 @@
 import { type ChatCollectionResponse } from '../../models/';
-import { type Chat } from '../../models/chat';
-import { createChatCollectionResponseFromDiscriminatorValue } from '../../models/createChatCollectionResponseFromDiscriminatorValue';
-import { createChatFromDiscriminatorValue } from '../../models/createChatFromDiscriminatorValue';
-import { deserializeIntoChat } from '../../models/deserializeIntoChat';
+import { createChatFromDiscriminatorValue, deserializeIntoChat, serializeChat, type Chat } from '../../models/chat';
+import { createChatCollectionResponseFromDiscriminatorValue } from '../../models/chatCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeChat } from '../../models/serializeChat';
-import { type ChatsRequestBuilderGetRequestConfiguration } from './chatsRequestBuilderGetRequestConfiguration';
-import { type ChatsRequestBuilderPostRequestConfiguration } from './chatsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { GetAllMessagesRequestBuilder } from './getAllMessages/getAllMessagesRequestBuilder';
 import { ChatItemRequestBuilder } from './item/chatItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChatsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ChatsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ChatsRequestBuilderGetQueryParameters;
+}
+export interface ChatsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the chats property of the microsoft.graph.user entity.
  */
@@ -51,7 +102,7 @@ export class ChatsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/chats{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.
+     * Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/chat-list?view=graph-rest-1.0|Find more info here}
@@ -83,7 +134,7 @@ export class ChatsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Chat>(requestInfo, createChatFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.
+     * Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoSetOrderPostRequestBody } from './deserializeIntoSetOrderPostRequestBody';
-import { serializeSetOrderPostRequestBody } from './serializeSetOrderPostRequestBody';
-import { type SetOrderPostRequestBody } from './setOrderPostRequestBody';
-import { type SetOrderRequestBuilderPostRequestConfiguration } from './setOrderRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoSetOrderPostRequestBody, serializeSetOrderPostRequestBody, type SetOrderPostRequestBody } from './setOrderPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SetOrderRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the setOrder method.
  */
@@ -21,7 +26,7 @@ export class SetOrderRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userAttributeAssignments/setOrder");
     };
     /**
-     * Set the order of identityUserFlowAttributeAssignments being collected within a user flow.
+     * Set the order of identityUserFlowAttributeAssignments being collected within a user flow. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-setorder?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class SetOrderRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Set the order of identityUserFlowAttributeAssignments being collected within a user flow.
+     * Set the order of identityUserFlowAttributeAssignments being collected within a user flow. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

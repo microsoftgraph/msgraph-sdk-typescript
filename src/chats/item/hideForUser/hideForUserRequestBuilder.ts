@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoHideForUserPostRequestBody } from './deserializeIntoHideForUserPostRequestBody';
-import { type HideForUserPostRequestBody } from './hideForUserPostRequestBody';
-import { type HideForUserRequestBuilderPostRequestConfiguration } from './hideForUserRequestBuilderPostRequestConfiguration';
-import { serializeHideForUserPostRequestBody } from './serializeHideForUserPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoHideForUserPostRequestBody, serializeHideForUserPostRequestBody, type HideForUserPostRequestBody } from './hideForUserPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HideForUserRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the hideForUser method.
  */
@@ -21,7 +26,7 @@ export class HideForUserRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/chats/{chat%2Did}/hideForUser");
     };
     /**
-     * Hide a chat for a user.
+     * Hide a chat for a user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chat-hideforuser?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class HideForUserRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Hide a chat for a user.
+     * Hide a chat for a user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

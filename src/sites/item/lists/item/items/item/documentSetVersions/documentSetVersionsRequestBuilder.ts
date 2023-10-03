@@ -1,19 +1,70 @@
 import { type DocumentSetVersionCollectionResponse } from '../../../../../../../models/';
-import { createDocumentSetVersionCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createDocumentSetVersionCollectionResponseFromDiscriminatorValue';
-import { createDocumentSetVersionFromDiscriminatorValue } from '../../../../../../../models/createDocumentSetVersionFromDiscriminatorValue';
-import { deserializeIntoDocumentSetVersion } from '../../../../../../../models/deserializeIntoDocumentSetVersion';
-import { type DocumentSetVersion } from '../../../../../../../models/documentSetVersion';
+import { createDocumentSetVersionFromDiscriminatorValue, deserializeIntoDocumentSetVersion, serializeDocumentSetVersion, type DocumentSetVersion } from '../../../../../../../models/documentSetVersion';
+import { createDocumentSetVersionCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/documentSetVersionCollectionResponse';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeDocumentSetVersion } from '../../../../../../../models/serializeDocumentSetVersion';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DocumentSetVersionsRequestBuilderGetRequestConfiguration } from './documentSetVersionsRequestBuilderGetRequestConfiguration';
-import { type DocumentSetVersionsRequestBuilderPostRequestConfiguration } from './documentSetVersionsRequestBuilderPostRequestConfiguration';
 import { DocumentSetVersionItemRequestBuilder } from './item/documentSetVersionItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DocumentSetVersionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DocumentSetVersionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DocumentSetVersionsRequestBuilderGetQueryParameters;
+}
+export interface DocumentSetVersionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
  */
@@ -44,7 +95,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/documentSetVersions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the versions of a document set item in a list.
+     * Get a list of the versions of a document set item in a list. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DocumentSetVersionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/listitem-list-documentsetversions?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DocumentSetVersionCollectionResponse>(requestInfo, createDocumentSetVersionCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new version of a document set item in a list.
+     * Create a new version of a document set item in a list. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DocumentSetVersion
@@ -77,7 +128,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DocumentSetVersion>(requestInfo, createDocumentSetVersionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the versions of a document set item in a list.
+     * Get a list of the versions of a document set item in a list. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new version of a document set item in a list.
+     * Create a new version of a document set item in a list. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,17 +1,19 @@
-import { type ApplicationServicePrincipal } from '../../../models/applicationServicePrincipal';
-import { createApplicationServicePrincipalFromDiscriminatorValue } from '../../../models/createApplicationServicePrincipalFromDiscriminatorValue';
-import { deserializeIntoApplicationServicePrincipal } from '../../../models/deserializeIntoApplicationServicePrincipal';
+import { createApplicationServicePrincipalFromDiscriminatorValue, deserializeIntoApplicationServicePrincipal, serializeApplicationServicePrincipal, type ApplicationServicePrincipal } from '../../../models/applicationServicePrincipal';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeApplicationServicePrincipal } from '../../../models/serializeApplicationServicePrincipal';
-import { deserializeIntoInstantiatePostRequestBody } from './deserializeIntoInstantiatePostRequestBody';
-import { type InstantiatePostRequestBody } from './instantiatePostRequestBody';
-import { type InstantiateRequestBuilderPostRequestConfiguration } from './instantiateRequestBuilderPostRequestConfiguration';
-import { serializeInstantiatePostRequestBody } from './serializeInstantiatePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoInstantiatePostRequestBody, serializeInstantiatePostRequestBody, type InstantiatePostRequestBody } from './instantiatePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InstantiateRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the instantiate method.
  */
@@ -25,7 +27,7 @@ export class InstantiateRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applicationTemplates/{applicationTemplate%2Did}/instantiate");
     };
     /**
-     * Add an instance of an application from the Azure AD application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the applicationTemplate object: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621.
+     * Add an instance of an application from the Azure AD application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the applicationTemplate object: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApplicationServicePrincipal
@@ -42,7 +44,7 @@ export class InstantiateRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ApplicationServicePrincipal>(requestInfo, createApplicationServicePrincipalFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add an instance of an application from the Azure AD application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the applicationTemplate object: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621.
+     * Add an instance of an application from the Azure AD application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the applicationTemplate object: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

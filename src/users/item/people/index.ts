@@ -1,2 +1,1 @@
-export * from './peopleRequestBuilderGetQueryParameters'
-export * from './peopleRequestBuilderGetRequestConfiguration'
+export * from './peopleRequestBuilder'

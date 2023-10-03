@@ -1,11 +1,6 @@
-import { createUserFromDiscriminatorValue } from '../../models/createUserFromDiscriminatorValue';
-import { deserializeIntoUser } from '../../models/deserializeIntoUser';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeUser } from '../../models/serializeUser';
-import { type User } from '../../models/user';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createUserFromDiscriminatorValue, deserializeIntoUser, serializeUser, type User } from '../../models/user';
 import { ActivitiesRequestBuilder } from './activities/activitiesRequestBuilder';
 import { AgreementAcceptancesRequestBuilder } from './agreementAcceptances/agreementAcceptancesRequestBuilder';
 import { AppRoleAssignmentsRequestBuilder } from './appRoleAssignments/appRoleAssignmentsRequestBuilder';
@@ -71,17 +66,59 @@ import { RetryServiceProvisioningRequestBuilder } from './retryServiceProvisioni
 import { RevokeSignInSessionsRequestBuilder } from './revokeSignInSessions/revokeSignInSessionsRequestBuilder';
 import { ScopedRoleMemberOfRequestBuilder } from './scopedRoleMemberOf/scopedRoleMemberOfRequestBuilder';
 import { SendMailRequestBuilder } from './sendMail/sendMailRequestBuilder';
+import { ServiceProvisioningErrorsRequestBuilder } from './serviceProvisioningErrors/serviceProvisioningErrorsRequestBuilder';
 import { SettingsRequestBuilder } from './settings/settingsRequestBuilder';
 import { TeamworkRequestBuilder } from './teamwork/teamworkRequestBuilder';
 import { TodoRequestBuilder } from './todo/todoRequestBuilder';
 import { TransitiveMemberOfRequestBuilder } from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import { TranslateExchangeIdsRequestBuilder } from './translateExchangeIds/translateExchangeIdsRequestBuilder';
-import { type UserItemRequestBuilderDeleteRequestConfiguration } from './userItemRequestBuilderDeleteRequestConfiguration';
-import { type UserItemRequestBuilderGetRequestConfiguration } from './userItemRequestBuilderGetRequestConfiguration';
-import { type UserItemRequestBuilderPatchRequestConfiguration } from './userItemRequestBuilderPatchRequestConfiguration';
 import { WipeManagedAppRegistrationsByDeviceTagRequestBuilder } from './wipeManagedAppRegistrationsByDeviceTag/wipeManagedAppRegistrationsByDeviceTagRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserItemRequestBuilderGetQueryParameters;
+}
+export interface UserItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of user entities.
  */
@@ -465,6 +502,12 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
         return new SendMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * The serviceProvisioningErrors property
+     */
+    public get serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder {
+        return new ServiceProvisioningErrorsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Provides operations to manage the settings property of the microsoft.graph.user entity.
      */
     public get settings(): SettingsRequestBuilder {
@@ -509,9 +552,9 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a user.
+     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: UserItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -535,10 +578,10 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
         return new ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder(this.pathParameters, this.requestAdapter, skip, top);
     };
     /**
-     * Retrieve the properties and relationships of user object.
+     * Read properties and relationships of the user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
-     * @see {@link https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserItemRequestBuilderGetRequestConfiguration | undefined) : Promise<User | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -551,11 +594,11 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a user object.
+     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: User, requestConfiguration?: UserItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<User | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -579,7 +622,7 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
         return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, startDateTime);
     };
     /**
-     * Deletes a user.
+     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -595,7 +638,7 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of user object.
+     * Read properties and relationships of the user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -613,7 +656,7 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a user object.
+     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

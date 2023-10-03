@@ -1,17 +1,19 @@
-import { createMailFolderFromDiscriminatorValue } from '../../../../../../../models/createMailFolderFromDiscriminatorValue';
-import { deserializeIntoMailFolder } from '../../../../../../../models/deserializeIntoMailFolder';
-import { type MailFolder } from '../../../../../../../models/mailFolder';
+import { createMailFolderFromDiscriminatorValue, deserializeIntoMailFolder, serializeMailFolder, type MailFolder } from '../../../../../../../models/mailFolder';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeMailFolder } from '../../../../../../../models/serializeMailFolder';
-import { type CopyPostRequestBody } from './copyPostRequestBody';
-import { type CopyRequestBuilderPostRequestConfiguration } from './copyRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCopyPostRequestBody } from './deserializeIntoCopyPostRequestBody';
-import { serializeCopyPostRequestBody } from './serializeCopyPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoCopyPostRequestBody, serializeCopyPostRequestBody, type CopyPostRequestBody } from './copyPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CopyRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the copy method.
  */
@@ -25,7 +27,7 @@ export class CopyRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/copy");
     };
     /**
-     * Copy a mailfolder and its contents to another mailfolder.
+     * Copy a mailfolder and its contents to another mailfolder. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MailFolder
@@ -42,7 +44,7 @@ export class CopyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MailFolder>(requestInfo, createMailFolderFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Copy a mailfolder and its contents to another mailfolder.
+     * Copy a mailfolder and its contents to another mailfolder. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

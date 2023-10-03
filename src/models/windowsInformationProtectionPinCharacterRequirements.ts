@@ -9,3 +9,5 @@ export enum WindowsInformationProtectionPinCharacterRequirements {
     /** Allow any number */
     Allow = "allow",
 }
+// tslint:enable
+// eslint-enable

@@ -1,11 +1,6 @@
-import { createDriveItemFromDiscriminatorValue } from '../../../../models/createDriveItemFromDiscriminatorValue';
-import { deserializeIntoDriveItem } from '../../../../models/deserializeIntoDriveItem';
-import { type DriveItem } from '../../../../models/driveItem';
+import { createDriveItemFromDiscriminatorValue, deserializeIntoDriveItem, serializeDriveItem, type DriveItem } from '../../../../models/driveItem';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeDriveItem } from '../../../../models/serializeDriveItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { AnalyticsRequestBuilder } from './analytics/analyticsRequestBuilder';
 import { AssignSensitivityLabelRequestBuilder } from './assignSensitivityLabel/assignSensitivityLabelRequestBuilder';
 import { CheckinRequestBuilder } from './checkin/checkinRequestBuilder';
@@ -18,9 +13,6 @@ import { CreateLinkRequestBuilder } from './createLink/createLinkRequestBuilder'
 import { CreateUploadSessionRequestBuilder } from './createUploadSession/createUploadSessionRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { DeltaWithTokenRequestBuilder } from './deltaWithToken/deltaWithTokenRequestBuilder';
-import { type DriveItemItemRequestBuilderDeleteRequestConfiguration } from './driveItemItemRequestBuilderDeleteRequestConfiguration';
-import { type DriveItemItemRequestBuilderGetRequestConfiguration } from './driveItemItemRequestBuilderGetRequestConfiguration';
-import { type DriveItemItemRequestBuilderPatchRequestConfiguration } from './driveItemItemRequestBuilderPatchRequestConfiguration';
 import { ExtractSensitivityLabelsRequestBuilder } from './extractSensitivityLabels/extractSensitivityLabelsRequestBuilder';
 import { FollowRequestBuilder } from './follow/followRequestBuilder';
 import { GetActivitiesByIntervalRequestBuilder } from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
@@ -41,6 +33,50 @@ import { VersionsRequestBuilder } from './versions/versionsRequestBuilder';
 import { WorkbookRequestBuilder } from './workbook/workbookRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DriveItemItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DriveItemItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DriveItemItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DriveItemItemRequestBuilderGetQueryParameters;
+}
+export interface DriveItemItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the items property of the microsoft.graph.drive entity.
  */
@@ -216,7 +252,7 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a DriveItem by using its ID or path.Note that deleting items using this method will move the items to the recycle bin instead of permanently deleting the item.
+     * Delete a DriveItem by using its ID or path.Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/driveitem-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -268,11 +304,11 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, interval, startDateTime);
     };
     /**
-     * Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property.
+     * To move a DriveItem to a new parent item, your app requests to update the parentReference of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItem
-     * @see {@link https://learn.microsoft.com/graph/api/driveitem-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-move?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DriveItem, requestConfiguration?: DriveItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -294,7 +330,7 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
     };
     /**
-     * Delete a DriveItem by using its ID or path.Note that deleting items using this method will move the items to the recycle bin instead of permanently deleting the item.
+     * Delete a DriveItem by using its ID or path.Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -328,7 +364,7 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property.
+     * To move a DriveItem to a new parent item, your app requests to update the parentReference of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

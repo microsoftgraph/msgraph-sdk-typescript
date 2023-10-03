@@ -8,3 +8,5 @@ export enum ConditionalAccessGuestOrExternalUserTypes {
     ServiceProvider = "serviceProvider",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

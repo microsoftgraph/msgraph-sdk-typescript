@@ -1,15 +1,42 @@
-import { createLifecycleManagementSettingsFromDiscriminatorValue } from '../../../models/identityGovernance/createLifecycleManagementSettingsFromDiscriminatorValue';
-import { deserializeIntoLifecycleManagementSettings } from '../../../models/identityGovernance/deserializeIntoLifecycleManagementSettings';
-import { type LifecycleManagementSettings } from '../../../models/identityGovernance/lifecycleManagementSettings';
-import { serializeLifecycleManagementSettings } from '../../../models/identityGovernance/serializeLifecycleManagementSettings';
+import { createLifecycleManagementSettingsFromDiscriminatorValue, deserializeIntoLifecycleManagementSettings, serializeLifecycleManagementSettings, type LifecycleManagementSettings } from '../../../models/identityGovernance/lifecycleManagementSettings';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type SettingsRequestBuilderGetRequestConfiguration } from './settingsRequestBuilderGetRequestConfiguration';
-import { type SettingsRequestBuilderPatchRequestConfiguration } from './settingsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SettingsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SettingsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SettingsRequestBuilderGetQueryParameters;
+}
+export interface SettingsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the settings property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
  */
@@ -23,7 +50,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/settings{?%24select,%24expand}");
     };
     /**
-     * Read the properties and relationships of a lifecycleManagementSettings object.
+     * Read the properties and relationships of a lifecycleManagementSettings object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LifecycleManagementSettings
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecyclemanagementsettings-get?view=graph-rest-1.0|Find more info here}
@@ -39,7 +66,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<LifecycleManagementSettings>(requestInfo, createLifecycleManagementSettingsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a lifecycleManagementSettings object.
+     * Update the properties of a lifecycleManagementSettings object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LifecycleManagementSettings
@@ -56,7 +83,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<LifecycleManagementSettings>(requestInfo, createLifecycleManagementSettingsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the properties and relationships of a lifecycleManagementSettings object.
+     * Read the properties and relationships of a lifecycleManagementSettings object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -74,7 +101,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a lifecycleManagementSettings object.
+     * Update the properties of a lifecycleManagementSettings object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

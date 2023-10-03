@@ -1,17 +1,19 @@
-import { createMailFolderFromDiscriminatorValue } from '../../../../models/createMailFolderFromDiscriminatorValue';
-import { deserializeIntoMailFolder } from '../../../../models/deserializeIntoMailFolder';
-import { type MailFolder } from '../../../../models/mailFolder';
+import { createMailFolderFromDiscriminatorValue, deserializeIntoMailFolder, serializeMailFolder, type MailFolder } from '../../../../models/mailFolder';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeMailFolder } from '../../../../models/serializeMailFolder';
-import { deserializeIntoMovePostRequestBody } from './deserializeIntoMovePostRequestBody';
-import { type MovePostRequestBody } from './movePostRequestBody';
-import { type MoveRequestBuilderPostRequestConfiguration } from './moveRequestBuilderPostRequestConfiguration';
-import { serializeMovePostRequestBody } from './serializeMovePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoMovePostRequestBody, serializeMovePostRequestBody, type MovePostRequestBody } from './movePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MoveRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the move method.
  */
@@ -25,7 +27,7 @@ export class MoveRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/mailFolders/{mailFolder%2Did}/move");
     };
     /**
-     * Move a mailfolder and its contents to another mailfolder.
+     * Move a mailfolder and its contents to another mailfolder. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MailFolder
@@ -42,7 +44,7 @@ export class MoveRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MailFolder>(requestInfo, createMailFolderFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Move a mailfolder and its contents to another mailfolder.
+     * Move a mailfolder and its contents to another mailfolder. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

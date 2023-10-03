@@ -1,17 +1,19 @@
-import { createUploadSessionFromDiscriminatorValue } from '../../../../../../../../../models/createUploadSessionFromDiscriminatorValue';
-import { deserializeIntoUploadSession } from '../../../../../../../../../models/deserializeIntoUploadSession';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeUploadSession } from '../../../../../../../../../models/serializeUploadSession';
-import { type UploadSession } from '../../../../../../../../../models/uploadSession';
-import { type CreateUploadSessionPostRequestBody } from './createUploadSessionPostRequestBody';
-import { type CreateUploadSessionRequestBuilderPostRequestConfiguration } from './createUploadSessionRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCreateUploadSessionPostRequestBody } from './deserializeIntoCreateUploadSessionPostRequestBody';
-import { serializeCreateUploadSessionPostRequestBody } from './serializeCreateUploadSessionPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { createUploadSessionFromDiscriminatorValue, deserializeIntoUploadSession, serializeUploadSession, type UploadSession } from '../../../../../../../../../models/uploadSession';
+import { deserializeIntoCreateUploadSessionPostRequestBody, serializeCreateUploadSessionPostRequestBody, type CreateUploadSessionPostRequestBody } from './createUploadSessionPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CreateUploadSessionRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the createUploadSession method.
  */
@@ -25,7 +27,7 @@ export class CreateUploadSessionRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/createUploadSession");
     };
     /**
-     * Create an upload session to iteratively upload ranges of a file as an attachment to a todoTask. As part of the response, this action returns an upload URL that you can use in subsequent sequential PUT queries. The request headers for each PUT operation let you specify the exact range of bytes to be uploaded. This allows the transfer to be resumed, in case the network connection is dropped during the upload. The following are the steps to attach a file to a Microsoft To Do task using an upload session: For an example that describes the end-to-end attachment process, see attach files to a To Do task.
+     * Create an upload session to iteratively upload ranges of a file as an attachment to a todoTask. As part of the response, this action returns an upload URL that you can use in subsequent sequential PUT queries. The request headers for each PUT operation let you specify the exact range of bytes to be uploaded. This allows the transfer to be resumed, in case the network connection is dropped during the upload. The following are the steps to attach a file to a Microsoft To Do task using an upload session: For an example that describes the end-to-end attachment process, see attach files to a To Do task. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UploadSession
@@ -42,7 +44,7 @@ export class CreateUploadSessionRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UploadSession>(requestInfo, createUploadSessionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an upload session to iteratively upload ranges of a file as an attachment to a todoTask. As part of the response, this action returns an upload URL that you can use in subsequent sequential PUT queries. The request headers for each PUT operation let you specify the exact range of bytes to be uploaded. This allows the transfer to be resumed, in case the network connection is dropped during the upload. The following are the steps to attach a file to a Microsoft To Do task using an upload session: For an example that describes the end-to-end attachment process, see attach files to a To Do task.
+     * Create an upload session to iteratively upload ranges of a file as an attachment to a todoTask. As part of the response, this action returns an upload URL that you can use in subsequent sequential PUT queries. The request headers for each PUT operation let you specify the exact range of bytes to be uploaded. This allows the transfer to be resumed, in case the network connection is dropped during the upload. The following are the steps to attach a file to a Microsoft To Do task using an upload session: For an example that describes the end-to-end attachment process, see attach files to a To Do task. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,12 +1,53 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { createFilterOperatorsResponseFromDiscriminatorValue } from './createFilterOperatorsResponseFromDiscriminatorValue';
-import { type FilterOperatorsRequestBuilderGetRequestConfiguration } from './filterOperatorsRequestBuilderGetRequestConfiguration';
-import { type FilterOperatorsResponse } from './index';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createFilterOperatorsGetResponseFromDiscriminatorValue } from './filterOperatorsGetResponse';
+import { type FilterOperatorsGetResponse } from './index';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FilterOperatorsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface FilterOperatorsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FilterOperatorsRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to call the filterOperators method.
  */
@@ -22,9 +63,9 @@ export class FilterOperatorsRequestBuilder extends BaseRequestBuilder {
     /**
      * Invoke function filterOperators
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of FilterOperatorsResponse
+     * @returns a Promise of FilterOperatorsGetResponse
      */
-    public get(requestConfiguration?: FilterOperatorsRequestBuilderGetRequestConfiguration | undefined) : Promise<FilterOperatorsResponse | undefined> {
+    public get(requestConfiguration?: FilterOperatorsRequestBuilderGetRequestConfiguration | undefined) : Promise<FilterOperatorsGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -32,7 +73,7 @@ export class FilterOperatorsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<FilterOperatorsResponse>(requestInfo, createFilterOperatorsResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<FilterOperatorsGetResponse>(requestInfo, createFilterOperatorsGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function filterOperators

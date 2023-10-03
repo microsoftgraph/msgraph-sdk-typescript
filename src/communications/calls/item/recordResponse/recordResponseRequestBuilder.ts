@@ -1,17 +1,19 @@
-import { createRecordOperationFromDiscriminatorValue } from '../../../../models/createRecordOperationFromDiscriminatorValue';
-import { deserializeIntoRecordOperation } from '../../../../models/deserializeIntoRecordOperation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type RecordOperation } from '../../../../models/recordOperation';
-import { serializeRecordOperation } from '../../../../models/serializeRecordOperation';
-import { deserializeIntoRecordResponsePostRequestBody } from './deserializeIntoRecordResponsePostRequestBody';
-import { type RecordResponsePostRequestBody } from './recordResponsePostRequestBody';
-import { type RecordResponseRequestBuilderPostRequestConfiguration } from './recordResponseRequestBuilderPostRequestConfiguration';
-import { serializeRecordResponsePostRequestBody } from './serializeRecordResponsePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createRecordOperationFromDiscriminatorValue, deserializeIntoRecordOperation, serializeRecordOperation, type RecordOperation } from '../../../../models/recordOperation';
+import { deserializeIntoRecordResponsePostRequestBody, serializeRecordResponsePostRequestBody, type RecordResponsePostRequestBody } from './recordResponsePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RecordResponseRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the recordResponse method.
  */
@@ -25,7 +27,7 @@ export class RecordResponseRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/recordResponse");
     };
     /**
-     * Records a short audio response from the caller.A bot can utilize this to capture a voice response from a caller after they are prompted for a response. For further information on how to handle operations, please review commsOperation This action is not intended to record the entire call. The maximum length of recording is 2 minutes. The recording is not saved permanently by the Cloud Communications Platform and is discarded shortly after the call ends. The bot must download the recording promptly after the recording operation finishes by using the recordingLocation value that's given in the completed notification.
+     * Records a short audio response from the caller.A bot can utilize this to capture a voice response from a caller after they are prompted for a response. For further information on how to handle operations, please review commsOperation This action is not intended to record the entire call. The maximum length of recording is 2 minutes. The recording is not saved permanently by the Cloud Communications Platform and is discarded shortly after the call ends. The bot must download the recording promptly after the recording operation finishes by using the recordingLocation value that's given in the completed notification. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RecordOperation
@@ -42,7 +44,7 @@ export class RecordResponseRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RecordOperation>(requestInfo, createRecordOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Records a short audio response from the caller.A bot can utilize this to capture a voice response from a caller after they are prompted for a response. For further information on how to handle operations, please review commsOperation This action is not intended to record the entire call. The maximum length of recording is 2 minutes. The recording is not saved permanently by the Cloud Communications Platform and is discarded shortly after the call ends. The bot must download the recording promptly after the recording operation finishes by using the recordingLocation value that's given in the completed notification.
+     * Records a short audio response from the caller.A bot can utilize this to capture a voice response from a caller after they are prompted for a response. For further information on how to handle operations, please review commsOperation This action is not intended to record the entire call. The maximum length of recording is 2 minutes. The recording is not saved permanently by the Cloud Communications Platform and is discarded shortly after the call ends. The bot must download the recording promptly after the recording operation finishes by using the recordingLocation value that's given in the completed notification. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

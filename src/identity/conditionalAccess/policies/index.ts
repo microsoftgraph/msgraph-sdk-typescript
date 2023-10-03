@@ -1,3 +1,1 @@
-export * from './policiesRequestBuilderGetQueryParameters'
-export * from './policiesRequestBuilderGetRequestConfiguration'
-export * from './policiesRequestBuilderPostRequestConfiguration'
+export * from './policiesRequestBuilder'

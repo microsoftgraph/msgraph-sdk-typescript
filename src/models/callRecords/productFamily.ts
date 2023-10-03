@@ -6,3 +6,5 @@ export enum ProductFamily {
     UnknownFutureValue = "unknownFutureValue",
     AzureCommunicationServices = "azureCommunicationServices",
 }
+// tslint:enable
+// eslint-enable

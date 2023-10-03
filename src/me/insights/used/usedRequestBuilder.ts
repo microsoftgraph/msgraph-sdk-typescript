@@ -1,19 +1,70 @@
 import { type UsedInsightCollectionResponse } from '../../../models/';
-import { createUsedInsightCollectionResponseFromDiscriminatorValue } from '../../../models/createUsedInsightCollectionResponseFromDiscriminatorValue';
-import { createUsedInsightFromDiscriminatorValue } from '../../../models/createUsedInsightFromDiscriminatorValue';
-import { deserializeIntoUsedInsight } from '../../../models/deserializeIntoUsedInsight';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUsedInsight } from '../../../models/serializeUsedInsight';
-import { type UsedInsight } from '../../../models/usedInsight';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUsedInsightFromDiscriminatorValue, deserializeIntoUsedInsight, serializeUsedInsight, type UsedInsight } from '../../../models/usedInsight';
+import { createUsedInsightCollectionResponseFromDiscriminatorValue } from '../../../models/usedInsightCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UsedInsightItemRequestBuilder } from './item/usedInsightItemRequestBuilder';
-import { type UsedRequestBuilderGetRequestConfiguration } from './usedRequestBuilderGetRequestConfiguration';
-import { type UsedRequestBuilderPostRequestConfiguration } from './usedRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UsedRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UsedRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UsedRequestBuilderGetQueryParameters;
+}
+export interface UsedRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
  */
@@ -44,7 +95,7 @@ export class UsedRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/insights/used{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Calculate and list the documents that a user has viewed or modified.  For the signed-in user:- This method includes documents that the user has modified; see example 1. - Using an $orderby query parameter on the lastAccessedDateTime property returns the most recently viewed documents that the user might or might not not have modified; see example 2. For other users, this method includes only documents that the user has modified.
+     * Calculate and list the documents that a user has viewed or modified.  For the signed-in user:- This method includes documents that the user has modified; see example 1. - Using an $orderby query parameter on the lastAccessedDateTime property returns the most recently viewed documents that the user might or might not not have modified; see example 2. For other users, this method includes only documents that the user has modified. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UsedInsightCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/insights-list-used?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class UsedRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UsedInsight>(requestInfo, createUsedInsightFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Calculate and list the documents that a user has viewed or modified.  For the signed-in user:- This method includes documents that the user has modified; see example 1. - Using an $orderby query parameter on the lastAccessedDateTime property returns the most recently viewed documents that the user might or might not not have modified; see example 2. For other users, this method includes only documents that the user has modified.
+     * Calculate and list the documents that a user has viewed or modified.  For the signed-in user:- This method includes documents that the user has modified; see example 1. - Using an $orderby query parameter on the lastAccessedDateTime property returns the most recently viewed documents that the user might or might not not have modified; see example 2. For other users, this method includes only documents that the user has modified. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

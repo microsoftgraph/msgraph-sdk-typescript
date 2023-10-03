@@ -11,3 +11,5 @@ export enum AndroidWorkProfileDefaultAppPermissionPolicyType {
     /** Auto deny. */
     AutoDeny = "autoDeny",
 }
+// tslint:enable
+// eslint-enable

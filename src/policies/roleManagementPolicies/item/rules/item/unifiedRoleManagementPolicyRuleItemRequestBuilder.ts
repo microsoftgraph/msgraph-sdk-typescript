@@ -1,16 +1,52 @@
-import { createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue } from '../../../../../models/createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleManagementPolicyRule } from '../../../../../models/deserializeIntoUnifiedRoleManagementPolicyRule';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleManagementPolicyRule } from '../../../../../models/serializeUnifiedRoleManagementPolicyRule';
-import { type UnifiedRoleManagementPolicyRule } from '../../../../../models/unifiedRoleManagementPolicyRule';
-import { type UnifiedRoleManagementPolicyRuleItemRequestBuilderDeleteRequestConfiguration } from './unifiedRoleManagementPolicyRuleItemRequestBuilderDeleteRequestConfiguration';
-import { type UnifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration } from './unifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration';
-import { type UnifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration } from './unifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue, deserializeIntoUnifiedRoleManagementPolicyRule, serializeUnifiedRoleManagementPolicyRule, type UnifiedRoleManagementPolicyRule } from '../../../../../models/unifiedRoleManagementPolicyRule';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnifiedRoleManagementPolicyRuleItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UnifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParameters;
+}
+export interface UnifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the rules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
  */
@@ -38,7 +74,7 @@ export class UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseReque
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve a rule or settings defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object:+ unifiedRoleManagementPolicyApprovalRule+ unifiedRoleManagementPolicyAuthenticationContextRule+ unifiedRoleManagementPolicyEnablementRule+ unifiedRoleManagementPolicyExpirationRule+ unifiedRoleManagementPolicyNotificationRule
+     * Retrieve a rule or settings defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleManagementPolicyRule
      * @see {@link https://learn.microsoft.com/graph/api/unifiedrolemanagementpolicyrule-get?view=graph-rest-1.0|Find more info here}
@@ -54,7 +90,7 @@ export class UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseReque
         return this.requestAdapter.sendAsync<UnifiedRoleManagementPolicyRule>(requestInfo, createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update a rule defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object: For more information about rules for Azure AD roles and examples of updating rules, see the following articles:
+     * Update a rule defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object: For more information about rules for Azure AD roles and examples of updating rules, see the following articles: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleManagementPolicyRule
@@ -87,7 +123,7 @@ export class UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseReque
         return requestInfo;
     };
     /**
-     * Retrieve a rule or settings defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object:+ unifiedRoleManagementPolicyApprovalRule+ unifiedRoleManagementPolicyAuthenticationContextRule+ unifiedRoleManagementPolicyEnablementRule+ unifiedRoleManagementPolicyExpirationRule+ unifiedRoleManagementPolicyNotificationRule
+     * Retrieve a rule or settings defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseReque
         return requestInfo;
     };
     /**
-     * Update a rule defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object: For more information about rules for Azure AD roles and examples of updating rules, see the following articles:
+     * Update a rule defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object: For more information about rules for Azure AD roles and examples of updating rules, see the following articles: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

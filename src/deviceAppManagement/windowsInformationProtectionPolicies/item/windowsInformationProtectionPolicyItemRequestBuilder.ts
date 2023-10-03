@@ -1,19 +1,55 @@
-import { createWindowsInformationProtectionPolicyFromDiscriminatorValue } from '../../../models/createWindowsInformationProtectionPolicyFromDiscriminatorValue';
-import { deserializeIntoWindowsInformationProtectionPolicy } from '../../../models/deserializeIntoWindowsInformationProtectionPolicy';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeWindowsInformationProtectionPolicy } from '../../../models/serializeWindowsInformationProtectionPolicy';
-import { type WindowsInformationProtectionPolicy } from '../../../models/windowsInformationProtectionPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createWindowsInformationProtectionPolicyFromDiscriminatorValue, deserializeIntoWindowsInformationProtectionPolicy, serializeWindowsInformationProtectionPolicy, type WindowsInformationProtectionPolicy } from '../../../models/windowsInformationProtectionPolicy';
 import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
 import { ExemptAppLockerFilesRequestBuilder } from './exemptAppLockerFiles/exemptAppLockerFilesRequestBuilder';
 import { ProtectedAppLockerFilesRequestBuilder } from './protectedAppLockerFiles/protectedAppLockerFilesRequestBuilder';
-import { type WindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration } from './windowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type WindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration } from './windowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration';
-import { type WindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration } from './windowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface WindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the windowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
  */

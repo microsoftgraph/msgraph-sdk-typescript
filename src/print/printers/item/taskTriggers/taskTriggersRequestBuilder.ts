@@ -1,19 +1,70 @@
 import { type PrintTaskTriggerCollectionResponse } from '../../../../models/';
-import { createPrintTaskTriggerCollectionResponseFromDiscriminatorValue } from '../../../../models/createPrintTaskTriggerCollectionResponseFromDiscriminatorValue';
-import { createPrintTaskTriggerFromDiscriminatorValue } from '../../../../models/createPrintTaskTriggerFromDiscriminatorValue';
-import { deserializeIntoPrintTaskTrigger } from '../../../../models/deserializeIntoPrintTaskTrigger';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type PrintTaskTrigger } from '../../../../models/printTaskTrigger';
-import { serializePrintTaskTrigger } from '../../../../models/serializePrintTaskTrigger';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createPrintTaskTriggerFromDiscriminatorValue, deserializeIntoPrintTaskTrigger, serializePrintTaskTrigger, type PrintTaskTrigger } from '../../../../models/printTaskTrigger';
+import { createPrintTaskTriggerCollectionResponseFromDiscriminatorValue } from '../../../../models/printTaskTriggerCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PrintTaskTriggerItemRequestBuilder } from './item/printTaskTriggerItemRequestBuilder';
-import { type TaskTriggersRequestBuilderGetRequestConfiguration } from './taskTriggersRequestBuilderGetRequestConfiguration';
-import { type TaskTriggersRequestBuilderPostRequestConfiguration } from './taskTriggersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TaskTriggersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TaskTriggersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TaskTriggersRequestBuilderGetQueryParameters;
+}
+export interface TaskTriggersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
  */
@@ -44,7 +95,7 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/printers/{printer%2Did}/taskTriggers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of task triggers associated with the printer. The list of task triggers defines which tasks will be triggered as a result of events that occur during printing. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+     * Retrieve a list of task triggers associated with the printer. The list of task triggers defines which tasks will be triggered as a result of events that occur during printing. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintTaskTriggerCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/printer-list-tasktriggers?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrintTaskTriggerCollectionResponse>(requestInfo, createPrintTaskTriggerCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new task trigger on the specified printer. Currently, only one task trigger can be specified per printer, but this limit might be removed in the future. 
+     * Create a new task trigger on the specified printer. Currently, only one task trigger can be specified per printer, but this limit might be removed in the future.  This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintTaskTrigger
@@ -77,7 +128,7 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrintTaskTrigger>(requestInfo, createPrintTaskTriggerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of task triggers associated with the printer. The list of task triggers defines which tasks will be triggered as a result of events that occur during printing. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+     * Retrieve a list of task triggers associated with the printer. The list of task triggers defines which tasks will be triggered as a result of events that occur during printing. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new task trigger on the specified printer. Currently, only one task trigger can be specified per printer, but this limit might be removed in the future. 
+     * Create a new task trigger on the specified printer. Currently, only one task trigger can be specified per printer, but this limit might be removed in the future.  This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

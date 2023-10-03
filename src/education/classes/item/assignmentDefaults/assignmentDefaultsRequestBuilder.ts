@@ -1,16 +1,52 @@
-import { createEducationAssignmentDefaultsFromDiscriminatorValue } from '../../../../models/createEducationAssignmentDefaultsFromDiscriminatorValue';
-import { deserializeIntoEducationAssignmentDefaults } from '../../../../models/deserializeIntoEducationAssignmentDefaults';
-import { type EducationAssignmentDefaults } from '../../../../models/educationAssignmentDefaults';
+import { createEducationAssignmentDefaultsFromDiscriminatorValue, deserializeIntoEducationAssignmentDefaults, serializeEducationAssignmentDefaults, type EducationAssignmentDefaults } from '../../../../models/educationAssignmentDefaults';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationAssignmentDefaults } from '../../../../models/serializeEducationAssignmentDefaults';
-import { type AssignmentDefaultsRequestBuilderDeleteRequestConfiguration } from './assignmentDefaultsRequestBuilderDeleteRequestConfiguration';
-import { type AssignmentDefaultsRequestBuilderGetRequestConfiguration } from './assignmentDefaultsRequestBuilderGetRequestConfiguration';
-import { type AssignmentDefaultsRequestBuilderPatchRequestConfiguration } from './assignmentDefaultsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignmentDefaultsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AssignmentDefaultsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AssignmentDefaultsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AssignmentDefaultsRequestBuilderGetQueryParameters;
+}
+export interface AssignmentDefaultsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignmentDefaults property of the microsoft.graph.educationClass entity.
  */
@@ -38,7 +74,7 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each assignment creation if they don't want the default behaviors. Only teachers can perform this operation.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each assignment creation if they don't want the default behaviors. Only teachers can perform this operation. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentDefaults
      * @see {@link https://learn.microsoft.com/graph/api/educationassignmentdefaults-get?view=graph-rest-1.0|Find more info here}
@@ -54,7 +90,7 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationAssignmentDefaults>(requestInfo, createEducationAssignmentDefaultsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings.
+     * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentDefaults
@@ -87,7 +123,7 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each assignment creation if they don't want the default behaviors. Only teachers can perform this operation.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each assignment creation if they don't want the default behaviors. Only teachers can perform this operation. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings.
+     * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

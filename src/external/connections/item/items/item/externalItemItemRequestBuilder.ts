@@ -1,18 +1,54 @@
-import { createExternalItemFromDiscriminatorValue } from '../../../../../models/externalConnectors/createExternalItemFromDiscriminatorValue';
-import { deserializeIntoExternalItem } from '../../../../../models/externalConnectors/deserializeIntoExternalItem';
-import { type ExternalItem } from '../../../../../models/externalConnectors/externalItem';
-import { serializeExternalItem } from '../../../../../models/externalConnectors/serializeExternalItem';
+import { createExternalItemFromDiscriminatorValue, deserializeIntoExternalItem, serializeExternalItem, type ExternalItem } from '../../../../../models/externalConnectors/externalItem';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { ActivitiesRequestBuilder } from './activities/activitiesRequestBuilder';
-import { type ExternalItemItemRequestBuilderDeleteRequestConfiguration } from './externalItemItemRequestBuilderDeleteRequestConfiguration';
-import { type ExternalItemItemRequestBuilderGetRequestConfiguration } from './externalItemItemRequestBuilderGetRequestConfiguration';
-import { type ExternalItemItemRequestBuilderPutRequestConfiguration } from './externalItemItemRequestBuilderPutRequestConfiguration';
 import { MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder } from './microsoftGraphExternalConnectorsAddActivities/microsoftGraphExternalConnectorsAddActivitiesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExternalItemItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ExternalItemItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ExternalItemItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ExternalItemItemRequestBuilderGetQueryParameters;
+}
+export interface ExternalItemItemRequestBuilderPutRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
  */
@@ -38,7 +74,7 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/external/connections/{externalConnection%2Did}/items/{externalItem%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an externalItem object.
+     * Delete an externalItem object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -53,7 +89,7 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an externalItem object.
+     * Read the properties and relationships of an externalItem object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalItem
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-1.0|Find more info here}
@@ -85,7 +121,7 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ExternalItem>(requestInfo, createExternalItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an externalItem object.
+     * Delete an externalItem object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -101,7 +137,7 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an externalItem object.
+     * Read the properties and relationships of an externalItem object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

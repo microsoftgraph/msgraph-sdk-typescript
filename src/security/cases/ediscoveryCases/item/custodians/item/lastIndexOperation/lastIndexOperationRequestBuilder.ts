@@ -1,12 +1,33 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryIndexOperation } from '../../../../../../../models/security/';
-import { createEdiscoveryIndexOperationFromDiscriminatorValue } from '../../../../../../../models/security/createEdiscoveryIndexOperationFromDiscriminatorValue';
-import { type LastIndexOperationRequestBuilderGetRequestConfiguration } from './lastIndexOperationRequestBuilderGetRequestConfiguration';
+import { createEdiscoveryIndexOperationFromDiscriminatorValue } from '../../../../../../../models/security/ediscoveryIndexOperation';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LastIndexOperationRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LastIndexOperationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LastIndexOperationRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryCustodian entity.
  */
@@ -20,7 +41,7 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/lastIndexOperation{?%24select,%24expand}");
     };
     /**
-     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
+     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryIndexOperation
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-lastindexoperation?view=graph-rest-1.0|Find more info here}
@@ -36,7 +57,7 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EdiscoveryIndexOperation>(requestInfo, createEdiscoveryIndexOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
+     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

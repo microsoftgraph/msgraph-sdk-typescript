@@ -1,16 +1,52 @@
-import { createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue } from '../../../../../models/createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue';
-import { type CrossTenantIdentitySyncPolicyPartner } from '../../../../../models/crossTenantIdentitySyncPolicyPartner';
-import { deserializeIntoCrossTenantIdentitySyncPolicyPartner } from '../../../../../models/deserializeIntoCrossTenantIdentitySyncPolicyPartner';
+import { createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue, deserializeIntoCrossTenantIdentitySyncPolicyPartner, serializeCrossTenantIdentitySyncPolicyPartner, type CrossTenantIdentitySyncPolicyPartner } from '../../../../../models/crossTenantIdentitySyncPolicyPartner';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeCrossTenantIdentitySyncPolicyPartner } from '../../../../../models/serializeCrossTenantIdentitySyncPolicyPartner';
-import { type IdentitySynchronizationRequestBuilderDeleteRequestConfiguration } from './identitySynchronizationRequestBuilderDeleteRequestConfiguration';
-import { type IdentitySynchronizationRequestBuilderGetRequestConfiguration } from './identitySynchronizationRequestBuilderGetRequestConfiguration';
-import { type IdentitySynchronizationRequestBuilderPutRequestConfiguration } from './identitySynchronizationRequestBuilderPutRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentitySynchronizationRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IdentitySynchronizationRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentitySynchronizationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentitySynchronizationRequestBuilderGetQueryParameters;
+}
+export interface IdentitySynchronizationRequestBuilderPutRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the identitySynchronization property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.
  */
@@ -24,7 +60,7 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/crossTenantAccessPolicy/partners/{crossTenantAccessPolicyConfigurationPartner%2DtenantId}/identitySynchronization{?%24select,%24expand}");
     };
     /**
-     * Delete the user synchronization policy for a partner-specific configuration.
+     * Delete the user synchronization policy for a partner-specific configuration. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the user synchronization policy of a partner-specific configuration.
+     * Get the user synchronization policy of a partner-specific configuration. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CrossTenantIdentitySyncPolicyPartner
      * @see {@link https://learn.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-get?view=graph-rest-1.0|Find more info here}
@@ -71,7 +107,7 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CrossTenantIdentitySyncPolicyPartner>(requestInfo, createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete the user synchronization policy for a partner-specific configuration.
+     * Delete the user synchronization policy for a partner-specific configuration. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -87,7 +123,7 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the user synchronization policy of a partner-specific configuration.
+     * Get the user synchronization policy of a partner-specific configuration. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

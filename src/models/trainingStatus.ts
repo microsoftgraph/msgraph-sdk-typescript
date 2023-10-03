@@ -6,3 +6,5 @@ export enum TrainingStatus {
     Overdue = "overdue",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

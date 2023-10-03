@@ -1,19 +1,70 @@
 import { type BookingServiceCollectionResponse } from '../../../../models/';
-import { type BookingService } from '../../../../models/bookingService';
-import { createBookingServiceCollectionResponseFromDiscriminatorValue } from '../../../../models/createBookingServiceCollectionResponseFromDiscriminatorValue';
-import { createBookingServiceFromDiscriminatorValue } from '../../../../models/createBookingServiceFromDiscriminatorValue';
-import { deserializeIntoBookingService } from '../../../../models/deserializeIntoBookingService';
+import { createBookingServiceFromDiscriminatorValue, deserializeIntoBookingService, serializeBookingService, type BookingService } from '../../../../models/bookingService';
+import { createBookingServiceCollectionResponseFromDiscriminatorValue } from '../../../../models/bookingServiceCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingService } from '../../../../models/serializeBookingService';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { BookingServiceItemRequestBuilder } from './item/bookingServiceItemRequestBuilder';
-import { type ServicesRequestBuilderGetRequestConfiguration } from './servicesRequestBuilderGetRequestConfiguration';
-import { type ServicesRequestBuilderPostRequestConfiguration } from './servicesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServicesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ServicesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServicesRequestBuilderGetQueryParameters;
+}
+export interface ServicesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
  */
@@ -44,7 +95,7 @@ export class ServicesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/services{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of bookingService objects in the specified bookingBusiness.
+     * Get a list of bookingService objects in the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingServiceCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-services?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class ServicesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BookingServiceCollectionResponse>(requestInfo, createBookingServiceCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new bookingService for the specified bookingBusiness.
+     * Create a new bookingService for the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingService
@@ -77,7 +128,7 @@ export class ServicesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BookingService>(requestInfo, createBookingServiceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of bookingService objects in the specified bookingBusiness.
+     * Get a list of bookingService objects in the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class ServicesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new bookingService for the specified bookingBusiness.
+     * Create a new bookingService for the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createGetMemberObjectsResponseFromDiscriminatorValue } from './createGetMemberObjectsResponseFromDiscriminatorValue';
-import { deserializeIntoGetMemberObjectsPostRequestBody } from './deserializeIntoGetMemberObjectsPostRequestBody';
-import { deserializeIntoGetMemberObjectsResponse } from './deserializeIntoGetMemberObjectsResponse';
-import { type GetMemberObjectsPostRequestBody } from './getMemberObjectsPostRequestBody';
-import { type GetMemberObjectsRequestBuilderPostRequestConfiguration } from './getMemberObjectsRequestBuilderPostRequestConfiguration';
-import { type GetMemberObjectsResponse } from './getMemberObjectsResponse';
-import { serializeGetMemberObjectsPostRequestBody } from './serializeGetMemberObjectsPostRequestBody';
-import { serializeGetMemberObjectsResponse } from './serializeGetMemberObjectsResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetMemberObjectsPostRequestBody, serializeGetMemberObjectsPostRequestBody, type GetMemberObjectsPostRequestBody } from './getMemberObjectsPostRequestBody';
+import { createGetMemberObjectsPostResponseFromDiscriminatorValue, deserializeIntoGetMemberObjectsPostResponse, serializeGetMemberObjectsPostResponse, type GetMemberObjectsPostResponse } from './getMemberObjectsPostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetMemberObjectsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getMemberObjects method.
  */
@@ -25,13 +27,13 @@ export class GetMemberObjectsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/contacts/{orgContact%2Did}/getMemberObjects");
     };
     /**
-     * Return all IDs for the groups, administrative units, and directory roles that a user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. Note: Only users and role-enabled groups can be members of directory roles.
+     * Return all IDs for the groups, administrative units, and directory roles that a user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. Note: Only users and role-enabled groups can be members of directory roles. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetMemberObjectsResponse
+     * @returns a Promise of GetMemberObjectsPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getmemberobjects?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetMemberObjectsPostRequestBody, requestConfiguration?: GetMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetMemberObjectsResponse | undefined> {
+    public post(body: GetMemberObjectsPostRequestBody, requestConfiguration?: GetMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetMemberObjectsPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class GetMemberObjectsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<GetMemberObjectsResponse>(requestInfo, createGetMemberObjectsResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<GetMemberObjectsPostResponse>(requestInfo, createGetMemberObjectsPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Return all IDs for the groups, administrative units, and directory roles that a user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. Note: Only users and role-enabled groups can be members of directory roles.
+     * Return all IDs for the groups, administrative units, and directory roles that a user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. Note: Only users and role-enabled groups can be members of directory roles. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,17 +1,19 @@
-import { createWorkbookFunctionResultFromDiscriminatorValue } from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
-import { deserializeIntoWorkbookFunctionResult } from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookFunctionResult } from '../../../../../../../models/serializeWorkbookFunctionResult';
-import { type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
-import { deserializeIntoT_InvPostRequestBody } from './deserializeIntoT_InvPostRequestBody';
-import { serializeT_InvPostRequestBody } from './serializeT_InvPostRequestBody';
-import { type T_InvPostRequestBody } from './t_InvPostRequestBody';
-import { type T_InvRequestBuilderPostRequestConfiguration } from './t_InvRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookFunctionResultFromDiscriminatorValue, deserializeIntoWorkbookFunctionResult, serializeWorkbookFunctionResult, type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
+import { deserializeIntoT_InvPostRequestBody, serializeT_InvPostRequestBody, type T_InvPostRequestBody } from './t_InvPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface T_InvRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the t_Inv method.
  */

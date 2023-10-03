@@ -1,4 +1,1 @@
-export * from './customSecurityAttributeDefinitionItemRequestBuilderDeleteRequestConfiguration'
-export * from './customSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters'
-export * from './customSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration'
-export * from './customSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration'
+export * from './customSecurityAttributeDefinitionItemRequestBuilder'

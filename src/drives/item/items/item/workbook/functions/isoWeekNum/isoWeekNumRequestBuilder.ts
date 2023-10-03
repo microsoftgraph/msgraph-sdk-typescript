@@ -1,17 +1,19 @@
-import { createWorkbookFunctionResultFromDiscriminatorValue } from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
-import { deserializeIntoWorkbookFunctionResult } from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookFunctionResult } from '../../../../../../../models/serializeWorkbookFunctionResult';
-import { type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
-import { deserializeIntoIsoWeekNumPostRequestBody } from './deserializeIntoIsoWeekNumPostRequestBody';
-import { type IsoWeekNumPostRequestBody } from './isoWeekNumPostRequestBody';
-import { type IsoWeekNumRequestBuilderPostRequestConfiguration } from './isoWeekNumRequestBuilderPostRequestConfiguration';
-import { serializeIsoWeekNumPostRequestBody } from './serializeIsoWeekNumPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookFunctionResultFromDiscriminatorValue, deserializeIntoWorkbookFunctionResult, serializeWorkbookFunctionResult, type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
+import { deserializeIntoIsoWeekNumPostRequestBody, serializeIsoWeekNumPostRequestBody, type IsoWeekNumPostRequestBody } from './isoWeekNumPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IsoWeekNumRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the isoWeekNum method.
  */

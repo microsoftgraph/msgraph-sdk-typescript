@@ -1,4 +1,1 @@
-export * from './educationRubricItemRequestBuilderDeleteRequestConfiguration'
-export * from './educationRubricItemRequestBuilderGetQueryParameters'
-export * from './educationRubricItemRequestBuilderGetRequestConfiguration'
-export * from './educationRubricItemRequestBuilderPatchRequestConfiguration'
+export * from './educationRubricItemRequestBuilder'

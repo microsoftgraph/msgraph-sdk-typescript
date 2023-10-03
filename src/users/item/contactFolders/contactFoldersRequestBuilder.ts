@@ -1,20 +1,67 @@
 import { type ContactFolderCollectionResponse } from '../../../models/';
-import { type ContactFolder } from '../../../models/contactFolder';
-import { createContactFolderCollectionResponseFromDiscriminatorValue } from '../../../models/createContactFolderCollectionResponseFromDiscriminatorValue';
-import { createContactFolderFromDiscriminatorValue } from '../../../models/createContactFolderFromDiscriminatorValue';
-import { deserializeIntoContactFolder } from '../../../models/deserializeIntoContactFolder';
+import { createContactFolderFromDiscriminatorValue, deserializeIntoContactFolder, serializeContactFolder, type ContactFolder } from '../../../models/contactFolder';
+import { createContactFolderCollectionResponseFromDiscriminatorValue } from '../../../models/contactFolderCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeContactFolder } from '../../../models/serializeContactFolder';
-import { type ContactFoldersRequestBuilderGetRequestConfiguration } from './contactFoldersRequestBuilderGetRequestConfiguration';
-import { type ContactFoldersRequestBuilderPostRequestConfiguration } from './contactFoldersRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { ContactFolderItemRequestBuilder } from './item/contactFolderItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContactFoldersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ContactFoldersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContactFoldersRequestBuilderGetQueryParameters;
+}
+export interface ContactFoldersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
  */
@@ -51,7 +98,7 @@ export class ContactFoldersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/contactFolders{?%24top,%24skip,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the contact folder collection in the default Contacts folder of the signed-in user.
+     * Get the contact folder collection in the default Contacts folder of the signed-in user. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContactFolderCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/user-list-contactfolders?view=graph-rest-1.0|Find more info here}
@@ -67,7 +114,7 @@ export class ContactFoldersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ContactFolderCollectionResponse>(requestInfo, createContactFolderCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new contactFolder under the user's default contacts folder. You can also create a new contactfolder as a child of any specified contact folder.
+     * Create a new contactFolder under the user's default contacts folder. You can also create a new contactfolder as a child of any specified contact folder. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContactFolder
@@ -84,7 +131,7 @@ export class ContactFoldersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ContactFolder>(requestInfo, createContactFolderFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the contact folder collection in the default Contacts folder of the signed-in user.
+     * Get the contact folder collection in the default Contacts folder of the signed-in user. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +149,7 @@ export class ContactFoldersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new contactFolder under the user's default contacts folder. You can also create a new contactfolder as a child of any specified contact folder.
+     * Create a new contactFolder under the user's default contacts folder. You can also create a new contactfolder as a child of any specified contact folder. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,16 +1,52 @@
-import { createLearningContentFromDiscriminatorValue } from '../../../../../models/createLearningContentFromDiscriminatorValue';
-import { deserializeIntoLearningContent } from '../../../../../models/deserializeIntoLearningContent';
-import { type LearningContent } from '../../../../../models/learningContent';
+import { createLearningContentFromDiscriminatorValue, deserializeIntoLearningContent, serializeLearningContent, type LearningContent } from '../../../../../models/learningContent';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeLearningContent } from '../../../../../models/serializeLearningContent';
-import { type LearningContentItemRequestBuilderDeleteRequestConfiguration } from './learningContentItemRequestBuilderDeleteRequestConfiguration';
-import { type LearningContentItemRequestBuilderGetRequestConfiguration } from './learningContentItemRequestBuilderGetRequestConfiguration';
-import { type LearningContentItemRequestBuilderPatchRequestConfiguration } from './learningContentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LearningContentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface LearningContentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LearningContentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LearningContentItemRequestBuilderGetQueryParameters;
+}
+export interface LearningContentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
  */
@@ -39,7 +75,7 @@ export class LearningContentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
+     * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningContent
      * @see {@link https://learn.microsoft.com/graph/api/learningcontent-get?view=graph-rest-1.0|Find more info here}
@@ -87,7 +123,7 @@ export class LearningContentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
+     * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

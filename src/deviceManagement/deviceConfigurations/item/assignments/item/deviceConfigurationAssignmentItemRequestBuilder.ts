@@ -1,16 +1,52 @@
-import { createDeviceConfigurationAssignmentFromDiscriminatorValue } from '../../../../../models/createDeviceConfigurationAssignmentFromDiscriminatorValue';
-import { deserializeIntoDeviceConfigurationAssignment } from '../../../../../models/deserializeIntoDeviceConfigurationAssignment';
-import { type DeviceConfigurationAssignment } from '../../../../../models/deviceConfigurationAssignment';
+import { createDeviceConfigurationAssignmentFromDiscriminatorValue, deserializeIntoDeviceConfigurationAssignment, serializeDeviceConfigurationAssignment, type DeviceConfigurationAssignment } from '../../../../../models/deviceConfigurationAssignment';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceConfigurationAssignment } from '../../../../../models/serializeDeviceConfigurationAssignment';
-import { type DeviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration } from './deviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration } from './deviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration } from './deviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceConfigurationAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceConfigurationAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.
  */

@@ -1,20 +1,56 @@
-import { createWorkbookChartAxisFromDiscriminatorValue } from '../../../../../../../../../../../models/createWorkbookChartAxisFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartAxis } from '../../../../../../../../../../../models/deserializeIntoWorkbookChartAxis';
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartAxis } from '../../../../../../../../../../../models/serializeWorkbookChartAxis';
-import { type WorkbookChartAxis } from '../../../../../../../../../../../models/workbookChartAxis';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartAxisFromDiscriminatorValue, deserializeIntoWorkbookChartAxis, serializeWorkbookChartAxis, type WorkbookChartAxis } from '../../../../../../../../../../../models/workbookChartAxis';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
 import { MajorGridlinesRequestBuilder } from './majorGridlines/majorGridlinesRequestBuilder';
 import { MinorGridlinesRequestBuilder } from './minorGridlines/minorGridlinesRequestBuilder';
-import { type SeriesAxisRequestBuilderDeleteRequestConfiguration } from './seriesAxisRequestBuilderDeleteRequestConfiguration';
-import { type SeriesAxisRequestBuilderGetRequestConfiguration } from './seriesAxisRequestBuilderGetRequestConfiguration';
-import { type SeriesAxisRequestBuilderPatchRequestConfiguration } from './seriesAxisRequestBuilderPatchRequestConfiguration';
 import { TitleRequestBuilder } from './title/titleRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SeriesAxisRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SeriesAxisRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SeriesAxisRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SeriesAxisRequestBuilderGetQueryParameters;
+}
+export interface SeriesAxisRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the seriesAxis property of the microsoft.graph.workbookChartAxes entity.
  */

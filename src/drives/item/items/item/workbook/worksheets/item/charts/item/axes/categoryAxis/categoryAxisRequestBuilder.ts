@@ -1,20 +1,56 @@
-import { createWorkbookChartAxisFromDiscriminatorValue } from '../../../../../../../../../../../models/createWorkbookChartAxisFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartAxis } from '../../../../../../../../../../../models/deserializeIntoWorkbookChartAxis';
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartAxis } from '../../../../../../../../../../../models/serializeWorkbookChartAxis';
-import { type WorkbookChartAxis } from '../../../../../../../../../../../models/workbookChartAxis';
-import { type CategoryAxisRequestBuilderDeleteRequestConfiguration } from './categoryAxisRequestBuilderDeleteRequestConfiguration';
-import { type CategoryAxisRequestBuilderGetRequestConfiguration } from './categoryAxisRequestBuilderGetRequestConfiguration';
-import { type CategoryAxisRequestBuilderPatchRequestConfiguration } from './categoryAxisRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartAxisFromDiscriminatorValue, deserializeIntoWorkbookChartAxis, serializeWorkbookChartAxis, type WorkbookChartAxis } from '../../../../../../../../../../../models/workbookChartAxis';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
 import { MajorGridlinesRequestBuilder } from './majorGridlines/majorGridlinesRequestBuilder';
 import { MinorGridlinesRequestBuilder } from './minorGridlines/minorGridlinesRequestBuilder';
 import { TitleRequestBuilder } from './title/titleRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CategoryAxisRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CategoryAxisRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CategoryAxisRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CategoryAxisRequestBuilderGetQueryParameters;
+}
+export interface CategoryAxisRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the categoryAxis property of the microsoft.graph.workbookChartAxes entity.
  */

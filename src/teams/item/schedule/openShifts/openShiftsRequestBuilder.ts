@@ -1,19 +1,70 @@
 import { type OpenShiftCollectionResponse } from '../../../../models/';
-import { createOpenShiftCollectionResponseFromDiscriminatorValue } from '../../../../models/createOpenShiftCollectionResponseFromDiscriminatorValue';
-import { createOpenShiftFromDiscriminatorValue } from '../../../../models/createOpenShiftFromDiscriminatorValue';
-import { deserializeIntoOpenShift } from '../../../../models/deserializeIntoOpenShift';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type OpenShift } from '../../../../models/openShift';
-import { serializeOpenShift } from '../../../../models/serializeOpenShift';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createOpenShiftFromDiscriminatorValue, deserializeIntoOpenShift, serializeOpenShift, type OpenShift } from '../../../../models/openShift';
+import { createOpenShiftCollectionResponseFromDiscriminatorValue } from '../../../../models/openShiftCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OpenShiftItemRequestBuilder } from './item/openShiftItemRequestBuilder';
-import { type OpenShiftsRequestBuilderGetRequestConfiguration } from './openShiftsRequestBuilderGetRequestConfiguration';
-import { type OpenShiftsRequestBuilderPostRequestConfiguration } from './openShiftsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OpenShiftsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OpenShiftsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OpenShiftsRequestBuilderGetQueryParameters;
+}
+export interface OpenShiftsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
  */
@@ -44,7 +95,7 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/schedule/openShifts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List openShift objects in a team.
+     * List openShift objects in a team. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShiftCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/openshift-list?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OpenShiftCollectionResponse>(requestInfo, createOpenShiftCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an instance of an openShift object.
+     * Create an instance of an openShift object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShift
@@ -77,7 +128,7 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OpenShift>(requestInfo, createOpenShiftFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List openShift objects in a team.
+     * List openShift objects in a team. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create an instance of an openShift object.
+     * Create an instance of an openShift object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

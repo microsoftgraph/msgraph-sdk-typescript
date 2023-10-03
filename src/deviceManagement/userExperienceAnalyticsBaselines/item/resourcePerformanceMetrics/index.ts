@@ -1,2 +1,1 @@
-export * from './resourcePerformanceMetricsRequestBuilderGetQueryParameters'
-export * from './resourcePerformanceMetricsRequestBuilderGetRequestConfiguration'
+export * from './resourcePerformanceMetricsRequestBuilder'

@@ -1,5 +1,2 @@
-export * from './createIsEvenPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoIsEvenPostRequestBody'
 export * from './isEvenPostRequestBody'
-export * from './isEvenRequestBuilderPostRequestConfiguration'
-export * from './serializeIsEvenPostRequestBody'
+export * from './isEvenRequestBuilder'

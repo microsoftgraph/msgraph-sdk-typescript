@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { createEdiscoveryCaseSettingsFromDiscriminatorValue } from '../../../../../models/security/createEdiscoveryCaseSettingsFromDiscriminatorValue';
-import { deserializeIntoEdiscoveryCaseSettings } from '../../../../../models/security/deserializeIntoEdiscoveryCaseSettings';
-import { type EdiscoveryCaseSettings } from '../../../../../models/security/ediscoveryCaseSettings';
-import { serializeEdiscoveryCaseSettings } from '../../../../../models/security/serializeEdiscoveryCaseSettings';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createEdiscoveryCaseSettingsFromDiscriminatorValue, deserializeIntoEdiscoveryCaseSettings, serializeEdiscoveryCaseSettings, type EdiscoveryCaseSettings } from '../../../../../models/security/ediscoveryCaseSettings';
 import { MicrosoftGraphSecurityResetToDefaultRequestBuilder } from './microsoftGraphSecurityResetToDefault/microsoftGraphSecurityResetToDefaultRequestBuilder';
-import { type SettingsRequestBuilderDeleteRequestConfiguration } from './settingsRequestBuilderDeleteRequestConfiguration';
-import { type SettingsRequestBuilderGetRequestConfiguration } from './settingsRequestBuilderGetRequestConfiguration';
-import { type SettingsRequestBuilderPatchRequestConfiguration } from './settingsRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SettingsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SettingsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SettingsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SettingsRequestBuilderGetQueryParameters;
+}
+export interface SettingsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity.
  */
@@ -45,7 +81,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an ediscoveryCaseSettings object.
+     * Read the properties and relationships of an ediscoveryCaseSettings object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryCaseSettings
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycasesettings-get?view=graph-rest-1.0|Find more info here}
@@ -61,7 +97,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EdiscoveryCaseSettings>(requestInfo, createEdiscoveryCaseSettingsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an ediscoveryCaseSettings object.
+     * Update the properties of an ediscoveryCaseSettings object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryCaseSettings
@@ -94,7 +130,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an ediscoveryCaseSettings object.
+     * Read the properties and relationships of an ediscoveryCaseSettings object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +148,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an ediscoveryCaseSettings object.
+     * Update the properties of an ediscoveryCaseSettings object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

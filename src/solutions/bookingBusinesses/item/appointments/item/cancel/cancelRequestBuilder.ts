@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type CancelPostRequestBody } from './cancelPostRequestBody';
-import { type CancelRequestBuilderPostRequestConfiguration } from './cancelRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCancelPostRequestBody } from './deserializeIntoCancelPostRequestBody';
-import { serializeCancelPostRequestBody } from './serializeCancelPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoCancelPostRequestBody, serializeCancelPostRequestBody, type CancelPostRequestBody } from './cancelPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CancelRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the cancel method.
  */
@@ -21,7 +26,7 @@ export class CancelRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/appointments/{bookingAppointment%2Did}/cancel");
     };
     /**
-     * Cancel the specified bookingAppointment in the specified bookingBusiness and send a message to the involved customer and staff members.
+     * Cancel the specified bookingAppointment in the specified bookingBusiness and send a message to the involved customer and staff members. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/bookingappointment-cancel?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class CancelRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Cancel the specified bookingAppointment in the specified bookingBusiness and send a message to the involved customer and staff members.
+     * Cancel the specified bookingAppointment in the specified bookingBusiness and send a message to the involved customer and staff members. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

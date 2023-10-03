@@ -1,16 +1,52 @@
-import { createTeamsTemplateFromDiscriminatorValue } from '../../models/createTeamsTemplateFromDiscriminatorValue';
-import { deserializeIntoTeamsTemplate } from '../../models/deserializeIntoTeamsTemplate';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeTeamsTemplate } from '../../models/serializeTeamsTemplate';
-import { type TeamsTemplate } from '../../models/teamsTemplate';
-import { type TeamsTemplateItemRequestBuilderDeleteRequestConfiguration } from './teamsTemplateItemRequestBuilderDeleteRequestConfiguration';
-import { type TeamsTemplateItemRequestBuilderGetRequestConfiguration } from './teamsTemplateItemRequestBuilderGetRequestConfiguration';
-import { type TeamsTemplateItemRequestBuilderPatchRequestConfiguration } from './teamsTemplateItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createTeamsTemplateFromDiscriminatorValue, deserializeIntoTeamsTemplate, serializeTeamsTemplate, type TeamsTemplate } from '../../models/teamsTemplate';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamsTemplateItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TeamsTemplateItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamsTemplateItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamsTemplateItemRequestBuilderGetQueryParameters;
+}
+export interface TeamsTemplateItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of teamsTemplate entities.
  */

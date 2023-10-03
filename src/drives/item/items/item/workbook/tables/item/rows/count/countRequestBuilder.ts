@@ -1,12 +1,19 @@
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type CountRequestBuilderGetRequestConfiguration } from './countRequestBuilderGetRequestConfiguration';
-import { createCountResponseFromDiscriminatorValue } from './createCountResponseFromDiscriminatorValue';
-import { type CountResponse } from './index';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { createCountGetResponseFromDiscriminatorValue } from './countGetResponse';
+import { type CountGetResponse } from './index';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CountRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the count method.
  */
@@ -22,9 +29,9 @@ export class CountRequestBuilder extends BaseRequestBuilder {
     /**
      * Invoke function count
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of CountResponse
+     * @returns a Promise of CountGetResponse
      */
-    public get(requestConfiguration?: CountRequestBuilderGetRequestConfiguration | undefined) : Promise<CountResponse | undefined> {
+    public get(requestConfiguration?: CountRequestBuilderGetRequestConfiguration | undefined) : Promise<CountGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -32,7 +39,7 @@ export class CountRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<CountResponse>(requestInfo, createCountResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<CountGetResponse>(requestInfo, createCountGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function count

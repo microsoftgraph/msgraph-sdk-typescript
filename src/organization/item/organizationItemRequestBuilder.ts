@@ -1,11 +1,6 @@
-import { createOrganizationFromDiscriminatorValue } from '../../models/createOrganizationFromDiscriminatorValue';
-import { deserializeIntoOrganization } from '../../models/deserializeIntoOrganization';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type Organization } from '../../models/organization';
-import { serializeOrganization } from '../../models/serializeOrganization';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createOrganizationFromDiscriminatorValue, deserializeIntoOrganization, serializeOrganization, type Organization } from '../../models/organization';
 import { BrandingRequestBuilder } from './branding/brandingRequestBuilder';
 import { CertificateBasedAuthConfigurationRequestBuilder } from './certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
 import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
@@ -13,13 +8,54 @@ import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemb
 import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
 import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
 import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
-import { type OrganizationItemRequestBuilderDeleteRequestConfiguration } from './organizationItemRequestBuilderDeleteRequestConfiguration';
-import { type OrganizationItemRequestBuilderGetRequestConfiguration } from './organizationItemRequestBuilderGetRequestConfiguration';
-import { type OrganizationItemRequestBuilderPatchRequestConfiguration } from './organizationItemRequestBuilderPatchRequestConfiguration';
 import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
 import { SetMobileDeviceManagementAuthorityRequestBuilder } from './setMobileDeviceManagementAuthority/setMobileDeviceManagementAuthorityRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OrganizationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OrganizationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OrganizationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OrganizationItemRequestBuilderGetQueryParameters;
+}
+export interface OrganizationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of organization entities.
  */
@@ -101,7 +137,7 @@ export class OrganizationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the properties and relationships of the currently authenticated organization. Since the organization resource supports extensions, you can also use the GET operation to get custom properties and extension data in an organization instance.
+     * Get the properties and relationships of the currently authenticated organization. Since the organization resource supports extensions, you can also use the GET operation to get custom properties and extension data in an organization instance. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Organization
      * @see {@link https://learn.microsoft.com/graph/api/organization-get?view=graph-rest-1.0|Find more info here}
@@ -117,11 +153,11 @@ export class OrganizationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Organization>(requestInfo, createOrganizationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a organization object.
+     * Update the properties of the currently authenticated organization. In this case, organization is defined as a collection of exactly one record, and so its ID must be specified in the request.  The ID is also known as the tenantId of the organization. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Organization
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-organization-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organization-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Organization, requestConfiguration?: OrganizationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Organization | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -150,7 +186,7 @@ export class OrganizationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties and relationships of the currently authenticated organization. Since the organization resource supports extensions, you can also use the GET operation to get custom properties and extension data in an organization instance.
+     * Get the properties and relationships of the currently authenticated organization. Since the organization resource supports extensions, you can also use the GET operation to get custom properties and extension data in an organization instance. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -168,7 +204,7 @@ export class OrganizationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a organization object.
+     * Update the properties of the currently authenticated organization. In this case, organization is defined as a collection of exactly one record, and so its ID must be specified in the request.  The ID is also known as the tenantId of the organization. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

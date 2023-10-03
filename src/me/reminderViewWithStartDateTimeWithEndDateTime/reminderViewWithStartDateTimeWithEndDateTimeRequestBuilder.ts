@@ -1,12 +1,45 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { createReminderViewWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue } from './createReminderViewWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue';
-import { type ReminderViewWithStartDateTimeWithEndDateTimeResponse } from './index';
-import { type ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration } from './reminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { type ReminderViewWithStartDateTimeWithEndDateTimeGetResponse } from './index';
+import { createReminderViewWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue } from './reminderViewWithStartDateTimeWithEndDateTimeGetResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to call the reminderView method.
  */
@@ -26,9 +59,9 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder extends 
     /**
      * Invoke function reminderView
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ReminderViewWithStartDateTimeWithEndDateTimeResponse
+     * @returns a Promise of ReminderViewWithStartDateTimeWithEndDateTimeGetResponse
      */
-    public get(requestConfiguration?: ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration | undefined) : Promise<ReminderViewWithStartDateTimeWithEndDateTimeResponse | undefined> {
+    public get(requestConfiguration?: ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration | undefined) : Promise<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -36,7 +69,7 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder extends 
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<ReminderViewWithStartDateTimeWithEndDateTimeResponse>(requestInfo, createReminderViewWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse>(requestInfo, createReminderViewWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function reminderView

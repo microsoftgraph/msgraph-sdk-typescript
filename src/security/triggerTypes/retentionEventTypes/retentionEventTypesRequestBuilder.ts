@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type RetentionEventTypeCollectionResponse } from '../../../models/security/';
-import { createRetentionEventTypeCollectionResponseFromDiscriminatorValue } from '../../../models/security/createRetentionEventTypeCollectionResponseFromDiscriminatorValue';
-import { createRetentionEventTypeFromDiscriminatorValue } from '../../../models/security/createRetentionEventTypeFromDiscriminatorValue';
-import { deserializeIntoRetentionEventType } from '../../../models/security/deserializeIntoRetentionEventType';
-import { type RetentionEventType } from '../../../models/security/retentionEventType';
-import { serializeRetentionEventType } from '../../../models/security/serializeRetentionEventType';
+import { createRetentionEventTypeFromDiscriminatorValue, deserializeIntoRetentionEventType, serializeRetentionEventType, type RetentionEventType } from '../../../models/security/retentionEventType';
+import { createRetentionEventTypeCollectionResponseFromDiscriminatorValue } from '../../../models/security/retentionEventTypeCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { RetentionEventTypeItemRequestBuilder } from './item/retentionEventTypeItemRequestBuilder';
-import { type RetentionEventTypesRequestBuilderGetRequestConfiguration } from './retentionEventTypesRequestBuilderGetRequestConfiguration';
-import { type RetentionEventTypesRequestBuilderPostRequestConfiguration } from './retentionEventTypesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RetentionEventTypesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RetentionEventTypesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RetentionEventTypesRequestBuilderGetQueryParameters;
+}
+export interface RetentionEventTypesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
  */
@@ -44,7 +95,7 @@ export class RetentionEventTypesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/triggerTypes/retentionEventTypes{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the retentionEventType objects and their properties.
+     * Get a list of the retentionEventType objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RetentionEventTypeCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-retentioneventtype-list?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class RetentionEventTypesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RetentionEventTypeCollectionResponse>(requestInfo, createRetentionEventTypeCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new retentionEventType object.
+     * Create a new retentionEventType object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RetentionEventType
@@ -77,7 +128,7 @@ export class RetentionEventTypesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RetentionEventType>(requestInfo, createRetentionEventTypeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the retentionEventType objects and their properties.
+     * Get a list of the retentionEventType objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class RetentionEventTypesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new retentionEventType object.
+     * Create a new retentionEventType object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

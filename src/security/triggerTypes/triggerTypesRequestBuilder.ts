@@ -1,17 +1,53 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { createTriggerTypesRootFromDiscriminatorValue } from '../../models/security/createTriggerTypesRootFromDiscriminatorValue';
-import { deserializeIntoTriggerTypesRoot } from '../../models/security/deserializeIntoTriggerTypesRoot';
-import { serializeTriggerTypesRoot } from '../../models/security/serializeTriggerTypesRoot';
-import { type TriggerTypesRoot } from '../../models/security/triggerTypesRoot';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createTriggerTypesRootFromDiscriminatorValue, deserializeIntoTriggerTypesRoot, serializeTriggerTypesRoot, type TriggerTypesRoot } from '../../models/security/triggerTypesRoot';
 import { RetentionEventTypesRequestBuilder } from './retentionEventTypes/retentionEventTypesRequestBuilder';
-import { type TriggerTypesRequestBuilderDeleteRequestConfiguration } from './triggerTypesRequestBuilderDeleteRequestConfiguration';
-import { type TriggerTypesRequestBuilderGetRequestConfiguration } from './triggerTypesRequestBuilderGetRequestConfiguration';
-import { type TriggerTypesRequestBuilderPatchRequestConfiguration } from './triggerTypesRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TriggerTypesRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TriggerTypesRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TriggerTypesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TriggerTypesRequestBuilderGetQueryParameters;
+}
+export interface TriggerTypesRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
  */

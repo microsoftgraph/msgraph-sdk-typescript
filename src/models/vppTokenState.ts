@@ -13,3 +13,5 @@ export enum VppTokenState {
     /** Token is managed by another MDM Service. */
     AssignedToExternalMDM = "assignedToExternalMDM",
 }
+// tslint:enable
+// eslint-enable

@@ -1,19 +1,70 @@
 import { type SubscriptionCollectionResponse } from '../../../../../../../models/';
-import { createSubscriptionCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createSubscriptionCollectionResponseFromDiscriminatorValue';
-import { createSubscriptionFromDiscriminatorValue } from '../../../../../../../models/createSubscriptionFromDiscriminatorValue';
-import { deserializeIntoSubscription } from '../../../../../../../models/deserializeIntoSubscription';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeSubscription } from '../../../../../../../models/serializeSubscription';
-import { type Subscription } from '../../../../../../../models/subscription';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createSubscriptionFromDiscriminatorValue, deserializeIntoSubscription, serializeSubscription, type Subscription } from '../../../../../../../models/subscription';
+import { createSubscriptionCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/subscriptionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SubscriptionItemRequestBuilder } from './item/subscriptionItemRequestBuilder';
-import { type SubscriptionsRequestBuilderGetRequestConfiguration } from './subscriptionsRequestBuilderGetRequestConfiguration';
-import { type SubscriptionsRequestBuilderPostRequestConfiguration } from './subscriptionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SubscriptionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SubscriptionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SubscriptionsRequestBuilderGetQueryParameters;
+}
+export interface SubscriptionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the subscriptions property of the microsoft.graph.list entity.
  */

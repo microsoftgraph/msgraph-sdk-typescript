@@ -7,3 +7,5 @@ export enum RiskState {
     ConfirmedCompromised = "confirmedCompromised",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

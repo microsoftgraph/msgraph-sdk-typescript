@@ -1,12 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue } from './createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue';
-import { type GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration } from './getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration';
-import { type GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse } from './index';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponseFromDiscriminatorValue } from './getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse';
+import { type GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse } from './index';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getOmaSettingPlainTextValue method.
  */
@@ -24,9 +31,9 @@ export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
     /**
      * Invoke function getOmaSettingPlainTextValue
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse
+     * @returns a Promise of GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse
      */
-    public get(requestConfiguration?: GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration | undefined) : Promise<GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse | undefined> {
+    public get(requestConfiguration?: GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration | undefined) : Promise<GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -34,7 +41,7 @@ export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse>(requestInfo, createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse>(requestInfo, createGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function getOmaSettingPlainTextValue

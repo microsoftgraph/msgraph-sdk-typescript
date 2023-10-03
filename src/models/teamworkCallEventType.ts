@@ -4,3 +4,5 @@ export enum TeamworkCallEventType {
     ScreenShare = "screenShare",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

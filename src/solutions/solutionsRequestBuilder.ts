@@ -1,17 +1,44 @@
-import { createSolutionsRootFromDiscriminatorValue } from '../models/createSolutionsRootFromDiscriminatorValue';
-import { deserializeIntoSolutionsRoot } from '../models/deserializeIntoSolutionsRoot';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeSolutionsRoot } from '../models/serializeSolutionsRoot';
-import { type SolutionsRoot } from '../models/solutionsRoot';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createSolutionsRootFromDiscriminatorValue, deserializeIntoSolutionsRoot, serializeSolutionsRoot, type SolutionsRoot } from '../models/solutionsRoot';
 import { BookingBusinessesRequestBuilder } from './bookingBusinesses/bookingBusinessesRequestBuilder';
 import { BookingCurrenciesRequestBuilder } from './bookingCurrencies/bookingCurrenciesRequestBuilder';
-import { type SolutionsRequestBuilderGetRequestConfiguration } from './solutionsRequestBuilderGetRequestConfiguration';
-import { type SolutionsRequestBuilderPatchRequestConfiguration } from './solutionsRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SolutionsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SolutionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SolutionsRequestBuilderGetQueryParameters;
+}
+export interface SolutionsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the solutionsRoot singleton.
  */

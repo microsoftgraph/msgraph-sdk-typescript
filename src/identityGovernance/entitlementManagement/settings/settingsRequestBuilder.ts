@@ -1,16 +1,52 @@
-import { createEntitlementManagementSettingsFromDiscriminatorValue } from '../../../models/createEntitlementManagementSettingsFromDiscriminatorValue';
-import { deserializeIntoEntitlementManagementSettings } from '../../../models/deserializeIntoEntitlementManagementSettings';
-import { type EntitlementManagementSettings } from '../../../models/entitlementManagementSettings';
+import { createEntitlementManagementSettingsFromDiscriminatorValue, deserializeIntoEntitlementManagementSettings, serializeEntitlementManagementSettings, type EntitlementManagementSettings } from '../../../models/entitlementManagementSettings';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeEntitlementManagementSettings } from '../../../models/serializeEntitlementManagementSettings';
-import { type SettingsRequestBuilderDeleteRequestConfiguration } from './settingsRequestBuilderDeleteRequestConfiguration';
-import { type SettingsRequestBuilderGetRequestConfiguration } from './settingsRequestBuilderGetRequestConfiguration';
-import { type SettingsRequestBuilderPatchRequestConfiguration } from './settingsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SettingsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SettingsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SettingsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SettingsRequestBuilderGetQueryParameters;
+}
+export interface SettingsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the settings property of the microsoft.graph.entitlementManagement entity.
  */
@@ -38,7 +74,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties of an entitlementManagementSettings object.
+     * Retrieve the properties of an entitlementManagementSettings object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EntitlementManagementSettings
      * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagementsettings-get?view=graph-rest-1.0|Find more info here}
@@ -54,7 +90,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EntitlementManagementSettings>(requestInfo, createEntitlementManagementSettingsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update an existing entitlementManagementSettings object to change one or more of its properties.
+     * Update an existing entitlementManagementSettings object to change one or more of its properties. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EntitlementManagementSettings
@@ -87,7 +123,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties of an entitlementManagementSettings object.
+     * Retrieve the properties of an entitlementManagementSettings object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update an existing entitlementManagementSettings object to change one or more of its properties.
+     * Update an existing entitlementManagementSettings object to change one or more of its properties. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

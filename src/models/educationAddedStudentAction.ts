@@ -3,3 +3,5 @@ export enum EducationAddedStudentAction {
     AssignIfOpen = "assignIfOpen",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

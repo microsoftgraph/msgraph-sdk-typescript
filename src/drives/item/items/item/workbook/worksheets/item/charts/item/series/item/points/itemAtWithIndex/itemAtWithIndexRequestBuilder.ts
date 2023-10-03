@@ -1,12 +1,19 @@
 import { type WorkbookChartPoint } from '../../../../../../../../../../../../../models/';
-import { createWorkbookChartPointFromDiscriminatorValue } from '../../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
 import { type ODataError } from '../../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type ItemAtWithIndexRequestBuilderGetRequestConfiguration } from './itemAtWithIndexRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartPointFromDiscriminatorValue } from '../../../../../../../../../../../../../models/workbookChartPoint';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ItemAtWithIndexRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the itemAt method.
  */
@@ -25,7 +32,6 @@ export class ItemAtWithIndexRequestBuilder extends BaseRequestBuilder {
      * Invoke function itemAt
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartPoint
-     * @see {@link https://learn.microsoft.com/graph/api/chartpointscollection-itemat?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ItemAtWithIndexRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartPoint | undefined> {
         const requestInfo = this.toGetRequestInformation(

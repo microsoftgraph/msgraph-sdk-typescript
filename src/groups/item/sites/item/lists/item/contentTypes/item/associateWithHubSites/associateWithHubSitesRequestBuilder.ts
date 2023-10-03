@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type AssociateWithHubSitesPostRequestBody } from './associateWithHubSitesPostRequestBody';
-import { type AssociateWithHubSitesRequestBuilderPostRequestConfiguration } from './associateWithHubSitesRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAssociateWithHubSitesPostRequestBody } from './deserializeIntoAssociateWithHubSitesPostRequestBody';
-import { serializeAssociateWithHubSitesPostRequestBody } from './serializeAssociateWithHubSitesPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoAssociateWithHubSitesPostRequestBody, serializeAssociateWithHubSitesPostRequestBody, type AssociateWithHubSitesPostRequestBody } from './associateWithHubSitesPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssociateWithHubSitesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the associateWithHubSites method.
  */
@@ -21,7 +26,7 @@ export class AssociateWithHubSitesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/associateWithHubSites");
     };
     /**
-     * Associate a published [content type][contentType] present in a content type hub with a list of hub sites.
+     * Associate a published content type][contentType] present in a content type hub with a list of hub sites. This API is supported in the following [national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-associatewithhubsites?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class AssociateWithHubSitesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Associate a published [content type][contentType] present in a content type hub with a list of hub sites.
+     * Associate a published content type][contentType] present in a content type hub with a list of hub sites. This API is supported in the following [national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

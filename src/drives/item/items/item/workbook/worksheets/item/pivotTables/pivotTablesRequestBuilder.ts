@@ -1,20 +1,71 @@
 import { type WorkbookPivotTableCollectionResponse } from '../../../../../../../../models/';
-import { createWorkbookPivotTableCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookPivotTableCollectionResponseFromDiscriminatorValue';
-import { createWorkbookPivotTableFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookPivotTableFromDiscriminatorValue';
-import { deserializeIntoWorkbookPivotTable } from '../../../../../../../../models/deserializeIntoWorkbookPivotTable';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookPivotTable } from '../../../../../../../../models/serializeWorkbookPivotTable';
-import { type WorkbookPivotTable } from '../../../../../../../../models/workbookPivotTable';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookPivotTableFromDiscriminatorValue, deserializeIntoWorkbookPivotTable, serializeWorkbookPivotTable, type WorkbookPivotTable } from '../../../../../../../../models/workbookPivotTable';
+import { createWorkbookPivotTableCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/workbookPivotTableCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookPivotTableItemRequestBuilder } from './item/workbookPivotTableItemRequestBuilder';
-import { type PivotTablesRequestBuilderGetRequestConfiguration } from './pivotTablesRequestBuilderGetRequestConfiguration';
-import { type PivotTablesRequestBuilderPostRequestConfiguration } from './pivotTablesRequestBuilderPostRequestConfiguration';
 import { RefreshAllRequestBuilder } from './refreshAll/refreshAllRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PivotTablesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PivotTablesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PivotTablesRequestBuilderGetQueryParameters;
+}
+export interface PivotTablesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
  */
@@ -51,7 +102,7 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/pivotTables{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of workbookpivottable objects.
+     * Retrieve a list of workbookpivottable objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookPivotTableCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/workbookworksheet-list-pivottables?view=graph-rest-1.0|Find more info here}
@@ -83,7 +134,7 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookPivotTable>(requestInfo, createWorkbookPivotTableFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of workbookpivottable objects.
+     * Retrieve a list of workbookpivottable objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

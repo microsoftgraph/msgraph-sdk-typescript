@@ -1,3 +1,1 @@
-export * from './callRecordsRequestBuilderGetQueryParameters'
-export * from './callRecordsRequestBuilderGetRequestConfiguration'
-export * from './callRecordsRequestBuilderPostRequestConfiguration'
+export * from './callRecordsRequestBuilder'

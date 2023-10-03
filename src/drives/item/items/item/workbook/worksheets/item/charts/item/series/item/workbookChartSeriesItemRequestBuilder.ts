@@ -1,18 +1,54 @@
-import { createWorkbookChartSeriesFromDiscriminatorValue } from '../../../../../../../../../../../models/createWorkbookChartSeriesFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartSeries } from '../../../../../../../../../../../models/deserializeIntoWorkbookChartSeries';
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartSeries } from '../../../../../../../../../../../models/serializeWorkbookChartSeries';
-import { type WorkbookChartSeries } from '../../../../../../../../../../../models/workbookChartSeries';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartSeriesFromDiscriminatorValue, deserializeIntoWorkbookChartSeries, serializeWorkbookChartSeries, type WorkbookChartSeries } from '../../../../../../../../../../../models/workbookChartSeries';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
 import { PointsRequestBuilder } from './points/pointsRequestBuilder';
-import { type WorkbookChartSeriesItemRequestBuilderDeleteRequestConfiguration } from './workbookChartSeriesItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration } from './workbookChartSeriesItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration } from './workbookChartSeriesItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookChartSeriesItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookChartSeriesItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookChartSeriesItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
  */
@@ -52,7 +88,7 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of chartseries object.
+     * Retrieve the properties and relationships of chartseries object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartSeries
      * @see {@link https://learn.microsoft.com/graph/api/chartseries-get?view=graph-rest-1.0|Find more info here}
@@ -68,7 +104,7 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookChartSeries>(requestInfo, createWorkbookChartSeriesFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of chartseries object.
+     * Update the properties of chartseries object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartSeries
@@ -101,7 +137,7 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of chartseries object.
+     * Retrieve the properties and relationships of chartseries object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,7 +155,7 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of chartseries object.
+     * Update the properties of chartseries object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

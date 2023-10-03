@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createGetScheduleResponseFromDiscriminatorValue } from './createGetScheduleResponseFromDiscriminatorValue';
-import { deserializeIntoGetSchedulePostRequestBody } from './deserializeIntoGetSchedulePostRequestBody';
-import { deserializeIntoGetScheduleResponse } from './deserializeIntoGetScheduleResponse';
-import { type GetSchedulePostRequestBody } from './getSchedulePostRequestBody';
-import { type GetScheduleRequestBuilderPostRequestConfiguration } from './getScheduleRequestBuilderPostRequestConfiguration';
-import { type GetScheduleResponse } from './getScheduleResponse';
-import { serializeGetSchedulePostRequestBody } from './serializeGetSchedulePostRequestBody';
-import { serializeGetScheduleResponse } from './serializeGetScheduleResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetSchedulePostRequestBody, serializeGetSchedulePostRequestBody, type GetSchedulePostRequestBody } from './getSchedulePostRequestBody';
+import { createGetSchedulePostResponseFromDiscriminatorValue, deserializeIntoGetSchedulePostResponse, serializeGetSchedulePostResponse, type GetSchedulePostResponse } from './getSchedulePostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetScheduleRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getSchedule method.
  */
@@ -25,13 +27,13 @@ export class GetScheduleRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/calendar/getSchedule");
     };
     /**
-     * Get the free/busy availability information for a collection of users, distributions lists, or resources (rooms or equipment) for a specified time period.
+     * Get the free/busy availability information for a collection of users, distributions lists, or resources (rooms or equipment) for a specified time period. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetScheduleResponse
+     * @returns a Promise of GetSchedulePostResponse
      * @see {@link https://learn.microsoft.com/graph/api/calendar-getschedule?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetSchedulePostRequestBody, requestConfiguration?: GetScheduleRequestBuilderPostRequestConfiguration | undefined) : Promise<GetScheduleResponse | undefined> {
+    public post(body: GetSchedulePostRequestBody, requestConfiguration?: GetScheduleRequestBuilderPostRequestConfiguration | undefined) : Promise<GetSchedulePostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class GetScheduleRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<GetScheduleResponse>(requestInfo, createGetScheduleResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<GetSchedulePostResponse>(requestInfo, createGetSchedulePostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the free/busy availability information for a collection of users, distributions lists, or resources (rooms or equipment) for a specified time period.
+     * Get the free/busy availability information for a collection of users, distributions lists, or resources (rooms or equipment) for a specified time period. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,16 +1,52 @@
-import { createSegmentFromDiscriminatorValue } from '../../../../../../../models/callRecords/createSegmentFromDiscriminatorValue';
-import { deserializeIntoSegment } from '../../../../../../../models/callRecords/deserializeIntoSegment';
-import { type Segment } from '../../../../../../../models/callRecords/segment';
-import { serializeSegment } from '../../../../../../../models/callRecords/serializeSegment';
+import { createSegmentFromDiscriminatorValue, deserializeIntoSegment, serializeSegment, type Segment } from '../../../../../../../models/callRecords/segment';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { type SegmentItemRequestBuilderDeleteRequestConfiguration } from './segmentItemRequestBuilderDeleteRequestConfiguration';
-import { type SegmentItemRequestBuilderGetRequestConfiguration } from './segmentItemRequestBuilderGetRequestConfiguration';
-import { type SegmentItemRequestBuilderPatchRequestConfiguration } from './segmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SegmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SegmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SegmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SegmentItemRequestBuilderGetQueryParameters;
+}
+export interface SegmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
  */

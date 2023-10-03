@@ -1,16 +1,52 @@
-import { createEducationSubmissionResourceFromDiscriminatorValue } from '../../../../../../../../../models/createEducationSubmissionResourceFromDiscriminatorValue';
-import { deserializeIntoEducationSubmissionResource } from '../../../../../../../../../models/deserializeIntoEducationSubmissionResource';
-import { type EducationSubmissionResource } from '../../../../../../../../../models/educationSubmissionResource';
+import { createEducationSubmissionResourceFromDiscriminatorValue, deserializeIntoEducationSubmissionResource, serializeEducationSubmissionResource, type EducationSubmissionResource } from '../../../../../../../../../models/educationSubmissionResource';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationSubmissionResource } from '../../../../../../../../../models/serializeEducationSubmissionResource';
-import { type EducationSubmissionResourceItemRequestBuilderDeleteRequestConfiguration } from './educationSubmissionResourceItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationSubmissionResourceItemRequestBuilderGetRequestConfiguration } from './educationSubmissionResourceItemRequestBuilderGetRequestConfiguration';
-import { type EducationSubmissionResourceItemRequestBuilderPatchRequestConfiguration } from './educationSubmissionResourceItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationSubmissionResourceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationSubmissionResourceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationSubmissionResourceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationSubmissionResourceItemRequestBuilderGetQueryParameters;
+}
+export interface EducationSubmissionResourceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
  */
@@ -38,7 +74,7 @@ export class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve a submitted resource. Only teachers, students, and applications with application permissions can perform this operation. Resources are available to a teacher or an application with application permissions after a student submits it, and are available to the student after the teacher returns the submission. Note that teachers can leave notes in some resources.
+     * Retrieve a submitted resource. Only teachers, students, and applications with application permissions can perform this operation. Resources are available to a teacher or an application with application permissions after a student submits it, and are available to the student after the teacher returns the submission. Teachers can leave notes in some resources. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSubmissionResource
      * @see {@link https://learn.microsoft.com/graph/api/educationsubmittedsubmissionresource-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +122,7 @@ export class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Retrieve a submitted resource. Only teachers, students, and applications with application permissions can perform this operation. Resources are available to a teacher or an application with application permissions after a student submits it, and are available to the student after the teacher returns the submission. Note that teachers can leave notes in some resources.
+     * Retrieve a submitted resource. Only teachers, students, and applications with application permissions can perform this operation. Resources are available to a teacher or an application with application permissions after a student submits it, and are available to the student after the teacher returns the submission. Teachers can leave notes in some resources. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

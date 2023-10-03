@@ -1,10 +1,17 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type CheckoutRequestBuilderPostRequestConfiguration } from './checkoutRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CheckoutRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the checkout method.
  */
@@ -18,7 +25,7 @@ export class CheckoutRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/checkout");
     };
     /**
-     * Check out a driveItem resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.
+     * Check out a driveItem resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/driveitem-checkout?view=graph-rest-1.0|Find more info here}
      */
@@ -33,7 +40,7 @@ export class CheckoutRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Check out a driveItem resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.
+     * Check out a driveItem resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

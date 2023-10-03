@@ -1,17 +1,19 @@
-import { createSubscribeToToneOperationFromDiscriminatorValue } from '../../../../models/createSubscribeToToneOperationFromDiscriminatorValue';
-import { deserializeIntoSubscribeToToneOperation } from '../../../../models/deserializeIntoSubscribeToToneOperation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeSubscribeToToneOperation } from '../../../../models/serializeSubscribeToToneOperation';
-import { type SubscribeToToneOperation } from '../../../../models/subscribeToToneOperation';
-import { deserializeIntoSubscribeToTonePostRequestBody } from './deserializeIntoSubscribeToTonePostRequestBody';
-import { serializeSubscribeToTonePostRequestBody } from './serializeSubscribeToTonePostRequestBody';
-import { type SubscribeToTonePostRequestBody } from './subscribeToTonePostRequestBody';
-import { type SubscribeToToneRequestBuilderPostRequestConfiguration } from './subscribeToToneRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createSubscribeToToneOperationFromDiscriminatorValue, deserializeIntoSubscribeToToneOperation, serializeSubscribeToToneOperation, type SubscribeToToneOperation } from '../../../../models/subscribeToToneOperation';
+import { deserializeIntoSubscribeToTonePostRequestBody, serializeSubscribeToTonePostRequestBody, type SubscribeToTonePostRequestBody } from './subscribeToTonePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SubscribeToToneRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the subscribeToTone method.
  */
@@ -25,7 +27,7 @@ export class SubscribeToToneRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/subscribeToTone");
     };
     /**
-     * Subscribe to DTMF (dual-tone multi-frequency signaling). This allows you to be notified when the user presses keys on a 'dialpad'.
+     * Subscribe to DTMF (dual-tone multi-frequency signaling). This allows you to be notified when the user presses keys on a 'dialpad'. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubscribeToToneOperation
@@ -42,7 +44,7 @@ export class SubscribeToToneRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SubscribeToToneOperation>(requestInfo, createSubscribeToToneOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Subscribe to DTMF (dual-tone multi-frequency signaling). This allows you to be notified when the user presses keys on a 'dialpad'.
+     * Subscribe to DTMF (dual-tone multi-frequency signaling). This allows you to be notified when the user presses keys on a 'dialpad'. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

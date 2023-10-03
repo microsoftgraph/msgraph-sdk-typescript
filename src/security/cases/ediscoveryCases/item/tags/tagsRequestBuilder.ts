@@ -1,20 +1,71 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryReviewTagCollectionResponse } from '../../../../../models/security/';
-import { createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue';
-import { createEdiscoveryReviewTagFromDiscriminatorValue } from '../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
-import { deserializeIntoEdiscoveryReviewTag } from '../../../../../models/security/deserializeIntoEdiscoveryReviewTag';
-import { type EdiscoveryReviewTag } from '../../../../../models/security/ediscoveryReviewTag';
-import { serializeEdiscoveryReviewTag } from '../../../../../models/security/serializeEdiscoveryReviewTag';
+import { createEdiscoveryReviewTagFromDiscriminatorValue, deserializeIntoEdiscoveryReviewTag, serializeEdiscoveryReviewTag, type EdiscoveryReviewTag } from '../../../../../models/security/ediscoveryReviewTag';
+import { createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/ediscoveryReviewTagCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { EdiscoveryReviewTagItemRequestBuilder } from './item/ediscoveryReviewTagItemRequestBuilder';
 import { MicrosoftGraphSecurityAsHierarchyRequestBuilder } from './microsoftGraphSecurityAsHierarchy/microsoftGraphSecurityAsHierarchyRequestBuilder';
-import { type TagsRequestBuilderGetRequestConfiguration } from './tagsRequestBuilderGetRequestConfiguration';
-import { type TagsRequestBuilderPostRequestConfiguration } from './tagsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TagsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TagsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TagsRequestBuilderGetQueryParameters;
+}
+export interface TagsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
  */
@@ -51,7 +102,7 @@ export class TagsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of eDiscoveryReviewTag objects and their properties.
+     * Get a list of eDiscoveryReviewTag objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewTagCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-tags?view=graph-rest-1.0|Find more info here}
@@ -67,7 +118,7 @@ export class TagsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EdiscoveryReviewTagCollectionResponse>(requestInfo, createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new ediscoveryReviewTag object.
+     * Create a new ediscoveryReviewTag object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewTag
@@ -84,7 +135,7 @@ export class TagsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EdiscoveryReviewTag>(requestInfo, createEdiscoveryReviewTagFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of eDiscoveryReviewTag objects and their properties.
+     * Get a list of eDiscoveryReviewTag objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +153,7 @@ export class TagsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new ediscoveryReviewTag object.
+     * Create a new ediscoveryReviewTag object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

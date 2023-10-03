@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createIncidentFromDiscriminatorValue } from '../../../models/security/createIncidentFromDiscriminatorValue';
-import { deserializeIntoIncident } from '../../../models/security/deserializeIntoIncident';
-import { type Incident } from '../../../models/security/incident';
-import { serializeIncident } from '../../../models/security/serializeIncident';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createIncidentFromDiscriminatorValue, deserializeIntoIncident, serializeIncident, type Incident } from '../../../models/security/incident';
 import { AlertsRequestBuilder } from './alerts/alertsRequestBuilder';
-import { type IncidentItemRequestBuilderDeleteRequestConfiguration } from './incidentItemRequestBuilderDeleteRequestConfiguration';
-import { type IncidentItemRequestBuilderGetRequestConfiguration } from './incidentItemRequestBuilderGetRequestConfiguration';
-import { type IncidentItemRequestBuilderPatchRequestConfiguration } from './incidentItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IncidentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IncidentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IncidentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IncidentItemRequestBuilderGetQueryParameters;
+}
+export interface IncidentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the incidents property of the microsoft.graph.security entity.
  */
@@ -45,7 +81,7 @@ export class IncidentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an incident object. Attacks are typically inflicted on different types of entities, such as devices, users, and mailboxes, resulting in multiple alert objects. Microsoft 365 Defender correlates alerts with the same attack techniques or the same attacker into an incident. 
+     * Retrieve the properties and relationships of an incident object. Attacks are typically inflicted on different types of entities, such as devices, users, and mailboxes, resulting in multiple alert objects. Microsoft 365 Defender correlates alerts with the same attack techniques or the same attacker into an incident.  This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Incident
      * @see {@link https://learn.microsoft.com/graph/api/security-incident-get?view=graph-rest-1.0|Find more info here}
@@ -61,7 +97,7 @@ export class IncidentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Incident>(requestInfo, createIncidentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an incident object.
+     * Update the properties of an incident object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Incident
@@ -94,7 +130,7 @@ export class IncidentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of an incident object. Attacks are typically inflicted on different types of entities, such as devices, users, and mailboxes, resulting in multiple alert objects. Microsoft 365 Defender correlates alerts with the same attack techniques or the same attacker into an incident. 
+     * Retrieve the properties and relationships of an incident object. Attacks are typically inflicted on different types of entities, such as devices, users, and mailboxes, resulting in multiple alert objects. Microsoft 365 Defender correlates alerts with the same attack techniques or the same attacker into an incident.  This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +148,7 @@ export class IncidentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an incident object.
+     * Update the properties of an incident object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

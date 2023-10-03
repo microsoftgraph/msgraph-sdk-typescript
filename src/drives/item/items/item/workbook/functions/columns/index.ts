@@ -1,5 +1,2 @@
 export * from './columnsPostRequestBody'
-export * from './columnsRequestBuilderPostRequestConfiguration'
-export * from './createColumnsPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoColumnsPostRequestBody'
-export * from './serializeColumnsPostRequestBody'
+export * from './columnsRequestBuilder'

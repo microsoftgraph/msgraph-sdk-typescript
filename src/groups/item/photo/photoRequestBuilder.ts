@@ -1,17 +1,49 @@
-import { createProfilePhotoFromDiscriminatorValue } from '../../../models/createProfilePhotoFromDiscriminatorValue';
-import { deserializeIntoProfilePhoto } from '../../../models/deserializeIntoProfilePhoto';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type ProfilePhoto } from '../../../models/profilePhoto';
-import { serializeProfilePhoto } from '../../../models/serializeProfilePhoto';
-import { type PhotoRequestBuilderDeleteRequestConfiguration } from './photoRequestBuilderDeleteRequestConfiguration';
-import { type PhotoRequestBuilderGetRequestConfiguration } from './photoRequestBuilderGetRequestConfiguration';
-import { type PhotoRequestBuilderPatchRequestConfiguration } from './photoRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createProfilePhotoFromDiscriminatorValue, deserializeIntoProfilePhoto, serializeProfilePhoto, type ProfilePhoto } from '../../../models/profilePhoto';
 import { ContentRequestBuilder } from './value/contentRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PhotoRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PhotoRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PhotoRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PhotoRequestBuilderGetQueryParameters;
+}
+export interface PhotoRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the photo property of the microsoft.graph.group entity.
  */

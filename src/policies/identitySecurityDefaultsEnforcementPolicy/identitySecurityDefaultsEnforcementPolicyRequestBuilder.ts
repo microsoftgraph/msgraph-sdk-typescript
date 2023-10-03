@@ -1,16 +1,52 @@
-import { createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue } from '../../models/createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue';
-import { deserializeIntoIdentitySecurityDefaultsEnforcementPolicy } from '../../models/deserializeIntoIdentitySecurityDefaultsEnforcementPolicy';
-import { type IdentitySecurityDefaultsEnforcementPolicy } from '../../models/identitySecurityDefaultsEnforcementPolicy';
+import { createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue, deserializeIntoIdentitySecurityDefaultsEnforcementPolicy, serializeIdentitySecurityDefaultsEnforcementPolicy, type IdentitySecurityDefaultsEnforcementPolicy } from '../../models/identitySecurityDefaultsEnforcementPolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeIdentitySecurityDefaultsEnforcementPolicy } from '../../models/serializeIdentitySecurityDefaultsEnforcementPolicy';
-import { type IdentitySecurityDefaultsEnforcementPolicyRequestBuilderDeleteRequestConfiguration } from './identitySecurityDefaultsEnforcementPolicyRequestBuilderDeleteRequestConfiguration';
-import { type IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration } from './identitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration';
-import { type IdentitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration } from './identitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters;
+}
+export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the identitySecurityDefaultsEnforcementPolicy property of the microsoft.graph.policyRoot entity.
  */
@@ -38,7 +74,7 @@ export class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends Bas
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
+     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentitySecurityDefaultsEnforcementPolicy
      * @see {@link https://learn.microsoft.com/graph/api/identitysecuritydefaultsenforcementpolicy-get?view=graph-rest-1.0|Find more info here}
@@ -54,7 +90,7 @@ export class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends Bas
         return this.requestAdapter.sendAsync<IdentitySecurityDefaultsEnforcementPolicy>(requestInfo, createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object.
+     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentitySecurityDefaultsEnforcementPolicy
@@ -87,7 +123,7 @@ export class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends Bas
         return requestInfo;
     };
     /**
-     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
+     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends Bas
         return requestInfo;
     };
     /**
-     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object.
+     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

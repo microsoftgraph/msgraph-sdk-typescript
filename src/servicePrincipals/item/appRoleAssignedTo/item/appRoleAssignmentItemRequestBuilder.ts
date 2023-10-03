@@ -1,16 +1,52 @@
-import { type AppRoleAssignment } from '../../../../models/appRoleAssignment';
-import { createAppRoleAssignmentFromDiscriminatorValue } from '../../../../models/createAppRoleAssignmentFromDiscriminatorValue';
-import { deserializeIntoAppRoleAssignment } from '../../../../models/deserializeIntoAppRoleAssignment';
+import { createAppRoleAssignmentFromDiscriminatorValue, deserializeIntoAppRoleAssignment, serializeAppRoleAssignment, type AppRoleAssignment } from '../../../../models/appRoleAssignment';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAppRoleAssignment } from '../../../../models/serializeAppRoleAssignment';
-import { type AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration } from './appRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type AppRoleAssignmentItemRequestBuilderGetRequestConfiguration } from './appRoleAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type AppRoleAssignmentItemRequestBuilderPatchRequestConfiguration } from './appRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AppRoleAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AppRoleAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AppRoleAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface AppRoleAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
  */
@@ -24,7 +60,7 @@ export class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/appRoleAssignedTo/{appRoleAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes an appRoleAssignment that a user, group, or client service principal has been granted for a resource service principal.
+     * Deletes an appRoleAssignment that a user, group, or client service principal has been granted for a resource service principal. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-delete-approleassignedto?view=graph-rest-1.0|Find more info here}
      */
@@ -70,7 +106,7 @@ export class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AppRoleAssignment>(requestInfo, createAppRoleAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes an appRoleAssignment that a user, group, or client service principal has been granted for a resource service principal.
+     * Deletes an appRoleAssignment that a user, group, or client service principal has been granted for a resource service principal. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

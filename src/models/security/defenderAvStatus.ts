@@ -7,3 +7,5 @@ export enum DefenderAvStatus {
     NotSupported = "notSupported",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

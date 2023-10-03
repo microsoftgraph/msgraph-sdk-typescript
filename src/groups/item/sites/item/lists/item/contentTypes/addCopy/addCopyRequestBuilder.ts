@@ -1,17 +1,19 @@
-import { type ContentType } from '../../../../../../../../models/contentType';
-import { createContentTypeFromDiscriminatorValue } from '../../../../../../../../models/createContentTypeFromDiscriminatorValue';
-import { deserializeIntoContentType } from '../../../../../../../../models/deserializeIntoContentType';
+import { createContentTypeFromDiscriminatorValue, deserializeIntoContentType, serializeContentType, type ContentType } from '../../../../../../../../models/contentType';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeContentType } from '../../../../../../../../models/serializeContentType';
-import { type AddCopyPostRequestBody } from './addCopyPostRequestBody';
-import { type AddCopyRequestBuilderPostRequestConfiguration } from './addCopyRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAddCopyPostRequestBody } from './deserializeIntoAddCopyPostRequestBody';
-import { serializeAddCopyPostRequestBody } from './serializeAddCopyPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoAddCopyPostRequestBody, serializeAddCopyPostRequestBody, type AddCopyPostRequestBody } from './addCopyPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AddCopyRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the addCopy method.
  */
@@ -25,7 +27,7 @@ export class AddCopyRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/addCopy");
     };
     /**
-     * Add a copy of a [content type][contentType] from a [site][site] to a [list][list].
+     * Add a copy of a content type][contentType] from a [site][site] to a [list][list]. This API is supported in the following [national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentType
@@ -42,7 +44,7 @@ export class AddCopyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add a copy of a [content type][contentType] from a [site][site] to a [list][list].
+     * Add a copy of a content type][contentType] from a [site][site] to a [list][list]. This API is supported in the following [national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,19 +1,70 @@
 import { type BrowserSharedCookieCollectionResponse } from '../../../../../../models/';
-import { type BrowserSharedCookie } from '../../../../../../models/browserSharedCookie';
-import { createBrowserSharedCookieCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createBrowserSharedCookieCollectionResponseFromDiscriminatorValue';
-import { createBrowserSharedCookieFromDiscriminatorValue } from '../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
-import { deserializeIntoBrowserSharedCookie } from '../../../../../../models/deserializeIntoBrowserSharedCookie';
+import { createBrowserSharedCookieFromDiscriminatorValue, deserializeIntoBrowserSharedCookie, serializeBrowserSharedCookie, type BrowserSharedCookie } from '../../../../../../models/browserSharedCookie';
+import { createBrowserSharedCookieCollectionResponseFromDiscriminatorValue } from '../../../../../../models/browserSharedCookieCollectionResponse';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeBrowserSharedCookie } from '../../../../../../models/serializeBrowserSharedCookie';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { BrowserSharedCookieItemRequestBuilder } from './item/browserSharedCookieItemRequestBuilder';
-import { type SharedCookiesRequestBuilderGetRequestConfiguration } from './sharedCookiesRequestBuilderGetRequestConfiguration';
-import { type SharedCookiesRequestBuilderPostRequestConfiguration } from './sharedCookiesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SharedCookiesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SharedCookiesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SharedCookiesRequestBuilderGetQueryParameters;
+}
+export interface SharedCookiesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
  */
@@ -44,7 +95,7 @@ export class SharedCookiesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sharedCookies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the browserSharedCookie objects and their properties.
+     * Get a list of the browserSharedCookie objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSharedCookieCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-list-sharedcookies?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class SharedCookiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BrowserSharedCookieCollectionResponse>(requestInfo, createBrowserSharedCookieCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new browserSharedCookie object in a browserSiteList.
+     * Create a new browserSharedCookie object in a browserSiteList. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSharedCookie
@@ -77,7 +128,7 @@ export class SharedCookiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BrowserSharedCookie>(requestInfo, createBrowserSharedCookieFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the browserSharedCookie objects and their properties.
+     * Get a list of the browserSharedCookie objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class SharedCookiesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new browserSharedCookie object in a browserSiteList.
+     * Create a new browserSharedCookie object in a browserSiteList. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

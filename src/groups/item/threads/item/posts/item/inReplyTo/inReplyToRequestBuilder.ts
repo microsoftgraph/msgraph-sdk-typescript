@@ -1,16 +1,37 @@
 import { type Post } from '../../../../../../../models/';
-import { createPostFromDiscriminatorValue } from '../../../../../../../models/createPostFromDiscriminatorValue';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createPostFromDiscriminatorValue } from '../../../../../../../models/post';
 import { AttachmentsRequestBuilder } from './attachments/attachmentsRequestBuilder';
 import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
 import { ForwardRequestBuilder } from './forward/forwardRequestBuilder';
-import { type InReplyToRequestBuilderGetRequestConfiguration } from './inReplyToRequestBuilderGetRequestConfiguration';
 import { ReplyRequestBuilder } from './reply/replyRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InReplyToRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface InReplyToRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InReplyToRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the inReplyTo property of the microsoft.graph.post entity.
  */

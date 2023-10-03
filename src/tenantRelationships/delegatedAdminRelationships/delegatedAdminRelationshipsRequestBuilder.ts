@@ -1,19 +1,70 @@
 import { type DelegatedAdminRelationshipCollectionResponse } from '../../models/';
-import { createDelegatedAdminRelationshipCollectionResponseFromDiscriminatorValue } from '../../models/createDelegatedAdminRelationshipCollectionResponseFromDiscriminatorValue';
-import { createDelegatedAdminRelationshipFromDiscriminatorValue } from '../../models/createDelegatedAdminRelationshipFromDiscriminatorValue';
-import { type DelegatedAdminRelationship } from '../../models/delegatedAdminRelationship';
-import { deserializeIntoDelegatedAdminRelationship } from '../../models/deserializeIntoDelegatedAdminRelationship';
+import { createDelegatedAdminRelationshipFromDiscriminatorValue, deserializeIntoDelegatedAdminRelationship, serializeDelegatedAdminRelationship, type DelegatedAdminRelationship } from '../../models/delegatedAdminRelationship';
+import { createDelegatedAdminRelationshipCollectionResponseFromDiscriminatorValue } from '../../models/delegatedAdminRelationshipCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDelegatedAdminRelationship } from '../../models/serializeDelegatedAdminRelationship';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DelegatedAdminRelationshipsRequestBuilderGetRequestConfiguration } from './delegatedAdminRelationshipsRequestBuilderGetRequestConfiguration';
-import { type DelegatedAdminRelationshipsRequestBuilderPostRequestConfiguration } from './delegatedAdminRelationshipsRequestBuilderPostRequestConfiguration';
 import { DelegatedAdminRelationshipItemRequestBuilder } from './item/delegatedAdminRelationshipItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DelegatedAdminRelationshipsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DelegatedAdminRelationshipsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DelegatedAdminRelationshipsRequestBuilderGetQueryParameters;
+}
+export interface DelegatedAdminRelationshipsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
  */
@@ -44,7 +95,7 @@ export class DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminRelationships{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the delegatedAdminRelationship objects and their properties.
+     * Get a list of the delegatedAdminRelationship objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationshipCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/tenantrelationship-list-delegatedadminrelationships?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<DelegatedAdminRelationshipCollectionResponse>(requestInfo, createDelegatedAdminRelationshipCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new delegatedAdminRelationship object.
+     * Create a new delegatedAdminRelationship object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationship
@@ -77,7 +128,7 @@ export class DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the delegatedAdminRelationship objects and their properties.
+     * Get a list of the delegatedAdminRelationship objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Create a new delegatedAdminRelationship object.
+     * Create a new delegatedAdminRelationship object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -3,3 +3,5 @@ export enum BookingType {
     Standard = "standard",
     Reserved = "reserved",
 }
+// tslint:enable
+// eslint-enable

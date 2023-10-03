@@ -1,19 +1,70 @@
 import { type AccessPackageResourceRoleScopeCollectionResponse } from '../../../models/';
-import { type AccessPackageResourceRoleScope } from '../../../models/accessPackageResourceRoleScope';
-import { createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue';
-import { createAccessPackageResourceRoleScopeFromDiscriminatorValue } from '../../../models/createAccessPackageResourceRoleScopeFromDiscriminatorValue';
-import { deserializeIntoAccessPackageResourceRoleScope } from '../../../models/deserializeIntoAccessPackageResourceRoleScope';
+import { createAccessPackageResourceRoleScopeFromDiscriminatorValue, deserializeIntoAccessPackageResourceRoleScope, serializeAccessPackageResourceRoleScope, type AccessPackageResourceRoleScope } from '../../../models/accessPackageResourceRoleScope';
+import { createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue } from '../../../models/accessPackageResourceRoleScopeCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageResourceRoleScope } from '../../../models/serializeAccessPackageResourceRoleScope';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AccessPackageResourceRoleScopeItemRequestBuilder } from './item/accessPackageResourceRoleScopeItemRequestBuilder';
-import { type ResourceRoleScopesRequestBuilderGetRequestConfiguration } from './resourceRoleScopesRequestBuilderGetRequestConfiguration';
-import { type ResourceRoleScopesRequestBuilderPostRequestConfiguration } from './resourceRoleScopesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ResourceRoleScopesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ResourceRoleScopesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ResourceRoleScopesRequestBuilderGetQueryParameters;
+}
+export interface ResourceRoleScopesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.entitlementManagement entity.
  */

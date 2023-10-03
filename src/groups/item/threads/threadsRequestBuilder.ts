@@ -1,19 +1,62 @@
 import { type ConversationThreadCollectionResponse } from '../../../models/';
-import { type ConversationThread } from '../../../models/conversationThread';
-import { createConversationThreadCollectionResponseFromDiscriminatorValue } from '../../../models/createConversationThreadCollectionResponseFromDiscriminatorValue';
-import { createConversationThreadFromDiscriminatorValue } from '../../../models/createConversationThreadFromDiscriminatorValue';
-import { deserializeIntoConversationThread } from '../../../models/deserializeIntoConversationThread';
+import { createConversationThreadFromDiscriminatorValue, deserializeIntoConversationThread, serializeConversationThread, type ConversationThread } from '../../../models/conversationThread';
+import { createConversationThreadCollectionResponseFromDiscriminatorValue } from '../../../models/conversationThreadCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeConversationThread } from '../../../models/serializeConversationThread';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ConversationThreadItemRequestBuilder } from './item/conversationThreadItemRequestBuilder';
-import { type ThreadsRequestBuilderGetRequestConfiguration } from './threadsRequestBuilderGetRequestConfiguration';
-import { type ThreadsRequestBuilderPostRequestConfiguration } from './threadsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ThreadsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ThreadsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ThreadsRequestBuilderGetQueryParameters;
+}
+export interface ThreadsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the threads property of the microsoft.graph.group entity.
  */
@@ -44,7 +87,7 @@ export class ThreadsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/threads{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Get all the threads of a group.
+     * Get all the threads of a group. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationThreadCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/group-list-threads?view=graph-rest-1.0|Find more info here}
@@ -60,7 +103,7 @@ export class ThreadsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationThreadCollectionResponse>(requestInfo, createConversationThreadCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Start a new group conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.Use reply thread or reply post to further post to that thread. Note: You can also start a new thread in an existing conversation.
+     * Start a new group conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.Use reply thread or reply post to further post to that thread. Note: You can also start a new thread in an existing conversation. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationThread
@@ -77,7 +120,7 @@ export class ThreadsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationThread>(requestInfo, createConversationThreadFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get all the threads of a group.
+     * Get all the threads of a group. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +138,7 @@ export class ThreadsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Start a new group conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.Use reply thread or reply post to further post to that thread. Note: You can also start a new thread in an existing conversation.
+     * Start a new group conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.Use reply thread or reply post to further post to that thread. Note: You can also start a new thread in an existing conversation. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

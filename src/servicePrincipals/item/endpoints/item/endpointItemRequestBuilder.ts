@@ -1,16 +1,52 @@
-import { createEndpointFromDiscriminatorValue } from '../../../../models/createEndpointFromDiscriminatorValue';
-import { deserializeIntoEndpoint } from '../../../../models/deserializeIntoEndpoint';
-import { type Endpoint } from '../../../../models/endpoint';
+import { createEndpointFromDiscriminatorValue, deserializeIntoEndpoint, serializeEndpoint, type Endpoint } from '../../../../models/endpoint';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeEndpoint } from '../../../../models/serializeEndpoint';
-import { type EndpointItemRequestBuilderDeleteRequestConfiguration } from './endpointItemRequestBuilderDeleteRequestConfiguration';
-import { type EndpointItemRequestBuilderGetRequestConfiguration } from './endpointItemRequestBuilderGetRequestConfiguration';
-import { type EndpointItemRequestBuilderPatchRequestConfiguration } from './endpointItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EndpointItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EndpointItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EndpointItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EndpointItemRequestBuilderGetQueryParameters;
+}
+export interface EndpointItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.servicePrincipal entity.
  */

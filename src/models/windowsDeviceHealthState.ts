@@ -15,3 +15,5 @@ export enum WindowsDeviceHealthState {
     /** Computer is in critical failure state */
     Critical = "critical",
 }
+// tslint:enable
+// eslint-enable

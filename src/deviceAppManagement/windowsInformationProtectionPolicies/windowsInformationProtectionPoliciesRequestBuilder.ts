@@ -1,19 +1,70 @@
 import { type WindowsInformationProtectionPolicyCollectionResponse } from '../../models/';
-import { createWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue';
-import { createWindowsInformationProtectionPolicyFromDiscriminatorValue } from '../../models/createWindowsInformationProtectionPolicyFromDiscriminatorValue';
-import { deserializeIntoWindowsInformationProtectionPolicy } from '../../models/deserializeIntoWindowsInformationProtectionPolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeWindowsInformationProtectionPolicy } from '../../models/serializeWindowsInformationProtectionPolicy';
-import { type WindowsInformationProtectionPolicy } from '../../models/windowsInformationProtectionPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createWindowsInformationProtectionPolicyFromDiscriminatorValue, deserializeIntoWindowsInformationProtectionPolicy, serializeWindowsInformationProtectionPolicy, type WindowsInformationProtectionPolicy } from '../../models/windowsInformationProtectionPolicy';
+import { createWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue } from '../../models/windowsInformationProtectionPolicyCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WindowsInformationProtectionPolicyItemRequestBuilder } from './item/windowsInformationProtectionPolicyItemRequestBuilder';
-import { type WindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration } from './windowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration';
-import { type WindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration } from './windowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WindowsInformationProtectionPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface WindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WindowsInformationProtectionPoliciesRequestBuilderGetQueryParameters;
+}
+export interface WindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the windowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
  */

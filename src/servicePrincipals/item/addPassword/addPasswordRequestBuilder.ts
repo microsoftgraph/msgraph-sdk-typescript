@@ -1,17 +1,19 @@
-import { createPasswordCredentialFromDiscriminatorValue } from '../../../models/createPasswordCredentialFromDiscriminatorValue';
-import { deserializeIntoPasswordCredential } from '../../../models/deserializeIntoPasswordCredential';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PasswordCredential } from '../../../models/passwordCredential';
-import { serializePasswordCredential } from '../../../models/serializePasswordCredential';
-import { type AddPasswordPostRequestBody } from './addPasswordPostRequestBody';
-import { type AddPasswordRequestBuilderPostRequestConfiguration } from './addPasswordRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAddPasswordPostRequestBody } from './deserializeIntoAddPasswordPostRequestBody';
-import { serializeAddPasswordPostRequestBody } from './serializeAddPasswordPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPasswordCredentialFromDiscriminatorValue, deserializeIntoPasswordCredential, serializePasswordCredential, type PasswordCredential } from '../../../models/passwordCredential';
+import { deserializeIntoAddPasswordPostRequestBody, serializeAddPasswordPostRequestBody, type AddPasswordPostRequestBody } from './addPasswordPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AddPasswordRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the addPassword method.
  */
@@ -25,7 +27,7 @@ export class AddPasswordRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/addPassword");
     };
     /**
-     * Add a strong password or secret to a servicePrincipal object.
+     * Add a strong password or secret to a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PasswordCredential
@@ -42,7 +44,7 @@ export class AddPasswordRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PasswordCredential>(requestInfo, createPasswordCredentialFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add a strong password or secret to a servicePrincipal object.
+     * Add a strong password or secret to a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

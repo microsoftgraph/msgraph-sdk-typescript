@@ -1,1 +1,1 @@
-export * from './microsoftGraphIdentityGovernanceRestoreRequestBuilderPostRequestConfiguration'
+export * from './microsoftGraphIdentityGovernanceRestoreRequestBuilder'

@@ -1,19 +1,70 @@
 import { type ExternalConnectionCollectionResponse } from '../../models/externalConnectors/';
-import { createExternalConnectionCollectionResponseFromDiscriminatorValue } from '../../models/externalConnectors/createExternalConnectionCollectionResponseFromDiscriminatorValue';
-import { createExternalConnectionFromDiscriminatorValue } from '../../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
-import { deserializeIntoExternalConnection } from '../../models/externalConnectors/deserializeIntoExternalConnection';
-import { type ExternalConnection } from '../../models/externalConnectors/externalConnection';
-import { serializeExternalConnection } from '../../models/externalConnectors/serializeExternalConnection';
+import { createExternalConnectionFromDiscriminatorValue, deserializeIntoExternalConnection, serializeExternalConnection, type ExternalConnection } from '../../models/externalConnectors/externalConnection';
+import { createExternalConnectionCollectionResponseFromDiscriminatorValue } from '../../models/externalConnectors/externalConnectionCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type ConnectionsRequestBuilderGetRequestConfiguration } from './connectionsRequestBuilderGetRequestConfiguration';
-import { type ConnectionsRequestBuilderPostRequestConfiguration } from './connectionsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ExternalConnectionItemRequestBuilder } from './item/externalConnectionItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConnectionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ConnectionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConnectionsRequestBuilderGetQueryParameters;
+}
+export interface ConnectionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
  */
@@ -44,7 +95,7 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/external/connections{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the externalConnection objects and their properties.
+     * Get a list of the externalConnection objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalConnectionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ExternalConnectionCollectionResponse>(requestInfo, createExternalConnectionCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new externalConnection object.
+     * Create a new externalConnection object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalConnection
@@ -77,7 +128,7 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ExternalConnection>(requestInfo, createExternalConnectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the externalConnection objects and their properties.
+     * Get a list of the externalConnection objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new externalConnection object.
+     * Create a new externalConnection object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

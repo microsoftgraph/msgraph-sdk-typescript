@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type ArticleIndicator } from '../../../../models/security/articleIndicator';
-import { createArticleIndicatorFromDiscriminatorValue } from '../../../../models/security/createArticleIndicatorFromDiscriminatorValue';
-import { deserializeIntoArticleIndicator } from '../../../../models/security/deserializeIntoArticleIndicator';
-import { serializeArticleIndicator } from '../../../../models/security/serializeArticleIndicator';
-import { type ArticleIndicatorItemRequestBuilderDeleteRequestConfiguration } from './articleIndicatorItemRequestBuilderDeleteRequestConfiguration';
-import { type ArticleIndicatorItemRequestBuilderGetRequestConfiguration } from './articleIndicatorItemRequestBuilderGetRequestConfiguration';
-import { type ArticleIndicatorItemRequestBuilderPatchRequestConfiguration } from './articleIndicatorItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createArticleIndicatorFromDiscriminatorValue, deserializeIntoArticleIndicator, serializeArticleIndicator, type ArticleIndicator } from '../../../../models/security/articleIndicator';
 import { ArtifactRequestBuilder } from './artifact/artifactRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ArticleIndicatorItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ArticleIndicatorItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ArticleIndicatorItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ArticleIndicatorItemRequestBuilderGetQueryParameters;
+}
+export interface ArticleIndicatorItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the articleIndicators property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -45,7 +81,7 @@ export class ArticleIndicatorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an articleIndicator object.
+     * Read the properties and relationships of an articleIndicator object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArticleIndicator
      * @see {@link https://learn.microsoft.com/graph/api/security-articleindicator-get?view=graph-rest-1.0|Find more info here}
@@ -93,7 +129,7 @@ export class ArticleIndicatorItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an articleIndicator object.
+     * Read the properties and relationships of an articleIndicator object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

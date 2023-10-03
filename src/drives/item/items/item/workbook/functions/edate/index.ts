@@ -1,5 +1,2 @@
-export * from './createEdatePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoEdatePostRequestBody'
 export * from './edatePostRequestBody'
-export * from './edateRequestBuilderPostRequestConfiguration'
-export * from './serializeEdatePostRequestBody'
+export * from './edateRequestBuilder'

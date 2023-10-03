@@ -1,5 +1,2 @@
 export * from './acothPostRequestBody'
-export * from './acothRequestBuilderPostRequestConfiguration'
-export * from './createAcothPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAcothPostRequestBody'
-export * from './serializeAcothPostRequestBody'
+export * from './acothRequestBuilder'

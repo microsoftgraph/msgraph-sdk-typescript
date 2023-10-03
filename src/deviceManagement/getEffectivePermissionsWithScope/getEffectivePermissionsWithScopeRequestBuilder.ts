@@ -1,12 +1,45 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { createGetEffectivePermissionsWithScopeResponseFromDiscriminatorValue } from './createGetEffectivePermissionsWithScopeResponseFromDiscriminatorValue';
-import { type GetEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration } from './getEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration';
-import { type GetEffectivePermissionsWithScopeResponse } from './index';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createGetEffectivePermissionsWithScopeGetResponseFromDiscriminatorValue } from './getEffectivePermissionsWithScopeGetResponse';
+import { type GetEffectivePermissionsWithScopeGetResponse } from './index';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetEffectivePermissionsWithScopeRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface GetEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GetEffectivePermissionsWithScopeRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to call the getEffectivePermissions method.
  */
@@ -24,9 +57,9 @@ export class GetEffectivePermissionsWithScopeRequestBuilder extends BaseRequestB
     /**
      * Retrieves the effective permissions of the currently authenticated user
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetEffectivePermissionsWithScopeResponse
+     * @returns a Promise of GetEffectivePermissionsWithScopeGetResponse
      */
-    public get(requestConfiguration?: GetEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration | undefined) : Promise<GetEffectivePermissionsWithScopeResponse | undefined> {
+    public get(requestConfiguration?: GetEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration | undefined) : Promise<GetEffectivePermissionsWithScopeGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -34,7 +67,7 @@ export class GetEffectivePermissionsWithScopeRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<GetEffectivePermissionsWithScopeResponse>(requestInfo, createGetEffectivePermissionsWithScopeResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<GetEffectivePermissionsWithScopeGetResponse>(requestInfo, createGetEffectivePermissionsWithScopeGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieves the effective permissions of the currently authenticated user

@@ -1,17 +1,53 @@
-import { createUserActivityFromDiscriminatorValue } from '../../../../models/createUserActivityFromDiscriminatorValue';
-import { deserializeIntoUserActivity } from '../../../../models/deserializeIntoUserActivity';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUserActivity } from '../../../../models/serializeUserActivity';
-import { type UserActivity } from '../../../../models/userActivity';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUserActivityFromDiscriminatorValue, deserializeIntoUserActivity, serializeUserActivity, type UserActivity } from '../../../../models/userActivity';
 import { HistoryItemsRequestBuilder } from './historyItems/historyItemsRequestBuilder';
-import { type UserActivityItemRequestBuilderDeleteRequestConfiguration } from './userActivityItemRequestBuilderDeleteRequestConfiguration';
-import { type UserActivityItemRequestBuilderGetRequestConfiguration } from './userActivityItemRequestBuilderGetRequestConfiguration';
-import { type UserActivityItemRequestBuilderPatchRequestConfiguration } from './userActivityItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserActivityItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserActivityItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserActivityItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserActivityItemRequestBuilderGetQueryParameters;
+}
+export interface UserActivityItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the activities property of the microsoft.graph.user entity.
  */
@@ -31,7 +67,7 @@ export class UserActivityItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/activities/{userActivity%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an existing user activity for your app.
+     * Delete an existing user activity for your app. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/projectrome-delete-activity?view=graph-rest-1.0|Find more info here}
      */
@@ -77,7 +113,7 @@ export class UserActivityItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UserActivity>(requestInfo, createUserActivityFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an existing user activity for your app.
+     * Delete an existing user activity for your app. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

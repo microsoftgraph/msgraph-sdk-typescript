@@ -1,16 +1,52 @@
-import { createPermissionGrantConditionSetFromDiscriminatorValue } from '../../../../../models/createPermissionGrantConditionSetFromDiscriminatorValue';
-import { deserializeIntoPermissionGrantConditionSet } from '../../../../../models/deserializeIntoPermissionGrantConditionSet';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type PermissionGrantConditionSet } from '../../../../../models/permissionGrantConditionSet';
-import { serializePermissionGrantConditionSet } from '../../../../../models/serializePermissionGrantConditionSet';
-import { type PermissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration } from './permissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration';
-import { type PermissionGrantConditionSetItemRequestBuilderGetRequestConfiguration } from './permissionGrantConditionSetItemRequestBuilderGetRequestConfiguration';
-import { type PermissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration } from './permissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createPermissionGrantConditionSetFromDiscriminatorValue, deserializeIntoPermissionGrantConditionSet, serializePermissionGrantConditionSet, type PermissionGrantConditionSet } from '../../../../../models/permissionGrantConditionSet';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PermissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PermissionGrantConditionSetItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PermissionGrantConditionSetItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PermissionGrantConditionSetItemRequestBuilderGetQueryParameters;
+}
+export interface PermissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
  */
@@ -24,7 +60,7 @@ export class PermissionGrantConditionSetItemRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}/excludes/{permissionGrantConditionSet%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a permissionGrantConditionSet from the excludes collection of a permissionGrantPolicy.
+     * Deletes a permissionGrantConditionSet from the excludes collection of a permissionGrantPolicy. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-delete-excludes?view=graph-rest-1.0|Find more info here}
      */
@@ -70,7 +106,7 @@ export class PermissionGrantConditionSetItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<PermissionGrantConditionSet>(requestInfo, createPermissionGrantConditionSetFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a permissionGrantConditionSet from the excludes collection of a permissionGrantPolicy.
+     * Deletes a permissionGrantConditionSet from the excludes collection of a permissionGrantPolicy. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

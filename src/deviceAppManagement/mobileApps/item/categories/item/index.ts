@@ -1,2 +1,1 @@
-export * from './mobileAppCategoryItemRequestBuilderGetQueryParameters'
-export * from './mobileAppCategoryItemRequestBuilderGetRequestConfiguration'
+export * from './mobileAppCategoryItemRequestBuilder'

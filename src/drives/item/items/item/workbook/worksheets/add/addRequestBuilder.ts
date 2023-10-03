@@ -1,17 +1,19 @@
-import { createWorkbookWorksheetFromDiscriminatorValue } from '../../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
-import { deserializeIntoWorkbookWorksheet } from '../../../../../../../models/deserializeIntoWorkbookWorksheet';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookWorksheet } from '../../../../../../../models/serializeWorkbookWorksheet';
-import { type WorkbookWorksheet } from '../../../../../../../models/workbookWorksheet';
-import { type AddPostRequestBody } from './addPostRequestBody';
-import { type AddRequestBuilderPostRequestConfiguration } from './addRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAddPostRequestBody } from './deserializeIntoAddPostRequestBody';
-import { serializeAddPostRequestBody } from './serializeAddPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookWorksheetFromDiscriminatorValue, deserializeIntoWorkbookWorksheet, serializeWorkbookWorksheet, type WorkbookWorksheet } from '../../../../../../../models/workbookWorksheet';
+import { deserializeIntoAddPostRequestBody, serializeAddPostRequestBody, type AddPostRequestBody } from './addPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AddRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the add method.
  */
@@ -25,7 +27,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/add");
     };
     /**
-     * Adds a new worksheet to the workbook. The worksheet is added at the end of existing worksheets. If you wish to activate the newly added worksheet, call.activate() on it.
+     * Adds a new worksheet to the workbook. The worksheet is added at the end of existing worksheets. If you wish to activate the newly added worksheet, call .activate() on it. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheet
@@ -42,7 +44,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookWorksheet>(requestInfo, createWorkbookWorksheetFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Adds a new worksheet to the workbook. The worksheet is added at the end of existing worksheets. If you wish to activate the newly added worksheet, call.activate() on it.
+     * Adds a new worksheet to the workbook. The worksheet is added at the end of existing worksheets. If you wish to activate the newly added worksheet, call .activate() on it. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

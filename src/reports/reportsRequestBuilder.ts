@@ -1,11 +1,6 @@
-import { createReportRootFromDiscriminatorValue } from '../models/createReportRootFromDiscriminatorValue';
-import { deserializeIntoReportRoot } from '../models/deserializeIntoReportRoot';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { type ReportRoot } from '../models/reportRoot';
-import { serializeReportRoot } from '../models/serializeReportRoot';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createReportRootFromDiscriminatorValue, deserializeIntoReportRoot, serializeReportRoot, type ReportRoot } from '../models/reportRoot';
 import { AuthenticationMethodsRequestBuilder } from './authenticationMethods/authenticationMethodsRequestBuilder';
 import { DailyPrintUsageByPrinterRequestBuilder } from './dailyPrintUsageByPrinter/dailyPrintUsageByPrinterRequestBuilder';
 import { DailyPrintUsageByUserRequestBuilder } from './dailyPrintUsageByUser/dailyPrintUsageByUserRequestBuilder';
@@ -112,11 +107,43 @@ import { ManagedDeviceEnrollmentTopFailuresRequestBuilder } from './managedDevic
 import { ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder } from './managedDeviceEnrollmentTopFailuresWithPeriod/managedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder';
 import { MonthlyPrintUsageByPrinterRequestBuilder } from './monthlyPrintUsageByPrinter/monthlyPrintUsageByPrinterRequestBuilder';
 import { MonthlyPrintUsageByUserRequestBuilder } from './monthlyPrintUsageByUser/monthlyPrintUsageByUserRequestBuilder';
-import { type ReportsRequestBuilderGetRequestConfiguration } from './reportsRequestBuilderGetRequestConfiguration';
-import { type ReportsRequestBuilderPatchRequestConfiguration } from './reportsRequestBuilderPatchRequestConfiguration';
 import { SecurityRequestBuilder } from './security/securityRequestBuilder';
 import { BaseRequestBuilder, DateOnly, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ReportsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ReportsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ReportsRequestBuilderGetQueryParameters;
+}
+export interface ReportsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the reportRoot singleton.
  */

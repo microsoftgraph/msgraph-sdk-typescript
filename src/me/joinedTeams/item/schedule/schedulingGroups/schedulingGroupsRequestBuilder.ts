@@ -1,19 +1,66 @@
 import { type SchedulingGroupCollectionResponse } from '../../../../../models/';
-import { createSchedulingGroupCollectionResponseFromDiscriminatorValue } from '../../../../../models/createSchedulingGroupCollectionResponseFromDiscriminatorValue';
-import { createSchedulingGroupFromDiscriminatorValue } from '../../../../../models/createSchedulingGroupFromDiscriminatorValue';
-import { deserializeIntoSchedulingGroup } from '../../../../../models/deserializeIntoSchedulingGroup';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type SchedulingGroup } from '../../../../../models/schedulingGroup';
-import { serializeSchedulingGroup } from '../../../../../models/serializeSchedulingGroup';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createSchedulingGroupFromDiscriminatorValue, deserializeIntoSchedulingGroup, serializeSchedulingGroup, type SchedulingGroup } from '../../../../../models/schedulingGroup';
+import { createSchedulingGroupCollectionResponseFromDiscriminatorValue } from '../../../../../models/schedulingGroupCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SchedulingGroupItemRequestBuilder } from './item/schedulingGroupItemRequestBuilder';
-import { type SchedulingGroupsRequestBuilderGetRequestConfiguration } from './schedulingGroupsRequestBuilderGetRequestConfiguration';
-import { type SchedulingGroupsRequestBuilderPostRequestConfiguration } from './schedulingGroupsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SchedulingGroupsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SchedulingGroupsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SchedulingGroupsRequestBuilderGetQueryParameters;
+}
+export interface SchedulingGroupsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
  */
@@ -44,7 +91,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/schedulingGroups{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Get the list of schedulingGroups in this schedule.
+     * Get the list of schedulingGroups in this schedule. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SchedulingGroupCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/schedule-list-schedulinggroups?view=graph-rest-1.0|Find more info here}
@@ -60,7 +107,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SchedulingGroupCollectionResponse>(requestInfo, createSchedulingGroupCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new schedulingGroup.
+     * Create a new schedulingGroup. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SchedulingGroup
@@ -77,7 +124,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SchedulingGroup>(requestInfo, createSchedulingGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the list of schedulingGroups in this schedule.
+     * Get the list of schedulingGroups in this schedule. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +142,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new schedulingGroup.
+     * Create a new schedulingGroup. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

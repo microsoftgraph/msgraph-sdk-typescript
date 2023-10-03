@@ -1,5 +1,2 @@
 export * from './coupDaysNcPostRequestBody'
-export * from './coupDaysNcRequestBuilderPostRequestConfiguration'
-export * from './createCoupDaysNcPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoCoupDaysNcPostRequestBody'
-export * from './serializeCoupDaysNcPostRequestBody'
+export * from './coupDaysNcRequestBuilder'

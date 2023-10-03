@@ -1,19 +1,70 @@
 import { type DelegatedPermissionClassificationCollectionResponse } from '../../../models/';
-import { createDelegatedPermissionClassificationCollectionResponseFromDiscriminatorValue } from '../../../models/createDelegatedPermissionClassificationCollectionResponseFromDiscriminatorValue';
-import { createDelegatedPermissionClassificationFromDiscriminatorValue } from '../../../models/createDelegatedPermissionClassificationFromDiscriminatorValue';
-import { type DelegatedPermissionClassification } from '../../../models/delegatedPermissionClassification';
-import { deserializeIntoDelegatedPermissionClassification } from '../../../models/deserializeIntoDelegatedPermissionClassification';
+import { createDelegatedPermissionClassificationFromDiscriminatorValue, deserializeIntoDelegatedPermissionClassification, serializeDelegatedPermissionClassification, type DelegatedPermissionClassification } from '../../../models/delegatedPermissionClassification';
+import { createDelegatedPermissionClassificationCollectionResponseFromDiscriminatorValue } from '../../../models/delegatedPermissionClassificationCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDelegatedPermissionClassification } from '../../../models/serializeDelegatedPermissionClassification';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DelegatedPermissionClassificationsRequestBuilderGetRequestConfiguration } from './delegatedPermissionClassificationsRequestBuilderGetRequestConfiguration';
-import { type DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration } from './delegatedPermissionClassificationsRequestBuilderPostRequestConfiguration';
 import { DelegatedPermissionClassificationItemRequestBuilder } from './item/delegatedPermissionClassificationItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DelegatedPermissionClassificationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DelegatedPermissionClassificationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DelegatedPermissionClassificationsRequestBuilderGetQueryParameters;
+}
+export interface DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the delegatedPermissionClassifications property of the microsoft.graph.servicePrincipal entity.
  */
@@ -44,7 +95,7 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/delegatedPermissionClassifications{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API.
+     * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedPermissionClassificationCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
         return this.requestAdapter.sendAsync<DelegatedPermissionClassificationCollectionResponse>(requestInfo, createDelegatedPermissionClassificationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API.
+     * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedPermissionClassification
@@ -77,7 +128,7 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
         return this.requestAdapter.sendAsync<DelegatedPermissionClassification>(requestInfo, createDelegatedPermissionClassificationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API.
+     * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
         return requestInfo;
     };
     /**
-     * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API.
+     * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,2 +1,1 @@
-export * from './taskDefinitionRequestBuilderGetQueryParameters'
-export * from './taskDefinitionRequestBuilderGetRequestConfiguration'
+export * from './taskDefinitionRequestBuilder'

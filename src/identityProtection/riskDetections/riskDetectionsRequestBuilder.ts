@@ -1,19 +1,70 @@
 import { type RiskDetectionCollectionResponse } from '../../models/';
-import { createRiskDetectionCollectionResponseFromDiscriminatorValue } from '../../models/createRiskDetectionCollectionResponseFromDiscriminatorValue';
-import { createRiskDetectionFromDiscriminatorValue } from '../../models/createRiskDetectionFromDiscriminatorValue';
-import { deserializeIntoRiskDetection } from '../../models/deserializeIntoRiskDetection';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type RiskDetection } from '../../models/riskDetection';
-import { serializeRiskDetection } from '../../models/serializeRiskDetection';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createRiskDetectionFromDiscriminatorValue, deserializeIntoRiskDetection, serializeRiskDetection, type RiskDetection } from '../../models/riskDetection';
+import { createRiskDetectionCollectionResponseFromDiscriminatorValue } from '../../models/riskDetectionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { RiskDetectionItemRequestBuilder } from './item/riskDetectionItemRequestBuilder';
-import { type RiskDetectionsRequestBuilderGetRequestConfiguration } from './riskDetectionsRequestBuilderGetRequestConfiguration';
-import { type RiskDetectionsRequestBuilderPostRequestConfiguration } from './riskDetectionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RiskDetectionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RiskDetectionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RiskDetectionsRequestBuilderGetQueryParameters;
+}
+export interface RiskDetectionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
  */
@@ -44,7 +95,7 @@ export class RiskDetectionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityProtection/riskDetections{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the riskDetection objects and their properties.
+     * Get a list of the riskDetection objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskDetectionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/riskdetection-list?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class RiskDetectionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RiskDetection>(requestInfo, createRiskDetectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the riskDetection objects and their properties.
+     * Get a list of the riskDetection objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

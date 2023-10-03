@@ -16,3 +16,5 @@ export enum EvidenceRole {
     PolicyViolator = "policyViolator",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

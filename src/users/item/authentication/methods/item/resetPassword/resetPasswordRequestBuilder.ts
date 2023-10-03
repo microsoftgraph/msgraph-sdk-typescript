@@ -1,17 +1,19 @@
-import { createPasswordResetResponseFromDiscriminatorValue } from '../../../../../../models/createPasswordResetResponseFromDiscriminatorValue';
-import { deserializeIntoPasswordResetResponse } from '../../../../../../models/deserializeIntoPasswordResetResponse';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type PasswordResetResponse } from '../../../../../../models/passwordResetResponse';
-import { serializePasswordResetResponse } from '../../../../../../models/serializePasswordResetResponse';
-import { deserializeIntoResetPasswordPostRequestBody } from './deserializeIntoResetPasswordPostRequestBody';
-import { type ResetPasswordPostRequestBody } from './resetPasswordPostRequestBody';
-import { type ResetPasswordRequestBuilderPostRequestConfiguration } from './resetPasswordRequestBuilderPostRequestConfiguration';
-import { serializeResetPasswordPostRequestBody } from './serializeResetPasswordPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createPasswordResetResponseFromDiscriminatorValue, deserializeIntoPasswordResetResponse, serializePasswordResetResponse, type PasswordResetResponse } from '../../../../../../models/passwordResetResponse';
+import { deserializeIntoResetPasswordPostRequestBody, serializeResetPasswordPostRequestBody, type ResetPasswordPostRequestBody } from './resetPasswordPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ResetPasswordRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the resetPassword method.
  */
@@ -25,7 +27,7 @@ export class ResetPasswordRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/methods/{authenticationMethod%2Did}/resetPassword");
     };
     /**
-     * Reset a user's password, represented by a password authentication method object. This can only be done by an administrator with appropriate permissions and cannot be performed on a user's own account. This flow writes the new password to Azure Active Directory and pushes it to on-premises Active Directory if configured using password writeback. The admin can either provide a new password or have the system generate one. The user is prompted to change their password on their next sign in. This reset is a long-running operation and will return a Location header with a link where the caller can periodically check for the status of the reset operation.
+     * Reset a user's password, represented by a password authentication method object. This can only be done by an administrator with appropriate permissions and cannot be performed on a user's own account. This flow writes the new password to Azure Active Directory and pushes it to on-premises Active Directory if configured using password writeback. The admin can either provide a new password or have the system generate one. The user is prompted to change their password on their next sign in. This reset is a long-running operation and will return a Location header with a link where the caller can periodically check for the status of the reset operation. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PasswordResetResponse
@@ -42,7 +44,7 @@ export class ResetPasswordRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PasswordResetResponse>(requestInfo, createPasswordResetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Reset a user's password, represented by a password authentication method object. This can only be done by an administrator with appropriate permissions and cannot be performed on a user's own account. This flow writes the new password to Azure Active Directory and pushes it to on-premises Active Directory if configured using password writeback. The admin can either provide a new password or have the system generate one. The user is prompted to change their password on their next sign in. This reset is a long-running operation and will return a Location header with a link where the caller can periodically check for the status of the reset operation.
+     * Reset a user's password, represented by a password authentication method object. This can only be done by an administrator with appropriate permissions and cannot be performed on a user's own account. This flow writes the new password to Azure Active Directory and pushes it to on-premises Active Directory if configured using password writeback. The admin can either provide a new password or have the system generate one. The user is prompted to change their password on their next sign in. This reset is a long-running operation and will return a Location header with a link where the caller can periodically check for the status of the reset operation. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

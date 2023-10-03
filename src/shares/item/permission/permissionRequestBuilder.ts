@@ -1,17 +1,53 @@
-import { createPermissionFromDiscriminatorValue } from '../../../models/createPermissionFromDiscriminatorValue';
-import { deserializeIntoPermission } from '../../../models/deserializeIntoPermission';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type Permission } from '../../../models/permission';
-import { serializePermission } from '../../../models/serializePermission';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPermissionFromDiscriminatorValue, deserializeIntoPermission, serializePermission, type Permission } from '../../../models/permission';
 import { GrantRequestBuilder } from './grant/grantRequestBuilder';
-import { type PermissionRequestBuilderDeleteRequestConfiguration } from './permissionRequestBuilderDeleteRequestConfiguration';
-import { type PermissionRequestBuilderGetRequestConfiguration } from './permissionRequestBuilderGetRequestConfiguration';
-import { type PermissionRequestBuilderPatchRequestConfiguration } from './permissionRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PermissionRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PermissionRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PermissionRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PermissionRequestBuilderGetQueryParameters;
+}
+export interface PermissionRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the permission property of the microsoft.graph.sharedDriveItem entity.
  */

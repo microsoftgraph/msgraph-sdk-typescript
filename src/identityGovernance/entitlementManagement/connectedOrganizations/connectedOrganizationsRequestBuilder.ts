@@ -1,19 +1,70 @@
 import { type ConnectedOrganizationCollectionResponse } from '../../../models/';
-import { type ConnectedOrganization } from '../../../models/connectedOrganization';
-import { createConnectedOrganizationCollectionResponseFromDiscriminatorValue } from '../../../models/createConnectedOrganizationCollectionResponseFromDiscriminatorValue';
-import { createConnectedOrganizationFromDiscriminatorValue } from '../../../models/createConnectedOrganizationFromDiscriminatorValue';
-import { deserializeIntoConnectedOrganization } from '../../../models/deserializeIntoConnectedOrganization';
+import { createConnectedOrganizationFromDiscriminatorValue, deserializeIntoConnectedOrganization, serializeConnectedOrganization, type ConnectedOrganization } from '../../../models/connectedOrganization';
+import { createConnectedOrganizationCollectionResponseFromDiscriminatorValue } from '../../../models/connectedOrganizationCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeConnectedOrganization } from '../../../models/serializeConnectedOrganization';
-import { type ConnectedOrganizationsRequestBuilderGetRequestConfiguration } from './connectedOrganizationsRequestBuilderGetRequestConfiguration';
-import { type ConnectedOrganizationsRequestBuilderPostRequestConfiguration } from './connectedOrganizationsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ConnectedOrganizationItemRequestBuilder } from './item/connectedOrganizationItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConnectedOrganizationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ConnectedOrganizationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConnectedOrganizationsRequestBuilderGetQueryParameters;
+}
+export interface ConnectedOrganizationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
  */
@@ -44,7 +95,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/connectedOrganizations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of connectedOrganization objects.
+     * Retrieve a list of connectedOrganization objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConnectedOrganizationCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-connectedorganizations?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConnectedOrganizationCollectionResponse>(requestInfo, createConnectedOrganizationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new connectedOrganization object.
+     * Create a new connectedOrganization object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConnectedOrganization
@@ -77,7 +128,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConnectedOrganization>(requestInfo, createConnectedOrganizationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of connectedOrganization objects.
+     * Retrieve a list of connectedOrganization objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new connectedOrganization object.
+     * Create a new connectedOrganization object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

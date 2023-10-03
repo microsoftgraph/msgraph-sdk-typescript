@@ -1,16 +1,52 @@
-import { createEBookInstallSummaryFromDiscriminatorValue } from '../../../../models/createEBookInstallSummaryFromDiscriminatorValue';
-import { deserializeIntoEBookInstallSummary } from '../../../../models/deserializeIntoEBookInstallSummary';
-import { type EBookInstallSummary } from '../../../../models/eBookInstallSummary';
+import { createEBookInstallSummaryFromDiscriminatorValue, deserializeIntoEBookInstallSummary, serializeEBookInstallSummary, type EBookInstallSummary } from '../../../../models/eBookInstallSummary';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeEBookInstallSummary } from '../../../../models/serializeEBookInstallSummary';
-import { type InstallSummaryRequestBuilderDeleteRequestConfiguration } from './installSummaryRequestBuilderDeleteRequestConfiguration';
-import { type InstallSummaryRequestBuilderGetRequestConfiguration } from './installSummaryRequestBuilderGetRequestConfiguration';
-import { type InstallSummaryRequestBuilderPatchRequestConfiguration } from './installSummaryRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InstallSummaryRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface InstallSummaryRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface InstallSummaryRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InstallSummaryRequestBuilderGetQueryParameters;
+}
+export interface InstallSummaryRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the installSummary property of the microsoft.graph.managedEBook entity.
  */

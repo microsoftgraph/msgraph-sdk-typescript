@@ -1,20 +1,71 @@
 import { type OAuth2PermissionGrantCollectionResponse } from '../models/';
-import { createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue } from '../models/createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue';
-import { createOAuth2PermissionGrantFromDiscriminatorValue } from '../models/createOAuth2PermissionGrantFromDiscriminatorValue';
-import { deserializeIntoOAuth2PermissionGrant } from '../models/deserializeIntoOAuth2PermissionGrant';
-import { type OAuth2PermissionGrant } from '../models/oAuth2PermissionGrant';
+import { createOAuth2PermissionGrantFromDiscriminatorValue, deserializeIntoOAuth2PermissionGrant, serializeOAuth2PermissionGrant, type OAuth2PermissionGrant } from '../models/oAuth2PermissionGrant';
+import { createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue } from '../models/oAuth2PermissionGrantCollectionResponse';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeOAuth2PermissionGrant } from '../models/serializeOAuth2PermissionGrant';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { OAuth2PermissionGrantItemRequestBuilder } from './item/oAuth2PermissionGrantItemRequestBuilder';
-import { type Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration } from './oauth2PermissionGrantsRequestBuilderGetRequestConfiguration';
-import { type Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration } from './oauth2PermissionGrantsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface Oauth2PermissionGrantsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: Oauth2PermissionGrantsRequestBuilderGetQueryParameters;
+}
+export interface Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of oAuth2PermissionGrant entities.
  */
@@ -51,7 +102,7 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/oauth2PermissionGrants{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of oAuth2PermissionGrant objects, representing delegated permissions which have been granted for client applications to access APIs on behalf of signed-in users.
+     * Retrieve a list of oAuth2PermissionGrant objects, representing delegated permissions which have been granted for client applications to access APIs on behalf of signed-in users. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OAuth2PermissionGrantCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/oauth2permissiongrant-list?view=graph-rest-1.0|Find more info here}
@@ -67,7 +118,7 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OAuth2PermissionGrantCollectionResponse>(requestInfo, createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a delegated permission grant represented by an oAuth2PermissionGrant object. A delegated permission grant authorizes a client service principal (representing a client application) to access a resource service principal (representing an API), on behalf of a signed-in user, for the level of access limited by the delegated permissions which were granted.
+     * Create a delegated permission grant represented by an oAuth2PermissionGrant object. A delegated permission grant authorizes a client service principal (representing a client application) to access a resource service principal (representing an API), on behalf of a signed-in user, for the level of access limited by the delegated permissions which were granted. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OAuth2PermissionGrant
@@ -84,7 +135,7 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OAuth2PermissionGrant>(requestInfo, createOAuth2PermissionGrantFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of oAuth2PermissionGrant objects, representing delegated permissions which have been granted for client applications to access APIs on behalf of signed-in users.
+     * Retrieve a list of oAuth2PermissionGrant objects, representing delegated permissions which have been granted for client applications to access APIs on behalf of signed-in users. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +153,7 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a delegated permission grant represented by an oAuth2PermissionGrant object. A delegated permission grant authorizes a client service principal (representing a client application) to access a resource service principal (representing an API), on behalf of a signed-in user, for the level of access limited by the delegated permissions which were granted.
+     * Create a delegated permission grant represented by an oAuth2PermissionGrant object. A delegated permission grant authorizes a client service principal (representing a client application) to access a resource service principal (representing an API), on behalf of a signed-in user, for the level of access limited by the delegated permissions which were granted. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,13 +1,18 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type ChangePasswordPostRequestBody } from './changePasswordPostRequestBody';
-import { type ChangePasswordRequestBuilderPostRequestConfiguration } from './changePasswordRequestBuilderPostRequestConfiguration';
-import { deserializeIntoChangePasswordPostRequestBody } from './deserializeIntoChangePasswordPostRequestBody';
-import { serializeChangePasswordPostRequestBody } from './serializeChangePasswordPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { deserializeIntoChangePasswordPostRequestBody, serializeChangePasswordPostRequestBody, type ChangePasswordPostRequestBody } from './changePasswordPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChangePasswordRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the changePassword method.
  */
@@ -21,7 +26,7 @@ export class ChangePasswordRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/changePassword");
     };
     /**
-     * Enable the user to update their password. Any user can update their password without belonging to any administrator role.
+     * Enable the user to update their password. Any user can update their password without belonging to any administrator role. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/user-changepassword?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class ChangePasswordRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Enable the user to update their password. Any user can update their password without belonging to any administrator role.
+     * Enable the user to update their password. Any user can update their password without belonging to any administrator role. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

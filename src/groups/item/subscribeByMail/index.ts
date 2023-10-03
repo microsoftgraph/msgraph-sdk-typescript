@@ -1,1 +1,1 @@
-export * from './subscribeByMailRequestBuilderPostRequestConfiguration'
+export * from './subscribeByMailRequestBuilder'

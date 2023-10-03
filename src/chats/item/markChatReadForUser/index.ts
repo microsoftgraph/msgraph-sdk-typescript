@@ -1,5 +1,2 @@
-export * from './createMarkChatReadForUserPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoMarkChatReadForUserPostRequestBody'
 export * from './markChatReadForUserPostRequestBody'
-export * from './markChatReadForUserRequestBuilderPostRequestConfiguration'
-export * from './serializeMarkChatReadForUserPostRequestBody'
+export * from './markChatReadForUserRequestBuilder'

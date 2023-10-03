@@ -1,2 +1,1 @@
-export * from './retentionEventTypeRequestBuilderGetQueryParameters'
-export * from './retentionEventTypeRequestBuilderGetRequestConfiguration'
+export * from './retentionEventTypeRequestBuilder'

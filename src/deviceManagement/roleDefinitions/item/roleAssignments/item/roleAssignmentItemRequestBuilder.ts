@@ -1,17 +1,53 @@
-import { createRoleAssignmentFromDiscriminatorValue } from '../../../../../models/createRoleAssignmentFromDiscriminatorValue';
-import { deserializeIntoRoleAssignment } from '../../../../../models/deserializeIntoRoleAssignment';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type RoleAssignment } from '../../../../../models/roleAssignment';
-import { serializeRoleAssignment } from '../../../../../models/serializeRoleAssignment';
-import { type RoleAssignmentItemRequestBuilderDeleteRequestConfiguration } from './roleAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type RoleAssignmentItemRequestBuilderGetRequestConfiguration } from './roleAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type RoleAssignmentItemRequestBuilderPatchRequestConfiguration } from './roleAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createRoleAssignmentFromDiscriminatorValue, deserializeIntoRoleAssignment, serializeRoleAssignment, type RoleAssignment } from '../../../../../models/roleAssignment';
 import { RoleDefinitionRequestBuilder } from './roleDefinition/roleDefinitionRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RoleAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface RoleAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface RoleAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RoleAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface RoleAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.
  */

@@ -1,16 +1,52 @@
-import { createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue } from '../../../../models/createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
-import { deserializeIntoManagedAppPolicyDeploymentSummary } from '../../../../models/deserializeIntoManagedAppPolicyDeploymentSummary';
-import { type ManagedAppPolicyDeploymentSummary } from '../../../../models/managedAppPolicyDeploymentSummary';
+import { createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue, deserializeIntoManagedAppPolicyDeploymentSummary, serializeManagedAppPolicyDeploymentSummary, type ManagedAppPolicyDeploymentSummary } from '../../../../models/managedAppPolicyDeploymentSummary';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeManagedAppPolicyDeploymentSummary } from '../../../../models/serializeManagedAppPolicyDeploymentSummary';
-import { type DeploymentSummaryRequestBuilderDeleteRequestConfiguration } from './deploymentSummaryRequestBuilderDeleteRequestConfiguration';
-import { type DeploymentSummaryRequestBuilderGetRequestConfiguration } from './deploymentSummaryRequestBuilderGetRequestConfiguration';
-import { type DeploymentSummaryRequestBuilderPatchRequestConfiguration } from './deploymentSummaryRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeploymentSummaryRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeploymentSummaryRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeploymentSummaryRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeploymentSummaryRequestBuilderGetQueryParameters;
+}
+export interface DeploymentSummaryRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deploymentSummary property of the microsoft.graph.iosManagedAppProtection entity.
  */

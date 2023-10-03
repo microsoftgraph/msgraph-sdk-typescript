@@ -1,16 +1,52 @@
-import { createEducationAssignmentResourceFromDiscriminatorValue } from '../../../../../../models/createEducationAssignmentResourceFromDiscriminatorValue';
-import { deserializeIntoEducationAssignmentResource } from '../../../../../../models/deserializeIntoEducationAssignmentResource';
-import { type EducationAssignmentResource } from '../../../../../../models/educationAssignmentResource';
+import { createEducationAssignmentResourceFromDiscriminatorValue, deserializeIntoEducationAssignmentResource, serializeEducationAssignmentResource, type EducationAssignmentResource } from '../../../../../../models/educationAssignmentResource';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationAssignmentResource } from '../../../../../../models/serializeEducationAssignmentResource';
-import { type EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration } from './educationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration } from './educationAssignmentResourceItemRequestBuilderGetRequestConfiguration';
-import { type EducationAssignmentResourceItemRequestBuilderPatchRequestConfiguration } from './educationAssignmentResourceItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationAssignmentResourceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationAssignmentResourceItemRequestBuilderGetQueryParameters;
+}
+export interface EducationAssignmentResourceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
  */
@@ -24,7 +60,7 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a specific educationAssignmentResource attached to an assignment. In general, only teachers in the class can remove a resource. However, teachers cannot remove resources marked as 'distributeToStudents', after the assignment has been published to students.
+     * Delete a specific educationAssignmentResource attached to an assignment. In general, only teachers in the class can remove a resource. However, teachers cannot remove resources marked as 'distributeToStudents', after the assignment has been published to students. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/educationassignmentresource-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+     * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentResource
      * @see {@link https://learn.microsoft.com/graph/api/educationassignmentresource-get?view=graph-rest-1.0|Find more info here}
@@ -71,7 +107,7 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<EducationAssignmentResource>(requestInfo, createEducationAssignmentResourceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a specific educationAssignmentResource attached to an assignment. In general, only teachers in the class can remove a resource. However, teachers cannot remove resources marked as 'distributeToStudents', after the assignment has been published to students.
+     * Delete a specific educationAssignmentResource attached to an assignment. In general, only teachers in the class can remove a resource. However, teachers cannot remove resources marked as 'distributeToStudents', after the assignment has been published to students. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -87,7 +123,7 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+     * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

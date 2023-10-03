@@ -1,16 +1,52 @@
-import { createWorkforceIntegrationFromDiscriminatorValue } from '../../../models/createWorkforceIntegrationFromDiscriminatorValue';
-import { deserializeIntoWorkforceIntegration } from '../../../models/deserializeIntoWorkforceIntegration';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeWorkforceIntegration } from '../../../models/serializeWorkforceIntegration';
-import { type WorkforceIntegration } from '../../../models/workforceIntegration';
-import { type WorkforceIntegrationItemRequestBuilderDeleteRequestConfiguration } from './workforceIntegrationItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkforceIntegrationItemRequestBuilderGetRequestConfiguration } from './workforceIntegrationItemRequestBuilderGetRequestConfiguration';
-import { type WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration } from './workforceIntegrationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createWorkforceIntegrationFromDiscriminatorValue, deserializeIntoWorkforceIntegration, serializeWorkforceIntegration, type WorkforceIntegration } from '../../../models/workforceIntegration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkforceIntegrationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkforceIntegrationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkforceIntegrationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkforceIntegrationItemRequestBuilderGetQueryParameters;
+}
+export interface WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
  */
@@ -24,7 +60,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teamwork/workforceIntegrations/{workforceIntegration%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an instance of a workforceIntegration.
+     * Delete an instance of a workforceIntegration. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a workforceIntegration object.
+     * Retrieve the properties and relationships of a workforceIntegration object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkforceIntegration
      * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +91,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkforceIntegration>(requestInfo, createWorkforceIntegrationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a workforceIntegration object.
+     * Update the properties of a workforceIntegration object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkforceIntegration
@@ -72,7 +108,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkforceIntegration>(requestInfo, createWorkforceIntegrationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an instance of a workforceIntegration.
+     * Delete an instance of a workforceIntegration. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a workforceIntegration object.
+     * Retrieve the properties and relationships of a workforceIntegration object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +142,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a workforceIntegration object.
+     * Update the properties of a workforceIntegration object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

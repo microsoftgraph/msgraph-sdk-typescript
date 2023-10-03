@@ -1,17 +1,53 @@
-import { createExternalActivityFromDiscriminatorValue } from '../../../../../../models/externalConnectors/createExternalActivityFromDiscriminatorValue';
-import { deserializeIntoExternalActivity } from '../../../../../../models/externalConnectors/deserializeIntoExternalActivity';
-import { type ExternalActivity } from '../../../../../../models/externalConnectors/externalActivity';
-import { serializeExternalActivity } from '../../../../../../models/externalConnectors/serializeExternalActivity';
+import { createExternalActivityFromDiscriminatorValue, deserializeIntoExternalActivity, serializeExternalActivity, type ExternalActivity } from '../../../../../../models/externalConnectors/externalActivity';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type ExternalActivityItemRequestBuilderDeleteRequestConfiguration } from './externalActivityItemRequestBuilderDeleteRequestConfiguration';
-import { type ExternalActivityItemRequestBuilderGetRequestConfiguration } from './externalActivityItemRequestBuilderGetRequestConfiguration';
-import { type ExternalActivityItemRequestBuilderPatchRequestConfiguration } from './externalActivityItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { PerformedByRequestBuilder } from './performedBy/performedByRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExternalActivityItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ExternalActivityItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ExternalActivityItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ExternalActivityItemRequestBuilderGetQueryParameters;
+}
+export interface ExternalActivityItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.
  */

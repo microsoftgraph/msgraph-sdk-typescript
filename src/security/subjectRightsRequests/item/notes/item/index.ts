@@ -1,4 +1,1 @@
-export * from './authoredNoteItemRequestBuilderDeleteRequestConfiguration'
-export * from './authoredNoteItemRequestBuilderGetQueryParameters'
-export * from './authoredNoteItemRequestBuilderGetRequestConfiguration'
-export * from './authoredNoteItemRequestBuilderPatchRequestConfiguration'
+export * from './authoredNoteItemRequestBuilder'

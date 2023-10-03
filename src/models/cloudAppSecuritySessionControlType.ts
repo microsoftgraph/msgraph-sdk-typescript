@@ -4,3 +4,5 @@ export enum CloudAppSecuritySessionControlType {
     BlockDownloads = "blockDownloads",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

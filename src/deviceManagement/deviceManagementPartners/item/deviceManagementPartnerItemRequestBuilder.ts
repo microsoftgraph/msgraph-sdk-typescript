@@ -1,17 +1,53 @@
-import { createDeviceManagementPartnerFromDiscriminatorValue } from '../../../models/createDeviceManagementPartnerFromDiscriminatorValue';
-import { deserializeIntoDeviceManagementPartner } from '../../../models/deserializeIntoDeviceManagementPartner';
-import { type DeviceManagementPartner } from '../../../models/deviceManagementPartner';
+import { createDeviceManagementPartnerFromDiscriminatorValue, deserializeIntoDeviceManagementPartner, serializeDeviceManagementPartner, type DeviceManagementPartner } from '../../../models/deviceManagementPartner';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceManagementPartner } from '../../../models/serializeDeviceManagementPartner';
-import { type DeviceManagementPartnerItemRequestBuilderDeleteRequestConfiguration } from './deviceManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
-import { type DeviceManagementPartnerItemRequestBuilderGetRequestConfiguration } from './deviceManagementPartnerItemRequestBuilderGetRequestConfiguration';
-import { type DeviceManagementPartnerItemRequestBuilderPatchRequestConfiguration } from './deviceManagementPartnerItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { TerminateRequestBuilder } from './terminate/terminateRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceManagementPartnerItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceManagementPartnerItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceManagementPartnerItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceManagementPartnerItemRequestBuilderGetQueryParameters;
+}
+export interface DeviceManagementPartnerItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
  */

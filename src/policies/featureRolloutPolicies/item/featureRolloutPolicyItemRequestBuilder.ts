@@ -1,17 +1,53 @@
-import { createFeatureRolloutPolicyFromDiscriminatorValue } from '../../../models/createFeatureRolloutPolicyFromDiscriminatorValue';
-import { deserializeIntoFeatureRolloutPolicy } from '../../../models/deserializeIntoFeatureRolloutPolicy';
-import { type FeatureRolloutPolicy } from '../../../models/featureRolloutPolicy';
+import { createFeatureRolloutPolicyFromDiscriminatorValue, deserializeIntoFeatureRolloutPolicy, serializeFeatureRolloutPolicy, type FeatureRolloutPolicy } from '../../../models/featureRolloutPolicy';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeFeatureRolloutPolicy } from '../../../models/serializeFeatureRolloutPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
-import { type FeatureRolloutPolicyItemRequestBuilderDeleteRequestConfiguration } from './featureRolloutPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type FeatureRolloutPolicyItemRequestBuilderGetRequestConfiguration } from './featureRolloutPolicyItemRequestBuilderGetRequestConfiguration';
-import { type FeatureRolloutPolicyItemRequestBuilderPatchRequestConfiguration } from './featureRolloutPolicyItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FeatureRolloutPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface FeatureRolloutPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FeatureRolloutPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FeatureRolloutPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface FeatureRolloutPolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
  */
@@ -31,7 +67,7 @@ export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/featureRolloutPolicies/{featureRolloutPolicy%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a featureRolloutPolicy object.
+     * Delete a featureRolloutPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -46,7 +82,7 @@ export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a featureRolloutPolicy object.
+     * Retrieve the properties and relationships of a featureRolloutPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FeatureRolloutPolicy
      * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicy-get?view=graph-rest-1.0|Find more info here}
@@ -62,7 +98,7 @@ export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<FeatureRolloutPolicy>(requestInfo, createFeatureRolloutPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of featureRolloutPolicy object.
+     * Update the properties of featureRolloutPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FeatureRolloutPolicy
@@ -79,7 +115,7 @@ export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<FeatureRolloutPolicy>(requestInfo, createFeatureRolloutPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a featureRolloutPolicy object.
+     * Delete a featureRolloutPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +131,7 @@ export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a featureRolloutPolicy object.
+     * Retrieve the properties and relationships of a featureRolloutPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -113,7 +149,7 @@ export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of featureRolloutPolicy object.
+     * Update the properties of featureRolloutPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

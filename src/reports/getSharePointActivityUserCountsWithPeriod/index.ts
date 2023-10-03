@@ -1,1 +1,1 @@
-export * from './getSharePointActivityUserCountsWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getSharePointActivityUserCountsWithPeriodRequestBuilder'

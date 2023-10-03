@@ -1,16 +1,52 @@
-import { createMobileAppAssignmentFromDiscriminatorValue } from '../../../../../models/createMobileAppAssignmentFromDiscriminatorValue';
-import { deserializeIntoMobileAppAssignment } from '../../../../../models/deserializeIntoMobileAppAssignment';
-import { type MobileAppAssignment } from '../../../../../models/mobileAppAssignment';
+import { createMobileAppAssignmentFromDiscriminatorValue, deserializeIntoMobileAppAssignment, serializeMobileAppAssignment, type MobileAppAssignment } from '../../../../../models/mobileAppAssignment';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeMobileAppAssignment } from '../../../../../models/serializeMobileAppAssignment';
-import { type MobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration } from './mobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import { type MobileAppAssignmentItemRequestBuilderGetRequestConfiguration } from './mobileAppAssignmentItemRequestBuilderGetRequestConfiguration';
-import { type MobileAppAssignmentItemRequestBuilderPatchRequestConfiguration } from './mobileAppAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MobileAppAssignmentItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MobileAppAssignmentItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MobileAppAssignmentItemRequestBuilderGetQueryParameters;
+}
+export interface MobileAppAssignmentItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
  */

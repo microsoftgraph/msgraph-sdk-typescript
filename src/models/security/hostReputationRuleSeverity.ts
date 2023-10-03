@@ -5,3 +5,5 @@ export enum HostReputationRuleSeverity {
     High = "high",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

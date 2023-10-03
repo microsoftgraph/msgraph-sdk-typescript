@@ -1,18 +1,54 @@
-import { type ConnectedOrganization } from '../../../../models/connectedOrganization';
-import { createConnectedOrganizationFromDiscriminatorValue } from '../../../../models/createConnectedOrganizationFromDiscriminatorValue';
-import { deserializeIntoConnectedOrganization } from '../../../../models/deserializeIntoConnectedOrganization';
+import { createConnectedOrganizationFromDiscriminatorValue, deserializeIntoConnectedOrganization, serializeConnectedOrganization, type ConnectedOrganization } from '../../../../models/connectedOrganization';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeConnectedOrganization } from '../../../../models/serializeConnectedOrganization';
-import { type ConnectedOrganizationItemRequestBuilderDeleteRequestConfiguration } from './connectedOrganizationItemRequestBuilderDeleteRequestConfiguration';
-import { type ConnectedOrganizationItemRequestBuilderGetRequestConfiguration } from './connectedOrganizationItemRequestBuilderGetRequestConfiguration';
-import { type ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration } from './connectedOrganizationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { ExternalSponsorsRequestBuilder } from './externalSponsors/externalSponsorsRequestBuilder';
 import { InternalSponsorsRequestBuilder } from './internalSponsors/internalSponsorsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConnectedOrganizationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ConnectedOrganizationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ConnectedOrganizationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConnectedOrganizationItemRequestBuilderGetQueryParameters;
+}
+export interface ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
  */
@@ -38,7 +74,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/connectedOrganizations/{connectedOrganization%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a connectedOrganization object.
+     * Delete a connectedOrganization object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/connectedorganization-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -53,7 +89,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a connectedOrganization object.
+     * Retrieve the properties and relationships of a connectedOrganization object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConnectedOrganization
      * @see {@link https://learn.microsoft.com/graph/api/connectedorganization-get?view=graph-rest-1.0|Find more info here}
@@ -69,7 +105,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<ConnectedOrganization>(requestInfo, createConnectedOrganizationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update a connectedOrganization object to change one or more of its properties.
+     * Update a connectedOrganization object to change one or more of its properties. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConnectedOrganization
@@ -86,7 +122,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<ConnectedOrganization>(requestInfo, createConnectedOrganizationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a connectedOrganization object.
+     * Delete a connectedOrganization object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +138,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a connectedOrganization object.
+     * Retrieve the properties and relationships of a connectedOrganization object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -120,7 +156,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Update a connectedOrganization object to change one or more of its properties.
+     * Update a connectedOrganization object to change one or more of its properties. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

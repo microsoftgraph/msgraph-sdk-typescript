@@ -1,17 +1,53 @@
-import { createWorkbookChartTitleFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookChartTitleFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartTitle } from '../../../../../../../../../../models/deserializeIntoWorkbookChartTitle';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartTitle } from '../../../../../../../../../../models/serializeWorkbookChartTitle';
-import { type WorkbookChartTitle } from '../../../../../../../../../../models/workbookChartTitle';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartTitleFromDiscriminatorValue, deserializeIntoWorkbookChartTitle, serializeWorkbookChartTitle, type WorkbookChartTitle } from '../../../../../../../../../../models/workbookChartTitle';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
-import { type TitleRequestBuilderDeleteRequestConfiguration } from './titleRequestBuilderDeleteRequestConfiguration';
-import { type TitleRequestBuilderGetRequestConfiguration } from './titleRequestBuilderGetRequestConfiguration';
-import { type TitleRequestBuilderPatchRequestConfiguration } from './titleRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TitleRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TitleRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TitleRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TitleRequestBuilderGetQueryParameters;
+}
+export interface TitleRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the title property of the microsoft.graph.workbookChart entity.
  */
@@ -45,7 +81,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of charttitle object.
+     * Retrieve the properties and relationships of charttitle object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartTitle
      * @see {@link https://learn.microsoft.com/graph/api/charttitle-get?view=graph-rest-1.0|Find more info here}
@@ -61,7 +97,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookChartTitle>(requestInfo, createWorkbookChartTitleFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of charttitle object.
+     * Update the properties of charttitle object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartTitle
@@ -94,7 +130,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of charttitle object.
+     * Retrieve the properties and relationships of charttitle object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +148,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of charttitle object.
+     * Update the properties of charttitle object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,16 +1,52 @@
-import { createIdentityFromDiscriminatorValue } from '../../../../../../models/externalConnectors/createIdentityFromDiscriminatorValue';
-import { deserializeIntoIdentity } from '../../../../../../models/externalConnectors/deserializeIntoIdentity';
-import { type Identity } from '../../../../../../models/externalConnectors/identity';
-import { serializeIdentity } from '../../../../../../models/externalConnectors/serializeIdentity';
+import { createIdentityFromDiscriminatorValue, deserializeIntoIdentity, serializeIdentity, type Identity } from '../../../../../../models/externalConnectors/identity';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type IdentityItemRequestBuilderDeleteRequestConfiguration } from './identityItemRequestBuilderDeleteRequestConfiguration';
-import { type IdentityItemRequestBuilderGetRequestConfiguration } from './identityItemRequestBuilderGetRequestConfiguration';
-import { type IdentityItemRequestBuilderPatchRequestConfiguration } from './identityItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentityItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IdentityItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentityItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentityItemRequestBuilderGetQueryParameters;
+}
+export interface IdentityItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.
  */
@@ -24,7 +60,7 @@ export class IdentityItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}/members/{identity%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an identity resource to remove the corresponding member from an externalGroup.
+     * Delete an identity resource to remove the corresponding member from an externalGroup. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-identity-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -70,7 +106,7 @@ export class IdentityItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Identity>(requestInfo, createIdentityFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an identity resource to remove the corresponding member from an externalGroup.
+     * Delete an identity resource to remove the corresponding member from an externalGroup. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

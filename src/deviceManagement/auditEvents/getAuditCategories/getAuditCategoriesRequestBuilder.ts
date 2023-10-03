@@ -1,12 +1,45 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createGetAuditCategoriesResponseFromDiscriminatorValue } from './createGetAuditCategoriesResponseFromDiscriminatorValue';
-import { type GetAuditCategoriesRequestBuilderGetRequestConfiguration } from './getAuditCategoriesRequestBuilderGetRequestConfiguration';
-import { type GetAuditCategoriesResponse } from './index';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createGetAuditCategoriesGetResponseFromDiscriminatorValue } from './getAuditCategoriesGetResponse';
+import { type GetAuditCategoriesGetResponse } from './index';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetAuditCategoriesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface GetAuditCategoriesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GetAuditCategoriesRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to call the getAuditCategories method.
  */
@@ -22,9 +55,9 @@ export class GetAuditCategoriesRequestBuilder extends BaseRequestBuilder {
     /**
      * Invoke function getAuditCategories
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetAuditCategoriesResponse
+     * @returns a Promise of GetAuditCategoriesGetResponse
      */
-    public get(requestConfiguration?: GetAuditCategoriesRequestBuilderGetRequestConfiguration | undefined) : Promise<GetAuditCategoriesResponse | undefined> {
+    public get(requestConfiguration?: GetAuditCategoriesRequestBuilderGetRequestConfiguration | undefined) : Promise<GetAuditCategoriesGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -32,7 +65,7 @@ export class GetAuditCategoriesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<GetAuditCategoriesResponse>(requestInfo, createGetAuditCategoriesResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<GetAuditCategoriesGetResponse>(requestInfo, createGetAuditCategoriesGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function getAuditCategories

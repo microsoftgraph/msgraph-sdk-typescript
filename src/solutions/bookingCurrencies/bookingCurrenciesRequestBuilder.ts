@@ -1,19 +1,70 @@
 import { type BookingCurrencyCollectionResponse } from '../../models/';
-import { type BookingCurrency } from '../../models/bookingCurrency';
-import { createBookingCurrencyCollectionResponseFromDiscriminatorValue } from '../../models/createBookingCurrencyCollectionResponseFromDiscriminatorValue';
-import { createBookingCurrencyFromDiscriminatorValue } from '../../models/createBookingCurrencyFromDiscriminatorValue';
-import { deserializeIntoBookingCurrency } from '../../models/deserializeIntoBookingCurrency';
+import { createBookingCurrencyFromDiscriminatorValue, deserializeIntoBookingCurrency, serializeBookingCurrency, type BookingCurrency } from '../../models/bookingCurrency';
+import { createBookingCurrencyCollectionResponseFromDiscriminatorValue } from '../../models/bookingCurrencyCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeBookingCurrency } from '../../models/serializeBookingCurrency';
-import { type BookingCurrenciesRequestBuilderGetRequestConfiguration } from './bookingCurrenciesRequestBuilderGetRequestConfiguration';
-import { type BookingCurrenciesRequestBuilderPostRequestConfiguration } from './bookingCurrenciesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { BookingCurrencyItemRequestBuilder } from './item/bookingCurrencyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BookingCurrenciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface BookingCurrenciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BookingCurrenciesRequestBuilderGetQueryParameters;
+}
+export interface BookingCurrenciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
  */
@@ -44,7 +95,7 @@ export class BookingCurrenciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingCurrencies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
+     * Get a list of bookingCurrency objects available to a Microsoft Bookings business. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCurrencyCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/bookingcurrency-list?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class BookingCurrenciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BookingCurrency>(requestInfo, createBookingCurrencyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
+     * Get a list of bookingCurrency objects available to a Microsoft Bookings business. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

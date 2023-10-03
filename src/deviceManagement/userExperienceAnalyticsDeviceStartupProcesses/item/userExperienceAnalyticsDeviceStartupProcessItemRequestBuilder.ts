@@ -1,16 +1,52 @@
-import { createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue } from '../../../models/createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue';
-import { deserializeIntoUserExperienceAnalyticsDeviceStartupProcess } from '../../../models/deserializeIntoUserExperienceAnalyticsDeviceStartupProcess';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUserExperienceAnalyticsDeviceStartupProcess } from '../../../models/serializeUserExperienceAnalyticsDeviceStartupProcess';
-import { type UserExperienceAnalyticsDeviceStartupProcess } from '../../../models/userExperienceAnalyticsDeviceStartupProcess';
-import { type UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderDeleteRequestConfiguration';
-import { type UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetRequestConfiguration';
-import { type UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue, deserializeIntoUserExperienceAnalyticsDeviceStartupProcess, serializeUserExperienceAnalyticsDeviceStartupProcess, type UserExperienceAnalyticsDeviceStartupProcess } from '../../../models/userExperienceAnalyticsDeviceStartupProcess';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetQueryParameters;
+}
+export interface UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcesses property of the microsoft.graph.deviceManagement entity.
  */

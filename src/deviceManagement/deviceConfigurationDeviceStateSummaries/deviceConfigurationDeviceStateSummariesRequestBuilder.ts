@@ -1,16 +1,52 @@
-import { createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue } from '../../models/createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue';
-import { deserializeIntoDeviceConfigurationDeviceStateSummary } from '../../models/deserializeIntoDeviceConfigurationDeviceStateSummary';
-import { type DeviceConfigurationDeviceStateSummary } from '../../models/deviceConfigurationDeviceStateSummary';
+import { createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue, deserializeIntoDeviceConfigurationDeviceStateSummary, serializeDeviceConfigurationDeviceStateSummary, type DeviceConfigurationDeviceStateSummary } from '../../models/deviceConfigurationDeviceStateSummary';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDeviceConfigurationDeviceStateSummary } from '../../models/serializeDeviceConfigurationDeviceStateSummary';
-import { type DeviceConfigurationDeviceStateSummariesRequestBuilderDeleteRequestConfiguration } from './deviceConfigurationDeviceStateSummariesRequestBuilderDeleteRequestConfiguration';
-import { type DeviceConfigurationDeviceStateSummariesRequestBuilderGetRequestConfiguration } from './deviceConfigurationDeviceStateSummariesRequestBuilderGetRequestConfiguration';
-import { type DeviceConfigurationDeviceStateSummariesRequestBuilderPatchRequestConfiguration } from './deviceConfigurationDeviceStateSummariesRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceConfigurationDeviceStateSummariesRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceConfigurationDeviceStateSummariesRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceConfigurationDeviceStateSummariesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceConfigurationDeviceStateSummariesRequestBuilderGetQueryParameters;
+}
+export interface DeviceConfigurationDeviceStateSummariesRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deviceConfigurationDeviceStateSummaries property of the microsoft.graph.deviceManagement entity.
  */

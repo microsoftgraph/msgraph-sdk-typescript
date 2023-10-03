@@ -1,17 +1,53 @@
-import { createPrintTaskTriggerFromDiscriminatorValue } from '../../../../../models/createPrintTaskTriggerFromDiscriminatorValue';
-import { deserializeIntoPrintTaskTrigger } from '../../../../../models/deserializeIntoPrintTaskTrigger';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type PrintTaskTrigger } from '../../../../../models/printTaskTrigger';
-import { serializePrintTaskTrigger } from '../../../../../models/serializePrintTaskTrigger';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createPrintTaskTriggerFromDiscriminatorValue, deserializeIntoPrintTaskTrigger, serializePrintTaskTrigger, type PrintTaskTrigger } from '../../../../../models/printTaskTrigger';
 import { DefinitionRequestBuilder } from './definition/definitionRequestBuilder';
-import { type PrintTaskTriggerItemRequestBuilderDeleteRequestConfiguration } from './printTaskTriggerItemRequestBuilderDeleteRequestConfiguration';
-import { type PrintTaskTriggerItemRequestBuilderGetRequestConfiguration } from './printTaskTriggerItemRequestBuilderGetRequestConfiguration';
-import { type PrintTaskTriggerItemRequestBuilderPatchRequestConfiguration } from './printTaskTriggerItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrintTaskTriggerItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PrintTaskTriggerItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PrintTaskTriggerItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrintTaskTriggerItemRequestBuilderGetQueryParameters;
+}
+export interface PrintTaskTriggerItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
  */
@@ -31,7 +67,7 @@ export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/printers/{printer%2Did}/taskTriggers/{printTaskTrigger%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete the task trigger of a printer to prevent related print events from triggering tasks on the specified printer.
+     * Delete the task trigger of a printer to prevent related print events from triggering tasks on the specified printer. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/printer-delete-tasktrigger?view=graph-rest-1.0|Find more info here}
      */
@@ -46,7 +82,7 @@ export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintTaskTrigger
      * @see {@link https://learn.microsoft.com/graph/api/printtasktrigger-get?view=graph-rest-1.0|Find more info here}
@@ -78,7 +114,7 @@ export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrintTaskTrigger>(requestInfo, createPrintTaskTriggerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete the task trigger of a printer to prevent related print events from triggering tasks on the specified printer.
+     * Delete the task trigger of a printer to prevent related print events from triggering tasks on the specified printer. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +130,7 @@ export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,19 +1,70 @@
 import { type ChatMessageHostedContentCollectionResponse } from '../../../../../../../../../../../models/';
-import { type ChatMessageHostedContent } from '../../../../../../../../../../../models/chatMessageHostedContent';
-import { createChatMessageHostedContentCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../models/createChatMessageHostedContentCollectionResponseFromDiscriminatorValue';
-import { createChatMessageHostedContentFromDiscriminatorValue } from '../../../../../../../../../../../models/createChatMessageHostedContentFromDiscriminatorValue';
-import { deserializeIntoChatMessageHostedContent } from '../../../../../../../../../../../models/deserializeIntoChatMessageHostedContent';
+import { createChatMessageHostedContentFromDiscriminatorValue, deserializeIntoChatMessageHostedContent, serializeChatMessageHostedContent, type ChatMessageHostedContent } from '../../../../../../../../../../../models/chatMessageHostedContent';
+import { createChatMessageHostedContentCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../models/chatMessageHostedContentCollectionResponse';
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeChatMessageHostedContent } from '../../../../../../../../../../../models/serializeChatMessageHostedContent';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HostedContentsRequestBuilderGetRequestConfiguration } from './hostedContentsRequestBuilderGetRequestConfiguration';
-import { type HostedContentsRequestBuilderPostRequestConfiguration } from './hostedContentsRequestBuilderPostRequestConfiguration';
 import { ChatMessageHostedContentItemRequestBuilder } from './item/chatMessageHostedContentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HostedContentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HostedContentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HostedContentsRequestBuilderGetQueryParameters;
+}
+export interface HostedContentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
  */
@@ -44,7 +95,7 @@ export class HostedContentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the list of chatMessageHostedContent objects from a message. This API only lists the hosted content objects. To get the content bytes, see get chatmessage hosted content
+     * Retrieve the list of chatMessageHostedContent objects from a message. This API only lists the hosted content objects. To get the content bytes, see get chatmessage hosted content This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessageHostedContentCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/chatmessage-list-hostedcontents?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class HostedContentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ChatMessageHostedContent>(requestInfo, createChatMessageHostedContentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the list of chatMessageHostedContent objects from a message. This API only lists the hosted content objects. To get the content bytes, see get chatmessage hosted content
+     * Retrieve the list of chatMessageHostedContent objects from a message. This API only lists the hosted content objects. To get the content bytes, see get chatmessage hosted content This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

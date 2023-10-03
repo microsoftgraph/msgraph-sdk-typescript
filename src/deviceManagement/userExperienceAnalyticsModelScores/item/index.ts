@@ -1,4 +1,1 @@
-export * from './userExperienceAnalyticsModelScoresItemRequestBuilderDeleteRequestConfiguration'
-export * from './userExperienceAnalyticsModelScoresItemRequestBuilderGetQueryParameters'
-export * from './userExperienceAnalyticsModelScoresItemRequestBuilderGetRequestConfiguration'
-export * from './userExperienceAnalyticsModelScoresItemRequestBuilderPatchRequestConfiguration'
+export * from './userExperienceAnalyticsModelScoresItemRequestBuilder'

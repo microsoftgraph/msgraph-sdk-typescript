@@ -1,4 +1,1 @@
-export * from './enrollmentConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration'
-export * from './enrollmentConfigurationAssignmentItemRequestBuilderGetQueryParameters'
-export * from './enrollmentConfigurationAssignmentItemRequestBuilderGetRequestConfiguration'
-export * from './enrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration'
+export * from './enrollmentConfigurationAssignmentItemRequestBuilder'

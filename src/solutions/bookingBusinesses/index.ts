@@ -1,3 +1,1 @@
-export * from './bookingBusinessesRequestBuilderGetQueryParameters'
-export * from './bookingBusinessesRequestBuilderGetRequestConfiguration'
-export * from './bookingBusinessesRequestBuilderPostRequestConfiguration'
+export * from './bookingBusinessesRequestBuilder'

@@ -1,12 +1,19 @@
 import { type UserRegistrationFeatureSummary } from '../../../models/';
-import { createUserRegistrationFeatureSummaryFromDiscriminatorValue } from '../../../models/createUserRegistrationFeatureSummaryFromDiscriminatorValue';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type UsersRegisteredByFeatureRequestBuilderGetRequestConfiguration } from './usersRegisteredByFeatureRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUserRegistrationFeatureSummaryFromDiscriminatorValue } from '../../../models/userRegistrationFeatureSummary';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UsersRegisteredByFeatureRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the usersRegisteredByFeature method.
  */

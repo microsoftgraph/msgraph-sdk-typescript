@@ -1,1 +1,1 @@
-export * from './stopRequestBuilderPostRequestConfiguration'
+export * from './stopRequestBuilder'

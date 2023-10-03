@@ -1,19 +1,66 @@
 import { type ShiftCollectionResponse } from '../../../../../models/';
-import { createShiftCollectionResponseFromDiscriminatorValue } from '../../../../../models/createShiftCollectionResponseFromDiscriminatorValue';
-import { createShiftFromDiscriminatorValue } from '../../../../../models/createShiftFromDiscriminatorValue';
-import { deserializeIntoShift } from '../../../../../models/deserializeIntoShift';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeShift } from '../../../../../models/serializeShift';
-import { type Shift } from '../../../../../models/shift';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createShiftFromDiscriminatorValue, deserializeIntoShift, serializeShift, type Shift } from '../../../../../models/shift';
+import { createShiftCollectionResponseFromDiscriminatorValue } from '../../../../../models/shiftCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ShiftItemRequestBuilder } from './item/shiftItemRequestBuilder';
-import { type ShiftsRequestBuilderGetRequestConfiguration } from './shiftsRequestBuilderGetRequestConfiguration';
-import { type ShiftsRequestBuilderPostRequestConfiguration } from './shiftsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ShiftsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ShiftsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ShiftsRequestBuilderGetQueryParameters;
+}
+export interface ShiftsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
  */
@@ -44,7 +91,7 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/schedule/shifts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Get the list of shift instances in a schedule.
+     * Get the list of shift instances in a schedule. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ShiftCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/schedule-list-shifts?view=graph-rest-1.0|Find more info here}
@@ -60,7 +107,7 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ShiftCollectionResponse>(requestInfo, createShiftCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
+     * Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Shift
@@ -77,7 +124,7 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Shift>(requestInfo, createShiftFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the list of shift instances in a schedule.
+     * Get the list of shift instances in a schedule. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +142,7 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
+     * Create a new shift instance in a schedule. The duration of a shift cannot be less than 1 minute or longer than 24 hours. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

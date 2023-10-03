@@ -1,12 +1,33 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryReviewTag } from '../../../../../../../models/security/';
-import { createEdiscoveryReviewTagFromDiscriminatorValue } from '../../../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
-import { type ParentRequestBuilderGetRequestConfiguration } from './parentRequestBuilderGetRequestConfiguration';
+import { createEdiscoveryReviewTagFromDiscriminatorValue } from '../../../../../../../models/security/ediscoveryReviewTag';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ParentRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ParentRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ParentRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the parent property of the microsoft.graph.security.ediscoveryReviewTag entity.
  */

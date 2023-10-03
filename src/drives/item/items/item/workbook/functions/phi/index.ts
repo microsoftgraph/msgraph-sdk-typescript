@@ -1,5 +1,2 @@
-export * from './createPhiPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoPhiPostRequestBody'
 export * from './phiPostRequestBody'
-export * from './phiRequestBuilderPostRequestConfiguration'
-export * from './serializePhiPostRequestBody'
+export * from './phiRequestBuilder'

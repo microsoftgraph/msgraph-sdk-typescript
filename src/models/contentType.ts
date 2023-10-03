@@ -1,87 +1,146 @@
-import { type ColumnDefinition } from './columnDefinition';
-import { type ColumnLink } from './columnLink';
-import { type ContentTypeOrder } from './contentTypeOrder';
-import { type DocumentSet } from './documentSet';
-import { type DocumentSetContent } from './documentSetContent';
-import { type Entity } from './entity';
-import { type ItemReference } from './itemReference';
-import { type Parsable } from '@microsoft/kiota-abstractions';
+import { createColumnDefinitionFromDiscriminatorValue, serializeColumnDefinition, type ColumnDefinition } from './columnDefinition';
+import { createColumnLinkFromDiscriminatorValue, serializeColumnLink, type ColumnLink } from './columnLink';
+import { createContentTypeOrderFromDiscriminatorValue, serializeContentTypeOrder, type ContentTypeOrder } from './contentTypeOrder';
+import { createDocumentSetFromDiscriminatorValue, serializeDocumentSet, type DocumentSet } from './documentSet';
+import { createDocumentSetContentFromDiscriminatorValue, serializeDocumentSetContent, type DocumentSetContent } from './documentSetContent';
+import { deserializeIntoEntity, serializeEntity, type Entity } from './entity';
+import { createItemReferenceFromDiscriminatorValue, serializeItemReference, type ItemReference } from './itemReference';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface ContentType extends Entity, Parsable {
     /**
      * List of canonical URLs for hub sites with which this content type is associated to. This will contain all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
      */
-    associatedHubsUrls?: string[] | undefined;
+    associatedHubsUrls?: string[];
     /**
      * Parent contentType from which this content type is derived.
      */
-    base?: ContentType | undefined;
+    base?: ContentType;
     /**
      * The collection of content types that are ancestors of this content type.
      */
-    baseTypes?: ContentType[] | undefined;
+    baseTypes?: ContentType[];
     /**
      * The collection of columns that are required by this content type.
      */
-    columnLinks?: ColumnLink[] | undefined;
+    columnLinks?: ColumnLink[];
     /**
      * Column order information in a content type.
      */
-    columnPositions?: ColumnDefinition[] | undefined;
+    columnPositions?: ColumnDefinition[];
     /**
      * The collection of column definitions for this contentType.
      */
-    columns?: ColumnDefinition[] | undefined;
+    columns?: ColumnDefinition[];
     /**
      * The descriptive text for the item.
      */
-    description?: string | undefined;
+    description?: string;
     /**
      * Document Set metadata.
      */
-    documentSet?: DocumentSet | undefined;
+    documentSet?: DocumentSet;
     /**
      * Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type.
      */
-    documentTemplate?: DocumentSetContent | undefined;
+    documentTemplate?: DocumentSetContent;
     /**
      * The name of the group this content type belongs to. Helps organize related content types.
      */
-    group?: string | undefined;
+    group?: string;
     /**
      * Indicates whether the content type is hidden in the list's 'New' menu.
      */
-    hidden?: boolean | undefined;
+    hidden?: boolean;
     /**
      * If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined.
      */
-    inheritedFrom?: ItemReference | undefined;
+    inheritedFrom?: ItemReference;
     /**
      * Specifies if a content type is a built-in content type.
      */
-    isBuiltIn?: boolean | undefined;
+    isBuiltIn?: boolean;
     /**
      * The name of the content type.
      */
-    name?: string | undefined;
+    name?: string;
     /**
      * Specifies the order in which the content type appears in the selection UI.
      */
-    order?: ContentTypeOrder | undefined;
+    order?: ContentTypeOrder;
     /**
      * The unique identifier of the content type.
      */
-    parentId?: string | undefined;
+    parentId?: string;
     /**
      * If true, any changes made to the content type will be pushed to inherited content types and lists that implement the content type.
      */
-    propagateChanges?: boolean | undefined;
+    propagateChanges?: boolean;
     /**
      * If true, the content type can't be modified unless this value is first set to false.
      */
-    readOnly?: boolean | undefined;
+    readOnly?: boolean;
     /**
      * If true, the content type can't be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
      */
-    sealed?: boolean | undefined;
+    sealed?: boolean;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function createContentTypeFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoContentType;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function deserializeIntoContentType(contentType: ContentType | undefined = {} as ContentType) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(contentType),
+        "associatedHubsUrls": n => { contentType.associatedHubsUrls = n.getCollectionOfPrimitiveValues<string>(); },
+        "base": n => { contentType.base = n.getObjectValue<ContentType>(createContentTypeFromDiscriminatorValue); },
+        "baseTypes": n => { contentType.baseTypes = n.getCollectionOfObjectValues<ContentType>(createContentTypeFromDiscriminatorValue); },
+        "columnLinks": n => { contentType.columnLinks = n.getCollectionOfObjectValues<ColumnLink>(createColumnLinkFromDiscriminatorValue); },
+        "columnPositions": n => { contentType.columnPositions = n.getCollectionOfObjectValues<ColumnDefinition>(createColumnDefinitionFromDiscriminatorValue); },
+        "columns": n => { contentType.columns = n.getCollectionOfObjectValues<ColumnDefinition>(createColumnDefinitionFromDiscriminatorValue); },
+        "description": n => { contentType.description = n.getStringValue(); },
+        "documentSet": n => { contentType.documentSet = n.getObjectValue<DocumentSet>(createDocumentSetFromDiscriminatorValue); },
+        "documentTemplate": n => { contentType.documentTemplate = n.getObjectValue<DocumentSetContent>(createDocumentSetContentFromDiscriminatorValue); },
+        "group": n => { contentType.group = n.getStringValue(); },
+        "hidden": n => { contentType.hidden = n.getBooleanValue(); },
+        "inheritedFrom": n => { contentType.inheritedFrom = n.getObjectValue<ItemReference>(createItemReferenceFromDiscriminatorValue); },
+        "isBuiltIn": n => { contentType.isBuiltIn = n.getBooleanValue(); },
+        "name": n => { contentType.name = n.getStringValue(); },
+        "order": n => { contentType.order = n.getObjectValue<ContentTypeOrder>(createContentTypeOrderFromDiscriminatorValue); },
+        "parentId": n => { contentType.parentId = n.getStringValue(); },
+        "propagateChanges": n => { contentType.propagateChanges = n.getBooleanValue(); },
+        "readOnly": n => { contentType.readOnly = n.getBooleanValue(); },
+        "sealed": n => { contentType.sealed = n.getBooleanValue(); },
+    }
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function serializeContentType(writer: SerializationWriter, contentType: ContentType | undefined = {} as ContentType) : void {
+        serializeEntity(writer, contentType)
+        writer.writeCollectionOfPrimitiveValues<string>("associatedHubsUrls", contentType.associatedHubsUrls);
+        writer.writeObjectValue<ContentType>("base", contentType.base, );
+        writer.writeCollectionOfObjectValues<ContentType>("baseTypes", contentType.baseTypes, );
+        writer.writeCollectionOfObjectValues<ColumnLink>("columnLinks", contentType.columnLinks, );
+        writer.writeCollectionOfObjectValues<ColumnDefinition>("columnPositions", contentType.columnPositions, );
+        writer.writeCollectionOfObjectValues<ColumnDefinition>("columns", contentType.columns, );
+        writer.writeStringValue("description", contentType.description);
+        writer.writeObjectValue<DocumentSet>("documentSet", contentType.documentSet, );
+        writer.writeObjectValue<DocumentSetContent>("documentTemplate", contentType.documentTemplate, );
+        writer.writeStringValue("group", contentType.group);
+        writer.writeBooleanValue("hidden", contentType.hidden);
+        writer.writeObjectValue<ItemReference>("inheritedFrom", contentType.inheritedFrom, );
+        writer.writeBooleanValue("isBuiltIn", contentType.isBuiltIn);
+        writer.writeStringValue("name", contentType.name);
+        writer.writeObjectValue<ContentTypeOrder>("order", contentType.order, );
+        writer.writeStringValue("parentId", contentType.parentId);
+        writer.writeBooleanValue("propagateChanges", contentType.propagateChanges);
+        writer.writeBooleanValue("readOnly", contentType.readOnly);
+        writer.writeBooleanValue("sealed", contentType.sealed);
 }

@@ -1,19 +1,70 @@
 import { type IosManagedAppProtectionCollectionResponse } from '../../models/';
-import { createIosManagedAppProtectionCollectionResponseFromDiscriminatorValue } from '../../models/createIosManagedAppProtectionCollectionResponseFromDiscriminatorValue';
-import { createIosManagedAppProtectionFromDiscriminatorValue } from '../../models/createIosManagedAppProtectionFromDiscriminatorValue';
-import { deserializeIntoIosManagedAppProtection } from '../../models/deserializeIntoIosManagedAppProtection';
-import { type IosManagedAppProtection } from '../../models/iosManagedAppProtection';
+import { createIosManagedAppProtectionFromDiscriminatorValue, deserializeIntoIosManagedAppProtection, serializeIosManagedAppProtection, type IosManagedAppProtection } from '../../models/iosManagedAppProtection';
+import { createIosManagedAppProtectionCollectionResponseFromDiscriminatorValue } from '../../models/iosManagedAppProtectionCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeIosManagedAppProtection } from '../../models/serializeIosManagedAppProtection';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type IosManagedAppProtectionsRequestBuilderGetRequestConfiguration } from './iosManagedAppProtectionsRequestBuilderGetRequestConfiguration';
-import { type IosManagedAppProtectionsRequestBuilderPostRequestConfiguration } from './iosManagedAppProtectionsRequestBuilderPostRequestConfiguration';
 import { IosManagedAppProtectionItemRequestBuilder } from './item/iosManagedAppProtectionItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IosManagedAppProtectionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface IosManagedAppProtectionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IosManagedAppProtectionsRequestBuilderGetQueryParameters;
+}
+export interface IosManagedAppProtectionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
  */

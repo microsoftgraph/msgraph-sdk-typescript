@@ -1,17 +1,53 @@
-import { createSharepointFromDiscriminatorValue } from '../../models/createSharepointFromDiscriminatorValue';
-import { deserializeIntoSharepoint } from '../../models/deserializeIntoSharepoint';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeSharepoint } from '../../models/serializeSharepoint';
-import { type Sharepoint } from '../../models/sharepoint';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createSharepointFromDiscriminatorValue, deserializeIntoSharepoint, serializeSharepoint, type Sharepoint } from '../../models/sharepoint';
 import { SettingsRequestBuilder } from './settings/settingsRequestBuilder';
-import { type SharepointRequestBuilderDeleteRequestConfiguration } from './sharepointRequestBuilderDeleteRequestConfiguration';
-import { type SharepointRequestBuilderGetRequestConfiguration } from './sharepointRequestBuilderGetRequestConfiguration';
-import { type SharepointRequestBuilderPatchRequestConfiguration } from './sharepointRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SharepointRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SharepointRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SharepointRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SharepointRequestBuilderGetQueryParameters;
+}
+export interface SharepointRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sharepoint property of the microsoft.graph.admin entity.
  */

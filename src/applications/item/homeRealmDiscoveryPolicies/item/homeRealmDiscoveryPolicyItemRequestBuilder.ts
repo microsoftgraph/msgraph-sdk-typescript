@@ -1,12 +1,33 @@
 import { type HomeRealmDiscoveryPolicy } from '../../../../models/';
-import { createHomeRealmDiscoveryPolicyFromDiscriminatorValue } from '../../../../models/createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
+import { createHomeRealmDiscoveryPolicyFromDiscriminatorValue } from '../../../../models/homeRealmDiscoveryPolicy';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type HomeRealmDiscoveryPolicyItemRequestBuilderGetRequestConfiguration } from './homeRealmDiscoveryPolicyItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface HomeRealmDiscoveryPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity.
  */

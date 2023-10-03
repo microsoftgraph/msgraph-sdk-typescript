@@ -1,17 +1,53 @@
-import { createPinnedChatMessageInfoFromDiscriminatorValue } from '../../../../../../models/createPinnedChatMessageInfoFromDiscriminatorValue';
-import { deserializeIntoPinnedChatMessageInfo } from '../../../../../../models/deserializeIntoPinnedChatMessageInfo';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type PinnedChatMessageInfo } from '../../../../../../models/pinnedChatMessageInfo';
-import { serializePinnedChatMessageInfo } from '../../../../../../models/serializePinnedChatMessageInfo';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createPinnedChatMessageInfoFromDiscriminatorValue, deserializeIntoPinnedChatMessageInfo, serializePinnedChatMessageInfo, type PinnedChatMessageInfo } from '../../../../../../models/pinnedChatMessageInfo';
 import { MessageRequestBuilder } from './message/messageRequestBuilder';
-import { type PinnedChatMessageInfoItemRequestBuilderDeleteRequestConfiguration } from './pinnedChatMessageInfoItemRequestBuilderDeleteRequestConfiguration';
-import { type PinnedChatMessageInfoItemRequestBuilderGetRequestConfiguration } from './pinnedChatMessageInfoItemRequestBuilderGetRequestConfiguration';
-import { type PinnedChatMessageInfoItemRequestBuilderPatchRequestConfiguration } from './pinnedChatMessageInfoItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PinnedChatMessageInfoItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PinnedChatMessageInfoItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PinnedChatMessageInfoItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PinnedChatMessageInfoItemRequestBuilderGetQueryParameters;
+}
+export interface PinnedChatMessageInfoItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
  */
@@ -31,7 +67,7 @@ export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/pinnedMessages/{pinnedChatMessageInfo%2Did}{?%24select,%24expand}");
     };
     /**
-     * Unpin a message from a chat.
+     * Unpin a message from a chat. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chat-delete-pinnedmessages?view=graph-rest-1.0|Find more info here}
      */
@@ -77,7 +113,7 @@ export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<PinnedChatMessageInfo>(requestInfo, createPinnedChatMessageInfoFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Unpin a message from a chat.
+     * Unpin a message from a chat. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

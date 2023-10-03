@@ -1,144 +1,233 @@
 import { AndroidWorkProfileCrossProfileDataSharingType } from './androidWorkProfileCrossProfileDataSharingType';
 import { AndroidWorkProfileDefaultAppPermissionPolicyType } from './androidWorkProfileDefaultAppPermissionPolicyType';
 import { AndroidWorkProfileRequiredPasswordType } from './androidWorkProfileRequiredPasswordType';
-import { type DeviceConfiguration } from './deviceConfiguration';
-import { type Parsable } from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceConfiguration, serializeDeviceConfiguration, type DeviceConfiguration } from './deviceConfiguration';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration, Parsable {
     /**
      * Indicates whether or not to block fingerprint unlock.
      */
-    passwordBlockFingerprintUnlock?: boolean | undefined;
+    passwordBlockFingerprintUnlock?: boolean;
     /**
      * Indicates whether or not to block Smart Lock and other trust agents.
      */
-    passwordBlockTrustAgents?: boolean | undefined;
+    passwordBlockTrustAgents?: boolean;
     /**
      * Number of days before the password expires. Valid values 1 to 365
      */
-    passwordExpirationDays?: number | undefined;
+    passwordExpirationDays?: number;
     /**
      * Minimum length of passwords. Valid values 4 to 16
      */
-    passwordMinimumLength?: number | undefined;
+    passwordMinimumLength?: number;
     /**
      * Minutes of inactivity before the screen times out.
      */
-    passwordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
+    passwordMinutesOfInactivityBeforeScreenTimeout?: number;
     /**
      * Number of previous passwords to block. Valid values 0 to 24
      */
-    passwordPreviousPasswordBlockCount?: number | undefined;
+    passwordPreviousPasswordBlockCount?: number;
     /**
      * Android Work Profile required password type.
      */
-    passwordRequiredType?: AndroidWorkProfileRequiredPasswordType | undefined;
+    passwordRequiredType?: AndroidWorkProfileRequiredPasswordType;
     /**
      * Number of sign in failures allowed before factory reset. Valid values 1 to 16
      */
-    passwordSignInFailureCountBeforeFactoryReset?: number | undefined;
+    passwordSignInFailureCountBeforeFactoryReset?: number;
     /**
      * Require the Android Verify apps feature is turned on.
      */
-    securityRequireVerifyApps?: boolean | undefined;
+    securityRequireVerifyApps?: boolean;
     /**
      * Block users from adding/removing accounts in work profile.
      */
-    workProfileBlockAddingAccounts?: boolean | undefined;
+    workProfileBlockAddingAccounts?: boolean;
     /**
      * Block work profile camera.
      */
-    workProfileBlockCamera?: boolean | undefined;
+    workProfileBlockCamera?: boolean;
     /**
      * Block display work profile caller ID in personal profile.
      */
-    workProfileBlockCrossProfileCallerId?: boolean | undefined;
+    workProfileBlockCrossProfileCallerId?: boolean;
     /**
      * Block work profile contacts availability in personal profile.
      */
-    workProfileBlockCrossProfileContactsSearch?: boolean | undefined;
+    workProfileBlockCrossProfileContactsSearch?: boolean;
     /**
      * Boolean that indicates if the setting disallow cross profile copy/paste is enabled.
      */
-    workProfileBlockCrossProfileCopyPaste?: boolean | undefined;
+    workProfileBlockCrossProfileCopyPaste?: boolean;
     /**
      * Indicates whether or not to block notifications while device locked.
      */
-    workProfileBlockNotificationsWhileDeviceLocked?: boolean | undefined;
+    workProfileBlockNotificationsWhileDeviceLocked?: boolean;
     /**
      * Block screen capture in work profile.
      */
-    workProfileBlockScreenCapture?: boolean | undefined;
+    workProfileBlockScreenCapture?: boolean;
     /**
      * Allow bluetooth devices to access enterprise contacts.
      */
-    workProfileBluetoothEnableContactSharing?: boolean | undefined;
+    workProfileBluetoothEnableContactSharing?: boolean;
     /**
      * Android Work Profile cross profile data sharing type.
      */
-    workProfileDataSharingType?: AndroidWorkProfileCrossProfileDataSharingType | undefined;
+    workProfileDataSharingType?: AndroidWorkProfileCrossProfileDataSharingType;
     /**
      * Android Work Profile default app permission policy type.
      */
-    workProfileDefaultAppPermissionPolicy?: AndroidWorkProfileDefaultAppPermissionPolicyType | undefined;
+    workProfileDefaultAppPermissionPolicy?: AndroidWorkProfileDefaultAppPermissionPolicyType;
     /**
      * Indicates whether or not to block fingerprint unlock for work profile.
      */
-    workProfilePasswordBlockFingerprintUnlock?: boolean | undefined;
+    workProfilePasswordBlockFingerprintUnlock?: boolean;
     /**
      * Indicates whether or not to block Smart Lock and other trust agents for work profile.
      */
-    workProfilePasswordBlockTrustAgents?: boolean | undefined;
+    workProfilePasswordBlockTrustAgents?: boolean;
     /**
      * Number of days before the work profile password expires. Valid values 1 to 365
      */
-    workProfilePasswordExpirationDays?: number | undefined;
+    workProfilePasswordExpirationDays?: number;
     /**
      * Minimum length of work profile password. Valid values 4 to 16
      */
-    workProfilePasswordMinimumLength?: number | undefined;
+    workProfilePasswordMinimumLength?: number;
     /**
      * Minimum # of letter characters required in work profile password. Valid values 1 to 10
      */
-    workProfilePasswordMinLetterCharacters?: number | undefined;
+    workProfilePasswordMinLetterCharacters?: number;
     /**
      * Minimum # of lower-case characters required in work profile password. Valid values 1 to 10
      */
-    workProfilePasswordMinLowerCaseCharacters?: number | undefined;
+    workProfilePasswordMinLowerCaseCharacters?: number;
     /**
      * Minimum # of non-letter characters required in work profile password. Valid values 1 to 10
      */
-    workProfilePasswordMinNonLetterCharacters?: number | undefined;
+    workProfilePasswordMinNonLetterCharacters?: number;
     /**
      * Minimum # of numeric characters required in work profile password. Valid values 1 to 10
      */
-    workProfilePasswordMinNumericCharacters?: number | undefined;
+    workProfilePasswordMinNumericCharacters?: number;
     /**
      * Minimum # of symbols required in work profile password. Valid values 1 to 10
      */
-    workProfilePasswordMinSymbolCharacters?: number | undefined;
+    workProfilePasswordMinSymbolCharacters?: number;
     /**
      * Minimum # of upper-case characters required in work profile password. Valid values 1 to 10
      */
-    workProfilePasswordMinUpperCaseCharacters?: number | undefined;
+    workProfilePasswordMinUpperCaseCharacters?: number;
     /**
      * Minutes of inactivity before the screen times out.
      */
-    workProfilePasswordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
+    workProfilePasswordMinutesOfInactivityBeforeScreenTimeout?: number;
     /**
      * Number of previous work profile passwords to block. Valid values 0 to 24
      */
-    workProfilePasswordPreviousPasswordBlockCount?: number | undefined;
+    workProfilePasswordPreviousPasswordBlockCount?: number;
     /**
      * Android Work Profile required password type.
      */
-    workProfilePasswordRequiredType?: AndroidWorkProfileRequiredPasswordType | undefined;
+    workProfilePasswordRequiredType?: AndroidWorkProfileRequiredPasswordType;
     /**
      * Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16
      */
-    workProfilePasswordSignInFailureCountBeforeFactoryReset?: number | undefined;
+    workProfilePasswordSignInFailureCountBeforeFactoryReset?: number;
     /**
      * Password is required or not for work profile
      */
-    workProfileRequirePassword?: boolean | undefined;
+    workProfileRequirePassword?: boolean;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function createAndroidWorkProfileGeneralDeviceConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration(androidWorkProfileGeneralDeviceConfiguration: AndroidWorkProfileGeneralDeviceConfiguration | undefined = {} as AndroidWorkProfileGeneralDeviceConfiguration) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoDeviceConfiguration(androidWorkProfileGeneralDeviceConfiguration),
+        "passwordBlockFingerprintUnlock": n => { androidWorkProfileGeneralDeviceConfiguration.passwordBlockFingerprintUnlock = n.getBooleanValue(); },
+        "passwordBlockTrustAgents": n => { androidWorkProfileGeneralDeviceConfiguration.passwordBlockTrustAgents = n.getBooleanValue(); },
+        "passwordExpirationDays": n => { androidWorkProfileGeneralDeviceConfiguration.passwordExpirationDays = n.getNumberValue(); },
+        "passwordMinimumLength": n => { androidWorkProfileGeneralDeviceConfiguration.passwordMinimumLength = n.getNumberValue(); },
+        "passwordMinutesOfInactivityBeforeScreenTimeout": n => { androidWorkProfileGeneralDeviceConfiguration.passwordMinutesOfInactivityBeforeScreenTimeout = n.getNumberValue(); },
+        "passwordPreviousPasswordBlockCount": n => { androidWorkProfileGeneralDeviceConfiguration.passwordPreviousPasswordBlockCount = n.getNumberValue(); },
+        "passwordRequiredType": n => { androidWorkProfileGeneralDeviceConfiguration.passwordRequiredType = n.getEnumValue<AndroidWorkProfileRequiredPasswordType>(AndroidWorkProfileRequiredPasswordType); },
+        "passwordSignInFailureCountBeforeFactoryReset": n => { androidWorkProfileGeneralDeviceConfiguration.passwordSignInFailureCountBeforeFactoryReset = n.getNumberValue(); },
+        "securityRequireVerifyApps": n => { androidWorkProfileGeneralDeviceConfiguration.securityRequireVerifyApps = n.getBooleanValue(); },
+        "workProfileBlockAddingAccounts": n => { androidWorkProfileGeneralDeviceConfiguration.workProfileBlockAddingAccounts = n.getBooleanValue(); },
+        "workProfileBlockCamera": n => { androidWorkProfileGeneralDeviceConfiguration.workProfileBlockCamera = n.getBooleanValue(); },
+        "workProfileBlockCrossProfileCallerId": n => { androidWorkProfileGeneralDeviceConfiguration.workProfileBlockCrossProfileCallerId = n.getBooleanValue(); },
+        "workProfileBlockCrossProfileContactsSearch": n => { androidWorkProfileGeneralDeviceConfiguration.workProfileBlockCrossProfileContactsSearch = n.getBooleanValue(); },
+        "workProfileBlockCrossProfileCopyPaste": n => { androidWorkProfileGeneralDeviceConfiguration.workProfileBlockCrossProfileCopyPaste = n.getBooleanValue(); },
+        "workProfileBlockNotificationsWhileDeviceLocked": n => { androidWorkProfileGeneralDeviceConfiguration.workProfileBlockNotificationsWhileDeviceLocked = n.getBooleanValue(); },
+        "workProfileBlockScreenCapture": n => { androidWorkProfileGeneralDeviceConfiguration.workProfileBlockScreenCapture = n.getBooleanValue(); },
+        "workProfileBluetoothEnableContactSharing": n => { androidWorkProfileGeneralDeviceConfiguration.workProfileBluetoothEnableContactSharing = n.getBooleanValue(); },
+        "workProfileDataSharingType": n => { androidWorkProfileGeneralDeviceConfiguration.workProfileDataSharingType = n.getEnumValue<AndroidWorkProfileCrossProfileDataSharingType>(AndroidWorkProfileCrossProfileDataSharingType); },
+        "workProfileDefaultAppPermissionPolicy": n => { androidWorkProfileGeneralDeviceConfiguration.workProfileDefaultAppPermissionPolicy = n.getEnumValue<AndroidWorkProfileDefaultAppPermissionPolicyType>(AndroidWorkProfileDefaultAppPermissionPolicyType); },
+        "workProfilePasswordBlockFingerprintUnlock": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordBlockFingerprintUnlock = n.getBooleanValue(); },
+        "workProfilePasswordBlockTrustAgents": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordBlockTrustAgents = n.getBooleanValue(); },
+        "workProfilePasswordExpirationDays": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordExpirationDays = n.getNumberValue(); },
+        "workProfilePasswordMinimumLength": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinimumLength = n.getNumberValue(); },
+        "workProfilePasswordMinLetterCharacters": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinLetterCharacters = n.getNumberValue(); },
+        "workProfilePasswordMinLowerCaseCharacters": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinLowerCaseCharacters = n.getNumberValue(); },
+        "workProfilePasswordMinNonLetterCharacters": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinNonLetterCharacters = n.getNumberValue(); },
+        "workProfilePasswordMinNumericCharacters": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinNumericCharacters = n.getNumberValue(); },
+        "workProfilePasswordMinSymbolCharacters": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinSymbolCharacters = n.getNumberValue(); },
+        "workProfilePasswordMinUpperCaseCharacters": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinUpperCaseCharacters = n.getNumberValue(); },
+        "workProfilePasswordMinutesOfInactivityBeforeScreenTimeout": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinutesOfInactivityBeforeScreenTimeout = n.getNumberValue(); },
+        "workProfilePasswordPreviousPasswordBlockCount": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordPreviousPasswordBlockCount = n.getNumberValue(); },
+        "workProfilePasswordRequiredType": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordRequiredType = n.getEnumValue<AndroidWorkProfileRequiredPasswordType>(AndroidWorkProfileRequiredPasswordType); },
+        "workProfilePasswordSignInFailureCountBeforeFactoryReset": n => { androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordSignInFailureCountBeforeFactoryReset = n.getNumberValue(); },
+        "workProfileRequirePassword": n => { androidWorkProfileGeneralDeviceConfiguration.workProfileRequirePassword = n.getBooleanValue(); },
+    }
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function serializeAndroidWorkProfileGeneralDeviceConfiguration(writer: SerializationWriter, androidWorkProfileGeneralDeviceConfiguration: AndroidWorkProfileGeneralDeviceConfiguration | undefined = {} as AndroidWorkProfileGeneralDeviceConfiguration) : void {
+        serializeDeviceConfiguration(writer, androidWorkProfileGeneralDeviceConfiguration)
+        writer.writeBooleanValue("passwordBlockFingerprintUnlock", androidWorkProfileGeneralDeviceConfiguration.passwordBlockFingerprintUnlock);
+        writer.writeBooleanValue("passwordBlockTrustAgents", androidWorkProfileGeneralDeviceConfiguration.passwordBlockTrustAgents);
+        writer.writeNumberValue("passwordExpirationDays", androidWorkProfileGeneralDeviceConfiguration.passwordExpirationDays);
+        writer.writeNumberValue("passwordMinimumLength", androidWorkProfileGeneralDeviceConfiguration.passwordMinimumLength);
+        writer.writeNumberValue("passwordMinutesOfInactivityBeforeScreenTimeout", androidWorkProfileGeneralDeviceConfiguration.passwordMinutesOfInactivityBeforeScreenTimeout);
+        writer.writeNumberValue("passwordPreviousPasswordBlockCount", androidWorkProfileGeneralDeviceConfiguration.passwordPreviousPasswordBlockCount);
+        writer.writeEnumValue<AndroidWorkProfileRequiredPasswordType>("passwordRequiredType", androidWorkProfileGeneralDeviceConfiguration.passwordRequiredType);
+        writer.writeNumberValue("passwordSignInFailureCountBeforeFactoryReset", androidWorkProfileGeneralDeviceConfiguration.passwordSignInFailureCountBeforeFactoryReset);
+        writer.writeBooleanValue("securityRequireVerifyApps", androidWorkProfileGeneralDeviceConfiguration.securityRequireVerifyApps);
+        writer.writeBooleanValue("workProfileBlockAddingAccounts", androidWorkProfileGeneralDeviceConfiguration.workProfileBlockAddingAccounts);
+        writer.writeBooleanValue("workProfileBlockCamera", androidWorkProfileGeneralDeviceConfiguration.workProfileBlockCamera);
+        writer.writeBooleanValue("workProfileBlockCrossProfileCallerId", androidWorkProfileGeneralDeviceConfiguration.workProfileBlockCrossProfileCallerId);
+        writer.writeBooleanValue("workProfileBlockCrossProfileContactsSearch", androidWorkProfileGeneralDeviceConfiguration.workProfileBlockCrossProfileContactsSearch);
+        writer.writeBooleanValue("workProfileBlockCrossProfileCopyPaste", androidWorkProfileGeneralDeviceConfiguration.workProfileBlockCrossProfileCopyPaste);
+        writer.writeBooleanValue("workProfileBlockNotificationsWhileDeviceLocked", androidWorkProfileGeneralDeviceConfiguration.workProfileBlockNotificationsWhileDeviceLocked);
+        writer.writeBooleanValue("workProfileBlockScreenCapture", androidWorkProfileGeneralDeviceConfiguration.workProfileBlockScreenCapture);
+        writer.writeBooleanValue("workProfileBluetoothEnableContactSharing", androidWorkProfileGeneralDeviceConfiguration.workProfileBluetoothEnableContactSharing);
+        writer.writeEnumValue<AndroidWorkProfileCrossProfileDataSharingType>("workProfileDataSharingType", androidWorkProfileGeneralDeviceConfiguration.workProfileDataSharingType);
+        writer.writeEnumValue<AndroidWorkProfileDefaultAppPermissionPolicyType>("workProfileDefaultAppPermissionPolicy", androidWorkProfileGeneralDeviceConfiguration.workProfileDefaultAppPermissionPolicy);
+        writer.writeBooleanValue("workProfilePasswordBlockFingerprintUnlock", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordBlockFingerprintUnlock);
+        writer.writeBooleanValue("workProfilePasswordBlockTrustAgents", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordBlockTrustAgents);
+        writer.writeNumberValue("workProfilePasswordExpirationDays", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordExpirationDays);
+        writer.writeNumberValue("workProfilePasswordMinimumLength", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinimumLength);
+        writer.writeNumberValue("workProfilePasswordMinLetterCharacters", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinLetterCharacters);
+        writer.writeNumberValue("workProfilePasswordMinLowerCaseCharacters", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinLowerCaseCharacters);
+        writer.writeNumberValue("workProfilePasswordMinNonLetterCharacters", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinNonLetterCharacters);
+        writer.writeNumberValue("workProfilePasswordMinNumericCharacters", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinNumericCharacters);
+        writer.writeNumberValue("workProfilePasswordMinSymbolCharacters", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinSymbolCharacters);
+        writer.writeNumberValue("workProfilePasswordMinUpperCaseCharacters", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinUpperCaseCharacters);
+        writer.writeNumberValue("workProfilePasswordMinutesOfInactivityBeforeScreenTimeout", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordMinutesOfInactivityBeforeScreenTimeout);
+        writer.writeNumberValue("workProfilePasswordPreviousPasswordBlockCount", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordPreviousPasswordBlockCount);
+        writer.writeEnumValue<AndroidWorkProfileRequiredPasswordType>("workProfilePasswordRequiredType", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordRequiredType);
+        writer.writeNumberValue("workProfilePasswordSignInFailureCountBeforeFactoryReset", androidWorkProfileGeneralDeviceConfiguration.workProfilePasswordSignInFailureCountBeforeFactoryReset);
+        writer.writeBooleanValue("workProfileRequirePassword", androidWorkProfileGeneralDeviceConfiguration.workProfileRequirePassword);
 }

@@ -6,3 +6,5 @@ export enum EvidenceRemediationStatus {
     NotFound = "notFound",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

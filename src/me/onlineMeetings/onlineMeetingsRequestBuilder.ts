@@ -1,20 +1,71 @@
 import { type OnlineMeetingCollectionResponse } from '../../models/';
-import { createOnlineMeetingCollectionResponseFromDiscriminatorValue } from '../../models/createOnlineMeetingCollectionResponseFromDiscriminatorValue';
-import { createOnlineMeetingFromDiscriminatorValue } from '../../models/createOnlineMeetingFromDiscriminatorValue';
-import { deserializeIntoOnlineMeeting } from '../../models/deserializeIntoOnlineMeeting';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type OnlineMeeting } from '../../models/onlineMeeting';
-import { serializeOnlineMeeting } from '../../models/serializeOnlineMeeting';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createOnlineMeetingFromDiscriminatorValue, deserializeIntoOnlineMeeting, serializeOnlineMeeting, type OnlineMeeting } from '../../models/onlineMeeting';
+import { createOnlineMeetingCollectionResponseFromDiscriminatorValue } from '../../models/onlineMeetingCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { CreateOrGetRequestBuilder } from './createOrGet/createOrGetRequestBuilder';
 import { OnlineMeetingItemRequestBuilder } from './item/onlineMeetingItemRequestBuilder';
-import { type OnlineMeetingsRequestBuilderGetRequestConfiguration } from './onlineMeetingsRequestBuilderGetRequestConfiguration';
-import { type OnlineMeetingsRequestBuilderPostRequestConfiguration } from './onlineMeetingsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OnlineMeetingsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OnlineMeetingsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OnlineMeetingsRequestBuilderGetQueryParameters;
+}
+export interface OnlineMeetingsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
  */
@@ -51,7 +102,7 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/onlineMeetings{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report is an online meeting artifact. For details, see Online meeting artifacts and permissions.
+     * Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report is an online meeting artifact. For details, see Online meeting artifacts and permissions. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnlineMeetingCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0|Find more info here}
@@ -67,7 +118,7 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OnlineMeetingCollectionResponse>(requestInfo, createOnlineMeetingCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an online meeting on behalf of a user.
+     * >- userId is the object ID of a user in Azure user management portal. For more information, see Allow applications to access online meetings on behalf of a user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnlineMeeting
@@ -84,7 +135,7 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OnlineMeeting>(requestInfo, createOnlineMeetingFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report is an online meeting artifact. For details, see Online meeting artifacts and permissions.
+     * Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report is an online meeting artifact. For details, see Online meeting artifacts and permissions. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +153,7 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create an online meeting on behalf of a user.
+     * >- userId is the object ID of a user in Azure user management portal. For more information, see Allow applications to access online meetings on behalf of a user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,12 +1,33 @@
 import { type Identity } from '../../../../../../../../models/externalConnectors/';
-import { createIdentityFromDiscriminatorValue } from '../../../../../../../../models/externalConnectors/createIdentityFromDiscriminatorValue';
+import { createIdentityFromDiscriminatorValue } from '../../../../../../../../models/externalConnectors/identity';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { type PerformedByRequestBuilderGetRequestConfiguration } from './performedByRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PerformedByRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PerformedByRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PerformedByRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the performedBy property of the microsoft.graph.externalConnectors.externalActivity entity.
  */

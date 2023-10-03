@@ -1,19 +1,55 @@
-import { createTeamsAppInstallationFromDiscriminatorValue } from '../../../../models/createTeamsAppInstallationFromDiscriminatorValue';
-import { deserializeIntoTeamsAppInstallation } from '../../../../models/deserializeIntoTeamsAppInstallation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeTeamsAppInstallation } from '../../../../models/serializeTeamsAppInstallation';
-import { type TeamsAppInstallation } from '../../../../models/teamsAppInstallation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createTeamsAppInstallationFromDiscriminatorValue, deserializeIntoTeamsAppInstallation, serializeTeamsAppInstallation, type TeamsAppInstallation } from '../../../../models/teamsAppInstallation';
 import { TeamsAppRequestBuilder } from './teamsApp/teamsAppRequestBuilder';
 import { TeamsAppDefinitionRequestBuilder } from './teamsAppDefinition/teamsAppDefinitionRequestBuilder';
-import { type TeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration } from './teamsAppInstallationItemRequestBuilderDeleteRequestConfiguration';
-import { type TeamsAppInstallationItemRequestBuilderGetRequestConfiguration } from './teamsAppInstallationItemRequestBuilderGetRequestConfiguration';
-import { type TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration } from './teamsAppInstallationItemRequestBuilderPatchRequestConfiguration';
 import { UpgradeRequestBuilder } from './upgrade/upgradeRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TeamsAppInstallationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamsAppInstallationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamsAppInstallationItemRequestBuilderGetQueryParameters;
+}
+export interface TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
  */
@@ -45,7 +81,7 @@ export class TeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/chats/{chat%2Did}/installedApps/{teamsAppInstallation%2Did}{?%24select,%24expand}");
     };
     /**
-     * Uninstall an app installed within a chat.
+     * Uninstall an app installed within a chat. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chat-delete-installedapps?view=graph-rest-1.0|Find more info here}
      */
@@ -60,7 +96,7 @@ export class TeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get an app installed in a chat.
+     * Get an app installed in a chat. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsAppInstallation
      * @see {@link https://learn.microsoft.com/graph/api/chat-get-installedapps?view=graph-rest-1.0|Find more info here}
@@ -92,7 +128,7 @@ export class TeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TeamsAppInstallation>(requestInfo, createTeamsAppInstallationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Uninstall an app installed within a chat.
+     * Uninstall an app installed within a chat. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -108,7 +144,7 @@ export class TeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get an app installed in a chat.
+     * Get an app installed in a chat. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

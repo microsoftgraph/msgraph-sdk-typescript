@@ -1,1 +1,1 @@
-export * from './falseRequestBuilderPostRequestConfiguration'
+export * from './falseRequestBuilder'

@@ -1,24 +1,60 @@
-import { createEducationClassFromDiscriminatorValue } from '../../../models/createEducationClassFromDiscriminatorValue';
-import { deserializeIntoEducationClass } from '../../../models/deserializeIntoEducationClass';
-import { type EducationClass } from '../../../models/educationClass';
+import { createEducationClassFromDiscriminatorValue, deserializeIntoEducationClass, serializeEducationClass, type EducationClass } from '../../../models/educationClass';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeEducationClass } from '../../../models/serializeEducationClass';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AssignmentCategoriesRequestBuilder } from './assignmentCategories/assignmentCategoriesRequestBuilder';
 import { AssignmentDefaultsRequestBuilder } from './assignmentDefaults/assignmentDefaultsRequestBuilder';
 import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
 import { AssignmentSettingsRequestBuilder } from './assignmentSettings/assignmentSettingsRequestBuilder';
-import { type EducationClassItemRequestBuilderDeleteRequestConfiguration } from './educationClassItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationClassItemRequestBuilderGetRequestConfiguration } from './educationClassItemRequestBuilderGetRequestConfiguration';
-import { type EducationClassItemRequestBuilderPatchRequestConfiguration } from './educationClassItemRequestBuilderPatchRequestConfiguration';
 import { GroupRequestBuilder } from './group/groupRequestBuilder';
 import { MembersRequestBuilder } from './members/membersRequestBuilder';
 import { SchoolsRequestBuilder } from './schools/schoolsRequestBuilder';
 import { TeachersRequestBuilder } from './teachers/teachersRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationClassItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationClassItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationClassItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationClassItemRequestBuilderGetQueryParameters;
+}
+export interface EducationClassItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
  */
@@ -80,7 +116,7 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an educationClass. Because a class is also a universal group, deleting a class deletes the group.
+     * Delete an educationClass. Because a class is also a universal group, deleting a class deletes the group. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/educationclass-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -95,7 +131,7 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve a class from the system. A class is a universal group with a special property that indicates to the system that the group is a class. Group members represent the students; group admins represent the teachers in the class. If you're using the delegated token, the user will only see classes in which they are members.
+     * Retrieve a class from the system. A class is a universal group with a special property that indicates to the system that the group is a class. Group members represent the students; group admins represent the teachers in the class. If you're using the delegated token, the user will only see classes in which they are members. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationClass
      * @see {@link https://learn.microsoft.com/graph/api/educationclass-get?view=graph-rest-1.0|Find more info here}
@@ -111,7 +147,7 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationClass>(requestInfo, createEducationClassFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an educationClass object.
+     * Update the properties of an educationClass object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationClass
@@ -128,7 +164,7 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationClass>(requestInfo, createEducationClassFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an educationClass. Because a class is also a universal group, deleting a class deletes the group.
+     * Delete an educationClass. Because a class is also a universal group, deleting a class deletes the group. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -144,7 +180,7 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve a class from the system. A class is a universal group with a special property that indicates to the system that the group is a class. Group members represent the students; group admins represent the teachers in the class. If you're using the delegated token, the user will only see classes in which they are members.
+     * Retrieve a class from the system. A class is a universal group with a special property that indicates to the system that the group is a class. Group members represent the students; group admins represent the teachers in the class. If you're using the delegated token, the user will only see classes in which they are members. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -162,7 +198,7 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an educationClass object.
+     * Update the properties of an educationClass object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

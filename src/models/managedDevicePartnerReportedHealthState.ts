@@ -23,3 +23,5 @@ export enum ManagedDevicePartnerReportedHealthState {
     /** Device is considered misconfigured with the Threat Defense partner. This means the device is missing a required profile or configuration for the Threat Defense Partner to function properly and is thus threat or risk analysis is not able to complete. */
     Misconfigured = "misconfigured",
 }
+// tslint:enable
+// eslint-enable

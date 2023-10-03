@@ -1,21 +1,72 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryNoncustodialDataSourceCollectionResponse } from '../../../../../models/security/';
-import { createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue';
-import { createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue } from '../../../../../models/security/createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
-import { deserializeIntoEdiscoveryNoncustodialDataSource } from '../../../../../models/security/deserializeIntoEdiscoveryNoncustodialDataSource';
-import { type EdiscoveryNoncustodialDataSource } from '../../../../../models/security/ediscoveryNoncustodialDataSource';
-import { serializeEdiscoveryNoncustodialDataSource } from '../../../../../models/security/serializeEdiscoveryNoncustodialDataSource';
+import { createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue, deserializeIntoEdiscoveryNoncustodialDataSource, serializeEdiscoveryNoncustodialDataSource, type EdiscoveryNoncustodialDataSource } from '../../../../../models/security/ediscoveryNoncustodialDataSource';
+import { createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/ediscoveryNoncustodialDataSourceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { EdiscoveryNoncustodialDataSourceItemRequestBuilder } from './item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
 import { MicrosoftGraphSecurityApplyHoldRequestBuilder } from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
 import { MicrosoftGraphSecurityRemoveHoldRequestBuilder } from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
-import { type NoncustodialDataSourcesRequestBuilderGetRequestConfiguration } from './noncustodialDataSourcesRequestBuilderGetRequestConfiguration';
-import { type NoncustodialDataSourcesRequestBuilderPostRequestConfiguration } from './noncustodialDataSourcesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface NoncustodialDataSourcesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface NoncustodialDataSourcesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: NoncustodialDataSourcesRequestBuilderGetQueryParameters;
+}
+export interface NoncustodialDataSourcesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
  */
@@ -73,7 +124,7 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EdiscoveryNoncustodialDataSourceCollectionResponse>(requestInfo, createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new ediscoveryNoncustodialDataSource object.
+     * Create a new ediscoveryNoncustodialDataSource object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryNoncustodialDataSource
@@ -108,7 +159,7 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new ediscoveryNoncustodialDataSource object.
+     * Create a new ediscoveryNoncustodialDataSource object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

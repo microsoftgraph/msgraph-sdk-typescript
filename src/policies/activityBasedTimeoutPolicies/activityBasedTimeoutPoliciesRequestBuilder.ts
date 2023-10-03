@@ -1,19 +1,70 @@
 import { type ActivityBasedTimeoutPolicyCollectionResponse } from '../../models/';
-import { type ActivityBasedTimeoutPolicy } from '../../models/activityBasedTimeoutPolicy';
-import { createActivityBasedTimeoutPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createActivityBasedTimeoutPolicyCollectionResponseFromDiscriminatorValue';
-import { createActivityBasedTimeoutPolicyFromDiscriminatorValue } from '../../models/createActivityBasedTimeoutPolicyFromDiscriminatorValue';
-import { deserializeIntoActivityBasedTimeoutPolicy } from '../../models/deserializeIntoActivityBasedTimeoutPolicy';
+import { createActivityBasedTimeoutPolicyFromDiscriminatorValue, deserializeIntoActivityBasedTimeoutPolicy, serializeActivityBasedTimeoutPolicy, type ActivityBasedTimeoutPolicy } from '../../models/activityBasedTimeoutPolicy';
+import { createActivityBasedTimeoutPolicyCollectionResponseFromDiscriminatorValue } from '../../models/activityBasedTimeoutPolicyCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeActivityBasedTimeoutPolicy } from '../../models/serializeActivityBasedTimeoutPolicy';
-import { type ActivityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration } from './activityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration';
-import { type ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration } from './activityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ActivityBasedTimeoutPolicyItemRequestBuilder } from './item/activityBasedTimeoutPolicyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ActivityBasedTimeoutPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ActivityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ActivityBasedTimeoutPoliciesRequestBuilderGetQueryParameters;
+}
+export interface ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
  */
@@ -44,7 +95,7 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
         super(pathParameters, requestAdapter, "{+baseurl}/policies/activityBasedTimeoutPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of activityBasedTimeoutPolicy objects.
+     * Get a list of activityBasedTimeoutPolicy objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ActivityBasedTimeoutPolicyCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-list?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
         return this.requestAdapter.sendAsync<ActivityBasedTimeoutPolicyCollectionResponse>(requestInfo, createActivityBasedTimeoutPolicyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new activityBasedTimeoutPolicy object.
+     * Create a new activityBasedTimeoutPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ActivityBasedTimeoutPolicy
@@ -77,7 +128,7 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
         return this.requestAdapter.sendAsync<ActivityBasedTimeoutPolicy>(requestInfo, createActivityBasedTimeoutPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of activityBasedTimeoutPolicy objects.
+     * Get a list of activityBasedTimeoutPolicy objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
         return requestInfo;
     };
     /**
-     * Create a new activityBasedTimeoutPolicy object.
+     * Create a new activityBasedTimeoutPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

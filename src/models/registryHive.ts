@@ -9,3 +9,5 @@ export enum RegistryHive {
     UsersDefault = "usersDefault",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

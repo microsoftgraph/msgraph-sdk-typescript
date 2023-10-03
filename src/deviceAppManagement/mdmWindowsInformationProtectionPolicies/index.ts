@@ -1,3 +1,1 @@
-export * from './mdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryParameters'
-export * from './mdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration'
-export * from './mdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration'
+export * from './mdmWindowsInformationProtectionPoliciesRequestBuilder'

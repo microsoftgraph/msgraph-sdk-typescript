@@ -1,16 +1,52 @@
-import { createDeviceConfigurationDeviceOverviewFromDiscriminatorValue } from '../../../../models/createDeviceConfigurationDeviceOverviewFromDiscriminatorValue';
-import { deserializeIntoDeviceConfigurationDeviceOverview } from '../../../../models/deserializeIntoDeviceConfigurationDeviceOverview';
-import { type DeviceConfigurationDeviceOverview } from '../../../../models/deviceConfigurationDeviceOverview';
+import { createDeviceConfigurationDeviceOverviewFromDiscriminatorValue, deserializeIntoDeviceConfigurationDeviceOverview, serializeDeviceConfigurationDeviceOverview, type DeviceConfigurationDeviceOverview } from '../../../../models/deviceConfigurationDeviceOverview';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceConfigurationDeviceOverview } from '../../../../models/serializeDeviceConfigurationDeviceOverview';
-import { type DeviceStatusOverviewRequestBuilderDeleteRequestConfiguration } from './deviceStatusOverviewRequestBuilderDeleteRequestConfiguration';
-import { type DeviceStatusOverviewRequestBuilderGetRequestConfiguration } from './deviceStatusOverviewRequestBuilderGetRequestConfiguration';
-import { type DeviceStatusOverviewRequestBuilderPatchRequestConfiguration } from './deviceStatusOverviewRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceStatusOverviewRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceStatusOverviewRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceStatusOverviewRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceStatusOverviewRequestBuilderGetQueryParameters;
+}
+export interface DeviceStatusOverviewRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deviceStatusOverview property of the microsoft.graph.deviceConfiguration entity.
  */

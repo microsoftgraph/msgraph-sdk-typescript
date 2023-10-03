@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type SetCollectionResponse } from '../../../../../models/termStore/';
-import { createSetCollectionResponseFromDiscriminatorValue } from '../../../../../models/termStore/createSetCollectionResponseFromDiscriminatorValue';
-import { createSetFromDiscriminatorValue } from '../../../../../models/termStore/createSetFromDiscriminatorValue';
-import { deserializeIntoSet } from '../../../../../models/termStore/deserializeIntoSet';
-import { serializeSet } from '../../../../../models/termStore/serializeSet';
-import { type Set } from '../../../../../models/termStore/set';
+import { createSetFromDiscriminatorValue, deserializeIntoSet, serializeSet, type Set } from '../../../../../models/termStore/set';
+import { createSetCollectionResponseFromDiscriminatorValue } from '../../../../../models/termStore/setCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SetItemRequestBuilder } from './item/setItemRequestBuilder';
-import { type SetsRequestBuilderGetRequestConfiguration } from './setsRequestBuilderGetRequestConfiguration';
-import { type SetsRequestBuilderPostRequestConfiguration } from './setsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SetsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SetsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SetsRequestBuilderGetQueryParameters;
+}
+export interface SetsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
  */
@@ -44,7 +95,7 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/sets{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read the properties and relationships of a set object.
+     * Read the properties and relationships of a set object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SetCollectionResponse
      */
@@ -59,7 +110,7 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SetCollectionResponse>(requestInfo, createSetCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new set object.
+     * Create a new set object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Set
@@ -76,7 +127,7 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Set>(requestInfo, createSetFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the properties and relationships of a set object.
+     * Read the properties and relationships of a set object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +145,7 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new set object.
+     * Create a new set object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

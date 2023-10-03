@@ -1,14 +1,6 @@
-import { type Channel } from '../../../../../models/channel';
-import { createChannelFromDiscriminatorValue } from '../../../../../models/createChannelFromDiscriminatorValue';
-import { deserializeIntoChannel } from '../../../../../models/deserializeIntoChannel';
+import { createChannelFromDiscriminatorValue, deserializeIntoChannel, serializeChannel, type Channel } from '../../../../../models/channel';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeChannel } from '../../../../../models/serializeChannel';
-import { type ChannelItemRequestBuilderDeleteRequestConfiguration } from './channelItemRequestBuilderDeleteRequestConfiguration';
-import { type ChannelItemRequestBuilderGetRequestConfiguration } from './channelItemRequestBuilderGetRequestConfiguration';
-import { type ChannelItemRequestBuilderPatchRequestConfiguration } from './channelItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CompleteMigrationRequestBuilder } from './completeMigration/completeMigrationRequestBuilder';
 import { DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder } from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder';
 import { FilesFolderRequestBuilder } from './filesFolder/filesFolderRequestBuilder';
@@ -20,6 +12,50 @@ import { SharedWithTeamsRequestBuilder } from './sharedWithTeams/sharedWithTeams
 import { TabsRequestBuilder } from './tabs/tabsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ChannelItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ChannelItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ChannelItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ChannelItemRequestBuilderGetQueryParameters;
+}
+export interface ChannelItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the channels property of the microsoft.graph.team entity.
  */
@@ -87,7 +123,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/channels/{channel%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete the channel.
+     * Delete the channel. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/channel-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -102,7 +138,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
+     * Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Channel
      * @see {@link https://learn.microsoft.com/graph/api/channel-get?view=graph-rest-1.0|Find more info here}
@@ -118,7 +154,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of the specified channel.
+     * Update the properties of the specified channel. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Channel
@@ -135,7 +171,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete the channel.
+     * Delete the channel. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -151,7 +187,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
+     * Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -169,7 +205,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of the specified channel.
+     * Update the properties of the specified channel. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

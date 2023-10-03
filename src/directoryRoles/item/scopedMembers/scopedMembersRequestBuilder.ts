@@ -1,19 +1,70 @@
 import { type ScopedRoleMembershipCollectionResponse } from '../../../models/';
-import { createScopedRoleMembershipCollectionResponseFromDiscriminatorValue } from '../../../models/createScopedRoleMembershipCollectionResponseFromDiscriminatorValue';
-import { createScopedRoleMembershipFromDiscriminatorValue } from '../../../models/createScopedRoleMembershipFromDiscriminatorValue';
-import { deserializeIntoScopedRoleMembership } from '../../../models/deserializeIntoScopedRoleMembership';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type ScopedRoleMembership } from '../../../models/scopedRoleMembership';
-import { serializeScopedRoleMembership } from '../../../models/serializeScopedRoleMembership';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createScopedRoleMembershipFromDiscriminatorValue, deserializeIntoScopedRoleMembership, serializeScopedRoleMembership, type ScopedRoleMembership } from '../../../models/scopedRoleMembership';
+import { createScopedRoleMembershipCollectionResponseFromDiscriminatorValue } from '../../../models/scopedRoleMembershipCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ScopedRoleMembershipItemRequestBuilder } from './item/scopedRoleMembershipItemRequestBuilder';
-import { type ScopedMembersRequestBuilderGetRequestConfiguration } from './scopedMembersRequestBuilderGetRequestConfiguration';
-import { type ScopedMembersRequestBuilderPostRequestConfiguration } from './scopedMembersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ScopedMembersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ScopedMembersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ScopedMembersRequestBuilderGetQueryParameters;
+}
+export interface ScopedMembersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the scopedMembers property of the microsoft.graph.directoryRole entity.
  */
@@ -44,7 +95,7 @@ export class ScopedMembersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directoryRoles/{directoryRole%2Did}/scopedMembers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of scopedRoleMembership objects for a directory role.
+     * Retrieve a list of scopedRoleMembership objects for a directory role. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ScopedRoleMembershipCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryrole-list-scopedmembers?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class ScopedMembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ScopedRoleMembership>(requestInfo, createScopedRoleMembershipFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of scopedRoleMembership objects for a directory role.
+     * Retrieve a list of scopedRoleMembership objects for a directory role. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

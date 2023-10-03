@@ -18,3 +18,5 @@ export enum ServiceHealthStatus {
     Reported = "reported",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

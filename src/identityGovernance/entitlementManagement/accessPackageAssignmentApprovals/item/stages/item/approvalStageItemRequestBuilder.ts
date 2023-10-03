@@ -1,16 +1,52 @@
-import { type ApprovalStage } from '../../../../../../models/approvalStage';
-import { createApprovalStageFromDiscriminatorValue } from '../../../../../../models/createApprovalStageFromDiscriminatorValue';
-import { deserializeIntoApprovalStage } from '../../../../../../models/deserializeIntoApprovalStage';
+import { createApprovalStageFromDiscriminatorValue, deserializeIntoApprovalStage, serializeApprovalStage, type ApprovalStage } from '../../../../../../models/approvalStage';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeApprovalStage } from '../../../../../../models/serializeApprovalStage';
-import { type ApprovalStageItemRequestBuilderDeleteRequestConfiguration } from './approvalStageItemRequestBuilderDeleteRequestConfiguration';
-import { type ApprovalStageItemRequestBuilderGetRequestConfiguration } from './approvalStageItemRequestBuilderGetRequestConfiguration';
-import { type ApprovalStageItemRequestBuilderPatchRequestConfiguration } from './approvalStageItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApprovalStageItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ApprovalStageItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ApprovalStageItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ApprovalStageItemRequestBuilderGetQueryParameters;
+}
+export interface ApprovalStageItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the stages property of the microsoft.graph.approval entity.
  */
@@ -38,7 +74,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * In Azure AD entitlement management, retrieve the properties of an approvalStage object. An approval stage is contained within an approval object.
+     * In Azure AD entitlement management, retrieve the properties of an approvalStage object. An approval stage is contained within an approval object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApprovalStage
      * @see {@link https://learn.microsoft.com/graph/api/approvalstage-get?view=graph-rest-1.0|Find more info here}
@@ -54,7 +90,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ApprovalStage>(requestInfo, createApprovalStageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * In Azure AD entitlement management, approve or deny an approvalStage object in an approval.
+     * In Azure AD entitlement management, approve or deny an approvalStage object in an approval. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApprovalStage
@@ -87,7 +123,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * In Azure AD entitlement management, retrieve the properties of an approvalStage object. An approval stage is contained within an approval object.
+     * In Azure AD entitlement management, retrieve the properties of an approvalStage object. An approval stage is contained within an approval object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * In Azure AD entitlement management, approve or deny an approvalStage object in an approval.
+     * In Azure AD entitlement management, approve or deny an approvalStage object in an approval. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

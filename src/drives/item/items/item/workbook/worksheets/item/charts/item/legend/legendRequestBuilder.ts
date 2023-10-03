@@ -1,17 +1,53 @@
-import { createWorkbookChartLegendFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookChartLegendFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartLegend } from '../../../../../../../../../../models/deserializeIntoWorkbookChartLegend';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartLegend } from '../../../../../../../../../../models/serializeWorkbookChartLegend';
-import { type WorkbookChartLegend } from '../../../../../../../../../../models/workbookChartLegend';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartLegendFromDiscriminatorValue, deserializeIntoWorkbookChartLegend, serializeWorkbookChartLegend, type WorkbookChartLegend } from '../../../../../../../../../../models/workbookChartLegend';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
-import { type LegendRequestBuilderDeleteRequestConfiguration } from './legendRequestBuilderDeleteRequestConfiguration';
-import { type LegendRequestBuilderGetRequestConfiguration } from './legendRequestBuilderGetRequestConfiguration';
-import { type LegendRequestBuilderPatchRequestConfiguration } from './legendRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LegendRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface LegendRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LegendRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LegendRequestBuilderGetQueryParameters;
+}
+export interface LegendRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the legend property of the microsoft.graph.workbookChart entity.
  */
@@ -45,7 +81,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of chartlegend object.
+     * Retrieve the properties and relationships of chartlegend object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartLegend
      * @see {@link https://learn.microsoft.com/graph/api/chartlegend-get?view=graph-rest-1.0|Find more info here}
@@ -61,7 +97,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookChartLegend>(requestInfo, createWorkbookChartLegendFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of chartlegend object.
+     * Update the properties of chartlegend object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartLegend
@@ -94,7 +130,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of chartlegend object.
+     * Retrieve the properties and relationships of chartlegend object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +148,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of chartlegend object.
+     * Update the properties of chartlegend object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

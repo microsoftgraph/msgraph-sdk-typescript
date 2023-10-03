@@ -1,16 +1,51 @@
 import { type AndroidStoreApp } from '../../../../models/';
-import { createAndroidStoreAppFromDiscriminatorValue } from '../../../../models/createAndroidStoreAppFromDiscriminatorValue';
+import { createAndroidStoreAppFromDiscriminatorValue } from '../../../../models/androidStoreApp';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type GraphAndroidStoreAppRequestBuilderGetRequestConfiguration } from './graphAndroidStoreAppRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
+import { CategoriesRequestBuilder } from './categories/categoriesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GraphAndroidStoreAppRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface GraphAndroidStoreAppRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GraphAndroidStoreAppRequestBuilderGetQueryParameters;
+}
 /**
  * Casts the previous resource to androidStoreApp.
  */
 export class GraphAndroidStoreAppRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
+     */
+    public get assignments(): AssignmentsRequestBuilder {
+        return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
+     */
+    public get categories(): CategoriesRequestBuilder {
+        return new CategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new GraphAndroidStoreAppRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

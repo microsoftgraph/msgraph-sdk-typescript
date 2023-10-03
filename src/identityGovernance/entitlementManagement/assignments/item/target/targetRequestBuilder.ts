@@ -1,12 +1,33 @@
 import { type AccessPackageSubject } from '../../../../../models/';
-import { createAccessPackageSubjectFromDiscriminatorValue } from '../../../../../models/createAccessPackageSubjectFromDiscriminatorValue';
+import { createAccessPackageSubjectFromDiscriminatorValue } from '../../../../../models/accessPackageSubject';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type TargetRequestBuilderGetRequestConfiguration } from './targetRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TargetRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TargetRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TargetRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the target property of the microsoft.graph.accessPackageAssignment entity.
  */

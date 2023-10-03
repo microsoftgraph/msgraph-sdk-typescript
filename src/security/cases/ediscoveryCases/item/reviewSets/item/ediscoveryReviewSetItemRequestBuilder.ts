@@ -1,19 +1,55 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { createEdiscoveryReviewSetFromDiscriminatorValue } from '../../../../../../models/security/createEdiscoveryReviewSetFromDiscriminatorValue';
-import { deserializeIntoEdiscoveryReviewSet } from '../../../../../../models/security/deserializeIntoEdiscoveryReviewSet';
-import { type EdiscoveryReviewSet } from '../../../../../../models/security/ediscoveryReviewSet';
-import { serializeEdiscoveryReviewSet } from '../../../../../../models/security/serializeEdiscoveryReviewSet';
-import { type EdiscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration } from './ediscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration';
-import { type EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration } from './ediscoveryReviewSetItemRequestBuilderGetRequestConfiguration';
-import { type EdiscoveryReviewSetItemRequestBuilderPatchRequestConfiguration } from './ediscoveryReviewSetItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createEdiscoveryReviewSetFromDiscriminatorValue, deserializeIntoEdiscoveryReviewSet, serializeEdiscoveryReviewSet, type EdiscoveryReviewSet } from '../../../../../../models/security/ediscoveryReviewSet';
 import { MicrosoftGraphSecurityAddToReviewSetRequestBuilder } from './microsoftGraphSecurityAddToReviewSet/microsoftGraphSecurityAddToReviewSetRequestBuilder';
 import { MicrosoftGraphSecurityExportRequestBuilder } from './microsoftGraphSecurityExport/microsoftGraphSecurityExportRequestBuilder';
 import { QueriesRequestBuilder } from './queries/queriesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EdiscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EdiscoveryReviewSetItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EdiscoveryReviewSetItemRequestBuilderGetQueryParameters;
+}
+export interface EdiscoveryReviewSetItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
  */
@@ -59,7 +95,7 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an ediscoveryReviewSet object.
+     * Read the properties and relationships of an ediscoveryReviewSet object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewSet
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-get?view=graph-rest-1.0|Find more info here}
@@ -107,7 +143,7 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an ediscoveryReviewSet object.
+     * Read the properties and relationships of an ediscoveryReviewSet object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

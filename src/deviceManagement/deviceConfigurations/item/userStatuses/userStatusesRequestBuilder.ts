@@ -1,19 +1,70 @@
 import { type DeviceConfigurationUserStatusCollectionResponse } from '../../../../models/';
-import { createDeviceConfigurationUserStatusCollectionResponseFromDiscriminatorValue } from '../../../../models/createDeviceConfigurationUserStatusCollectionResponseFromDiscriminatorValue';
-import { createDeviceConfigurationUserStatusFromDiscriminatorValue } from '../../../../models/createDeviceConfigurationUserStatusFromDiscriminatorValue';
-import { deserializeIntoDeviceConfigurationUserStatus } from '../../../../models/deserializeIntoDeviceConfigurationUserStatus';
-import { type DeviceConfigurationUserStatus } from '../../../../models/deviceConfigurationUserStatus';
+import { createDeviceConfigurationUserStatusFromDiscriminatorValue, deserializeIntoDeviceConfigurationUserStatus, serializeDeviceConfigurationUserStatus, type DeviceConfigurationUserStatus } from '../../../../models/deviceConfigurationUserStatus';
+import { createDeviceConfigurationUserStatusCollectionResponseFromDiscriminatorValue } from '../../../../models/deviceConfigurationUserStatusCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceConfigurationUserStatus } from '../../../../models/serializeDeviceConfigurationUserStatus';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeviceConfigurationUserStatusItemRequestBuilder } from './item/deviceConfigurationUserStatusItemRequestBuilder';
-import { type UserStatusesRequestBuilderGetRequestConfiguration } from './userStatusesRequestBuilderGetRequestConfiguration';
-import { type UserStatusesRequestBuilderPostRequestConfiguration } from './userStatusesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserStatusesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserStatusesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserStatusesRequestBuilderGetQueryParameters;
+}
+export interface UserStatusesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.
  */

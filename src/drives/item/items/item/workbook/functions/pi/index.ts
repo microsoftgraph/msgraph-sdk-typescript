@@ -1,1 +1,1 @@
-export * from './piRequestBuilderPostRequestConfiguration'
+export * from './piRequestBuilder'

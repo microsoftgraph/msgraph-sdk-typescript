@@ -1,12 +1,45 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createGetAttackSimulationRepeatOffendersResponseFromDiscriminatorValue } from './createGetAttackSimulationRepeatOffendersResponseFromDiscriminatorValue';
-import { type GetAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration } from './getAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration';
-import { type GetAttackSimulationRepeatOffendersResponse } from './index';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createGetAttackSimulationRepeatOffendersGetResponseFromDiscriminatorValue } from './getAttackSimulationRepeatOffendersGetResponse';
+import { type GetAttackSimulationRepeatOffendersGetResponse } from './index';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface GetAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to call the getAttackSimulationRepeatOffenders method.
  */
@@ -22,9 +55,9 @@ export class GetAttackSimulationRepeatOffendersRequestBuilder extends BaseReques
     /**
      * Invoke function getAttackSimulationRepeatOffenders
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetAttackSimulationRepeatOffendersResponse
+     * @returns a Promise of GetAttackSimulationRepeatOffendersGetResponse
      */
-    public get(requestConfiguration?: GetAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration | undefined) : Promise<GetAttackSimulationRepeatOffendersResponse | undefined> {
+    public get(requestConfiguration?: GetAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration | undefined) : Promise<GetAttackSimulationRepeatOffendersGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -32,7 +65,7 @@ export class GetAttackSimulationRepeatOffendersRequestBuilder extends BaseReques
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<GetAttackSimulationRepeatOffendersResponse>(requestInfo, createGetAttackSimulationRepeatOffendersResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<GetAttackSimulationRepeatOffendersGetResponse>(requestInfo, createGetAttackSimulationRepeatOffendersGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function getAttackSimulationRepeatOffenders

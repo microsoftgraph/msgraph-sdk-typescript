@@ -1,19 +1,55 @@
-import { createServiceAnnouncementFromDiscriminatorValue } from '../../models/createServiceAnnouncementFromDiscriminatorValue';
-import { deserializeIntoServiceAnnouncement } from '../../models/deserializeIntoServiceAnnouncement';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeServiceAnnouncement } from '../../models/serializeServiceAnnouncement';
-import { type ServiceAnnouncement } from '../../models/serviceAnnouncement';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createServiceAnnouncementFromDiscriminatorValue, deserializeIntoServiceAnnouncement, serializeServiceAnnouncement, type ServiceAnnouncement } from '../../models/serviceAnnouncement';
 import { HealthOverviewsRequestBuilder } from './healthOverviews/healthOverviewsRequestBuilder';
 import { IssuesRequestBuilder } from './issues/issuesRequestBuilder';
 import { MessagesRequestBuilder } from './messages/messagesRequestBuilder';
-import { type ServiceAnnouncementRequestBuilderDeleteRequestConfiguration } from './serviceAnnouncementRequestBuilderDeleteRequestConfiguration';
-import { type ServiceAnnouncementRequestBuilderGetRequestConfiguration } from './serviceAnnouncementRequestBuilderGetRequestConfiguration';
-import { type ServiceAnnouncementRequestBuilderPatchRequestConfiguration } from './serviceAnnouncementRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServiceAnnouncementRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ServiceAnnouncementRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ServiceAnnouncementRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServiceAnnouncementRequestBuilderGetQueryParameters;
+}
+export interface ServiceAnnouncementRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.
  */

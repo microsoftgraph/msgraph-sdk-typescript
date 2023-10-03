@@ -1,16 +1,52 @@
-import { type BookingService } from '../../../../../models/bookingService';
-import { createBookingServiceFromDiscriminatorValue } from '../../../../../models/createBookingServiceFromDiscriminatorValue';
-import { deserializeIntoBookingService } from '../../../../../models/deserializeIntoBookingService';
+import { createBookingServiceFromDiscriminatorValue, deserializeIntoBookingService, serializeBookingService, type BookingService } from '../../../../../models/bookingService';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingService } from '../../../../../models/serializeBookingService';
-import { type BookingServiceItemRequestBuilderDeleteRequestConfiguration } from './bookingServiceItemRequestBuilderDeleteRequestConfiguration';
-import { type BookingServiceItemRequestBuilderGetRequestConfiguration } from './bookingServiceItemRequestBuilderGetRequestConfiguration';
-import { type BookingServiceItemRequestBuilderPatchRequestConfiguration } from './bookingServiceItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BookingServiceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BookingServiceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BookingServiceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BookingServiceItemRequestBuilderGetQueryParameters;
+}
+export interface BookingServiceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
  */
@@ -24,7 +60,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/services/{bookingService%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a bookingService object in the specified bookingBusiness.
+     * Delete a bookingService object in the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/bookingservice-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the properties and relationships of a bookingService object in the specified bookingBusiness.
+     * Get the properties and relationships of a bookingService object in the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingService
      * @see {@link https://learn.microsoft.com/graph/api/bookingservice-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +91,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BookingService>(requestInfo, createBookingServiceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a bookingService object in the specified bookingBusiness. The following are some examples you can customize for a service:- Price- Typical length of an appointment- Reminders- Any time buffer to set up before or finish up after the service- Scheduling policy parameters, such as minimum notice to book or cancel, and whether customers can select specific staff members for an appointment.
+     * Update the properties of a bookingService object in the specified bookingBusiness. The following are some examples you can customize for a service:- Price- Typical length of an appointment- Reminders- Any time buffer to set up before or finish up after the service- Scheduling policy parameters, such as minimum notice to book or cancel, and whether customers can select specific staff members for an appointment. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingService
@@ -72,7 +108,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BookingService>(requestInfo, createBookingServiceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a bookingService object in the specified bookingBusiness.
+     * Delete a bookingService object in the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties and relationships of a bookingService object in the specified bookingBusiness.
+     * Get the properties and relationships of a bookingService object in the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +142,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a bookingService object in the specified bookingBusiness. The following are some examples you can customize for a service:- Price- Typical length of an appointment- Reminders- Any time buffer to set up before or finish up after the service- Scheduling policy parameters, such as minimum notice to book or cancel, and whether customers can select specific staff members for an appointment.
+     * Update the properties of a bookingService object in the specified bookingBusiness. The following are some examples you can customize for a service:- Price- Typical length of an appointment- Reminders- Any time buffer to set up before or finish up after the service- Scheduling policy parameters, such as minimum notice to book or cancel, and whether customers can select specific staff members for an appointment. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

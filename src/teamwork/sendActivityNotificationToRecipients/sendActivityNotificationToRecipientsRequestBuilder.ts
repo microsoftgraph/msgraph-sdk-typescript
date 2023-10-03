@@ -1,13 +1,18 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { deserializeIntoSendActivityNotificationToRecipientsPostRequestBody } from './deserializeIntoSendActivityNotificationToRecipientsPostRequestBody';
-import { type SendActivityNotificationToRecipientsPostRequestBody } from './sendActivityNotificationToRecipientsPostRequestBody';
-import { type SendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration } from './sendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration';
-import { serializeSendActivityNotificationToRecipientsPostRequestBody } from './serializeSendActivityNotificationToRecipientsPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { deserializeIntoSendActivityNotificationToRecipientsPostRequestBody, serializeSendActivityNotificationToRecipientsPostRequestBody, type SendActivityNotificationToRecipientsPostRequestBody } from './sendActivityNotificationToRecipientsPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the sendActivityNotificationToRecipients method.
  */
@@ -21,7 +26,7 @@ export class SendActivityNotificationToRecipientsRequestBuilder extends BaseRequ
         super(pathParameters, requestAdapter, "{+baseurl}/teamwork/sendActivityNotificationToRecipients");
     };
     /**
-     * Send activity feed notifications to multiple users, in bulk.  For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications.
+     * Send activity feed notifications to multiple users, in bulk.  For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/teamwork-sendactivitynotificationtorecipients?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class SendActivityNotificationToRecipientsRequestBuilder extends BaseRequ
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Send activity feed notifications to multiple users, in bulk.  For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications.
+     * Send activity feed notifications to multiple users, in bulk.  For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,19 +1,70 @@
 import { type UserExperienceAnalyticsBaselineCollectionResponse } from '../../models/';
-import { createUserExperienceAnalyticsBaselineCollectionResponseFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsBaselineCollectionResponseFromDiscriminatorValue';
-import { createUserExperienceAnalyticsBaselineFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsBaselineFromDiscriminatorValue';
-import { deserializeIntoUserExperienceAnalyticsBaseline } from '../../models/deserializeIntoUserExperienceAnalyticsBaseline';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeUserExperienceAnalyticsBaseline } from '../../models/serializeUserExperienceAnalyticsBaseline';
-import { type UserExperienceAnalyticsBaseline } from '../../models/userExperienceAnalyticsBaseline';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsBaselineFromDiscriminatorValue, deserializeIntoUserExperienceAnalyticsBaseline, serializeUserExperienceAnalyticsBaseline, type UserExperienceAnalyticsBaseline } from '../../models/userExperienceAnalyticsBaseline';
+import { createUserExperienceAnalyticsBaselineCollectionResponseFromDiscriminatorValue } from '../../models/userExperienceAnalyticsBaselineCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserExperienceAnalyticsBaselineItemRequestBuilder } from './item/userExperienceAnalyticsBaselineItemRequestBuilder';
-import { type UserExperienceAnalyticsBaselinesRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsBaselinesRequestBuilderGetRequestConfiguration';
-import { type UserExperienceAnalyticsBaselinesRequestBuilderPostRequestConfiguration } from './userExperienceAnalyticsBaselinesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserExperienceAnalyticsBaselinesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserExperienceAnalyticsBaselinesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserExperienceAnalyticsBaselinesRequestBuilderGetQueryParameters;
+}
+export interface UserExperienceAnalyticsBaselinesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
  */

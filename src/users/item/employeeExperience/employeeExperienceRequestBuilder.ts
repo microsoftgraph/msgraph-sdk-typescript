@@ -1,17 +1,53 @@
-import { createEmployeeExperienceUserFromDiscriminatorValue } from '../../../models/createEmployeeExperienceUserFromDiscriminatorValue';
-import { deserializeIntoEmployeeExperienceUser } from '../../../models/deserializeIntoEmployeeExperienceUser';
-import { type EmployeeExperienceUser } from '../../../models/employeeExperienceUser';
+import { createEmployeeExperienceUserFromDiscriminatorValue, deserializeIntoEmployeeExperienceUser, serializeEmployeeExperienceUser, type EmployeeExperienceUser } from '../../../models/employeeExperienceUser';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeEmployeeExperienceUser } from '../../../models/serializeEmployeeExperienceUser';
-import { type EmployeeExperienceRequestBuilderDeleteRequestConfiguration } from './employeeExperienceRequestBuilderDeleteRequestConfiguration';
-import { type EmployeeExperienceRequestBuilderGetRequestConfiguration } from './employeeExperienceRequestBuilderGetRequestConfiguration';
-import { type EmployeeExperienceRequestBuilderPatchRequestConfiguration } from './employeeExperienceRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/learningCourseActivitiesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EmployeeExperienceRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EmployeeExperienceRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EmployeeExperienceRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EmployeeExperienceRequestBuilderGetQueryParameters;
+}
+export interface EmployeeExperienceRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the employeeExperience property of the microsoft.graph.user entity.
  */

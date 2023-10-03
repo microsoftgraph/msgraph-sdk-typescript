@@ -1,20 +1,71 @@
 import { type EducationUserCollectionResponse } from '../../models/';
-import { createEducationUserCollectionResponseFromDiscriminatorValue } from '../../models/createEducationUserCollectionResponseFromDiscriminatorValue';
-import { createEducationUserFromDiscriminatorValue } from '../../models/createEducationUserFromDiscriminatorValue';
-import { deserializeIntoEducationUser } from '../../models/deserializeIntoEducationUser';
-import { type EducationUser } from '../../models/educationUser';
+import { createEducationUserFromDiscriminatorValue, deserializeIntoEducationUser, serializeEducationUser, type EducationUser } from '../../models/educationUser';
+import { createEducationUserCollectionResponseFromDiscriminatorValue } from '../../models/educationUserCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeEducationUser } from '../../models/serializeEducationUser';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { EducationUserItemRequestBuilder } from './item/educationUserItemRequestBuilder';
-import { type UsersRequestBuilderGetRequestConfiguration } from './usersRequestBuilderGetRequestConfiguration';
-import { type UsersRequestBuilderPostRequestConfiguration } from './usersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UsersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UsersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UsersRequestBuilderGetQueryParameters;
+}
+export interface UsersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
  */
@@ -51,7 +102,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/users{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the educationUser objects and their properties.
+     * Get a list of the educationUser objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationUserCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/educationuser-list?view=graph-rest-1.0|Find more info here}
@@ -67,7 +118,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationUserCollectionResponse>(requestInfo, createEducationUserCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new educationUser object.
+     * Create a new educationUser object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationUser
@@ -84,7 +135,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the educationUser objects and their properties.
+     * Get a list of the educationUser objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +153,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new educationUser object.
+     * Create a new educationUser object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

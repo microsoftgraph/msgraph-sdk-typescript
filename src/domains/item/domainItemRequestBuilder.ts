@@ -1,14 +1,6 @@
-import { createDomainFromDiscriminatorValue } from '../../models/createDomainFromDiscriminatorValue';
-import { deserializeIntoDomain } from '../../models/deserializeIntoDomain';
-import { type Domain } from '../../models/domain';
+import { createDomainFromDiscriminatorValue, deserializeIntoDomain, serializeDomain, type Domain } from '../../models/domain';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDomain } from '../../models/serializeDomain';
-import { type DomainItemRequestBuilderDeleteRequestConfiguration } from './domainItemRequestBuilderDeleteRequestConfiguration';
-import { type DomainItemRequestBuilderGetRequestConfiguration } from './domainItemRequestBuilderGetRequestConfiguration';
-import { type DomainItemRequestBuilderPatchRequestConfiguration } from './domainItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { DomainNameReferencesRequestBuilder } from './domainNameReferences/domainNameReferencesRequestBuilder';
 import { FederationConfigurationRequestBuilder } from './federationConfiguration/federationConfigurationRequestBuilder';
 import { ForceDeleteRequestBuilder } from './forceDelete/forceDeleteRequestBuilder';
@@ -18,6 +10,50 @@ import { VerificationDnsRecordsRequestBuilder } from './verificationDnsRecords/v
 import { VerifyRequestBuilder } from './verify/verifyRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DomainItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DomainItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DomainItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DomainItemRequestBuilderGetQueryParameters;
+}
+export interface DomainItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of domain entities.
  */
@@ -73,7 +109,7 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/domains/{domain%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a domain from a tenant.
+     * Deletes a domain from a tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/domain-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -88,7 +124,7 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of domain object.
+     * Retrieve the properties and relationships of domain object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Domain
      * @see {@link https://learn.microsoft.com/graph/api/domain-get?view=graph-rest-1.0|Find more info here}
@@ -104,7 +140,7 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of domain object.
+     * Update the properties of domain object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Domain
@@ -121,7 +157,7 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a domain from a tenant.
+     * Deletes a domain from a tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -137,7 +173,7 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of domain object.
+     * Retrieve the properties and relationships of domain object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -155,7 +191,7 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of domain object.
+     * Update the properties of domain object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

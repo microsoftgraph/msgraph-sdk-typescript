@@ -1,16 +1,52 @@
-import { createLearningCourseActivityFromDiscriminatorValue } from '../../../../../models/createLearningCourseActivityFromDiscriminatorValue';
-import { deserializeIntoLearningCourseActivity } from '../../../../../models/deserializeIntoLearningCourseActivity';
-import { type LearningCourseActivity } from '../../../../../models/learningCourseActivity';
+import { createLearningCourseActivityFromDiscriminatorValue, deserializeIntoLearningCourseActivity, serializeLearningCourseActivity, type LearningCourseActivity } from '../../../../../models/learningCourseActivity';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeLearningCourseActivity } from '../../../../../models/serializeLearningCourseActivity';
-import { type LearningCourseActivityItemRequestBuilderDeleteRequestConfiguration } from './learningCourseActivityItemRequestBuilderDeleteRequestConfiguration';
-import { type LearningCourseActivityItemRequestBuilderGetRequestConfiguration } from './learningCourseActivityItemRequestBuilderGetRequestConfiguration';
-import { type LearningCourseActivityItemRequestBuilderPatchRequestConfiguration } from './learningCourseActivityItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LearningCourseActivityItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface LearningCourseActivityItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LearningCourseActivityItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LearningCourseActivityItemRequestBuilderGetQueryParameters;
+}
+export interface LearningCourseActivityItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
  */
@@ -24,7 +60,7 @@ export class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningCourseActivities/{learningCourseActivity%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.
+     * Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/learningcourseactivity-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -54,7 +90,7 @@ export class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<LearningCourseActivity>(requestInfo, createLearningCourseActivityFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a learningCourseActivity object. 
+     * Update the properties of a learningCourseActivity object.  This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningCourseActivity
@@ -71,7 +107,7 @@ export class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<LearningCourseActivity>(requestInfo, createLearningCourseActivityFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.
+     * Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Update the properties of a learningCourseActivity object. 
+     * Update the properties of a learningCourseActivity object.  This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

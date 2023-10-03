@@ -1,19 +1,70 @@
 import { type EducationRubricCollectionResponse } from '../../../../models/';
-import { createEducationRubricCollectionResponseFromDiscriminatorValue } from '../../../../models/createEducationRubricCollectionResponseFromDiscriminatorValue';
-import { createEducationRubricFromDiscriminatorValue } from '../../../../models/createEducationRubricFromDiscriminatorValue';
-import { deserializeIntoEducationRubric } from '../../../../models/deserializeIntoEducationRubric';
-import { type EducationRubric } from '../../../../models/educationRubric';
+import { createEducationRubricFromDiscriminatorValue, deserializeIntoEducationRubric, serializeEducationRubric, type EducationRubric } from '../../../../models/educationRubric';
+import { createEducationRubricCollectionResponseFromDiscriminatorValue } from '../../../../models/educationRubricCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationRubric } from '../../../../models/serializeEducationRubric';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { EducationRubricItemRequestBuilder } from './item/educationRubricItemRequestBuilder';
-import { type RubricsRequestBuilderGetRequestConfiguration } from './rubricsRequestBuilderGetRequestConfiguration';
-import { type RubricsRequestBuilderPostRequestConfiguration } from './rubricsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RubricsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RubricsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RubricsRequestBuilderGetQueryParameters;
+}
+export interface RubricsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
  */
@@ -44,7 +95,7 @@ export class RubricsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}/rubrics{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of educationRubric objects.
+     * Retrieve a list of educationRubric objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationRubricCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/educationuser-list-rubrics?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class RubricsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationRubricCollectionResponse>(requestInfo, createEducationRubricCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new educationRubric object.
+     * Create a new educationRubric object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationRubric
@@ -77,7 +128,7 @@ export class RubricsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationRubric>(requestInfo, createEducationRubricFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of educationRubric objects.
+     * Retrieve a list of educationRubric objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class RubricsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new educationRubric object.
+     * Create a new educationRubric object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

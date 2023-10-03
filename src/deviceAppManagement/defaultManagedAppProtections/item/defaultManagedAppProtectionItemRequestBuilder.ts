@@ -1,18 +1,54 @@
-import { createDefaultManagedAppProtectionFromDiscriminatorValue } from '../../../models/createDefaultManagedAppProtectionFromDiscriminatorValue';
-import { type DefaultManagedAppProtection } from '../../../models/defaultManagedAppProtection';
-import { deserializeIntoDefaultManagedAppProtection } from '../../../models/deserializeIntoDefaultManagedAppProtection';
+import { createDefaultManagedAppProtectionFromDiscriminatorValue, deserializeIntoDefaultManagedAppProtection, serializeDefaultManagedAppProtection, type DefaultManagedAppProtection } from '../../../models/defaultManagedAppProtection';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDefaultManagedAppProtection } from '../../../models/serializeDefaultManagedAppProtection';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AppsRequestBuilder } from './apps/appsRequestBuilder';
-import { type DefaultManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration } from './defaultManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration';
-import { type DefaultManagedAppProtectionItemRequestBuilderGetRequestConfiguration } from './defaultManagedAppProtectionItemRequestBuilderGetRequestConfiguration';
-import { type DefaultManagedAppProtectionItemRequestBuilderPatchRequestConfiguration } from './defaultManagedAppProtectionItemRequestBuilderPatchRequestConfiguration';
 import { DeploymentSummaryRequestBuilder } from './deploymentSummary/deploymentSummaryRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DefaultManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DefaultManagedAppProtectionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DefaultManagedAppProtectionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DefaultManagedAppProtectionItemRequestBuilderGetQueryParameters;
+}
+export interface DefaultManagedAppProtectionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
  */

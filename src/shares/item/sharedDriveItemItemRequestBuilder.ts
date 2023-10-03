@@ -1,11 +1,6 @@
-import { createSharedDriveItemFromDiscriminatorValue } from '../../models/createSharedDriveItemFromDiscriminatorValue';
-import { deserializeIntoSharedDriveItem } from '../../models/deserializeIntoSharedDriveItem';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeSharedDriveItem } from '../../models/serializeSharedDriveItem';
-import { type SharedDriveItem } from '../../models/sharedDriveItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createSharedDriveItemFromDiscriminatorValue, deserializeIntoSharedDriveItem, serializeSharedDriveItem, type SharedDriveItem } from '../../models/sharedDriveItem';
 import { CreatedByUserRequestBuilder } from './createdByUser/createdByUserRequestBuilder';
 import { DriveItemRequestBuilder } from './driveItem/driveItemRequestBuilder';
 import { ItemsRequestBuilder } from './items/itemsRequestBuilder';
@@ -14,12 +9,53 @@ import { ListRequestBuilder } from './list/listRequestBuilder';
 import { ListItemRequestBuilder } from './listItem/listItemRequestBuilder';
 import { PermissionRequestBuilder } from './permission/permissionRequestBuilder';
 import { RootRequestBuilder } from './root/rootRequestBuilder';
-import { type SharedDriveItemItemRequestBuilderDeleteRequestConfiguration } from './sharedDriveItemItemRequestBuilderDeleteRequestConfiguration';
-import { type SharedDriveItemItemRequestBuilderGetRequestConfiguration } from './sharedDriveItemItemRequestBuilderGetRequestConfiguration';
-import { type SharedDriveItemItemRequestBuilderPatchRequestConfiguration } from './sharedDriveItemItemRequestBuilderPatchRequestConfiguration';
 import { SiteRequestBuilder } from './site/siteRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SharedDriveItemItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SharedDriveItemItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SharedDriveItemItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SharedDriveItemItemRequestBuilderGetQueryParameters;
+}
+export interface SharedDriveItemItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of sharedDriveItem entities.
  */
@@ -101,7 +137,7 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
+     * Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SharedDriveItem
      * @see {@link https://learn.microsoft.com/graph/api/shares-get?view=graph-rest-1.0|Find more info here}
@@ -149,7 +185,7 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
+     * Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

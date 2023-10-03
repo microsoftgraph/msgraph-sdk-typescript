@@ -4,3 +4,5 @@ export enum FederatedIdpMfaBehavior {
     RejectMfaByFederatedIdp = "rejectMfaByFederatedIdp",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

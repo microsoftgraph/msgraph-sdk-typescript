@@ -1,16 +1,52 @@
-import { type AuthenticationFlowsPolicy } from '../../models/authenticationFlowsPolicy';
-import { createAuthenticationFlowsPolicyFromDiscriminatorValue } from '../../models/createAuthenticationFlowsPolicyFromDiscriminatorValue';
-import { deserializeIntoAuthenticationFlowsPolicy } from '../../models/deserializeIntoAuthenticationFlowsPolicy';
+import { createAuthenticationFlowsPolicyFromDiscriminatorValue, deserializeIntoAuthenticationFlowsPolicy, serializeAuthenticationFlowsPolicy, type AuthenticationFlowsPolicy } from '../../models/authenticationFlowsPolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationFlowsPolicy } from '../../models/serializeAuthenticationFlowsPolicy';
-import { type AuthenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration } from './authenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration';
-import { type AuthenticationFlowsPolicyRequestBuilderGetRequestConfiguration } from './authenticationFlowsPolicyRequestBuilderGetRequestConfiguration';
-import { type AuthenticationFlowsPolicyRequestBuilderPatchRequestConfiguration } from './authenticationFlowsPolicyRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AuthenticationFlowsPolicyRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AuthenticationFlowsPolicyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthenticationFlowsPolicyRequestBuilderGetQueryParameters;
+}
+export interface AuthenticationFlowsPolicyRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the authenticationFlowsPolicy property of the microsoft.graph.policyRoot entity.
  */
@@ -38,7 +74,7 @@ export class AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an authenticationFlowsPolicy object.
+     * Read the properties and relationships of an authenticationFlowsPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationFlowsPolicy
      * @see {@link https://learn.microsoft.com/graph/api/authenticationflowspolicy-get?view=graph-rest-1.0|Find more info here}
@@ -54,7 +90,7 @@ export class AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<AuthenticationFlowsPolicy>(requestInfo, createAuthenticationFlowsPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
+     * Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationFlowsPolicy
@@ -87,7 +123,7 @@ export class AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an authenticationFlowsPolicy object.
+     * Read the properties and relationships of an authenticationFlowsPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
+     * Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

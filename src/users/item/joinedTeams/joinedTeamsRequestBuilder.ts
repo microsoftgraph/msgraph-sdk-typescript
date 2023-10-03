@@ -1,20 +1,71 @@
 import { type TeamCollectionResponse } from '../../../models/';
-import { createTeamCollectionResponseFromDiscriminatorValue } from '../../../models/createTeamCollectionResponseFromDiscriminatorValue';
-import { createTeamFromDiscriminatorValue } from '../../../models/createTeamFromDiscriminatorValue';
-import { deserializeIntoTeam } from '../../../models/deserializeIntoTeam';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeTeam } from '../../../models/serializeTeam';
-import { type Team } from '../../../models/team';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createTeamFromDiscriminatorValue, deserializeIntoTeam, serializeTeam, type Team } from '../../../models/team';
+import { createTeamCollectionResponseFromDiscriminatorValue } from '../../../models/teamCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { GetAllMessagesRequestBuilder } from './getAllMessages/getAllMessagesRequestBuilder';
 import { TeamItemRequestBuilder } from './item/teamItemRequestBuilder';
-import { type JoinedTeamsRequestBuilderGetRequestConfiguration } from './joinedTeamsRequestBuilderGetRequestConfiguration';
-import { type JoinedTeamsRequestBuilderPostRequestConfiguration } from './joinedTeamsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface JoinedTeamsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface JoinedTeamsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: JoinedTeamsRequestBuilderGetQueryParameters;
+}
+export interface JoinedTeamsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.
  */
@@ -51,7 +102,7 @@ export class JoinedTeamsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the teams in Microsoft Teams that the user is a direct member of.
+     * Get the teams in Microsoft Teams that the user is a direct member of. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/user-list-joinedteams?view=graph-rest-1.0|Find more info here}
@@ -83,7 +134,7 @@ export class JoinedTeamsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Team>(requestInfo, createTeamFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the teams in Microsoft Teams that the user is a direct member of.
+     * Get the teams in Microsoft Teams that the user is a direct member of. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

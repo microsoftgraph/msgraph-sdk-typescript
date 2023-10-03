@@ -1,12 +1,33 @@
 import { type ConversationMember } from '../../../../../../../../../models/';
-import { createConversationMemberFromDiscriminatorValue } from '../../../../../../../../../models/createConversationMemberFromDiscriminatorValue';
+import { createConversationMemberFromDiscriminatorValue } from '../../../../../../../../../models/conversationMember';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type ConversationMemberItemRequestBuilderGetRequestConfiguration } from './conversationMemberItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConversationMemberItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ConversationMemberItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConversationMemberItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.
  */

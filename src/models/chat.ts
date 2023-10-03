@@ -1,75 +1,126 @@
-import { type ChatMessage } from './chatMessage';
-import { type ChatMessageInfo } from './chatMessageInfo';
+import { createChatMessageFromDiscriminatorValue, serializeChatMessage, type ChatMessage } from './chatMessage';
+import { createChatMessageInfoFromDiscriminatorValue, serializeChatMessageInfo, type ChatMessageInfo } from './chatMessageInfo';
 import { ChatType } from './chatType';
-import { type ChatViewpoint } from './chatViewpoint';
-import { type ConversationMember } from './conversationMember';
-import { type Entity } from './entity';
-import { type PinnedChatMessageInfo } from './pinnedChatMessageInfo';
-import { type ResourceSpecificPermissionGrant } from './resourceSpecificPermissionGrant';
-import { type TeamsAppInstallation } from './teamsAppInstallation';
-import { type TeamsTab } from './teamsTab';
-import { type TeamworkOnlineMeetingInfo } from './teamworkOnlineMeetingInfo';
-import { type Parsable } from '@microsoft/kiota-abstractions';
+import { createChatViewpointFromDiscriminatorValue, serializeChatViewpoint, type ChatViewpoint } from './chatViewpoint';
+import { createConversationMemberFromDiscriminatorValue, serializeConversationMember, type ConversationMember } from './conversationMember';
+import { deserializeIntoEntity, serializeEntity, type Entity } from './entity';
+import { createPinnedChatMessageInfoFromDiscriminatorValue, serializePinnedChatMessageInfo, type PinnedChatMessageInfo } from './pinnedChatMessageInfo';
+import { createResourceSpecificPermissionGrantFromDiscriminatorValue, serializeResourceSpecificPermissionGrant, type ResourceSpecificPermissionGrant } from './resourceSpecificPermissionGrant';
+import { createTeamsAppInstallationFromDiscriminatorValue, serializeTeamsAppInstallation, type TeamsAppInstallation } from './teamsAppInstallation';
+import { createTeamsTabFromDiscriminatorValue, serializeTeamsTab, type TeamsTab } from './teamsTab';
+import { createTeamworkOnlineMeetingInfoFromDiscriminatorValue, serializeTeamworkOnlineMeetingInfo, type TeamworkOnlineMeetingInfo } from './teamworkOnlineMeetingInfo';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface Chat extends Entity, Parsable {
     /**
      * The chatType property
      */
-    chatType?: ChatType | undefined;
+    chatType?: ChatType;
     /**
      * Date and time at which the chat was created. Read-only.
      */
-    createdDateTime?: Date | undefined;
+    createdDateTime?: Date;
     /**
      * A collection of all the apps in the chat. Nullable.
      */
-    installedApps?: TeamsAppInstallation[] | undefined;
+    installedApps?: TeamsAppInstallation[];
     /**
      * Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
      */
-    lastMessagePreview?: ChatMessageInfo | undefined;
+    lastMessagePreview?: ChatMessageInfo;
     /**
      * Date and time at which the chat was renamed or list of members were last changed. Read-only.
      */
-    lastUpdatedDateTime?: Date | undefined;
+    lastUpdatedDateTime?: Date;
     /**
      * A collection of all the members in the chat. Nullable.
      */
-    members?: ConversationMember[] | undefined;
+    members?: ConversationMember[];
     /**
      * A collection of all the messages in the chat. Nullable.
      */
-    messages?: ChatMessage[] | undefined;
+    messages?: ChatMessage[];
     /**
      * Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only.
      */
-    onlineMeetingInfo?: TeamworkOnlineMeetingInfo | undefined;
+    onlineMeetingInfo?: TeamworkOnlineMeetingInfo;
     /**
      * A collection of permissions granted to apps for the chat.
      */
-    permissionGrants?: ResourceSpecificPermissionGrant[] | undefined;
+    permissionGrants?: ResourceSpecificPermissionGrant[];
     /**
      * A collection of all the pinned messages in the chat. Nullable.
      */
-    pinnedMessages?: PinnedChatMessageInfo[] | undefined;
+    pinnedMessages?: PinnedChatMessageInfo[];
     /**
      * A collection of all the tabs in the chat. Nullable.
      */
-    tabs?: TeamsTab[] | undefined;
+    tabs?: TeamsTab[];
     /**
      * The identifier of the tenant in which the chat was created. Read-only.
      */
-    tenantId?: string | undefined;
+    tenantId?: string;
     /**
      * (Optional) Subject or topic for the chat. Only available for group chats.
      */
-    topic?: string | undefined;
+    topic?: string;
     /**
      * Represents caller-specific information about the chat, such as last message read date and time. This property is populated only when the request is made in a delegated context.
      */
-    viewpoint?: ChatViewpoint | undefined;
+    viewpoint?: ChatViewpoint;
     /**
      * The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only.
      */
-    webUrl?: string | undefined;
+    webUrl?: string;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function createChatFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoChat;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function deserializeIntoChat(chat: Chat | undefined = {} as Chat) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(chat),
+        "chatType": n => { chat.chatType = n.getEnumValue<ChatType>(ChatType); },
+        "createdDateTime": n => { chat.createdDateTime = n.getDateValue(); },
+        "installedApps": n => { chat.installedApps = n.getCollectionOfObjectValues<TeamsAppInstallation>(createTeamsAppInstallationFromDiscriminatorValue); },
+        "lastMessagePreview": n => { chat.lastMessagePreview = n.getObjectValue<ChatMessageInfo>(createChatMessageInfoFromDiscriminatorValue); },
+        "lastUpdatedDateTime": n => { chat.lastUpdatedDateTime = n.getDateValue(); },
+        "members": n => { chat.members = n.getCollectionOfObjectValues<ConversationMember>(createConversationMemberFromDiscriminatorValue); },
+        "messages": n => { chat.messages = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
+        "onlineMeetingInfo": n => { chat.onlineMeetingInfo = n.getObjectValue<TeamworkOnlineMeetingInfo>(createTeamworkOnlineMeetingInfoFromDiscriminatorValue); },
+        "permissionGrants": n => { chat.permissionGrants = n.getCollectionOfObjectValues<ResourceSpecificPermissionGrant>(createResourceSpecificPermissionGrantFromDiscriminatorValue); },
+        "pinnedMessages": n => { chat.pinnedMessages = n.getCollectionOfObjectValues<PinnedChatMessageInfo>(createPinnedChatMessageInfoFromDiscriminatorValue); },
+        "tabs": n => { chat.tabs = n.getCollectionOfObjectValues<TeamsTab>(createTeamsTabFromDiscriminatorValue); },
+        "tenantId": n => { chat.tenantId = n.getStringValue(); },
+        "topic": n => { chat.topic = n.getStringValue(); },
+        "viewpoint": n => { chat.viewpoint = n.getObjectValue<ChatViewpoint>(createChatViewpointFromDiscriminatorValue); },
+        "webUrl": n => { chat.webUrl = n.getStringValue(); },
+    }
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function serializeChat(writer: SerializationWriter, chat: Chat | undefined = {} as Chat) : void {
+        serializeEntity(writer, chat)
+        writer.writeEnumValue<ChatType>("chatType", chat.chatType);
+        writer.writeDateValue("createdDateTime", chat.createdDateTime);
+        writer.writeCollectionOfObjectValues<TeamsAppInstallation>("installedApps", chat.installedApps, );
+        writer.writeObjectValue<ChatMessageInfo>("lastMessagePreview", chat.lastMessagePreview, );
+        writer.writeDateValue("lastUpdatedDateTime", chat.lastUpdatedDateTime);
+        writer.writeCollectionOfObjectValues<ConversationMember>("members", chat.members, );
+        writer.writeCollectionOfObjectValues<ChatMessage>("messages", chat.messages, );
+        writer.writeObjectValue<TeamworkOnlineMeetingInfo>("onlineMeetingInfo", chat.onlineMeetingInfo, );
+        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", chat.permissionGrants, );
+        writer.writeCollectionOfObjectValues<PinnedChatMessageInfo>("pinnedMessages", chat.pinnedMessages, );
+        writer.writeCollectionOfObjectValues<TeamsTab>("tabs", chat.tabs, );
+        writer.writeStringValue("tenantId", chat.tenantId);
+        writer.writeStringValue("topic", chat.topic);
+        writer.writeObjectValue<ChatViewpoint>("viewpoint", chat.viewpoint, );
+        writer.writeStringValue("webUrl", chat.webUrl);
 }

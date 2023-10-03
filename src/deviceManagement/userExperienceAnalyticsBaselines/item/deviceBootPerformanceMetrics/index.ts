@@ -1,2 +1,1 @@
-export * from './deviceBootPerformanceMetricsRequestBuilderGetQueryParameters'
-export * from './deviceBootPerformanceMetricsRequestBuilderGetRequestConfiguration'
+export * from './deviceBootPerformanceMetricsRequestBuilder'

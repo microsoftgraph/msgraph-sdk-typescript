@@ -1,16 +1,48 @@
-import { createSchedulingGroupFromDiscriminatorValue } from '../../../../../models/createSchedulingGroupFromDiscriminatorValue';
-import { deserializeIntoSchedulingGroup } from '../../../../../models/deserializeIntoSchedulingGroup';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type SchedulingGroup } from '../../../../../models/schedulingGroup';
-import { serializeSchedulingGroup } from '../../../../../models/serializeSchedulingGroup';
-import { type SchedulingGroupItemRequestBuilderDeleteRequestConfiguration } from './schedulingGroupItemRequestBuilderDeleteRequestConfiguration';
-import { type SchedulingGroupItemRequestBuilderGetRequestConfiguration } from './schedulingGroupItemRequestBuilderGetRequestConfiguration';
-import { type SchedulingGroupItemRequestBuilderPatchRequestConfiguration } from './schedulingGroupItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createSchedulingGroupFromDiscriminatorValue, deserializeIntoSchedulingGroup, serializeSchedulingGroup, type SchedulingGroup } from '../../../../../models/schedulingGroup';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SchedulingGroupItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SchedulingGroupItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SchedulingGroupItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SchedulingGroupItemRequestBuilderGetQueryParameters;
+}
+export interface SchedulingGroupItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
  */
@@ -24,7 +56,7 @@ export class SchedulingGroupItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/schedule/schedulingGroups/{schedulingGroup%2Did}{?%24select}");
     };
     /**
-     * Mark a schedulingGroup as inactive by setting its isActive property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group.
+     * Mark a schedulingGroup as inactive by setting its isActive property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/schedulinggroup-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +71,7 @@ export class SchedulingGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a schedulingGroup by ID.
+     * Retrieve the properties and relationships of a schedulingGroup by ID. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SchedulingGroup
      * @see {@link https://learn.microsoft.com/graph/api/schedulinggroup-get?view=graph-rest-1.0|Find more info here}
@@ -72,7 +104,7 @@ export class SchedulingGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SchedulingGroup>(requestInfo, createSchedulingGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Mark a schedulingGroup as inactive by setting its isActive property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group.
+     * Mark a schedulingGroup as inactive by setting its isActive property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +120,7 @@ export class SchedulingGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a schedulingGroup by ID.
+     * Retrieve the properties and relationships of a schedulingGroup by ID. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

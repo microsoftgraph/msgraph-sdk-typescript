@@ -1,5 +1,2 @@
-export * from './createXirrPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoXirrPostRequestBody'
-export * from './serializeXirrPostRequestBody'
 export * from './xirrPostRequestBody'
-export * from './xirrRequestBuilderPostRequestConfiguration'
+export * from './xirrRequestBuilder'

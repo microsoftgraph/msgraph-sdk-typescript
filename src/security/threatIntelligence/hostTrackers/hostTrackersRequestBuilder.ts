@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type HostTrackerCollectionResponse } from '../../../models/security/';
-import { createHostTrackerCollectionResponseFromDiscriminatorValue } from '../../../models/security/createHostTrackerCollectionResponseFromDiscriminatorValue';
-import { createHostTrackerFromDiscriminatorValue } from '../../../models/security/createHostTrackerFromDiscriminatorValue';
-import { deserializeIntoHostTracker } from '../../../models/security/deserializeIntoHostTracker';
-import { type HostTracker } from '../../../models/security/hostTracker';
-import { serializeHostTracker } from '../../../models/security/serializeHostTracker';
+import { createHostTrackerFromDiscriminatorValue, deserializeIntoHostTracker, serializeHostTracker, type HostTracker } from '../../../models/security/hostTracker';
+import { createHostTrackerCollectionResponseFromDiscriminatorValue } from '../../../models/security/hostTrackerCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HostTrackersRequestBuilderGetRequestConfiguration } from './hostTrackersRequestBuilderGetRequestConfiguration';
-import { type HostTrackersRequestBuilderPostRequestConfiguration } from './hostTrackersRequestBuilderPostRequestConfiguration';
 import { HostTrackerItemRequestBuilder } from './item/hostTrackerItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HostTrackersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HostTrackersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HostTrackersRequestBuilderGetQueryParameters;
+}
+export interface HostTrackersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -44,7 +95,7 @@ export class HostTrackersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/hostTrackers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read the properties and relationships of a hostTracker object.
+     * Read the properties and relationships of a hostTracker object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostTrackerCollectionResponse
      */
@@ -75,7 +126,7 @@ export class HostTrackersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<HostTracker>(requestInfo, createHostTrackerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the properties and relationships of a hostTracker object.
+     * Read the properties and relationships of a hostTracker object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

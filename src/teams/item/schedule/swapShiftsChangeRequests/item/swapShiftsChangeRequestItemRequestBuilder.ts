@@ -1,16 +1,52 @@
-import { createSwapShiftsChangeRequestFromDiscriminatorValue } from '../../../../../models/createSwapShiftsChangeRequestFromDiscriminatorValue';
-import { deserializeIntoSwapShiftsChangeRequest } from '../../../../../models/deserializeIntoSwapShiftsChangeRequest';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeSwapShiftsChangeRequest } from '../../../../../models/serializeSwapShiftsChangeRequest';
-import { type SwapShiftsChangeRequest } from '../../../../../models/swapShiftsChangeRequest';
-import { type SwapShiftsChangeRequestItemRequestBuilderDeleteRequestConfiguration } from './swapShiftsChangeRequestItemRequestBuilderDeleteRequestConfiguration';
-import { type SwapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration } from './swapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration';
-import { type SwapShiftsChangeRequestItemRequestBuilderPatchRequestConfiguration } from './swapShiftsChangeRequestItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createSwapShiftsChangeRequestFromDiscriminatorValue, deserializeIntoSwapShiftsChangeRequest, serializeSwapShiftsChangeRequest, type SwapShiftsChangeRequest } from '../../../../../models/swapShiftsChangeRequest';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SwapShiftsChangeRequestItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SwapShiftsChangeRequestItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SwapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SwapShiftsChangeRequestItemRequestBuilderGetQueryParameters;
+}
+export interface SwapShiftsChangeRequestItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
  */
@@ -38,7 +74,7 @@ export class SwapShiftsChangeRequestItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a swapShiftsChangeRequest object.
+     * Retrieve the properties and relationships of a swapShiftsChangeRequest object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SwapShiftsChangeRequest
      * @see {@link https://learn.microsoft.com/graph/api/swapshiftschangerequest-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +122,7 @@ export class SwapShiftsChangeRequestItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a swapShiftsChangeRequest object.
+     * Retrieve the properties and relationships of a swapShiftsChangeRequest object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

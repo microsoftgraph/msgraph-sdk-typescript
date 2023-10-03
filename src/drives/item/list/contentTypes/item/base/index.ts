@@ -1,2 +1,1 @@
-export * from './baseRequestBuilderEscapedbaseRequestBuilderGetQueryParameters'
-export * from './baseRequestBuilderEscapedbaseRequestBuilderGetRequestConfiguration'
+export * from './baseRequestBuilderEscaped'

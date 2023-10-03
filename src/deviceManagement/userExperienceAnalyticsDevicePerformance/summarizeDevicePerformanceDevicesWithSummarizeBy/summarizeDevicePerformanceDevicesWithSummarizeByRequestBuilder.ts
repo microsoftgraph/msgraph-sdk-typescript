@@ -1,12 +1,53 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createSummarizeDevicePerformanceDevicesWithSummarizeByResponseFromDiscriminatorValue } from './createSummarizeDevicePerformanceDevicesWithSummarizeByResponseFromDiscriminatorValue';
-import { type SummarizeDevicePerformanceDevicesWithSummarizeByResponse } from './index';
-import { type SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetRequestConfiguration } from './summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { type SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse } from './index';
+import { createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue } from './summarizeDevicePerformanceDevicesWithSummarizeByGetResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to call the summarizeDevicePerformanceDevices method.
  */
@@ -24,9 +65,9 @@ export class SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder exte
     /**
      * Invoke function summarizeDevicePerformanceDevices
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SummarizeDevicePerformanceDevicesWithSummarizeByResponse
+     * @returns a Promise of SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse
      */
-    public get(requestConfiguration?: SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetRequestConfiguration | undefined) : Promise<SummarizeDevicePerformanceDevicesWithSummarizeByResponse | undefined> {
+    public get(requestConfiguration?: SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetRequestConfiguration | undefined) : Promise<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -34,7 +75,7 @@ export class SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder exte
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<SummarizeDevicePerformanceDevicesWithSummarizeByResponse>(requestInfo, createSummarizeDevicePerformanceDevicesWithSummarizeByResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse>(requestInfo, createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function summarizeDevicePerformanceDevices

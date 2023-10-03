@@ -1,2 +1,1 @@
-export * from './graphAndroidStoreAppRequestBuilderGetQueryParameters'
-export * from './graphAndroidStoreAppRequestBuilderGetRequestConfiguration'
+export * from './graphAndroidStoreAppRequestBuilder'

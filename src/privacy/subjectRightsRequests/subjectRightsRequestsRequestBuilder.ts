@@ -1,19 +1,70 @@
 import { type SubjectRightsRequestCollectionResponse } from '../../models/';
-import { createSubjectRightsRequestCollectionResponseFromDiscriminatorValue } from '../../models/createSubjectRightsRequestCollectionResponseFromDiscriminatorValue';
-import { createSubjectRightsRequestFromDiscriminatorValue } from '../../models/createSubjectRightsRequestFromDiscriminatorValue';
-import { deserializeIntoSubjectRightsRequest } from '../../models/deserializeIntoSubjectRightsRequest';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeSubjectRightsRequest } from '../../models/serializeSubjectRightsRequest';
-import { type SubjectRightsRequest } from '../../models/subjectRightsRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createSubjectRightsRequestFromDiscriminatorValue, deserializeIntoSubjectRightsRequest, serializeSubjectRightsRequest, type SubjectRightsRequest } from '../../models/subjectRightsRequest';
+import { createSubjectRightsRequestCollectionResponseFromDiscriminatorValue } from '../../models/subjectRightsRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SubjectRightsRequestItemRequestBuilder } from './item/subjectRightsRequestItemRequestBuilder';
-import { type SubjectRightsRequestsRequestBuilderGetRequestConfiguration } from './subjectRightsRequestsRequestBuilderGetRequestConfiguration';
-import { type SubjectRightsRequestsRequestBuilderPostRequestConfiguration } from './subjectRightsRequestsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SubjectRightsRequestsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SubjectRightsRequestsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SubjectRightsRequestsRequestBuilderGetQueryParameters;
+}
+export interface SubjectRightsRequestsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
  */
@@ -46,7 +97,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/privacy/subjectRightsRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of subjectRightsRequest objects and their properties.
+     * Get a list of subjectRightsRequest objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequestCollectionResponse
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
@@ -63,7 +114,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SubjectRightsRequestCollectionResponse>(requestInfo, createSubjectRightsRequestCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new subjectRightsRequest object.
+     * Create a new subjectRightsRequest object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequest
@@ -81,7 +132,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SubjectRightsRequest>(requestInfo, createSubjectRightsRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of subjectRightsRequest objects and their properties.
+     * Get a list of subjectRightsRequest objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
@@ -100,7 +151,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new subjectRightsRequest object.
+     * Create a new subjectRightsRequest object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

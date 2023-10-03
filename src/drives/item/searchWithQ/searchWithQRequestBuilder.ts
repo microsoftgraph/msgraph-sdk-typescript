@@ -1,12 +1,53 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createSearchWithQResponseFromDiscriminatorValue } from './createSearchWithQResponseFromDiscriminatorValue';
-import { type SearchWithQResponse } from './index';
-import { type SearchWithQRequestBuilderGetRequestConfiguration } from './searchWithQRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { type SearchWithQGetResponse } from './index';
+import { createSearchWithQGetResponseFromDiscriminatorValue } from './searchWithQGetResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SearchWithQRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SearchWithQRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SearchWithQRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to call the search method.
  */
@@ -24,9 +65,9 @@ export class SearchWithQRequestBuilder extends BaseRequestBuilder {
     /**
      * Invoke function search
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SearchWithQResponse
+     * @returns a Promise of SearchWithQGetResponse
      */
-    public get(requestConfiguration?: SearchWithQRequestBuilderGetRequestConfiguration | undefined) : Promise<SearchWithQResponse | undefined> {
+    public get(requestConfiguration?: SearchWithQRequestBuilderGetRequestConfiguration | undefined) : Promise<SearchWithQGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -34,7 +75,7 @@ export class SearchWithQRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<SearchWithQResponse>(requestInfo, createSearchWithQResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<SearchWithQGetResponse>(requestInfo, createSearchWithQGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function search

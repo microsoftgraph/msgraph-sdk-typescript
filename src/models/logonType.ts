@@ -7,3 +7,5 @@ export enum LogonType {
     Service = "service",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

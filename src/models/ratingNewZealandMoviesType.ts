@@ -25,3 +25,5 @@ export enum RatingNewZealandMoviesType {
     /** The RP16 classification requires viewers under 16 accompanied by a parent or an adult */
     AgesAbove16Restricted = "agesAbove16Restricted",
 }
+// tslint:enable
+// eslint-enable

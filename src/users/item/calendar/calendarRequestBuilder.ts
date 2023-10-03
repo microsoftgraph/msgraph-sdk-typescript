@@ -1,20 +1,43 @@
-import { type Calendar } from '../../../models/calendar';
-import { createCalendarFromDiscriminatorValue } from '../../../models/createCalendarFromDiscriminatorValue';
-import { deserializeIntoCalendar } from '../../../models/deserializeIntoCalendar';
+import { createCalendarFromDiscriminatorValue, deserializeIntoCalendar, serializeCalendar, type Calendar } from '../../../models/calendar';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeCalendar } from '../../../models/serializeCalendar';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AllowedCalendarSharingRolesWithUserRequestBuilder } from './allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
 import { CalendarPermissionsRequestBuilder } from './calendarPermissions/calendarPermissionsRequestBuilder';
-import { type CalendarRequestBuilderGetRequestConfiguration } from './calendarRequestBuilderGetRequestConfiguration';
-import { type CalendarRequestBuilderPatchRequestConfiguration } from './calendarRequestBuilderPatchRequestConfiguration';
 import { CalendarViewRequestBuilder } from './calendarView/calendarViewRequestBuilder';
 import { EventsRequestBuilder } from './events/eventsRequestBuilder';
 import { GetScheduleRequestBuilder } from './getSchedule/getScheduleRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CalendarRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CalendarRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CalendarRequestBuilderGetQueryParameters;
+}
+export interface CalendarRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the calendar property of the microsoft.graph.user entity.
  */
@@ -61,7 +84,7 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/calendar{?%24select}");
     };
     /**
-     * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
+     * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Calendar
      * @see {@link https://learn.microsoft.com/graph/api/calendar-get?view=graph-rest-1.0|Find more info here}
@@ -77,7 +100,7 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group.
+     * Update the properties of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Calendar
@@ -94,7 +117,7 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
+     * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +135,7 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group.
+     * Update the properties of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

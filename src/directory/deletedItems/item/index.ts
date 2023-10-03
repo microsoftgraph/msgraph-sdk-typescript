@@ -1,4 +1,1 @@
-export * from './directoryObjectItemRequestBuilderDeleteRequestConfiguration'
-export * from './directoryObjectItemRequestBuilderGetQueryParameters'
-export * from './directoryObjectItemRequestBuilderGetRequestConfiguration'
-export * from './directoryObjectItemRequestBuilderPatchRequestConfiguration'
+export * from './directoryObjectItemRequestBuilder'

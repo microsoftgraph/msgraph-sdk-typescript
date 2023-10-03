@@ -1,18 +1,54 @@
-import { type AccessReviewStage } from '../../../../../../../../models/accessReviewStage';
-import { createAccessReviewStageFromDiscriminatorValue } from '../../../../../../../../models/createAccessReviewStageFromDiscriminatorValue';
-import { deserializeIntoAccessReviewStage } from '../../../../../../../../models/deserializeIntoAccessReviewStage';
+import { createAccessReviewStageFromDiscriminatorValue, deserializeIntoAccessReviewStage, serializeAccessReviewStage, type AccessReviewStage } from '../../../../../../../../models/accessReviewStage';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewStage } from '../../../../../../../../models/serializeAccessReviewStage';
-import { type AccessReviewStageItemRequestBuilderDeleteRequestConfiguration } from './accessReviewStageItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessReviewStageItemRequestBuilderGetRequestConfiguration } from './accessReviewStageItemRequestBuilderGetRequestConfiguration';
-import { type AccessReviewStageItemRequestBuilderPatchRequestConfiguration } from './accessReviewStageItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { DecisionsRequestBuilder } from './decisions/decisionsRequestBuilder';
 import { StopRequestBuilder } from './stop/stopRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessReviewStageItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessReviewStageItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessReviewStageItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessReviewStageItemRequestBuilderGetQueryParameters;
+}
+export interface AccessReviewStageItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
  */
@@ -52,7 +88,7 @@ export class AccessReviewStageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an accessReviewStage object.
+     * Retrieve the properties and relationships of an accessReviewStage object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewStage
      * @see {@link https://learn.microsoft.com/graph/api/accessreviewstage-get?view=graph-rest-1.0|Find more info here}
@@ -68,7 +104,7 @@ export class AccessReviewStageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessReviewStage>(requestInfo, createAccessReviewStageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an accessReviewStage object. Only the reviewers and fallbackReviewers properties can be updated. You can only add reviewers to the fallbackReviewers property but can't remove existing fallbackReviewers. To update an accessReviewStage, its status must be NotStarted, Initializing, or InProgress.
+     * Update the properties of an accessReviewStage object. Only the reviewers and fallbackReviewers properties can be updated. You can only add reviewers to the fallbackReviewers property but can't remove existing fallbackReviewers. To update an accessReviewStage, its status must be NotStarted, Initializing, or InProgress. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewStage
@@ -101,7 +137,7 @@ export class AccessReviewStageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of an accessReviewStage object.
+     * Retrieve the properties and relationships of an accessReviewStage object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,7 +155,7 @@ export class AccessReviewStageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an accessReviewStage object. Only the reviewers and fallbackReviewers properties can be updated. You can only add reviewers to the fallbackReviewers property but can't remove existing fallbackReviewers. To update an accessReviewStage, its status must be NotStarted, Initializing, or InProgress.
+     * Update the properties of an accessReviewStage object. Only the reviewers and fallbackReviewers properties can be updated. You can only add reviewers to the fallbackReviewers property but can't remove existing fallbackReviewers. To update an accessReviewStage, its status must be NotStarted, Initializing, or InProgress. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,19 +1,70 @@
 import { type AccessReviewReviewerCollectionResponse } from '../../../../../../../models/';
-import { type AccessReviewReviewer } from '../../../../../../../models/accessReviewReviewer';
-import { createAccessReviewReviewerCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createAccessReviewReviewerCollectionResponseFromDiscriminatorValue';
-import { createAccessReviewReviewerFromDiscriminatorValue } from '../../../../../../../models/createAccessReviewReviewerFromDiscriminatorValue';
-import { deserializeIntoAccessReviewReviewer } from '../../../../../../../models/deserializeIntoAccessReviewReviewer';
+import { createAccessReviewReviewerFromDiscriminatorValue, deserializeIntoAccessReviewReviewer, serializeAccessReviewReviewer, type AccessReviewReviewer } from '../../../../../../../models/accessReviewReviewer';
+import { createAccessReviewReviewerCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/accessReviewReviewerCollectionResponse';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewReviewer } from '../../../../../../../models/serializeAccessReviewReviewer';
-import { type ContactedReviewersRequestBuilderGetRequestConfiguration } from './contactedReviewersRequestBuilderGetRequestConfiguration';
-import { type ContactedReviewersRequestBuilderPostRequestConfiguration } from './contactedReviewersRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AccessReviewReviewerItemRequestBuilder } from './item/accessReviewReviewerItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContactedReviewersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ContactedReviewersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContactedReviewersRequestBuilderGetQueryParameters;
+}
+export interface ContactedReviewersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
  */
@@ -44,7 +95,7 @@ export class ContactedReviewersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/contactedReviewers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the reviewers for an access review instance, irrespective of whether or not they have received a notification. The reviewers are represented by an accessReviewReviewer object. A list of zero or more objects are returned, including all of their nested properties.
+     * Get the reviewers for an access review instance, irrespective of whether or not they have received a notification. The reviewers are represented by an accessReviewReviewer object. A list of zero or more objects are returned, including all of their nested properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewReviewerCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstance-list-contactedreviewers?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class ContactedReviewersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessReviewReviewer>(requestInfo, createAccessReviewReviewerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the reviewers for an access review instance, irrespective of whether or not they have received a notification. The reviewers are represented by an accessReviewReviewer object. A list of zero or more objects are returned, including all of their nested properties.
+     * Get the reviewers for an access review instance, irrespective of whether or not they have received a notification. The reviewers are represented by an accessReviewReviewer object. A list of zero or more objects are returned, including all of their nested properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

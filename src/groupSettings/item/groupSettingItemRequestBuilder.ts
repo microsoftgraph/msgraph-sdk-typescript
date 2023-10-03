@@ -1,16 +1,52 @@
-import { createGroupSettingFromDiscriminatorValue } from '../../models/createGroupSettingFromDiscriminatorValue';
-import { deserializeIntoGroupSetting } from '../../models/deserializeIntoGroupSetting';
-import { type GroupSetting } from '../../models/groupSetting';
+import { createGroupSettingFromDiscriminatorValue, deserializeIntoGroupSetting, serializeGroupSetting, type GroupSetting } from '../../models/groupSetting';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeGroupSetting } from '../../models/serializeGroupSetting';
-import { type GroupSettingItemRequestBuilderDeleteRequestConfiguration } from './groupSettingItemRequestBuilderDeleteRequestConfiguration';
-import { type GroupSettingItemRequestBuilderGetRequestConfiguration } from './groupSettingItemRequestBuilderGetRequestConfiguration';
-import { type GroupSettingItemRequestBuilderPatchRequestConfiguration } from './groupSettingItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GroupSettingItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface GroupSettingItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface GroupSettingItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GroupSettingItemRequestBuilderGetQueryParameters;
+}
+export interface GroupSettingItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of groupSetting entities.
  */
@@ -24,7 +60,7 @@ export class GroupSettingItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groupSettings/{groupSetting%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a tenant-level or group-specific groupSetting object.
+     * Delete a tenant-level or group-specific groupSetting object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/groupsetting-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class GroupSettingItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting.
+     * Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupSetting
      * @see {@link https://learn.microsoft.com/graph/api/groupsetting-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +91,7 @@ export class GroupSettingItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<GroupSetting>(requestInfo, createGroupSettingFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting.
+     * Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupSetting
@@ -72,7 +108,7 @@ export class GroupSettingItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<GroupSetting>(requestInfo, createGroupSettingFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a tenant-level or group-specific groupSetting object.
+     * Delete a tenant-level or group-specific groupSetting object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class GroupSettingItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting.
+     * Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +142,7 @@ export class GroupSettingItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting.
+     * Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

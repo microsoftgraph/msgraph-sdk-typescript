@@ -1,2 +1,1 @@
-export * from './cookiesRequestBuilderGetQueryParameters'
-export * from './cookiesRequestBuilderGetRequestConfiguration'
+export * from './cookiesRequestBuilder'

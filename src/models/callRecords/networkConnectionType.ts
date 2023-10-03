@@ -6,3 +6,5 @@ export enum NetworkConnectionType {
     Tunnel = "tunnel",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

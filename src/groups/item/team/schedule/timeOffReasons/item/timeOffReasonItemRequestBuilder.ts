@@ -1,16 +1,48 @@
-import { createTimeOffReasonFromDiscriminatorValue } from '../../../../../../models/createTimeOffReasonFromDiscriminatorValue';
-import { deserializeIntoTimeOffReason } from '../../../../../../models/deserializeIntoTimeOffReason';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeTimeOffReason } from '../../../../../../models/serializeTimeOffReason';
-import { type TimeOffReason } from '../../../../../../models/timeOffReason';
-import { type TimeOffReasonItemRequestBuilderDeleteRequestConfiguration } from './timeOffReasonItemRequestBuilderDeleteRequestConfiguration';
-import { type TimeOffReasonItemRequestBuilderGetRequestConfiguration } from './timeOffReasonItemRequestBuilderGetRequestConfiguration';
-import { type TimeOffReasonItemRequestBuilderPatchRequestConfiguration } from './timeOffReasonItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createTimeOffReasonFromDiscriminatorValue, deserializeIntoTimeOffReason, serializeTimeOffReason, type TimeOffReason } from '../../../../../../models/timeOffReason';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TimeOffReasonItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TimeOffReasonItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TimeOffReasonItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TimeOffReasonItemRequestBuilderGetQueryParameters;
+}
+export interface TimeOffReasonItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
  */
@@ -24,7 +56,7 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/schedule/timeOffReasons/{timeOffReason%2Did}{?%24select}");
     };
     /**
-     * Mark a timeOffReason as inactive by setting the isActive property. Every team must include at least one timeoff reason. This method does not remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
+     * Mark a timeOffReason as inactive by setting the isActive property. Every team must include at least one timeoff reason. This method doesn't remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +71,7 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a timeOffReason object by ID.
+     * Retrieve the properties and relationships of a timeOffReason object by ID. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOffReason
      * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-get?view=graph-rest-1.0|Find more info here}
@@ -72,7 +104,7 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TimeOffReason>(requestInfo, createTimeOffReasonFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Mark a timeOffReason as inactive by setting the isActive property. Every team must include at least one timeoff reason. This method does not remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
+     * Mark a timeOffReason as inactive by setting the isActive property. Every team must include at least one timeoff reason. This method doesn't remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +120,7 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a timeOffReason object by ID.
+     * Retrieve the properties and relationships of a timeOffReason object by ID. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

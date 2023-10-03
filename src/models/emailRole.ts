@@ -4,3 +4,5 @@ export enum EmailRole {
     Recipient = "recipient",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

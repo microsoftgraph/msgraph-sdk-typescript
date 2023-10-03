@@ -1,16 +1,52 @@
-import { type BookingCurrency } from '../../../models/bookingCurrency';
-import { createBookingCurrencyFromDiscriminatorValue } from '../../../models/createBookingCurrencyFromDiscriminatorValue';
-import { deserializeIntoBookingCurrency } from '../../../models/deserializeIntoBookingCurrency';
+import { createBookingCurrencyFromDiscriminatorValue, deserializeIntoBookingCurrency, serializeBookingCurrency, type BookingCurrency } from '../../../models/bookingCurrency';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeBookingCurrency } from '../../../models/serializeBookingCurrency';
-import { type BookingCurrencyItemRequestBuilderDeleteRequestConfiguration } from './bookingCurrencyItemRequestBuilderDeleteRequestConfiguration';
-import { type BookingCurrencyItemRequestBuilderGetRequestConfiguration } from './bookingCurrencyItemRequestBuilderGetRequestConfiguration';
-import { type BookingCurrencyItemRequestBuilderPatchRequestConfiguration } from './bookingCurrencyItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BookingCurrencyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BookingCurrencyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BookingCurrencyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BookingCurrencyItemRequestBuilderGetQueryParameters;
+}
+export interface BookingCurrencyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
  */
@@ -38,7 +74,7 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency.
+     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCurrency
      * @see {@link https://learn.microsoft.com/graph/api/bookingcurrency-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +122,7 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency.
+     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

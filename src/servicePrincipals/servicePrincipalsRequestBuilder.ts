@@ -1,23 +1,74 @@
 import { type ServicePrincipalCollectionResponse } from '../models/';
-import { createServicePrincipalCollectionResponseFromDiscriminatorValue } from '../models/createServicePrincipalCollectionResponseFromDiscriminatorValue';
-import { createServicePrincipalFromDiscriminatorValue } from '../models/createServicePrincipalFromDiscriminatorValue';
-import { deserializeIntoServicePrincipal } from '../models/deserializeIntoServicePrincipal';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeServicePrincipal } from '../models/serializeServicePrincipal';
-import { type ServicePrincipal } from '../models/servicePrincipal';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createServicePrincipalFromDiscriminatorValue, deserializeIntoServicePrincipal, serializeServicePrincipal, type ServicePrincipal } from '../models/servicePrincipal';
+import { createServicePrincipalCollectionResponseFromDiscriminatorValue } from '../models/servicePrincipalCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
 import { ServicePrincipalItemRequestBuilder } from './item/servicePrincipalItemRequestBuilder';
-import { type ServicePrincipalsRequestBuilderGetRequestConfiguration } from './servicePrincipalsRequestBuilderGetRequestConfiguration';
-import { type ServicePrincipalsRequestBuilderPostRequestConfiguration } from './servicePrincipalsRequestBuilderPostRequestConfiguration';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServicePrincipalsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ServicePrincipalsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServicePrincipalsRequestBuilderGetQueryParameters;
+}
+export interface ServicePrincipalsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of servicePrincipal entities.
  */
@@ -72,7 +123,7 @@ export class ServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of servicePrincipal objects.
+     * Retrieve a list of servicePrincipal objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipalCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list?view=graph-rest-1.0|Find more info here}
@@ -88,7 +139,7 @@ export class ServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ServicePrincipalCollectionResponse>(requestInfo, createServicePrincipalCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new servicePrincipal object.
+     * Create a new servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipal
@@ -105,7 +156,7 @@ export class ServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ServicePrincipal>(requestInfo, createServicePrincipalFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of servicePrincipal objects.
+     * Retrieve a list of servicePrincipal objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -123,7 +174,7 @@ export class ServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new servicePrincipal object.
+     * Create a new servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

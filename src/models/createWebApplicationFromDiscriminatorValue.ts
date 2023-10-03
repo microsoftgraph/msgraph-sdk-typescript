@@ -1,8 +1,0 @@
-import { deserializeIntoWebApplication } from './deserializeIntoWebApplication';
-import { type WebApplication } from './index';
-import { type ParseNode } from '@microsoft/kiota-abstractions';
-
-export function createWebApplicationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
-    if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return deserializeIntoWebApplication;
-}

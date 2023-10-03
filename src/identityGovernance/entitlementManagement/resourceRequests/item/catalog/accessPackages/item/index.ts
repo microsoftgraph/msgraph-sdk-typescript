@@ -1,2 +1,1 @@
-export * from './accessPackageItemRequestBuilderGetQueryParameters'
-export * from './accessPackageItemRequestBuilderGetRequestConfiguration'
+export * from './accessPackageItemRequestBuilder'

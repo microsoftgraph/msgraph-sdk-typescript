@@ -1,13 +1,30 @@
 import { type ProfilePhoto } from '../../../models/';
-import { createProfilePhotoFromDiscriminatorValue } from '../../../models/createProfilePhotoFromDiscriminatorValue';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type ProfilePhotoItemRequestBuilderGetRequestConfiguration } from './profilePhotoItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createProfilePhotoFromDiscriminatorValue } from '../../../models/profilePhoto';
 import { ContentRequestBuilder } from './value/contentRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ProfilePhotoItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ProfilePhotoItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ProfilePhotoItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the photos property of the microsoft.graph.user entity.
  */

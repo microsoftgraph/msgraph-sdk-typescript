@@ -5,3 +5,5 @@ export enum PlannerPreviewType {
     Description = "description",
     Reference = "reference",
 }
+// tslint:enable
+// eslint-enable

@@ -1,16 +1,52 @@
-import { createDeviceConfigurationUserStatusFromDiscriminatorValue } from '../../../../../models/createDeviceConfigurationUserStatusFromDiscriminatorValue';
-import { deserializeIntoDeviceConfigurationUserStatus } from '../../../../../models/deserializeIntoDeviceConfigurationUserStatus';
-import { type DeviceConfigurationUserStatus } from '../../../../../models/deviceConfigurationUserStatus';
+import { createDeviceConfigurationUserStatusFromDiscriminatorValue, deserializeIntoDeviceConfigurationUserStatus, serializeDeviceConfigurationUserStatus, type DeviceConfigurationUserStatus } from '../../../../../models/deviceConfigurationUserStatus';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceConfigurationUserStatus } from '../../../../../models/serializeDeviceConfigurationUserStatus';
-import { type DeviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration } from './deviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration';
-import { type DeviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration } from './deviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration';
-import { type DeviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration } from './deviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters;
+}
+export interface DeviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.
  */

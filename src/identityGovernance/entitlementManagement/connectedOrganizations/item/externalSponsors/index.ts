@@ -1,3 +1,1 @@
-export * from './externalSponsorsRequestBuilderGetQueryParameters'
-export * from './externalSponsorsRequestBuilderGetRequestConfiguration'
-export * from './externalSponsorsRequestBuilderPostRequestConfiguration'
+export * from './externalSponsorsRequestBuilder'

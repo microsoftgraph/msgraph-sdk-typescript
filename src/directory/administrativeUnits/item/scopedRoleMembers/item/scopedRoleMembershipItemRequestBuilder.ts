@@ -1,16 +1,52 @@
-import { createScopedRoleMembershipFromDiscriminatorValue } from '../../../../../models/createScopedRoleMembershipFromDiscriminatorValue';
-import { deserializeIntoScopedRoleMembership } from '../../../../../models/deserializeIntoScopedRoleMembership';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type ScopedRoleMembership } from '../../../../../models/scopedRoleMembership';
-import { serializeScopedRoleMembership } from '../../../../../models/serializeScopedRoleMembership';
-import { type ScopedRoleMembershipItemRequestBuilderDeleteRequestConfiguration } from './scopedRoleMembershipItemRequestBuilderDeleteRequestConfiguration';
-import { type ScopedRoleMembershipItemRequestBuilderGetRequestConfiguration } from './scopedRoleMembershipItemRequestBuilderGetRequestConfiguration';
-import { type ScopedRoleMembershipItemRequestBuilderPatchRequestConfiguration } from './scopedRoleMembershipItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createScopedRoleMembershipFromDiscriminatorValue, deserializeIntoScopedRoleMembership, serializeScopedRoleMembership, type ScopedRoleMembership } from '../../../../../models/scopedRoleMembership';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ScopedRoleMembershipItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ScopedRoleMembershipItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ScopedRoleMembershipItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ScopedRoleMembershipItemRequestBuilderGetQueryParameters;
+}
+export interface ScopedRoleMembershipItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
  */
@@ -24,7 +60,7 @@ export class ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/scopedRoleMembers/{scopedRoleMembership%2Did}{?%24select,%24expand}");
     };
     /**
-     * Remove an Azure Active Directory (Azure AD) role assignment with administrative unit scope.
+     * Remove an Azure Active Directory (Azure AD) role assignment with administrative unit scope. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-delete-scopedrolemembers?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get an Azure Active Directory (Azure AD) role assignment with administrative unit scope.
+     * Get an Azure Active Directory (Azure AD) role assignment with administrative unit scope. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ScopedRoleMembership
      * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-get-scopedrolemembers?view=graph-rest-1.0|Find more info here}
@@ -71,7 +107,7 @@ export class ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ScopedRoleMembership>(requestInfo, createScopedRoleMembershipFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Remove an Azure Active Directory (Azure AD) role assignment with administrative unit scope.
+     * Remove an Azure Active Directory (Azure AD) role assignment with administrative unit scope. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -87,7 +123,7 @@ export class ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get an Azure Active Directory (Azure AD) role assignment with administrative unit scope.
+     * Get an Azure Active Directory (Azure AD) role assignment with administrative unit scope. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

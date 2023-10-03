@@ -1,21 +1,61 @@
-import { createMailFolderFromDiscriminatorValue } from '../../../models/createMailFolderFromDiscriminatorValue';
-import { deserializeIntoMailFolder } from '../../../models/deserializeIntoMailFolder';
-import { type MailFolder } from '../../../models/mailFolder';
+import { createMailFolderFromDiscriminatorValue, deserializeIntoMailFolder, serializeMailFolder, type MailFolder } from '../../../models/mailFolder';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeMailFolder } from '../../../models/serializeMailFolder';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { ChildFoldersRequestBuilder } from './childFolders/childFoldersRequestBuilder';
 import { CopyRequestBuilder } from './copy/copyRequestBuilder';
-import { type MailFolderItemRequestBuilderDeleteRequestConfiguration } from './mailFolderItemRequestBuilderDeleteRequestConfiguration';
-import { type MailFolderItemRequestBuilderGetRequestConfiguration } from './mailFolderItemRequestBuilderGetRequestConfiguration';
-import { type MailFolderItemRequestBuilderPatchRequestConfiguration } from './mailFolderItemRequestBuilderPatchRequestConfiguration';
 import { MessageRulesRequestBuilder } from './messageRules/messageRulesRequestBuilder';
 import { MessagesRequestBuilder } from './messages/messagesRequestBuilder';
 import { MoveRequestBuilder } from './move/moveRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MailFolderItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MailFolderItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Include Hidden Folders
+     */
+    includeHiddenFolders?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MailFolderItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MailFolderItemRequestBuilderGetQueryParameters;
+}
+export interface MailFolderItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
  */
@@ -59,7 +99,7 @@ export class MailFolderItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/mailFolders/{mailFolder%2Did}{?includeHiddenFolders*,%24select,%24expand}");
     };
     /**
-     * Delete the specified mailFolder. The folder can be a mailSearchFolder. You can specify a mail folder by its folder ID, or by its well-known folder name, if one exists.
+     * Delete the specified mailFolder. The folder can be a mailSearchFolder. You can specify a mail folder by its folder ID, or by its well-known folder name, if one exists. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/mailfolder-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -90,7 +130,7 @@ export class MailFolderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MailFolder>(requestInfo, createMailFolderFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the writable properties of a mailSearchFolder object.
+     * Update the writable properties of a mailSearchFolder object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MailFolder
@@ -107,7 +147,7 @@ export class MailFolderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MailFolder>(requestInfo, createMailFolderFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete the specified mailFolder. The folder can be a mailSearchFolder. You can specify a mail folder by its folder ID, or by its well-known folder name, if one exists.
+     * Delete the specified mailFolder. The folder can be a mailSearchFolder. You can specify a mail folder by its folder ID, or by its well-known folder name, if one exists. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -141,7 +181,7 @@ export class MailFolderItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the writable properties of a mailSearchFolder object.
+     * Update the writable properties of a mailSearchFolder object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

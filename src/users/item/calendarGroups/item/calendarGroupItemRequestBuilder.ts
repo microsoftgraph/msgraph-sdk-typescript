@@ -1,17 +1,49 @@
-import { type CalendarGroup } from '../../../../models/calendarGroup';
-import { createCalendarGroupFromDiscriminatorValue } from '../../../../models/createCalendarGroupFromDiscriminatorValue';
-import { deserializeIntoCalendarGroup } from '../../../../models/deserializeIntoCalendarGroup';
+import { createCalendarGroupFromDiscriminatorValue, deserializeIntoCalendarGroup, serializeCalendarGroup, type CalendarGroup } from '../../../../models/calendarGroup';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeCalendarGroup } from '../../../../models/serializeCalendarGroup';
-import { type CalendarGroupItemRequestBuilderDeleteRequestConfiguration } from './calendarGroupItemRequestBuilderDeleteRequestConfiguration';
-import { type CalendarGroupItemRequestBuilderGetRequestConfiguration } from './calendarGroupItemRequestBuilderGetRequestConfiguration';
-import { type CalendarGroupItemRequestBuilderPatchRequestConfiguration } from './calendarGroupItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CalendarsRequestBuilder } from './calendars/calendarsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CalendarGroupItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CalendarGroupItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CalendarGroupItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CalendarGroupItemRequestBuilderGetQueryParameters;
+}
+export interface CalendarGroupItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
  */
@@ -31,7 +63,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}{?%24select}");
     };
     /**
-     * Delete a calendar group other than the default calendar group.
+     * Delete a calendar group other than the default calendar group. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/calendargroup-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -46,7 +78,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a calendar group object.
+     * Retrieve the properties and relationships of a calendar group object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarGroup
      * @see {@link https://learn.microsoft.com/graph/api/calendargroup-get?view=graph-rest-1.0|Find more info here}
@@ -62,7 +94,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CalendarGroup>(requestInfo, createCalendarGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of calendargroup object.
+     * Update the properties of calendargroup object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarGroup
@@ -79,7 +111,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CalendarGroup>(requestInfo, createCalendarGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a calendar group other than the default calendar group.
+     * Delete a calendar group other than the default calendar group. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +127,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a calendar group object.
+     * Retrieve the properties and relationships of a calendar group object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -113,7 +145,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of calendargroup object.
+     * Update the properties of calendargroup object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

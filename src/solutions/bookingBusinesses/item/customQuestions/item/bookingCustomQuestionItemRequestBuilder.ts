@@ -1,16 +1,52 @@
-import { type BookingCustomQuestion } from '../../../../../models/bookingCustomQuestion';
-import { createBookingCustomQuestionFromDiscriminatorValue } from '../../../../../models/createBookingCustomQuestionFromDiscriminatorValue';
-import { deserializeIntoBookingCustomQuestion } from '../../../../../models/deserializeIntoBookingCustomQuestion';
+import { createBookingCustomQuestionFromDiscriminatorValue, deserializeIntoBookingCustomQuestion, serializeBookingCustomQuestion, type BookingCustomQuestion } from '../../../../../models/bookingCustomQuestion';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingCustomQuestion } from '../../../../../models/serializeBookingCustomQuestion';
-import { type BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration } from './bookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration';
-import { type BookingCustomQuestionItemRequestBuilderGetRequestConfiguration } from './bookingCustomQuestionItemRequestBuilderGetRequestConfiguration';
-import { type BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration } from './bookingCustomQuestionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BookingCustomQuestionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BookingCustomQuestionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BookingCustomQuestionItemRequestBuilderGetQueryParameters;
+}
+export interface BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
  */
@@ -24,7 +60,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions/{bookingCustomQuestion%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a bookingCustomQuestion object.
+     * Delete a bookingCustomQuestion object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a bookingCustomQuestion object.
+     * Read the properties and relationships of a bookingCustomQuestion object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCustomQuestion
      * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +91,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<BookingCustomQuestion>(requestInfo, createBookingCustomQuestionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a bookingCustomQuestion object.
+     * Update the properties of a bookingCustomQuestion object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCustomQuestion
@@ -72,7 +108,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<BookingCustomQuestion>(requestInfo, createBookingCustomQuestionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a bookingCustomQuestion object.
+     * Delete a bookingCustomQuestion object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a bookingCustomQuestion object.
+     * Read the properties and relationships of a bookingCustomQuestion object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +142,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Update the properties of a bookingCustomQuestion object.
+     * Update the properties of a bookingCustomQuestion object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

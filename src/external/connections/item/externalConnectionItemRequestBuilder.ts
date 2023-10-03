@@ -1,20 +1,56 @@
-import { createExternalConnectionFromDiscriminatorValue } from '../../../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
-import { deserializeIntoExternalConnection } from '../../../models/externalConnectors/deserializeIntoExternalConnection';
-import { type ExternalConnection } from '../../../models/externalConnectors/externalConnection';
-import { serializeExternalConnection } from '../../../models/externalConnectors/serializeExternalConnection';
+import { createExternalConnectionFromDiscriminatorValue, deserializeIntoExternalConnection, serializeExternalConnection, type ExternalConnection } from '../../../models/externalConnectors/externalConnection';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type ExternalConnectionItemRequestBuilderDeleteRequestConfiguration } from './externalConnectionItemRequestBuilderDeleteRequestConfiguration';
-import { type ExternalConnectionItemRequestBuilderGetRequestConfiguration } from './externalConnectionItemRequestBuilderGetRequestConfiguration';
-import { type ExternalConnectionItemRequestBuilderPatchRequestConfiguration } from './externalConnectionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { GroupsRequestBuilder } from './groups/groupsRequestBuilder';
 import { ItemsRequestBuilder } from './items/itemsRequestBuilder';
 import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
 import { SchemaRequestBuilder } from './schema/schemaRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExternalConnectionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ExternalConnectionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ExternalConnectionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ExternalConnectionItemRequestBuilderGetQueryParameters;
+}
+export interface ExternalConnectionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
  */
@@ -52,7 +88,7 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/external/connections/{externalConnection%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes an externalConnection object.
+     * Deletes an externalConnection object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -67,7 +103,7 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an externalConnection object.
+     * Read the properties and relationships of an externalConnection object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalConnection
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-get?view=graph-rest-1.0|Find more info here}
@@ -83,7 +119,7 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ExternalConnection>(requestInfo, createExternalConnectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an externalConnection object.
+     * Update the properties of an externalConnection object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalConnection
@@ -100,7 +136,7 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ExternalConnection>(requestInfo, createExternalConnectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes an externalConnection object.
+     * Deletes an externalConnection object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -116,7 +152,7 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an externalConnection object.
+     * Read the properties and relationships of an externalConnection object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -134,7 +170,7 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an externalConnection object.
+     * Update the properties of an externalConnection object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

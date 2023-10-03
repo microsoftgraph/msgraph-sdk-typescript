@@ -1,12 +1,33 @@
 import { type ContentType } from '../../../../../models/';
-import { createContentTypeFromDiscriminatorValue } from '../../../../../models/createContentTypeFromDiscriminatorValue';
+import { createContentTypeFromDiscriminatorValue } from '../../../../../models/contentType';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type BaseRequestBuilderEscapedbaseRequestBuilderGetRequestConfiguration } from './baseRequestBuilderEscapedbaseRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BaseRequestBuilderEscapedbaseRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BaseRequestBuilderEscapedbaseRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BaseRequestBuilderEscapedbaseRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the base property of the microsoft.graph.contentType entity.
  */

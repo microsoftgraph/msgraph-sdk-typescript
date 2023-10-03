@@ -3,3 +3,5 @@ export enum ConnectedOrganizationState {
     Proposed = "proposed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

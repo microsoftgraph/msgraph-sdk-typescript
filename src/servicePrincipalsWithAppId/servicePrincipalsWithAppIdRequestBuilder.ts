@@ -1,16 +1,52 @@
-import { createServicePrincipalFromDiscriminatorValue } from '../models/createServicePrincipalFromDiscriminatorValue';
-import { deserializeIntoServicePrincipal } from '../models/deserializeIntoServicePrincipal';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeServicePrincipal } from '../models/serializeServicePrincipal';
-import { type ServicePrincipal } from '../models/servicePrincipal';
-import { type ServicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration } from './servicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration';
-import { type ServicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration } from './servicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration';
-import { type ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration } from './servicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createServicePrincipalFromDiscriminatorValue, deserializeIntoServicePrincipal, serializeServicePrincipal, type ServicePrincipal } from '../models/servicePrincipal';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ServicePrincipalsWithAppIdRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ServicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServicePrincipalsWithAppIdRequestBuilderGetQueryParameters;
+}
+export interface ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of servicePrincipal entities.
  */
@@ -26,7 +62,7 @@ export class ServicePrincipalsWithAppIdRequestBuilder extends BaseRequestBuilder
         this.pathParameters["appId"] = appId
     };
     /**
-     * Delete a servicePrincipal object.
+     * Delete a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -41,7 +77,7 @@ export class ServicePrincipalsWithAppIdRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
+     * Retrieve the properties and relationships of a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipal
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0|Find more info here}
@@ -73,7 +109,7 @@ export class ServicePrincipalsWithAppIdRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<ServicePrincipal>(requestInfo, createServicePrincipalFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a servicePrincipal object.
+     * Delete a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +125,7 @@ export class ServicePrincipalsWithAppIdRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
+     * Retrieve the properties and relationships of a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

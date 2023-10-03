@@ -1,4 +1,1 @@
-export * from './lastMessagePreviewRequestBuilderDeleteRequestConfiguration'
-export * from './lastMessagePreviewRequestBuilderGetQueryParameters'
-export * from './lastMessagePreviewRequestBuilderGetRequestConfiguration'
-export * from './lastMessagePreviewRequestBuilderPatchRequestConfiguration'
+export * from './lastMessagePreviewRequestBuilder'

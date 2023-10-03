@@ -4,3 +4,5 @@ export enum ChannelMembershipType {
     UnknownFutureValue = "unknownFutureValue",
     Shared = "shared",
 }
+// tslint:enable
+// eslint-enable

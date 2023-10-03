@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoSetStatusMessagePostRequestBody } from './deserializeIntoSetStatusMessagePostRequestBody';
-import { serializeSetStatusMessagePostRequestBody } from './serializeSetStatusMessagePostRequestBody';
-import { type SetStatusMessagePostRequestBody } from './setStatusMessagePostRequestBody';
-import { type SetStatusMessageRequestBuilderPostRequestConfiguration } from './setStatusMessageRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoSetStatusMessagePostRequestBody, serializeSetStatusMessagePostRequestBody, type SetStatusMessagePostRequestBody } from './setStatusMessagePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SetStatusMessageRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the setStatusMessage method.
  */
@@ -21,9 +26,10 @@ export class SetStatusMessageRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/presences/{presence%2Did}/setStatusMessage");
     };
     /**
-     * Invoke action setStatusMessage
+     * Set a presence status message for a user. An optional expiration date and time can be supplied. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://learn.microsoft.com/graph/api/presence-setstatusmessage?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SetStatusMessagePostRequestBody, requestConfiguration?: SetStatusMessageRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -36,7 +42,7 @@ export class SetStatusMessageRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Invoke action setStatusMessage
+     * Set a presence status message for a user. An optional expiration date and time can be supplied. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

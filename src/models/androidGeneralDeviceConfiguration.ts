@@ -1,201 +1,318 @@
 import { AndroidRequiredPasswordType } from './androidRequiredPasswordType';
-import { type AppListItem } from './appListItem';
+import { createAppListItemFromDiscriminatorValue, serializeAppListItem, type AppListItem } from './appListItem';
 import { AppListType } from './appListType';
-import { type DeviceConfiguration } from './deviceConfiguration';
+import { deserializeIntoDeviceConfiguration, serializeDeviceConfiguration, type DeviceConfiguration } from './deviceConfiguration';
 import { WebBrowserCookieSettings } from './webBrowserCookieSettings';
-import { type Parsable } from '@microsoft/kiota-abstractions';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface AndroidGeneralDeviceConfiguration extends DeviceConfiguration, Parsable {
     /**
      * Indicates whether or not to block clipboard sharing to copy and paste between applications.
      */
-    appsBlockClipboardSharing?: boolean | undefined;
+    appsBlockClipboardSharing?: boolean;
     /**
      * Indicates whether or not to block copy and paste within applications.
      */
-    appsBlockCopyPaste?: boolean | undefined;
+    appsBlockCopyPaste?: boolean;
     /**
      * Indicates whether or not to block the YouTube app.
      */
-    appsBlockYouTube?: boolean | undefined;
+    appsBlockYouTube?: boolean;
     /**
      * List of apps to be hidden on the KNOX device. This collection can contain a maximum of 500 elements.
      */
-    appsHideList?: AppListItem[] | undefined;
+    appsHideList?: AppListItem[];
     /**
      * List of apps which can be installed on the KNOX device. This collection can contain a maximum of 500 elements.
      */
-    appsInstallAllowList?: AppListItem[] | undefined;
+    appsInstallAllowList?: AppListItem[];
     /**
      * List of apps which are blocked from being launched on the KNOX device. This collection can contain a maximum of 500 elements.
      */
-    appsLaunchBlockList?: AppListItem[] | undefined;
+    appsLaunchBlockList?: AppListItem[];
     /**
      * Indicates whether or not to block Bluetooth.
      */
-    bluetoothBlocked?: boolean | undefined;
+    bluetoothBlocked?: boolean;
     /**
      * Indicates whether or not to block the use of the camera.
      */
-    cameraBlocked?: boolean | undefined;
+    cameraBlocked?: boolean;
     /**
      * Indicates whether or not to block data roaming.
      */
-    cellularBlockDataRoaming?: boolean | undefined;
+    cellularBlockDataRoaming?: boolean;
     /**
      * Indicates whether or not to block SMS/MMS messaging.
      */
-    cellularBlockMessaging?: boolean | undefined;
+    cellularBlockMessaging?: boolean;
     /**
      * Indicates whether or not to block voice roaming.
      */
-    cellularBlockVoiceRoaming?: boolean | undefined;
+    cellularBlockVoiceRoaming?: boolean;
     /**
      * Indicates whether or not to block syncing Wi-Fi tethering.
      */
-    cellularBlockWiFiTethering?: boolean | undefined;
+    cellularBlockWiFiTethering?: boolean;
     /**
      * Possible values of the compliance app list.
      */
-    compliantAppListType?: AppListType | undefined;
+    compliantAppListType?: AppListType;
     /**
      * List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
      */
-    compliantAppsList?: AppListItem[] | undefined;
+    compliantAppsList?: AppListItem[];
     /**
      * Indicates whether or not to allow device sharing mode.
      */
-    deviceSharingAllowed?: boolean | undefined;
+    deviceSharingAllowed?: boolean;
     /**
      * Indicates whether or not to block diagnostic data submission.
      */
-    diagnosticDataBlockSubmission?: boolean | undefined;
+    diagnosticDataBlockSubmission?: boolean;
     /**
      * Indicates whether or not to block user performing a factory reset.
      */
-    factoryResetBlocked?: boolean | undefined;
+    factoryResetBlocked?: boolean;
     /**
      * Indicates whether or not to block Google account auto sync.
      */
-    googleAccountBlockAutoSync?: boolean | undefined;
+    googleAccountBlockAutoSync?: boolean;
     /**
      * Indicates whether or not to block the Google Play store.
      */
-    googlePlayStoreBlocked?: boolean | undefined;
+    googlePlayStoreBlocked?: boolean;
     /**
      * A list of apps that will be allowed to run when the device is in Kiosk Mode. This collection can contain a maximum of 500 elements.
      */
-    kioskModeApps?: AppListItem[] | undefined;
+    kioskModeApps?: AppListItem[];
     /**
      * Indicates whether or not to block the screen sleep button while in Kiosk Mode.
      */
-    kioskModeBlockSleepButton?: boolean | undefined;
+    kioskModeBlockSleepButton?: boolean;
     /**
      * Indicates whether or not to block the volume buttons while in Kiosk Mode.
      */
-    kioskModeBlockVolumeButtons?: boolean | undefined;
+    kioskModeBlockVolumeButtons?: boolean;
     /**
      * Indicates whether or not to block location services.
      */
-    locationServicesBlocked?: boolean | undefined;
+    locationServicesBlocked?: boolean;
     /**
      * Indicates whether or not to block Near-Field Communication.
      */
-    nfcBlocked?: boolean | undefined;
+    nfcBlocked?: boolean;
     /**
      * Indicates whether or not to block fingerprint unlock.
      */
-    passwordBlockFingerprintUnlock?: boolean | undefined;
+    passwordBlockFingerprintUnlock?: boolean;
     /**
      * Indicates whether or not to block Smart Lock and other trust agents.
      */
-    passwordBlockTrustAgents?: boolean | undefined;
+    passwordBlockTrustAgents?: boolean;
     /**
      * Number of days before the password expires. Valid values 1 to 365
      */
-    passwordExpirationDays?: number | undefined;
+    passwordExpirationDays?: number;
     /**
      * Minimum length of passwords. Valid values 4 to 16
      */
-    passwordMinimumLength?: number | undefined;
+    passwordMinimumLength?: number;
     /**
      * Minutes of inactivity before the screen times out.
      */
-    passwordMinutesOfInactivityBeforeScreenTimeout?: number | undefined;
+    passwordMinutesOfInactivityBeforeScreenTimeout?: number;
     /**
      * Number of previous passwords to block. Valid values 0 to 24
      */
-    passwordPreviousPasswordBlockCount?: number | undefined;
+    passwordPreviousPasswordBlockCount?: number;
     /**
      * Indicates whether or not to require a password.
      */
-    passwordRequired?: boolean | undefined;
+    passwordRequired?: boolean;
     /**
      * Android required password type.
      */
-    passwordRequiredType?: AndroidRequiredPasswordType | undefined;
+    passwordRequiredType?: AndroidRequiredPasswordType;
     /**
      * Number of sign in failures allowed before factory reset. Valid values 1 to 16
      */
-    passwordSignInFailureCountBeforeFactoryReset?: number | undefined;
+    passwordSignInFailureCountBeforeFactoryReset?: number;
     /**
      * Indicates whether or not to block powering off the device.
      */
-    powerOffBlocked?: boolean | undefined;
+    powerOffBlocked?: boolean;
     /**
      * Indicates whether or not to block screenshots.
      */
-    screenCaptureBlocked?: boolean | undefined;
+    screenCaptureBlocked?: boolean;
     /**
      * Require the Android Verify apps feature is turned on.
      */
-    securityRequireVerifyApps?: boolean | undefined;
+    securityRequireVerifyApps?: boolean;
     /**
      * Indicates whether or not to block Google Backup.
      */
-    storageBlockGoogleBackup?: boolean | undefined;
+    storageBlockGoogleBackup?: boolean;
     /**
      * Indicates whether or not to block removable storage usage.
      */
-    storageBlockRemovableStorage?: boolean | undefined;
+    storageBlockRemovableStorage?: boolean;
     /**
      * Indicates whether or not to require device encryption.
      */
-    storageRequireDeviceEncryption?: boolean | undefined;
+    storageRequireDeviceEncryption?: boolean;
     /**
      * Indicates whether or not to require removable storage encryption.
      */
-    storageRequireRemovableStorageEncryption?: boolean | undefined;
+    storageRequireRemovableStorageEncryption?: boolean;
     /**
      * Indicates whether or not to block the use of the Voice Assistant.
      */
-    voiceAssistantBlocked?: boolean | undefined;
+    voiceAssistantBlocked?: boolean;
     /**
      * Indicates whether or not to block voice dialing.
      */
-    voiceDialingBlocked?: boolean | undefined;
+    voiceDialingBlocked?: boolean;
     /**
      * Indicates whether or not to block the web browser's auto fill feature.
      */
-    webBrowserBlockAutofill?: boolean | undefined;
+    webBrowserBlockAutofill?: boolean;
     /**
      * Indicates whether or not to block the web browser.
      */
-    webBrowserBlocked?: boolean | undefined;
+    webBrowserBlocked?: boolean;
     /**
      * Indicates whether or not to block JavaScript within the web browser.
      */
-    webBrowserBlockJavaScript?: boolean | undefined;
+    webBrowserBlockJavaScript?: boolean;
     /**
      * Indicates whether or not to block popups within the web browser.
      */
-    webBrowserBlockPopups?: boolean | undefined;
+    webBrowserBlockPopups?: boolean;
     /**
      * Web Browser Cookie Settings.
      */
-    webBrowserCookieSettings?: WebBrowserCookieSettings | undefined;
+    webBrowserCookieSettings?: WebBrowserCookieSettings;
     /**
      * Indicates whether or not to block syncing Wi-Fi.
      */
-    wiFiBlocked?: boolean | undefined;
+    wiFiBlocked?: boolean;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function createAndroidGeneralDeviceConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoAndroidGeneralDeviceConfiguration;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function deserializeIntoAndroidGeneralDeviceConfiguration(androidGeneralDeviceConfiguration: AndroidGeneralDeviceConfiguration | undefined = {} as AndroidGeneralDeviceConfiguration) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoDeviceConfiguration(androidGeneralDeviceConfiguration),
+        "appsBlockClipboardSharing": n => { androidGeneralDeviceConfiguration.appsBlockClipboardSharing = n.getBooleanValue(); },
+        "appsBlockCopyPaste": n => { androidGeneralDeviceConfiguration.appsBlockCopyPaste = n.getBooleanValue(); },
+        "appsBlockYouTube": n => { androidGeneralDeviceConfiguration.appsBlockYouTube = n.getBooleanValue(); },
+        "appsHideList": n => { androidGeneralDeviceConfiguration.appsHideList = n.getCollectionOfObjectValues<AppListItem>(createAppListItemFromDiscriminatorValue); },
+        "appsInstallAllowList": n => { androidGeneralDeviceConfiguration.appsInstallAllowList = n.getCollectionOfObjectValues<AppListItem>(createAppListItemFromDiscriminatorValue); },
+        "appsLaunchBlockList": n => { androidGeneralDeviceConfiguration.appsLaunchBlockList = n.getCollectionOfObjectValues<AppListItem>(createAppListItemFromDiscriminatorValue); },
+        "bluetoothBlocked": n => { androidGeneralDeviceConfiguration.bluetoothBlocked = n.getBooleanValue(); },
+        "cameraBlocked": n => { androidGeneralDeviceConfiguration.cameraBlocked = n.getBooleanValue(); },
+        "cellularBlockDataRoaming": n => { androidGeneralDeviceConfiguration.cellularBlockDataRoaming = n.getBooleanValue(); },
+        "cellularBlockMessaging": n => { androidGeneralDeviceConfiguration.cellularBlockMessaging = n.getBooleanValue(); },
+        "cellularBlockVoiceRoaming": n => { androidGeneralDeviceConfiguration.cellularBlockVoiceRoaming = n.getBooleanValue(); },
+        "cellularBlockWiFiTethering": n => { androidGeneralDeviceConfiguration.cellularBlockWiFiTethering = n.getBooleanValue(); },
+        "compliantAppListType": n => { androidGeneralDeviceConfiguration.compliantAppListType = n.getEnumValue<AppListType>(AppListType); },
+        "compliantAppsList": n => { androidGeneralDeviceConfiguration.compliantAppsList = n.getCollectionOfObjectValues<AppListItem>(createAppListItemFromDiscriminatorValue); },
+        "deviceSharingAllowed": n => { androidGeneralDeviceConfiguration.deviceSharingAllowed = n.getBooleanValue(); },
+        "diagnosticDataBlockSubmission": n => { androidGeneralDeviceConfiguration.diagnosticDataBlockSubmission = n.getBooleanValue(); },
+        "factoryResetBlocked": n => { androidGeneralDeviceConfiguration.factoryResetBlocked = n.getBooleanValue(); },
+        "googleAccountBlockAutoSync": n => { androidGeneralDeviceConfiguration.googleAccountBlockAutoSync = n.getBooleanValue(); },
+        "googlePlayStoreBlocked": n => { androidGeneralDeviceConfiguration.googlePlayStoreBlocked = n.getBooleanValue(); },
+        "kioskModeApps": n => { androidGeneralDeviceConfiguration.kioskModeApps = n.getCollectionOfObjectValues<AppListItem>(createAppListItemFromDiscriminatorValue); },
+        "kioskModeBlockSleepButton": n => { androidGeneralDeviceConfiguration.kioskModeBlockSleepButton = n.getBooleanValue(); },
+        "kioskModeBlockVolumeButtons": n => { androidGeneralDeviceConfiguration.kioskModeBlockVolumeButtons = n.getBooleanValue(); },
+        "locationServicesBlocked": n => { androidGeneralDeviceConfiguration.locationServicesBlocked = n.getBooleanValue(); },
+        "nfcBlocked": n => { androidGeneralDeviceConfiguration.nfcBlocked = n.getBooleanValue(); },
+        "passwordBlockFingerprintUnlock": n => { androidGeneralDeviceConfiguration.passwordBlockFingerprintUnlock = n.getBooleanValue(); },
+        "passwordBlockTrustAgents": n => { androidGeneralDeviceConfiguration.passwordBlockTrustAgents = n.getBooleanValue(); },
+        "passwordExpirationDays": n => { androidGeneralDeviceConfiguration.passwordExpirationDays = n.getNumberValue(); },
+        "passwordMinimumLength": n => { androidGeneralDeviceConfiguration.passwordMinimumLength = n.getNumberValue(); },
+        "passwordMinutesOfInactivityBeforeScreenTimeout": n => { androidGeneralDeviceConfiguration.passwordMinutesOfInactivityBeforeScreenTimeout = n.getNumberValue(); },
+        "passwordPreviousPasswordBlockCount": n => { androidGeneralDeviceConfiguration.passwordPreviousPasswordBlockCount = n.getNumberValue(); },
+        "passwordRequired": n => { androidGeneralDeviceConfiguration.passwordRequired = n.getBooleanValue(); },
+        "passwordRequiredType": n => { androidGeneralDeviceConfiguration.passwordRequiredType = n.getEnumValue<AndroidRequiredPasswordType>(AndroidRequiredPasswordType); },
+        "passwordSignInFailureCountBeforeFactoryReset": n => { androidGeneralDeviceConfiguration.passwordSignInFailureCountBeforeFactoryReset = n.getNumberValue(); },
+        "powerOffBlocked": n => { androidGeneralDeviceConfiguration.powerOffBlocked = n.getBooleanValue(); },
+        "screenCaptureBlocked": n => { androidGeneralDeviceConfiguration.screenCaptureBlocked = n.getBooleanValue(); },
+        "securityRequireVerifyApps": n => { androidGeneralDeviceConfiguration.securityRequireVerifyApps = n.getBooleanValue(); },
+        "storageBlockGoogleBackup": n => { androidGeneralDeviceConfiguration.storageBlockGoogleBackup = n.getBooleanValue(); },
+        "storageBlockRemovableStorage": n => { androidGeneralDeviceConfiguration.storageBlockRemovableStorage = n.getBooleanValue(); },
+        "storageRequireDeviceEncryption": n => { androidGeneralDeviceConfiguration.storageRequireDeviceEncryption = n.getBooleanValue(); },
+        "storageRequireRemovableStorageEncryption": n => { androidGeneralDeviceConfiguration.storageRequireRemovableStorageEncryption = n.getBooleanValue(); },
+        "voiceAssistantBlocked": n => { androidGeneralDeviceConfiguration.voiceAssistantBlocked = n.getBooleanValue(); },
+        "voiceDialingBlocked": n => { androidGeneralDeviceConfiguration.voiceDialingBlocked = n.getBooleanValue(); },
+        "webBrowserBlockAutofill": n => { androidGeneralDeviceConfiguration.webBrowserBlockAutofill = n.getBooleanValue(); },
+        "webBrowserBlocked": n => { androidGeneralDeviceConfiguration.webBrowserBlocked = n.getBooleanValue(); },
+        "webBrowserBlockJavaScript": n => { androidGeneralDeviceConfiguration.webBrowserBlockJavaScript = n.getBooleanValue(); },
+        "webBrowserBlockPopups": n => { androidGeneralDeviceConfiguration.webBrowserBlockPopups = n.getBooleanValue(); },
+        "webBrowserCookieSettings": n => { androidGeneralDeviceConfiguration.webBrowserCookieSettings = n.getEnumValue<WebBrowserCookieSettings>(WebBrowserCookieSettings); },
+        "wiFiBlocked": n => { androidGeneralDeviceConfiguration.wiFiBlocked = n.getBooleanValue(); },
+    }
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function serializeAndroidGeneralDeviceConfiguration(writer: SerializationWriter, androidGeneralDeviceConfiguration: AndroidGeneralDeviceConfiguration | undefined = {} as AndroidGeneralDeviceConfiguration) : void {
+        serializeDeviceConfiguration(writer, androidGeneralDeviceConfiguration)
+        writer.writeBooleanValue("appsBlockClipboardSharing", androidGeneralDeviceConfiguration.appsBlockClipboardSharing);
+        writer.writeBooleanValue("appsBlockCopyPaste", androidGeneralDeviceConfiguration.appsBlockCopyPaste);
+        writer.writeBooleanValue("appsBlockYouTube", androidGeneralDeviceConfiguration.appsBlockYouTube);
+        writer.writeCollectionOfObjectValues<AppListItem>("appsHideList", androidGeneralDeviceConfiguration.appsHideList, );
+        writer.writeCollectionOfObjectValues<AppListItem>("appsInstallAllowList", androidGeneralDeviceConfiguration.appsInstallAllowList, );
+        writer.writeCollectionOfObjectValues<AppListItem>("appsLaunchBlockList", androidGeneralDeviceConfiguration.appsLaunchBlockList, );
+        writer.writeBooleanValue("bluetoothBlocked", androidGeneralDeviceConfiguration.bluetoothBlocked);
+        writer.writeBooleanValue("cameraBlocked", androidGeneralDeviceConfiguration.cameraBlocked);
+        writer.writeBooleanValue("cellularBlockDataRoaming", androidGeneralDeviceConfiguration.cellularBlockDataRoaming);
+        writer.writeBooleanValue("cellularBlockMessaging", androidGeneralDeviceConfiguration.cellularBlockMessaging);
+        writer.writeBooleanValue("cellularBlockVoiceRoaming", androidGeneralDeviceConfiguration.cellularBlockVoiceRoaming);
+        writer.writeBooleanValue("cellularBlockWiFiTethering", androidGeneralDeviceConfiguration.cellularBlockWiFiTethering);
+        writer.writeEnumValue<AppListType>("compliantAppListType", androidGeneralDeviceConfiguration.compliantAppListType);
+        writer.writeCollectionOfObjectValues<AppListItem>("compliantAppsList", androidGeneralDeviceConfiguration.compliantAppsList, );
+        writer.writeBooleanValue("deviceSharingAllowed", androidGeneralDeviceConfiguration.deviceSharingAllowed);
+        writer.writeBooleanValue("diagnosticDataBlockSubmission", androidGeneralDeviceConfiguration.diagnosticDataBlockSubmission);
+        writer.writeBooleanValue("factoryResetBlocked", androidGeneralDeviceConfiguration.factoryResetBlocked);
+        writer.writeBooleanValue("googleAccountBlockAutoSync", androidGeneralDeviceConfiguration.googleAccountBlockAutoSync);
+        writer.writeBooleanValue("googlePlayStoreBlocked", androidGeneralDeviceConfiguration.googlePlayStoreBlocked);
+        writer.writeCollectionOfObjectValues<AppListItem>("kioskModeApps", androidGeneralDeviceConfiguration.kioskModeApps, );
+        writer.writeBooleanValue("kioskModeBlockSleepButton", androidGeneralDeviceConfiguration.kioskModeBlockSleepButton);
+        writer.writeBooleanValue("kioskModeBlockVolumeButtons", androidGeneralDeviceConfiguration.kioskModeBlockVolumeButtons);
+        writer.writeBooleanValue("locationServicesBlocked", androidGeneralDeviceConfiguration.locationServicesBlocked);
+        writer.writeBooleanValue("nfcBlocked", androidGeneralDeviceConfiguration.nfcBlocked);
+        writer.writeBooleanValue("passwordBlockFingerprintUnlock", androidGeneralDeviceConfiguration.passwordBlockFingerprintUnlock);
+        writer.writeBooleanValue("passwordBlockTrustAgents", androidGeneralDeviceConfiguration.passwordBlockTrustAgents);
+        writer.writeNumberValue("passwordExpirationDays", androidGeneralDeviceConfiguration.passwordExpirationDays);
+        writer.writeNumberValue("passwordMinimumLength", androidGeneralDeviceConfiguration.passwordMinimumLength);
+        writer.writeNumberValue("passwordMinutesOfInactivityBeforeScreenTimeout", androidGeneralDeviceConfiguration.passwordMinutesOfInactivityBeforeScreenTimeout);
+        writer.writeNumberValue("passwordPreviousPasswordBlockCount", androidGeneralDeviceConfiguration.passwordPreviousPasswordBlockCount);
+        writer.writeBooleanValue("passwordRequired", androidGeneralDeviceConfiguration.passwordRequired);
+        writer.writeEnumValue<AndroidRequiredPasswordType>("passwordRequiredType", androidGeneralDeviceConfiguration.passwordRequiredType);
+        writer.writeNumberValue("passwordSignInFailureCountBeforeFactoryReset", androidGeneralDeviceConfiguration.passwordSignInFailureCountBeforeFactoryReset);
+        writer.writeBooleanValue("powerOffBlocked", androidGeneralDeviceConfiguration.powerOffBlocked);
+        writer.writeBooleanValue("screenCaptureBlocked", androidGeneralDeviceConfiguration.screenCaptureBlocked);
+        writer.writeBooleanValue("securityRequireVerifyApps", androidGeneralDeviceConfiguration.securityRequireVerifyApps);
+        writer.writeBooleanValue("storageBlockGoogleBackup", androidGeneralDeviceConfiguration.storageBlockGoogleBackup);
+        writer.writeBooleanValue("storageBlockRemovableStorage", androidGeneralDeviceConfiguration.storageBlockRemovableStorage);
+        writer.writeBooleanValue("storageRequireDeviceEncryption", androidGeneralDeviceConfiguration.storageRequireDeviceEncryption);
+        writer.writeBooleanValue("storageRequireRemovableStorageEncryption", androidGeneralDeviceConfiguration.storageRequireRemovableStorageEncryption);
+        writer.writeBooleanValue("voiceAssistantBlocked", androidGeneralDeviceConfiguration.voiceAssistantBlocked);
+        writer.writeBooleanValue("voiceDialingBlocked", androidGeneralDeviceConfiguration.voiceDialingBlocked);
+        writer.writeBooleanValue("webBrowserBlockAutofill", androidGeneralDeviceConfiguration.webBrowserBlockAutofill);
+        writer.writeBooleanValue("webBrowserBlocked", androidGeneralDeviceConfiguration.webBrowserBlocked);
+        writer.writeBooleanValue("webBrowserBlockJavaScript", androidGeneralDeviceConfiguration.webBrowserBlockJavaScript);
+        writer.writeBooleanValue("webBrowserBlockPopups", androidGeneralDeviceConfiguration.webBrowserBlockPopups);
+        writer.writeEnumValue<WebBrowserCookieSettings>("webBrowserCookieSettings", androidGeneralDeviceConfiguration.webBrowserCookieSettings);
+        writer.writeBooleanValue("wiFiBlocked", androidGeneralDeviceConfiguration.wiFiBlocked);
 }

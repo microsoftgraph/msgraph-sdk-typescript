@@ -1,16 +1,52 @@
-import { type AuthorizationPolicy } from '../../models/authorizationPolicy';
-import { createAuthorizationPolicyFromDiscriminatorValue } from '../../models/createAuthorizationPolicyFromDiscriminatorValue';
-import { deserializeIntoAuthorizationPolicy } from '../../models/deserializeIntoAuthorizationPolicy';
+import { createAuthorizationPolicyFromDiscriminatorValue, deserializeIntoAuthorizationPolicy, serializeAuthorizationPolicy, type AuthorizationPolicy } from '../../models/authorizationPolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAuthorizationPolicy } from '../../models/serializeAuthorizationPolicy';
-import { type AuthorizationPolicyRequestBuilderDeleteRequestConfiguration } from './authorizationPolicyRequestBuilderDeleteRequestConfiguration';
-import { type AuthorizationPolicyRequestBuilderGetRequestConfiguration } from './authorizationPolicyRequestBuilderGetRequestConfiguration';
-import { type AuthorizationPolicyRequestBuilderPatchRequestConfiguration } from './authorizationPolicyRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthorizationPolicyRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AuthorizationPolicyRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AuthorizationPolicyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthorizationPolicyRequestBuilderGetQueryParameters;
+}
+export interface AuthorizationPolicyRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.
  */
@@ -38,7 +74,7 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties of an authorizationPolicy object.
+     * Retrieve the properties of an authorizationPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthorizationPolicy
      * @see {@link https://learn.microsoft.com/graph/api/authorizationpolicy-get?view=graph-rest-1.0|Find more info here}
@@ -54,7 +90,7 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AuthorizationPolicy>(requestInfo, createAuthorizationPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an authorizationPolicy object.
+     * Update the properties of an authorizationPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthorizationPolicy
@@ -87,7 +123,7 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties of an authorizationPolicy object.
+     * Retrieve the properties of an authorizationPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an authorizationPolicy object.
+     * Update the properties of an authorizationPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

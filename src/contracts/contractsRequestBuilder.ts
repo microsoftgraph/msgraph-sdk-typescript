@@ -1,15 +1,8 @@
 import { type ContractCollectionResponse } from '../models/';
-import { type Contract } from '../models/contract';
-import { createContractCollectionResponseFromDiscriminatorValue } from '../models/createContractCollectionResponseFromDiscriminatorValue';
-import { createContractFromDiscriminatorValue } from '../models/createContractFromDiscriminatorValue';
-import { deserializeIntoContract } from '../models/deserializeIntoContract';
+import { createContractFromDiscriminatorValue, deserializeIntoContract, serializeContract, type Contract } from '../models/contract';
+import { createContractCollectionResponseFromDiscriminatorValue } from '../models/contractCollectionResponse';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeContract } from '../models/serializeContract';
-import { type ContractsRequestBuilderGetRequestConfiguration } from './contractsRequestBuilderGetRequestConfiguration';
-import { type ContractsRequestBuilderPostRequestConfiguration } from './contractsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
@@ -18,6 +11,64 @@ import { ContractItemRequestBuilder } from './item/contractItemRequestBuilder';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContractsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ContractsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContractsRequestBuilderGetQueryParameters;
+}
+export interface ContractsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of contract entities.
  */
@@ -72,7 +123,7 @@ export class ContractsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/contracts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of contract objects associated to a partner tenant.
+     * Retrieve a list of contract objects associated to a partner tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContractCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/contract-list?view=graph-rest-1.0|Find more info here}
@@ -104,7 +155,7 @@ export class ContractsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Contract>(requestInfo, createContractFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of contract objects associated to a partner tenant.
+     * Retrieve a list of contract objects associated to a partner tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

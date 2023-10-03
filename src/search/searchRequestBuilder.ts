@@ -1,16 +1,43 @@
-import { createSearchEntityFromDiscriminatorValue } from '../models/createSearchEntityFromDiscriminatorValue';
-import { deserializeIntoSearchEntity } from '../models/deserializeIntoSearchEntity';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { type SearchEntity } from '../models/searchEntity';
-import { serializeSearchEntity } from '../models/serializeSearchEntity';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createSearchEntityFromDiscriminatorValue, deserializeIntoSearchEntity, serializeSearchEntity, type SearchEntity } from '../models/searchEntity';
 import { QueryRequestBuilder } from './query/queryRequestBuilder';
-import { type SearchRequestBuilderGetRequestConfiguration } from './searchRequestBuilderGetRequestConfiguration';
-import { type SearchRequestBuilderPatchRequestConfiguration } from './searchRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SearchRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SearchRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SearchRequestBuilderGetQueryParameters;
+}
+export interface SearchRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the searchEntity singleton.
  */

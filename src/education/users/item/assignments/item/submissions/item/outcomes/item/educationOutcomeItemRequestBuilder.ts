@@ -1,16 +1,52 @@
-import { createEducationOutcomeFromDiscriminatorValue } from '../../../../../../../../../models/createEducationOutcomeFromDiscriminatorValue';
-import { deserializeIntoEducationOutcome } from '../../../../../../../../../models/deserializeIntoEducationOutcome';
-import { type EducationOutcome } from '../../../../../../../../../models/educationOutcome';
+import { createEducationOutcomeFromDiscriminatorValue, deserializeIntoEducationOutcome, serializeEducationOutcome, type EducationOutcome } from '../../../../../../../../../models/educationOutcome';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationOutcome } from '../../../../../../../../../models/serializeEducationOutcome';
-import { type EducationOutcomeItemRequestBuilderDeleteRequestConfiguration } from './educationOutcomeItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationOutcomeItemRequestBuilderGetRequestConfiguration } from './educationOutcomeItemRequestBuilderGetRequestConfiguration';
-import { type EducationOutcomeItemRequestBuilderPatchRequestConfiguration } from './educationOutcomeItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationOutcomeItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationOutcomeItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationOutcomeItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationOutcomeItemRequestBuilderGetQueryParameters;
+}
+export interface EducationOutcomeItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
  */
@@ -24,7 +60,7 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/outcomes/{educationOutcome%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a feedback resource from a submission. This can only be done by a teacher.
+     * Delete a feedback resource from a submission. This can only be done by a teacher. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/educationfeedbackresourceoutcome-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -54,7 +90,7 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationOutcome>(requestInfo, createEducationOutcomeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an educationOutcome object. Only teachers can perform this operation.
+     * Update the properties of an educationOutcome object. Only teachers can perform this operation. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationOutcome
@@ -71,7 +107,7 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationOutcome>(requestInfo, createEducationOutcomeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a feedback resource from a submission. This can only be done by a teacher.
+     * Delete a feedback resource from a submission. This can only be done by a teacher. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an educationOutcome object. Only teachers can perform this operation.
+     * Update the properties of an educationOutcome object. Only teachers can perform this operation. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

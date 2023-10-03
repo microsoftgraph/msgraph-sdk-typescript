@@ -6,3 +6,5 @@ export enum AuthenticationMethodFeature {
     MfaCapable = "mfaCapable",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

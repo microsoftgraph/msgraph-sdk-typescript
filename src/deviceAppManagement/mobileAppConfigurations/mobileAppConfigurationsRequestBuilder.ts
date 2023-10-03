@@ -1,19 +1,70 @@
 import { type ManagedDeviceMobileAppConfigurationCollectionResponse } from '../../models/';
-import { createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue } from '../../models/createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue';
-import { createManagedDeviceMobileAppConfigurationFromDiscriminatorValue } from '../../models/createManagedDeviceMobileAppConfigurationFromDiscriminatorValue';
-import { deserializeIntoManagedDeviceMobileAppConfiguration } from '../../models/deserializeIntoManagedDeviceMobileAppConfiguration';
-import { type ManagedDeviceMobileAppConfiguration } from '../../models/managedDeviceMobileAppConfiguration';
+import { createManagedDeviceMobileAppConfigurationFromDiscriminatorValue, deserializeIntoManagedDeviceMobileAppConfiguration, serializeManagedDeviceMobileAppConfiguration, type ManagedDeviceMobileAppConfiguration } from '../../models/managedDeviceMobileAppConfiguration';
+import { createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue } from '../../models/managedDeviceMobileAppConfigurationCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeManagedDeviceMobileAppConfiguration } from '../../models/serializeManagedDeviceMobileAppConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ManagedDeviceMobileAppConfigurationItemRequestBuilder } from './item/managedDeviceMobileAppConfigurationItemRequestBuilder';
-import { type MobileAppConfigurationsRequestBuilderGetRequestConfiguration } from './mobileAppConfigurationsRequestBuilderGetRequestConfiguration';
-import { type MobileAppConfigurationsRequestBuilderPostRequestConfiguration } from './mobileAppConfigurationsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MobileAppConfigurationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface MobileAppConfigurationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MobileAppConfigurationsRequestBuilderGetQueryParameters;
+}
+export interface MobileAppConfigurationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
  */

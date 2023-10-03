@@ -1,17 +1,53 @@
-import { createPermissionFromDiscriminatorValue } from '../../../../../../models/createPermissionFromDiscriminatorValue';
-import { deserializeIntoPermission } from '../../../../../../models/deserializeIntoPermission';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type Permission } from '../../../../../../models/permission';
-import { serializePermission } from '../../../../../../models/serializePermission';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createPermissionFromDiscriminatorValue, deserializeIntoPermission, serializePermission, type Permission } from '../../../../../../models/permission';
 import { GrantRequestBuilder } from './grant/grantRequestBuilder';
-import { type PermissionItemRequestBuilderDeleteRequestConfiguration } from './permissionItemRequestBuilderDeleteRequestConfiguration';
-import { type PermissionItemRequestBuilderGetRequestConfiguration } from './permissionItemRequestBuilderGetRequestConfiguration';
-import { type PermissionItemRequestBuilderPatchRequestConfiguration } from './permissionItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PermissionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PermissionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PermissionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PermissionItemRequestBuilderGetQueryParameters;
+}
+export interface PermissionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the permissions property of the microsoft.graph.site entity.
  */
@@ -31,7 +67,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/permissions/{permission%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a permission object on a site.
+     * Delete a permission object on a site. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/site-delete-permission?view=graph-rest-1.0|Find more info here}
      */
@@ -46,7 +82,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a permission object on a site.
+     * Retrieve the properties and relationships of a permission object on a site. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Permission
      * @see {@link https://learn.microsoft.com/graph/api/site-get-permission?view=graph-rest-1.0|Find more info here}
@@ -62,7 +98,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Permission>(requestInfo, createPermissionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update an application permission object on a site. 
+     * Update an application permission object on a site.  This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Permission
@@ -79,7 +115,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Permission>(requestInfo, createPermissionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a permission object on a site.
+     * Delete a permission object on a site. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +131,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a permission object on a site.
+     * Retrieve the properties and relationships of a permission object on a site. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -113,7 +149,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update an application permission object on a site. 
+     * Update an application permission object on a site.  This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

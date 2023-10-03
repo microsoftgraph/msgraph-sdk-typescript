@@ -1,12 +1,33 @@
 import { type AccessPackageCatalog } from '../../../../../../../models/';
-import { createAccessPackageCatalogFromDiscriminatorValue } from '../../../../../../../models/createAccessPackageCatalogFromDiscriminatorValue';
+import { createAccessPackageCatalogFromDiscriminatorValue } from '../../../../../../../models/accessPackageCatalog';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { type CatalogRequestBuilderGetRequestConfiguration } from './catalogRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CatalogRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CatalogRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CatalogRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the catalog property of the microsoft.graph.accessPackageAssignmentPolicy entity.
  */

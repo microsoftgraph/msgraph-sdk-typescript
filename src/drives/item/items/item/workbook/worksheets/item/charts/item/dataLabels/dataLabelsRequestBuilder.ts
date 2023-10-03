@@ -1,17 +1,53 @@
-import { createWorkbookChartDataLabelsFromDiscriminatorValue } from '../../../../../../../../../../models/createWorkbookChartDataLabelsFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartDataLabels } from '../../../../../../../../../../models/deserializeIntoWorkbookChartDataLabels';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartDataLabels } from '../../../../../../../../../../models/serializeWorkbookChartDataLabels';
-import { type WorkbookChartDataLabels } from '../../../../../../../../../../models/workbookChartDataLabels';
-import { type DataLabelsRequestBuilderDeleteRequestConfiguration } from './dataLabelsRequestBuilderDeleteRequestConfiguration';
-import { type DataLabelsRequestBuilderGetRequestConfiguration } from './dataLabelsRequestBuilderGetRequestConfiguration';
-import { type DataLabelsRequestBuilderPatchRequestConfiguration } from './dataLabelsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartDataLabelsFromDiscriminatorValue, deserializeIntoWorkbookChartDataLabels, serializeWorkbookChartDataLabels, type WorkbookChartDataLabels } from '../../../../../../../../../../models/workbookChartDataLabels';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DataLabelsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DataLabelsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DataLabelsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DataLabelsRequestBuilderGetQueryParameters;
+}
+export interface DataLabelsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the dataLabels property of the microsoft.graph.workbookChart entity.
  */
@@ -45,7 +81,7 @@ export class DataLabelsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of chartdatalabels object.
+     * Retrieve the properties and relationships of chartdatalabels object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartDataLabels
      * @see {@link https://learn.microsoft.com/graph/api/chartdatalabels-get?view=graph-rest-1.0|Find more info here}
@@ -61,7 +97,7 @@ export class DataLabelsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookChartDataLabels>(requestInfo, createWorkbookChartDataLabelsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of chartdatalabels object.
+     * Update the properties of chartdatalabels object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartDataLabels
@@ -94,7 +130,7 @@ export class DataLabelsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of chartdatalabels object.
+     * Retrieve the properties and relationships of chartdatalabels object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +148,7 @@ export class DataLabelsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of chartdatalabels object.
+     * Update the properties of chartdatalabels object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

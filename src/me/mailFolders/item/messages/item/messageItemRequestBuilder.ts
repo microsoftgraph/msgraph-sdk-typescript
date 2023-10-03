@@ -1,11 +1,6 @@
-import { createMessageFromDiscriminatorValue } from '../../../../../models/createMessageFromDiscriminatorValue';
-import { deserializeIntoMessage } from '../../../../../models/deserializeIntoMessage';
-import { type Message } from '../../../../../models/message';
+import { createMessageFromDiscriminatorValue, deserializeIntoMessage, serializeMessage, type Message } from '../../../../../models/message';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeMessage } from '../../../../../models/serializeMessage';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { AttachmentsRequestBuilder } from './attachments/attachmentsRequestBuilder';
 import { CopyRequestBuilder } from './copy/copyRequestBuilder';
 import { CreateForwardRequestBuilder } from './createForward/createForwardRequestBuilder';
@@ -13,9 +8,6 @@ import { CreateReplyRequestBuilder } from './createReply/createReplyRequestBuild
 import { CreateReplyAllRequestBuilder } from './createReplyAll/createReplyAllRequestBuilder';
 import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
 import { ForwardRequestBuilder } from './forward/forwardRequestBuilder';
-import { type MessageItemRequestBuilderDeleteRequestConfiguration } from './messageItemRequestBuilderDeleteRequestConfiguration';
-import { type MessageItemRequestBuilderGetRequestConfiguration } from './messageItemRequestBuilderGetRequestConfiguration';
-import { type MessageItemRequestBuilderPatchRequestConfiguration } from './messageItemRequestBuilderPatchRequestConfiguration';
 import { MoveRequestBuilder } from './move/moveRequestBuilder';
 import { ReplyRequestBuilder } from './reply/replyRequestBuilder';
 import { ReplyAllRequestBuilder } from './replyAll/replyAllRequestBuilder';
@@ -23,6 +15,50 @@ import { SendRequestBuilder } from './send/sendRequestBuilder';
 import { ContentRequestBuilder } from './value/contentRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MessageItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MessageItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MessageItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MessageItemRequestBuilderGetQueryParameters;
+}
+export interface MessageItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
  */

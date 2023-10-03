@@ -1,17 +1,19 @@
-import { createIdentityApiConnectorFromDiscriminatorValue } from '../../../../../../models/createIdentityApiConnectorFromDiscriminatorValue';
-import { deserializeIntoIdentityApiConnector } from '../../../../../../models/deserializeIntoIdentityApiConnector';
-import { type IdentityApiConnector } from '../../../../../../models/identityApiConnector';
+import { createIdentityApiConnectorFromDiscriminatorValue, deserializeIntoIdentityApiConnector, serializeIdentityApiConnector, type IdentityApiConnector } from '../../../../../../models/identityApiConnector';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeIdentityApiConnector } from '../../../../../../models/serializeIdentityApiConnector';
-import { deserializeIntoUploadClientCertificatePostRequestBody } from './deserializeIntoUploadClientCertificatePostRequestBody';
-import { serializeUploadClientCertificatePostRequestBody } from './serializeUploadClientCertificatePostRequestBody';
-import { type UploadClientCertificatePostRequestBody } from './uploadClientCertificatePostRequestBody';
-import { type UploadClientCertificateRequestBuilderPostRequestConfiguration } from './uploadClientCertificateRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoUploadClientCertificatePostRequestBody, serializeUploadClientCertificatePostRequestBody, type UploadClientCertificatePostRequestBody } from './uploadClientCertificatePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UploadClientCertificateRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the uploadClientCertificate method.
  */
@@ -25,7 +27,7 @@ export class UploadClientCertificateRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/apiConnectorConfiguration/postFederationSignup/uploadClientCertificate");
     };
     /**
-     * Upload a PKCS 12 format key (.pfx) to an API connector's authentication configuration. The input is a base-64 encoded value of the PKCS 12 certificate contents. This method returns an apiConnector.
+     * Upload a PKCS 12 format key (.pfx) to an API connector's authentication configuration. The input is a base-64 encoded value of the PKCS 12 certificate contents. This method returns an apiConnector. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityApiConnector
@@ -42,7 +44,7 @@ export class UploadClientCertificateRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<IdentityApiConnector>(requestInfo, createIdentityApiConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Upload a PKCS 12 format key (.pfx) to an API connector's authentication configuration. The input is a base-64 encoded value of the PKCS 12 certificate contents. This method returns an apiConnector.
+     * Upload a PKCS 12 format key (.pfx) to an API connector's authentication configuration. The input is a base-64 encoded value of the PKCS 12 certificate contents. This method returns an apiConnector. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

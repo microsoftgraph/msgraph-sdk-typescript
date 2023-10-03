@@ -1,19 +1,70 @@
 import { type AndroidManagedAppProtectionCollectionResponse } from '../../models/';
-import { type AndroidManagedAppProtection } from '../../models/androidManagedAppProtection';
-import { createAndroidManagedAppProtectionCollectionResponseFromDiscriminatorValue } from '../../models/createAndroidManagedAppProtectionCollectionResponseFromDiscriminatorValue';
-import { createAndroidManagedAppProtectionFromDiscriminatorValue } from '../../models/createAndroidManagedAppProtectionFromDiscriminatorValue';
-import { deserializeIntoAndroidManagedAppProtection } from '../../models/deserializeIntoAndroidManagedAppProtection';
+import { createAndroidManagedAppProtectionFromDiscriminatorValue, deserializeIntoAndroidManagedAppProtection, serializeAndroidManagedAppProtection, type AndroidManagedAppProtection } from '../../models/androidManagedAppProtection';
+import { createAndroidManagedAppProtectionCollectionResponseFromDiscriminatorValue } from '../../models/androidManagedAppProtectionCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAndroidManagedAppProtection } from '../../models/serializeAndroidManagedAppProtection';
-import { type AndroidManagedAppProtectionsRequestBuilderGetRequestConfiguration } from './androidManagedAppProtectionsRequestBuilderGetRequestConfiguration';
-import { type AndroidManagedAppProtectionsRequestBuilderPostRequestConfiguration } from './androidManagedAppProtectionsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AndroidManagedAppProtectionItemRequestBuilder } from './item/androidManagedAppProtectionItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AndroidManagedAppProtectionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AndroidManagedAppProtectionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AndroidManagedAppProtectionsRequestBuilderGetQueryParameters;
+}
+export interface AndroidManagedAppProtectionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
  */

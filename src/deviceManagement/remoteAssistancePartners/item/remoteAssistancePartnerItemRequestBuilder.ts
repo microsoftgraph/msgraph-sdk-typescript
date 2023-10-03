@@ -1,18 +1,54 @@
-import { createRemoteAssistancePartnerFromDiscriminatorValue } from '../../../models/createRemoteAssistancePartnerFromDiscriminatorValue';
-import { deserializeIntoRemoteAssistancePartner } from '../../../models/deserializeIntoRemoteAssistancePartner';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type RemoteAssistancePartner } from '../../../models/remoteAssistancePartner';
-import { serializeRemoteAssistancePartner } from '../../../models/serializeRemoteAssistancePartner';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createRemoteAssistancePartnerFromDiscriminatorValue, deserializeIntoRemoteAssistancePartner, serializeRemoteAssistancePartner, type RemoteAssistancePartner } from '../../../models/remoteAssistancePartner';
 import { BeginOnboardingRequestBuilder } from './beginOnboarding/beginOnboardingRequestBuilder';
 import { DisconnectRequestBuilder } from './disconnect/disconnectRequestBuilder';
-import { type RemoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration } from './remoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration';
-import { type RemoteAssistancePartnerItemRequestBuilderGetRequestConfiguration } from './remoteAssistancePartnerItemRequestBuilderGetRequestConfiguration';
-import { type RemoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration } from './remoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RemoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface RemoteAssistancePartnerItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface RemoteAssistancePartnerItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RemoteAssistancePartnerItemRequestBuilderGetQueryParameters;
+}
+export interface RemoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.
  */

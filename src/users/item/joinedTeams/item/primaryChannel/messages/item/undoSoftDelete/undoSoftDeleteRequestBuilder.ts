@@ -1,10 +1,17 @@
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { type UndoSoftDeleteRequestBuilderPostRequestConfiguration } from './undoSoftDeleteRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UndoSoftDeleteRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the undoSoftDelete method.
  */
@@ -18,7 +25,7 @@ export class UndoSoftDeleteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}/undoSoftDelete");
     };
     /**
-     * Undo soft deletion of a single chatMessage or a chat message reply in a channel or a chat.
+     * Undo soft deletion of a single chatMessage or a chat message reply in a channel or a chat. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chatmessage-undosoftdelete?view=graph-rest-1.0|Find more info here}
      */
@@ -33,7 +40,7 @@ export class UndoSoftDeleteRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Undo soft deletion of a single chatMessage or a chat message reply in a channel or a chat.
+     * Undo soft deletion of a single chatMessage or a chat message reply in a channel or a chat. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

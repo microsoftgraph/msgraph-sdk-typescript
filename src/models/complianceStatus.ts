@@ -8,3 +8,5 @@ export enum ComplianceStatus {
     Conflict = "conflict",
     NotAssigned = "notAssigned",
 }
+// tslint:enable
+// eslint-enable

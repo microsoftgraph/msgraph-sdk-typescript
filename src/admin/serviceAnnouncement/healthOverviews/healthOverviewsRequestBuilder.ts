@@ -1,19 +1,70 @@
 import { type ServiceHealthCollectionResponse } from '../../../models/';
-import { createServiceHealthCollectionResponseFromDiscriminatorValue } from '../../../models/createServiceHealthCollectionResponseFromDiscriminatorValue';
-import { createServiceHealthFromDiscriminatorValue } from '../../../models/createServiceHealthFromDiscriminatorValue';
-import { deserializeIntoServiceHealth } from '../../../models/deserializeIntoServiceHealth';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeServiceHealth } from '../../../models/serializeServiceHealth';
-import { type ServiceHealth } from '../../../models/serviceHealth';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createServiceHealthFromDiscriminatorValue, deserializeIntoServiceHealth, serializeServiceHealth, type ServiceHealth } from '../../../models/serviceHealth';
+import { createServiceHealthCollectionResponseFromDiscriminatorValue } from '../../../models/serviceHealthCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type HealthOverviewsRequestBuilderGetRequestConfiguration } from './healthOverviewsRequestBuilderGetRequestConfiguration';
-import { type HealthOverviewsRequestBuilderPostRequestConfiguration } from './healthOverviewsRequestBuilderPostRequestConfiguration';
 import { ServiceHealthItemRequestBuilder } from './item/serviceHealthItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HealthOverviewsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface HealthOverviewsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HealthOverviewsRequestBuilderGetQueryParameters;
+}
+export interface HealthOverviewsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
  */
@@ -44,7 +95,7 @@ export class HealthOverviewsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/healthOverviews{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant.
+     * Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServiceHealthCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/serviceannouncement-list-healthoverviews?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class HealthOverviewsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ServiceHealth>(requestInfo, createServiceHealthFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant.
+     * Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

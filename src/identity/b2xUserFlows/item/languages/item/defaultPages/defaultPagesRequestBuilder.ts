@@ -1,19 +1,70 @@
 import { type UserFlowLanguagePageCollectionResponse } from '../../../../../../models/';
-import { createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue';
-import { createUserFlowLanguagePageFromDiscriminatorValue } from '../../../../../../models/createUserFlowLanguagePageFromDiscriminatorValue';
-import { deserializeIntoUserFlowLanguagePage } from '../../../../../../models/deserializeIntoUserFlowLanguagePage';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeUserFlowLanguagePage } from '../../../../../../models/serializeUserFlowLanguagePage';
-import { type UserFlowLanguagePage } from '../../../../../../models/userFlowLanguagePage';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createUserFlowLanguagePageFromDiscriminatorValue, deserializeIntoUserFlowLanguagePage, serializeUserFlowLanguagePage, type UserFlowLanguagePage } from '../../../../../../models/userFlowLanguagePage';
+import { createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue } from '../../../../../../models/userFlowLanguagePageCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DefaultPagesRequestBuilderGetRequestConfiguration } from './defaultPagesRequestBuilderGetRequestConfiguration';
-import { type DefaultPagesRequestBuilderPostRequestConfiguration } from './defaultPagesRequestBuilderPostRequestConfiguration';
 import { UserFlowLanguagePageItemRequestBuilder } from './item/userFlowLanguagePageItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DefaultPagesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DefaultPagesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DefaultPagesRequestBuilderGetQueryParameters;
+}
+export interface DefaultPagesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
  */
@@ -44,7 +95,7 @@ export class DefaultPagesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages/{userFlowLanguageConfiguration%2Did}/defaultPages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
+     * Collection of pages with the default content to display in a user flow for a specified language. This collection doesn't allow any kind of modification.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserFlowLanguagePageCollectionResponse
      */
@@ -75,7 +126,7 @@ export class DefaultPagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UserFlowLanguagePage>(requestInfo, createUserFlowLanguagePageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
+     * Collection of pages with the default content to display in a user flow for a specified language. This collection doesn't allow any kind of modification.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type CheckMemberGroupsPostRequestBody } from './checkMemberGroupsPostRequestBody';
-import { type CheckMemberGroupsRequestBuilderPostRequestConfiguration } from './checkMemberGroupsRequestBuilderPostRequestConfiguration';
-import { type CheckMemberGroupsResponse } from './checkMemberGroupsResponse';
-import { createCheckMemberGroupsResponseFromDiscriminatorValue } from './createCheckMemberGroupsResponseFromDiscriminatorValue';
-import { deserializeIntoCheckMemberGroupsPostRequestBody } from './deserializeIntoCheckMemberGroupsPostRequestBody';
-import { deserializeIntoCheckMemberGroupsResponse } from './deserializeIntoCheckMemberGroupsResponse';
-import { serializeCheckMemberGroupsPostRequestBody } from './serializeCheckMemberGroupsPostRequestBody';
-import { serializeCheckMemberGroupsResponse } from './serializeCheckMemberGroupsResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoCheckMemberGroupsPostRequestBody, serializeCheckMemberGroupsPostRequestBody, type CheckMemberGroupsPostRequestBody } from './checkMemberGroupsPostRequestBody';
+import { createCheckMemberGroupsPostResponseFromDiscriminatorValue, deserializeIntoCheckMemberGroupsPostResponse, serializeCheckMemberGroupsPostResponse, type CheckMemberGroupsPostResponse } from './checkMemberGroupsPostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CheckMemberGroupsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the checkMemberGroups method.
  */
@@ -25,13 +27,13 @@ export class CheckMemberGroupsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/contracts/{contract%2Did}/checkMemberGroups");
     };
     /**
-     * Check for membership in a specified list of group IDs, and return from that list those groups (identified by IDs) of which the specified user, group, service principal, organizational contact, device, or directory object is a member. This function is transitive. You can check up to a maximum of 20 groups per request. This function supports all groups provisioned in Azure AD. Because Microsoft 365 groups cannot contain other groups, membership in a Microsoft 365 group is always direct.
+     * Check for membership in a specified list of group IDs, and return from that list those groups (identified by IDs) of which the specified user, group, service principal, organizational contact, device, or directory object is a member. This function is transitive. You can check up to a maximum of 20 groups per request. This function supports all groups provisioned in Azure AD. Because Microsoft 365 groups cannot contain other groups, membership in a Microsoft 365 group is always direct. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of CheckMemberGroupsResponse
+     * @returns a Promise of CheckMemberGroupsPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-checkmembergroups?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CheckMemberGroupsPostRequestBody, requestConfiguration?: CheckMemberGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<CheckMemberGroupsResponse | undefined> {
+    public post(body: CheckMemberGroupsPostRequestBody, requestConfiguration?: CheckMemberGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<CheckMemberGroupsPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class CheckMemberGroupsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<CheckMemberGroupsResponse>(requestInfo, createCheckMemberGroupsResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<CheckMemberGroupsPostResponse>(requestInfo, createCheckMemberGroupsPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Check for membership in a specified list of group IDs, and return from that list those groups (identified by IDs) of which the specified user, group, service principal, organizational contact, device, or directory object is a member. This function is transitive. You can check up to a maximum of 20 groups per request. This function supports all groups provisioned in Azure AD. Because Microsoft 365 groups cannot contain other groups, membership in a Microsoft 365 group is always direct.
+     * Check for membership in a specified list of group IDs, and return from that list those groups (identified by IDs) of which the specified user, group, service principal, organizational contact, device, or directory object is a member. This function is transitive. You can check up to a maximum of 20 groups per request. This function supports all groups provisioned in Azure AD. Because Microsoft 365 groups cannot contain other groups, membership in a Microsoft 365 group is always direct. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

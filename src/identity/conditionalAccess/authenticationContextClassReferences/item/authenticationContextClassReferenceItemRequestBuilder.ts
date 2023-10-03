@@ -1,16 +1,52 @@
-import { type AuthenticationContextClassReference } from '../../../../models/authenticationContextClassReference';
-import { createAuthenticationContextClassReferenceFromDiscriminatorValue } from '../../../../models/createAuthenticationContextClassReferenceFromDiscriminatorValue';
-import { deserializeIntoAuthenticationContextClassReference } from '../../../../models/deserializeIntoAuthenticationContextClassReference';
+import { createAuthenticationContextClassReferenceFromDiscriminatorValue, deserializeIntoAuthenticationContextClassReference, serializeAuthenticationContextClassReference, type AuthenticationContextClassReference } from '../../../../models/authenticationContextClassReference';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationContextClassReference } from '../../../../models/serializeAuthenticationContextClassReference';
-import { type AuthenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration } from './authenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration';
-import { type AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration } from './authenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration';
-import { type AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration } from './authenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AuthenticationContextClassReferenceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthenticationContextClassReferenceItemRequestBuilderGetQueryParameters;
+}
+export interface AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
  */
@@ -24,7 +60,7 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess/authenticationContextClassReferences/{authenticationContextClassReference%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an authenticationContextClassReference object that's not published or used by a conditional access policy.
+     * Delete an authenticationContextClassReference object that's not published or used by a conditional access policy. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/authenticationcontextclassreference-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a authenticationContextClassReference object.
+     * Retrieve the properties and relationships of a authenticationContextClassReference object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationContextClassReference
      * @see {@link https://learn.microsoft.com/graph/api/authenticationcontextclassreference-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +91,7 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         return this.requestAdapter.sendAsync<AuthenticationContextClassReference>(requestInfo, createAuthenticationContextClassReferenceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an authenticationContextClassReference object, if the ID has not been used. If ID has been used, this call updates the authenticationContextClassReference object.
+     * Create an authenticationContextClassReference object, if the ID has not been used. If ID has been used, this call updates the authenticationContextClassReference object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationContextClassReference
@@ -72,7 +108,7 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         return this.requestAdapter.sendAsync<AuthenticationContextClassReference>(requestInfo, createAuthenticationContextClassReferenceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an authenticationContextClassReference object that's not published or used by a conditional access policy.
+     * Delete an authenticationContextClassReference object that's not published or used by a conditional access policy. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a authenticationContextClassReference object.
+     * Retrieve the properties and relationships of a authenticationContextClassReference object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +142,7 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * Create an authenticationContextClassReference object, if the ID has not been used. If ID has been used, this call updates the authenticationContextClassReference object.
+     * Create an authenticationContextClassReference object, if the ID has not been used. If ID has been used, this call updates the authenticationContextClassReference object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

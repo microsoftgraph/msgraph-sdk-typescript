@@ -1,17 +1,49 @@
-import { createSubscriptionFromDiscriminatorValue } from '../../models/createSubscriptionFromDiscriminatorValue';
-import { deserializeIntoSubscription } from '../../models/deserializeIntoSubscription';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeSubscription } from '../../models/serializeSubscription';
-import { type Subscription } from '../../models/subscription';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createSubscriptionFromDiscriminatorValue, deserializeIntoSubscription, serializeSubscription, type Subscription } from '../../models/subscription';
 import { ReauthorizeRequestBuilder } from './reauthorize/reauthorizeRequestBuilder';
-import { type SubscriptionItemRequestBuilderDeleteRequestConfiguration } from './subscriptionItemRequestBuilderDeleteRequestConfiguration';
-import { type SubscriptionItemRequestBuilderGetRequestConfiguration } from './subscriptionItemRequestBuilderGetRequestConfiguration';
-import { type SubscriptionItemRequestBuilderPatchRequestConfiguration } from './subscriptionItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SubscriptionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SubscriptionItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SubscriptionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SubscriptionItemRequestBuilderGetQueryParameters;
+}
+export interface SubscriptionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of subscription entities.
  */
@@ -31,7 +63,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/subscriptions/{subscription%2Did}{?%24select}");
     };
     /**
-     * Delete a subscription. For the list of resources that support subscribing to change notifications, see the table in the Permissions section.
+     * Delete a subscription. For the list of resources that support subscribing to change notifications, see the table in the Permissions section. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/subscription-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -46,7 +78,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a subscription. See the table in the Permissions section for the list of resources that support subscribing to change notifications.
+     * Retrieve the properties and relationships of a subscription. See the table in the Permissions section for the list of resources that support subscribing to change notifications. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Subscription
      * @see {@link https://learn.microsoft.com/graph/api/subscription-get?view=graph-rest-1.0|Find more info here}
@@ -62,7 +94,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Subscription>(requestInfo, createSubscriptionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Renew a subscription by extending its expiry time. The table in the Permissions section lists the resources that support subscribing to change notifications. Subscriptions expire after a length of time that varies by resource type. In order to avoid missing change notifications, an app should renew its subscriptions well in advance of their expiry date. See subscription for maximum length of a subscription for each resource type.
+     * Renew a subscription by extending its expiry time. The table in the Permissions section lists the resources that support subscribing to change notifications. Subscriptions expire after a length of time that varies by resource type. In order to avoid missing change notifications, an app should renew its subscriptions well in advance of their expiry date. See subscription for maximum length of a subscription for each resource type. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Subscription
@@ -79,7 +111,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Subscription>(requestInfo, createSubscriptionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a subscription. For the list of resources that support subscribing to change notifications, see the table in the Permissions section.
+     * Delete a subscription. For the list of resources that support subscribing to change notifications, see the table in the Permissions section. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +127,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a subscription. See the table in the Permissions section for the list of resources that support subscribing to change notifications.
+     * Retrieve the properties and relationships of a subscription. See the table in the Permissions section for the list of resources that support subscribing to change notifications. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -113,7 +145,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Renew a subscription by extending its expiry time. The table in the Permissions section lists the resources that support subscribing to change notifications. Subscriptions expire after a length of time that varies by resource type. In order to avoid missing change notifications, an app should renew its subscriptions well in advance of their expiry date. See subscription for maximum length of a subscription for each resource type.
+     * Renew a subscription by extending its expiry time. The table in the Permissions section lists the resources that support subscribing to change notifications. Subscriptions expire after a length of time that varies by resource type. In order to avoid missing change notifications, an app should renew its subscriptions well in advance of their expiry date. See subscription for maximum length of a subscription for each resource type. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

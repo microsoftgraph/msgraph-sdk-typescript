@@ -1,17 +1,19 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { createGetByIdsResponseFromDiscriminatorValue } from './createGetByIdsResponseFromDiscriminatorValue';
-import { deserializeIntoGetByIdsPostRequestBody } from './deserializeIntoGetByIdsPostRequestBody';
-import { deserializeIntoGetByIdsResponse } from './deserializeIntoGetByIdsResponse';
-import { type GetByIdsPostRequestBody } from './getByIdsPostRequestBody';
-import { type GetByIdsRequestBuilderPostRequestConfiguration } from './getByIdsRequestBuilderPostRequestConfiguration';
-import { type GetByIdsResponse } from './getByIdsResponse';
-import { serializeGetByIdsPostRequestBody } from './serializeGetByIdsPostRequestBody';
-import { serializeGetByIdsResponse } from './serializeGetByIdsResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { deserializeIntoGetByIdsPostRequestBody, serializeGetByIdsPostRequestBody, type GetByIdsPostRequestBody } from './getByIdsPostRequestBody';
+import { createGetByIdsPostResponseFromDiscriminatorValue, deserializeIntoGetByIdsPostResponse, serializeGetByIdsPostResponse, type GetByIdsPostResponse } from './getByIdsPostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetByIdsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getByIds method.
  */
@@ -25,13 +27,13 @@ export class GetByIdsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/contacts/getByIds");
     };
     /**
-     * Return the directory objects specified in a list of IDs. Only a subset of user properties are returned by default in v1.0. Some common uses for this function are to:
+     * Return the directory objects specified in a list of IDs. Only a subset of user properties are returned by default in v1.0. Some common uses for this function are to: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetByIdsResponse
+     * @returns a Promise of GetByIdsPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getbyids?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetByIdsPostRequestBody, requestConfiguration?: GetByIdsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetByIdsResponse | undefined> {
+    public post(body: GetByIdsPostRequestBody, requestConfiguration?: GetByIdsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetByIdsPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class GetByIdsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<GetByIdsResponse>(requestInfo, createGetByIdsResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<GetByIdsPostResponse>(requestInfo, createGetByIdsPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Return the directory objects specified in a list of IDs. Only a subset of user properties are returned by default in v1.0. Some common uses for this function are to:
+     * Return the directory objects specified in a list of IDs. Only a subset of user properties are returned by default in v1.0. Some common uses for this function are to: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

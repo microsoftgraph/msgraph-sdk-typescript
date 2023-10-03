@@ -1,20 +1,71 @@
 import { type ContactCollectionResponse } from '../../models/';
-import { type Contact } from '../../models/contact';
-import { createContactCollectionResponseFromDiscriminatorValue } from '../../models/createContactCollectionResponseFromDiscriminatorValue';
-import { createContactFromDiscriminatorValue } from '../../models/createContactFromDiscriminatorValue';
-import { deserializeIntoContact } from '../../models/deserializeIntoContact';
+import { createContactFromDiscriminatorValue, deserializeIntoContact, serializeContact, type Contact } from '../../models/contact';
+import { createContactCollectionResponseFromDiscriminatorValue } from '../../models/contactCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeContact } from '../../models/serializeContact';
-import { type ContactsRequestBuilderGetRequestConfiguration } from './contactsRequestBuilderGetRequestConfiguration';
-import { type ContactsRequestBuilderPostRequestConfiguration } from './contactsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { ContactItemRequestBuilder } from './item/contactItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContactsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ContactsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContactsRequestBuilderGetQueryParameters;
+}
+export interface ContactsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the contacts property of the microsoft.graph.user entity.
  */
@@ -51,7 +102,7 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/contacts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a contact collection from the default contacts folder of the signed-in user. There are two scenarios where an app can get contacts in another user's contact folder:
+     * Get a contact collection from the default contacts folder of the signed-in user. There are two scenarios where an app can get contacts in another user's contact folder: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContactCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/user-list-contacts?view=graph-rest-1.0|Find more info here}
@@ -67,7 +118,7 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ContactCollectionResponse>(requestInfo, createContactCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.
+     * Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Contact
@@ -84,7 +135,7 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Contact>(requestInfo, createContactFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a contact collection from the default contacts folder of the signed-in user. There are two scenarios where an app can get contacts in another user's contact folder:
+     * Get a contact collection from the default contacts folder of the signed-in user. There are two scenarios where an app can get contacts in another user's contact folder: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +153,7 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.
+     * Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

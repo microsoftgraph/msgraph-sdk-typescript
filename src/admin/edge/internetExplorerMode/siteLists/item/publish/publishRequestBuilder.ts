@@ -1,17 +1,19 @@
-import { type BrowserSiteList } from '../../../../../../models/browserSiteList';
-import { createBrowserSiteListFromDiscriminatorValue } from '../../../../../../models/createBrowserSiteListFromDiscriminatorValue';
-import { deserializeIntoBrowserSiteList } from '../../../../../../models/deserializeIntoBrowserSiteList';
+import { createBrowserSiteListFromDiscriminatorValue, deserializeIntoBrowserSiteList, serializeBrowserSiteList, type BrowserSiteList } from '../../../../../../models/browserSiteList';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeBrowserSiteList } from '../../../../../../models/serializeBrowserSiteList';
-import { deserializeIntoPublishPostRequestBody } from './deserializeIntoPublishPostRequestBody';
-import { type PublishPostRequestBody } from './publishPostRequestBody';
-import { type PublishRequestBuilderPostRequestConfiguration } from './publishRequestBuilderPostRequestConfiguration';
-import { serializePublishPostRequestBody } from './serializePublishPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoPublishPostRequestBody, serializePublishPostRequestBody, type PublishPostRequestBody } from './publishPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PublishRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the publish method.
  */
@@ -25,7 +27,7 @@ export class PublishRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/publish");
     };
     /**
-     * Publish the specified browserSiteList for devices to download.
+     * Publish the specified browserSiteList for devices to download. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSiteList
@@ -42,7 +44,7 @@ export class PublishRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Publish the specified browserSiteList for devices to download.
+     * Publish the specified browserSiteList for devices to download. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

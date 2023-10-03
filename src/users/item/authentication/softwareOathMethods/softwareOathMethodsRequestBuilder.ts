@@ -1,14 +1,59 @@
 import { type SoftwareOathAuthenticationMethodCollectionResponse } from '../../../../models/';
-import { createSoftwareOathAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../../models/createSoftwareOathAuthenticationMethodCollectionResponseFromDiscriminatorValue';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createSoftwareOathAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../../models/softwareOathAuthenticationMethodCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SoftwareOathAuthenticationMethodItemRequestBuilder } from './item/softwareOathAuthenticationMethodItemRequestBuilder';
-import { type SoftwareOathMethodsRequestBuilderGetRequestConfiguration } from './softwareOathMethodsRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SoftwareOathMethodsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SoftwareOathMethodsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SoftwareOathMethodsRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
  */
@@ -39,7 +84,7 @@ export class SoftwareOathMethodsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/softwareOathMethods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of a user's software OATH token authentication method objects and their properties.
+     * Retrieve a list of a user's software OATH token authentication method objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SoftwareOathAuthenticationMethodCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/authentication-list-softwareoathmethods?view=graph-rest-1.0|Find more info here}
@@ -55,7 +100,7 @@ export class SoftwareOathMethodsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SoftwareOathAuthenticationMethodCollectionResponse>(requestInfo, createSoftwareOathAuthenticationMethodCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of a user's software OATH token authentication method objects and their properties.
+     * Retrieve a list of a user's software OATH token authentication method objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,15 +1,19 @@
-import { createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue } from '../../../../models/createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue';
-import { deserializeIntoSynchronizationSecretKeyStringValuePair } from '../../../../models/deserializeIntoSynchronizationSecretKeyStringValuePair';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeSynchronizationSecretKeyStringValuePair } from '../../../../models/serializeSynchronizationSecretKeyStringValuePair';
-import { type SynchronizationSecretKeyStringValuePair } from '../../../../models/synchronizationSecretKeyStringValuePair';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue, deserializeIntoSynchronizationSecretKeyStringValuePair, serializeSynchronizationSecretKeyStringValuePair, type SynchronizationSecretKeyStringValuePair } from '../../../../models/synchronizationSecretKeyStringValuePair';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type SecretsRequestBuilderPutRequestConfiguration } from './secretsRequestBuilderPutRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SecretsRequestBuilderPutRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Builds and executes requests for operations under /servicePrincipals/{servicePrincipal-id}/synchronization/secrets
  */

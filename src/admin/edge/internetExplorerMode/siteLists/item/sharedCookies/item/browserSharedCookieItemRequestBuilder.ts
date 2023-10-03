@@ -1,16 +1,52 @@
-import { type BrowserSharedCookie } from '../../../../../../../models/browserSharedCookie';
-import { createBrowserSharedCookieFromDiscriminatorValue } from '../../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
-import { deserializeIntoBrowserSharedCookie } from '../../../../../../../models/deserializeIntoBrowserSharedCookie';
+import { createBrowserSharedCookieFromDiscriminatorValue, deserializeIntoBrowserSharedCookie, serializeBrowserSharedCookie, type BrowserSharedCookie } from '../../../../../../../models/browserSharedCookie';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeBrowserSharedCookie } from '../../../../../../../models/serializeBrowserSharedCookie';
-import { type BrowserSharedCookieItemRequestBuilderDeleteRequestConfiguration } from './browserSharedCookieItemRequestBuilderDeleteRequestConfiguration';
-import { type BrowserSharedCookieItemRequestBuilderGetRequestConfiguration } from './browserSharedCookieItemRequestBuilderGetRequestConfiguration';
-import { type BrowserSharedCookieItemRequestBuilderPatchRequestConfiguration } from './browserSharedCookieItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BrowserSharedCookieItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BrowserSharedCookieItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BrowserSharedCookieItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BrowserSharedCookieItemRequestBuilderGetQueryParameters;
+}
+export interface BrowserSharedCookieItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
  */
@@ -24,7 +60,7 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sharedCookies/{browserSharedCookie%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a browserSharedCookie from a browserSiteList.
+     * Delete a browserSharedCookie from a browserSiteList. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-delete-sharedcookies?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode.
+     * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSharedCookie
      * @see {@link https://learn.microsoft.com/graph/api/browsersharedcookie-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +91,7 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BrowserSharedCookie>(requestInfo, createBrowserSharedCookieFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a browserSharedCookie object.
+     * Update the properties of a browserSharedCookie object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSharedCookie
@@ -72,7 +108,7 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BrowserSharedCookie>(requestInfo, createBrowserSharedCookieFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a browserSharedCookie from a browserSiteList.
+     * Delete a browserSharedCookie from a browserSiteList. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode.
+     * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +142,7 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a browserSharedCookie object.
+     * Update the properties of a browserSharedCookie object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

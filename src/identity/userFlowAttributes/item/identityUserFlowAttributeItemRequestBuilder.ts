@@ -1,16 +1,52 @@
-import { createIdentityUserFlowAttributeFromDiscriminatorValue } from '../../../models/createIdentityUserFlowAttributeFromDiscriminatorValue';
-import { deserializeIntoIdentityUserFlowAttribute } from '../../../models/deserializeIntoIdentityUserFlowAttribute';
-import { type IdentityUserFlowAttribute } from '../../../models/identityUserFlowAttribute';
+import { createIdentityUserFlowAttributeFromDiscriminatorValue, deserializeIntoIdentityUserFlowAttribute, serializeIdentityUserFlowAttribute, type IdentityUserFlowAttribute } from '../../../models/identityUserFlowAttribute';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeIdentityUserFlowAttribute } from '../../../models/serializeIdentityUserFlowAttribute';
-import { type IdentityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration } from './identityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration';
-import { type IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration } from './identityUserFlowAttributeItemRequestBuilderGetRequestConfiguration';
-import { type IdentityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration } from './identityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters;
+}
+export interface IdentityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
  */
@@ -24,7 +60,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
         super(pathParameters, requestAdapter, "{+baseurl}/identity/userFlowAttributes/{identityUserFlowAttribute%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an identityUserFlowAttribute. Only custom user flow attributes can be deleted.
+     * Delete a custom identityUserFlowAttribute. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a identityUserFlowAttribute object.
+     * Retrieve the properties and relationships of a identityUserFlowAttribute object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityUserFlowAttribute
      * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +91,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<IdentityUserFlowAttribute>(requestInfo, createIdentityUserFlowAttributeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a identityUserFlowAttribute object. Only custom user flow attributes can be updated.
+     * Update the properties of a custom identityUserFlowAttribute object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityUserFlowAttribute
@@ -72,7 +108,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<IdentityUserFlowAttribute>(requestInfo, createIdentityUserFlowAttributeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an identityUserFlowAttribute. Only custom user flow attributes can be deleted.
+     * Delete a custom identityUserFlowAttribute. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a identityUserFlowAttribute object.
+     * Retrieve the properties and relationships of a identityUserFlowAttribute object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +142,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Update the properties of a identityUserFlowAttribute object. Only custom user flow attributes can be updated.
+     * Update the properties of a custom identityUserFlowAttribute object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

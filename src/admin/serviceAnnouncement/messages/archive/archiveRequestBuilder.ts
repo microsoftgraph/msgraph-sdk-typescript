@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type ArchivePostRequestBody } from './archivePostRequestBody';
-import { type ArchiveRequestBuilderPostRequestConfiguration } from './archiveRequestBuilderPostRequestConfiguration';
-import { type ArchiveResponse } from './archiveResponse';
-import { createArchiveResponseFromDiscriminatorValue } from './createArchiveResponseFromDiscriminatorValue';
-import { deserializeIntoArchivePostRequestBody } from './deserializeIntoArchivePostRequestBody';
-import { deserializeIntoArchiveResponse } from './deserializeIntoArchiveResponse';
-import { serializeArchivePostRequestBody } from './serializeArchivePostRequestBody';
-import { serializeArchiveResponse } from './serializeArchiveResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoArchivePostRequestBody, serializeArchivePostRequestBody, type ArchivePostRequestBody } from './archivePostRequestBody';
+import { createArchivePostResponseFromDiscriminatorValue, deserializeIntoArchivePostResponse, serializeArchivePostResponse, type ArchivePostResponse } from './archivePostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ArchiveRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the archive method.
  */
@@ -25,13 +27,13 @@ export class ArchiveRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/archive");
     };
     /**
-     * Archive a list of serviceUpdateMessages for the signed in user.
+     * Archive a list of serviceUpdateMessages for the signed in user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of ArchiveResponse
+     * @returns a Promise of ArchivePostResponse
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ArchivePostRequestBody, requestConfiguration?: ArchiveRequestBuilderPostRequestConfiguration | undefined) : Promise<ArchiveResponse | undefined> {
+    public post(body: ArchivePostRequestBody, requestConfiguration?: ArchiveRequestBuilderPostRequestConfiguration | undefined) : Promise<ArchivePostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class ArchiveRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<ArchiveResponse>(requestInfo, createArchiveResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<ArchivePostResponse>(requestInfo, createArchivePostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Archive a list of serviceUpdateMessages for the signed in user.
+     * Archive a list of serviceUpdateMessages for the signed in user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

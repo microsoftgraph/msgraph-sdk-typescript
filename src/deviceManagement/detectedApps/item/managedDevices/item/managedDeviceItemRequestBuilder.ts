@@ -1,12 +1,33 @@
 import { type ManagedDevice } from '../../../../../models/';
-import { createManagedDeviceFromDiscriminatorValue } from '../../../../../models/createManagedDeviceFromDiscriminatorValue';
+import { createManagedDeviceFromDiscriminatorValue } from '../../../../../models/managedDevice';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type ManagedDeviceItemRequestBuilderGetRequestConfiguration } from './managedDeviceItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ManagedDeviceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ManagedDeviceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ManagedDeviceItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
  */

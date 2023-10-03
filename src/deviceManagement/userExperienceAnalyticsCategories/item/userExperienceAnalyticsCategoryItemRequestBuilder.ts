@@ -1,17 +1,53 @@
-import { createUserExperienceAnalyticsCategoryFromDiscriminatorValue } from '../../../models/createUserExperienceAnalyticsCategoryFromDiscriminatorValue';
-import { deserializeIntoUserExperienceAnalyticsCategory } from '../../../models/deserializeIntoUserExperienceAnalyticsCategory';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUserExperienceAnalyticsCategory } from '../../../models/serializeUserExperienceAnalyticsCategory';
-import { type UserExperienceAnalyticsCategory } from '../../../models/userExperienceAnalyticsCategory';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsCategoryFromDiscriminatorValue, deserializeIntoUserExperienceAnalyticsCategory, serializeUserExperienceAnalyticsCategory, type UserExperienceAnalyticsCategory } from '../../../models/userExperienceAnalyticsCategory';
 import { MetricValuesRequestBuilder } from './metricValues/metricValuesRequestBuilder';
-import { type UserExperienceAnalyticsCategoryItemRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsCategoryItemRequestBuilderDeleteRequestConfiguration';
-import { type UserExperienceAnalyticsCategoryItemRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsCategoryItemRequestBuilderGetRequestConfiguration';
-import { type UserExperienceAnalyticsCategoryItemRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsCategoryItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserExperienceAnalyticsCategoryItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserExperienceAnalyticsCategoryItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserExperienceAnalyticsCategoryItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserExperienceAnalyticsCategoryItemRequestBuilderGetQueryParameters;
+}
+export interface UserExperienceAnalyticsCategoryItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userExperienceAnalyticsCategories property of the microsoft.graph.deviceManagement entity.
  */

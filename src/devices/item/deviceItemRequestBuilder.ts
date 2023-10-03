@@ -1,16 +1,8 @@
-import { createDeviceFromDiscriminatorValue } from '../../models/createDeviceFromDiscriminatorValue';
-import { deserializeIntoDevice } from '../../models/deserializeIntoDevice';
-import { type Device } from '../../models/device';
+import { createDeviceFromDiscriminatorValue, deserializeIntoDevice, serializeDevice, type Device } from '../../models/device';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDevice } from '../../models/serializeDevice';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import { type DeviceItemRequestBuilderDeleteRequestConfiguration } from './deviceItemRequestBuilderDeleteRequestConfiguration';
-import { type DeviceItemRequestBuilderGetRequestConfiguration } from './deviceItemRequestBuilderGetRequestConfiguration';
-import { type DeviceItemRequestBuilderPatchRequestConfiguration } from './deviceItemRequestBuilderPatchRequestConfiguration';
 import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
 import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
 import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
@@ -21,6 +13,50 @@ import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
 import { TransitiveMemberOfRequestBuilder } from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceItemRequestBuilderGetQueryParameters;
+}
+export interface DeviceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of device entities.
  */
@@ -94,7 +130,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/devices/{device%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a registered device.
+     * Delete a registered device. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/device-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -109,7 +145,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the properties and relationships of a device object.
+     * Get the properties and relationships of a device object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Device
      * @see {@link https://learn.microsoft.com/graph/api/device-get?view=graph-rest-1.0|Find more info here}
@@ -125,7 +161,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a registered device. Only certain properties of a device can be updated through approved Mobile Device Managment (MDM) apps.
+     * Update the properties of a registered device. Only certain properties of a device can be updated through approved Mobile Device Managment (MDM) apps. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Device
@@ -142,7 +178,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a registered device.
+     * Delete a registered device. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -158,7 +194,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties and relationships of a device object.
+     * Get the properties and relationships of a device object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -176,7 +212,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a registered device. Only certain properties of a device can be updated through approved Mobile Device Managment (MDM) apps.
+     * Update the properties of a registered device. Only certain properties of a device can be updated through approved Mobile Device Managment (MDM) apps. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

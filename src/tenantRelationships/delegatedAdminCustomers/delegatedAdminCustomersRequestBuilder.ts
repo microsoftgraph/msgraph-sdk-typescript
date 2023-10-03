@@ -1,19 +1,70 @@
 import { type DelegatedAdminCustomerCollectionResponse } from '../../models/';
-import { createDelegatedAdminCustomerCollectionResponseFromDiscriminatorValue } from '../../models/createDelegatedAdminCustomerCollectionResponseFromDiscriminatorValue';
-import { createDelegatedAdminCustomerFromDiscriminatorValue } from '../../models/createDelegatedAdminCustomerFromDiscriminatorValue';
-import { type DelegatedAdminCustomer } from '../../models/delegatedAdminCustomer';
-import { deserializeIntoDelegatedAdminCustomer } from '../../models/deserializeIntoDelegatedAdminCustomer';
+import { createDelegatedAdminCustomerFromDiscriminatorValue, deserializeIntoDelegatedAdminCustomer, serializeDelegatedAdminCustomer, type DelegatedAdminCustomer } from '../../models/delegatedAdminCustomer';
+import { createDelegatedAdminCustomerCollectionResponseFromDiscriminatorValue } from '../../models/delegatedAdminCustomerCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDelegatedAdminCustomer } from '../../models/serializeDelegatedAdminCustomer';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DelegatedAdminCustomersRequestBuilderGetRequestConfiguration } from './delegatedAdminCustomersRequestBuilderGetRequestConfiguration';
-import { type DelegatedAdminCustomersRequestBuilderPostRequestConfiguration } from './delegatedAdminCustomersRequestBuilderPostRequestConfiguration';
 import { DelegatedAdminCustomerItemRequestBuilder } from './item/delegatedAdminCustomerItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DelegatedAdminCustomersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DelegatedAdminCustomersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DelegatedAdminCustomersRequestBuilderGetQueryParameters;
+}
+export interface DelegatedAdminCustomersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
  */
@@ -44,7 +95,7 @@ export class DelegatedAdminCustomersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminCustomers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the delegatedAdminCustomer objects and their properties.
+     * Get a list of the delegatedAdminCustomer objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminCustomerCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/tenantrelationship-list-delegatedadmincustomers?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class DelegatedAdminCustomersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DelegatedAdminCustomer>(requestInfo, createDelegatedAdminCustomerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the delegatedAdminCustomer objects and their properties.
+     * Get a list of the delegatedAdminCustomer objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -9,3 +9,5 @@ export enum SafeSearchFilterType {
     /** Moderate filtering against adult content (valid search results will not be filtered). */
     Moderate = "moderate",
 }
+// tslint:enable
+// eslint-enable

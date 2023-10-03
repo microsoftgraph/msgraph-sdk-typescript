@@ -1,16 +1,52 @@
-import { createOnPremisesDirectorySynchronizationFromDiscriminatorValue } from '../../../models/createOnPremisesDirectorySynchronizationFromDiscriminatorValue';
-import { deserializeIntoOnPremisesDirectorySynchronization } from '../../../models/deserializeIntoOnPremisesDirectorySynchronization';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type OnPremisesDirectorySynchronization } from '../../../models/onPremisesDirectorySynchronization';
-import { serializeOnPremisesDirectorySynchronization } from '../../../models/serializeOnPremisesDirectorySynchronization';
-import { type OnPremisesDirectorySynchronizationItemRequestBuilderDeleteRequestConfiguration } from './onPremisesDirectorySynchronizationItemRequestBuilderDeleteRequestConfiguration';
-import { type OnPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration } from './onPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration';
-import { type OnPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration } from './onPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createOnPremisesDirectorySynchronizationFromDiscriminatorValue, deserializeIntoOnPremisesDirectorySynchronization, serializeOnPremisesDirectorySynchronization, type OnPremisesDirectorySynchronization } from '../../../models/onPremisesDirectorySynchronization';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OnPremisesDirectorySynchronizationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OnPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters;
+}
+export interface OnPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
  */
@@ -38,7 +74,7 @@ export class OnPremisesDirectorySynchronizationItemRequestBuilder extends BaseRe
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
+     * Read the properties and relationships of an onPremisesDirectorySynchronization object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnPremisesDirectorySynchronization
      * @see {@link https://learn.microsoft.com/graph/api/onpremisesdirectorysynchronization-get?view=graph-rest-1.0|Find more info here}
@@ -54,7 +90,7 @@ export class OnPremisesDirectorySynchronizationItemRequestBuilder extends BaseRe
         return this.requestAdapter.sendAsync<OnPremisesDirectorySynchronization>(requestInfo, createOnPremisesDirectorySynchronizationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an onPremisesDirectorySynchronization object.
+     * Update the properties of an onPremisesDirectorySynchronization object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnPremisesDirectorySynchronization
@@ -87,7 +123,7 @@ export class OnPremisesDirectorySynchronizationItemRequestBuilder extends BaseRe
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
+     * Read the properties and relationships of an onPremisesDirectorySynchronization object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class OnPremisesDirectorySynchronizationItemRequestBuilder extends BaseRe
         return requestInfo;
     };
     /**
-     * Update the properties of an onPremisesDirectorySynchronization object.
+     * Update the properties of an onPremisesDirectorySynchronization object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

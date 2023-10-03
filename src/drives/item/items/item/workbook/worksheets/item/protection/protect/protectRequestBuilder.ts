@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoProtectPostRequestBody } from './deserializeIntoProtectPostRequestBody';
-import { type ProtectPostRequestBody } from './protectPostRequestBody';
-import { type ProtectRequestBuilderPostRequestConfiguration } from './protectRequestBuilderPostRequestConfiguration';
-import { serializeProtectPostRequestBody } from './serializeProtectPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoProtectPostRequestBody, serializeProtectPostRequestBody, type ProtectPostRequestBody } from './protectPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ProtectRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the protect method.
  */
@@ -21,7 +26,7 @@ export class ProtectRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/protection/protect");
     };
     /**
-     * Protect a worksheet. It throws if the worksheet has been protected.
+     * Protect a worksheet. It throws if the worksheet has been protected. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/worksheetprotection-protect?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class ProtectRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Protect a worksheet. It throws if the worksheet has been protected.
+     * Protect a worksheet. It throws if the worksheet has been protected. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

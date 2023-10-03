@@ -5,3 +5,5 @@ export enum AttributeFlowType {
     ValueAddOnly = "ValueAddOnly",
     AttributeAddOnly = "AttributeAddOnly",
 }
+// tslint:enable
+// eslint-enable

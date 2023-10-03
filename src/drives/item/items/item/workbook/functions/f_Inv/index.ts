@@ -1,5 +1,2 @@
-export * from './createF_InvPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoF_InvPostRequestBody'
 export * from './f_InvPostRequestBody'
-export * from './f_InvRequestBuilderPostRequestConfiguration'
-export * from './serializeF_InvPostRequestBody'
+export * from './f_InvRequestBuilder'

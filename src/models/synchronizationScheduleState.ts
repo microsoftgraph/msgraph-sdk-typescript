@@ -3,3 +3,5 @@ export enum SynchronizationScheduleState {
     Disabled = "Disabled",
     Paused = "Paused",
 }
+// tslint:enable
+// eslint-enable

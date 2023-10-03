@@ -1,16 +1,52 @@
-import { type BrowserSite } from '../../../../../../../models/browserSite';
-import { createBrowserSiteFromDiscriminatorValue } from '../../../../../../../models/createBrowserSiteFromDiscriminatorValue';
-import { deserializeIntoBrowserSite } from '../../../../../../../models/deserializeIntoBrowserSite';
+import { createBrowserSiteFromDiscriminatorValue, deserializeIntoBrowserSite, serializeBrowserSite, type BrowserSite } from '../../../../../../../models/browserSite';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeBrowserSite } from '../../../../../../../models/serializeBrowserSite';
-import { type BrowserSiteItemRequestBuilderDeleteRequestConfiguration } from './browserSiteItemRequestBuilderDeleteRequestConfiguration';
-import { type BrowserSiteItemRequestBuilderGetRequestConfiguration } from './browserSiteItemRequestBuilderGetRequestConfiguration';
-import { type BrowserSiteItemRequestBuilderPatchRequestConfiguration } from './browserSiteItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface BrowserSiteItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface BrowserSiteItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface BrowserSiteItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: BrowserSiteItemRequestBuilderGetQueryParameters;
+}
+export interface BrowserSiteItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
  */
@@ -24,7 +60,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites/{browserSite%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a browserSite from a browserSiteList.
+     * Delete a browserSite from a browserSiteList. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-delete-sites?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get a browserSite that resides on a browserSiteList.
+     * Get a browserSite that resides on a browserSiteList. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSite
      * @see {@link https://learn.microsoft.com/graph/api/browsersite-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +91,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BrowserSite>(requestInfo, createBrowserSiteFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a browserSite object.
+     * Update the properties of a browserSite object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSite
@@ -72,7 +108,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BrowserSite>(requestInfo, createBrowserSiteFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a browserSite from a browserSiteList.
+     * Delete a browserSite from a browserSiteList. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get a browserSite that resides on a browserSiteList.
+     * Get a browserSite that resides on a browserSiteList. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +142,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a browserSite object.
+     * Update the properties of a browserSite object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

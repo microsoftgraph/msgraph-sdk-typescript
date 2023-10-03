@@ -1,18 +1,54 @@
-import { createSharedInsightFromDiscriminatorValue } from '../../../../models/createSharedInsightFromDiscriminatorValue';
-import { deserializeIntoSharedInsight } from '../../../../models/deserializeIntoSharedInsight';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeSharedInsight } from '../../../../models/serializeSharedInsight';
-import { type SharedInsight } from '../../../../models/sharedInsight';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createSharedInsightFromDiscriminatorValue, deserializeIntoSharedInsight, serializeSharedInsight, type SharedInsight } from '../../../../models/sharedInsight';
 import { LastSharedMethodRequestBuilder } from './lastSharedMethod/lastSharedMethodRequestBuilder';
 import { ResourceRequestBuilder } from './resource/resourceRequestBuilder';
-import { type SharedInsightItemRequestBuilderDeleteRequestConfiguration } from './sharedInsightItemRequestBuilderDeleteRequestConfiguration';
-import { type SharedInsightItemRequestBuilderGetRequestConfiguration } from './sharedInsightItemRequestBuilderGetRequestConfiguration';
-import { type SharedInsightItemRequestBuilderPatchRequestConfiguration } from './sharedInsightItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SharedInsightItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SharedInsightItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SharedInsightItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SharedInsightItemRequestBuilderGetQueryParameters;
+}
+export interface SharedInsightItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
  */

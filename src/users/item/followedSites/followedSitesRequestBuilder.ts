@@ -1,14 +1,59 @@
 import { type SiteCollectionResponse } from '../../../models/';
-import { createSiteCollectionResponseFromDiscriminatorValue } from '../../../models/createSiteCollectionResponseFromDiscriminatorValue';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createSiteCollectionResponseFromDiscriminatorValue } from '../../../models/siteCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type FollowedSitesRequestBuilderGetRequestConfiguration } from './followedSitesRequestBuilderGetRequestConfiguration';
 import { SiteItemRequestBuilder } from './item/siteItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FollowedSitesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface FollowedSitesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FollowedSitesRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the followedSites property of the microsoft.graph.user entity.
  */
@@ -39,7 +84,7 @@ export class FollowedSitesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/followedSites{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List the sites that have been followed by the signed in user.
+     * List the sites that have been followed by the signed in user. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SiteCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/sites-list-followed?view=graph-rest-1.0|Find more info here}
@@ -55,7 +100,7 @@ export class FollowedSitesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SiteCollectionResponse>(requestInfo, createSiteCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List the sites that have been followed by the signed in user.
+     * List the sites that have been followed by the signed in user. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

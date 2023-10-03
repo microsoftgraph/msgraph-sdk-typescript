@@ -1,19 +1,70 @@
 import { type UserInstallStateSummaryCollectionResponse } from '../../../../models/';
-import { createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue } from '../../../../models/createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue';
-import { createUserInstallStateSummaryFromDiscriminatorValue } from '../../../../models/createUserInstallStateSummaryFromDiscriminatorValue';
-import { deserializeIntoUserInstallStateSummary } from '../../../../models/deserializeIntoUserInstallStateSummary';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUserInstallStateSummary } from '../../../../models/serializeUserInstallStateSummary';
-import { type UserInstallStateSummary } from '../../../../models/userInstallStateSummary';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUserInstallStateSummaryFromDiscriminatorValue, deserializeIntoUserInstallStateSummary, serializeUserInstallStateSummary, type UserInstallStateSummary } from '../../../../models/userInstallStateSummary';
+import { createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue } from '../../../../models/userInstallStateSummaryCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserInstallStateSummaryItemRequestBuilder } from './item/userInstallStateSummaryItemRequestBuilder';
-import { type UserStateSummaryRequestBuilderGetRequestConfiguration } from './userStateSummaryRequestBuilderGetRequestConfiguration';
-import { type UserStateSummaryRequestBuilderPostRequestConfiguration } from './userStateSummaryRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserStateSummaryRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserStateSummaryRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserStateSummaryRequestBuilderGetQueryParameters;
+}
+export interface UserStateSummaryRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
  */

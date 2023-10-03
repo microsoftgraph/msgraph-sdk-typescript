@@ -1,16 +1,52 @@
-import { createEducationCategoryFromDiscriminatorValue } from '../../../../../models/createEducationCategoryFromDiscriminatorValue';
-import { deserializeIntoEducationCategory } from '../../../../../models/deserializeIntoEducationCategory';
-import { type EducationCategory } from '../../../../../models/educationCategory';
+import { createEducationCategoryFromDiscriminatorValue, deserializeIntoEducationCategory, serializeEducationCategory, type EducationCategory } from '../../../../../models/educationCategory';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationCategory } from '../../../../../models/serializeEducationCategory';
-import { type EducationCategoryItemRequestBuilderDeleteRequestConfiguration } from './educationCategoryItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationCategoryItemRequestBuilderGetRequestConfiguration } from './educationCategoryItemRequestBuilderGetRequestConfiguration';
-import { type EducationCategoryItemRequestBuilderPatchRequestConfiguration } from './educationCategoryItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationCategoryItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationCategoryItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationCategoryItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationCategoryItemRequestBuilderGetQueryParameters;
+}
+export interface EducationCategoryItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
  */
@@ -24,7 +60,7 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/assignmentCategories/{educationCategory%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an existing category. Only teachers can perform this operation.
+     * Delete an existing category. Only teachers can perform this operation. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/educationcategory-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation.
+     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationCategory
      * @see {@link https://learn.microsoft.com/graph/api/educationcategory-get?view=graph-rest-1.0|Find more info here}
@@ -71,7 +107,7 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationCategory>(requestInfo, createEducationCategoryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an existing category. Only teachers can perform this operation.
+     * Delete an existing category. Only teachers can perform this operation. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -87,7 +123,7 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation.
+     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

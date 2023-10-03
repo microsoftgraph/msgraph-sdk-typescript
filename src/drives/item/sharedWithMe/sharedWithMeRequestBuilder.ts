@@ -1,12 +1,53 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createSharedWithMeResponseFromDiscriminatorValue } from './createSharedWithMeResponseFromDiscriminatorValue';
-import { type SharedWithMeResponse } from './index';
-import { type SharedWithMeRequestBuilderGetRequestConfiguration } from './sharedWithMeRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { type SharedWithMeGetResponse } from './index';
+import { createSharedWithMeGetResponseFromDiscriminatorValue } from './sharedWithMeGetResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SharedWithMeRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SharedWithMeRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SharedWithMeRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to call the sharedWithMe method.
  */
@@ -22,9 +63,9 @@ export class SharedWithMeRequestBuilder extends BaseRequestBuilder {
     /**
      * Invoke function sharedWithMe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SharedWithMeResponse
+     * @returns a Promise of SharedWithMeGetResponse
      */
-    public get(requestConfiguration?: SharedWithMeRequestBuilderGetRequestConfiguration | undefined) : Promise<SharedWithMeResponse | undefined> {
+    public get(requestConfiguration?: SharedWithMeRequestBuilderGetRequestConfiguration | undefined) : Promise<SharedWithMeGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -32,7 +73,7 @@ export class SharedWithMeRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<SharedWithMeResponse>(requestInfo, createSharedWithMeResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<SharedWithMeGetResponse>(requestInfo, createSharedWithMeGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function sharedWithMe

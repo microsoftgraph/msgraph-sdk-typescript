@@ -1,19 +1,70 @@
 import { type FeatureRolloutPolicyCollectionResponse } from '../../models/';
-import { createFeatureRolloutPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createFeatureRolloutPolicyCollectionResponseFromDiscriminatorValue';
-import { createFeatureRolloutPolicyFromDiscriminatorValue } from '../../models/createFeatureRolloutPolicyFromDiscriminatorValue';
-import { deserializeIntoFeatureRolloutPolicy } from '../../models/deserializeIntoFeatureRolloutPolicy';
-import { type FeatureRolloutPolicy } from '../../models/featureRolloutPolicy';
+import { createFeatureRolloutPolicyFromDiscriminatorValue, deserializeIntoFeatureRolloutPolicy, serializeFeatureRolloutPolicy, type FeatureRolloutPolicy } from '../../models/featureRolloutPolicy';
+import { createFeatureRolloutPolicyCollectionResponseFromDiscriminatorValue } from '../../models/featureRolloutPolicyCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeFeatureRolloutPolicy } from '../../models/serializeFeatureRolloutPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type FeatureRolloutPoliciesRequestBuilderGetRequestConfiguration } from './featureRolloutPoliciesRequestBuilderGetRequestConfiguration';
-import { type FeatureRolloutPoliciesRequestBuilderPostRequestConfiguration } from './featureRolloutPoliciesRequestBuilderPostRequestConfiguration';
 import { FeatureRolloutPolicyItemRequestBuilder } from './item/featureRolloutPolicyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FeatureRolloutPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface FeatureRolloutPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FeatureRolloutPoliciesRequestBuilderGetQueryParameters;
+}
+export interface FeatureRolloutPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
  */
@@ -44,7 +95,7 @@ export class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/featureRolloutPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of featureRolloutPolicy objects.
+     * Retrieve a list of featureRolloutPolicy objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FeatureRolloutPolicyCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicies-list?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<FeatureRolloutPolicyCollectionResponse>(requestInfo, createFeatureRolloutPolicyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new featureRolloutPolicy object.
+     * Create a new featureRolloutPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FeatureRolloutPolicy
@@ -77,7 +128,7 @@ export class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<FeatureRolloutPolicy>(requestInfo, createFeatureRolloutPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of featureRolloutPolicy objects.
+     * Retrieve a list of featureRolloutPolicy objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new featureRolloutPolicy object.
+     * Create a new featureRolloutPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

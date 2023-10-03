@@ -15,3 +15,5 @@ export enum RatingFranceMoviesType {
     /** The 18 classification prohibits the screening to minors under 18 */
     AgesAbove18 = "agesAbove18",
 }
+// tslint:enable
+// eslint-enable

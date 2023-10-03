@@ -1,19 +1,70 @@
 import { type BookingCustomQuestionCollectionResponse } from '../../../../models/';
-import { type BookingCustomQuestion } from '../../../../models/bookingCustomQuestion';
-import { createBookingCustomQuestionCollectionResponseFromDiscriminatorValue } from '../../../../models/createBookingCustomQuestionCollectionResponseFromDiscriminatorValue';
-import { createBookingCustomQuestionFromDiscriminatorValue } from '../../../../models/createBookingCustomQuestionFromDiscriminatorValue';
-import { deserializeIntoBookingCustomQuestion } from '../../../../models/deserializeIntoBookingCustomQuestion';
+import { createBookingCustomQuestionFromDiscriminatorValue, deserializeIntoBookingCustomQuestion, serializeBookingCustomQuestion, type BookingCustomQuestion } from '../../../../models/bookingCustomQuestion';
+import { createBookingCustomQuestionCollectionResponseFromDiscriminatorValue } from '../../../../models/bookingCustomQuestionCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingCustomQuestion } from '../../../../models/serializeBookingCustomQuestion';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type CustomQuestionsRequestBuilderGetRequestConfiguration } from './customQuestionsRequestBuilderGetRequestConfiguration';
-import { type CustomQuestionsRequestBuilderPostRequestConfiguration } from './customQuestionsRequestBuilderPostRequestConfiguration';
 import { BookingCustomQuestionItemRequestBuilder } from './item/bookingCustomQuestionItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CustomQuestionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface CustomQuestionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CustomQuestionsRequestBuilderGetQueryParameters;
+}
+export interface CustomQuestionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
  */
@@ -44,7 +95,7 @@ export class CustomQuestionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the bookingCustomQuestion resources associated with a bookingBusiness.
+     * Get the bookingCustomQuestion resources associated with a bookingBusiness. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCustomQuestionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-customquestions?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class CustomQuestionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BookingCustomQuestionCollectionResponse>(requestInfo, createBookingCustomQuestionCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new bookingCustomQuestion object.
+     * Create a new bookingCustomQuestion object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCustomQuestion
@@ -77,7 +128,7 @@ export class CustomQuestionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BookingCustomQuestion>(requestInfo, createBookingCustomQuestionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the bookingCustomQuestion resources associated with a bookingBusiness.
+     * Get the bookingCustomQuestion resources associated with a bookingBusiness. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class CustomQuestionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new bookingCustomQuestion object.
+     * Create a new bookingCustomQuestion object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,16 +1,48 @@
-import { type CalendarPermission } from '../../../../../../../models/calendarPermission';
-import { createCalendarPermissionFromDiscriminatorValue } from '../../../../../../../models/createCalendarPermissionFromDiscriminatorValue';
-import { deserializeIntoCalendarPermission } from '../../../../../../../models/deserializeIntoCalendarPermission';
+import { createCalendarPermissionFromDiscriminatorValue, deserializeIntoCalendarPermission, serializeCalendarPermission, type CalendarPermission } from '../../../../../../../models/calendarPermission';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeCalendarPermission } from '../../../../../../../models/serializeCalendarPermission';
-import { type CalendarPermissionItemRequestBuilderDeleteRequestConfiguration } from './calendarPermissionItemRequestBuilderDeleteRequestConfiguration';
-import { type CalendarPermissionItemRequestBuilderGetRequestConfiguration } from './calendarPermissionItemRequestBuilderGetRequestConfiguration';
-import { type CalendarPermissionItemRequestBuilderPatchRequestConfiguration } from './calendarPermissionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CalendarPermissionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CalendarPermissionItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CalendarPermissionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CalendarPermissionItemRequestBuilderGetQueryParameters;
+}
+export interface CalendarPermissionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
  */
@@ -24,7 +56,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/calendarPermissions/{calendarPermission%2Did}{?%24select}");
     };
     /**
-     * Delete calendarPermission.
+     * Delete calendarPermission. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/calendarpermission-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +71,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the specified permissions object of a user or group calendar that has been shared.
+     * Get the specified permissions object of a user or group calendar that has been shared. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarPermission
      * @see {@link https://learn.microsoft.com/graph/api/calendarpermission-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +87,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CalendarPermission>(requestInfo, createCalendarPermissionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the permissions assigned to an existing sharee or delegate, through the corresponding <b>calendarPermission</b> object for a calendar.
+     * Update the permissions assigned to an existing share recipient or delegate, through the corresponding <b>calendarPermission</b> object for a calendar. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarPermission
@@ -72,7 +104,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CalendarPermission>(requestInfo, createCalendarPermissionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete calendarPermission.
+     * Delete calendarPermission. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +120,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the specified permissions object of a user or group calendar that has been shared.
+     * Get the specified permissions object of a user or group calendar that has been shared. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +138,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the permissions assigned to an existing sharee or delegate, through the corresponding <b>calendarPermission</b> object for a calendar.
+     * Update the permissions assigned to an existing share recipient or delegate, through the corresponding <b>calendarPermission</b> object for a calendar. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

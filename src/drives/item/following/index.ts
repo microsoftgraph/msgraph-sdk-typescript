@@ -1,2 +1,1 @@
-export * from './followingRequestBuilderGetQueryParameters'
-export * from './followingRequestBuilderGetRequestConfiguration'
+export * from './followingRequestBuilder'

@@ -1,16 +1,52 @@
-import { createUserRegistrationDetailsFromDiscriminatorValue } from '../../../../models/createUserRegistrationDetailsFromDiscriminatorValue';
-import { deserializeIntoUserRegistrationDetails } from '../../../../models/deserializeIntoUserRegistrationDetails';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUserRegistrationDetails } from '../../../../models/serializeUserRegistrationDetails';
-import { type UserRegistrationDetails } from '../../../../models/userRegistrationDetails';
-import { type UserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration } from './userRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration';
-import { type UserRegistrationDetailsItemRequestBuilderGetRequestConfiguration } from './userRegistrationDetailsItemRequestBuilderGetRequestConfiguration';
-import { type UserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration } from './userRegistrationDetailsItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUserRegistrationDetailsFromDiscriminatorValue, deserializeIntoUserRegistrationDetails, serializeUserRegistrationDetails, type UserRegistrationDetails } from '../../../../models/userRegistrationDetails';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserRegistrationDetailsItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserRegistrationDetailsItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserRegistrationDetailsItemRequestBuilderGetQueryParameters;
+}
+export interface UserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
  */
@@ -38,7 +74,7 @@ export class UserRegistrationDetailsItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a userRegistrationDetails object.
+     * Read the properties and relationships of a userRegistrationDetails object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserRegistrationDetails
      * @see {@link https://learn.microsoft.com/graph/api/userregistrationdetails-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +122,7 @@ export class UserRegistrationDetailsItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a userRegistrationDetails object.
+     * Read the properties and relationships of a userRegistrationDetails object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

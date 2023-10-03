@@ -1,16 +1,52 @@
-import { createEmailAuthenticationMethodFromDiscriminatorValue } from '../../../../models/createEmailAuthenticationMethodFromDiscriminatorValue';
-import { deserializeIntoEmailAuthenticationMethod } from '../../../../models/deserializeIntoEmailAuthenticationMethod';
-import { type EmailAuthenticationMethod } from '../../../../models/emailAuthenticationMethod';
+import { createEmailAuthenticationMethodFromDiscriminatorValue, deserializeIntoEmailAuthenticationMethod, serializeEmailAuthenticationMethod, type EmailAuthenticationMethod } from '../../../../models/emailAuthenticationMethod';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeEmailAuthenticationMethod } from '../../../../models/serializeEmailAuthenticationMethod';
-import { type EmailAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './emailAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import { type EmailAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './emailAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
-import { type EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration } from './emailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EmailAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EmailAuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EmailAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EmailAuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
+export interface EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
  */
@@ -24,7 +60,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
         super(pathParameters, requestAdapter, "{+baseurl}/me/authentication/emailMethods/{emailAuthenticationMethod%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a user's emailAuthenticationMethod object.
+     * Deletes a user's emailAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/emailauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve a user's single email authentication method object.
+     * Retrieve a user's single email authentication method object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EmailAuthenticationMethod
      * @see {@link https://learn.microsoft.com/graph/api/emailauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +91,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<EmailAuthenticationMethod>(requestInfo, createEmailAuthenticationMethodFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update a user's email address represented by an emailAuthenticationMethod object.
+     * Update a user's email address represented by an emailAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EmailAuthenticationMethod
@@ -72,7 +108,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<EmailAuthenticationMethod>(requestInfo, createEmailAuthenticationMethodFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a user's emailAuthenticationMethod object.
+     * Deletes a user's emailAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Retrieve a user's single email authentication method object.
+     * Retrieve a user's single email authentication method object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +142,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Update a user's email address represented by an emailAuthenticationMethod object.
+     * Update a user's email address represented by an emailAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

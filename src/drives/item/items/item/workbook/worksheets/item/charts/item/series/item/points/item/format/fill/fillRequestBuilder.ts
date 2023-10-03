@@ -1,18 +1,54 @@
-import { createWorkbookChartFillFromDiscriminatorValue } from '../../../../../../../../../../../../../../../models/createWorkbookChartFillFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartFill } from '../../../../../../../../../../../../../../../models/deserializeIntoWorkbookChartFill';
 import { type ODataError } from '../../../../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartFill } from '../../../../../../../../../../../../../../../models/serializeWorkbookChartFill';
-import { type WorkbookChartFill } from '../../../../../../../../../../../../../../../models/workbookChartFill';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartFillFromDiscriminatorValue, deserializeIntoWorkbookChartFill, serializeWorkbookChartFill, type WorkbookChartFill } from '../../../../../../../../../../../../../../../models/workbookChartFill';
 import { ClearRequestBuilder } from './clear/clearRequestBuilder';
-import { type FillRequestBuilderDeleteRequestConfiguration } from './fillRequestBuilderDeleteRequestConfiguration';
-import { type FillRequestBuilderGetRequestConfiguration } from './fillRequestBuilderGetRequestConfiguration';
-import { type FillRequestBuilderPatchRequestConfiguration } from './fillRequestBuilderPatchRequestConfiguration';
 import { SetSolidColorRequestBuilder } from './setSolidColor/setSolidColorRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FillRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface FillRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FillRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FillRequestBuilderGetQueryParameters;
+}
+export interface FillRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the fill property of the microsoft.graph.workbookChartPointFormat entity.
  */
@@ -52,7 +88,7 @@ export class FillRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Represents the fill format of a chart, which includes background formating information. Read-only.
+     * Represents the fill format of a chart, which includes background formatting information. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartFill
      */
@@ -99,7 +135,7 @@ export class FillRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents the fill format of a chart, which includes background formating information. Read-only.
+     * Represents the fill format of a chart, which includes background formatting information. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

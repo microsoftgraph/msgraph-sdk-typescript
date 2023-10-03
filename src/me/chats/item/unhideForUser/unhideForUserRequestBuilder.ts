@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoUnhideForUserPostRequestBody } from './deserializeIntoUnhideForUserPostRequestBody';
-import { serializeUnhideForUserPostRequestBody } from './serializeUnhideForUserPostRequestBody';
-import { type UnhideForUserPostRequestBody } from './unhideForUserPostRequestBody';
-import { type UnhideForUserRequestBuilderPostRequestConfiguration } from './unhideForUserRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoUnhideForUserPostRequestBody, serializeUnhideForUserPostRequestBody, type UnhideForUserPostRequestBody } from './unhideForUserPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnhideForUserRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the unhideForUser method.
  */
@@ -21,7 +26,7 @@ export class UnhideForUserRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/chats/{chat%2Did}/unhideForUser");
     };
     /**
-     * Unhide a chat for a user.
+     * Unhide a chat for a user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chat-unhideforuser?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class UnhideForUserRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Unhide a chat for a user.
+     * Unhide a chat for a user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

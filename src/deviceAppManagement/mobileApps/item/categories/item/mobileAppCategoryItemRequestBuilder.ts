@@ -1,12 +1,33 @@
 import { type MobileAppCategory } from '../../../../../models/';
-import { createMobileAppCategoryFromDiscriminatorValue } from '../../../../../models/createMobileAppCategoryFromDiscriminatorValue';
+import { createMobileAppCategoryFromDiscriminatorValue } from '../../../../../models/mobileAppCategory';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type MobileAppCategoryItemRequestBuilderGetRequestConfiguration } from './mobileAppCategoryItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MobileAppCategoryItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MobileAppCategoryItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MobileAppCategoryItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
  */

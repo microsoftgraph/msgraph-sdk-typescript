@@ -1,16 +1,52 @@
-import { type ConditionalAccessPolicy } from '../../../../models/conditionalAccessPolicy';
-import { createConditionalAccessPolicyFromDiscriminatorValue } from '../../../../models/createConditionalAccessPolicyFromDiscriminatorValue';
-import { deserializeIntoConditionalAccessPolicy } from '../../../../models/deserializeIntoConditionalAccessPolicy';
+import { createConditionalAccessPolicyFromDiscriminatorValue, deserializeIntoConditionalAccessPolicy, serializeConditionalAccessPolicy, type ConditionalAccessPolicy } from '../../../../models/conditionalAccessPolicy';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeConditionalAccessPolicy } from '../../../../models/serializeConditionalAccessPolicy';
-import { type ConditionalAccessPolicyItemRequestBuilderDeleteRequestConfiguration } from './conditionalAccessPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type ConditionalAccessPolicyItemRequestBuilderGetRequestConfiguration } from './conditionalAccessPolicyItemRequestBuilderGetRequestConfiguration';
-import { type ConditionalAccessPolicyItemRequestBuilderPatchRequestConfiguration } from './conditionalAccessPolicyItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConditionalAccessPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ConditionalAccessPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ConditionalAccessPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConditionalAccessPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface ConditionalAccessPolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
  */
@@ -24,7 +60,7 @@ export class ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess/policies/{conditionalAccessPolicy%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a conditionalAccessPolicy object.
+     * Delete a conditionalAccessPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesspolicy-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a conditionalAccessPolicy object.
+     * Retrieve the properties and relationships of a conditionalAccessPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConditionalAccessPolicy
      * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesspolicy-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +91,7 @@ export class ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<ConditionalAccessPolicy>(requestInfo, createConditionalAccessPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a conditionalAccessPolicy object.
+     * Update the properties of a conditionalAccessPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConditionalAccessPolicy
@@ -72,7 +108,7 @@ export class ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<ConditionalAccessPolicy>(requestInfo, createConditionalAccessPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a conditionalAccessPolicy object.
+     * Delete a conditionalAccessPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a conditionalAccessPolicy object.
+     * Retrieve the properties and relationships of a conditionalAccessPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +142,7 @@ export class ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Update the properties of a conditionalAccessPolicy object.
+     * Update the properties of a conditionalAccessPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

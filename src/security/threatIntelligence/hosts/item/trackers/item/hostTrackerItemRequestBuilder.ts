@@ -1,12 +1,33 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { type HostTracker } from '../../../../../../models/security/';
-import { createHostTrackerFromDiscriminatorValue } from '../../../../../../models/security/createHostTrackerFromDiscriminatorValue';
-import { type HostTrackerItemRequestBuilderGetRequestConfiguration } from './hostTrackerItemRequestBuilderGetRequestConfiguration';
+import { createHostTrackerFromDiscriminatorValue } from '../../../../../../models/security/hostTracker';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface HostTrackerItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface HostTrackerItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: HostTrackerItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the trackers property of the microsoft.graph.security.host entity.
  */

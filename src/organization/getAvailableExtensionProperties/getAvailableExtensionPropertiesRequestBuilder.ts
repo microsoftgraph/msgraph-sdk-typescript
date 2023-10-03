@@ -1,17 +1,19 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue } from './createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue';
-import { deserializeIntoGetAvailableExtensionPropertiesPostRequestBody } from './deserializeIntoGetAvailableExtensionPropertiesPostRequestBody';
-import { deserializeIntoGetAvailableExtensionPropertiesResponse } from './deserializeIntoGetAvailableExtensionPropertiesResponse';
-import { type GetAvailableExtensionPropertiesPostRequestBody } from './getAvailableExtensionPropertiesPostRequestBody';
-import { type GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration } from './getAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration';
-import { type GetAvailableExtensionPropertiesResponse } from './getAvailableExtensionPropertiesResponse';
-import { serializeGetAvailableExtensionPropertiesPostRequestBody } from './serializeGetAvailableExtensionPropertiesPostRequestBody';
-import { serializeGetAvailableExtensionPropertiesResponse } from './serializeGetAvailableExtensionPropertiesResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { deserializeIntoGetAvailableExtensionPropertiesPostRequestBody, serializeGetAvailableExtensionPropertiesPostRequestBody, type GetAvailableExtensionPropertiesPostRequestBody } from './getAvailableExtensionPropertiesPostRequestBody';
+import { createGetAvailableExtensionPropertiesPostResponseFromDiscriminatorValue, deserializeIntoGetAvailableExtensionPropertiesPostResponse, serializeGetAvailableExtensionPropertiesPostResponse, type GetAvailableExtensionPropertiesPostResponse } from './getAvailableExtensionPropertiesPostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getAvailableExtensionProperties method.
  */
@@ -25,13 +27,13 @@ export class GetAvailableExtensionPropertiesRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/organization/getAvailableExtensionProperties");
     };
     /**
-     * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:+ user+ group+ administrativeUnit+ application+ device+ organization
+     * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetAvailableExtensionPropertiesResponse
+     * @returns a Promise of GetAvailableExtensionPropertiesPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getavailableextensionproperties?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetAvailableExtensionPropertiesPostRequestBody, requestConfiguration?: GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined) : Promise<GetAvailableExtensionPropertiesResponse | undefined> {
+    public post(body: GetAvailableExtensionPropertiesPostRequestBody, requestConfiguration?: GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined) : Promise<GetAvailableExtensionPropertiesPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class GetAvailableExtensionPropertiesRequestBuilder extends BaseRequestBu
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<GetAvailableExtensionPropertiesResponse>(requestInfo, createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<GetAvailableExtensionPropertiesPostResponse>(requestInfo, createGetAvailableExtensionPropertiesPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:+ user+ group+ administrativeUnit+ application+ device+ organization
+     * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

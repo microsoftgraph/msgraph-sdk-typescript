@@ -1,16 +1,52 @@
-import { createPrintUsageByPrinterFromDiscriminatorValue } from '../../../models/createPrintUsageByPrinterFromDiscriminatorValue';
-import { deserializeIntoPrintUsageByPrinter } from '../../../models/deserializeIntoPrintUsageByPrinter';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PrintUsageByPrinter } from '../../../models/printUsageByPrinter';
-import { serializePrintUsageByPrinter } from '../../../models/serializePrintUsageByPrinter';
-import { type PrintUsageByPrinterItemRequestBuilderDeleteRequestConfiguration } from './printUsageByPrinterItemRequestBuilderDeleteRequestConfiguration';
-import { type PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration } from './printUsageByPrinterItemRequestBuilderGetRequestConfiguration';
-import { type PrintUsageByPrinterItemRequestBuilderPatchRequestConfiguration } from './printUsageByPrinterItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPrintUsageByPrinterFromDiscriminatorValue, deserializeIntoPrintUsageByPrinter, serializePrintUsageByPrinter, type PrintUsageByPrinter } from '../../../models/printUsageByPrinter';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrintUsageByPrinterItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PrintUsageByPrinterItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrintUsageByPrinterItemRequestBuilderGetQueryParameters;
+}
+export interface PrintUsageByPrinterItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
  */

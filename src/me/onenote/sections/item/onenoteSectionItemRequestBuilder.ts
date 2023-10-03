@@ -1,21 +1,57 @@
-import { createOnenoteSectionFromDiscriminatorValue } from '../../../../models/createOnenoteSectionFromDiscriminatorValue';
-import { deserializeIntoOnenoteSection } from '../../../../models/deserializeIntoOnenoteSection';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type OnenoteSection } from '../../../../models/onenoteSection';
-import { serializeOnenoteSection } from '../../../../models/serializeOnenoteSection';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createOnenoteSectionFromDiscriminatorValue, deserializeIntoOnenoteSection, serializeOnenoteSection, type OnenoteSection } from '../../../../models/onenoteSection';
 import { CopyToNotebookRequestBuilder } from './copyToNotebook/copyToNotebookRequestBuilder';
 import { CopyToSectionGroupRequestBuilder } from './copyToSectionGroup/copyToSectionGroupRequestBuilder';
-import { type OnenoteSectionItemRequestBuilderDeleteRequestConfiguration } from './onenoteSectionItemRequestBuilderDeleteRequestConfiguration';
-import { type OnenoteSectionItemRequestBuilderGetRequestConfiguration } from './onenoteSectionItemRequestBuilderGetRequestConfiguration';
-import { type OnenoteSectionItemRequestBuilderPatchRequestConfiguration } from './onenoteSectionItemRequestBuilderPatchRequestConfiguration';
 import { PagesRequestBuilder } from './pages/pagesRequestBuilder';
 import { ParentNotebookRequestBuilder } from './parentNotebook/parentNotebookRequestBuilder';
 import { ParentSectionGroupRequestBuilder } from './parentSectionGroup/parentSectionGroupRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OnenoteSectionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OnenoteSectionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OnenoteSectionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OnenoteSectionItemRequestBuilderGetQueryParameters;
+}
+export interface OnenoteSectionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
  */
@@ -73,7 +109,7 @@ export class OnenoteSectionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a onenoteSection object.
+     * Retrieve the properties and relationships of a onenoteSection object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenoteSection
      * @see {@link https://learn.microsoft.com/graph/api/section-get?view=graph-rest-1.0|Find more info here}
@@ -121,7 +157,7 @@ export class OnenoteSectionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a onenoteSection object.
+     * Retrieve the properties and relationships of a onenoteSection object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

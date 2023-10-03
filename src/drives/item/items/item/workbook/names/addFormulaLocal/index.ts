@@ -1,5 +1,2 @@
 export * from './addFormulaLocalPostRequestBody'
-export * from './addFormulaLocalRequestBuilderPostRequestConfiguration'
-export * from './createAddFormulaLocalPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAddFormulaLocalPostRequestBody'
-export * from './serializeAddFormulaLocalPostRequestBody'
+export * from './addFormulaLocalRequestBuilder'

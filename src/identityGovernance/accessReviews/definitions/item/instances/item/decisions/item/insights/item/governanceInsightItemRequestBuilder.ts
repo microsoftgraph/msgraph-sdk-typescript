@@ -1,16 +1,52 @@
-import { createGovernanceInsightFromDiscriminatorValue } from '../../../../../../../../../../models/createGovernanceInsightFromDiscriminatorValue';
-import { deserializeIntoGovernanceInsight } from '../../../../../../../../../../models/deserializeIntoGovernanceInsight';
-import { type GovernanceInsight } from '../../../../../../../../../../models/governanceInsight';
+import { createGovernanceInsightFromDiscriminatorValue, deserializeIntoGovernanceInsight, serializeGovernanceInsight, type GovernanceInsight } from '../../../../../../../../../../models/governanceInsight';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeGovernanceInsight } from '../../../../../../../../../../models/serializeGovernanceInsight';
-import { type GovernanceInsightItemRequestBuilderDeleteRequestConfiguration } from './governanceInsightItemRequestBuilderDeleteRequestConfiguration';
-import { type GovernanceInsightItemRequestBuilderGetRequestConfiguration } from './governanceInsightItemRequestBuilderGetRequestConfiguration';
-import { type GovernanceInsightItemRequestBuilderPatchRequestConfiguration } from './governanceInsightItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GovernanceInsightItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface GovernanceInsightItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface GovernanceInsightItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GovernanceInsightItemRequestBuilderGetQueryParameters;
+}
+export interface GovernanceInsightItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
  */

@@ -1,19 +1,70 @@
 import { type UnifiedRoleManagementPolicyRuleCollectionResponse } from '../../../../models/';
-import { createUnifiedRoleManagementPolicyRuleCollectionResponseFromDiscriminatorValue } from '../../../../models/createUnifiedRoleManagementPolicyRuleCollectionResponseFromDiscriminatorValue';
-import { createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue } from '../../../../models/createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleManagementPolicyRule } from '../../../../models/deserializeIntoUnifiedRoleManagementPolicyRule';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleManagementPolicyRule } from '../../../../models/serializeUnifiedRoleManagementPolicyRule';
-import { type UnifiedRoleManagementPolicyRule } from '../../../../models/unifiedRoleManagementPolicyRule';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue, deserializeIntoUnifiedRoleManagementPolicyRule, serializeUnifiedRoleManagementPolicyRule, type UnifiedRoleManagementPolicyRule } from '../../../../models/unifiedRoleManagementPolicyRule';
+import { createUnifiedRoleManagementPolicyRuleCollectionResponseFromDiscriminatorValue } from '../../../../models/unifiedRoleManagementPolicyRuleCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UnifiedRoleManagementPolicyRuleItemRequestBuilder } from './item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
-import { type RulesRequestBuilderGetRequestConfiguration } from './rulesRequestBuilderGetRequestConfiguration';
-import { type RulesRequestBuilderPostRequestConfiguration } from './rulesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RulesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RulesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RulesRequestBuilderGetQueryParameters;
+}
+export interface RulesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the rules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
  */
@@ -44,7 +95,7 @@ export class RulesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/roleManagementPolicies/{unifiedRoleManagementPolicy%2Did}/rules{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the rules or settings defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object:+ unifiedRoleManagementPolicyApprovalRule+ unifiedRoleManagementPolicyAuthenticationContextRule+ unifiedRoleManagementPolicyEnablementRule+ unifiedRoleManagementPolicyExpirationRule+ unifiedRoleManagementPolicyNotificationRule
+     * Get the rules or settings defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleManagementPolicyRuleCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/unifiedrolemanagementpolicy-list-rules?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class RulesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UnifiedRoleManagementPolicyRule>(requestInfo, createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the rules or settings defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object:+ unifiedRoleManagementPolicyApprovalRule+ unifiedRoleManagementPolicyAuthenticationContextRule+ unifiedRoleManagementPolicyEnablementRule+ unifiedRoleManagementPolicyExpirationRule+ unifiedRoleManagementPolicyNotificationRule
+     * Get the rules or settings defined for a role management policy. The rules are a collection of following types that are derived from the unifiedRoleManagementPolicyRule object: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

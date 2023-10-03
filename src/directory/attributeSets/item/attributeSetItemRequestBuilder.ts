@@ -1,16 +1,52 @@
-import { type AttributeSet } from '../../../models/attributeSet';
-import { createAttributeSetFromDiscriminatorValue } from '../../../models/createAttributeSetFromDiscriminatorValue';
-import { deserializeIntoAttributeSet } from '../../../models/deserializeIntoAttributeSet';
+import { createAttributeSetFromDiscriminatorValue, deserializeIntoAttributeSet, serializeAttributeSet, type AttributeSet } from '../../../models/attributeSet';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAttributeSet } from '../../../models/serializeAttributeSet';
-import { type AttributeSetItemRequestBuilderDeleteRequestConfiguration } from './attributeSetItemRequestBuilderDeleteRequestConfiguration';
-import { type AttributeSetItemRequestBuilderGetRequestConfiguration } from './attributeSetItemRequestBuilderGetRequestConfiguration';
-import { type AttributeSetItemRequestBuilderPatchRequestConfiguration } from './attributeSetItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AttributeSetItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AttributeSetItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AttributeSetItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AttributeSetItemRequestBuilderGetQueryParameters;
+}
+export interface AttributeSetItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
  */
@@ -38,7 +74,7 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an attributeSet object.
+     * Read the properties and relationships of an attributeSet object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttributeSet
      * @see {@link https://learn.microsoft.com/graph/api/attributeset-get?view=graph-rest-1.0|Find more info here}
@@ -54,7 +90,7 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AttributeSet>(requestInfo, createAttributeSetFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an attributeSet object.
+     * Update the properties of an attributeSet object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttributeSet
@@ -87,7 +123,7 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an attributeSet object.
+     * Read the properties and relationships of an attributeSet object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an attributeSet object.
+     * Update the properties of an attributeSet object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,16 +1,52 @@
-import { createRichLongRunningOperationFromDiscriminatorValue } from '../../../../../../models/createRichLongRunningOperationFromDiscriminatorValue';
-import { deserializeIntoRichLongRunningOperation } from '../../../../../../models/deserializeIntoRichLongRunningOperation';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type RichLongRunningOperation } from '../../../../../../models/richLongRunningOperation';
-import { serializeRichLongRunningOperation } from '../../../../../../models/serializeRichLongRunningOperation';
-import { type RichLongRunningOperationItemRequestBuilderDeleteRequestConfiguration } from './richLongRunningOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type RichLongRunningOperationItemRequestBuilderGetRequestConfiguration } from './richLongRunningOperationItemRequestBuilderGetRequestConfiguration';
-import { type RichLongRunningOperationItemRequestBuilderPatchRequestConfiguration } from './richLongRunningOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createRichLongRunningOperationFromDiscriminatorValue, deserializeIntoRichLongRunningOperation, serializeRichLongRunningOperation, type RichLongRunningOperation } from '../../../../../../models/richLongRunningOperation';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RichLongRunningOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface RichLongRunningOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface RichLongRunningOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RichLongRunningOperationItemRequestBuilderGetQueryParameters;
+}
+export interface RichLongRunningOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.site entity.
  */
@@ -38,7 +74,7 @@ export class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuild
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the status of a rich long-running operation on a site or a list.
+     * Get the status of a rich long-running operation on a site or a list. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RichLongRunningOperation
      * @see {@link https://learn.microsoft.com/graph/api/richlongrunningoperation-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +122,7 @@ export class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuild
         return requestInfo;
     };
     /**
-     * Get the status of a rich long-running operation on a site or a list.
+     * Get the status of a rich long-running operation on a site or a list. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

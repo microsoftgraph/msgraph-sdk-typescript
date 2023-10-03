@@ -1,16 +1,42 @@
-import { createSchemaFromDiscriminatorValue } from '../../../models/externalConnectors/createSchemaFromDiscriminatorValue';
-import { deserializeIntoSchema } from '../../../models/externalConnectors/deserializeIntoSchema';
-import { type Schema } from '../../../models/externalConnectors/schema';
-import { serializeSchema } from '../../../models/externalConnectors/serializeSchema';
+import { createSchemaFromDiscriminatorValue, deserializeIntoSchema, serializeSchema, type Schema } from '../../../models/externalConnectors/schema';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type SchemaRequestBuilderDeleteRequestConfiguration } from './schemaRequestBuilderDeleteRequestConfiguration';
-import { type SchemaRequestBuilderGetRequestConfiguration } from './schemaRequestBuilderGetRequestConfiguration';
-import { type SchemaRequestBuilderPatchRequestConfiguration } from './schemaRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SchemaRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SchemaRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SchemaRequestBuilderGetQueryParameters;
+}
+export interface SchemaRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the schema property of the microsoft.graph.externalConnectors.externalConnection entity.
  */
@@ -24,21 +50,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/connections/{externalConnection%2Did}/schema{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property schema for connections
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     */
-    public delete(requestConfiguration?: SchemaRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
-        const requestInfo = this.toDeleteRequestInformation(
-            requestConfiguration
-        );
-        const errorMapping = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
-    };
-    /**
-     * Read the properties and relationships of a schema object.
+     * Read the properties and relationships of a schema object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Schema
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-schema-get?view=graph-rest-1.0|Find more info here}
@@ -70,23 +82,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Schema>(requestInfo, createSchemaFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property schema for connections
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public toDeleteRequestInformation(requestConfiguration?: SchemaRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
-     * Read the properties and relationships of a schema object.
+     * Read the properties and relationships of a schema object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

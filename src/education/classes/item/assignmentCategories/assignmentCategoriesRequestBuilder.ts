@@ -1,20 +1,71 @@
 import { type EducationCategoryCollectionResponse } from '../../../../models/';
-import { createEducationCategoryCollectionResponseFromDiscriminatorValue } from '../../../../models/createEducationCategoryCollectionResponseFromDiscriminatorValue';
-import { createEducationCategoryFromDiscriminatorValue } from '../../../../models/createEducationCategoryFromDiscriminatorValue';
-import { deserializeIntoEducationCategory } from '../../../../models/deserializeIntoEducationCategory';
-import { type EducationCategory } from '../../../../models/educationCategory';
+import { createEducationCategoryFromDiscriminatorValue, deserializeIntoEducationCategory, serializeEducationCategory, type EducationCategory } from '../../../../models/educationCategory';
+import { createEducationCategoryCollectionResponseFromDiscriminatorValue } from '../../../../models/educationCategoryCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationCategory } from '../../../../models/serializeEducationCategory';
-import { type AssignmentCategoriesRequestBuilderGetRequestConfiguration } from './assignmentCategoriesRequestBuilderGetRequestConfiguration';
-import { type AssignmentCategoriesRequestBuilderPostRequestConfiguration } from './assignmentCategoriesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { EducationCategoryItemRequestBuilder } from './item/educationCategoryItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignmentCategoriesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AssignmentCategoriesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AssignmentCategoriesRequestBuilderGetQueryParameters;
+}
+export interface AssignmentCategoriesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
  */
@@ -51,7 +102,7 @@ export class AssignmentCategoriesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/assignmentCategories{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of educationCategory objects. Only teachers can perform this operation.
+     * Retrieve a list of educationCategory objects. Only teachers can perform this operation. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationCategoryCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/educationclass-list-categories?view=graph-rest-1.0|Find more info here}
@@ -67,7 +118,7 @@ export class AssignmentCategoriesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationCategoryCollectionResponse>(requestInfo, createEducationCategoryCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Creates a new educationCategory on an educationClass. Only teachers can perform this operation.
+     * Create a new educationCategory on an educationClass. Only teachers can perform this operation. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationCategory
@@ -84,7 +135,7 @@ export class AssignmentCategoriesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationCategory>(requestInfo, createEducationCategoryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of educationCategory objects. Only teachers can perform this operation.
+     * Retrieve a list of educationCategory objects. Only teachers can perform this operation. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +153,7 @@ export class AssignmentCategoriesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Creates a new educationCategory on an educationClass. Only teachers can perform this operation.
+     * Create a new educationCategory on an educationClass. Only teachers can perform this operation. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

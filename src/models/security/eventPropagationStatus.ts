@@ -5,3 +5,5 @@ export enum EventPropagationStatus {
     Success = "success",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

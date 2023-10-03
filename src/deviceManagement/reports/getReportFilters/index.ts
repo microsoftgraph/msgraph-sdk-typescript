@@ -1,5 +1,2 @@
-export * from './createGetReportFiltersPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoGetReportFiltersPostRequestBody'
 export * from './getReportFiltersPostRequestBody'
-export * from './getReportFiltersRequestBuilderPostRequestConfiguration'
-export * from './serializeGetReportFiltersPostRequestBody'
+export * from './getReportFiltersRequestBuilder'

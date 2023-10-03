@@ -1,12 +1,33 @@
 import { type TeamsAppDefinition } from '../../../../../models/';
-import { createTeamsAppDefinitionFromDiscriminatorValue } from '../../../../../models/createTeamsAppDefinitionFromDiscriminatorValue';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type TeamsAppDefinitionRequestBuilderGetRequestConfiguration } from './teamsAppDefinitionRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createTeamsAppDefinitionFromDiscriminatorValue } from '../../../../../models/teamsAppDefinition';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamsAppDefinitionRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamsAppDefinitionRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamsAppDefinitionRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the teamsAppDefinition property of the microsoft.graph.teamsAppInstallation entity.
  */

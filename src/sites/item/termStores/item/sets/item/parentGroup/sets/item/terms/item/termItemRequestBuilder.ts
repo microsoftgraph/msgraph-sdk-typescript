@@ -1,19 +1,55 @@
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { createTermFromDiscriminatorValue } from '../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
-import { deserializeIntoTerm } from '../../../../../../../../../../../models/termStore/deserializeIntoTerm';
-import { serializeTerm } from '../../../../../../../../../../../models/termStore/serializeTerm';
-import { type Term } from '../../../../../../../../../../../models/termStore/term';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createTermFromDiscriminatorValue, deserializeIntoTerm, serializeTerm, type Term } from '../../../../../../../../../../../models/termStore/term';
 import { ChildrenRequestBuilder } from './children/childrenRequestBuilder';
 import { RelationsRequestBuilder } from './relations/relationsRequestBuilder';
 import { SetRequestBuilder } from './set/setRequestBuilder';
-import { type TermItemRequestBuilderDeleteRequestConfiguration } from './termItemRequestBuilderDeleteRequestConfiguration';
-import { type TermItemRequestBuilderGetRequestConfiguration } from './termItemRequestBuilderGetRequestConfiguration';
-import { type TermItemRequestBuilderPatchRequestConfiguration } from './termItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TermItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TermItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TermItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TermItemRequestBuilderGetQueryParameters;
+}
+export interface TermItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.
  */
@@ -45,7 +81,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/sets/{set%2Did}/parentGroup/sets/{set%2Did1}/terms/{term%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a term object.
+     * Delete a term object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/termstore-term-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -60,7 +96,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a term object.
+     * Read the properties and relationships of a term object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Term
      * @see {@link https://learn.microsoft.com/graph/api/termstore-term-get?view=graph-rest-1.0|Find more info here}
@@ -76,7 +112,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Term>(requestInfo, createTermFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a term object.
+     * Update the properties of a term object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Term
@@ -93,7 +129,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Term>(requestInfo, createTermFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a term object.
+     * Delete a term object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -109,7 +145,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a term object.
+     * Read the properties and relationships of a term object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -127,7 +163,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a term object.
+     * Update the properties of a term object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

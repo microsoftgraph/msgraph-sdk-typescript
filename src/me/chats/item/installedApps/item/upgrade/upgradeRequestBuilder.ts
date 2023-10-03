@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoUpgradePostRequestBody } from './deserializeIntoUpgradePostRequestBody';
-import { serializeUpgradePostRequestBody } from './serializeUpgradePostRequestBody';
-import { type UpgradePostRequestBody } from './upgradePostRequestBody';
-import { type UpgradeRequestBuilderPostRequestConfiguration } from './upgradeRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoUpgradePostRequestBody, serializeUpgradePostRequestBody, type UpgradePostRequestBody } from './upgradePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UpgradeRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the upgrade method.
  */
@@ -21,7 +26,7 @@ export class UpgradeRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/chats/{chat%2Did}/installedApps/{teamsAppInstallation%2Did}/upgrade");
     };
     /**
-     * Upgrade an app installation within a chat.
+     * Upgrade an app installation within a chat. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chat-teamsappinstallation-upgrade?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class UpgradeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Upgrade an app installation within a chat.
+     * Upgrade an app installation within a chat. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

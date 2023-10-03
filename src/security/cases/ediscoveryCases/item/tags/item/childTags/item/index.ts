@@ -1,2 +1,1 @@
-export * from './ediscoveryReviewTagItemRequestBuilderGetQueryParameters'
-export * from './ediscoveryReviewTagItemRequestBuilderGetRequestConfiguration'
+export * from './ediscoveryReviewTagItemRequestBuilder'

@@ -1,19 +1,70 @@
 import { type RichLongRunningOperationCollectionResponse } from '../../../../../models/';
-import { createRichLongRunningOperationCollectionResponseFromDiscriminatorValue } from '../../../../../models/createRichLongRunningOperationCollectionResponseFromDiscriminatorValue';
-import { createRichLongRunningOperationFromDiscriminatorValue } from '../../../../../models/createRichLongRunningOperationFromDiscriminatorValue';
-import { deserializeIntoRichLongRunningOperation } from '../../../../../models/deserializeIntoRichLongRunningOperation';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type RichLongRunningOperation } from '../../../../../models/richLongRunningOperation';
-import { serializeRichLongRunningOperation } from '../../../../../models/serializeRichLongRunningOperation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createRichLongRunningOperationFromDiscriminatorValue, deserializeIntoRichLongRunningOperation, serializeRichLongRunningOperation, type RichLongRunningOperation } from '../../../../../models/richLongRunningOperation';
+import { createRichLongRunningOperationCollectionResponseFromDiscriminatorValue } from '../../../../../models/richLongRunningOperationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { RichLongRunningOperationItemRequestBuilder } from './item/richLongRunningOperationItemRequestBuilder';
-import { type OperationsRequestBuilderGetRequestConfiguration } from './operationsRequestBuilderGetRequestConfiguration';
-import { type OperationsRequestBuilderPostRequestConfiguration } from './operationsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OperationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OperationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OperationsRequestBuilderGetQueryParameters;
+}
+export interface OperationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.list entity.
  */

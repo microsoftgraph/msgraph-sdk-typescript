@@ -1,20 +1,71 @@
 import { type AccessPackageCollectionResponse } from '../../../models/';
-import { type AccessPackage } from '../../../models/accessPackage';
-import { createAccessPackageCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageCollectionResponseFromDiscriminatorValue';
-import { createAccessPackageFromDiscriminatorValue } from '../../../models/createAccessPackageFromDiscriminatorValue';
-import { deserializeIntoAccessPackage } from '../../../models/deserializeIntoAccessPackage';
+import { createAccessPackageFromDiscriminatorValue, deserializeIntoAccessPackage, serializeAccessPackage, type AccessPackage } from '../../../models/accessPackage';
+import { createAccessPackageCollectionResponseFromDiscriminatorValue } from '../../../models/accessPackageCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackage } from '../../../models/serializeAccessPackage';
-import { type AccessPackagesRequestBuilderGetRequestConfiguration } from './accessPackagesRequestBuilderGetRequestConfiguration';
-import { type AccessPackagesRequestBuilderPostRequestConfiguration } from './accessPackagesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { AccessPackageItemRequestBuilder } from './item/accessPackageItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessPackagesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AccessPackagesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessPackagesRequestBuilderGetQueryParameters;
+}
+export interface AccessPackagesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
  */
@@ -54,7 +105,7 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
+     * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackages?view=graph-rest-1.0|Find more info here}
@@ -70,7 +121,7 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageCollectionResponse>(requestInfo, createAccessPackageCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog.
+     * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackage
@@ -87,7 +138,7 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackage>(requestInfo, createAccessPackageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
+     * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +156,7 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog.
+     * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

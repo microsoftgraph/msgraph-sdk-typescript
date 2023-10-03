@@ -11,3 +11,5 @@ export enum ClientPlatform {
     HoloLens = "holoLens",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

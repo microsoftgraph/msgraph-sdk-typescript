@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type UnifiedGroupSourceCollectionResponse } from '../../../../../../../models/security/';
-import { createUnifiedGroupSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/createUnifiedGroupSourceCollectionResponseFromDiscriminatorValue';
-import { createUnifiedGroupSourceFromDiscriminatorValue } from '../../../../../../../models/security/createUnifiedGroupSourceFromDiscriminatorValue';
-import { deserializeIntoUnifiedGroupSource } from '../../../../../../../models/security/deserializeIntoUnifiedGroupSource';
-import { serializeUnifiedGroupSource } from '../../../../../../../models/security/serializeUnifiedGroupSource';
-import { type UnifiedGroupSource } from '../../../../../../../models/security/unifiedGroupSource';
+import { createUnifiedGroupSourceFromDiscriminatorValue, deserializeIntoUnifiedGroupSource, serializeUnifiedGroupSource, type UnifiedGroupSource } from '../../../../../../../models/security/unifiedGroupSource';
+import { createUnifiedGroupSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/unifiedGroupSourceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UnifiedGroupSourceItemRequestBuilder } from './item/unifiedGroupSourceItemRequestBuilder';
-import { type UnifiedGroupSourcesRequestBuilderGetRequestConfiguration } from './unifiedGroupSourcesRequestBuilderGetRequestConfiguration';
-import { type UnifiedGroupSourcesRequestBuilderPostRequestConfiguration } from './unifiedGroupSourcesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnifiedGroupSourcesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UnifiedGroupSourcesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UnifiedGroupSourcesRequestBuilderGetQueryParameters;
+}
+export interface UnifiedGroupSourcesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.
  */
@@ -44,7 +95,7 @@ export class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/unifiedGroupSources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the unifiedGroupSource objects associated with an ediscoveryCustodian.
+     * Get a list of the unifiedGroupSource objects associated with an ediscoveryCustodian. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedGroupSourceCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-unifiedgroupsources?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UnifiedGroupSourceCollectionResponse>(requestInfo, createUnifiedGroupSourceCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new unifiedGroupSource object associated with an eDiscovery custodian.
+     * Create a new unifiedGroupSource object associated with an eDiscovery custodian. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedGroupSource
@@ -77,7 +128,7 @@ export class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UnifiedGroupSource>(requestInfo, createUnifiedGroupSourceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the unifiedGroupSource objects associated with an ediscoveryCustodian.
+     * Get a list of the unifiedGroupSource objects associated with an ediscoveryCustodian. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new unifiedGroupSource object associated with an eDiscovery custodian.
+     * Create a new unifiedGroupSource object associated with an eDiscovery custodian. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

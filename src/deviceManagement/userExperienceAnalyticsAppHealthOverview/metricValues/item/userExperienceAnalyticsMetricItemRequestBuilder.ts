@@ -1,16 +1,52 @@
-import { createUserExperienceAnalyticsMetricFromDiscriminatorValue } from '../../../../models/createUserExperienceAnalyticsMetricFromDiscriminatorValue';
-import { deserializeIntoUserExperienceAnalyticsMetric } from '../../../../models/deserializeIntoUserExperienceAnalyticsMetric';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUserExperienceAnalyticsMetric } from '../../../../models/serializeUserExperienceAnalyticsMetric';
-import { type UserExperienceAnalyticsMetric } from '../../../../models/userExperienceAnalyticsMetric';
-import { type UserExperienceAnalyticsMetricItemRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsMetricItemRequestBuilderDeleteRequestConfiguration';
-import { type UserExperienceAnalyticsMetricItemRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsMetricItemRequestBuilderGetRequestConfiguration';
-import { type UserExperienceAnalyticsMetricItemRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsMetricItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsMetricFromDiscriminatorValue, deserializeIntoUserExperienceAnalyticsMetric, serializeUserExperienceAnalyticsMetric, type UserExperienceAnalyticsMetric } from '../../../../models/userExperienceAnalyticsMetric';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserExperienceAnalyticsMetricItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserExperienceAnalyticsMetricItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserExperienceAnalyticsMetricItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserExperienceAnalyticsMetricItemRequestBuilderGetQueryParameters;
+}
+export interface UserExperienceAnalyticsMetricItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
  */

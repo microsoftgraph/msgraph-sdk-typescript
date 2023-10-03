@@ -1,181 +1,280 @@
-import { type AlertDetection } from './alertDetection';
+import { createAlertDetectionFromDiscriminatorValue, serializeAlertDetection, type AlertDetection } from './alertDetection';
 import { AlertFeedback } from './alertFeedback';
-import { type AlertHistoryState } from './alertHistoryState';
+import { createAlertHistoryStateFromDiscriminatorValue, serializeAlertHistoryState, type AlertHistoryState } from './alertHistoryState';
 import { AlertSeverity } from './alertSeverity';
 import { AlertStatus } from './alertStatus';
-import { type AlertTrigger } from './alertTrigger';
-import { type CloudAppSecurityState } from './cloudAppSecurityState';
-import { type Entity } from './entity';
-import { type FileSecurityState } from './fileSecurityState';
-import { type HostSecurityState } from './hostSecurityState';
-import { type InvestigationSecurityState } from './investigationSecurityState';
-import { type MalwareState } from './malwareState';
-import { type MessageSecurityState } from './messageSecurityState';
-import { type NetworkConnection } from './networkConnection';
-import { type Process } from './process';
-import { type RegistryKeyState } from './registryKeyState';
-import { type SecurityResource } from './securityResource';
-import { type SecurityVendorInformation } from './securityVendorInformation';
-import { type UriClickSecurityState } from './uriClickSecurityState';
-import { type UserSecurityState } from './userSecurityState';
-import { type VulnerabilityState } from './vulnerabilityState';
-import { type Parsable } from '@microsoft/kiota-abstractions';
+import { createAlertTriggerFromDiscriminatorValue, serializeAlertTrigger, type AlertTrigger } from './alertTrigger';
+import { createCloudAppSecurityStateFromDiscriminatorValue, serializeCloudAppSecurityState, type CloudAppSecurityState } from './cloudAppSecurityState';
+import { deserializeIntoEntity, serializeEntity, type Entity } from './entity';
+import { createFileSecurityStateFromDiscriminatorValue, serializeFileSecurityState, type FileSecurityState } from './fileSecurityState';
+import { createHostSecurityStateFromDiscriminatorValue, serializeHostSecurityState, type HostSecurityState } from './hostSecurityState';
+import { createInvestigationSecurityStateFromDiscriminatorValue, serializeInvestigationSecurityState, type InvestigationSecurityState } from './investigationSecurityState';
+import { createMalwareStateFromDiscriminatorValue, serializeMalwareState, type MalwareState } from './malwareState';
+import { createMessageSecurityStateFromDiscriminatorValue, serializeMessageSecurityState, type MessageSecurityState } from './messageSecurityState';
+import { createNetworkConnectionFromDiscriminatorValue, serializeNetworkConnection, type NetworkConnection } from './networkConnection';
+import { createProcessFromDiscriminatorValue, serializeProcess, type Process } from './process';
+import { createRegistryKeyStateFromDiscriminatorValue, serializeRegistryKeyState, type RegistryKeyState } from './registryKeyState';
+import { createSecurityResourceFromDiscriminatorValue, serializeSecurityResource, type SecurityResource } from './securityResource';
+import { createSecurityVendorInformationFromDiscriminatorValue, serializeSecurityVendorInformation, type SecurityVendorInformation } from './securityVendorInformation';
+import { createUriClickSecurityStateFromDiscriminatorValue, serializeUriClickSecurityState, type UriClickSecurityState } from './uriClickSecurityState';
+import { createUserSecurityStateFromDiscriminatorValue, serializeUserSecurityState, type UserSecurityState } from './userSecurityState';
+import { createVulnerabilityStateFromDiscriminatorValue, serializeVulnerabilityState, type VulnerabilityState } from './vulnerabilityState';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface Alert extends Entity, Parsable {
     /**
      * Name or alias of the activity group (attacker) this alert is attributed to.
      */
-    activityGroupName?: string | undefined;
+    activityGroupName?: string;
     /**
      * The alertDetections property
      */
-    alertDetections?: AlertDetection[] | undefined;
+    alertDetections?: AlertDetection[];
     /**
      * Name of the analyst the alert is assigned to for triage, investigation, or remediation (supports update).
      */
-    assignedTo?: string | undefined;
+    assignedTo?: string;
     /**
      * Azure subscription ID, present if this alert is related to an Azure resource.
      */
-    azureSubscriptionId?: string | undefined;
+    azureSubscriptionId?: string;
     /**
      * Azure Active Directory tenant ID. Required.
      */
-    azureTenantId?: string | undefined;
+    azureTenantId?: string;
     /**
      * Category of the alert (for example, credentialTheft, ransomware, etc.).
      */
-    category?: string | undefined;
+    category?: string;
     /**
      * Time at which the alert was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z (supports update).
      */
-    closedDateTime?: Date | undefined;
+    closedDateTime?: Date;
     /**
      * Security-related stateful information generated by the provider about the cloud application/s related to this alert.
      */
-    cloudAppStates?: CloudAppSecurityState[] | undefined;
+    cloudAppStates?: CloudAppSecurityState[];
     /**
      * Customer-provided comments on alert (for customer alert management) (supports update).
      */
-    comments?: string[] | undefined;
+    comments?: string[];
     /**
      * Confidence of the detection logic (percentage between 1-100).
      */
-    confidence?: number | undefined;
+    confidence?: number;
     /**
      * Time at which the alert was created by the alert provider. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
      */
-    createdDateTime?: Date | undefined;
+    createdDateTime?: Date;
     /**
      * Alert description.
      */
-    description?: string | undefined;
+    description?: string;
     /**
      * Set of alerts related to this alert entity (each alert is pushed to the SIEM as a separate record).
      */
-    detectionIds?: string[] | undefined;
+    detectionIds?: string[];
     /**
      * Time at which the event(s) that served as the trigger(s) to generate the alert occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
      */
-    eventDateTime?: Date | undefined;
+    eventDateTime?: Date;
     /**
      * Analyst feedback on the alert. Possible values are: unknown, truePositive, falsePositive, benignPositive. (supports update)
      */
-    feedback?: AlertFeedback | undefined;
+    feedback?: AlertFeedback;
     /**
      * Security-related stateful information generated by the provider about the file(s) related to this alert.
      */
-    fileStates?: FileSecurityState[] | undefined;
+    fileStates?: FileSecurityState[];
     /**
      * The historyStates property
      */
-    historyStates?: AlertHistoryState[] | undefined;
+    historyStates?: AlertHistoryState[];
     /**
      * Security-related stateful information generated by the provider about the host(s) related to this alert.
      */
-    hostStates?: HostSecurityState[] | undefined;
+    hostStates?: HostSecurityState[];
     /**
      * IDs of incidents related to current alert.
      */
-    incidentIds?: string[] | undefined;
+    incidentIds?: string[];
     /**
      * The investigationSecurityStates property
      */
-    investigationSecurityStates?: InvestigationSecurityState[] | undefined;
+    investigationSecurityStates?: InvestigationSecurityState[];
     /**
      * The lastEventDateTime property
      */
-    lastEventDateTime?: Date | undefined;
+    lastEventDateTime?: Date;
     /**
      * Time at which the alert entity was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
-    lastModifiedDateTime?: Date | undefined;
+    lastModifiedDateTime?: Date;
     /**
      * Threat Intelligence pertaining to malware related to this alert.
      */
-    malwareStates?: MalwareState[] | undefined;
+    malwareStates?: MalwareState[];
     /**
      * The messageSecurityStates property
      */
-    messageSecurityStates?: MessageSecurityState[] | undefined;
+    messageSecurityStates?: MessageSecurityState[];
     /**
      * Security-related stateful information generated by the provider about the network connection(s) related to this alert.
      */
-    networkConnections?: NetworkConnection[] | undefined;
+    networkConnections?: NetworkConnection[];
     /**
      * Security-related stateful information generated by the provider about the process or processes related to this alert.
      */
-    processes?: Process[] | undefined;
+    processes?: Process[];
     /**
      * Vendor/provider recommended action(s) to take as a result of the alert (for example, isolate machine, enforce2FA, reimage host).
      */
-    recommendedActions?: string[] | undefined;
+    recommendedActions?: string[];
     /**
      * Security-related stateful information generated by the provider about the registry keys related to this alert.
      */
-    registryKeyStates?: RegistryKeyState[] | undefined;
+    registryKeyStates?: RegistryKeyState[];
     /**
      * Resources related to current alert. For example, for some alerts this can have the Azure Resource value.
      */
-    securityResources?: SecurityResource[] | undefined;
+    securityResources?: SecurityResource[];
     /**
      * The severity property
      */
-    severity?: AlertSeverity | undefined;
+    severity?: AlertSeverity;
     /**
      * Hyperlinks (URIs) to the source material related to the alert, for example, provider's user interface for alerts or log search, etc.
      */
-    sourceMaterials?: string[] | undefined;
+    sourceMaterials?: string[];
     /**
      * The status property
      */
-    status?: AlertStatus | undefined;
+    status?: AlertStatus;
     /**
      * User-definable labels that can be applied to an alert and can serve as filter conditions (for example 'HVA', 'SAW', etc.) (supports update).
      */
-    tags?: string[] | undefined;
+    tags?: string[];
     /**
      * Alert title. Required.
      */
-    title?: string | undefined;
+    title?: string;
     /**
      * Security-related information about the specific properties that triggered the alert (properties appearing in the alert). Alerts might contain information about multiple users, hosts, files, ip addresses. This field indicates which properties triggered the alert generation.
      */
-    triggers?: AlertTrigger[] | undefined;
+    triggers?: AlertTrigger[];
     /**
      * The uriClickSecurityStates property
      */
-    uriClickSecurityStates?: UriClickSecurityState[] | undefined;
+    uriClickSecurityStates?: UriClickSecurityState[];
     /**
      * Security-related stateful information generated by the provider about the user accounts related to this alert.
      */
-    userStates?: UserSecurityState[] | undefined;
+    userStates?: UserSecurityState[];
     /**
      * Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=Windows Defender ATP; subProvider=AppLocker). Required.
      */
-    vendorInformation?: SecurityVendorInformation | undefined;
+    vendorInformation?: SecurityVendorInformation;
     /**
      * Threat intelligence pertaining to one or more vulnerabilities related to this alert.
      */
-    vulnerabilityStates?: VulnerabilityState[] | undefined;
+    vulnerabilityStates?: VulnerabilityState[];
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function createAlertFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoAlert;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function deserializeIntoAlert(alert: Alert | undefined = {} as Alert) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(alert),
+        "activityGroupName": n => { alert.activityGroupName = n.getStringValue(); },
+        "alertDetections": n => { alert.alertDetections = n.getCollectionOfObjectValues<AlertDetection>(createAlertDetectionFromDiscriminatorValue); },
+        "assignedTo": n => { alert.assignedTo = n.getStringValue(); },
+        "azureSubscriptionId": n => { alert.azureSubscriptionId = n.getStringValue(); },
+        "azureTenantId": n => { alert.azureTenantId = n.getStringValue(); },
+        "category": n => { alert.category = n.getStringValue(); },
+        "closedDateTime": n => { alert.closedDateTime = n.getDateValue(); },
+        "cloudAppStates": n => { alert.cloudAppStates = n.getCollectionOfObjectValues<CloudAppSecurityState>(createCloudAppSecurityStateFromDiscriminatorValue); },
+        "comments": n => { alert.comments = n.getCollectionOfPrimitiveValues<string>(); },
+        "confidence": n => { alert.confidence = n.getNumberValue(); },
+        "createdDateTime": n => { alert.createdDateTime = n.getDateValue(); },
+        "description": n => { alert.description = n.getStringValue(); },
+        "detectionIds": n => { alert.detectionIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "eventDateTime": n => { alert.eventDateTime = n.getDateValue(); },
+        "feedback": n => { alert.feedback = n.getEnumValue<AlertFeedback>(AlertFeedback); },
+        "fileStates": n => { alert.fileStates = n.getCollectionOfObjectValues<FileSecurityState>(createFileSecurityStateFromDiscriminatorValue); },
+        "historyStates": n => { alert.historyStates = n.getCollectionOfObjectValues<AlertHistoryState>(createAlertHistoryStateFromDiscriminatorValue); },
+        "hostStates": n => { alert.hostStates = n.getCollectionOfObjectValues<HostSecurityState>(createHostSecurityStateFromDiscriminatorValue); },
+        "incidentIds": n => { alert.incidentIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "investigationSecurityStates": n => { alert.investigationSecurityStates = n.getCollectionOfObjectValues<InvestigationSecurityState>(createInvestigationSecurityStateFromDiscriminatorValue); },
+        "lastEventDateTime": n => { alert.lastEventDateTime = n.getDateValue(); },
+        "lastModifiedDateTime": n => { alert.lastModifiedDateTime = n.getDateValue(); },
+        "malwareStates": n => { alert.malwareStates = n.getCollectionOfObjectValues<MalwareState>(createMalwareStateFromDiscriminatorValue); },
+        "messageSecurityStates": n => { alert.messageSecurityStates = n.getCollectionOfObjectValues<MessageSecurityState>(createMessageSecurityStateFromDiscriminatorValue); },
+        "networkConnections": n => { alert.networkConnections = n.getCollectionOfObjectValues<NetworkConnection>(createNetworkConnectionFromDiscriminatorValue); },
+        "processes": n => { alert.processes = n.getCollectionOfObjectValues<Process>(createProcessFromDiscriminatorValue); },
+        "recommendedActions": n => { alert.recommendedActions = n.getCollectionOfPrimitiveValues<string>(); },
+        "registryKeyStates": n => { alert.registryKeyStates = n.getCollectionOfObjectValues<RegistryKeyState>(createRegistryKeyStateFromDiscriminatorValue); },
+        "securityResources": n => { alert.securityResources = n.getCollectionOfObjectValues<SecurityResource>(createSecurityResourceFromDiscriminatorValue); },
+        "severity": n => { alert.severity = n.getEnumValue<AlertSeverity>(AlertSeverity); },
+        "sourceMaterials": n => { alert.sourceMaterials = n.getCollectionOfPrimitiveValues<string>(); },
+        "status": n => { alert.status = n.getEnumValue<AlertStatus>(AlertStatus); },
+        "tags": n => { alert.tags = n.getCollectionOfPrimitiveValues<string>(); },
+        "title": n => { alert.title = n.getStringValue(); },
+        "triggers": n => { alert.triggers = n.getCollectionOfObjectValues<AlertTrigger>(createAlertTriggerFromDiscriminatorValue); },
+        "uriClickSecurityStates": n => { alert.uriClickSecurityStates = n.getCollectionOfObjectValues<UriClickSecurityState>(createUriClickSecurityStateFromDiscriminatorValue); },
+        "userStates": n => { alert.userStates = n.getCollectionOfObjectValues<UserSecurityState>(createUserSecurityStateFromDiscriminatorValue); },
+        "vendorInformation": n => { alert.vendorInformation = n.getObjectValue<SecurityVendorInformation>(createSecurityVendorInformationFromDiscriminatorValue); },
+        "vulnerabilityStates": n => { alert.vulnerabilityStates = n.getCollectionOfObjectValues<VulnerabilityState>(createVulnerabilityStateFromDiscriminatorValue); },
+    }
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function serializeAlert(writer: SerializationWriter, alert: Alert | undefined = {} as Alert) : void {
+        serializeEntity(writer, alert)
+        writer.writeStringValue("activityGroupName", alert.activityGroupName);
+        writer.writeCollectionOfObjectValues<AlertDetection>("alertDetections", alert.alertDetections, );
+        writer.writeStringValue("assignedTo", alert.assignedTo);
+        writer.writeStringValue("azureSubscriptionId", alert.azureSubscriptionId);
+        writer.writeStringValue("azureTenantId", alert.azureTenantId);
+        writer.writeStringValue("category", alert.category);
+        writer.writeDateValue("closedDateTime", alert.closedDateTime);
+        writer.writeCollectionOfObjectValues<CloudAppSecurityState>("cloudAppStates", alert.cloudAppStates, );
+        writer.writeCollectionOfPrimitiveValues<string>("comments", alert.comments);
+        writer.writeNumberValue("confidence", alert.confidence);
+        writer.writeDateValue("createdDateTime", alert.createdDateTime);
+        writer.writeStringValue("description", alert.description);
+        writer.writeCollectionOfPrimitiveValues<string>("detectionIds", alert.detectionIds);
+        writer.writeDateValue("eventDateTime", alert.eventDateTime);
+        writer.writeEnumValue<AlertFeedback>("feedback", alert.feedback);
+        writer.writeCollectionOfObjectValues<FileSecurityState>("fileStates", alert.fileStates, );
+        writer.writeCollectionOfObjectValues<AlertHistoryState>("historyStates", alert.historyStates, );
+        writer.writeCollectionOfObjectValues<HostSecurityState>("hostStates", alert.hostStates, );
+        writer.writeCollectionOfPrimitiveValues<string>("incidentIds", alert.incidentIds);
+        writer.writeCollectionOfObjectValues<InvestigationSecurityState>("investigationSecurityStates", alert.investigationSecurityStates, );
+        writer.writeDateValue("lastEventDateTime", alert.lastEventDateTime);
+        writer.writeDateValue("lastModifiedDateTime", alert.lastModifiedDateTime);
+        writer.writeCollectionOfObjectValues<MalwareState>("malwareStates", alert.malwareStates, );
+        writer.writeCollectionOfObjectValues<MessageSecurityState>("messageSecurityStates", alert.messageSecurityStates, );
+        writer.writeCollectionOfObjectValues<NetworkConnection>("networkConnections", alert.networkConnections, );
+        writer.writeCollectionOfObjectValues<Process>("processes", alert.processes, );
+        writer.writeCollectionOfPrimitiveValues<string>("recommendedActions", alert.recommendedActions);
+        writer.writeCollectionOfObjectValues<RegistryKeyState>("registryKeyStates", alert.registryKeyStates, );
+        writer.writeCollectionOfObjectValues<SecurityResource>("securityResources", alert.securityResources, );
+        writer.writeEnumValue<AlertSeverity>("severity", alert.severity);
+        writer.writeCollectionOfPrimitiveValues<string>("sourceMaterials", alert.sourceMaterials);
+        writer.writeEnumValue<AlertStatus>("status", alert.status);
+        writer.writeCollectionOfPrimitiveValues<string>("tags", alert.tags);
+        writer.writeStringValue("title", alert.title);
+        writer.writeCollectionOfObjectValues<AlertTrigger>("triggers", alert.triggers, );
+        writer.writeCollectionOfObjectValues<UriClickSecurityState>("uriClickSecurityStates", alert.uriClickSecurityStates, );
+        writer.writeCollectionOfObjectValues<UserSecurityState>("userStates", alert.userStates, );
+        writer.writeObjectValue<SecurityVendorInformation>("vendorInformation", alert.vendorInformation, );
+        writer.writeCollectionOfObjectValues<VulnerabilityState>("vulnerabilityStates", alert.vulnerabilityStates, );
 }

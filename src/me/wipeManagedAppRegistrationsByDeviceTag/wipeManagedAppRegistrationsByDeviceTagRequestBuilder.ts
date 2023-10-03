@@ -1,13 +1,18 @@
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { deserializeIntoWipeManagedAppRegistrationsByDeviceTagPostRequestBody } from './deserializeIntoWipeManagedAppRegistrationsByDeviceTagPostRequestBody';
-import { serializeWipeManagedAppRegistrationsByDeviceTagPostRequestBody } from './serializeWipeManagedAppRegistrationsByDeviceTagPostRequestBody';
-import { type WipeManagedAppRegistrationsByDeviceTagPostRequestBody } from './wipeManagedAppRegistrationsByDeviceTagPostRequestBody';
-import { type WipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration } from './wipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { deserializeIntoWipeManagedAppRegistrationsByDeviceTagPostRequestBody, serializeWipeManagedAppRegistrationsByDeviceTagPostRequestBody, type WipeManagedAppRegistrationsByDeviceTagPostRequestBody } from './wipeManagedAppRegistrationsByDeviceTagPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method.
  */

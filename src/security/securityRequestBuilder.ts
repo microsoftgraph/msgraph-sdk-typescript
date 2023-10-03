@@ -1,11 +1,6 @@
-import { createSecurityFromDiscriminatorValue } from '../models/createSecurityFromDiscriminatorValue';
-import { deserializeIntoSecurity } from '../models/deserializeIntoSecurity';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { type Security } from '../models/security';
-import { serializeSecurity } from '../models/serializeSecurity';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createSecurityFromDiscriminatorValue, deserializeIntoSecurity, serializeSecurity, type Security } from '../models/security';
 import { Alerts_v2RequestBuilder } from './alerts_v2/alerts_v2RequestBuilder';
 import { AlertsRequestBuilder } from './alerts/alertsRequestBuilder';
 import { AttackSimulationRequestBuilder } from './attackSimulation/attackSimulationRequestBuilder';
@@ -14,14 +9,46 @@ import { IncidentsRequestBuilder } from './incidents/incidentsRequestBuilder';
 import { MicrosoftGraphSecurityRunHuntingQueryRequestBuilder } from './microsoftGraphSecurityRunHuntingQuery/microsoftGraphSecurityRunHuntingQueryRequestBuilder';
 import { SecureScoreControlProfilesRequestBuilder } from './secureScoreControlProfiles/secureScoreControlProfilesRequestBuilder';
 import { SecureScoresRequestBuilder } from './secureScores/secureScoresRequestBuilder';
-import { type SecurityRequestBuilderGetRequestConfiguration } from './securityRequestBuilderGetRequestConfiguration';
-import { type SecurityRequestBuilderPatchRequestConfiguration } from './securityRequestBuilderPatchRequestConfiguration';
 import { SubjectRightsRequestsRequestBuilder } from './subjectRightsRequests/subjectRightsRequestsRequestBuilder';
 import { ThreatIntelligenceRequestBuilder } from './threatIntelligence/threatIntelligenceRequestBuilder';
 import { TriggersRequestBuilder } from './triggers/triggersRequestBuilder';
 import { TriggerTypesRequestBuilder } from './triggerTypes/triggerTypesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SecurityRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SecurityRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SecurityRequestBuilderGetQueryParameters;
+}
+export interface SecurityRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the security singleton.
  */

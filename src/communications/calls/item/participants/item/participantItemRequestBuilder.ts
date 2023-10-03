@@ -1,19 +1,55 @@
-import { createParticipantFromDiscriminatorValue } from '../../../../../models/createParticipantFromDiscriminatorValue';
-import { deserializeIntoParticipant } from '../../../../../models/deserializeIntoParticipant';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type Participant } from '../../../../../models/participant';
-import { serializeParticipant } from '../../../../../models/serializeParticipant';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createParticipantFromDiscriminatorValue, deserializeIntoParticipant, serializeParticipant, type Participant } from '../../../../../models/participant';
 import { MuteRequestBuilder } from './mute/muteRequestBuilder';
-import { type ParticipantItemRequestBuilderDeleteRequestConfiguration } from './participantItemRequestBuilderDeleteRequestConfiguration';
-import { type ParticipantItemRequestBuilderGetRequestConfiguration } from './participantItemRequestBuilderGetRequestConfiguration';
-import { type ParticipantItemRequestBuilderPatchRequestConfiguration } from './participantItemRequestBuilderPatchRequestConfiguration';
 import { StartHoldMusicRequestBuilder } from './startHoldMusic/startHoldMusicRequestBuilder';
 import { StopHoldMusicRequestBuilder } from './stopHoldMusic/stopHoldMusicRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ParticipantItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ParticipantItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ParticipantItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ParticipantItemRequestBuilderGetQueryParameters;
+}
+export interface ParticipantItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the participants property of the microsoft.graph.call entity.
  */
@@ -45,7 +81,7 @@ export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/participants/{participant%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled. 
+     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled.  This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/participant-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -60,7 +96,7 @@ export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a participant object.
+     * Retrieve the properties and relationships of a participant object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Participant
      * @see {@link https://learn.microsoft.com/graph/api/participant-get?view=graph-rest-1.0|Find more info here}
@@ -92,7 +128,7 @@ export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Participant>(requestInfo, createParticipantFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled. 
+     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled.  This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -108,7 +144,7 @@ export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a participant object.
+     * Retrieve the properties and relationships of a participant object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

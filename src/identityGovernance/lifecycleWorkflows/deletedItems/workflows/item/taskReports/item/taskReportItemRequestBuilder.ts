@@ -1,15 +1,36 @@
 import { type TaskReport } from '../../../../../../../models/identityGovernance/';
-import { createTaskReportFromDiscriminatorValue } from '../../../../../../../models/identityGovernance/createTaskReportFromDiscriminatorValue';
+import { createTaskReportFromDiscriminatorValue } from '../../../../../../../models/identityGovernance/taskReport';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { TaskRequestBuilder } from './task/taskRequestBuilder';
 import { TaskDefinitionRequestBuilder } from './taskDefinition/taskDefinitionRequestBuilder';
 import { TaskProcessingResultsRequestBuilder } from './taskProcessingResults/taskProcessingResultsRequestBuilder';
-import { type TaskReportItemRequestBuilderGetRequestConfiguration } from './taskReportItemRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TaskReportItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TaskReportItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TaskReportItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
  */

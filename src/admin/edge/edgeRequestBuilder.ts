@@ -1,17 +1,53 @@
-import { createEdgeFromDiscriminatorValue } from '../../models/createEdgeFromDiscriminatorValue';
-import { deserializeIntoEdge } from '../../models/deserializeIntoEdge';
-import { type Edge } from '../../models/edge';
+import { createEdgeFromDiscriminatorValue, deserializeIntoEdge, serializeEdge, type Edge } from '../../models/edge';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeEdge } from '../../models/serializeEdge';
-import { type EdgeRequestBuilderDeleteRequestConfiguration } from './edgeRequestBuilderDeleteRequestConfiguration';
-import { type EdgeRequestBuilderGetRequestConfiguration } from './edgeRequestBuilderGetRequestConfiguration';
-import { type EdgeRequestBuilderPatchRequestConfiguration } from './edgeRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { InternetExplorerModeRequestBuilder } from './internetExplorerMode/internetExplorerModeRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EdgeRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EdgeRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EdgeRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EdgeRequestBuilderGetQueryParameters;
+}
+export interface EdgeRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the edge property of the microsoft.graph.admin entity.
  */

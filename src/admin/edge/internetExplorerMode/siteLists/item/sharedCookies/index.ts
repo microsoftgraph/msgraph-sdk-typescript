@@ -1,3 +1,1 @@
-export * from './sharedCookiesRequestBuilderGetQueryParameters'
-export * from './sharedCookiesRequestBuilderGetRequestConfiguration'
-export * from './sharedCookiesRequestBuilderPostRequestConfiguration'
+export * from './sharedCookiesRequestBuilder'

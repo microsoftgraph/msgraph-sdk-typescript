@@ -1,5 +1,2 @@
-export * from './createImSumPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoImSumPostRequestBody'
 export * from './imSumPostRequestBody'
-export * from './imSumRequestBuilderPostRequestConfiguration'
-export * from './serializeImSumPostRequestBody'
+export * from './imSumRequestBuilder'

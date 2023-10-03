@@ -1,19 +1,70 @@
 import { type AccessPackageResourceEnvironmentCollectionResponse } from '../../../models/';
-import { type AccessPackageResourceEnvironment } from '../../../models/accessPackageResourceEnvironment';
-import { createAccessPackageResourceEnvironmentCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageResourceEnvironmentCollectionResponseFromDiscriminatorValue';
-import { createAccessPackageResourceEnvironmentFromDiscriminatorValue } from '../../../models/createAccessPackageResourceEnvironmentFromDiscriminatorValue';
-import { deserializeIntoAccessPackageResourceEnvironment } from '../../../models/deserializeIntoAccessPackageResourceEnvironment';
+import { createAccessPackageResourceEnvironmentFromDiscriminatorValue, deserializeIntoAccessPackageResourceEnvironment, serializeAccessPackageResourceEnvironment, type AccessPackageResourceEnvironment } from '../../../models/accessPackageResourceEnvironment';
+import { createAccessPackageResourceEnvironmentCollectionResponseFromDiscriminatorValue } from '../../../models/accessPackageResourceEnvironmentCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageResourceEnvironment } from '../../../models/serializeAccessPackageResourceEnvironment';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AccessPackageResourceEnvironmentItemRequestBuilder } from './item/accessPackageResourceEnvironmentItemRequestBuilder';
-import { type ResourceEnvironmentsRequestBuilderGetRequestConfiguration } from './resourceEnvironmentsRequestBuilderGetRequestConfiguration';
-import { type ResourceEnvironmentsRequestBuilderPostRequestConfiguration } from './resourceEnvironmentsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ResourceEnvironmentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ResourceEnvironmentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ResourceEnvironmentsRequestBuilderGetQueryParameters;
+}
+export interface ResourceEnvironmentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.
  */
@@ -44,7 +95,7 @@ export class ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/resourceEnvironments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
+     * Retrieve a list of accessPackageResourceEnvironment objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceEnvironmentCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-resourceenvironments?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageResourceEnvironment>(requestInfo, createAccessPackageResourceEnvironmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
+     * Retrieve a list of accessPackageResourceEnvironment objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

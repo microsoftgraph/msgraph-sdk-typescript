@@ -1,14 +1,59 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type ArticleIndicatorCollectionResponse } from '../../../../../models/security/';
-import { createArticleIndicatorCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createArticleIndicatorCollectionResponseFromDiscriminatorValue';
+import { createArticleIndicatorCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/articleIndicatorCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type IndicatorsRequestBuilderGetRequestConfiguration } from './indicatorsRequestBuilderGetRequestConfiguration';
 import { ArticleIndicatorItemRequestBuilder } from './item/articleIndicatorItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IndicatorsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface IndicatorsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IndicatorsRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.article entity.
  */
@@ -39,7 +84,7 @@ export class IndicatorsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/articles/{article%2Did}/indicators{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of articleIndicator objects that represent indicators of threat or compromise related to the contents of an article.
+     * Get a list of articleIndicator objects that represent indicators of threat or compromise related to the contents of an article. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArticleIndicatorCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-article-list-indicators?view=graph-rest-1.0|Find more info here}
@@ -55,7 +100,7 @@ export class IndicatorsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ArticleIndicatorCollectionResponse>(requestInfo, createArticleIndicatorCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of articleIndicator objects that represent indicators of threat or compromise related to the contents of an article.
+     * Get a list of articleIndicator objects that represent indicators of threat or compromise related to the contents of an article. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

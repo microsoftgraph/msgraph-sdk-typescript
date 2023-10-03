@@ -8,3 +8,5 @@ export enum FileHashType {
     Ctph = "ctph",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

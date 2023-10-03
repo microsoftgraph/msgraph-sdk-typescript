@@ -3,3 +3,5 @@ export enum AttendeeType {
     Optional = "optional",
     Resource = "resource",
 }
+// tslint:enable
+// eslint-enable

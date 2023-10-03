@@ -7,3 +7,5 @@ export enum UserFeedbackRating {
     Excellent = "excellent",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

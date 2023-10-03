@@ -1,1 +1,1 @@
-export * from './completeMigrationRequestBuilderPostRequestConfiguration'
+export * from './completeMigrationRequestBuilder'

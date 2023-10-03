@@ -1,5 +1,2 @@
-export * from './createRemoveHoldPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoRemoveHoldPostRequestBody'
-export * from './microsoftGraphSecurityRemoveHoldRequestBuilderPostRequestConfiguration'
+export * from './microsoftGraphSecurityRemoveHoldRequestBuilder'
 export * from './removeHoldPostRequestBody'
-export * from './serializeRemoveHoldPostRequestBody'

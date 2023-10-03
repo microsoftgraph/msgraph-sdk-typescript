@@ -1,18 +1,54 @@
-import { createPermissionGrantPolicyFromDiscriminatorValue } from '../../../models/createPermissionGrantPolicyFromDiscriminatorValue';
-import { deserializeIntoPermissionGrantPolicy } from '../../../models/deserializeIntoPermissionGrantPolicy';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PermissionGrantPolicy } from '../../../models/permissionGrantPolicy';
-import { serializePermissionGrantPolicy } from '../../../models/serializePermissionGrantPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPermissionGrantPolicyFromDiscriminatorValue, deserializeIntoPermissionGrantPolicy, serializePermissionGrantPolicy, type PermissionGrantPolicy } from '../../../models/permissionGrantPolicy';
 import { ExcludesRequestBuilder } from './excludes/excludesRequestBuilder';
 import { IncludesRequestBuilder } from './includes/includesRequestBuilder';
-import { type PermissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration } from './permissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration } from './permissionGrantPolicyItemRequestBuilderGetRequestConfiguration';
-import { type PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration } from './permissionGrantPolicyItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PermissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PermissionGrantPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PermissionGrantPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
  */
@@ -38,7 +74,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a permissionGrantPolicy object.
+     * Delete a permissionGrantPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -53,7 +89,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve a single permissionGrantPolicy object.
+     * Retrieve a single permissionGrantPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PermissionGrantPolicy
      * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-get?view=graph-rest-1.0|Find more info here}
@@ -69,7 +105,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<PermissionGrantPolicy>(requestInfo, createPermissionGrantPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update properties of a  permissionGrantPolicy.
+     * Update properties of a  permissionGrantPolicy. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PermissionGrantPolicy
@@ -86,7 +122,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<PermissionGrantPolicy>(requestInfo, createPermissionGrantPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a permissionGrantPolicy object.
+     * Delete a permissionGrantPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +138,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Retrieve a single permissionGrantPolicy object.
+     * Retrieve a single permissionGrantPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -120,7 +156,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Update properties of a  permissionGrantPolicy.
+     * Update properties of a  permissionGrantPolicy. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

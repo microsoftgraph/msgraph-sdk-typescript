@@ -1,5 +1,2 @@
 export * from './bitxorPostRequestBody'
-export * from './bitxorRequestBuilderPostRequestConfiguration'
-export * from './createBitxorPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoBitxorPostRequestBody'
-export * from './serializeBitxorPostRequestBody'
+export * from './bitxorRequestBuilder'

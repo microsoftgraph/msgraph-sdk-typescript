@@ -1,19 +1,70 @@
 import { type ExtensionPropertyCollectionResponse } from '../../../models/';
-import { createExtensionPropertyCollectionResponseFromDiscriminatorValue } from '../../../models/createExtensionPropertyCollectionResponseFromDiscriminatorValue';
-import { createExtensionPropertyFromDiscriminatorValue } from '../../../models/createExtensionPropertyFromDiscriminatorValue';
-import { deserializeIntoExtensionProperty } from '../../../models/deserializeIntoExtensionProperty';
-import { type ExtensionProperty } from '../../../models/extensionProperty';
+import { createExtensionPropertyFromDiscriminatorValue, deserializeIntoExtensionProperty, serializeExtensionProperty, type ExtensionProperty } from '../../../models/extensionProperty';
+import { createExtensionPropertyCollectionResponseFromDiscriminatorValue } from '../../../models/extensionPropertyCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeExtensionProperty } from '../../../models/serializeExtensionProperty';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type ExtensionPropertiesRequestBuilderGetRequestConfiguration } from './extensionPropertiesRequestBuilderGetRequestConfiguration';
-import { type ExtensionPropertiesRequestBuilderPostRequestConfiguration } from './extensionPropertiesRequestBuilderPostRequestConfiguration';
 import { ExtensionPropertyItemRequestBuilder } from './item/extensionPropertyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExtensionPropertiesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ExtensionPropertiesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ExtensionPropertiesRequestBuilderGetQueryParameters;
+}
+export interface ExtensionPropertiesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
  */
@@ -44,7 +95,7 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/extensionProperties{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application.
+     * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExtensionPropertyCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/application-list-extensionproperty?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ExtensionPropertyCollectionResponse>(requestInfo, createExtensionPropertyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new directory extension definition, represented by an extensionProperty object.
+     * Create a new directory extension definition, represented by an extensionProperty object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExtensionProperty
@@ -77,7 +128,7 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ExtensionProperty>(requestInfo, createExtensionPropertyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application.
+     * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new directory extension definition, represented by an extensionProperty object.
+     * Create a new directory extension definition, represented by an extensionProperty object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

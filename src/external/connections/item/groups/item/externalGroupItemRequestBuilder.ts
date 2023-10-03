@@ -1,17 +1,53 @@
-import { createExternalGroupFromDiscriminatorValue } from '../../../../../models/externalConnectors/createExternalGroupFromDiscriminatorValue';
-import { deserializeIntoExternalGroup } from '../../../../../models/externalConnectors/deserializeIntoExternalGroup';
-import { type ExternalGroup } from '../../../../../models/externalConnectors/externalGroup';
-import { serializeExternalGroup } from '../../../../../models/externalConnectors/serializeExternalGroup';
+import { createExternalGroupFromDiscriminatorValue, deserializeIntoExternalGroup, serializeExternalGroup, type ExternalGroup } from '../../../../../models/externalConnectors/externalGroup';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type ExternalGroupItemRequestBuilderDeleteRequestConfiguration } from './externalGroupItemRequestBuilderDeleteRequestConfiguration';
-import { type ExternalGroupItemRequestBuilderGetRequestConfiguration } from './externalGroupItemRequestBuilderGetRequestConfiguration';
-import { type ExternalGroupItemRequestBuilderPatchRequestConfiguration } from './externalGroupItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { MembersRequestBuilder } from './members/membersRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ExternalGroupItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ExternalGroupItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ExternalGroupItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ExternalGroupItemRequestBuilderGetQueryParameters;
+}
+export interface ExternalGroupItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
  */
@@ -31,7 +67,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an externalGroup object.
+     * Delete an externalGroup object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -46,7 +82,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get an externalGroup object.
+     * Get an externalGroup object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalGroup
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-get?view=graph-rest-1.0|Find more info here}
@@ -62,7 +98,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ExternalGroup>(requestInfo, createExternalGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an externalGroup object.
+     * Update the properties of an externalGroup object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalGroup
@@ -79,7 +115,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ExternalGroup>(requestInfo, createExternalGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an externalGroup object.
+     * Delete an externalGroup object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +131,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get an externalGroup object.
+     * Get an externalGroup object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -113,7 +149,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an externalGroup object.
+     * Update the properties of an externalGroup object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

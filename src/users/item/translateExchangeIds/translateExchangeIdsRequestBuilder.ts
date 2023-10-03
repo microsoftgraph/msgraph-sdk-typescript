@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createTranslateExchangeIdsResponseFromDiscriminatorValue } from './createTranslateExchangeIdsResponseFromDiscriminatorValue';
-import { deserializeIntoTranslateExchangeIdsPostRequestBody } from './deserializeIntoTranslateExchangeIdsPostRequestBody';
-import { deserializeIntoTranslateExchangeIdsResponse } from './deserializeIntoTranslateExchangeIdsResponse';
-import { serializeTranslateExchangeIdsPostRequestBody } from './serializeTranslateExchangeIdsPostRequestBody';
-import { serializeTranslateExchangeIdsResponse } from './serializeTranslateExchangeIdsResponse';
-import { type TranslateExchangeIdsPostRequestBody } from './translateExchangeIdsPostRequestBody';
-import { type TranslateExchangeIdsRequestBuilderPostRequestConfiguration } from './translateExchangeIdsRequestBuilderPostRequestConfiguration';
-import { type TranslateExchangeIdsResponse } from './translateExchangeIdsResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoTranslateExchangeIdsPostRequestBody, serializeTranslateExchangeIdsPostRequestBody, type TranslateExchangeIdsPostRequestBody } from './translateExchangeIdsPostRequestBody';
+import { createTranslateExchangeIdsPostResponseFromDiscriminatorValue, deserializeIntoTranslateExchangeIdsPostResponse, serializeTranslateExchangeIdsPostResponse, type TranslateExchangeIdsPostResponse } from './translateExchangeIdsPostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TranslateExchangeIdsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the translateExchangeIds method.
  */
@@ -25,13 +27,13 @@ export class TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/translateExchangeIds");
     };
     /**
-     * Translate identifiers of Outlook-related resources between formats.
+     * Translate identifiers of Outlook-related resources between formats. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of TranslateExchangeIdsResponse
+     * @returns a Promise of TranslateExchangeIdsPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/user-translateexchangeids?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TranslateExchangeIdsPostRequestBody, requestConfiguration?: TranslateExchangeIdsRequestBuilderPostRequestConfiguration | undefined) : Promise<TranslateExchangeIdsResponse | undefined> {
+    public post(body: TranslateExchangeIdsPostRequestBody, requestConfiguration?: TranslateExchangeIdsRequestBuilderPostRequestConfiguration | undefined) : Promise<TranslateExchangeIdsPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<TranslateExchangeIdsResponse>(requestInfo, createTranslateExchangeIdsResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<TranslateExchangeIdsPostResponse>(requestInfo, createTranslateExchangeIdsPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Translate identifiers of Outlook-related resources between formats.
+     * Translate identifiers of Outlook-related resources between formats. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

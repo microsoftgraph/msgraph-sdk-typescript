@@ -1,2 +1,1 @@
-export * from './taskReportItemRequestBuilderGetQueryParameters'
-export * from './taskReportItemRequestBuilderGetRequestConfiguration'
+export * from './taskReportItemRequestBuilder'

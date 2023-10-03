@@ -1,17 +1,53 @@
-import { createSubscriptionFromDiscriminatorValue } from '../../../../../../models/createSubscriptionFromDiscriminatorValue';
-import { deserializeIntoSubscription } from '../../../../../../models/deserializeIntoSubscription';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeSubscription } from '../../../../../../models/serializeSubscription';
-import { type Subscription } from '../../../../../../models/subscription';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createSubscriptionFromDiscriminatorValue, deserializeIntoSubscription, serializeSubscription, type Subscription } from '../../../../../../models/subscription';
 import { ReauthorizeRequestBuilder } from './reauthorize/reauthorizeRequestBuilder';
-import { type SubscriptionItemRequestBuilderDeleteRequestConfiguration } from './subscriptionItemRequestBuilderDeleteRequestConfiguration';
-import { type SubscriptionItemRequestBuilderGetRequestConfiguration } from './subscriptionItemRequestBuilderGetRequestConfiguration';
-import { type SubscriptionItemRequestBuilderPatchRequestConfiguration } from './subscriptionItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SubscriptionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SubscriptionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SubscriptionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SubscriptionItemRequestBuilderGetQueryParameters;
+}
+export interface SubscriptionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the subscriptions property of the microsoft.graph.list entity.
  */

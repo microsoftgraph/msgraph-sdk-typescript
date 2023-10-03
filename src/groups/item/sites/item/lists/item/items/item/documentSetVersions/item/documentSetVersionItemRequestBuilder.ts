@@ -1,18 +1,54 @@
-import { createDocumentSetVersionFromDiscriminatorValue } from '../../../../../../../../../../models/createDocumentSetVersionFromDiscriminatorValue';
-import { deserializeIntoDocumentSetVersion } from '../../../../../../../../../../models/deserializeIntoDocumentSetVersion';
-import { type DocumentSetVersion } from '../../../../../../../../../../models/documentSetVersion';
+import { createDocumentSetVersionFromDiscriminatorValue, deserializeIntoDocumentSetVersion, serializeDocumentSetVersion, type DocumentSetVersion } from '../../../../../../../../../../models/documentSetVersion';
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeDocumentSetVersion } from '../../../../../../../../../../models/serializeDocumentSetVersion';
-import { type DocumentSetVersionItemRequestBuilderDeleteRequestConfiguration } from './documentSetVersionItemRequestBuilderDeleteRequestConfiguration';
-import { type DocumentSetVersionItemRequestBuilderGetRequestConfiguration } from './documentSetVersionItemRequestBuilderGetRequestConfiguration';
-import { type DocumentSetVersionItemRequestBuilderPatchRequestConfiguration } from './documentSetVersionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
 import { FieldsRequestBuilder } from './fields/fieldsRequestBuilder';
 import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DocumentSetVersionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DocumentSetVersionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DocumentSetVersionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DocumentSetVersionItemRequestBuilderGetQueryParameters;
+}
+export interface DocumentSetVersionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
  */
@@ -38,7 +74,7 @@ export class DocumentSetVersionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/documentSetVersions/{documentSetVersion%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a version of a document set in a list.
+     * Delete a version of a document set in a list. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/documentsetversion-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -53,7 +89,7 @@ export class DocumentSetVersionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a documentSetVersion object.
+     * Read the properties and relationships of a documentSetVersion object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DocumentSetVersion
      * @see {@link https://learn.microsoft.com/graph/api/documentsetversion-get?view=graph-rest-1.0|Find more info here}
@@ -85,7 +121,7 @@ export class DocumentSetVersionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DocumentSetVersion>(requestInfo, createDocumentSetVersionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a version of a document set in a list.
+     * Delete a version of a document set in a list. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -101,7 +137,7 @@ export class DocumentSetVersionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a documentSetVersion object.
+     * Read the properties and relationships of a documentSetVersion object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,16 +1,52 @@
-import { type ContentSharingSession } from '../../../../../models/contentSharingSession';
-import { createContentSharingSessionFromDiscriminatorValue } from '../../../../../models/createContentSharingSessionFromDiscriminatorValue';
-import { deserializeIntoContentSharingSession } from '../../../../../models/deserializeIntoContentSharingSession';
+import { createContentSharingSessionFromDiscriminatorValue, deserializeIntoContentSharingSession, serializeContentSharingSession, type ContentSharingSession } from '../../../../../models/contentSharingSession';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeContentSharingSession } from '../../../../../models/serializeContentSharingSession';
-import { type ContentSharingSessionItemRequestBuilderDeleteRequestConfiguration } from './contentSharingSessionItemRequestBuilderDeleteRequestConfiguration';
-import { type ContentSharingSessionItemRequestBuilderGetRequestConfiguration } from './contentSharingSessionItemRequestBuilderGetRequestConfiguration';
-import { type ContentSharingSessionItemRequestBuilderPatchRequestConfiguration } from './contentSharingSessionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContentSharingSessionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ContentSharingSessionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ContentSharingSessionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContentSharingSessionItemRequestBuilderGetQueryParameters;
+}
+export interface ContentSharingSessionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
  */
@@ -38,7 +74,7 @@ export class ContentSharingSessionItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties of a contentSharingSession object in a call.
+     * Retrieve the properties of a contentSharingSession object in a call. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentSharingSession
      * @see {@link https://learn.microsoft.com/graph/api/contentsharingsession-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +122,7 @@ export class ContentSharingSessionItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Retrieve the properties of a contentSharingSession object in a call.
+     * Retrieve the properties of a contentSharingSession object in a call. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

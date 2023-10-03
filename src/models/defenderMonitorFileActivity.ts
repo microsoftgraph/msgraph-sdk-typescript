@@ -13,3 +13,5 @@ export enum DefenderMonitorFileActivity {
     /** Monitor outgoing files only. */
     MonitorOutgoingFilesOnly = "monitorOutgoingFilesOnly",
 }
+// tslint:enable
+// eslint-enable

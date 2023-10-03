@@ -1,5 +1,2 @@
 export * from './cancelMediaProcessingPostRequestBody'
-export * from './cancelMediaProcessingRequestBuilderPostRequestConfiguration'
-export * from './createCancelMediaProcessingPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoCancelMediaProcessingPostRequestBody'
-export * from './serializeCancelMediaProcessingPostRequestBody'
+export * from './cancelMediaProcessingRequestBuilder'

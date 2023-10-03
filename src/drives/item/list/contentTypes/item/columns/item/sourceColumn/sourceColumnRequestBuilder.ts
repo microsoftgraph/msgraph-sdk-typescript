@@ -1,12 +1,33 @@
 import { type ColumnDefinition } from '../../../../../../../../models/';
-import { createColumnDefinitionFromDiscriminatorValue } from '../../../../../../../../models/createColumnDefinitionFromDiscriminatorValue';
+import { createColumnDefinitionFromDiscriminatorValue } from '../../../../../../../../models/columnDefinition';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { type SourceColumnRequestBuilderGetRequestConfiguration } from './sourceColumnRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SourceColumnRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SourceColumnRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SourceColumnRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.
  */

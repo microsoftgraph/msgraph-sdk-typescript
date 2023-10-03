@@ -1,16 +1,52 @@
-import { createDeviceCategoryFromDiscriminatorValue } from '../../../../../models/createDeviceCategoryFromDiscriminatorValue';
-import { deserializeIntoDeviceCategory } from '../../../../../models/deserializeIntoDeviceCategory';
-import { type DeviceCategory } from '../../../../../models/deviceCategory';
+import { createDeviceCategoryFromDiscriminatorValue, deserializeIntoDeviceCategory, serializeDeviceCategory, type DeviceCategory } from '../../../../../models/deviceCategory';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceCategory } from '../../../../../models/serializeDeviceCategory';
-import { type DeviceCategoryRequestBuilderDeleteRequestConfiguration } from './deviceCategoryRequestBuilderDeleteRequestConfiguration';
-import { type DeviceCategoryRequestBuilderGetRequestConfiguration } from './deviceCategoryRequestBuilderGetRequestConfiguration';
-import { type DeviceCategoryRequestBuilderPatchRequestConfiguration } from './deviceCategoryRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceCategoryRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceCategoryRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceCategoryRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceCategoryRequestBuilderGetQueryParameters;
+}
+export interface DeviceCategoryRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deviceCategory property of the microsoft.graph.managedDevice entity.
  */

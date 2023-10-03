@@ -1,12 +1,33 @@
 import { type AccessPackageAssignmentPolicy } from '../../../../../models/';
-import { createAccessPackageAssignmentPolicyFromDiscriminatorValue } from '../../../../../models/createAccessPackageAssignmentPolicyFromDiscriminatorValue';
+import { createAccessPackageAssignmentPolicyFromDiscriminatorValue } from '../../../../../models/accessPackageAssignmentPolicy';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type AssignmentPolicyRequestBuilderGetRequestConfiguration } from './assignmentPolicyRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignmentPolicyRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AssignmentPolicyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AssignmentPolicyRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the assignmentPolicy property of the microsoft.graph.accessPackageAssignment entity.
  */

@@ -1,5 +1,2 @@
 export * from './coupNcdPostRequestBody'
-export * from './coupNcdRequestBuilderPostRequestConfiguration'
-export * from './createCoupNcdPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoCoupNcdPostRequestBody'
-export * from './serializeCoupNcdPostRequestBody'
+export * from './coupNcdRequestBuilder'

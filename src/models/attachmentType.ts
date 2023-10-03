@@ -3,3 +3,5 @@ export enum AttachmentType {
     Item = "item",
     Reference = "reference",
 }
+// tslint:enable
+// eslint-enable

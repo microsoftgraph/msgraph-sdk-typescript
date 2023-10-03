@@ -1,19 +1,70 @@
 import { type SimulationCollectionResponse } from '../../../models/';
-import { createSimulationCollectionResponseFromDiscriminatorValue } from '../../../models/createSimulationCollectionResponseFromDiscriminatorValue';
-import { createSimulationFromDiscriminatorValue } from '../../../models/createSimulationFromDiscriminatorValue';
-import { deserializeIntoSimulation } from '../../../models/deserializeIntoSimulation';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeSimulation } from '../../../models/serializeSimulation';
-import { type Simulation } from '../../../models/simulation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createSimulationFromDiscriminatorValue, deserializeIntoSimulation, serializeSimulation, type Simulation } from '../../../models/simulation';
+import { createSimulationCollectionResponseFromDiscriminatorValue } from '../../../models/simulationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SimulationItemRequestBuilder } from './item/simulationItemRequestBuilder';
-import { type SimulationsRequestBuilderGetRequestConfiguration } from './simulationsRequestBuilderGetRequestConfiguration';
-import { type SimulationsRequestBuilderPostRequestConfiguration } from './simulationsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SimulationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SimulationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SimulationsRequestBuilderGetQueryParameters;
+}
+export interface SimulationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
  */
@@ -44,7 +95,7 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/simulations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of attack simulation campaigns for a tenant.
+     * Get a list of attack simulation campaigns for a tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SimulationCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-simulations?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Simulation>(requestInfo, createSimulationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of attack simulation campaigns for a tenant.
+     * Get a list of attack simulation campaigns for a tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

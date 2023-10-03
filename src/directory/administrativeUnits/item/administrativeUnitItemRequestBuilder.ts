@@ -1,19 +1,55 @@
-import { type AdministrativeUnit } from '../../../models/administrativeUnit';
-import { createAdministrativeUnitFromDiscriminatorValue } from '../../../models/createAdministrativeUnitFromDiscriminatorValue';
-import { deserializeIntoAdministrativeUnit } from '../../../models/deserializeIntoAdministrativeUnit';
+import { createAdministrativeUnitFromDiscriminatorValue, deserializeIntoAdministrativeUnit, serializeAdministrativeUnit, type AdministrativeUnit } from '../../../models/administrativeUnit';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAdministrativeUnit } from '../../../models/serializeAdministrativeUnit';
-import { type AdministrativeUnitItemRequestBuilderDeleteRequestConfiguration } from './administrativeUnitItemRequestBuilderDeleteRequestConfiguration';
-import { type AdministrativeUnitItemRequestBuilderGetRequestConfiguration } from './administrativeUnitItemRequestBuilderGetRequestConfiguration';
-import { type AdministrativeUnitItemRequestBuilderPatchRequestConfiguration } from './administrativeUnitItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
 import { MembersRequestBuilder } from './members/membersRequestBuilder';
 import { ScopedRoleMembersRequestBuilder } from './scopedRoleMembers/scopedRoleMembersRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AdministrativeUnitItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AdministrativeUnitItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AdministrativeUnitItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AdministrativeUnitItemRequestBuilderGetQueryParameters;
+}
+export interface AdministrativeUnitItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
  */
@@ -45,7 +81,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an administrativeUnit.
+     * Delete an administrativeUnit. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -60,7 +96,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an administrativeUnit object.
+     * Retrieve the properties and relationships of an administrativeUnit object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnit
      * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-get?view=graph-rest-1.0|Find more info here}
@@ -76,7 +112,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an administrativeUnit object.
+     * Update the properties of an administrativeUnit object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnit
@@ -93,7 +129,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an administrativeUnit.
+     * Delete an administrativeUnit. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -109,7 +145,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of an administrativeUnit object.
+     * Retrieve the properties and relationships of an administrativeUnit object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -127,7 +163,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an administrativeUnit object.
+     * Update the properties of an administrativeUnit object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

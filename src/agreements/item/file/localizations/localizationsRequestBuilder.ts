@@ -1,19 +1,70 @@
 import { type AgreementFileLocalizationCollectionResponse } from '../../../../models/';
-import { type AgreementFileLocalization } from '../../../../models/agreementFileLocalization';
-import { createAgreementFileLocalizationCollectionResponseFromDiscriminatorValue } from '../../../../models/createAgreementFileLocalizationCollectionResponseFromDiscriminatorValue';
-import { createAgreementFileLocalizationFromDiscriminatorValue } from '../../../../models/createAgreementFileLocalizationFromDiscriminatorValue';
-import { deserializeIntoAgreementFileLocalization } from '../../../../models/deserializeIntoAgreementFileLocalization';
+import { createAgreementFileLocalizationFromDiscriminatorValue, deserializeIntoAgreementFileLocalization, serializeAgreementFileLocalization, type AgreementFileLocalization } from '../../../../models/agreementFileLocalization';
+import { createAgreementFileLocalizationCollectionResponseFromDiscriminatorValue } from '../../../../models/agreementFileLocalizationCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAgreementFileLocalization } from '../../../../models/serializeAgreementFileLocalization';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AgreementFileLocalizationItemRequestBuilder } from './item/agreementFileLocalizationItemRequestBuilder';
-import { type LocalizationsRequestBuilderGetRequestConfiguration } from './localizationsRequestBuilderGetRequestConfiguration';
-import { type LocalizationsRequestBuilderPostRequestConfiguration } from './localizationsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LocalizationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface LocalizationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LocalizationsRequestBuilderGetQueryParameters;
+}
+export interface LocalizationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
  */
@@ -44,7 +95,7 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/agreements/{agreement%2Did}/file/localizations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the default and localized agreement files.
+     * Get a list of the default and localized agreement files. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AgreementFileLocalizationCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/agreementfile-list-localizations?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AgreementFileLocalization>(requestInfo, createAgreementFileLocalizationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the default and localized agreement files.
+     * Get a list of the default and localized agreement files. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

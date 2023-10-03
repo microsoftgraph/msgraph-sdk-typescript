@@ -1,17 +1,53 @@
-import { createWorkbookChartGridlinesFromDiscriminatorValue } from '../../../../../../../../../../../../models/createWorkbookChartGridlinesFromDiscriminatorValue';
-import { deserializeIntoWorkbookChartGridlines } from '../../../../../../../../../../../../models/deserializeIntoWorkbookChartGridlines';
 import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookChartGridlines } from '../../../../../../../../../../../../models/serializeWorkbookChartGridlines';
-import { type WorkbookChartGridlines } from '../../../../../../../../../../../../models/workbookChartGridlines';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookChartGridlinesFromDiscriminatorValue, deserializeIntoWorkbookChartGridlines, serializeWorkbookChartGridlines, type WorkbookChartGridlines } from '../../../../../../../../../../../../models/workbookChartGridlines';
 import { FormatRequestBuilder } from './format/formatRequestBuilder';
-import { type MinorGridlinesRequestBuilderDeleteRequestConfiguration } from './minorGridlinesRequestBuilderDeleteRequestConfiguration';
-import { type MinorGridlinesRequestBuilderGetRequestConfiguration } from './minorGridlinesRequestBuilderGetRequestConfiguration';
-import { type MinorGridlinesRequestBuilderPatchRequestConfiguration } from './minorGridlinesRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MinorGridlinesRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MinorGridlinesRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MinorGridlinesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MinorGridlinesRequestBuilderGetQueryParameters;
+}
+export interface MinorGridlinesRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the minorGridlines property of the microsoft.graph.workbookChartAxis entity.
  */
@@ -45,7 +81,7 @@ export class MinorGridlinesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of chartgridlines object.
+     * Retrieve the properties and relationships of chartgridlines object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartGridlines
      * @see {@link https://learn.microsoft.com/graph/api/chartgridlines-get?view=graph-rest-1.0|Find more info here}
@@ -61,7 +97,7 @@ export class MinorGridlinesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookChartGridlines>(requestInfo, createWorkbookChartGridlinesFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of chartgridlines object.
+     * Update the properties of chartgridlines object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartGridlines
@@ -94,7 +130,7 @@ export class MinorGridlinesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of chartgridlines object.
+     * Retrieve the properties and relationships of chartgridlines object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +148,7 @@ export class MinorGridlinesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of chartgridlines object.
+     * Update the properties of chartgridlines object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

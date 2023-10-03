@@ -1,19 +1,55 @@
-import { createWindowsAutopilotDeviceIdentityFromDiscriminatorValue } from '../../../models/createWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
-import { deserializeIntoWindowsAutopilotDeviceIdentity } from '../../../models/deserializeIntoWindowsAutopilotDeviceIdentity';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeWindowsAutopilotDeviceIdentity } from '../../../models/serializeWindowsAutopilotDeviceIdentity';
-import { type WindowsAutopilotDeviceIdentity } from '../../../models/windowsAutopilotDeviceIdentity';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createWindowsAutopilotDeviceIdentityFromDiscriminatorValue, deserializeIntoWindowsAutopilotDeviceIdentity, serializeWindowsAutopilotDeviceIdentity, type WindowsAutopilotDeviceIdentity } from '../../../models/windowsAutopilotDeviceIdentity';
 import { AssignUserToDeviceRequestBuilder } from './assignUserToDevice/assignUserToDeviceRequestBuilder';
 import { UnassignUserFromDeviceRequestBuilder } from './unassignUserFromDevice/unassignUserFromDeviceRequestBuilder';
 import { UpdateDevicePropertiesRequestBuilder } from './updateDeviceProperties/updateDevicePropertiesRequestBuilder';
-import { type WindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration } from './windowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration';
-import { type WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration } from './windowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration';
-import { type WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration } from './windowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters;
+}
+export interface WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
  */

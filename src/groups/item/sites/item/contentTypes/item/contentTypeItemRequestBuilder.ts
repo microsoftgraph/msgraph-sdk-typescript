@@ -1,26 +1,62 @@
-import { type ContentType } from '../../../../../../models/contentType';
-import { createContentTypeFromDiscriminatorValue } from '../../../../../../models/createContentTypeFromDiscriminatorValue';
-import { deserializeIntoContentType } from '../../../../../../models/deserializeIntoContentType';
+import { createContentTypeFromDiscriminatorValue, deserializeIntoContentType, serializeContentType, type ContentType } from '../../../../../../models/contentType';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeContentType } from '../../../../../../models/serializeContentType';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { AssociateWithHubSitesRequestBuilder } from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import { BaseRequestBuilderEscaped } from './base/baseRequestBuilderEscaped';
 import { BaseTypesRequestBuilder } from './baseTypes/baseTypesRequestBuilder';
 import { ColumnLinksRequestBuilder } from './columnLinks/columnLinksRequestBuilder';
 import { ColumnPositionsRequestBuilder } from './columnPositions/columnPositionsRequestBuilder';
 import { ColumnsRequestBuilder } from './columns/columnsRequestBuilder';
-import { type ContentTypeItemRequestBuilderDeleteRequestConfiguration } from './contentTypeItemRequestBuilderDeleteRequestConfiguration';
-import { type ContentTypeItemRequestBuilderGetRequestConfiguration } from './contentTypeItemRequestBuilderGetRequestConfiguration';
-import { type ContentTypeItemRequestBuilderPatchRequestConfiguration } from './contentTypeItemRequestBuilderPatchRequestConfiguration';
 import { CopyToDefaultContentLocationRequestBuilder } from './copyToDefaultContentLocation/copyToDefaultContentLocationRequestBuilder';
 import { IsPublishedRequestBuilder } from './isPublished/isPublishedRequestBuilder';
 import { PublishRequestBuilder } from './publish/publishRequestBuilder';
 import { UnpublishRequestBuilder } from './unpublish/unpublishRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContentTypeItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ContentTypeItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ContentTypeItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ContentTypeItemRequestBuilderGetQueryParameters;
+}
+export interface ContentTypeItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
  */
@@ -94,7 +130,7 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/contentTypes/{contentType%2Did}{?%24select,%24expand}");
     };
     /**
-     * Remove a [content type][contentType] from a [list][] or a [site][].
+     * Remove a content type][contentType] from a [list][] or a [site][]. This API is supported in the following [national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -109,7 +145,7 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the metadata for a [content type][contentType] in a [site][] or a [list][].
+     * Retrieve the metadata for a content type][contentType] in a [site][] or a [list][]. This API is supported in the following [national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentType
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-get?view=graph-rest-1.0|Find more info here}
@@ -125,7 +161,7 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update a [content type][contentType].
+     * Update a content type][contentType]. This API is supported in the following [national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentType
@@ -142,7 +178,7 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Remove a [content type][contentType] from a [list][] or a [site][].
+     * Remove a content type][contentType] from a [list][] or a [site][]. This API is supported in the following [national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -158,7 +194,7 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the metadata for a [content type][contentType] in a [site][] or a [list][].
+     * Retrieve the metadata for a content type][contentType] in a [site][] or a [list][]. This API is supported in the following [national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -176,7 +212,7 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update a [content type][contentType].
+     * Update a content type][contentType]. This API is supported in the following [national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

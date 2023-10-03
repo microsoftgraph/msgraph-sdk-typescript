@@ -1,16 +1,52 @@
-import { createTelecomExpenseManagementPartnerFromDiscriminatorValue } from '../../../models/createTelecomExpenseManagementPartnerFromDiscriminatorValue';
-import { deserializeIntoTelecomExpenseManagementPartner } from '../../../models/deserializeIntoTelecomExpenseManagementPartner';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeTelecomExpenseManagementPartner } from '../../../models/serializeTelecomExpenseManagementPartner';
-import { type TelecomExpenseManagementPartner } from '../../../models/telecomExpenseManagementPartner';
-import { type TelecomExpenseManagementPartnerItemRequestBuilderDeleteRequestConfiguration } from './telecomExpenseManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
-import { type TelecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration } from './telecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration';
-import { type TelecomExpenseManagementPartnerItemRequestBuilderPatchRequestConfiguration } from './telecomExpenseManagementPartnerItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createTelecomExpenseManagementPartnerFromDiscriminatorValue, deserializeIntoTelecomExpenseManagementPartner, serializeTelecomExpenseManagementPartner, type TelecomExpenseManagementPartner } from '../../../models/telecomExpenseManagementPartner';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TelecomExpenseManagementPartnerItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TelecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TelecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TelecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters;
+}
+export interface TelecomExpenseManagementPartnerItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.
  */

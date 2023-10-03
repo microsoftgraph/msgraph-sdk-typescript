@@ -3,3 +3,5 @@ export enum AgreementAcceptanceState {
     Declined = "declined",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

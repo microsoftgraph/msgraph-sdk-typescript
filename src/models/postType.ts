@@ -4,3 +4,5 @@ export enum PostType {
     Strategic = "strategic",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

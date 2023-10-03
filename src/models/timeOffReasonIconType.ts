@@ -22,3 +22,5 @@ export enum TimeOffReasonIconType {
     Sunny = "sunny",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

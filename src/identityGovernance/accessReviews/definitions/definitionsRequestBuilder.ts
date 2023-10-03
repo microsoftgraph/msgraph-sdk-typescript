@@ -1,20 +1,71 @@
 import { type AccessReviewScheduleDefinitionCollectionResponse } from '../../../models/';
-import { type AccessReviewScheduleDefinition } from '../../../models/accessReviewScheduleDefinition';
-import { createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue';
-import { createAccessReviewScheduleDefinitionFromDiscriminatorValue } from '../../../models/createAccessReviewScheduleDefinitionFromDiscriminatorValue';
-import { deserializeIntoAccessReviewScheduleDefinition } from '../../../models/deserializeIntoAccessReviewScheduleDefinition';
+import { createAccessReviewScheduleDefinitionFromDiscriminatorValue, deserializeIntoAccessReviewScheduleDefinition, serializeAccessReviewScheduleDefinition, type AccessReviewScheduleDefinition } from '../../../models/accessReviewScheduleDefinition';
+import { createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue } from '../../../models/accessReviewScheduleDefinitionCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewScheduleDefinition } from '../../../models/serializeAccessReviewScheduleDefinition';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DefinitionsRequestBuilderGetRequestConfiguration } from './definitionsRequestBuilderGetRequestConfiguration';
-import { type DefinitionsRequestBuilderPostRequestConfiguration } from './definitionsRequestBuilderPostRequestConfiguration';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { AccessReviewScheduleDefinitionItemRequestBuilder } from './item/accessReviewScheduleDefinitionItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DefinitionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DefinitionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DefinitionsRequestBuilderGetQueryParameters;
+}
+export interface DefinitionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
  */
@@ -54,7 +105,7 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Get a list of the accessReviewScheduleDefinition objects and their properties.
+     * Get a list of the accessReviewScheduleDefinition objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewScheduleDefinitionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/accessreviewset-list-definitions?view=graph-rest-1.0|Find more info here}
@@ -70,7 +121,7 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessReviewScheduleDefinitionCollectionResponse>(requestInfo, createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new accessReviewScheduleDefinition object.
+     * Create a new accessReviewScheduleDefinition object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewScheduleDefinition
@@ -87,7 +138,7 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessReviewScheduleDefinition>(requestInfo, createAccessReviewScheduleDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the accessReviewScheduleDefinition objects and their properties.
+     * Get a list of the accessReviewScheduleDefinition objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +156,7 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new accessReviewScheduleDefinition object.
+     * Create a new accessReviewScheduleDefinition object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

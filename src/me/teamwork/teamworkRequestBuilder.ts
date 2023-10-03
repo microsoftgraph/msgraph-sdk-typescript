@@ -1,19 +1,55 @@
-import { createUserTeamworkFromDiscriminatorValue } from '../../models/createUserTeamworkFromDiscriminatorValue';
-import { deserializeIntoUserTeamwork } from '../../models/deserializeIntoUserTeamwork';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeUserTeamwork } from '../../models/serializeUserTeamwork';
-import { type UserTeamwork } from '../../models/userTeamwork';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createUserTeamworkFromDiscriminatorValue, deserializeIntoUserTeamwork, serializeUserTeamwork, type UserTeamwork } from '../../models/userTeamwork';
 import { AssociatedTeamsRequestBuilder } from './associatedTeams/associatedTeamsRequestBuilder';
 import { InstalledAppsRequestBuilder } from './installedApps/installedAppsRequestBuilder';
 import { SendActivityNotificationRequestBuilder } from './sendActivityNotification/sendActivityNotificationRequestBuilder';
-import { type TeamworkRequestBuilderDeleteRequestConfiguration } from './teamworkRequestBuilderDeleteRequestConfiguration';
-import { type TeamworkRequestBuilderGetRequestConfiguration } from './teamworkRequestBuilderGetRequestConfiguration';
-import { type TeamworkRequestBuilderPatchRequestConfiguration } from './teamworkRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamworkRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TeamworkRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamworkRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamworkRequestBuilderGetQueryParameters;
+}
+export interface TeamworkRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the teamwork property of the microsoft.graph.user entity.
  */

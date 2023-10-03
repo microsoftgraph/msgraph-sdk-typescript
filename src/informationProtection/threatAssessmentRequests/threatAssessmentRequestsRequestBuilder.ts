@@ -1,19 +1,70 @@
 import { type ThreatAssessmentRequestCollectionResponse } from '../../models/';
-import { createThreatAssessmentRequestCollectionResponseFromDiscriminatorValue } from '../../models/createThreatAssessmentRequestCollectionResponseFromDiscriminatorValue';
-import { createThreatAssessmentRequestFromDiscriminatorValue } from '../../models/createThreatAssessmentRequestFromDiscriminatorValue';
-import { deserializeIntoThreatAssessmentRequest } from '../../models/deserializeIntoThreatAssessmentRequest';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeThreatAssessmentRequest } from '../../models/serializeThreatAssessmentRequest';
-import { type ThreatAssessmentRequest } from '../../models/threatAssessmentRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createThreatAssessmentRequestFromDiscriminatorValue, deserializeIntoThreatAssessmentRequest, serializeThreatAssessmentRequest, type ThreatAssessmentRequest } from '../../models/threatAssessmentRequest';
+import { createThreatAssessmentRequestCollectionResponseFromDiscriminatorValue } from '../../models/threatAssessmentRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ThreatAssessmentRequestItemRequestBuilder } from './item/threatAssessmentRequestItemRequestBuilder';
-import { type ThreatAssessmentRequestsRequestBuilderGetRequestConfiguration } from './threatAssessmentRequestsRequestBuilderGetRequestConfiguration';
-import { type ThreatAssessmentRequestsRequestBuilderPostRequestConfiguration } from './threatAssessmentRequestsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ThreatAssessmentRequestsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ThreatAssessmentRequestsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ThreatAssessmentRequestsRequestBuilderGetQueryParameters;
+}
+export interface ThreatAssessmentRequestsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
  */
@@ -44,7 +95,7 @@ export class ThreatAssessmentRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/informationProtection/threatAssessmentRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
+     * Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ThreatAssessmentRequestCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/informationprotection-list-threatassessmentrequests?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class ThreatAssessmentRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ThreatAssessmentRequestCollectionResponse>(requestInfo, createThreatAssessmentRequestCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new threat assessment request. A threat assessment request can be one of the following types:
+     * Create a new threat assessment request. A threat assessment request can be one of the following types: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ThreatAssessmentRequest
@@ -77,7 +128,7 @@ export class ThreatAssessmentRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ThreatAssessmentRequest>(requestInfo, createThreatAssessmentRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
+     * Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types: This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class ThreatAssessmentRequestsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new threat assessment request. A threat assessment request can be one of the following types:
+     * Create a new threat assessment request. A threat assessment request can be one of the following types: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createIntelligenceProfileFromDiscriminatorValue } from '../../../../models/security/createIntelligenceProfileFromDiscriminatorValue';
-import { deserializeIntoIntelligenceProfile } from '../../../../models/security/deserializeIntoIntelligenceProfile';
-import { type IntelligenceProfile } from '../../../../models/security/intelligenceProfile';
-import { serializeIntelligenceProfile } from '../../../../models/security/serializeIntelligenceProfile';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createIntelligenceProfileFromDiscriminatorValue, deserializeIntoIntelligenceProfile, serializeIntelligenceProfile, type IntelligenceProfile } from '../../../../models/security/intelligenceProfile';
 import { IndicatorsRequestBuilder } from './indicators/indicatorsRequestBuilder';
-import { type IntelligenceProfileItemRequestBuilderDeleteRequestConfiguration } from './intelligenceProfileItemRequestBuilderDeleteRequestConfiguration';
-import { type IntelligenceProfileItemRequestBuilderGetRequestConfiguration } from './intelligenceProfileItemRequestBuilderGetRequestConfiguration';
-import { type IntelligenceProfileItemRequestBuilderPatchRequestConfiguration } from './intelligenceProfileItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IntelligenceProfileItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IntelligenceProfileItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IntelligenceProfileItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IntelligenceProfileItemRequestBuilderGetQueryParameters;
+}
+export interface IntelligenceProfileItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the intelProfiles property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -45,7 +81,7 @@ export class IntelligenceProfileItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a intelligenceProfile object.
+     * Read the properties and relationships of a intelligenceProfile object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IntelligenceProfile
      * @see {@link https://learn.microsoft.com/graph/api/security-intelligenceprofile-get?view=graph-rest-1.0|Find more info here}
@@ -93,7 +129,7 @@ export class IntelligenceProfileItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a intelligenceProfile object.
+     * Read the properties and relationships of a intelligenceProfile object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

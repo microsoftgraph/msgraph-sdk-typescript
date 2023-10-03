@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createUnarchiveResponseFromDiscriminatorValue } from './createUnarchiveResponseFromDiscriminatorValue';
-import { deserializeIntoUnarchivePostRequestBody } from './deserializeIntoUnarchivePostRequestBody';
-import { deserializeIntoUnarchiveResponse } from './deserializeIntoUnarchiveResponse';
-import { serializeUnarchivePostRequestBody } from './serializeUnarchivePostRequestBody';
-import { serializeUnarchiveResponse } from './serializeUnarchiveResponse';
-import { type UnarchivePostRequestBody } from './unarchivePostRequestBody';
-import { type UnarchiveRequestBuilderPostRequestConfiguration } from './unarchiveRequestBuilderPostRequestConfiguration';
-import { type UnarchiveResponse } from './unarchiveResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoUnarchivePostRequestBody, serializeUnarchivePostRequestBody, type UnarchivePostRequestBody } from './unarchivePostRequestBody';
+import { createUnarchivePostResponseFromDiscriminatorValue, deserializeIntoUnarchivePostResponse, serializeUnarchivePostResponse, type UnarchivePostResponse } from './unarchivePostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnarchiveRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the unarchive method.
  */
@@ -25,13 +27,13 @@ export class UnarchiveRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/unarchive");
     };
     /**
-     * Unarchive a list of serviceUpdateMessages for the signed in user.
+     * Unarchive a list of serviceUpdateMessages for the signed in user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of UnarchiveResponse
+     * @returns a Promise of UnarchivePostResponse
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-unarchive?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: UnarchivePostRequestBody, requestConfiguration?: UnarchiveRequestBuilderPostRequestConfiguration | undefined) : Promise<UnarchiveResponse | undefined> {
+    public post(body: UnarchivePostRequestBody, requestConfiguration?: UnarchiveRequestBuilderPostRequestConfiguration | undefined) : Promise<UnarchivePostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class UnarchiveRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<UnarchiveResponse>(requestInfo, createUnarchiveResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<UnarchivePostResponse>(requestInfo, createUnarchivePostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Unarchive a list of serviceUpdateMessages for the signed in user.
+     * Unarchive a list of serviceUpdateMessages for the signed in user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,17 +1,53 @@
-import { createPlannerBucketFromDiscriminatorValue } from '../../../../../../../models/createPlannerBucketFromDiscriminatorValue';
-import { deserializeIntoPlannerBucket } from '../../../../../../../models/deserializeIntoPlannerBucket';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { type PlannerBucket } from '../../../../../../../models/plannerBucket';
-import { serializePlannerBucket } from '../../../../../../../models/serializePlannerBucket';
-import { type PlannerBucketItemRequestBuilderDeleteRequestConfiguration } from './plannerBucketItemRequestBuilderDeleteRequestConfiguration';
-import { type PlannerBucketItemRequestBuilderGetRequestConfiguration } from './plannerBucketItemRequestBuilderGetRequestConfiguration';
-import { type PlannerBucketItemRequestBuilderPatchRequestConfiguration } from './plannerBucketItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createPlannerBucketFromDiscriminatorValue, deserializeIntoPlannerBucket, serializePlannerBucket, type PlannerBucket } from '../../../../../../../models/plannerBucket';
 import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PlannerBucketItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PlannerBucketItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PlannerBucketItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PlannerBucketItemRequestBuilderGetQueryParameters;
+}
+export interface PlannerBucketItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
  */

@@ -1,16 +1,52 @@
-import { createPrintUsageByUserFromDiscriminatorValue } from '../../../models/createPrintUsageByUserFromDiscriminatorValue';
-import { deserializeIntoPrintUsageByUser } from '../../../models/deserializeIntoPrintUsageByUser';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PrintUsageByUser } from '../../../models/printUsageByUser';
-import { serializePrintUsageByUser } from '../../../models/serializePrintUsageByUser';
-import { type PrintUsageByUserItemRequestBuilderDeleteRequestConfiguration } from './printUsageByUserItemRequestBuilderDeleteRequestConfiguration';
-import { type PrintUsageByUserItemRequestBuilderGetRequestConfiguration } from './printUsageByUserItemRequestBuilderGetRequestConfiguration';
-import { type PrintUsageByUserItemRequestBuilderPatchRequestConfiguration } from './printUsageByUserItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPrintUsageByUserFromDiscriminatorValue, deserializeIntoPrintUsageByUser, serializePrintUsageByUser, type PrintUsageByUser } from '../../../models/printUsageByUser';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrintUsageByUserItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PrintUsageByUserItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PrintUsageByUserItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrintUsageByUserItemRequestBuilderGetQueryParameters;
+}
+export interface PrintUsageByUserItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
  */
@@ -38,7 +74,7 @@ export class PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve a user's usage summary for a particular time period. For descriptions of each endpoint, see printUsageByUser.
+     * Retrieve a user's usage summary for a particular time period. For descriptions of each endpoint, see printUsageByUser. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintUsageByUser
      * @see {@link https://learn.microsoft.com/graph/api/printusagebyuser-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +122,7 @@ export class PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve a user's usage summary for a particular time period. For descriptions of each endpoint, see printUsageByUser.
+     * Retrieve a user's usage summary for a particular time period. For descriptions of each endpoint, see printUsageByUser. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

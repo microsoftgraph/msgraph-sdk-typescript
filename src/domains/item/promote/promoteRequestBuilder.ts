@@ -1,12 +1,19 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createPromoteResponseFromDiscriminatorValue } from './createPromoteResponseFromDiscriminatorValue';
-import { type PromoteResponse } from './index';
-import { type PromoteRequestBuilderPostRequestConfiguration } from './promoteRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { type PromotePostResponse } from './index';
+import { createPromotePostResponseFromDiscriminatorValue } from './promotePostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PromoteRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the promote method.
  */
@@ -20,12 +27,12 @@ export class PromoteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/domains/{domain%2Did}/promote");
     };
     /**
-     * Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true.
+     * Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of PromoteResponse
+     * @returns a Promise of PromotePostResponse
      * @see {@link https://learn.microsoft.com/graph/api/domain-promote?view=graph-rest-1.0|Find more info here}
      */
-    public post(requestConfiguration?: PromoteRequestBuilderPostRequestConfiguration | undefined) : Promise<PromoteResponse | undefined> {
+    public post(requestConfiguration?: PromoteRequestBuilderPostRequestConfiguration | undefined) : Promise<PromotePostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             requestConfiguration
         );
@@ -33,10 +40,10 @@ export class PromoteRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<PromoteResponse>(requestInfo, createPromoteResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<PromotePostResponse>(requestInfo, createPromotePostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true.
+     * Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

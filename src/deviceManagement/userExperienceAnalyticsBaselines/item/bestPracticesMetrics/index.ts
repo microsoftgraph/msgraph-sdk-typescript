@@ -1,2 +1,1 @@
-export * from './bestPracticesMetricsRequestBuilderGetQueryParameters'
-export * from './bestPracticesMetricsRequestBuilderGetRequestConfiguration'
+export * from './bestPracticesMetricsRequestBuilder'

@@ -1,12 +1,19 @@
 import { type OnenotePagePreview } from '../../../../../../../../../../../../models/';
-import { createOnenotePagePreviewFromDiscriminatorValue } from '../../../../../../../../../../../../models/createOnenotePagePreviewFromDiscriminatorValue';
 import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type PreviewRequestBuilderGetRequestConfiguration } from './previewRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createOnenotePagePreviewFromDiscriminatorValue } from '../../../../../../../../../../../../models/onenotePagePreview';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PreviewRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the preview method.
  */

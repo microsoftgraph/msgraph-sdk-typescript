@@ -4,3 +4,5 @@ export enum WorkbookOperationStatus {
     Succeeded = "succeeded",
     Failed = "failed",
 }
+// tslint:enable
+// eslint-enable

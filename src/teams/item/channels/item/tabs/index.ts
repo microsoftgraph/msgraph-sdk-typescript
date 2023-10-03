@@ -1,3 +1,1 @@
-export * from './tabsRequestBuilderGetQueryParameters'
-export * from './tabsRequestBuilderGetRequestConfiguration'
-export * from './tabsRequestBuilderPostRequestConfiguration'
+export * from './tabsRequestBuilder'

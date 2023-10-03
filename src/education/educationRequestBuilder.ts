@@ -1,19 +1,46 @@
-import { createEducationRootFromDiscriminatorValue } from '../models/createEducationRootFromDiscriminatorValue';
-import { deserializeIntoEducationRoot } from '../models/deserializeIntoEducationRoot';
-import { type EducationRoot } from '../models/educationRoot';
+import { createEducationRootFromDiscriminatorValue, deserializeIntoEducationRoot, serializeEducationRoot, type EducationRoot } from '../models/educationRoot';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeEducationRoot } from '../models/serializeEducationRoot';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { ClassesRequestBuilder } from './classes/classesRequestBuilder';
-import { type EducationRequestBuilderGetRequestConfiguration } from './educationRequestBuilderGetRequestConfiguration';
-import { type EducationRequestBuilderPatchRequestConfiguration } from './educationRequestBuilderPatchRequestConfiguration';
 import { MeRequestBuilder } from './me/meRequestBuilder';
 import { SchoolsRequestBuilder } from './schools/schoolsRequestBuilder';
 import { UsersRequestBuilder } from './users/usersRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationRequestBuilderGetQueryParameters;
+}
+export interface EducationRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the educationRoot singleton.
  */

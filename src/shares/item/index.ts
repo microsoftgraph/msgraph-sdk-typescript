@@ -1,4 +1,1 @@
-export * from './sharedDriveItemItemRequestBuilderDeleteRequestConfiguration'
-export * from './sharedDriveItemItemRequestBuilderGetQueryParameters'
-export * from './sharedDriveItemItemRequestBuilderGetRequestConfiguration'
-export * from './sharedDriveItemItemRequestBuilderPatchRequestConfiguration'
+export * from './sharedDriveItemItemRequestBuilder'

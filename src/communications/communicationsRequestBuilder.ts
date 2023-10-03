@@ -1,20 +1,47 @@
-import { type CloudCommunications } from '../models/cloudCommunications';
-import { createCloudCommunicationsFromDiscriminatorValue } from '../models/createCloudCommunicationsFromDiscriminatorValue';
-import { deserializeIntoCloudCommunications } from '../models/deserializeIntoCloudCommunications';
+import { createCloudCommunicationsFromDiscriminatorValue, deserializeIntoCloudCommunications, serializeCloudCommunications, type CloudCommunications } from '../models/cloudCommunications';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeCloudCommunications } from '../models/serializeCloudCommunications';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { CallRecordsRequestBuilder } from './callRecords/callRecordsRequestBuilder';
 import { CallsRequestBuilder } from './calls/callsRequestBuilder';
-import { type CommunicationsRequestBuilderGetRequestConfiguration } from './communicationsRequestBuilderGetRequestConfiguration';
-import { type CommunicationsRequestBuilderPatchRequestConfiguration } from './communicationsRequestBuilderPatchRequestConfiguration';
 import { GetPresencesByUserIdRequestBuilder } from './getPresencesByUserId/getPresencesByUserIdRequestBuilder';
 import { OnlineMeetingsRequestBuilder } from './onlineMeetings/onlineMeetingsRequestBuilder';
 import { PresencesRequestBuilder } from './presences/presencesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CommunicationsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CommunicationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CommunicationsRequestBuilderGetQueryParameters;
+}
+export interface CommunicationsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the cloudCommunications singleton.
  */

@@ -1,2 +1,1 @@
-export * from './attachmentsArchiveRequestBuilderGetRequestConfiguration'
-export * from './attachmentsArchiveRequestBuilderPutRequestConfiguration'
+export * from './attachmentsArchiveRequestBuilder'

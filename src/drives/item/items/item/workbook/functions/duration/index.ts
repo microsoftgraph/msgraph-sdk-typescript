@@ -1,5 +1,2 @@
-export * from './createDurationPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoDurationPostRequestBody'
 export * from './durationPostRequestBody'
-export * from './durationRequestBuilderPostRequestConfiguration'
-export * from './serializeDurationPostRequestBody'
+export * from './durationRequestBuilder'

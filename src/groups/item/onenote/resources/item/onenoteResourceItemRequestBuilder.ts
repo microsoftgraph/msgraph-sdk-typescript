@@ -1,17 +1,53 @@
-import { createOnenoteResourceFromDiscriminatorValue } from '../../../../../models/createOnenoteResourceFromDiscriminatorValue';
-import { deserializeIntoOnenoteResource } from '../../../../../models/deserializeIntoOnenoteResource';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type OnenoteResource } from '../../../../../models/onenoteResource';
-import { serializeOnenoteResource } from '../../../../../models/serializeOnenoteResource';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createOnenoteResourceFromDiscriminatorValue, deserializeIntoOnenoteResource, serializeOnenoteResource, type OnenoteResource } from '../../../../../models/onenoteResource';
 import { ContentRequestBuilder } from './content/contentRequestBuilder';
-import { type OnenoteResourceItemRequestBuilderDeleteRequestConfiguration } from './onenoteResourceItemRequestBuilderDeleteRequestConfiguration';
-import { type OnenoteResourceItemRequestBuilderGetRequestConfiguration } from './onenoteResourceItemRequestBuilderGetRequestConfiguration';
-import { type OnenoteResourceItemRequestBuilderPatchRequestConfiguration } from './onenoteResourceItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OnenoteResourceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OnenoteResourceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OnenoteResourceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OnenoteResourceItemRequestBuilderGetQueryParameters;
+}
+export interface OnenoteResourceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
  */
@@ -45,7 +81,7 @@ export class OnenoteResourceItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.
+     * The image and other file resources in OneNote pages. Getting a resources collection isn't supported, but you can get the binary content of a specific resource. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenoteResource
      */
@@ -92,7 +128,7 @@ export class OnenoteResourceItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.
+     * The image and other file resources in OneNote pages. Getting a resources collection isn't supported, but you can get the binary content of a specific resource. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

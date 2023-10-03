@@ -1,12 +1,19 @@
 import { type WorkbookRange } from '../../../../../../../../models/';
-import { createWorkbookRangeFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookRangeFromDiscriminatorValue';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { type TotalRowRangeRequestBuilderGetRequestConfiguration } from './totalRowRangeRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookRangeFromDiscriminatorValue } from '../../../../../../../../models/workbookRange';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TotalRowRangeRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the totalRowRange method.
  */
@@ -20,7 +27,7 @@ export class TotalRowRangeRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/totalRowRange()");
     };
     /**
-     * Gets the range object associated with totals row of the table.
+     * Gets the range object associated with totals row of the table. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookRange
      * @see {@link https://learn.microsoft.com/graph/api/table-totalrowrange?view=graph-rest-1.0|Find more info here}
@@ -36,7 +43,7 @@ export class TotalRowRangeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookRange>(requestInfo, createWorkbookRangeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Gets the range object associated with totals row of the table.
+     * Gets the range object associated with totals row of the table. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,16 +1,43 @@
-import { type AuthenticationMethod } from '../../../../../models/authenticationMethod';
-import { createAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/createAuthenticationMethodFromDiscriminatorValue';
-import { deserializeIntoAuthenticationMethod } from '../../../../../models/deserializeIntoAuthenticationMethod';
+import { createAuthenticationMethodFromDiscriminatorValue, deserializeIntoAuthenticationMethod, serializeAuthenticationMethod, type AuthenticationMethod } from '../../../../../models/authenticationMethod';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeAuthenticationMethod } from '../../../../../models/serializeAuthenticationMethod';
-import { type AuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './authenticationMethodItemRequestBuilderGetRequestConfiguration';
-import { type AuthenticationMethodItemRequestBuilderPatchRequestConfiguration } from './authenticationMethodItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { ResetPasswordRequestBuilder } from './resetPassword/resetPasswordRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
+export interface AuthenticationMethodItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
  */
@@ -30,7 +57,7 @@ export class AuthenticationMethodItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/methods/{authenticationMethod%2Did}{?%24select,%24expand}");
     };
     /**
-     * Retrieve the properties and relationships of an authenticationMethod object.
+     * Retrieve the properties and relationships of an authenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationMethod
      * @see {@link https://learn.microsoft.com/graph/api/authenticationmethod-get?view=graph-rest-1.0|Find more info here}
@@ -62,7 +89,7 @@ export class AuthenticationMethodItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AuthenticationMethod>(requestInfo, createAuthenticationMethodFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an authenticationMethod object.
+     * Retrieve the properties and relationships of an authenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

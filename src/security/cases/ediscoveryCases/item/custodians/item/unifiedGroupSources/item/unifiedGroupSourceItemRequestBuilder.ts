@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { createUnifiedGroupSourceFromDiscriminatorValue } from '../../../../../../../../models/security/createUnifiedGroupSourceFromDiscriminatorValue';
-import { deserializeIntoUnifiedGroupSource } from '../../../../../../../../models/security/deserializeIntoUnifiedGroupSource';
-import { serializeUnifiedGroupSource } from '../../../../../../../../models/security/serializeUnifiedGroupSource';
-import { type UnifiedGroupSource } from '../../../../../../../../models/security/unifiedGroupSource';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createUnifiedGroupSourceFromDiscriminatorValue, deserializeIntoUnifiedGroupSource, serializeUnifiedGroupSource, type UnifiedGroupSource } from '../../../../../../../../models/security/unifiedGroupSource';
 import { GroupRequestBuilder } from './group/groupRequestBuilder';
-import { type UnifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration } from './unifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration';
-import { type UnifiedGroupSourceItemRequestBuilderGetRequestConfiguration } from './unifiedGroupSourceItemRequestBuilderGetRequestConfiguration';
-import { type UnifiedGroupSourceItemRequestBuilderPatchRequestConfiguration } from './unifiedGroupSourceItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UnifiedGroupSourceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UnifiedGroupSourceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UnifiedGroupSourceItemRequestBuilderGetQueryParameters;
+}
+export interface UnifiedGroupSourceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.
  */

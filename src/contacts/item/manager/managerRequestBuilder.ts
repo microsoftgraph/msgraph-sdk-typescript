@@ -1,12 +1,33 @@
 import { type DirectoryObject } from '../../../models/';
-import { createDirectoryObjectFromDiscriminatorValue } from '../../../models/createDirectoryObjectFromDiscriminatorValue';
+import { createDirectoryObjectFromDiscriminatorValue } from '../../../models/directoryObject';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type ManagerRequestBuilderGetRequestConfiguration } from './managerRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ManagerRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ManagerRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ManagerRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the manager property of the microsoft.graph.orgContact entity.
  */
@@ -20,7 +41,7 @@ export class ManagerRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/contacts/{orgContact%2Did}/manager{?%24select,%24expand}");
     };
     /**
-     * Get this organizational contact's manager.
+     * Get this organizational contact's manager. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObject
      * @see {@link https://learn.microsoft.com/graph/api/orgcontact-get-manager?view=graph-rest-1.0|Find more info here}
@@ -36,7 +57,7 @@ export class ManagerRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get this organizational contact's manager.
+     * Get this organizational contact's manager. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

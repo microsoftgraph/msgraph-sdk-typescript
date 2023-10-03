@@ -1,12 +1,19 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { createGetApplicablePolicyRequirementsResponseFromDiscriminatorValue } from './createGetApplicablePolicyRequirementsResponseFromDiscriminatorValue';
-import { type GetApplicablePolicyRequirementsRequestBuilderPostRequestConfiguration } from './getApplicablePolicyRequirementsRequestBuilderPostRequestConfiguration';
-import { type GetApplicablePolicyRequirementsResponse } from './index';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createGetApplicablePolicyRequirementsPostResponseFromDiscriminatorValue } from './getApplicablePolicyRequirementsPostResponse';
+import { type GetApplicablePolicyRequirementsPostResponse } from './index';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetApplicablePolicyRequirementsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getApplicablePolicyRequirements method.
  */
@@ -20,12 +27,12 @@ export class GetApplicablePolicyRequirementsRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/getApplicablePolicyRequirements");
     };
     /**
-     * In Azure AD entitlement management, this action retrieves a list of accessPackageAssignmentRequestRequirements objects that the currently signed-in user can use to create an accessPackageAssignmentRequest.  Each requirement object corresponds to an access package assignment policy that the currently signed-in user is allowed to request an assignment for.
+     * In Azure AD entitlement management, this action retrieves a list of accessPackageAssignmentRequestRequirements objects that the currently signed-in user can use to create an accessPackageAssignmentRequest.  Each requirement object corresponds to an access package assignment policy that the currently signed-in user is allowed to request an assignment for. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetApplicablePolicyRequirementsResponse
+     * @returns a Promise of GetApplicablePolicyRequirementsPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/accesspackage-getapplicablepolicyrequirements?view=graph-rest-1.0|Find more info here}
      */
-    public post(requestConfiguration?: GetApplicablePolicyRequirementsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetApplicablePolicyRequirementsResponse | undefined> {
+    public post(requestConfiguration?: GetApplicablePolicyRequirementsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetApplicablePolicyRequirementsPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             requestConfiguration
         );
@@ -33,10 +40,10 @@ export class GetApplicablePolicyRequirementsRequestBuilder extends BaseRequestBu
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<GetApplicablePolicyRequirementsResponse>(requestInfo, createGetApplicablePolicyRequirementsResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<GetApplicablePolicyRequirementsPostResponse>(requestInfo, createGetApplicablePolicyRequirementsPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * In Azure AD entitlement management, this action retrieves a list of accessPackageAssignmentRequestRequirements objects that the currently signed-in user can use to create an accessPackageAssignmentRequest.  Each requirement object corresponds to an access package assignment policy that the currently signed-in user is allowed to request an assignment for.
+     * In Azure AD entitlement management, this action retrieves a list of accessPackageAssignmentRequestRequirements objects that the currently signed-in user can use to create an accessPackageAssignmentRequest.  Each requirement object corresponds to an access package assignment policy that the currently signed-in user is allowed to request an assignment for. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

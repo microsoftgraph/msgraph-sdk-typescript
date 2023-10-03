@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createGetStaffAvailabilityResponseFromDiscriminatorValue } from './createGetStaffAvailabilityResponseFromDiscriminatorValue';
-import { deserializeIntoGetStaffAvailabilityPostRequestBody } from './deserializeIntoGetStaffAvailabilityPostRequestBody';
-import { deserializeIntoGetStaffAvailabilityResponse } from './deserializeIntoGetStaffAvailabilityResponse';
-import { type GetStaffAvailabilityPostRequestBody } from './getStaffAvailabilityPostRequestBody';
-import { type GetStaffAvailabilityRequestBuilderPostRequestConfiguration } from './getStaffAvailabilityRequestBuilderPostRequestConfiguration';
-import { type GetStaffAvailabilityResponse } from './getStaffAvailabilityResponse';
-import { serializeGetStaffAvailabilityPostRequestBody } from './serializeGetStaffAvailabilityPostRequestBody';
-import { serializeGetStaffAvailabilityResponse } from './serializeGetStaffAvailabilityResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetStaffAvailabilityPostRequestBody, serializeGetStaffAvailabilityPostRequestBody, type GetStaffAvailabilityPostRequestBody } from './getStaffAvailabilityPostRequestBody';
+import { createGetStaffAvailabilityPostResponseFromDiscriminatorValue, deserializeIntoGetStaffAvailabilityPostResponse, serializeGetStaffAvailabilityPostResponse, type GetStaffAvailabilityPostResponse } from './getStaffAvailabilityPostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetStaffAvailabilityRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getStaffAvailability method.
  */
@@ -25,13 +27,13 @@ export class GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/getStaffAvailability");
     };
     /**
-     * Get the availability information of staff members of a Microsoft Bookings calendar.
+     * Get the availability information of staff members of a Microsoft Bookings calendar. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetStaffAvailabilityResponse
+     * @returns a Promise of GetStaffAvailabilityPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetStaffAvailabilityPostRequestBody, requestConfiguration?: GetStaffAvailabilityRequestBuilderPostRequestConfiguration | undefined) : Promise<GetStaffAvailabilityResponse | undefined> {
+    public post(body: GetStaffAvailabilityPostRequestBody, requestConfiguration?: GetStaffAvailabilityRequestBuilderPostRequestConfiguration | undefined) : Promise<GetStaffAvailabilityPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<GetStaffAvailabilityResponse>(requestInfo, createGetStaffAvailabilityResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<GetStaffAvailabilityPostResponse>(requestInfo, createGetStaffAvailabilityPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the availability information of staff members of a Microsoft Bookings calendar.
+     * Get the availability information of staff members of a Microsoft Bookings calendar. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

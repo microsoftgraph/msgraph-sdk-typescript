@@ -1,1 +1,1 @@
-export * from './removeEmailRequestBuilderPostRequestConfiguration'
+export * from './removeEmailRequestBuilder'

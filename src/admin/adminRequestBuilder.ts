@@ -1,18 +1,45 @@
-import { type Admin } from '../models/admin';
-import { createAdminFromDiscriminatorValue } from '../models/createAdminFromDiscriminatorValue';
-import { deserializeIntoAdmin } from '../models/deserializeIntoAdmin';
+import { createAdminFromDiscriminatorValue, deserializeIntoAdmin, serializeAdmin, type Admin } from '../models/admin';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeAdmin } from '../models/serializeAdmin';
-import { type AdminRequestBuilderGetRequestConfiguration } from './adminRequestBuilderGetRequestConfiguration';
-import { type AdminRequestBuilderPatchRequestConfiguration } from './adminRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { EdgeRequestBuilder } from './edge/edgeRequestBuilder';
 import { ServiceAnnouncementRequestBuilder } from './serviceAnnouncement/serviceAnnouncementRequestBuilder';
 import { SharepointRequestBuilder } from './sharepoint/sharepointRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AdminRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AdminRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AdminRequestBuilderGetQueryParameters;
+}
+export interface AdminRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the admin singleton.
  */

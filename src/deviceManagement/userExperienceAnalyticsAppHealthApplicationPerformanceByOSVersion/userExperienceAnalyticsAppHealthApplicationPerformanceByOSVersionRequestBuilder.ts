@@ -1,19 +1,70 @@
 import { type UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionCollectionResponse } from '../../models/';
-import { createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionCollectionResponseFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionCollectionResponseFromDiscriminatorValue';
-import { createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionFromDiscriminatorValue';
-import { deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion } from '../../models/deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion } from '../../models/serializeUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion';
-import { type UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion } from '../../models/userExperienceAnalyticsAppHealthAppPerformanceByOSVersion';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionFromDiscriminatorValue, deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion, serializeUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion, type UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion } from '../../models/userExperienceAnalyticsAppHealthAppPerformanceByOSVersion';
+import { createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionCollectionResponseFromDiscriminatorValue } from '../../models/userExperienceAnalyticsAppHealthAppPerformanceByOSVersionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder } from './item/userExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder';
-import { type UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetRequestConfiguration';
-import { type UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderPostRequestConfiguration } from './userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetQueryParameters;
+}
+export interface UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property of the microsoft.graph.deviceManagement entity.
  */

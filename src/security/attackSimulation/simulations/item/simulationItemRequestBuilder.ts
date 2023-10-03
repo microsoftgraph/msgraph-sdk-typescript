@@ -1,20 +1,77 @@
-import { createSimulationFromDiscriminatorValue } from '../../../../models/createSimulationFromDiscriminatorValue';
-import { deserializeIntoSimulation } from '../../../../models/deserializeIntoSimulation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeSimulation } from '../../../../models/serializeSimulation';
-import { type Simulation } from '../../../../models/simulation';
-import { type SimulationItemRequestBuilderDeleteRequestConfiguration } from './simulationItemRequestBuilderDeleteRequestConfiguration';
-import { type SimulationItemRequestBuilderGetRequestConfiguration } from './simulationItemRequestBuilderGetRequestConfiguration';
-import { type SimulationItemRequestBuilderPatchRequestConfiguration } from './simulationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createSimulationFromDiscriminatorValue, deserializeIntoSimulation, serializeSimulation, type Simulation } from '../../../../models/simulation';
+import { LandingPageRequestBuilder } from './landingPage/landingPageRequestBuilder';
+import { LoginPageRequestBuilder } from './loginPage/loginPageRequestBuilder';
+import { PayloadRequestBuilder } from './payload/payloadRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SimulationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SimulationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SimulationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SimulationItemRequestBuilderGetQueryParameters;
+}
+export interface SimulationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
  */
 export class SimulationItemRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Provides operations to manage the landingPage property of the microsoft.graph.simulation entity.
+     */
+    public get landingPage(): LandingPageRequestBuilder {
+        return new LandingPageRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the loginPage property of the microsoft.graph.simulation entity.
+     */
+    public get loginPage(): LoginPageRequestBuilder {
+        return new LoginPageRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the payload property of the microsoft.graph.simulation entity.
+     */
+    public get payload(): PayloadRequestBuilder {
+        return new PayloadRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new SimulationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -38,7 +95,7 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get an attack simulation campaign for a tenant.
+     * Get an attack simulation campaign for a tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Simulation
      * @see {@link https://learn.microsoft.com/graph/api/simulation-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +143,7 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get an attack simulation campaign for a tenant.
+     * Get an attack simulation campaign for a tenant. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

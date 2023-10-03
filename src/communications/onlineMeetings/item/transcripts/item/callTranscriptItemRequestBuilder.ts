@@ -1,0 +1,184 @@
+import { createCallTranscriptFromDiscriminatorValue, deserializeIntoCallTranscript, serializeCallTranscript, type CallTranscript } from '../../../../../models/callTranscript';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { ContentRequestBuilder } from './content/contentRequestBuilder';
+import { MetadataContentRequestBuilder } from './metadataContent/metadataContentRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+
+export interface CallTranscriptItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CallTranscriptItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CallTranscriptItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CallTranscriptItemRequestBuilderGetQueryParameters;
+}
+export interface CallTranscriptItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+/**
+ * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
+ */
+export class CallTranscriptItemRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Provides operations to manage the media for the cloudCommunications entity.
+     */
+    public get content(): ContentRequestBuilder {
+        return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the media for the cloudCommunications entity.
+     */
+    public get metadataContent(): MetadataContentRequestBuilder {
+        return new MetadataContentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Instantiates a new CallTranscriptItemRequestBuilder and sets the default values.
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
+     */
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        super(pathParameters, requestAdapter, "{+baseurl}/communications/onlineMeetings/{onlineMeeting%2Did}/transcripts/{callTranscript%2Did}{?%24select,%24expand}");
+    };
+    /**
+     * Delete navigation property transcripts for communications
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     */
+    public delete(requestConfiguration?: CallTranscriptItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+        const requestInfo = this.toDeleteRequestInformation(
+            requestConfiguration
+        );
+        const errorMapping = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        } as Record<string, ParsableFactory<Parsable>>;
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
+    };
+    /**
+     * Get transcripts from communications
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a Promise of CallTranscript
+     */
+    public get(requestConfiguration?: CallTranscriptItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CallTranscript | undefined> {
+        const requestInfo = this.toGetRequestInformation(
+            requestConfiguration
+        );
+        const errorMapping = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        } as Record<string, ParsableFactory<Parsable>>;
+        return this.requestAdapter.sendAsync<CallTranscript>(requestInfo, createCallTranscriptFromDiscriminatorValue, errorMapping);
+    };
+    /**
+     * Update the navigation property transcripts in communications
+     * @param body The request body
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a Promise of CallTranscript
+     */
+    public patch(body: CallTranscript, requestConfiguration?: CallTranscriptItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CallTranscript | undefined> {
+        const requestInfo = this.toPatchRequestInformation(
+            body, requestConfiguration
+        );
+        const errorMapping = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        } as Record<string, ParsableFactory<Parsable>>;
+        return this.requestAdapter.sendAsync<CallTranscript>(requestInfo, createCallTranscriptFromDiscriminatorValue, errorMapping);
+    };
+    /**
+     * Delete navigation property transcripts for communications
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toDeleteRequestInformation(requestConfiguration?: CallTranscriptItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.DELETE;
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
+    };
+    /**
+     * Get transcripts from communications
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toGetRequestInformation(requestConfiguration?: CallTranscriptItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
+    };
+    /**
+     * Update the navigation property transcripts in communications
+     * @param body The request body
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toPatchRequestInformation(body: CallTranscript, requestConfiguration?: CallTranscriptItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCallTranscript);
+        return requestInfo;
+    };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a CallTranscriptItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : CallTranscriptItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new CallTranscriptItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
+}

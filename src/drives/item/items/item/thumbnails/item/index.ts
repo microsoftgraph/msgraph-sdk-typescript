@@ -1,4 +1,1 @@
-export * from './thumbnailSetItemRequestBuilderDeleteRequestConfiguration'
-export * from './thumbnailSetItemRequestBuilderGetQueryParameters'
-export * from './thumbnailSetItemRequestBuilderGetRequestConfiguration'
-export * from './thumbnailSetItemRequestBuilderPatchRequestConfiguration'
+export * from './thumbnailSetItemRequestBuilder'

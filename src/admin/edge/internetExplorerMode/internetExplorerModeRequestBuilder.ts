@@ -1,17 +1,53 @@
-import { createInternetExplorerModeFromDiscriminatorValue } from '../../../models/createInternetExplorerModeFromDiscriminatorValue';
-import { deserializeIntoInternetExplorerMode } from '../../../models/deserializeIntoInternetExplorerMode';
-import { type InternetExplorerMode } from '../../../models/internetExplorerMode';
+import { createInternetExplorerModeFromDiscriminatorValue, deserializeIntoInternetExplorerMode, serializeInternetExplorerMode, type InternetExplorerMode } from '../../../models/internetExplorerMode';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeInternetExplorerMode } from '../../../models/serializeInternetExplorerMode';
-import { type InternetExplorerModeRequestBuilderDeleteRequestConfiguration } from './internetExplorerModeRequestBuilderDeleteRequestConfiguration';
-import { type InternetExplorerModeRequestBuilderGetRequestConfiguration } from './internetExplorerModeRequestBuilderGetRequestConfiguration';
-import { type InternetExplorerModeRequestBuilderPatchRequestConfiguration } from './internetExplorerModeRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { SiteListsRequestBuilder } from './siteLists/siteListsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InternetExplorerModeRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface InternetExplorerModeRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface InternetExplorerModeRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InternetExplorerModeRequestBuilderGetQueryParameters;
+}
+export interface InternetExplorerModeRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the internetExplorerMode property of the microsoft.graph.edge entity.
  */

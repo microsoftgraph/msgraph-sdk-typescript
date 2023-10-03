@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type SiteSourceCollectionResponse } from '../../../../../../../models/security/';
-import { createSiteSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/createSiteSourceCollectionResponseFromDiscriminatorValue';
-import { createSiteSourceFromDiscriminatorValue } from '../../../../../../../models/security/createSiteSourceFromDiscriminatorValue';
-import { deserializeIntoSiteSource } from '../../../../../../../models/security/deserializeIntoSiteSource';
-import { serializeSiteSource } from '../../../../../../../models/security/serializeSiteSource';
-import { type SiteSource } from '../../../../../../../models/security/siteSource';
+import { createSiteSourceFromDiscriminatorValue, deserializeIntoSiteSource, serializeSiteSource, type SiteSource } from '../../../../../../../models/security/siteSource';
+import { createSiteSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/siteSourceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SiteSourceItemRequestBuilder } from './item/siteSourceItemRequestBuilder';
-import { type SiteSourcesRequestBuilderGetRequestConfiguration } from './siteSourcesRequestBuilderGetRequestConfiguration';
-import { type SiteSourcesRequestBuilderPostRequestConfiguration } from './siteSourcesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SiteSourcesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SiteSourcesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SiteSourcesRequestBuilderGetQueryParameters;
+}
+export interface SiteSourcesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
  */
@@ -44,7 +95,7 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/siteSources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the siteSource objects associated with an ediscoveryCustodian.
+     * Get a list of the siteSource objects associated with an ediscoveryCustodian. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SiteSourceCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-sitesources?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SiteSourceCollectionResponse>(requestInfo, createSiteSourceCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new siteSource object associated with an eDiscovery custodian.
+     * Create a new siteSource object associated with an eDiscovery custodian. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SiteSource
@@ -77,7 +128,7 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SiteSource>(requestInfo, createSiteSourceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the siteSource objects associated with an ediscoveryCustodian.
+     * Get a list of the siteSource objects associated with an ediscoveryCustodian. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new siteSource object associated with an eDiscovery custodian.
+     * Create a new siteSource object associated with an eDiscovery custodian. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

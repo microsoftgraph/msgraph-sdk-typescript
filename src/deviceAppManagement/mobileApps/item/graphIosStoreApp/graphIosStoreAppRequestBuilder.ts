@@ -1,16 +1,51 @@
 import { type IosStoreApp } from '../../../../models/';
-import { createIosStoreAppFromDiscriminatorValue } from '../../../../models/createIosStoreAppFromDiscriminatorValue';
+import { createIosStoreAppFromDiscriminatorValue } from '../../../../models/iosStoreApp';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type GraphIosStoreAppRequestBuilderGetRequestConfiguration } from './graphIosStoreAppRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
+import { CategoriesRequestBuilder } from './categories/categoriesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GraphIosStoreAppRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface GraphIosStoreAppRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GraphIosStoreAppRequestBuilderGetQueryParameters;
+}
 /**
  * Casts the previous resource to iosStoreApp.
  */
 export class GraphIosStoreAppRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
+     */
+    public get assignments(): AssignmentsRequestBuilder {
+        return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
+     */
+    public get categories(): CategoriesRequestBuilder {
+        return new CategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new GraphIosStoreAppRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

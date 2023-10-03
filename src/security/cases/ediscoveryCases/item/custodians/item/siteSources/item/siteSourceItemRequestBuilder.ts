@@ -1,17 +1,53 @@
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { createSiteSourceFromDiscriminatorValue } from '../../../../../../../../models/security/createSiteSourceFromDiscriminatorValue';
-import { deserializeIntoSiteSource } from '../../../../../../../../models/security/deserializeIntoSiteSource';
-import { serializeSiteSource } from '../../../../../../../../models/security/serializeSiteSource';
-import { type SiteSource } from '../../../../../../../../models/security/siteSource';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createSiteSourceFromDiscriminatorValue, deserializeIntoSiteSource, serializeSiteSource, type SiteSource } from '../../../../../../../../models/security/siteSource';
 import { SiteRequestBuilder } from './site/siteRequestBuilder';
-import { type SiteSourceItemRequestBuilderDeleteRequestConfiguration } from './siteSourceItemRequestBuilderDeleteRequestConfiguration';
-import { type SiteSourceItemRequestBuilderGetRequestConfiguration } from './siteSourceItemRequestBuilderGetRequestConfiguration';
-import { type SiteSourceItemRequestBuilderPatchRequestConfiguration } from './siteSourceItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SiteSourceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SiteSourceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SiteSourceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SiteSourceItemRequestBuilderGetQueryParameters;
+}
+export interface SiteSourceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
  */

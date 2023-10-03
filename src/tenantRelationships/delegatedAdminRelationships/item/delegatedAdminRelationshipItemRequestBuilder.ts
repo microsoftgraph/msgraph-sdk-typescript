@@ -1,19 +1,55 @@
-import { createDelegatedAdminRelationshipFromDiscriminatorValue } from '../../../models/createDelegatedAdminRelationshipFromDiscriminatorValue';
-import { type DelegatedAdminRelationship } from '../../../models/delegatedAdminRelationship';
-import { deserializeIntoDelegatedAdminRelationship } from '../../../models/deserializeIntoDelegatedAdminRelationship';
+import { createDelegatedAdminRelationshipFromDiscriminatorValue, deserializeIntoDelegatedAdminRelationship, serializeDelegatedAdminRelationship, type DelegatedAdminRelationship } from '../../../models/delegatedAdminRelationship';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDelegatedAdminRelationship } from '../../../models/serializeDelegatedAdminRelationship';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AccessAssignmentsRequestBuilder } from './accessAssignments/accessAssignmentsRequestBuilder';
-import { type DelegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration } from './delegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration';
-import { type DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration } from './delegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration';
-import { type DelegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration } from './delegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration';
 import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
 import { RequestsRequestBuilder } from './requests/requestsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DelegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters;
+}
+export interface DelegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
  */
@@ -45,7 +81,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
+     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status.  This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -60,7 +96,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties of a delegatedAdminRelationship object.
+     * Read the properties of a delegatedAdminRelationship object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationship
      * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-get?view=graph-rest-1.0|Find more info here}
@@ -76,7 +112,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the created status.
+     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the created status. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationship
@@ -93,7 +129,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
+     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status.  This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -109,7 +145,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * Read the properties of a delegatedAdminRelationship object.
+     * Read the properties of a delegatedAdminRelationship object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -127,7 +163,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the created status.
+     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the created status. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

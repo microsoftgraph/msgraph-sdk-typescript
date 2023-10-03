@@ -1,2 +1,1 @@
-export * from './ownedObjectsRequestBuilderGetQueryParameters'
-export * from './ownedObjectsRequestBuilderGetRequestConfiguration'
+export * from './ownedObjectsRequestBuilder'

@@ -1,5 +1,2 @@
-export * from './createUpperPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoUpperPostRequestBody'
-export * from './serializeUpperPostRequestBody'
 export * from './upperPostRequestBody'
-export * from './upperRequestBuilderPostRequestConfiguration'
+export * from './upperRequestBuilder'

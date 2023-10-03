@@ -19,3 +19,5 @@ export enum ColumnTypes {
     ApprovalStatus = "approvalStatus",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

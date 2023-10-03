@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoSetPresencePostRequestBody } from './deserializeIntoSetPresencePostRequestBody';
-import { serializeSetPresencePostRequestBody } from './serializeSetPresencePostRequestBody';
-import { type SetPresencePostRequestBody } from './setPresencePostRequestBody';
-import { type SetPresenceRequestBuilderPostRequestConfiguration } from './setPresenceRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoSetPresencePostRequestBody, serializeSetPresencePostRequestBody, type SetPresencePostRequestBody } from './setPresencePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SetPresenceRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the setPresence method.
  */
@@ -21,7 +26,7 @@ export class SetPresenceRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/presence/setPresence");
     };
     /**
-     * Set the state of a user's presence session as an application.
+     * Set the state of a user's presence session as an application. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/presence-setpresence?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class SetPresenceRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Set the state of a user's presence session as an application.
+     * Set the state of a user's presence session as an application. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

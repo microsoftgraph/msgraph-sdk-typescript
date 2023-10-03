@@ -1,16 +1,52 @@
-import { createPlannerPlanDetailsFromDiscriminatorValue } from '../../../../../../models/createPlannerPlanDetailsFromDiscriminatorValue';
-import { deserializeIntoPlannerPlanDetails } from '../../../../../../models/deserializeIntoPlannerPlanDetails';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type PlannerPlanDetails } from '../../../../../../models/plannerPlanDetails';
-import { serializePlannerPlanDetails } from '../../../../../../models/serializePlannerPlanDetails';
-import { type DetailsRequestBuilderDeleteRequestConfiguration } from './detailsRequestBuilderDeleteRequestConfiguration';
-import { type DetailsRequestBuilderGetRequestConfiguration } from './detailsRequestBuilderGetRequestConfiguration';
-import { type DetailsRequestBuilderPatchRequestConfiguration } from './detailsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createPlannerPlanDetailsFromDiscriminatorValue, deserializeIntoPlannerPlanDetails, serializePlannerPlanDetails, type PlannerPlanDetails } from '../../../../../../models/plannerPlanDetails';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DetailsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DetailsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DetailsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DetailsRequestBuilderGetQueryParameters;
+}
+export interface DetailsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the details property of the microsoft.graph.plannerPlan entity.
  */
@@ -38,7 +74,7 @@ export class DetailsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a plannerPlanDetails object.
+     * Retrieve the properties and relationships of a plannerPlanDetails object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerPlanDetails
      * @see {@link https://learn.microsoft.com/graph/api/plannerplandetails-get?view=graph-rest-1.0|Find more info here}
@@ -87,7 +123,7 @@ export class DetailsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a plannerPlanDetails object.
+     * Retrieve the properties and relationships of a plannerPlanDetails object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

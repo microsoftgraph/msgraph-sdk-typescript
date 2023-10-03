@@ -1,17 +1,53 @@
-import { type AssociatedTeamInfo } from '../../../../models/associatedTeamInfo';
-import { createAssociatedTeamInfoFromDiscriminatorValue } from '../../../../models/createAssociatedTeamInfoFromDiscriminatorValue';
-import { deserializeIntoAssociatedTeamInfo } from '../../../../models/deserializeIntoAssociatedTeamInfo';
+import { createAssociatedTeamInfoFromDiscriminatorValue, deserializeIntoAssociatedTeamInfo, serializeAssociatedTeamInfo, type AssociatedTeamInfo } from '../../../../models/associatedTeamInfo';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAssociatedTeamInfo } from '../../../../models/serializeAssociatedTeamInfo';
-import { type AssociatedTeamInfoItemRequestBuilderDeleteRequestConfiguration } from './associatedTeamInfoItemRequestBuilderDeleteRequestConfiguration';
-import { type AssociatedTeamInfoItemRequestBuilderGetRequestConfiguration } from './associatedTeamInfoItemRequestBuilderGetRequestConfiguration';
-import { type AssociatedTeamInfoItemRequestBuilderPatchRequestConfiguration } from './associatedTeamInfoItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { TeamRequestBuilder } from './team/teamRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssociatedTeamInfoItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AssociatedTeamInfoItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AssociatedTeamInfoItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AssociatedTeamInfoItemRequestBuilderGetQueryParameters;
+}
+export interface AssociatedTeamInfoItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
  */

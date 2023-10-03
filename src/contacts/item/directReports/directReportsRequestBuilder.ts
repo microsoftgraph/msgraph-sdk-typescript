@@ -1,16 +1,61 @@
 import { type DirectoryObjectCollectionResponse } from '../../../models/';
-import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
+import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../../models/directoryObjectCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DirectReportsRequestBuilderGetRequestConfiguration } from './directReportsRequestBuilderGetRequestConfiguration';
 import { GraphOrgContactRequestBuilder } from './graphOrgContact/graphOrgContactRequestBuilder';
 import { GraphUserRequestBuilder } from './graphUser/graphUserRequestBuilder';
 import { DirectoryObjectItemRequestBuilder } from './item/directoryObjectItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DirectReportsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DirectReportsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DirectReportsRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the directReports property of the microsoft.graph.orgContact entity.
  */

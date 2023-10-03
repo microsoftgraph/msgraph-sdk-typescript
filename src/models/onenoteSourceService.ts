@@ -4,3 +4,5 @@ export enum OnenoteSourceService {
     OneDriveForBusiness = "OneDriveForBusiness",
     OnPremOneDriveForBusiness = "OnPremOneDriveForBusiness",
 }
+// tslint:enable
+// eslint-enable

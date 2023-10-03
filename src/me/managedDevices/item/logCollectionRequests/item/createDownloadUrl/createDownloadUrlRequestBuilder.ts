@@ -1,12 +1,19 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { createCreateDownloadUrlResponseFromDiscriminatorValue } from './createCreateDownloadUrlResponseFromDiscriminatorValue';
-import { type CreateDownloadUrlRequestBuilderPostRequestConfiguration } from './createDownloadUrlRequestBuilderPostRequestConfiguration';
-import { type CreateDownloadUrlResponse } from './index';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createCreateDownloadUrlPostResponseFromDiscriminatorValue } from './createDownloadUrlPostResponse';
+import { type CreateDownloadUrlPostResponse } from './index';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CreateDownloadUrlRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the createDownloadUrl method.
  */
@@ -22,9 +29,9 @@ export class CreateDownloadUrlRequestBuilder extends BaseRequestBuilder {
     /**
      * Invoke action createDownloadUrl
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of CreateDownloadUrlResponse
+     * @returns a Promise of CreateDownloadUrlPostResponse
      */
-    public post(requestConfiguration?: CreateDownloadUrlRequestBuilderPostRequestConfiguration | undefined) : Promise<CreateDownloadUrlResponse | undefined> {
+    public post(requestConfiguration?: CreateDownloadUrlRequestBuilderPostRequestConfiguration | undefined) : Promise<CreateDownloadUrlPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             requestConfiguration
         );
@@ -32,7 +39,7 @@ export class CreateDownloadUrlRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<CreateDownloadUrlResponse>(requestInfo, createCreateDownloadUrlResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<CreateDownloadUrlPostResponse>(requestInfo, createCreateDownloadUrlPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke action createDownloadUrl

@@ -1,17 +1,19 @@
-import { createWorkbookSessionInfoFromDiscriminatorValue } from '../../../../../../models/createWorkbookSessionInfoFromDiscriminatorValue';
-import { deserializeIntoWorkbookSessionInfo } from '../../../../../../models/deserializeIntoWorkbookSessionInfo';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookSessionInfo } from '../../../../../../models/serializeWorkbookSessionInfo';
-import { type WorkbookSessionInfo } from '../../../../../../models/workbookSessionInfo';
-import { type CreateSessionPostRequestBody } from './createSessionPostRequestBody';
-import { type CreateSessionRequestBuilderPostRequestConfiguration } from './createSessionRequestBuilderPostRequestConfiguration';
-import { deserializeIntoCreateSessionPostRequestBody } from './deserializeIntoCreateSessionPostRequestBody';
-import { serializeCreateSessionPostRequestBody } from './serializeCreateSessionPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookSessionInfoFromDiscriminatorValue, deserializeIntoWorkbookSessionInfo, serializeWorkbookSessionInfo, type WorkbookSessionInfo } from '../../../../../../models/workbookSessionInfo';
+import { deserializeIntoCreateSessionPostRequestBody, serializeCreateSessionPostRequestBody, type CreateSessionPostRequestBody } from './createSessionPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CreateSessionRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the createSession method.
  */
@@ -25,7 +27,7 @@ export class CreateSessionRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/createSession");
     };
     /**
-     * Create a new workbook session.  Excel APIs can be called in one of two modes:  To represent the session in the API, use the workbook-session-id: {session-id} header.  In some cases, creating a new session requires an indeterminate time to complete. Microsoft Graph also provides a long running operations pattern. This pattern provides a way to poll for creation status updates, without waiting for the creation to complete. The following are the steps:
+     * Create a new workbook session.  Excel APIs can be called in one of two modes:  To represent the session in the API, use the workbook-session-id: {session-id} header.  In some cases, creating a new session requires an indeterminate time to complete. Microsoft Graph also provides a long running operations pattern. This pattern provides a way to poll for creation status updates, without waiting for the creation to complete. The following are the steps: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookSessionInfo
@@ -42,7 +44,7 @@ export class CreateSessionRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookSessionInfo>(requestInfo, createWorkbookSessionInfoFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new workbook session.  Excel APIs can be called in one of two modes:  To represent the session in the API, use the workbook-session-id: {session-id} header.  In some cases, creating a new session requires an indeterminate time to complete. Microsoft Graph also provides a long running operations pattern. This pattern provides a way to poll for creation status updates, without waiting for the creation to complete. The following are the steps:
+     * Create a new workbook session.  Excel APIs can be called in one of two modes:  To represent the session in the API, use the workbook-session-id: {session-id} header.  In some cases, creating a new session requires an indeterminate time to complete. Microsoft Graph also provides a long running operations pattern. This pattern provides a way to poll for creation status updates, without waiting for the creation to complete. The following are the steps: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

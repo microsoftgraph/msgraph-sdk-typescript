@@ -1,20 +1,71 @@
 import { type UnifiedRoleEligibilityScheduleRequestCollectionResponse } from '../../../models/';
-import { createUnifiedRoleEligibilityScheduleRequestCollectionResponseFromDiscriminatorValue } from '../../../models/createUnifiedRoleEligibilityScheduleRequestCollectionResponseFromDiscriminatorValue';
-import { createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue } from '../../../models/createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleEligibilityScheduleRequest } from '../../../models/deserializeIntoUnifiedRoleEligibilityScheduleRequest';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleEligibilityScheduleRequest } from '../../../models/serializeUnifiedRoleEligibilityScheduleRequest';
-import { type UnifiedRoleEligibilityScheduleRequest } from '../../../models/unifiedRoleEligibilityScheduleRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue, deserializeIntoUnifiedRoleEligibilityScheduleRequest, serializeUnifiedRoleEligibilityScheduleRequest, type UnifiedRoleEligibilityScheduleRequest } from '../../../models/unifiedRoleEligibilityScheduleRequest';
+import { createUnifiedRoleEligibilityScheduleRequestCollectionResponseFromDiscriminatorValue } from '../../../models/unifiedRoleEligibilityScheduleRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { UnifiedRoleEligibilityScheduleRequestItemRequestBuilder } from './item/unifiedRoleEligibilityScheduleRequestItemRequestBuilder';
-import { type RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration } from './roleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration';
-import { type RoleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration } from './roleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters;
+}
+export interface RoleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
  */
@@ -54,7 +105,7 @@ export class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object.
+     * In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleEligibilityScheduleRequestCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roleeligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
@@ -70,7 +121,7 @@ export class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<UnifiedRoleEligibilityScheduleRequestCollectionResponse>(requestInfo, createUnifiedRoleEligibilityScheduleRequestCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * In PIM, request for a role eligibility for a principal through the unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
+     * In PIM, request for a role eligibility for a principal through the unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleEligibilityScheduleRequest
@@ -87,7 +138,7 @@ export class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<UnifiedRoleEligibilityScheduleRequest>(requestInfo, createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object.
+     * In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +156,7 @@ export class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * In PIM, request for a role eligibility for a principal through the unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
+     * In PIM, request for a role eligibility for a principal through the unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

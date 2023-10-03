@@ -1,16 +1,52 @@
-import { createPrintConnectorFromDiscriminatorValue } from '../../../models/createPrintConnectorFromDiscriminatorValue';
-import { deserializeIntoPrintConnector } from '../../../models/deserializeIntoPrintConnector';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PrintConnector } from '../../../models/printConnector';
-import { serializePrintConnector } from '../../../models/serializePrintConnector';
-import { type PrintConnectorItemRequestBuilderDeleteRequestConfiguration } from './printConnectorItemRequestBuilderDeleteRequestConfiguration';
-import { type PrintConnectorItemRequestBuilderGetRequestConfiguration } from './printConnectorItemRequestBuilderGetRequestConfiguration';
-import { type PrintConnectorItemRequestBuilderPatchRequestConfiguration } from './printConnectorItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPrintConnectorFromDiscriminatorValue, deserializeIntoPrintConnector, serializePrintConnector, type PrintConnector } from '../../../models/printConnector';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrintConnectorItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PrintConnectorItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PrintConnectorItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrintConnectorItemRequestBuilderGetQueryParameters;
+}
+export interface PrintConnectorItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the connectors property of the microsoft.graph.print entity.
  */
@@ -24,7 +60,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/connectors/{printConnector%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete (unregister) a printConnector.
+     * Delete (unregister) a printConnector. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/printconnector-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a printConnector object.
+     * Retrieve the properties and relationships of a printConnector object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintConnector
      * @see {@link https://learn.microsoft.com/graph/api/printconnector-get?view=graph-rest-1.0|Find more info here}
@@ -55,7 +91,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrintConnector>(requestInfo, createPrintConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a printConnector object.
+     * Update the properties of a printConnector object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintConnector
@@ -72,7 +108,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrintConnector>(requestInfo, createPrintConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete (unregister) a printConnector.
+     * Delete (unregister) a printConnector. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a printConnector object.
+     * Retrieve the properties and relationships of a printConnector object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -106,7 +142,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a printConnector object.
+     * Update the properties of a printConnector object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

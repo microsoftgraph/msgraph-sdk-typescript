@@ -1,19 +1,70 @@
 import { type DeviceComplianceUserStatusCollectionResponse } from '../../../../models/';
-import { createDeviceComplianceUserStatusCollectionResponseFromDiscriminatorValue } from '../../../../models/createDeviceComplianceUserStatusCollectionResponseFromDiscriminatorValue';
-import { createDeviceComplianceUserStatusFromDiscriminatorValue } from '../../../../models/createDeviceComplianceUserStatusFromDiscriminatorValue';
-import { deserializeIntoDeviceComplianceUserStatus } from '../../../../models/deserializeIntoDeviceComplianceUserStatus';
-import { type DeviceComplianceUserStatus } from '../../../../models/deviceComplianceUserStatus';
+import { createDeviceComplianceUserStatusFromDiscriminatorValue, deserializeIntoDeviceComplianceUserStatus, serializeDeviceComplianceUserStatus, type DeviceComplianceUserStatus } from '../../../../models/deviceComplianceUserStatus';
+import { createDeviceComplianceUserStatusCollectionResponseFromDiscriminatorValue } from '../../../../models/deviceComplianceUserStatusCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceComplianceUserStatus } from '../../../../models/serializeDeviceComplianceUserStatus';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeviceComplianceUserStatusItemRequestBuilder } from './item/deviceComplianceUserStatusItemRequestBuilder';
-import { type UserStatusesRequestBuilderGetRequestConfiguration } from './userStatusesRequestBuilderGetRequestConfiguration';
-import { type UserStatusesRequestBuilderPostRequestConfiguration } from './userStatusesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserStatusesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface UserStatusesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserStatusesRequestBuilderGetQueryParameters;
+}
+export interface UserStatusesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
  */

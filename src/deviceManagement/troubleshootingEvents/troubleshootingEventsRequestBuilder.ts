@@ -1,19 +1,70 @@
 import { type DeviceManagementTroubleshootingEventCollectionResponse } from '../../models/';
-import { createDeviceManagementTroubleshootingEventCollectionResponseFromDiscriminatorValue } from '../../models/createDeviceManagementTroubleshootingEventCollectionResponseFromDiscriminatorValue';
-import { createDeviceManagementTroubleshootingEventFromDiscriminatorValue } from '../../models/createDeviceManagementTroubleshootingEventFromDiscriminatorValue';
-import { deserializeIntoDeviceManagementTroubleshootingEvent } from '../../models/deserializeIntoDeviceManagementTroubleshootingEvent';
-import { type DeviceManagementTroubleshootingEvent } from '../../models/deviceManagementTroubleshootingEvent';
+import { createDeviceManagementTroubleshootingEventFromDiscriminatorValue, deserializeIntoDeviceManagementTroubleshootingEvent, serializeDeviceManagementTroubleshootingEvent, type DeviceManagementTroubleshootingEvent } from '../../models/deviceManagementTroubleshootingEvent';
+import { createDeviceManagementTroubleshootingEventCollectionResponseFromDiscriminatorValue } from '../../models/deviceManagementTroubleshootingEventCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDeviceManagementTroubleshootingEvent } from '../../models/serializeDeviceManagementTroubleshootingEvent';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeviceManagementTroubleshootingEventItemRequestBuilder } from './item/deviceManagementTroubleshootingEventItemRequestBuilder';
-import { type TroubleshootingEventsRequestBuilderGetRequestConfiguration } from './troubleshootingEventsRequestBuilderGetRequestConfiguration';
-import { type TroubleshootingEventsRequestBuilderPostRequestConfiguration } from './troubleshootingEventsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TroubleshootingEventsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TroubleshootingEventsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TroubleshootingEventsRequestBuilderGetQueryParameters;
+}
+export interface TroubleshootingEventsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the troubleshootingEvents property of the microsoft.graph.deviceManagement entity.
  */

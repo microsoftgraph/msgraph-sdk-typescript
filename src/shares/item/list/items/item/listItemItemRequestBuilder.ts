@@ -1,11 +1,6 @@
-import { createListItemFromDiscriminatorValue } from '../../../../../models/createListItemFromDiscriminatorValue';
-import { deserializeIntoListItem } from '../../../../../models/deserializeIntoListItem';
-import { type ListItem } from '../../../../../models/listItem';
+import { createListItemFromDiscriminatorValue, deserializeIntoListItem, serializeListItem, type ListItem } from '../../../../../models/listItem';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeListItem } from '../../../../../models/serializeListItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { AnalyticsRequestBuilder } from './analytics/analyticsRequestBuilder';
 import { CreatedByUserRequestBuilder } from './createdByUser/createdByUserRequestBuilder';
 import { DocumentSetVersionsRequestBuilder } from './documentSetVersions/documentSetVersionsRequestBuilder';
@@ -14,12 +9,53 @@ import { FieldsRequestBuilder } from './fields/fieldsRequestBuilder';
 import { GetActivitiesByIntervalRequestBuilder } from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
 import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder } from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import { LastModifiedByUserRequestBuilder } from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
-import { type ListItemItemRequestBuilderDeleteRequestConfiguration } from './listItemItemRequestBuilderDeleteRequestConfiguration';
-import { type ListItemItemRequestBuilderGetRequestConfiguration } from './listItemItemRequestBuilderGetRequestConfiguration';
-import { type ListItemItemRequestBuilderPatchRequestConfiguration } from './listItemItemRequestBuilderPatchRequestConfiguration';
 import { VersionsRequestBuilder } from './versions/versionsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ListItemItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ListItemItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ListItemItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ListItemItemRequestBuilderGetQueryParameters;
+}
+export interface ListItemItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the items property of the microsoft.graph.list entity.
  */
@@ -81,7 +117,7 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}{?%24select,%24expand}");
     };
     /**
-     * Removes an item from a [list][].
+     * Removes an item from a list][]. This API is supported in the following [national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/listitem-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -96,7 +132,7 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Returns the metadata for an [item][] in a [list][].
+     * Returns the metadata for an item][] in a [list][]. This API is supported in the following [national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ListItem
      * @see {@link https://learn.microsoft.com/graph/api/listitem-get?view=graph-rest-1.0|Find more info here}
@@ -141,7 +177,7 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ListItem>(requestInfo, createListItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Removes an item from a [list][].
+     * Removes an item from a list][]. This API is supported in the following [national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -157,7 +193,7 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Returns the metadata for an [item][] in a [list][].
+     * Returns the metadata for an item][] in a [list][]. This API is supported in the following [national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

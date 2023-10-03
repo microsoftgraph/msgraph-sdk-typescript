@@ -1,2 +1,1 @@
-export * from './printerShareItemRequestBuilderGetQueryParameters'
-export * from './printerShareItemRequestBuilderGetRequestConfiguration'
+export * from './printerShareItemRequestBuilder'

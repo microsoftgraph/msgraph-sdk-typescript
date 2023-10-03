@@ -11,3 +11,5 @@ export enum ManagedAppClipboardSharingLevel {
     /** Sharing between apps is disabled */
     Blocked = "blocked",
 }
+// tslint:enable
+// eslint-enable

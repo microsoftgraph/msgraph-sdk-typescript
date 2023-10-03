@@ -6,3 +6,5 @@ export enum FreeBusyStatus {
     Oof = "oof",
     WorkingElsewhere = "workingElsewhere",
 }
+// tslint:enable
+// eslint-enable

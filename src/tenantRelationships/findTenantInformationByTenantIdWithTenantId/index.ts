@@ -1,1 +1,1 @@
-export * from './findTenantInformationByTenantIdWithTenantIdRequestBuilderGetRequestConfiguration'
+export * from './findTenantInformationByTenantIdWithTenantIdRequestBuilder'

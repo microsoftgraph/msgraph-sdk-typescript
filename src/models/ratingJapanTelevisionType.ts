@@ -9,3 +9,5 @@ export enum RatingJapanTelevisionType {
     /** All TV content is explicitly allowed */
     ExplicitAllowed = "explicitAllowed",
 }
+// tslint:enable
+// eslint-enable

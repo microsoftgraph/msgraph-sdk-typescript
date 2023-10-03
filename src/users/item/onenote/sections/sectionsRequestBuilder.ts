@@ -1,19 +1,70 @@
 import { type OnenoteSectionCollectionResponse } from '../../../../models/';
-import { createOnenoteSectionCollectionResponseFromDiscriminatorValue } from '../../../../models/createOnenoteSectionCollectionResponseFromDiscriminatorValue';
-import { createOnenoteSectionFromDiscriminatorValue } from '../../../../models/createOnenoteSectionFromDiscriminatorValue';
-import { deserializeIntoOnenoteSection } from '../../../../models/deserializeIntoOnenoteSection';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type OnenoteSection } from '../../../../models/onenoteSection';
-import { serializeOnenoteSection } from '../../../../models/serializeOnenoteSection';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createOnenoteSectionFromDiscriminatorValue, deserializeIntoOnenoteSection, serializeOnenoteSection, type OnenoteSection } from '../../../../models/onenoteSection';
+import { createOnenoteSectionCollectionResponseFromDiscriminatorValue } from '../../../../models/onenoteSectionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OnenoteSectionItemRequestBuilder } from './item/onenoteSectionItemRequestBuilder';
-import { type SectionsRequestBuilderGetRequestConfiguration } from './sectionsRequestBuilderGetRequestConfiguration';
-import { type SectionsRequestBuilderPostRequestConfiguration } from './sectionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SectionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SectionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SectionsRequestBuilderGetQueryParameters;
+}
+export interface SectionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
  */
@@ -44,7 +95,7 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/onenote/sections{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of onenoteSection objects.
+     * Retrieve a list of onenoteSection objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenoteSectionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/onenote-list-sections?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OnenoteSection>(requestInfo, createOnenoteSectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of onenoteSection objects.
+     * Retrieve a list of onenoteSection objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

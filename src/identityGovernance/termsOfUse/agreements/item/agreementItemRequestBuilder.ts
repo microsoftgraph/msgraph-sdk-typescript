@@ -1,19 +1,55 @@
-import { type Agreement } from '../../../../models/agreement';
-import { createAgreementFromDiscriminatorValue } from '../../../../models/createAgreementFromDiscriminatorValue';
-import { deserializeIntoAgreement } from '../../../../models/deserializeIntoAgreement';
+import { createAgreementFromDiscriminatorValue, deserializeIntoAgreement, serializeAgreement, type Agreement } from '../../../../models/agreement';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAgreement } from '../../../../models/serializeAgreement';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { AcceptancesRequestBuilder } from './acceptances/acceptancesRequestBuilder';
-import { type AgreementItemRequestBuilderDeleteRequestConfiguration } from './agreementItemRequestBuilderDeleteRequestConfiguration';
-import { type AgreementItemRequestBuilderGetRequestConfiguration } from './agreementItemRequestBuilderGetRequestConfiguration';
-import { type AgreementItemRequestBuilderPatchRequestConfiguration } from './agreementItemRequestBuilderPatchRequestConfiguration';
 import { FileRequestBuilder } from './file/fileRequestBuilder';
 import { FilesRequestBuilder } from './files/filesRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AgreementItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AgreementItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AgreementItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AgreementItemRequestBuilderGetQueryParameters;
+}
+export interface AgreementItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
  */
@@ -45,7 +81,7 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an agreement object.
+     * Delete an agreement object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/agreement-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -60,7 +96,7 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an agreement object.
+     * Retrieve the properties and relationships of an agreement object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Agreement
      * @see {@link https://learn.microsoft.com/graph/api/agreement-get?view=graph-rest-1.0|Find more info here}
@@ -76,7 +112,7 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an agreement object.
+     * Update the properties of an agreement object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Agreement
@@ -93,7 +129,7 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an agreement object.
+     * Delete an agreement object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -109,7 +145,7 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of an agreement object.
+     * Retrieve the properties and relationships of an agreement object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -127,7 +163,7 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an agreement object.
+     * Update the properties of an agreement object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

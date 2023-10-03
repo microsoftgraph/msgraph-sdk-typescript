@@ -1,18 +1,54 @@
-import { createPrintTaskFromDiscriminatorValue } from '../../../../../models/createPrintTaskFromDiscriminatorValue';
-import { deserializeIntoPrintTask } from '../../../../../models/deserializeIntoPrintTask';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type PrintTask } from '../../../../../models/printTask';
-import { serializePrintTask } from '../../../../../models/serializePrintTask';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createPrintTaskFromDiscriminatorValue, deserializeIntoPrintTask, serializePrintTask, type PrintTask } from '../../../../../models/printTask';
 import { DefinitionRequestBuilder } from './definition/definitionRequestBuilder';
-import { type PrintTaskItemRequestBuilderDeleteRequestConfiguration } from './printTaskItemRequestBuilderDeleteRequestConfiguration';
-import { type PrintTaskItemRequestBuilderGetRequestConfiguration } from './printTaskItemRequestBuilderGetRequestConfiguration';
-import { type PrintTaskItemRequestBuilderPatchRequestConfiguration } from './printTaskItemRequestBuilderPatchRequestConfiguration';
 import { TriggerRequestBuilder } from './trigger/triggerRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrintTaskItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PrintTaskItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PrintTaskItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrintTaskItemRequestBuilderGetQueryParameters;
+}
+export interface PrintTaskItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.printTaskDefinition entity.
  */
@@ -52,7 +88,7 @@ export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get details about a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+     * Get details about a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintTask
      * @see {@link https://learn.microsoft.com/graph/api/printtask-get?view=graph-rest-1.0|Find more info here}
@@ -68,7 +104,7 @@ export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrintTask>(requestInfo, createPrintTaskFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+     * Update a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintTask
@@ -101,7 +137,7 @@ export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get details about a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+     * Get details about a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,7 +155,7 @@ export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
+     * Update a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

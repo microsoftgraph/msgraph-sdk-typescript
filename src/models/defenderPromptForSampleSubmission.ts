@@ -13,3 +13,5 @@ export enum DefenderPromptForSampleSubmission {
     /** Send all data without prompting. */
     SendAllDataWithoutPrompting = "sendAllDataWithoutPrompting",
 }
+// tslint:enable
+// eslint-enable

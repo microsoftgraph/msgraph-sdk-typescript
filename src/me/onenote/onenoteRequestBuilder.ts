@@ -1,15 +1,7 @@
-import { createOnenoteFromDiscriminatorValue } from '../../models/createOnenoteFromDiscriminatorValue';
-import { deserializeIntoOnenote } from '../../models/deserializeIntoOnenote';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { type Onenote } from '../../models/onenote';
-import { serializeOnenote } from '../../models/serializeOnenote';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createOnenoteFromDiscriminatorValue, deserializeIntoOnenote, serializeOnenote, type Onenote } from '../../models/onenote';
 import { NotebooksRequestBuilder } from './notebooks/notebooksRequestBuilder';
-import { type OnenoteRequestBuilderDeleteRequestConfiguration } from './onenoteRequestBuilderDeleteRequestConfiguration';
-import { type OnenoteRequestBuilderGetRequestConfiguration } from './onenoteRequestBuilderGetRequestConfiguration';
-import { type OnenoteRequestBuilderPatchRequestConfiguration } from './onenoteRequestBuilderPatchRequestConfiguration';
 import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
 import { PagesRequestBuilder } from './pages/pagesRequestBuilder';
 import { ResourcesRequestBuilder } from './resources/resourcesRequestBuilder';
@@ -17,6 +9,50 @@ import { SectionGroupsRequestBuilder } from './sectionGroups/sectionGroupsReques
 import { SectionsRequestBuilder } from './sections/sectionsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OnenoteRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OnenoteRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OnenoteRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OnenoteRequestBuilderGetQueryParameters;
+}
+export interface OnenoteRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the onenote property of the microsoft.graph.user entity.
  */

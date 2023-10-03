@@ -1,19 +1,70 @@
 import { type TokenLifetimePolicyCollectionResponse } from '../../models/';
-import { createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue } from '../../models/createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue';
-import { createTokenLifetimePolicyFromDiscriminatorValue } from '../../models/createTokenLifetimePolicyFromDiscriminatorValue';
-import { deserializeIntoTokenLifetimePolicy } from '../../models/deserializeIntoTokenLifetimePolicy';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeTokenLifetimePolicy } from '../../models/serializeTokenLifetimePolicy';
-import { type TokenLifetimePolicy } from '../../models/tokenLifetimePolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createTokenLifetimePolicyFromDiscriminatorValue, deserializeIntoTokenLifetimePolicy, serializeTokenLifetimePolicy, type TokenLifetimePolicy } from '../../models/tokenLifetimePolicy';
+import { createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue } from '../../models/tokenLifetimePolicyCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TokenLifetimePolicyItemRequestBuilder } from './item/tokenLifetimePolicyItemRequestBuilder';
-import { type TokenLifetimePoliciesRequestBuilderGetRequestConfiguration } from './tokenLifetimePoliciesRequestBuilderGetRequestConfiguration';
-import { type TokenLifetimePoliciesRequestBuilderPostRequestConfiguration } from './tokenLifetimePoliciesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TokenLifetimePoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TokenLifetimePoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TokenLifetimePoliciesRequestBuilderGetQueryParameters;
+}
+export interface TokenLifetimePoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.
  */
@@ -44,7 +95,7 @@ export class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/tokenLifetimePolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of tokenLifetimePolicy objects.
+     * Get a list of tokenLifetimePolicy objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TokenLifetimePolicyCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/tokenlifetimepolicy-list?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TokenLifetimePolicyCollectionResponse>(requestInfo, createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new tokenLifetimePolicy object.
+     * Create a new tokenLifetimePolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TokenLifetimePolicy
@@ -77,7 +128,7 @@ export class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TokenLifetimePolicy>(requestInfo, createTokenLifetimePolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of tokenLifetimePolicy objects.
+     * Get a list of tokenLifetimePolicy objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new tokenLifetimePolicy object.
+     * Create a new tokenLifetimePolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,13 +1,43 @@
 import { type TemporaryAccessPassAuthenticationMethod } from '../../../../models/';
-import { createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue } from '../../../../models/createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type TemporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './temporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import { type TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './temporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue } from '../../../../models/temporaryAccessPassAuthenticationMethod';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TemporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
  */
@@ -21,7 +51,7 @@ export class TemporaryAccessPassAuthenticationMethodItemRequestBuilder extends B
         super(pathParameters, requestAdapter, "{+baseurl}/me/authentication/temporaryAccessPassMethods/{temporaryAccessPassAuthenticationMethod%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a users's temporaryAccessPassAuthenticationMethod object.
+     * Delete a users's temporaryAccessPassAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -36,7 +66,7 @@ export class TemporaryAccessPassAuthenticationMethodItemRequestBuilder extends B
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve a user's single temporaryAccessPassAuthenticationMethod object.
+     * Retrieve a user's single temporaryAccessPassAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TemporaryAccessPassAuthenticationMethod
      * @see {@link https://learn.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
@@ -52,7 +82,7 @@ export class TemporaryAccessPassAuthenticationMethodItemRequestBuilder extends B
         return this.requestAdapter.sendAsync<TemporaryAccessPassAuthenticationMethod>(requestInfo, createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a users's temporaryAccessPassAuthenticationMethod object.
+     * Delete a users's temporaryAccessPassAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -68,7 +98,7 @@ export class TemporaryAccessPassAuthenticationMethodItemRequestBuilder extends B
         return requestInfo;
     };
     /**
-     * Retrieve a user's single temporaryAccessPassAuthenticationMethod object.
+     * Retrieve a user's single temporaryAccessPassAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,76 +1,127 @@
-import { type AccessPackage } from './accessPackage';
-import { type AccessPackageAssignmentApprovalSettings } from './accessPackageAssignmentApprovalSettings';
-import { type AccessPackageAssignmentRequestorSettings } from './accessPackageAssignmentRequestorSettings';
-import { type AccessPackageAssignmentReviewSettings } from './accessPackageAssignmentReviewSettings';
-import { type AccessPackageAutomaticRequestSettings } from './accessPackageAutomaticRequestSettings';
-import { type AccessPackageCatalog } from './accessPackageCatalog';
-import { type AccessPackageQuestion } from './accessPackageQuestion';
+import { createAccessPackageFromDiscriminatorValue, serializeAccessPackage, type AccessPackage } from './accessPackage';
+import { createAccessPackageAssignmentApprovalSettingsFromDiscriminatorValue, serializeAccessPackageAssignmentApprovalSettings, type AccessPackageAssignmentApprovalSettings } from './accessPackageAssignmentApprovalSettings';
+import { createAccessPackageAssignmentRequestorSettingsFromDiscriminatorValue, serializeAccessPackageAssignmentRequestorSettings, type AccessPackageAssignmentRequestorSettings } from './accessPackageAssignmentRequestorSettings';
+import { createAccessPackageAssignmentReviewSettingsFromDiscriminatorValue, serializeAccessPackageAssignmentReviewSettings, type AccessPackageAssignmentReviewSettings } from './accessPackageAssignmentReviewSettings';
+import { createAccessPackageAutomaticRequestSettingsFromDiscriminatorValue, serializeAccessPackageAutomaticRequestSettings, type AccessPackageAutomaticRequestSettings } from './accessPackageAutomaticRequestSettings';
+import { createAccessPackageCatalogFromDiscriminatorValue, serializeAccessPackageCatalog, type AccessPackageCatalog } from './accessPackageCatalog';
+import { createAccessPackageQuestionFromDiscriminatorValue, serializeAccessPackageQuestion, type AccessPackageQuestion } from './accessPackageQuestion';
 import { AllowedTargetScope } from './allowedTargetScope';
-import { type CustomExtensionStageSetting } from './customExtensionStageSetting';
-import { type Entity } from './entity';
-import { type ExpirationPattern } from './expirationPattern';
-import { type SubjectSet } from './subjectSet';
-import { type Parsable } from '@microsoft/kiota-abstractions';
+import { createCustomExtensionStageSettingFromDiscriminatorValue, serializeCustomExtensionStageSetting, type CustomExtensionStageSetting } from './customExtensionStageSetting';
+import { deserializeIntoEntity, serializeEntity, type Entity } from './entity';
+import { createExpirationPatternFromDiscriminatorValue, serializeExpirationPattern, type ExpirationPattern } from './expirationPattern';
+import { createSubjectSetFromDiscriminatorValue, serializeSubjectSet, type SubjectSet } from './subjectSet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentPolicy extends Entity, Parsable {
     /**
      * Access package containing this policy. Read-only.  Supports $expand.
      */
-    accessPackage?: AccessPackage | undefined;
+    accessPackage?: AccessPackage;
     /**
      * Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue.
      */
-    allowedTargetScope?: AllowedTargetScope | undefined;
+    allowedTargetScope?: AllowedTargetScope;
     /**
      * This property is only present for an auto assignment policy; if absent, this is a request-based policy.
      */
-    automaticRequestSettings?: AccessPackageAutomaticRequestSettings | undefined;
+    automaticRequestSettings?: AccessPackageAutomaticRequestSettings;
     /**
      * Catalog of the access package containing this policy. Read-only.
      */
-    catalog?: AccessPackageCatalog | undefined;
+    catalog?: AccessPackageCatalog;
     /**
      * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
-    createdDateTime?: Date | undefined;
+    createdDateTime?: Date;
     /**
      * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
      */
-    customExtensionStageSettings?: CustomExtensionStageSetting[] | undefined;
+    customExtensionStageSettings?: CustomExtensionStageSetting[];
     /**
      * The description of the policy.
      */
-    description?: string | undefined;
+    description?: string;
     /**
      * The display name of the policy.
      */
-    displayName?: string | undefined;
+    displayName?: string;
     /**
      * The expiration date for assignments created in this policy.
      */
-    expiration?: ExpirationPattern | undefined;
+    expiration?: ExpirationPattern;
     /**
      * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
-    modifiedDateTime?: Date | undefined;
+    modifiedDateTime?: Date;
     /**
      * Questions that are posed to the  requestor.
      */
-    questions?: AccessPackageQuestion[] | undefined;
+    questions?: AccessPackageQuestion[];
     /**
      * Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.
      */
-    requestApprovalSettings?: AccessPackageAssignmentApprovalSettings | undefined;
+    requestApprovalSettings?: AccessPackageAssignmentApprovalSettings;
     /**
      * Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request.
      */
-    requestorSettings?: AccessPackageAssignmentRequestorSettings | undefined;
+    requestorSettings?: AccessPackageAssignmentRequestorSettings;
     /**
      * Settings for access reviews of assignments through this policy.
      */
-    reviewSettings?: AccessPackageAssignmentReviewSettings | undefined;
+    reviewSettings?: AccessPackageAssignmentReviewSettings;
     /**
      * The principals that can be assigned access from an access package through this policy.
      */
-    specificAllowedTargets?: SubjectSet[] | undefined;
+    specificAllowedTargets?: SubjectSet[];
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function createAccessPackageAssignmentPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoAccessPackageAssignmentPolicy;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function deserializeIntoAccessPackageAssignmentPolicy(accessPackageAssignmentPolicy: AccessPackageAssignmentPolicy | undefined = {} as AccessPackageAssignmentPolicy) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(accessPackageAssignmentPolicy),
+        "accessPackage": n => { accessPackageAssignmentPolicy.accessPackage = n.getObjectValue<AccessPackage>(createAccessPackageFromDiscriminatorValue); },
+        "allowedTargetScope": n => { accessPackageAssignmentPolicy.allowedTargetScope = n.getEnumValue<AllowedTargetScope>(AllowedTargetScope); },
+        "automaticRequestSettings": n => { accessPackageAssignmentPolicy.automaticRequestSettings = n.getObjectValue<AccessPackageAutomaticRequestSettings>(createAccessPackageAutomaticRequestSettingsFromDiscriminatorValue); },
+        "catalog": n => { accessPackageAssignmentPolicy.catalog = n.getObjectValue<AccessPackageCatalog>(createAccessPackageCatalogFromDiscriminatorValue); },
+        "createdDateTime": n => { accessPackageAssignmentPolicy.createdDateTime = n.getDateValue(); },
+        "customExtensionStageSettings": n => { accessPackageAssignmentPolicy.customExtensionStageSettings = n.getCollectionOfObjectValues<CustomExtensionStageSetting>(createCustomExtensionStageSettingFromDiscriminatorValue); },
+        "description": n => { accessPackageAssignmentPolicy.description = n.getStringValue(); },
+        "displayName": n => { accessPackageAssignmentPolicy.displayName = n.getStringValue(); },
+        "expiration": n => { accessPackageAssignmentPolicy.expiration = n.getObjectValue<ExpirationPattern>(createExpirationPatternFromDiscriminatorValue); },
+        "modifiedDateTime": n => { accessPackageAssignmentPolicy.modifiedDateTime = n.getDateValue(); },
+        "questions": n => { accessPackageAssignmentPolicy.questions = n.getCollectionOfObjectValues<AccessPackageQuestion>(createAccessPackageQuestionFromDiscriminatorValue); },
+        "requestApprovalSettings": n => { accessPackageAssignmentPolicy.requestApprovalSettings = n.getObjectValue<AccessPackageAssignmentApprovalSettings>(createAccessPackageAssignmentApprovalSettingsFromDiscriminatorValue); },
+        "requestorSettings": n => { accessPackageAssignmentPolicy.requestorSettings = n.getObjectValue<AccessPackageAssignmentRequestorSettings>(createAccessPackageAssignmentRequestorSettingsFromDiscriminatorValue); },
+        "reviewSettings": n => { accessPackageAssignmentPolicy.reviewSettings = n.getObjectValue<AccessPackageAssignmentReviewSettings>(createAccessPackageAssignmentReviewSettingsFromDiscriminatorValue); },
+        "specificAllowedTargets": n => { accessPackageAssignmentPolicy.specificAllowedTargets = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
+    }
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function serializeAccessPackageAssignmentPolicy(writer: SerializationWriter, accessPackageAssignmentPolicy: AccessPackageAssignmentPolicy | undefined = {} as AccessPackageAssignmentPolicy) : void {
+        serializeEntity(writer, accessPackageAssignmentPolicy)
+        writer.writeObjectValue<AccessPackage>("accessPackage", accessPackageAssignmentPolicy.accessPackage, );
+        writer.writeEnumValue<AllowedTargetScope>("allowedTargetScope", accessPackageAssignmentPolicy.allowedTargetScope);
+        writer.writeObjectValue<AccessPackageAutomaticRequestSettings>("automaticRequestSettings", accessPackageAssignmentPolicy.automaticRequestSettings, );
+        writer.writeObjectValue<AccessPackageCatalog>("catalog", accessPackageAssignmentPolicy.catalog, );
+        writer.writeDateValue("createdDateTime", accessPackageAssignmentPolicy.createdDateTime);
+        writer.writeCollectionOfObjectValues<CustomExtensionStageSetting>("customExtensionStageSettings", accessPackageAssignmentPolicy.customExtensionStageSettings, );
+        writer.writeStringValue("description", accessPackageAssignmentPolicy.description);
+        writer.writeStringValue("displayName", accessPackageAssignmentPolicy.displayName);
+        writer.writeObjectValue<ExpirationPattern>("expiration", accessPackageAssignmentPolicy.expiration, );
+        writer.writeDateValue("modifiedDateTime", accessPackageAssignmentPolicy.modifiedDateTime);
+        writer.writeCollectionOfObjectValues<AccessPackageQuestion>("questions", accessPackageAssignmentPolicy.questions, );
+        writer.writeObjectValue<AccessPackageAssignmentApprovalSettings>("requestApprovalSettings", accessPackageAssignmentPolicy.requestApprovalSettings, );
+        writer.writeObjectValue<AccessPackageAssignmentRequestorSettings>("requestorSettings", accessPackageAssignmentPolicy.requestorSettings, );
+        writer.writeObjectValue<AccessPackageAssignmentReviewSettings>("reviewSettings", accessPackageAssignmentPolicy.reviewSettings, );
+        writer.writeCollectionOfObjectValues<SubjectSet>("specificAllowedTargets", accessPackageAssignmentPolicy.specificAllowedTargets, );
 }

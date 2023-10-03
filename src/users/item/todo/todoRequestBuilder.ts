@@ -1,17 +1,53 @@
-import { createTodoFromDiscriminatorValue } from '../../../models/createTodoFromDiscriminatorValue';
-import { deserializeIntoTodo } from '../../../models/deserializeIntoTodo';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeTodo } from '../../../models/serializeTodo';
-import { type Todo } from '../../../models/todo';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createTodoFromDiscriminatorValue, deserializeIntoTodo, serializeTodo, type Todo } from '../../../models/todo';
 import { ListsRequestBuilder } from './lists/listsRequestBuilder';
-import { type TodoRequestBuilderDeleteRequestConfiguration } from './todoRequestBuilderDeleteRequestConfiguration';
-import { type TodoRequestBuilderGetRequestConfiguration } from './todoRequestBuilderGetRequestConfiguration';
-import { type TodoRequestBuilderPatchRequestConfiguration } from './todoRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TodoRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TodoRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TodoRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TodoRequestBuilderGetQueryParameters;
+}
+export interface TodoRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the todo property of the microsoft.graph.user entity.
  */

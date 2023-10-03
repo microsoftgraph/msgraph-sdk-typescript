@@ -1,14 +1,44 @@
 import { type WindowsHelloForBusinessAuthenticationMethod } from '../../../../../models/';
-import { createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue } from '../../../../../models/windowsHelloForBusinessAuthenticationMethod';
 import { DeviceRequestBuilder } from './device/deviceRequestBuilder';
-import { type WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import { type WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
  */
@@ -28,7 +58,7 @@ export class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder exten
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/windowsHelloForBusinessMethods/{windowsHelloForBusinessAuthenticationMethod%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a windowsHelloForBusinessAuthenticationMethod object.
+     * Deletes a windowsHelloForBusinessAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -43,7 +73,7 @@ export class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder exten
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
+     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsHelloForBusinessAuthenticationMethod
      * @see {@link https://learn.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
@@ -59,7 +89,7 @@ export class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder exten
         return this.requestAdapter.sendAsync<WindowsHelloForBusinessAuthenticationMethod>(requestInfo, createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a windowsHelloForBusinessAuthenticationMethod object.
+     * Deletes a windowsHelloForBusinessAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -75,7 +105,7 @@ export class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder exten
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
+     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

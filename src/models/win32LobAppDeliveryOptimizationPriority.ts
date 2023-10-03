@@ -7,3 +7,5 @@ export enum Win32LobAppDeliveryOptimizationPriority {
     /** Foreground delivery optimization priority. */
     Foreground = "foreground",
 }
+// tslint:enable
+// eslint-enable

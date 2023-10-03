@@ -1,20 +1,71 @@
 import { type ConversationMemberCollectionResponse } from '../../../../../models/';
-import { type ConversationMember } from '../../../../../models/conversationMember';
-import { createConversationMemberCollectionResponseFromDiscriminatorValue } from '../../../../../models/createConversationMemberCollectionResponseFromDiscriminatorValue';
-import { createConversationMemberFromDiscriminatorValue } from '../../../../../models/createConversationMemberFromDiscriminatorValue';
-import { deserializeIntoConversationMember } from '../../../../../models/deserializeIntoConversationMember';
+import { createConversationMemberFromDiscriminatorValue, deserializeIntoConversationMember, serializeConversationMember, type ConversationMember } from '../../../../../models/conversationMember';
+import { createConversationMemberCollectionResponseFromDiscriminatorValue } from '../../../../../models/conversationMemberCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeConversationMember } from '../../../../../models/serializeConversationMember';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { AddRequestBuilder } from './add/addRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ConversationMemberItemRequestBuilder } from './item/conversationMemberItemRequestBuilder';
-import { type MembersRequestBuilderGetRequestConfiguration } from './membersRequestBuilderGetRequestConfiguration';
-import { type MembersRequestBuilderPostRequestConfiguration } from './membersRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MembersRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface MembersRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MembersRequestBuilderGetQueryParameters;
+}
+export interface MembersRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the members property of the microsoft.graph.chat entity.
  */
@@ -51,7 +102,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/members{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List all conversation members in a chat or channel.
+     * List all conversation members in a chat or channel. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMemberCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/conversationmember-list?view=graph-rest-1.0|Find more info here}
@@ -67,7 +118,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationMemberCollectionResponse>(requestInfo, createConversationMemberCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add a conversationMember to a chat.
+     * Add a conversationMember to a chat. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
@@ -84,7 +135,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationMember>(requestInfo, createConversationMemberFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List all conversation members in a chat or channel.
+     * List all conversation members in a chat or channel. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +153,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add a conversationMember to a chat.
+     * Add a conversationMember to a chat. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

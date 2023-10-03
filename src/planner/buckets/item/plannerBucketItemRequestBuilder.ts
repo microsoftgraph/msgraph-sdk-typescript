@@ -1,17 +1,53 @@
-import { createPlannerBucketFromDiscriminatorValue } from '../../../models/createPlannerBucketFromDiscriminatorValue';
-import { deserializeIntoPlannerBucket } from '../../../models/deserializeIntoPlannerBucket';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PlannerBucket } from '../../../models/plannerBucket';
-import { serializePlannerBucket } from '../../../models/serializePlannerBucket';
-import { type PlannerBucketItemRequestBuilderDeleteRequestConfiguration } from './plannerBucketItemRequestBuilderDeleteRequestConfiguration';
-import { type PlannerBucketItemRequestBuilderGetRequestConfiguration } from './plannerBucketItemRequestBuilderGetRequestConfiguration';
-import { type PlannerBucketItemRequestBuilderPatchRequestConfiguration } from './plannerBucketItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPlannerBucketFromDiscriminatorValue, deserializeIntoPlannerBucket, serializePlannerBucket, type PlannerBucket } from '../../../models/plannerBucket';
 import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PlannerBucketItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PlannerBucketItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PlannerBucketItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PlannerBucketItemRequestBuilderGetQueryParameters;
+}
+export interface PlannerBucketItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the buckets property of the microsoft.graph.planner entity.
  */
@@ -31,7 +67,7 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/planner/buckets/{plannerBucket%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete plannerBucket.
+     * Delete plannerBucket. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/plannerbucket-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -46,7 +82,7 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a plannerBucket object.
+     * Retrieve the properties and relationships of a plannerBucket object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerBucket
      * @see {@link https://learn.microsoft.com/graph/api/plannerbucket-get?view=graph-rest-1.0|Find more info here}
@@ -79,7 +115,7 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerBucket>(requestInfo, createPlannerBucketFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete plannerBucket.
+     * Delete plannerBucket. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +131,7 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a plannerBucket object.
+     * Retrieve the properties and relationships of a plannerBucket object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

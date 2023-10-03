@@ -1,20 +1,56 @@
-import { type AccessPackageAssignmentPolicy } from '../../../../models/accessPackageAssignmentPolicy';
-import { createAccessPackageAssignmentPolicyFromDiscriminatorValue } from '../../../../models/createAccessPackageAssignmentPolicyFromDiscriminatorValue';
-import { deserializeIntoAccessPackageAssignmentPolicy } from '../../../../models/deserializeIntoAccessPackageAssignmentPolicy';
+import { createAccessPackageAssignmentPolicyFromDiscriminatorValue, deserializeIntoAccessPackageAssignmentPolicy, serializeAccessPackageAssignmentPolicy, type AccessPackageAssignmentPolicy } from '../../../../models/accessPackageAssignmentPolicy';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageAssignmentPolicy } from '../../../../models/serializeAccessPackageAssignmentPolicy';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { AccessPackageRequestBuilder } from './accessPackage/accessPackageRequestBuilder';
-import { type AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration } from './accessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration } from './accessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration';
-import { type AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration } from './accessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration';
 import { CatalogRequestBuilder } from './catalog/catalogRequestBuilder';
 import { CustomExtensionStageSettingsRequestBuilder } from './customExtensionStageSettings/customExtensionStageSettingsRequestBuilder';
 import { QuestionsRequestBuilder } from './questions/questionsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters;
+}
+export interface AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.
  */
@@ -52,7 +88,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}{?%24select,%24expand}");
     };
     /**
-     * In Azure AD entitlement management, delete an accessPackageAssignmentPolicy.
+     * In Azure AD entitlement management, delete an accessPackageAssignmentPolicy. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -67,7 +103,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignmentPolicy object.
+     * In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignmentPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageAssignmentPolicy
      * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-get?view=graph-rest-1.0|Find more info here}
@@ -99,7 +135,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendAsync<AccessPackageAssignmentPolicy>(requestInfo, createAccessPackageAssignmentPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * In Azure AD entitlement management, delete an accessPackageAssignmentPolicy.
+     * In Azure AD entitlement management, delete an accessPackageAssignmentPolicy. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -115,7 +151,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignmentPolicy object.
+     * In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignmentPolicy object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

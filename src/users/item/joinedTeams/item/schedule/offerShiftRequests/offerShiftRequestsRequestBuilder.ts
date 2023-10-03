@@ -1,19 +1,70 @@
 import { type OfferShiftRequestCollectionResponse } from '../../../../../../models/';
-import { createOfferShiftRequestCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createOfferShiftRequestCollectionResponseFromDiscriminatorValue';
-import { createOfferShiftRequestFromDiscriminatorValue } from '../../../../../../models/createOfferShiftRequestFromDiscriminatorValue';
-import { deserializeIntoOfferShiftRequest } from '../../../../../../models/deserializeIntoOfferShiftRequest';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type OfferShiftRequest } from '../../../../../../models/offerShiftRequest';
-import { serializeOfferShiftRequest } from '../../../../../../models/serializeOfferShiftRequest';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createOfferShiftRequestFromDiscriminatorValue, deserializeIntoOfferShiftRequest, serializeOfferShiftRequest, type OfferShiftRequest } from '../../../../../../models/offerShiftRequest';
+import { createOfferShiftRequestCollectionResponseFromDiscriminatorValue } from '../../../../../../models/offerShiftRequestCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OfferShiftRequestItemRequestBuilder } from './item/offerShiftRequestItemRequestBuilder';
-import { type OfferShiftRequestsRequestBuilderGetRequestConfiguration } from './offerShiftRequestsRequestBuilderGetRequestConfiguration';
-import { type OfferShiftRequestsRequestBuilderPostRequestConfiguration } from './offerShiftRequestsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OfferShiftRequestsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OfferShiftRequestsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OfferShiftRequestsRequestBuilderGetQueryParameters;
+}
+export interface OfferShiftRequestsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
  */
@@ -44,7 +95,7 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/offerShiftRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
+     * Retrieve the properties and relationships of all offerShiftRequest objects in a team. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OfferShiftRequestCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/offershiftrequest-list?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OfferShiftRequestCollectionResponse>(requestInfo, createOfferShiftRequestCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an instance of an offerShiftRequest.
+     * Create an instance of an offerShiftRequest. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OfferShiftRequest
@@ -77,7 +128,7 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OfferShiftRequest>(requestInfo, createOfferShiftRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
+     * Retrieve the properties and relationships of all offerShiftRequest objects in a team. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create an instance of an offerShiftRequest.
+     * Create an instance of an offerShiftRequest. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

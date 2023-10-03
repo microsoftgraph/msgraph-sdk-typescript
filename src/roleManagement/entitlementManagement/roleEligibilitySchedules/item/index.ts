@@ -1,4 +1,1 @@
-export * from './unifiedRoleEligibilityScheduleItemRequestBuilderDeleteRequestConfiguration'
-export * from './unifiedRoleEligibilityScheduleItemRequestBuilderGetQueryParameters'
-export * from './unifiedRoleEligibilityScheduleItemRequestBuilderGetRequestConfiguration'
-export * from './unifiedRoleEligibilityScheduleItemRequestBuilderPatchRequestConfiguration'
+export * from './unifiedRoleEligibilityScheduleItemRequestBuilder'

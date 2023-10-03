@@ -1,5 +1,2 @@
-export * from './createDiscPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoDiscPostRequestBody'
 export * from './discPostRequestBody'
-export * from './discRequestBuilderPostRequestConfiguration'
-export * from './serializeDiscPostRequestBody'
+export * from './discRequestBuilder'

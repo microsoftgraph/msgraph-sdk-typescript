@@ -1,14 +1,35 @@
 import { type UserProcessingResult } from '../../../../../../../models/identityGovernance/';
-import { createUserProcessingResultFromDiscriminatorValue } from '../../../../../../../models/identityGovernance/createUserProcessingResultFromDiscriminatorValue';
+import { createUserProcessingResultFromDiscriminatorValue } from '../../../../../../../models/identityGovernance/userProcessingResult';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { SubjectRequestBuilder } from './subject/subjectRequestBuilder';
 import { TaskProcessingResultsRequestBuilder } from './taskProcessingResults/taskProcessingResultsRequestBuilder';
-import { type UserProcessingResultItemRequestBuilderGetRequestConfiguration } from './userProcessingResultItemRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserProcessingResultItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserProcessingResultItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserProcessingResultItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
  */

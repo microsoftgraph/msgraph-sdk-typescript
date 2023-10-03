@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoMarkChatUnreadForUserPostRequestBody } from './deserializeIntoMarkChatUnreadForUserPostRequestBody';
-import { type MarkChatUnreadForUserPostRequestBody } from './markChatUnreadForUserPostRequestBody';
-import { type MarkChatUnreadForUserRequestBuilderPostRequestConfiguration } from './markChatUnreadForUserRequestBuilderPostRequestConfiguration';
-import { serializeMarkChatUnreadForUserPostRequestBody } from './serializeMarkChatUnreadForUserPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoMarkChatUnreadForUserPostRequestBody, serializeMarkChatUnreadForUserPostRequestBody, type MarkChatUnreadForUserPostRequestBody } from './markChatUnreadForUserPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MarkChatUnreadForUserRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the markChatUnreadForUser method.
  */
@@ -21,7 +26,7 @@ export class MarkChatUnreadForUserRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/chats/{chat%2Did}/markChatUnreadForUser");
     };
     /**
-     * Mark a chat as unread for a user.
+     * Mark a chat as unread for a user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chat-markchatunreadforuser?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class MarkChatUnreadForUserRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Mark a chat as unread for a user.
+     * Mark a chat as unread for a user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

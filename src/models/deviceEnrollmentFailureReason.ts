@@ -27,3 +27,5 @@ export enum DeviceEnrollmentFailureReason {
     /** Enrollment was abandoned by enduser. (Enduser started onboarding but failed to complete it in timely manner) */
     UserAbandonment = "userAbandonment",
 }
+// tslint:enable
+// eslint-enable

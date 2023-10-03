@@ -1,19 +1,70 @@
 import { type DeviceComplianceScheduledActionForRuleCollectionResponse } from '../../../../models/';
-import { createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue } from '../../../../models/createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue';
-import { createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue } from '../../../../models/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
-import { deserializeIntoDeviceComplianceScheduledActionForRule } from '../../../../models/deserializeIntoDeviceComplianceScheduledActionForRule';
-import { type DeviceComplianceScheduledActionForRule } from '../../../../models/deviceComplianceScheduledActionForRule';
+import { createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue, deserializeIntoDeviceComplianceScheduledActionForRule, serializeDeviceComplianceScheduledActionForRule, type DeviceComplianceScheduledActionForRule } from '../../../../models/deviceComplianceScheduledActionForRule';
+import { createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue } from '../../../../models/deviceComplianceScheduledActionForRuleCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceComplianceScheduledActionForRule } from '../../../../models/serializeDeviceComplianceScheduledActionForRule';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeviceComplianceScheduledActionForRuleItemRequestBuilder } from './item/deviceComplianceScheduledActionForRuleItemRequestBuilder';
-import { type ScheduledActionsForRuleRequestBuilderGetRequestConfiguration } from './scheduledActionsForRuleRequestBuilderGetRequestConfiguration';
-import { type ScheduledActionsForRuleRequestBuilderPostRequestConfiguration } from './scheduledActionsForRuleRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ScheduledActionsForRuleRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ScheduledActionsForRuleRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ScheduledActionsForRuleRequestBuilderGetQueryParameters;
+}
+export interface ScheduledActionsForRuleRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
  */

@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createGetMemberGroupsResponseFromDiscriminatorValue } from './createGetMemberGroupsResponseFromDiscriminatorValue';
-import { deserializeIntoGetMemberGroupsPostRequestBody } from './deserializeIntoGetMemberGroupsPostRequestBody';
-import { deserializeIntoGetMemberGroupsResponse } from './deserializeIntoGetMemberGroupsResponse';
-import { type GetMemberGroupsPostRequestBody } from './getMemberGroupsPostRequestBody';
-import { type GetMemberGroupsRequestBuilderPostRequestConfiguration } from './getMemberGroupsRequestBuilderPostRequestConfiguration';
-import { type GetMemberGroupsResponse } from './getMemberGroupsResponse';
-import { serializeGetMemberGroupsPostRequestBody } from './serializeGetMemberGroupsPostRequestBody';
-import { serializeGetMemberGroupsResponse } from './serializeGetMemberGroupsResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoGetMemberGroupsPostRequestBody, serializeGetMemberGroupsPostRequestBody, type GetMemberGroupsPostRequestBody } from './getMemberGroupsPostRequestBody';
+import { createGetMemberGroupsPostResponseFromDiscriminatorValue, deserializeIntoGetMemberGroupsPostResponse, serializeGetMemberGroupsPostResponse, type GetMemberGroupsPostResponse } from './getMemberGroupsPostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GetMemberGroupsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the getMemberGroups method.
  */
@@ -25,13 +27,13 @@ export class GetMemberGroupsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/getMemberGroups");
     };
     /**
-     * Return all the group IDs for the groups that the specified user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. This API returns up to 11,000 group IDs. If more than 11,000 results are available, it returns a 400 Bad Request error with the Directory_ResultSizeLimitExceeded error code. As a workaround, use the List group transitive memberOf API.
+     * Return all the group IDs for the groups that the specified user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. This API returns up to 11,000 group IDs. If more than 11,000 results are available, it returns a 400 Bad Request error with the Directory_ResultSizeLimitExceeded error code. As a workaround, use the List group transitive memberOf API. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of GetMemberGroupsResponse
+     * @returns a Promise of GetMemberGroupsPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetMemberGroupsPostRequestBody, requestConfiguration?: GetMemberGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetMemberGroupsResponse | undefined> {
+    public post(body: GetMemberGroupsPostRequestBody, requestConfiguration?: GetMemberGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetMemberGroupsPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class GetMemberGroupsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<GetMemberGroupsResponse>(requestInfo, createGetMemberGroupsResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<GetMemberGroupsPostResponse>(requestInfo, createGetMemberGroupsPostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Return all the group IDs for the groups that the specified user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. This API returns up to 11,000 group IDs. If more than 11,000 results are available, it returns a 400 Bad Request error with the Directory_ResultSizeLimitExceeded error code. As a workaround, use the List group transitive memberOf API.
+     * Return all the group IDs for the groups that the specified user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. This API returns up to 11,000 group IDs. If more than 11,000 results are available, it returns a 400 Bad Request error with the Directory_ResultSizeLimitExceeded error code. As a workaround, use the List group transitive memberOf API. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

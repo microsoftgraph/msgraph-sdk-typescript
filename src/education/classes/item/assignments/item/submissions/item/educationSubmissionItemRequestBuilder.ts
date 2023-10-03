@@ -1,14 +1,6 @@
-import { createEducationSubmissionFromDiscriminatorValue } from '../../../../../../../models/createEducationSubmissionFromDiscriminatorValue';
-import { deserializeIntoEducationSubmission } from '../../../../../../../models/deserializeIntoEducationSubmission';
-import { type EducationSubmission } from '../../../../../../../models/educationSubmission';
+import { createEducationSubmissionFromDiscriminatorValue, deserializeIntoEducationSubmission, serializeEducationSubmission, type EducationSubmission } from '../../../../../../../models/educationSubmission';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationSubmission } from '../../../../../../../models/serializeEducationSubmission';
-import { type EducationSubmissionItemRequestBuilderDeleteRequestConfiguration } from './educationSubmissionItemRequestBuilderDeleteRequestConfiguration';
-import { type EducationSubmissionItemRequestBuilderGetRequestConfiguration } from './educationSubmissionItemRequestBuilderGetRequestConfiguration';
-import { type EducationSubmissionItemRequestBuilderPatchRequestConfiguration } from './educationSubmissionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { OutcomesRequestBuilder } from './outcomes/outcomesRequestBuilder';
 import { ReassignRequestBuilder } from './reassign/reassignRequestBuilder';
 import { ResourcesRequestBuilder } from './resources/resourcesRequestBuilder';
@@ -19,6 +11,50 @@ import { SubmittedResourcesRequestBuilder } from './submittedResources/submitted
 import { UnsubmitRequestBuilder } from './unsubmit/unsubmitRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EducationSubmissionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EducationSubmissionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EducationSubmissionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EducationSubmissionItemRequestBuilderGetQueryParameters;
+}
+export interface EducationSubmissionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
  */
@@ -94,7 +130,7 @@ export class EducationSubmissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve a particular submission. Only teachers, students, and applications with application permissions can perform this operation. A submission object represents a student's work for an assignment. Resources associated with the submission represent this work. Only the assignedTo student can see and modify the submission. A teacher or application with application permissions has full access to all submissions. The grade and feedback from a teacher are part of the educationOutcome associated with this object. Only teachers or applications with application permissions can add or change grades and feedback. Students will not see the grade or feedback until the assignment has been released.
+     * Retrieve a particular submission. Only teachers, students, and applications with application permissions can perform this operation. A submission object represents a student's work for an assignment. Resources associated with the submission represent this work. Only the assignedTo student can see and modify the submission. A teacher or application with application permissions has full access to all submissions. The grade and feedback from a teacher are part of the educationOutcome associated with this object. Only teachers or applications with application permissions can add or change grades and feedback. Students will not see the grade or feedback until the assignment has been released. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSubmission
      * @see {@link https://learn.microsoft.com/graph/api/educationsubmission-get?view=graph-rest-1.0|Find more info here}
@@ -142,7 +178,7 @@ export class EducationSubmissionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve a particular submission. Only teachers, students, and applications with application permissions can perform this operation. A submission object represents a student's work for an assignment. Resources associated with the submission represent this work. Only the assignedTo student can see and modify the submission. A teacher or application with application permissions has full access to all submissions. The grade and feedback from a teacher are part of the educationOutcome associated with this object. Only teachers or applications with application permissions can add or change grades and feedback. Students will not see the grade or feedback until the assignment has been released.
+     * Retrieve a particular submission. Only teachers, students, and applications with application permissions can perform this operation. A submission object represents a student's work for an assignment. Resources associated with the submission represent this work. Only the assignedTo student can see and modify the submission. A teacher or application with application permissions has full access to all submissions. The grade and feedback from a teacher are part of the educationOutcome associated with this object. Only teachers or applications with application permissions can add or change grades and feedback. Students will not see the grade or feedback until the assignment has been released. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

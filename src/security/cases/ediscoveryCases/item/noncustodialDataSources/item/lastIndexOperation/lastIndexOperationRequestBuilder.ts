@@ -1,12 +1,33 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryIndexOperation } from '../../../../../../../models/security/';
-import { createEdiscoveryIndexOperationFromDiscriminatorValue } from '../../../../../../../models/security/createEdiscoveryIndexOperationFromDiscriminatorValue';
-import { type LastIndexOperationRequestBuilderGetRequestConfiguration } from './lastIndexOperationRequestBuilderGetRequestConfiguration';
+import { createEdiscoveryIndexOperationFromDiscriminatorValue } from '../../../../../../../models/security/ediscoveryIndexOperation';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface LastIndexOperationRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface LastIndexOperationRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: LastIndexOperationRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryNoncustodialDataSource entity.
  */

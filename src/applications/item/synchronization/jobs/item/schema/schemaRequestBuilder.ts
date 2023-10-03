@@ -1,20 +1,56 @@
-import { createSynchronizationSchemaFromDiscriminatorValue } from '../../../../../../models/createSynchronizationSchemaFromDiscriminatorValue';
-import { deserializeIntoSynchronizationSchema } from '../../../../../../models/deserializeIntoSynchronizationSchema';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeSynchronizationSchema } from '../../../../../../models/serializeSynchronizationSchema';
-import { type SynchronizationSchema } from '../../../../../../models/synchronizationSchema';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createSynchronizationSchemaFromDiscriminatorValue, deserializeIntoSynchronizationSchema, serializeSynchronizationSchema, type SynchronizationSchema } from '../../../../../../models/synchronizationSchema';
 import { DirectoriesRequestBuilder } from './directories/directoriesRequestBuilder';
 import { FilterOperatorsRequestBuilder } from './filterOperators/filterOperatorsRequestBuilder';
 import { FunctionsRequestBuilder } from './functions/functionsRequestBuilder';
 import { ParseExpressionRequestBuilder } from './parseExpression/parseExpressionRequestBuilder';
-import { type SchemaRequestBuilderDeleteRequestConfiguration } from './schemaRequestBuilderDeleteRequestConfiguration';
-import { type SchemaRequestBuilderGetRequestConfiguration } from './schemaRequestBuilderGetRequestConfiguration';
-import { type SchemaRequestBuilderPatchRequestConfiguration } from './schemaRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SchemaRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SchemaRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SchemaRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SchemaRequestBuilderGetQueryParameters;
+}
+export interface SchemaRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the schema property of the microsoft.graph.synchronizationJob entity.
  */
@@ -66,7 +102,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the schema for a given synchronization job or template.
+     * Retrieve the schema for a given synchronization job or template. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationSchema
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-get?view=graph-rest-1.0|Find more info here}
@@ -115,7 +151,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the schema for a given synchronization job or template.
+     * Retrieve the schema for a given synchronization job or template. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

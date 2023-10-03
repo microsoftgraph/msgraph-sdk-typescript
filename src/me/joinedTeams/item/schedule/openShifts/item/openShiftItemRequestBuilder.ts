@@ -1,16 +1,52 @@
-import { createOpenShiftFromDiscriminatorValue } from '../../../../../../models/createOpenShiftFromDiscriminatorValue';
-import { deserializeIntoOpenShift } from '../../../../../../models/deserializeIntoOpenShift';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { type OpenShift } from '../../../../../../models/openShift';
-import { serializeOpenShift } from '../../../../../../models/serializeOpenShift';
-import { type OpenShiftItemRequestBuilderDeleteRequestConfiguration } from './openShiftItemRequestBuilderDeleteRequestConfiguration';
-import { type OpenShiftItemRequestBuilderGetRequestConfiguration } from './openShiftItemRequestBuilderGetRequestConfiguration';
-import { type OpenShiftItemRequestBuilderPatchRequestConfiguration } from './openShiftItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { createOpenShiftFromDiscriminatorValue, deserializeIntoOpenShift, serializeOpenShift, type OpenShift } from '../../../../../../models/openShift';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OpenShiftItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface OpenShiftItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OpenShiftItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OpenShiftItemRequestBuilderGetQueryParameters;
+}
+export interface OpenShiftItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
  */
@@ -24,7 +60,7 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/openShifts/{openShift%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an openShift object.
+     * Delete an openShift object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/openshift-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an openshift object.
+     * Retrieve the properties and relationships of an openshift object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShift
      * @see {@link https://learn.microsoft.com/graph/api/openshift-get?view=graph-rest-1.0|Find more info here}
@@ -72,7 +108,7 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OpenShift>(requestInfo, createOpenShiftFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an openShift object.
+     * Delete an openShift object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +124,7 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of an openshift object.
+     * Retrieve the properties and relationships of an openshift object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

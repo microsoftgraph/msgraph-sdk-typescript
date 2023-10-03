@@ -1,14 +1,44 @@
 import { type MicrosoftAuthenticatorAuthenticationMethod } from '../../../../models/';
-import { createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue } from '../../../../models/createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue';
+import { createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue } from '../../../../models/microsoftAuthenticatorAuthenticationMethod';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { DeviceRequestBuilder } from './device/deviceRequestBuilder';
-import { type MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration } from './microsoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
-import { type MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration } from './microsoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
  */
@@ -28,7 +58,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
         super(pathParameters, requestAdapter, "{+baseurl}/me/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a microsoftAuthenticatorAuthenticationMethod object.
+     * Deletes a microsoftAuthenticatorAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -43,7 +73,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a microsoftAuthenticatorAuthenticationMethod object.
+     * Read the properties and relationships of a microsoftAuthenticatorAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MicrosoftAuthenticatorAuthenticationMethod
      * @see {@link https://learn.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
@@ -59,7 +89,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
         return this.requestAdapter.sendAsync<MicrosoftAuthenticatorAuthenticationMethod>(requestInfo, createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a microsoftAuthenticatorAuthenticationMethod object.
+     * Deletes a microsoftAuthenticatorAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -75,7 +105,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a microsoftAuthenticatorAuthenticationMethod object.
+     * Read the properties and relationships of a microsoftAuthenticatorAuthenticationMethod object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

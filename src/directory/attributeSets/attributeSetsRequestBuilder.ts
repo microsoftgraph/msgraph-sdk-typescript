@@ -1,19 +1,70 @@
 import { type AttributeSetCollectionResponse } from '../../models/';
-import { type AttributeSet } from '../../models/attributeSet';
-import { createAttributeSetCollectionResponseFromDiscriminatorValue } from '../../models/createAttributeSetCollectionResponseFromDiscriminatorValue';
-import { createAttributeSetFromDiscriminatorValue } from '../../models/createAttributeSetFromDiscriminatorValue';
-import { deserializeIntoAttributeSet } from '../../models/deserializeIntoAttributeSet';
+import { createAttributeSetFromDiscriminatorValue, deserializeIntoAttributeSet, serializeAttributeSet, type AttributeSet } from '../../models/attributeSet';
+import { createAttributeSetCollectionResponseFromDiscriminatorValue } from '../../models/attributeSetCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAttributeSet } from '../../models/serializeAttributeSet';
-import { type AttributeSetsRequestBuilderGetRequestConfiguration } from './attributeSetsRequestBuilderGetRequestConfiguration';
-import { type AttributeSetsRequestBuilderPostRequestConfiguration } from './attributeSetsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AttributeSetItemRequestBuilder } from './item/attributeSetItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AttributeSetsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AttributeSetsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AttributeSetsRequestBuilderGetQueryParameters;
+}
+export interface AttributeSetsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
  */
@@ -44,7 +95,7 @@ export class AttributeSetsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directory/attributeSets{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the attributeSet objects and their properties.
+     * Get a list of the attributeSet objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttributeSetCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/directory-list-attributesets?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class AttributeSetsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AttributeSetCollectionResponse>(requestInfo, createAttributeSetCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new attributeSet object.
+     * Create a new attributeSet object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttributeSet
@@ -77,7 +128,7 @@ export class AttributeSetsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AttributeSet>(requestInfo, createAttributeSetFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the attributeSet objects and their properties.
+     * Get a list of the attributeSet objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class AttributeSetsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new attributeSet object.
+     * Create a new attributeSet object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

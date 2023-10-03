@@ -1,19 +1,70 @@
 import { type DomainDnsRecordCollectionResponse } from '../../../models/';
-import { createDomainDnsRecordCollectionResponseFromDiscriminatorValue } from '../../../models/createDomainDnsRecordCollectionResponseFromDiscriminatorValue';
-import { createDomainDnsRecordFromDiscriminatorValue } from '../../../models/createDomainDnsRecordFromDiscriminatorValue';
-import { deserializeIntoDomainDnsRecord } from '../../../models/deserializeIntoDomainDnsRecord';
-import { type DomainDnsRecord } from '../../../models/domainDnsRecord';
+import { createDomainDnsRecordFromDiscriminatorValue, deserializeIntoDomainDnsRecord, serializeDomainDnsRecord, type DomainDnsRecord } from '../../../models/domainDnsRecord';
+import { createDomainDnsRecordCollectionResponseFromDiscriminatorValue } from '../../../models/domainDnsRecordCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeDomainDnsRecord } from '../../../models/serializeDomainDnsRecord';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DomainDnsRecordItemRequestBuilder } from './item/domainDnsRecordItemRequestBuilder';
-import { type ServiceConfigurationRecordsRequestBuilderGetRequestConfiguration } from './serviceConfigurationRecordsRequestBuilderGetRequestConfiguration';
-import { type ServiceConfigurationRecordsRequestBuilderPostRequestConfiguration } from './serviceConfigurationRecordsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServiceConfigurationRecordsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ServiceConfigurationRecordsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServiceConfigurationRecordsRequestBuilderGetQueryParameters;
+}
+export interface ServiceConfigurationRecordsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
  */
@@ -44,7 +95,7 @@ export class ServiceConfigurationRecordsRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/domains/{domain%2Did}/serviceConfigurationRecords{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.
+     * Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DomainDnsRecordCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/domain-list-serviceconfigurationrecords?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class ServiceConfigurationRecordsRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<DomainDnsRecord>(requestInfo, createDomainDnsRecordFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.
+     * Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

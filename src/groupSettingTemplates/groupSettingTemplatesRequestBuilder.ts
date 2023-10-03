@@ -1,23 +1,74 @@
 import { type GroupSettingTemplateCollectionResponse } from '../models/';
-import { createGroupSettingTemplateCollectionResponseFromDiscriminatorValue } from '../models/createGroupSettingTemplateCollectionResponseFromDiscriminatorValue';
-import { createGroupSettingTemplateFromDiscriminatorValue } from '../models/createGroupSettingTemplateFromDiscriminatorValue';
-import { deserializeIntoGroupSettingTemplate } from '../models/deserializeIntoGroupSettingTemplate';
-import { type GroupSettingTemplate } from '../models/groupSettingTemplate';
+import { createGroupSettingTemplateFromDiscriminatorValue, deserializeIntoGroupSettingTemplate, serializeGroupSettingTemplate, type GroupSettingTemplate } from '../models/groupSettingTemplate';
+import { createGroupSettingTemplateCollectionResponseFromDiscriminatorValue } from '../models/groupSettingTemplateCollectionResponse';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeGroupSettingTemplate } from '../models/serializeGroupSettingTemplate';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
-import { type GroupSettingTemplatesRequestBuilderGetRequestConfiguration } from './groupSettingTemplatesRequestBuilderGetRequestConfiguration';
-import { type GroupSettingTemplatesRequestBuilderPostRequestConfiguration } from './groupSettingTemplatesRequestBuilderPostRequestConfiguration';
 import { GroupSettingTemplateItemRequestBuilder } from './item/groupSettingTemplateItemRequestBuilder';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface GroupSettingTemplatesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface GroupSettingTemplatesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: GroupSettingTemplatesRequestBuilderGetQueryParameters;
+}
+export interface GroupSettingTemplatesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of groupSettingTemplate entities.
  */
@@ -72,7 +123,7 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groupSettingTemplates{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects.
+     * Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupSettingTemplateCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/groupsettingtemplate-list?view=graph-rest-1.0|Find more info here}
@@ -104,7 +155,7 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<GroupSettingTemplate>(requestInfo, createGroupSettingTemplateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects.
+     * Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

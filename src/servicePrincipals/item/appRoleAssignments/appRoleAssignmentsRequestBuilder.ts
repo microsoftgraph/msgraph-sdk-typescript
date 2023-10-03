@@ -1,19 +1,70 @@
 import { type AppRoleAssignmentCollectionResponse } from '../../../models/';
-import { type AppRoleAssignment } from '../../../models/appRoleAssignment';
-import { createAppRoleAssignmentCollectionResponseFromDiscriminatorValue } from '../../../models/createAppRoleAssignmentCollectionResponseFromDiscriminatorValue';
-import { createAppRoleAssignmentFromDiscriminatorValue } from '../../../models/createAppRoleAssignmentFromDiscriminatorValue';
-import { deserializeIntoAppRoleAssignment } from '../../../models/deserializeIntoAppRoleAssignment';
+import { createAppRoleAssignmentFromDiscriminatorValue, deserializeIntoAppRoleAssignment, serializeAppRoleAssignment, type AppRoleAssignment } from '../../../models/appRoleAssignment';
+import { createAppRoleAssignmentCollectionResponseFromDiscriminatorValue } from '../../../models/appRoleAssignmentCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeAppRoleAssignment } from '../../../models/serializeAppRoleAssignment';
-import { type AppRoleAssignmentsRequestBuilderGetRequestConfiguration } from './appRoleAssignmentsRequestBuilderGetRequestConfiguration';
-import { type AppRoleAssignmentsRequestBuilderPostRequestConfiguration } from './appRoleAssignmentsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AppRoleAssignmentItemRequestBuilder } from './item/appRoleAssignmentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AppRoleAssignmentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AppRoleAssignmentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AppRoleAssignmentsRequestBuilderGetQueryParameters;
+}
+export interface AppRoleAssignmentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appRoleAssignments property of the microsoft.graph.servicePrincipal entity.
  */
@@ -60,7 +111,7 @@ export class AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AppRoleAssignmentCollectionResponse>(requestInfo, createAppRoleAssignmentCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Assign an app role to a client service principal. App roles that are assigned to service principals are also known as application permissions. Application permissions can be granted directly with app role assignments, or through a consent experience. To grant an app role assignment to a client service principal, you need three identifiers:
+     * Assign an app role to a client service principal. App roles that are assigned to service principals are also known as application permissions. Application permissions can be granted directly with app role assignments, or through a consent experience. To grant an app role assignment to a client service principal, you need three identifiers: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppRoleAssignment
@@ -95,7 +146,7 @@ export class AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Assign an app role to a client service principal. App roles that are assigned to service principals are also known as application permissions. Application permissions can be granted directly with app role assignments, or through a consent experience. To grant an app role assignment to a client service principal, you need three identifiers:
+     * Assign an app role to a client service principal. App roles that are assigned to service principals are also known as application permissions. Application permissions can be granted directly with app role assignments, or through a consent experience. To grant an app role assignment to a client service principal, you need three identifiers: This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

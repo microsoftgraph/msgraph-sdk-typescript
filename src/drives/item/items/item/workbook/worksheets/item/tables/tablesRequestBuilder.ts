@@ -1,21 +1,72 @@
 import { type WorkbookTableCollectionResponse } from '../../../../../../../../models/';
-import { createWorkbookTableCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookTableCollectionResponseFromDiscriminatorValue';
-import { createWorkbookTableFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookTableFromDiscriminatorValue';
-import { deserializeIntoWorkbookTable } from '../../../../../../../../models/deserializeIntoWorkbookTable';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookTable } from '../../../../../../../../models/serializeWorkbookTable';
-import { type WorkbookTable } from '../../../../../../../../models/workbookTable';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookTableFromDiscriminatorValue, deserializeIntoWorkbookTable, serializeWorkbookTable, type WorkbookTable } from '../../../../../../../../models/workbookTable';
+import { createWorkbookTableCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/workbookTableCollectionResponse';
 import { AddRequestBuilder } from './add/addRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookTableItemRequestBuilder } from './item/workbookTableItemRequestBuilder';
 import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import { type TablesRequestBuilderGetRequestConfiguration } from './tablesRequestBuilderGetRequestConfiguration';
-import { type TablesRequestBuilderPostRequestConfiguration } from './tablesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TablesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface TablesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TablesRequestBuilderGetQueryParameters;
+}
+export interface TablesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
  */
@@ -52,7 +103,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of table objects.
+     * Retrieve a list of table objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/worksheet-list-tables?view=graph-rest-1.0|Find more info here}
@@ -93,7 +144,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookTable>(requestInfo, createWorkbookTableFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of table objects.
+     * Retrieve a list of table objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

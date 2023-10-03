@@ -1,16 +1,52 @@
-import { createSettingStateDeviceSummaryFromDiscriminatorValue } from '../../../../../models/createSettingStateDeviceSummaryFromDiscriminatorValue';
-import { deserializeIntoSettingStateDeviceSummary } from '../../../../../models/deserializeIntoSettingStateDeviceSummary';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeSettingStateDeviceSummary } from '../../../../../models/serializeSettingStateDeviceSummary';
-import { type SettingStateDeviceSummary } from '../../../../../models/settingStateDeviceSummary';
-import { type SettingStateDeviceSummaryItemRequestBuilderDeleteRequestConfiguration } from './settingStateDeviceSummaryItemRequestBuilderDeleteRequestConfiguration';
-import { type SettingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration } from './settingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration';
-import { type SettingStateDeviceSummaryItemRequestBuilderPatchRequestConfiguration } from './settingStateDeviceSummaryItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createSettingStateDeviceSummaryFromDiscriminatorValue, deserializeIntoSettingStateDeviceSummary, serializeSettingStateDeviceSummary, type SettingStateDeviceSummary } from '../../../../../models/settingStateDeviceSummary';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SettingStateDeviceSummaryItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SettingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters;
+}
+export interface SettingStateDeviceSummaryItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.
  */

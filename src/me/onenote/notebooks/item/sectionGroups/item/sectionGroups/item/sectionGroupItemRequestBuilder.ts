@@ -1,12 +1,33 @@
 import { type SectionGroup } from '../../../../../../../../models/';
-import { createSectionGroupFromDiscriminatorValue } from '../../../../../../../../models/createSectionGroupFromDiscriminatorValue';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { type SectionGroupItemRequestBuilderGetRequestConfiguration } from './sectionGroupItemRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createSectionGroupFromDiscriminatorValue } from '../../../../../../../../models/sectionGroup';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SectionGroupItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SectionGroupItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SectionGroupItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
  */

@@ -1,13 +1,34 @@
 import { type DriveItem } from '../../../../../../models/';
-import { createDriveItemFromDiscriminatorValue } from '../../../../../../models/createDriveItemFromDiscriminatorValue';
+import { createDriveItemFromDiscriminatorValue } from '../../../../../../models/driveItem';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { ContentRequestBuilder } from './content/contentRequestBuilder';
-import { type FilesFolderRequestBuilderGetRequestConfiguration } from './filesFolderRequestBuilderGetRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface FilesFolderRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface FilesFolderRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: FilesFolderRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the filesFolder property of the microsoft.graph.channel entity.
  */
@@ -27,7 +48,7 @@ export class FilesFolderRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/channels/{channel%2Did}/filesFolder{?%24select,%24expand}");
     };
     /**
-     * Get the metadata for the location where the files of a channel are stored. 
+     * Get the metadata for the location where the files of a channel are stored.  This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItem
      * @see {@link https://learn.microsoft.com/graph/api/channel-get-filesfolder?view=graph-rest-1.0|Find more info here}
@@ -43,7 +64,7 @@ export class FilesFolderRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the metadata for the location where the files of a channel are stored. 
+     * Get the metadata for the location where the files of a channel are stored.  This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

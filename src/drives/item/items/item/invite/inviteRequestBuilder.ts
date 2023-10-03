@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { createInviteResponseFromDiscriminatorValue } from './createInviteResponseFromDiscriminatorValue';
-import { deserializeIntoInvitePostRequestBody } from './deserializeIntoInvitePostRequestBody';
-import { deserializeIntoInviteResponse } from './deserializeIntoInviteResponse';
-import { type InvitePostRequestBody } from './invitePostRequestBody';
-import { type InviteRequestBuilderPostRequestConfiguration } from './inviteRequestBuilderPostRequestConfiguration';
-import { type InviteResponse } from './inviteResponse';
-import { serializeInvitePostRequestBody } from './serializeInvitePostRequestBody';
-import { serializeInviteResponse } from './serializeInviteResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoInvitePostRequestBody, serializeInvitePostRequestBody, type InvitePostRequestBody } from './invitePostRequestBody';
+import { createInvitePostResponseFromDiscriminatorValue, deserializeIntoInvitePostResponse, serializeInvitePostResponse, type InvitePostResponse } from './invitePostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InviteRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the invite method.
  */
@@ -25,13 +27,13 @@ export class InviteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/invite");
     };
     /**
-     * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
+     * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a sharing link][]. This API is supported in the following [national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of InviteResponse
+     * @returns a Promise of InvitePostResponse
      * @see {@link https://learn.microsoft.com/graph/api/driveitem-invite?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: InvitePostRequestBody, requestConfiguration?: InviteRequestBuilderPostRequestConfiguration | undefined) : Promise<InviteResponse | undefined> {
+    public post(body: InvitePostRequestBody, requestConfiguration?: InviteRequestBuilderPostRequestConfiguration | undefined) : Promise<InvitePostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class InviteRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<InviteResponse>(requestInfo, createInviteResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<InvitePostResponse>(requestInfo, createInvitePostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
+     * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a sharing link][]. This API is supported in the following [national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

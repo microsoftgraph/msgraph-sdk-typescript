@@ -1,16 +1,52 @@
-import { createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue } from '../../../../../models/createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue';
-import { deserializeIntoWindowsInformationProtectionAppLockerFile } from '../../../../../models/deserializeIntoWindowsInformationProtectionAppLockerFile';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeWindowsInformationProtectionAppLockerFile } from '../../../../../models/serializeWindowsInformationProtectionAppLockerFile';
-import { type WindowsInformationProtectionAppLockerFile } from '../../../../../models/windowsInformationProtectionAppLockerFile';
-import { type WindowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration } from './windowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration';
-import { type WindowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration } from './windowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration';
-import { type WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration } from './windowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue, deserializeIntoWindowsInformationProtectionAppLockerFile, serializeWindowsInformationProtectionAppLockerFile, type WindowsInformationProtectionAppLockerFile } from '../../../../../models/windowsInformationProtectionAppLockerFile';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WindowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WindowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WindowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WindowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParameters;
+}
+export interface WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the exemptAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.
  */

@@ -1,7 +1,7 @@
-import { type AccessReviewApplyAction } from './accessReviewApplyAction';
-import { type AccessReviewRecommendationInsightSetting } from './accessReviewRecommendationInsightSetting';
-import { type PatternedRecurrence } from './patternedRecurrence';
-import { Duration, type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
+import { createAccessReviewApplyActionFromDiscriminatorValue, serializeAccessReviewApplyAction, type AccessReviewApplyAction } from './accessReviewApplyAction';
+import { createAccessReviewRecommendationInsightSettingFromDiscriminatorValue, serializeAccessReviewRecommendationInsightSetting, type AccessReviewRecommendationInsightSetting } from './accessReviewRecommendationInsightSetting';
+import { createPatternedRecurrenceFromDiscriminatorValue, serializePatternedRecurrence, type PatternedRecurrence } from './patternedRecurrence';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewScheduleSettings extends AdditionalDataHolder, Parsable {
     /**
@@ -11,57 +11,105 @@ export interface AccessReviewScheduleSettings extends AdditionalDataHolder, Pars
     /**
      * Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.
      */
-    applyActions?: AccessReviewApplyAction[] | undefined;
+    applyActions?: AccessReviewApplyAction[];
     /**
      * Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.  CAUTION: If both autoApplyDecisionsEnabled and defaultDecisionEnabled are true, all access for the principals to the resource risks being revoked if the reviewers fail to respond.
      */
-    autoApplyDecisionsEnabled?: boolean | undefined;
+    autoApplyDecisionsEnabled?: boolean;
     /**
      * Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false).
      */
-    decisionHistoriesForReviewersEnabled?: boolean | undefined;
+    decisionHistoriesForReviewersEnabled?: boolean;
     /**
      * Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
      */
-    defaultDecision?: string | undefined;
+    defaultDecision?: string;
     /**
      * Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false.  CAUTION: If both autoApplyDecisionsEnabled and defaultDecisionEnabled are true, all access for the principals to the resource risks being revoked if the reviewers fail to respond.
      */
-    defaultDecisionEnabled?: boolean | undefined;
+    defaultDecisionEnabled?: boolean;
     /**
      * Duration of an access review instance in days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.
      */
-    instanceDurationInDays?: number | undefined;
+    instanceDurationInDays?: number;
     /**
      * Indicates whether reviewers are required to provide justification with their decision. Default value is false.
      */
-    justificationRequiredOnApproval?: boolean | undefined;
+    justificationRequiredOnApproval?: boolean;
     /**
      * Indicates whether emails are enabled or disabled. Default value is false.
      */
-    mailNotificationsEnabled?: boolean | undefined;
+    mailNotificationsEnabled?: boolean;
     /**
      * The OdataType property
      */
-    odataType?: string | undefined;
+    odataType?: string;
     /**
      * Optional. Describes the types of insights that aid reviewers to make access review decisions. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationInsightSettings setting will be used instead of the value of this property.
      */
-    recommendationInsightSettings?: AccessReviewRecommendationInsightSetting[] | undefined;
+    recommendationInsightSettings?: AccessReviewRecommendationInsightSetting[];
     /**
      * Optional field. Indicates the period of inactivity (with respect to the start date of the review instance) that recommendations will be configured from. The recommendation will be to deny if the user is inactive during the look-back duration. For reviews of groups and Azure AD roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationLookBackDuration setting will be used instead of the value of this property.
      */
-    recommendationLookBackDuration?: Duration | undefined;
+    recommendationLookBackDuration?: Duration;
     /**
      * Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property.
      */
-    recommendationsEnabled?: boolean | undefined;
+    recommendationsEnabled?: boolean;
     /**
      * Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
      */
-    recurrence?: PatternedRecurrence | undefined;
+    recurrence?: PatternedRecurrence;
     /**
      * Indicates whether reminders are enabled or disabled. Default value is false.
      */
-    reminderNotificationsEnabled?: boolean | undefined;
+    reminderNotificationsEnabled?: boolean;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function createAccessReviewScheduleSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoAccessReviewScheduleSettings;
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function deserializeIntoAccessReviewScheduleSettings(accessReviewScheduleSettings: AccessReviewScheduleSettings | undefined = {} as AccessReviewScheduleSettings) : Record<string, (node: ParseNode) => void> {
+    return {
+        "applyActions": n => { accessReviewScheduleSettings.applyActions = n.getCollectionOfObjectValues<AccessReviewApplyAction>(createAccessReviewApplyActionFromDiscriminatorValue); },
+        "autoApplyDecisionsEnabled": n => { accessReviewScheduleSettings.autoApplyDecisionsEnabled = n.getBooleanValue(); },
+        "decisionHistoriesForReviewersEnabled": n => { accessReviewScheduleSettings.decisionHistoriesForReviewersEnabled = n.getBooleanValue(); },
+        "defaultDecision": n => { accessReviewScheduleSettings.defaultDecision = n.getStringValue(); },
+        "defaultDecisionEnabled": n => { accessReviewScheduleSettings.defaultDecisionEnabled = n.getBooleanValue(); },
+        "instanceDurationInDays": n => { accessReviewScheduleSettings.instanceDurationInDays = n.getNumberValue(); },
+        "justificationRequiredOnApproval": n => { accessReviewScheduleSettings.justificationRequiredOnApproval = n.getBooleanValue(); },
+        "mailNotificationsEnabled": n => { accessReviewScheduleSettings.mailNotificationsEnabled = n.getBooleanValue(); },
+        "@odata.type": n => { accessReviewScheduleSettings.odataType = n.getStringValue(); },
+        "recommendationInsightSettings": n => { accessReviewScheduleSettings.recommendationInsightSettings = n.getCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>(createAccessReviewRecommendationInsightSettingFromDiscriminatorValue); },
+        "recommendationLookBackDuration": n => { accessReviewScheduleSettings.recommendationLookBackDuration = n.getDurationValue(); },
+        "recommendationsEnabled": n => { accessReviewScheduleSettings.recommendationsEnabled = n.getBooleanValue(); },
+        "recurrence": n => { accessReviewScheduleSettings.recurrence = n.getObjectValue<PatternedRecurrence>(createPatternedRecurrenceFromDiscriminatorValue); },
+        "reminderNotificationsEnabled": n => { accessReviewScheduleSettings.reminderNotificationsEnabled = n.getBooleanValue(); },
+    }
+}
+// tslint:disable
+// eslint-disable
+// Generated by Microsoft Kiota
+export function serializeAccessReviewScheduleSettings(writer: SerializationWriter, accessReviewScheduleSettings: AccessReviewScheduleSettings | undefined = {} as AccessReviewScheduleSettings) : void {
+        writer.writeCollectionOfObjectValues<AccessReviewApplyAction>("applyActions", accessReviewScheduleSettings.applyActions, );
+        writer.writeBooleanValue("autoApplyDecisionsEnabled", accessReviewScheduleSettings.autoApplyDecisionsEnabled);
+        writer.writeBooleanValue("decisionHistoriesForReviewersEnabled", accessReviewScheduleSettings.decisionHistoriesForReviewersEnabled);
+        writer.writeStringValue("defaultDecision", accessReviewScheduleSettings.defaultDecision);
+        writer.writeBooleanValue("defaultDecisionEnabled", accessReviewScheduleSettings.defaultDecisionEnabled);
+        writer.writeNumberValue("instanceDurationInDays", accessReviewScheduleSettings.instanceDurationInDays);
+        writer.writeBooleanValue("justificationRequiredOnApproval", accessReviewScheduleSettings.justificationRequiredOnApproval);
+        writer.writeBooleanValue("mailNotificationsEnabled", accessReviewScheduleSettings.mailNotificationsEnabled);
+        writer.writeStringValue("@odata.type", accessReviewScheduleSettings.odataType);
+        writer.writeCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>("recommendationInsightSettings", accessReviewScheduleSettings.recommendationInsightSettings, );
+        writer.writeDurationValue("recommendationLookBackDuration", accessReviewScheduleSettings.recommendationLookBackDuration);
+        writer.writeBooleanValue("recommendationsEnabled", accessReviewScheduleSettings.recommendationsEnabled);
+        writer.writeObjectValue<PatternedRecurrence>("recurrence", accessReviewScheduleSettings.recurrence, );
+        writer.writeBooleanValue("reminderNotificationsEnabled", accessReviewScheduleSettings.reminderNotificationsEnabled);
+        writer.writeAdditionalData(accessReviewScheduleSettings.additionalData);
 }

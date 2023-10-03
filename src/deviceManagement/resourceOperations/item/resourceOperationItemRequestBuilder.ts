@@ -1,16 +1,52 @@
-import { createResourceOperationFromDiscriminatorValue } from '../../../models/createResourceOperationFromDiscriminatorValue';
-import { deserializeIntoResourceOperation } from '../../../models/deserializeIntoResourceOperation';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type ResourceOperation } from '../../../models/resourceOperation';
-import { serializeResourceOperation } from '../../../models/serializeResourceOperation';
-import { type ResourceOperationItemRequestBuilderDeleteRequestConfiguration } from './resourceOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type ResourceOperationItemRequestBuilderGetRequestConfiguration } from './resourceOperationItemRequestBuilderGetRequestConfiguration';
-import { type ResourceOperationItemRequestBuilderPatchRequestConfiguration } from './resourceOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createResourceOperationFromDiscriminatorValue, deserializeIntoResourceOperation, serializeResourceOperation, type ResourceOperation } from '../../../models/resourceOperation';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ResourceOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ResourceOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ResourceOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ResourceOperationItemRequestBuilderGetQueryParameters;
+}
+export interface ResourceOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity.
  */

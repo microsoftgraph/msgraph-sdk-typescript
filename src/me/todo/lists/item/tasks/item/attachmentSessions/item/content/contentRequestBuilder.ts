@@ -1,13 +1,29 @@
 import { type AttachmentSession } from '../../../../../../../../../models/';
-import { createAttachmentSessionFromDiscriminatorValue } from '../../../../../../../../../models/createAttachmentSessionFromDiscriminatorValue';
+import { createAttachmentSessionFromDiscriminatorValue } from '../../../../../../../../../models/attachmentSession';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type ContentRequestBuilderGetRequestConfiguration } from './contentRequestBuilderGetRequestConfiguration';
-import { type ContentRequestBuilderPutRequestConfiguration } from './contentRequestBuilderPutRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ContentRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ContentRequestBuilderPutRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the media for the user entity.
  */

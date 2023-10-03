@@ -1,4 +1,1 @@
-export * from './identityProviderItemRequestBuilderDeleteRequestConfiguration'
-export * from './identityProviderItemRequestBuilderGetQueryParameters'
-export * from './identityProviderItemRequestBuilderGetRequestConfiguration'
-export * from './identityProviderItemRequestBuilderPatchRequestConfiguration'
+export * from './identityProviderItemRequestBuilder'

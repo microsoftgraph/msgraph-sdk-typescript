@@ -1,1 +1,1 @@
-export * from './unsetVerifiedPublisherRequestBuilderPostRequestConfiguration'
+export * from './unsetVerifiedPublisherRequestBuilder'

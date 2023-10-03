@@ -1,19 +1,70 @@
 import { type BookingAppointmentCollectionResponse } from '../../../../models/';
-import { type BookingAppointment } from '../../../../models/bookingAppointment';
-import { createBookingAppointmentCollectionResponseFromDiscriminatorValue } from '../../../../models/createBookingAppointmentCollectionResponseFromDiscriminatorValue';
-import { createBookingAppointmentFromDiscriminatorValue } from '../../../../models/createBookingAppointmentFromDiscriminatorValue';
-import { deserializeIntoBookingAppointment } from '../../../../models/deserializeIntoBookingAppointment';
+import { createBookingAppointmentFromDiscriminatorValue, deserializeIntoBookingAppointment, serializeBookingAppointment, type BookingAppointment } from '../../../../models/bookingAppointment';
+import { createBookingAppointmentCollectionResponseFromDiscriminatorValue } from '../../../../models/bookingAppointmentCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeBookingAppointment } from '../../../../models/serializeBookingAppointment';
-import { type AppointmentsRequestBuilderGetRequestConfiguration } from './appointmentsRequestBuilderGetRequestConfiguration';
-import { type AppointmentsRequestBuilderPostRequestConfiguration } from './appointmentsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { BookingAppointmentItemRequestBuilder } from './item/bookingAppointmentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AppointmentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AppointmentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AppointmentsRequestBuilderGetQueryParameters;
+}
+export interface AppointmentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
  */
@@ -44,7 +95,7 @@ export class AppointmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/appointments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of bookingAppointment objects for the specified bookingBusiness.
+     * Get a list of bookingAppointment objects for the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingAppointmentCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-appointments?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BookingAppointmentCollectionResponse>(requestInfo, createBookingAppointmentCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new bookingAppointment for the specified bookingBusiness.
+     * Create a new bookingAppointment for the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingAppointment
@@ -77,7 +128,7 @@ export class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BookingAppointment>(requestInfo, createBookingAppointmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of bookingAppointment objects for the specified bookingBusiness.
+     * Get a list of bookingAppointment objects for the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new bookingAppointment for the specified bookingBusiness.
+     * Create a new bookingAppointment for the specified bookingBusiness. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type ApplyPostRequestBody } from './applyPostRequestBody';
-import { type ApplyRequestBuilderPostRequestConfiguration } from './applyRequestBuilderPostRequestConfiguration';
-import { deserializeIntoApplyPostRequestBody } from './deserializeIntoApplyPostRequestBody';
-import { serializeApplyPostRequestBody } from './serializeApplyPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoApplyPostRequestBody, serializeApplyPostRequestBody, type ApplyPostRequestBody } from './applyPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApplyRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the apply method.
  */
@@ -21,7 +26,7 @@ export class ApplyRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/columns/{workbookTableColumn%2Did}/filter/apply");
     };
     /**
-     * Apply the given filter criteria on the given column.
+     * Apply the given filter criteria on the given column. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/filter-apply?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class ApplyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Apply the given filter criteria on the given column.
+     * Apply the given filter criteria on the given column. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

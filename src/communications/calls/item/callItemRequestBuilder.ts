@@ -1,17 +1,9 @@
-import { type Call } from '../../../models/call';
-import { createCallFromDiscriminatorValue } from '../../../models/createCallFromDiscriminatorValue';
-import { deserializeIntoCall } from '../../../models/deserializeIntoCall';
+import { createCallFromDiscriminatorValue, deserializeIntoCall, serializeCall, type Call } from '../../../models/call';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeCall } from '../../../models/serializeCall';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { AddLargeGalleryViewRequestBuilder } from './addLargeGalleryView/addLargeGalleryViewRequestBuilder';
 import { AnswerRequestBuilder } from './answer/answerRequestBuilder';
 import { AudioRoutingGroupsRequestBuilder } from './audioRoutingGroups/audioRoutingGroupsRequestBuilder';
-import { type CallItemRequestBuilderDeleteRequestConfiguration } from './callItemRequestBuilderDeleteRequestConfiguration';
-import { type CallItemRequestBuilderGetRequestConfiguration } from './callItemRequestBuilderGetRequestConfiguration';
-import { type CallItemRequestBuilderPatchRequestConfiguration } from './callItemRequestBuilderPatchRequestConfiguration';
 import { CancelMediaProcessingRequestBuilder } from './cancelMediaProcessing/cancelMediaProcessingRequestBuilder';
 import { ChangeScreenSharingRoleRequestBuilder } from './changeScreenSharingRole/changeScreenSharingRoleRequestBuilder';
 import { ContentSharingSessionsRequestBuilder } from './contentSharingSessions/contentSharingSessionsRequestBuilder';
@@ -29,6 +21,50 @@ import { UnmuteRequestBuilder } from './unmute/unmuteRequestBuilder';
 import { UpdateRecordingStatusRequestBuilder } from './updateRecordingStatus/updateRecordingStatusRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CallItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CallItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CallItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CallItemRequestBuilderGetQueryParameters;
+}
+export interface CallItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
  */
@@ -150,7 +186,7 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
+     * Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/call-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -165,7 +201,7 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a call object.
+     * Retrieve the properties and relationships of a call object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Call
      * @see {@link https://learn.microsoft.com/graph/api/call-get?view=graph-rest-1.0|Find more info here}
@@ -197,7 +233,7 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Call>(requestInfo, createCallFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
+     * Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -213,7 +249,7 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a call object.
+     * Retrieve the properties and relationships of a call object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type ConfirmCompromisedPostRequestBody } from './confirmCompromisedPostRequestBody';
-import { type ConfirmCompromisedRequestBuilderPostRequestConfiguration } from './confirmCompromisedRequestBuilderPostRequestConfiguration';
-import { deserializeIntoConfirmCompromisedPostRequestBody } from './deserializeIntoConfirmCompromisedPostRequestBody';
-import { serializeConfirmCompromisedPostRequestBody } from './serializeConfirmCompromisedPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoConfirmCompromisedPostRequestBody, serializeConfirmCompromisedPostRequestBody, type ConfirmCompromisedPostRequestBody } from './confirmCompromisedPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConfirmCompromisedRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the confirmCompromised method.
  */
@@ -21,7 +26,7 @@ export class ConfirmCompromisedRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityProtection/riskyServicePrincipals/confirmCompromised");
     };
     /**
-     * Confirm one or more riskyServicePrincipal objects as compromised. This action sets the targeted service principal account's risk level to high.
+     * Confirm one or more riskyServicePrincipal objects as compromised. This action sets the targeted service principal account's risk level to high. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/riskyserviceprincipal-confirmcompromised?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class ConfirmCompromisedRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Confirm one or more riskyServicePrincipal objects as compromised. This action sets the targeted service principal account's risk level to high.
+     * Confirm one or more riskyServicePrincipal objects as compromised. This action sets the targeted service principal account's risk level to high. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

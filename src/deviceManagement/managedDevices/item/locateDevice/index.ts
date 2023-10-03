@@ -1,1 +1,1 @@
-export * from './locateDeviceRequestBuilderPostRequestConfiguration'
+export * from './locateDeviceRequestBuilder'

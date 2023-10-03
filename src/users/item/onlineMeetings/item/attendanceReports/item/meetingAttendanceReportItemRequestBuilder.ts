@@ -1,17 +1,53 @@
-import { createMeetingAttendanceReportFromDiscriminatorValue } from '../../../../../../models/createMeetingAttendanceReportFromDiscriminatorValue';
-import { deserializeIntoMeetingAttendanceReport } from '../../../../../../models/deserializeIntoMeetingAttendanceReport';
-import { type MeetingAttendanceReport } from '../../../../../../models/meetingAttendanceReport';
+import { createMeetingAttendanceReportFromDiscriminatorValue, deserializeIntoMeetingAttendanceReport, serializeMeetingAttendanceReport, type MeetingAttendanceReport } from '../../../../../../models/meetingAttendanceReport';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeMeetingAttendanceReport } from '../../../../../../models/serializeMeetingAttendanceReport';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { AttendanceRecordsRequestBuilder } from './attendanceRecords/attendanceRecordsRequestBuilder';
-import { type MeetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration } from './meetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration';
-import { type MeetingAttendanceReportItemRequestBuilderGetRequestConfiguration } from './meetingAttendanceReportItemRequestBuilderGetRequestConfiguration';
-import { type MeetingAttendanceReportItemRequestBuilderPatchRequestConfiguration } from './meetingAttendanceReportItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MeetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface MeetingAttendanceReportItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface MeetingAttendanceReportItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: MeetingAttendanceReportItemRequestBuilderGetQueryParameters;
+}
+export interface MeetingAttendanceReportItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
  */
@@ -45,7 +81,7 @@ export class MeetingAttendanceReportItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the meetingAttendanceReport for an onlineMeeting. Each time an online meeting ends, an attendance report will be generated for that session.
+     * Get the meetingAttendanceReport for an onlineMeeting. Each time an online meeting ends, an attendance report will be generated for that session. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MeetingAttendanceReport
      * @see {@link https://learn.microsoft.com/graph/api/meetingattendancereport-get?view=graph-rest-1.0|Find more info here}
@@ -93,7 +129,7 @@ export class MeetingAttendanceReportItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Get the meetingAttendanceReport for an onlineMeeting. Each time an online meeting ends, an attendance report will be generated for that session.
+     * Get the meetingAttendanceReport for an onlineMeeting. Each time an online meeting ends, an attendance report will be generated for that session. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,12 +1,33 @@
 import { type AccessPackageResourceEnvironment } from '../../../../../../../../../../../../../../models/';
-import { createAccessPackageResourceEnvironmentFromDiscriminatorValue } from '../../../../../../../../../../../../../../models/createAccessPackageResourceEnvironmentFromDiscriminatorValue';
+import { createAccessPackageResourceEnvironmentFromDiscriminatorValue } from '../../../../../../../../../../../../../../models/accessPackageResourceEnvironment';
 import { type ODataError } from '../../../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type EnvironmentRequestBuilderGetRequestConfiguration } from './environmentRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EnvironmentRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EnvironmentRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EnvironmentRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the environment property of the microsoft.graph.accessPackageResource entity.
  */

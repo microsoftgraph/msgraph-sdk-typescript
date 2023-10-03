@@ -1,19 +1,70 @@
 import { type PasswordAuthenticationMethodCollectionResponse } from '../../../../models/';
-import { createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../../models/createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue';
-import { createPasswordAuthenticationMethodFromDiscriminatorValue } from '../../../../models/createPasswordAuthenticationMethodFromDiscriminatorValue';
-import { deserializeIntoPasswordAuthenticationMethod } from '../../../../models/deserializeIntoPasswordAuthenticationMethod';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { type PasswordAuthenticationMethod } from '../../../../models/passwordAuthenticationMethod';
-import { serializePasswordAuthenticationMethod } from '../../../../models/serializePasswordAuthenticationMethod';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createPasswordAuthenticationMethodFromDiscriminatorValue, deserializeIntoPasswordAuthenticationMethod, serializePasswordAuthenticationMethod, type PasswordAuthenticationMethod } from '../../../../models/passwordAuthenticationMethod';
+import { createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../../models/passwordAuthenticationMethodCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PasswordAuthenticationMethodItemRequestBuilder } from './item/passwordAuthenticationMethodItemRequestBuilder';
-import { type PasswordMethodsRequestBuilderGetRequestConfiguration } from './passwordMethodsRequestBuilderGetRequestConfiguration';
-import { type PasswordMethodsRequestBuilderPostRequestConfiguration } from './passwordMethodsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PasswordMethodsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PasswordMethodsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PasswordMethodsRequestBuilderGetQueryParameters;
+}
+export interface PasswordMethodsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
  */
@@ -44,7 +95,7 @@ export class PasswordMethodsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/passwordMethods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This will return exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the password property is always null.
+     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This will return exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the password property is always null. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PasswordAuthenticationMethodCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/authentication-list-passwordmethods?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class PasswordMethodsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PasswordAuthenticationMethod>(requestInfo, createPasswordAuthenticationMethodFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This will return exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the password property is always null.
+     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This will return exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the password property is always null. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

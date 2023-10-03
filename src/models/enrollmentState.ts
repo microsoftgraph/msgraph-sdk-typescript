@@ -10,3 +10,5 @@ export enum EnrollmentState {
     /** Device is imported but not enrolled. */
     NotContacted = "notContacted",
 }
+// tslint:enable
+// eslint-enable

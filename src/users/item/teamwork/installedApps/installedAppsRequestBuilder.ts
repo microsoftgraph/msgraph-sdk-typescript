@@ -1,19 +1,70 @@
 import { type UserScopeTeamsAppInstallationCollectionResponse } from '../../../../models/';
-import { createUserScopeTeamsAppInstallationCollectionResponseFromDiscriminatorValue } from '../../../../models/createUserScopeTeamsAppInstallationCollectionResponseFromDiscriminatorValue';
-import { createUserScopeTeamsAppInstallationFromDiscriminatorValue } from '../../../../models/createUserScopeTeamsAppInstallationFromDiscriminatorValue';
-import { deserializeIntoUserScopeTeamsAppInstallation } from '../../../../models/deserializeIntoUserScopeTeamsAppInstallation';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUserScopeTeamsAppInstallation } from '../../../../models/serializeUserScopeTeamsAppInstallation';
-import { type UserScopeTeamsAppInstallation } from '../../../../models/userScopeTeamsAppInstallation';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUserScopeTeamsAppInstallationFromDiscriminatorValue, deserializeIntoUserScopeTeamsAppInstallation, serializeUserScopeTeamsAppInstallation, type UserScopeTeamsAppInstallation } from '../../../../models/userScopeTeamsAppInstallation';
+import { createUserScopeTeamsAppInstallationCollectionResponseFromDiscriminatorValue } from '../../../../models/userScopeTeamsAppInstallationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type InstalledAppsRequestBuilderGetRequestConfiguration } from './installedAppsRequestBuilderGetRequestConfiguration';
-import { type InstalledAppsRequestBuilderPostRequestConfiguration } from './installedAppsRequestBuilderPostRequestConfiguration';
 import { UserScopeTeamsAppInstallationItemRequestBuilder } from './item/userScopeTeamsAppInstallationItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface InstalledAppsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface InstalledAppsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: InstalledAppsRequestBuilderGetQueryParameters;
+}
+export interface InstalledAppsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
  */
@@ -44,7 +95,7 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/teamwork/installedApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the list of apps installed in the personal scope of the specified user.
+     * Retrieve the list of apps installed in the personal scope of the specified user. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserScopeTeamsAppInstallationCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/userteamwork-list-installedapps?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UserScopeTeamsAppInstallationCollectionResponse>(requestInfo, createUserScopeTeamsAppInstallationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Install an app in the personal scope of the specified user.
+     * Install an app in the personal scope of the specified user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserScopeTeamsAppInstallation
@@ -77,7 +128,7 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UserScopeTeamsAppInstallation>(requestInfo, createUserScopeTeamsAppInstallationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the list of apps installed in the personal scope of the specified user.
+     * Retrieve the list of apps installed in the personal scope of the specified user. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Install an app in the personal scope of the specified user.
+     * Install an app in the personal scope of the specified user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

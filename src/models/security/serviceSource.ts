@@ -11,3 +11,5 @@ export enum ServiceSource {
     UnknownFutureValue = "unknownFutureValue",
     MicrosoftDefenderForCloud = "microsoftDefenderForCloud",
 }
+// tslint:enable
+// eslint-enable

@@ -1,17 +1,53 @@
-import { type AccessPackageResource } from '../../../../../../../../../../../../models/accessPackageResource';
-import { createAccessPackageResourceFromDiscriminatorValue } from '../../../../../../../../../../../../models/createAccessPackageResourceFromDiscriminatorValue';
-import { deserializeIntoAccessPackageResource } from '../../../../../../../../../../../../models/deserializeIntoAccessPackageResource';
+import { createAccessPackageResourceFromDiscriminatorValue, deserializeIntoAccessPackageResource, serializeAccessPackageResource, type AccessPackageResource } from '../../../../../../../../../../../../models/accessPackageResource';
 import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageResource } from '../../../../../../../../../../../../models/serializeAccessPackageResource';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/oDataError';
 import { EnvironmentRequestBuilder } from './environment/environmentRequestBuilder';
-import { type ResourceRequestBuilderDeleteRequestConfiguration } from './resourceRequestBuilderDeleteRequestConfiguration';
-import { type ResourceRequestBuilderGetRequestConfiguration } from './resourceRequestBuilderGetRequestConfiguration';
-import { type ResourceRequestBuilderPatchRequestConfiguration } from './resourceRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ResourceRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ResourceRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ResourceRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ResourceRequestBuilderGetQueryParameters;
+}
+export interface ResourceRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resource property of the microsoft.graph.accessPackageResourceScope entity.
  */

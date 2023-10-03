@@ -1,20 +1,71 @@
 import { type AdministrativeUnitCollectionResponse } from '../../models/';
-import { type AdministrativeUnit } from '../../models/administrativeUnit';
-import { createAdministrativeUnitCollectionResponseFromDiscriminatorValue } from '../../models/createAdministrativeUnitCollectionResponseFromDiscriminatorValue';
-import { createAdministrativeUnitFromDiscriminatorValue } from '../../models/createAdministrativeUnitFromDiscriminatorValue';
-import { deserializeIntoAdministrativeUnit } from '../../models/deserializeIntoAdministrativeUnit';
+import { createAdministrativeUnitFromDiscriminatorValue, deserializeIntoAdministrativeUnit, serializeAdministrativeUnit, type AdministrativeUnit } from '../../models/administrativeUnit';
+import { createAdministrativeUnitCollectionResponseFromDiscriminatorValue } from '../../models/administrativeUnitCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAdministrativeUnit } from '../../models/serializeAdministrativeUnit';
-import { type AdministrativeUnitsRequestBuilderGetRequestConfiguration } from './administrativeUnitsRequestBuilderGetRequestConfiguration';
-import { type AdministrativeUnitsRequestBuilderPostRequestConfiguration } from './administrativeUnitsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { AdministrativeUnitItemRequestBuilder } from './item/administrativeUnitItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AdministrativeUnitsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AdministrativeUnitsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AdministrativeUnitsRequestBuilderGetQueryParameters;
+}
+export interface AdministrativeUnitsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
  */
@@ -51,7 +102,7 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directory/administrativeUnits{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of administrativeUnit objects.
+     * Retrieve a list of administrativeUnit objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnitCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/directory-list-administrativeunits?view=graph-rest-1.0|Find more info here}
@@ -67,7 +118,7 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AdministrativeUnitCollectionResponse>(requestInfo, createAdministrativeUnitCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Use this API to create a new administrativeUnit.
+     * Use this API to create a new administrativeUnit. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnit
@@ -84,7 +135,7 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of administrativeUnit objects.
+     * Retrieve a list of administrativeUnit objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +153,7 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Use this API to create a new administrativeUnit.
+     * Use this API to create a new administrativeUnit. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

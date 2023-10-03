@@ -1,11 +1,6 @@
-import { createEntitlementManagementFromDiscriminatorValue } from '../../models/createEntitlementManagementFromDiscriminatorValue';
-import { deserializeIntoEntitlementManagement } from '../../models/deserializeIntoEntitlementManagement';
-import { type EntitlementManagement } from '../../models/entitlementManagement';
+import { createEntitlementManagementFromDiscriminatorValue, deserializeIntoEntitlementManagement, serializeEntitlementManagement, type EntitlementManagement } from '../../models/entitlementManagement';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeEntitlementManagement } from '../../models/serializeEntitlementManagement';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { AccessPackageAssignmentApprovalsRequestBuilder } from './accessPackageAssignmentApprovals/accessPackageAssignmentApprovalsRequestBuilder';
 import { AccessPackagesRequestBuilder } from './accessPackages/accessPackagesRequestBuilder';
 import { AssignmentPoliciesRequestBuilder } from './assignmentPolicies/assignmentPoliciesRequestBuilder';
@@ -13,9 +8,6 @@ import { AssignmentRequestsRequestBuilder } from './assignmentRequests/assignmen
 import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
 import { CatalogsRequestBuilder } from './catalogs/catalogsRequestBuilder';
 import { ConnectedOrganizationsRequestBuilder } from './connectedOrganizations/connectedOrganizationsRequestBuilder';
-import { type EntitlementManagementRequestBuilderDeleteRequestConfiguration } from './entitlementManagementRequestBuilderDeleteRequestConfiguration';
-import { type EntitlementManagementRequestBuilderGetRequestConfiguration } from './entitlementManagementRequestBuilderGetRequestConfiguration';
-import { type EntitlementManagementRequestBuilderPatchRequestConfiguration } from './entitlementManagementRequestBuilderPatchRequestConfiguration';
 import { ResourceEnvironmentsRequestBuilder } from './resourceEnvironments/resourceEnvironmentsRequestBuilder';
 import { ResourceRequestsRequestBuilder } from './resourceRequests/resourceRequestsRequestBuilder';
 import { ResourceRoleScopesRequestBuilder } from './resourceRoleScopes/resourceRoleScopesRequestBuilder';
@@ -23,6 +15,50 @@ import { ResourcesRequestBuilder } from './resources/resourcesRequestBuilder';
 import { SettingsRequestBuilder } from './settings/settingsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface EntitlementManagementRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface EntitlementManagementRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface EntitlementManagementRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: EntitlementManagementRequestBuilderGetQueryParameters;
+}
+export interface EntitlementManagementRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
  */

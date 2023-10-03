@@ -1,19 +1,70 @@
 import { type AccessPackageResourceScopeCollectionResponse } from '../../../../../../../models/';
-import { type AccessPackageResourceScope } from '../../../../../../../models/accessPackageResourceScope';
-import { createAccessPackageResourceScopeCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createAccessPackageResourceScopeCollectionResponseFromDiscriminatorValue';
-import { createAccessPackageResourceScopeFromDiscriminatorValue } from '../../../../../../../models/createAccessPackageResourceScopeFromDiscriminatorValue';
-import { deserializeIntoAccessPackageResourceScope } from '../../../../../../../models/deserializeIntoAccessPackageResourceScope';
+import { createAccessPackageResourceScopeFromDiscriminatorValue, deserializeIntoAccessPackageResourceScope, serializeAccessPackageResourceScope, type AccessPackageResourceScope } from '../../../../../../../models/accessPackageResourceScope';
+import { createAccessPackageResourceScopeCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/accessPackageResourceScopeCollectionResponse';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageResourceScope } from '../../../../../../../models/serializeAccessPackageResourceScope';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AccessPackageResourceScopeItemRequestBuilder } from './item/accessPackageResourceScopeItemRequestBuilder';
-import { type ScopesRequestBuilderGetRequestConfiguration } from './scopesRequestBuilderGetRequestConfiguration';
-import { type ScopesRequestBuilderPostRequestConfiguration } from './scopesRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ScopesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ScopesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ScopesRequestBuilderGetQueryParameters;
+}
+export interface ScopesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the scopes property of the microsoft.graph.accessPackageResource entity.
  */

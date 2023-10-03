@@ -1,16 +1,52 @@
-import { createDeviceComplianceSettingStateFromDiscriminatorValue } from '../../../../../models/createDeviceComplianceSettingStateFromDiscriminatorValue';
-import { deserializeIntoDeviceComplianceSettingState } from '../../../../../models/deserializeIntoDeviceComplianceSettingState';
-import { type DeviceComplianceSettingState } from '../../../../../models/deviceComplianceSettingState';
+import { createDeviceComplianceSettingStateFromDiscriminatorValue, deserializeIntoDeviceComplianceSettingState, serializeDeviceComplianceSettingState, type DeviceComplianceSettingState } from '../../../../../models/deviceComplianceSettingState';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeDeviceComplianceSettingState } from '../../../../../models/serializeDeviceComplianceSettingState';
-import { type DeviceComplianceSettingStateItemRequestBuilderDeleteRequestConfiguration } from './deviceComplianceSettingStateItemRequestBuilderDeleteRequestConfiguration';
-import { type DeviceComplianceSettingStateItemRequestBuilderGetRequestConfiguration } from './deviceComplianceSettingStateItemRequestBuilderGetRequestConfiguration';
-import { type DeviceComplianceSettingStateItemRequestBuilderPatchRequestConfiguration } from './deviceComplianceSettingStateItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceComplianceSettingStateItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DeviceComplianceSettingStateItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DeviceComplianceSettingStateItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceComplianceSettingStateItemRequestBuilderGetQueryParameters;
+}
+export interface DeviceComplianceSettingStateItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.
  */

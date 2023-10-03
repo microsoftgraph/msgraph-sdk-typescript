@@ -1,16 +1,52 @@
-import { type AllowedValue } from '../../../../../models/allowedValue';
-import { createAllowedValueFromDiscriminatorValue } from '../../../../../models/createAllowedValueFromDiscriminatorValue';
-import { deserializeIntoAllowedValue } from '../../../../../models/deserializeIntoAllowedValue';
+import { createAllowedValueFromDiscriminatorValue, deserializeIntoAllowedValue, serializeAllowedValue, type AllowedValue } from '../../../../../models/allowedValue';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeAllowedValue } from '../../../../../models/serializeAllowedValue';
-import { type AllowedValueItemRequestBuilderDeleteRequestConfiguration } from './allowedValueItemRequestBuilderDeleteRequestConfiguration';
-import { type AllowedValueItemRequestBuilderGetRequestConfiguration } from './allowedValueItemRequestBuilderGetRequestConfiguration';
-import { type AllowedValueItemRequestBuilderPatchRequestConfiguration } from './allowedValueItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AllowedValueItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AllowedValueItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AllowedValueItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AllowedValueItemRequestBuilderGetQueryParameters;
+}
+export interface AllowedValueItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
  */
@@ -38,7 +74,7 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an allowedValue object.
+     * Read the properties and relationships of an allowedValue object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AllowedValue
      * @see {@link https://learn.microsoft.com/graph/api/allowedvalue-get?view=graph-rest-1.0|Find more info here}
@@ -54,7 +90,7 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AllowedValue>(requestInfo, createAllowedValueFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an allowedValue object.
+     * Update the properties of an allowedValue object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AllowedValue
@@ -87,7 +123,7 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an allowedValue object.
+     * Read the properties and relationships of an allowedValue object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +141,7 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an allowedValue object.
+     * Update the properties of an allowedValue object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

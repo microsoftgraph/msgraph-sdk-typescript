@@ -1,16 +1,52 @@
-import { createEducationAssignmentSettingsFromDiscriminatorValue } from '../../../../models/createEducationAssignmentSettingsFromDiscriminatorValue';
-import { deserializeIntoEducationAssignmentSettings } from '../../../../models/deserializeIntoEducationAssignmentSettings';
-import { type EducationAssignmentSettings } from '../../../../models/educationAssignmentSettings';
+import { createEducationAssignmentSettingsFromDiscriminatorValue, deserializeIntoEducationAssignmentSettings, serializeEducationAssignmentSettings, type EducationAssignmentSettings } from '../../../../models/educationAssignmentSettings';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeEducationAssignmentSettings } from '../../../../models/serializeEducationAssignmentSettings';
-import { type AssignmentSettingsRequestBuilderDeleteRequestConfiguration } from './assignmentSettingsRequestBuilderDeleteRequestConfiguration';
-import { type AssignmentSettingsRequestBuilderGetRequestConfiguration } from './assignmentSettingsRequestBuilderGetRequestConfiguration';
-import { type AssignmentSettingsRequestBuilderPatchRequestConfiguration } from './assignmentSettingsRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignmentSettingsRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AssignmentSettingsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AssignmentSettingsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AssignmentSettingsRequestBuilderGetQueryParameters;
+}
+export interface AssignmentSettingsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the assignmentSettings property of the microsoft.graph.educationClass entity.
  */
@@ -53,7 +89,7 @@ export class AssignmentSettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationAssignmentSettings>(requestInfo, createEducationAssignmentSettingsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
+     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentSettings
@@ -104,7 +140,7 @@ export class AssignmentSettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
+     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

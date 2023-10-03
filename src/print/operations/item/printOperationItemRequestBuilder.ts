@@ -1,16 +1,52 @@
-import { createPrintOperationFromDiscriminatorValue } from '../../../models/createPrintOperationFromDiscriminatorValue';
-import { deserializeIntoPrintOperation } from '../../../models/deserializeIntoPrintOperation';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { type PrintOperation } from '../../../models/printOperation';
-import { serializePrintOperation } from '../../../models/serializePrintOperation';
-import { type PrintOperationItemRequestBuilderDeleteRequestConfiguration } from './printOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type PrintOperationItemRequestBuilderGetRequestConfiguration } from './printOperationItemRequestBuilderGetRequestConfiguration';
-import { type PrintOperationItemRequestBuilderPatchRequestConfiguration } from './printOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createPrintOperationFromDiscriminatorValue, deserializeIntoPrintOperation, serializePrintOperation, type PrintOperation } from '../../../models/printOperation';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrintOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PrintOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PrintOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrintOperationItemRequestBuilderGetQueryParameters;
+}
+export interface PrintOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.print entity.
  */
@@ -38,7 +74,7 @@ export class PrintOperationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a printOperation object.
+     * Retrieve the properties and relationships of a printOperation object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintOperation
      * @see {@link https://learn.microsoft.com/graph/api/printoperation-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +122,7 @@ export class PrintOperationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a printOperation object.
+     * Retrieve the properties and relationships of a printOperation object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,19 +1,46 @@
-import { createTenantRelationshipFromDiscriminatorValue } from '../models/createTenantRelationshipFromDiscriminatorValue';
-import { deserializeIntoTenantRelationship } from '../models/deserializeIntoTenantRelationship';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeTenantRelationship } from '../models/serializeTenantRelationship';
-import { type TenantRelationship } from '../models/tenantRelationship';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createTenantRelationshipFromDiscriminatorValue, deserializeIntoTenantRelationship, serializeTenantRelationship, type TenantRelationship } from '../models/tenantRelationship';
 import { DelegatedAdminCustomersRequestBuilder } from './delegatedAdminCustomers/delegatedAdminCustomersRequestBuilder';
 import { DelegatedAdminRelationshipsRequestBuilder } from './delegatedAdminRelationships/delegatedAdminRelationshipsRequestBuilder';
 import { FindTenantInformationByDomainNameWithDomainNameRequestBuilder } from './findTenantInformationByDomainNameWithDomainName/findTenantInformationByDomainNameWithDomainNameRequestBuilder';
 import { FindTenantInformationByTenantIdWithTenantIdRequestBuilder } from './findTenantInformationByTenantIdWithTenantId/findTenantInformationByTenantIdWithTenantIdRequestBuilder';
-import { type TenantRelationshipsRequestBuilderGetRequestConfiguration } from './tenantRelationshipsRequestBuilderGetRequestConfiguration';
-import { type TenantRelationshipsRequestBuilderPatchRequestConfiguration } from './tenantRelationshipsRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TenantRelationshipsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TenantRelationshipsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TenantRelationshipsRequestBuilderGetQueryParameters;
+}
+export interface TenantRelationshipsRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tenantRelationship singleton.
  */

@@ -4,3 +4,5 @@ export enum ObjectFlowTypes {
     Update = "Update",
     Delete = "Delete",
 }
+// tslint:enable
+// eslint-enable

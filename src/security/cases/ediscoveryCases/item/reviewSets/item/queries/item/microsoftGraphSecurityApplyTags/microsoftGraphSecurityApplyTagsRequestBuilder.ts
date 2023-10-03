@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { type ApplyTagsPostRequestBody } from './applyTagsPostRequestBody';
-import { deserializeIntoApplyTagsPostRequestBody } from './deserializeIntoApplyTagsPostRequestBody';
-import { type MicrosoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration } from './microsoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration';
-import { serializeApplyTagsPostRequestBody } from './serializeApplyTagsPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoApplyTagsPostRequestBody, serializeApplyTagsPostRequestBody, type ApplyTagsPostRequestBody } from './applyTagsPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface MicrosoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the applyTags method.
  */
@@ -21,7 +26,7 @@ export class MicrosoftGraphSecurityApplyTagsRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/queries/{ediscoveryReviewSetQuery%2Did}/microsoft.graph.security.applyTags");
     };
     /**
-     * Apply tags to files in an eDiscovery review set. For details, see Tag documents in a review set in eDiscovery.
+     * Apply tags to files in an eDiscovery review set. For details, see Tag documents in a review set in eDiscovery. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewsetquery-applytags?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class MicrosoftGraphSecurityApplyTagsRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Apply tags to files in an eDiscovery review set. For details, see Tag documents in a review set in eDiscovery.
+     * Apply tags to files in an eDiscovery review set. For details, see Tag documents in a review set in eDiscovery. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

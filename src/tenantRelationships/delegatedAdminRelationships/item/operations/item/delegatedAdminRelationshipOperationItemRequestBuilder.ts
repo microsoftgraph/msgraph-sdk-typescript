@@ -1,16 +1,52 @@
-import { createDelegatedAdminRelationshipOperationFromDiscriminatorValue } from '../../../../../models/createDelegatedAdminRelationshipOperationFromDiscriminatorValue';
-import { type DelegatedAdminRelationshipOperation } from '../../../../../models/delegatedAdminRelationshipOperation';
-import { deserializeIntoDelegatedAdminRelationshipOperation } from '../../../../../models/deserializeIntoDelegatedAdminRelationshipOperation';
+import { createDelegatedAdminRelationshipOperationFromDiscriminatorValue, deserializeIntoDelegatedAdminRelationshipOperation, serializeDelegatedAdminRelationshipOperation, type DelegatedAdminRelationshipOperation } from '../../../../../models/delegatedAdminRelationshipOperation';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeDelegatedAdminRelationshipOperation } from '../../../../../models/serializeDelegatedAdminRelationshipOperation';
-import { type DelegatedAdminRelationshipOperationItemRequestBuilderDeleteRequestConfiguration } from './delegatedAdminRelationshipOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type DelegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration } from './delegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration';
-import { type DelegatedAdminRelationshipOperationItemRequestBuilderPatchRequestConfiguration } from './delegatedAdminRelationshipOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DelegatedAdminRelationshipOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DelegatedAdminRelationshipOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DelegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DelegatedAdminRelationshipOperationItemRequestBuilderGetQueryParameters;
+}
+export interface DelegatedAdminRelationshipOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
  */
@@ -38,7 +74,7 @@ export class DelegatedAdminRelationshipOperationItemRequestBuilder extends BaseR
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties of a delegatedAdminRelationshipOperation object.
+     * Read the properties of a delegatedAdminRelationshipOperation object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationshipOperation
      * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationshipoperation-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +122,7 @@ export class DelegatedAdminRelationshipOperationItemRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * Read the properties of a delegatedAdminRelationshipOperation object.
+     * Read the properties of a delegatedAdminRelationshipOperation object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

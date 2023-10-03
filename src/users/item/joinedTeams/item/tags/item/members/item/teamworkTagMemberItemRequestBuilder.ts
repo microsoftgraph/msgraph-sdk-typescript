@@ -1,16 +1,52 @@
-import { createTeamworkTagMemberFromDiscriminatorValue } from '../../../../../../../../models/createTeamworkTagMemberFromDiscriminatorValue';
-import { deserializeIntoTeamworkTagMember } from '../../../../../../../../models/deserializeIntoTeamworkTagMember';
 import { type ODataError } from '../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeTeamworkTagMember } from '../../../../../../../../models/serializeTeamworkTagMember';
-import { type TeamworkTagMember } from '../../../../../../../../models/teamworkTagMember';
-import { type TeamworkTagMemberItemRequestBuilderDeleteRequestConfiguration } from './teamworkTagMemberItemRequestBuilderDeleteRequestConfiguration';
-import { type TeamworkTagMemberItemRequestBuilderGetRequestConfiguration } from './teamworkTagMemberItemRequestBuilderGetRequestConfiguration';
-import { type TeamworkTagMemberItemRequestBuilderPatchRequestConfiguration } from './teamworkTagMemberItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
+import { createTeamworkTagMemberFromDiscriminatorValue, deserializeIntoTeamworkTagMember, serializeTeamworkTagMember, type TeamworkTagMember } from '../../../../../../../../models/teamworkTagMember';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TeamworkTagMemberItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TeamworkTagMemberItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TeamworkTagMemberItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TeamworkTagMemberItemRequestBuilderGetQueryParameters;
+}
+export interface TeamworkTagMemberItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the members property of the microsoft.graph.teamworkTag entity.
  */
@@ -24,7 +60,7 @@ export class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/tags/{teamworkTag%2Did}/members/{teamworkTagMember%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a member from a standard tag in a team.
+     * Delete a member from a standard tag in a team. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/teamworktagmember-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +75,7 @@ export class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the properties and relationships of a member of a standard tag in a team.
+     * Get the properties and relationships of a member of a standard tag in a team. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamworkTagMember
      * @see {@link https://learn.microsoft.com/graph/api/teamworktagmember-get?view=graph-rest-1.0|Find more info here}
@@ -71,7 +107,7 @@ export class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TeamworkTagMember>(requestInfo, createTeamworkTagMemberFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a member from a standard tag in a team.
+     * Delete a member from a standard tag in a team. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -87,7 +123,7 @@ export class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties and relationships of a member of a standard tag in a team.
+     * Get the properties and relationships of a member of a standard tag in a team. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

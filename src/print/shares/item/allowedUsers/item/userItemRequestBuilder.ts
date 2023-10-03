@@ -1,5 +1,6 @@
 import { MailboxSettingsRequestBuilder } from './mailboxSettings/mailboxSettingsRequestBuilder';
 import { RefRequestBuilder } from './ref/refRequestBuilder';
+import { ServiceProvisioningErrorsRequestBuilder } from './serviceProvisioningErrors/serviceProvisioningErrorsRequestBuilder';
 import { BaseRequestBuilder, type RequestAdapter } from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,6 +18,12 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
      */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * The serviceProvisioningErrors property
+     */
+    public get serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder {
+        return new ServiceProvisioningErrorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new UserItemRequestBuilder and sets the default values.

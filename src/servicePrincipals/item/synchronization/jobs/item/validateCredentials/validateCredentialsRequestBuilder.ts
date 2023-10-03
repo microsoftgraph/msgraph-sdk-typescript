@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoValidateCredentialsPostRequestBody } from './deserializeIntoValidateCredentialsPostRequestBody';
-import { serializeValidateCredentialsPostRequestBody } from './serializeValidateCredentialsPostRequestBody';
-import { type ValidateCredentialsPostRequestBody } from './validateCredentialsPostRequestBody';
-import { type ValidateCredentialsRequestBuilderPostRequestConfiguration } from './validateCredentialsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
+import { deserializeIntoValidateCredentialsPostRequestBody, serializeValidateCredentialsPostRequestBody, type ValidateCredentialsPostRequestBody } from './validateCredentialsPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ValidateCredentialsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the validateCredentials method.
  */
@@ -21,7 +26,7 @@ export class ValidateCredentialsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/validateCredentials");
     };
     /**
-     * Validate that the credentials are valid in the tenant.
+     * Validate that the credentials are valid in the tenant. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class ValidateCredentialsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Validate that the credentials are valid in the tenant.
+     * Validate that the credentials are valid in the tenant. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

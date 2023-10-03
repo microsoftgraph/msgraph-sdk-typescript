@@ -17,3 +17,5 @@ export enum ComplianceState {
     /** Managed by Config Manager */
     ConfigManager = "configManager",
 }
+// tslint:enable
+// eslint-enable

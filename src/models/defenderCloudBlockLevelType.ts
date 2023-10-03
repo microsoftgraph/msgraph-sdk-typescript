@@ -11,3 +11,5 @@ export enum DefenderCloudBlockLevelType {
     /** Zero tolerance blocks all unknown executables */
     ZeroTolerance = "zeroTolerance",
 }
+// tslint:enable
+// eslint-enable

@@ -1,19 +1,70 @@
 import { type AgreementAcceptanceCollectionResponse } from '../../../../../models/';
-import { type AgreementAcceptance } from '../../../../../models/agreementAcceptance';
-import { createAgreementAcceptanceCollectionResponseFromDiscriminatorValue } from '../../../../../models/createAgreementAcceptanceCollectionResponseFromDiscriminatorValue';
-import { createAgreementAcceptanceFromDiscriminatorValue } from '../../../../../models/createAgreementAcceptanceFromDiscriminatorValue';
-import { deserializeIntoAgreementAcceptance } from '../../../../../models/deserializeIntoAgreementAcceptance';
+import { createAgreementAcceptanceFromDiscriminatorValue, deserializeIntoAgreementAcceptance, serializeAgreementAcceptance, type AgreementAcceptance } from '../../../../../models/agreementAcceptance';
+import { createAgreementAcceptanceCollectionResponseFromDiscriminatorValue } from '../../../../../models/agreementAcceptanceCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeAgreementAcceptance } from '../../../../../models/serializeAgreementAcceptance';
-import { type AcceptancesRequestBuilderGetRequestConfiguration } from './acceptancesRequestBuilderGetRequestConfiguration';
-import { type AcceptancesRequestBuilderPostRequestConfiguration } from './acceptancesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AgreementAcceptanceItemRequestBuilder } from './item/agreementAcceptanceItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AcceptancesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AcceptancesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AcceptancesRequestBuilderGetQueryParameters;
+}
+export interface AcceptancesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.
  */
@@ -44,7 +95,7 @@ export class AcceptancesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/acceptances{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the details about the acceptance records for a specific agreement.
+     * Get the details about the acceptance records for a specific agreement. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AgreementAcceptanceCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/agreement-list-acceptances?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class AcceptancesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AgreementAcceptance>(requestInfo, createAgreementAcceptanceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the details about the acceptance records for a specific agreement.
+     * Get the details about the acceptance records for a specific agreement. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

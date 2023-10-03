@@ -1,18 +1,65 @@
 import { type ListItemCollectionResponse } from '../../../../../../../models/';
-import { createListItemCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createListItemCollectionResponseFromDiscriminatorValue';
-import { createListItemFromDiscriminatorValue } from '../../../../../../../models/createListItemFromDiscriminatorValue';
-import { deserializeIntoListItem } from '../../../../../../../models/deserializeIntoListItem';
-import { type ListItem } from '../../../../../../../models/listItem';
+import { createListItemFromDiscriminatorValue, deserializeIntoListItem, serializeListItem, type ListItem } from '../../../../../../../models/listItem';
+import { createListItemCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/listItemCollectionResponse';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeListItem } from '../../../../../../../models/serializeListItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { ListItemItemRequestBuilder } from './item/listItemItemRequestBuilder';
-import { type ItemsRequestBuilderGetRequestConfiguration } from './itemsRequestBuilderGetRequestConfiguration';
-import { type ItemsRequestBuilderPostRequestConfiguration } from './itemsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ItemsRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ItemsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ItemsRequestBuilderGetQueryParameters;
+}
+export interface ItemsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the items property of the microsoft.graph.list entity.
  */
@@ -37,7 +84,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/items{?%24top,%24skip,%24search,%24filter,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the collection of [items][item] in a [list][].
+     * Get the collection of items][item] in a [list][]. This API is supported in the following [national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ListItemCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/listitem-list?view=graph-rest-1.0|Find more info here}
@@ -53,7 +100,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ListItemCollectionResponse>(requestInfo, createListItemCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new [listItem][] in a [list][].
+     * Create a new listItem][] in a [list][]. This API is supported in the following [national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ListItem
@@ -70,7 +117,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ListItem>(requestInfo, createListItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the collection of [items][item] in a [list][].
+     * Get the collection of items][item] in a [list][]. This API is supported in the following [national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +135,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new [listItem][] in a [list][].
+     * Create a new listItem][] in a [list][]. This API is supported in the following [national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

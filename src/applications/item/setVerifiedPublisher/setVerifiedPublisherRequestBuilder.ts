@@ -1,13 +1,18 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { deserializeIntoSetVerifiedPublisherPostRequestBody } from './deserializeIntoSetVerifiedPublisherPostRequestBody';
-import { serializeSetVerifiedPublisherPostRequestBody } from './serializeSetVerifiedPublisherPostRequestBody';
-import { type SetVerifiedPublisherPostRequestBody } from './setVerifiedPublisherPostRequestBody';
-import { type SetVerifiedPublisherRequestBuilderPostRequestConfiguration } from './setVerifiedPublisherRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoSetVerifiedPublisherPostRequestBody, serializeSetVerifiedPublisherPostRequestBody, type SetVerifiedPublisherPostRequestBody } from './setVerifiedPublisherPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SetVerifiedPublisherRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the setVerifiedPublisher method.
  */
@@ -21,7 +26,7 @@ export class SetVerifiedPublisherRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/setVerifiedPublisher");
     };
     /**
-     * Set the verifiedPublisher on an application. For more information, including prerequisites to setting a verified publisher, see Publisher verification.
+     * Set the verifiedPublisher on an application. For more information, including prerequisites to setting a verified publisher, see Publisher verification. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/application-setverifiedpublisher?view=graph-rest-1.0|Find more info here}
@@ -37,7 +42,7 @@ export class SetVerifiedPublisherRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Set the verifiedPublisher on an application. For more information, including prerequisites to setting a verified publisher, see Publisher verification.
+     * Set the verifiedPublisher on an application. For more information, including prerequisites to setting a verified publisher, see Publisher verification. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

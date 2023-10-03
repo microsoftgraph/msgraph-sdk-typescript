@@ -4,3 +4,5 @@ export enum Mutability {
     Immutable = "Immutable",
     WriteOnly = "WriteOnly",
 }
+// tslint:enable
+// eslint-enable

@@ -1,12 +1,19 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { createIsPublishedResponseFromDiscriminatorValue } from './createIsPublishedResponseFromDiscriminatorValue';
-import { type IsPublishedResponse } from './index';
-import { type IsPublishedRequestBuilderGetRequestConfiguration } from './isPublishedRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { type IsPublishedGetResponse } from './index';
+import { createIsPublishedGetResponseFromDiscriminatorValue } from './isPublishedGetResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IsPublishedRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the isPublished method.
  */
@@ -22,9 +29,9 @@ export class IsPublishedRequestBuilder extends BaseRequestBuilder {
     /**
      * Invoke function isPublished
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of IsPublishedResponse
+     * @returns a Promise of IsPublishedGetResponse
      */
-    public get(requestConfiguration?: IsPublishedRequestBuilderGetRequestConfiguration | undefined) : Promise<IsPublishedResponse | undefined> {
+    public get(requestConfiguration?: IsPublishedRequestBuilderGetRequestConfiguration | undefined) : Promise<IsPublishedGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -32,7 +39,7 @@ export class IsPublishedRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<IsPublishedResponse>(requestInfo, createIsPublishedResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<IsPublishedGetResponse>(requestInfo, createIsPublishedGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function isPublished

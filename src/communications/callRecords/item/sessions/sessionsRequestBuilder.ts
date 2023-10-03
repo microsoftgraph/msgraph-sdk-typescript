@@ -1,19 +1,70 @@
 import { type SessionCollectionResponse } from '../../../../models/callRecords/';
-import { createSessionCollectionResponseFromDiscriminatorValue } from '../../../../models/callRecords/createSessionCollectionResponseFromDiscriminatorValue';
-import { createSessionFromDiscriminatorValue } from '../../../../models/callRecords/createSessionFromDiscriminatorValue';
-import { deserializeIntoSession } from '../../../../models/callRecords/deserializeIntoSession';
-import { serializeSession } from '../../../../models/callRecords/serializeSession';
-import { type Session } from '../../../../models/callRecords/session';
+import { createSessionFromDiscriminatorValue, deserializeIntoSession, serializeSession, type Session } from '../../../../models/callRecords/session';
+import { createSessionCollectionResponseFromDiscriminatorValue } from '../../../../models/callRecords/sessionCollectionResponse';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SessionItemRequestBuilder } from './item/sessionItemRequestBuilder';
-import { type SessionsRequestBuilderGetRequestConfiguration } from './sessionsRequestBuilderGetRequestConfiguration';
-import { type SessionsRequestBuilderPostRequestConfiguration } from './sessionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SessionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SessionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SessionsRequestBuilderGetQueryParameters;
+}
+export interface SessionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
  */
@@ -44,7 +95,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the list of sessions associated with a callRecord object. If the sessions list is truncated, a sessions@odata.nextLink value will be provided to retrieve the next page of sessions. The maximum page size for sessions is 60 entries.
+     * Retrieve the list of sessions associated with a callRecord object. If the sessions list is truncated, a sessions@odata.nextLink value will be provided to retrieve the next page of sessions. The maximum page size for sessions is 60 entries. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SessionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/callrecords-session-list?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Session>(requestInfo, createSessionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the list of sessions associated with a callRecord object. If the sessions list is truncated, a sessions@odata.nextLink value will be provided to retrieve the next page of sessions. The maximum page size for sessions is 60 entries.
+     * Retrieve the list of sessions associated with a callRecord object. If the sessions list is truncated, a sessions@odata.nextLink value will be provided to retrieve the next page of sessions. The maximum page size for sessions is 60 entries. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

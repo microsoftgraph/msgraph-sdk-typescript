@@ -1,8 +1,0 @@
-import { deserializeIntoOnPremisesExtensionAttributes } from './deserializeIntoOnPremisesExtensionAttributes';
-import { type OnPremisesExtensionAttributes } from './index';
-import { type ParseNode } from '@microsoft/kiota-abstractions';
-
-export function createOnPremisesExtensionAttributesFromDiscriminatorValue(parseNode: ParseNode | undefined) {
-    if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return deserializeIntoOnPremisesExtensionAttributes;
-}

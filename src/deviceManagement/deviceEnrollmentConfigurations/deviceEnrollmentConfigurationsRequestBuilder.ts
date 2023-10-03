@@ -1,19 +1,70 @@
 import { type DeviceEnrollmentConfigurationCollectionResponse } from '../../models/';
-import { createDeviceEnrollmentConfigurationCollectionResponseFromDiscriminatorValue } from '../../models/createDeviceEnrollmentConfigurationCollectionResponseFromDiscriminatorValue';
-import { createDeviceEnrollmentConfigurationFromDiscriminatorValue } from '../../models/createDeviceEnrollmentConfigurationFromDiscriminatorValue';
-import { deserializeIntoDeviceEnrollmentConfiguration } from '../../models/deserializeIntoDeviceEnrollmentConfiguration';
-import { type DeviceEnrollmentConfiguration } from '../../models/deviceEnrollmentConfiguration';
+import { createDeviceEnrollmentConfigurationFromDiscriminatorValue, deserializeIntoDeviceEnrollmentConfiguration, serializeDeviceEnrollmentConfiguration, type DeviceEnrollmentConfiguration } from '../../models/deviceEnrollmentConfiguration';
+import { createDeviceEnrollmentConfigurationCollectionResponseFromDiscriminatorValue } from '../../models/deviceEnrollmentConfigurationCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeDeviceEnrollmentConfiguration } from '../../models/serializeDeviceEnrollmentConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration } from './deviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration';
-import { type DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration } from './deviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration';
 import { DeviceEnrollmentConfigurationItemRequestBuilder } from './item/deviceEnrollmentConfigurationItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters;
+}
+export interface DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
  */
@@ -44,10 +95,10 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+     * List properties and relationships of the deviceEnrollmentLimitConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceEnrollmentConfigurationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceEnrollmentConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -77,7 +128,7 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DeviceEnrollmentConfiguration>(requestInfo, createDeviceEnrollmentConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+     * List properties and relationships of the deviceEnrollmentLimitConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

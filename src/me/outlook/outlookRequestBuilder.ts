@@ -1,16 +1,33 @@
 import { type OutlookUser } from '../../models/';
-import { createOutlookUserFromDiscriminatorValue } from '../../models/createOutlookUserFromDiscriminatorValue';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createOutlookUserFromDiscriminatorValue } from '../../models/outlookUser';
 import { MasterCategoriesRequestBuilder } from './masterCategories/masterCategoriesRequestBuilder';
-import { type OutlookRequestBuilderGetRequestConfiguration } from './outlookRequestBuilderGetRequestConfiguration';
 import { SupportedLanguagesRequestBuilder } from './supportedLanguages/supportedLanguagesRequestBuilder';
 import { SupportedTimeZonesRequestBuilder } from './supportedTimeZones/supportedTimeZonesRequestBuilder';
 import { SupportedTimeZonesWithTimeZoneStandardRequestBuilder } from './supportedTimeZonesWithTimeZoneStandard/supportedTimeZonesWithTimeZoneStandardRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OutlookRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface OutlookRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OutlookRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the outlook property of the microsoft.graph.user entity.
  */

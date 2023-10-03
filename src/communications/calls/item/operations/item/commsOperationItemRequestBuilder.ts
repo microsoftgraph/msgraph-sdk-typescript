@@ -1,16 +1,52 @@
-import { type CommsOperation } from '../../../../../models/commsOperation';
-import { createCommsOperationFromDiscriminatorValue } from '../../../../../models/createCommsOperationFromDiscriminatorValue';
-import { deserializeIntoCommsOperation } from '../../../../../models/deserializeIntoCommsOperation';
+import { createCommsOperationFromDiscriminatorValue, deserializeIntoCommsOperation, serializeCommsOperation, type CommsOperation } from '../../../../../models/commsOperation';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeCommsOperation } from '../../../../../models/serializeCommsOperation';
-import { type CommsOperationItemRequestBuilderDeleteRequestConfiguration } from './commsOperationItemRequestBuilderDeleteRequestConfiguration';
-import { type CommsOperationItemRequestBuilderGetRequestConfiguration } from './commsOperationItemRequestBuilderGetRequestConfiguration';
-import { type CommsOperationItemRequestBuilderPatchRequestConfiguration } from './commsOperationItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CommsOperationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CommsOperationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CommsOperationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CommsOperationItemRequestBuilderGetQueryParameters;
+}
+export interface CommsOperationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.call entity.
  */
@@ -38,7 +74,7 @@ export class CommsOperationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the status of an operation that adds the large gallery view to a call.
+     * Get the status of an operation that adds the large gallery view to a call. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CommsOperation
      * @see {@link https://learn.microsoft.com/graph/api/addlargegalleryviewoperation-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +122,7 @@ export class CommsOperationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the status of an operation that adds the large gallery view to a call.
+     * Get the status of an operation that adds the large gallery view to a call. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

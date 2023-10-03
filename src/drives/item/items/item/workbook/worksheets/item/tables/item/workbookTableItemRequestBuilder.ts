@@ -1,11 +1,6 @@
-import { createWorkbookTableFromDiscriminatorValue } from '../../../../../../../../../models/createWorkbookTableFromDiscriminatorValue';
-import { deserializeIntoWorkbookTable } from '../../../../../../../../../models/deserializeIntoWorkbookTable';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookTable } from '../../../../../../../../../models/serializeWorkbookTable';
-import { type WorkbookTable } from '../../../../../../../../../models/workbookTable';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookTableFromDiscriminatorValue, deserializeIntoWorkbookTable, serializeWorkbookTable, type WorkbookTable } from '../../../../../../../../../models/workbookTable';
 import { ClearFiltersRequestBuilder } from './clearFilters/clearFiltersRequestBuilder';
 import { ColumnsRequestBuilder } from './columns/columnsRequestBuilder';
 import { ConvertToRangeRequestBuilder } from './convertToRange/convertToRangeRequestBuilder';
@@ -16,12 +11,53 @@ import { ReapplyFiltersRequestBuilder } from './reapplyFilters/reapplyFiltersReq
 import { RowsRequestBuilder } from './rows/rowsRequestBuilder';
 import { SortRequestBuilder } from './sort/sortRequestBuilder';
 import { TotalRowRangeRequestBuilder } from './totalRowRange/totalRowRangeRequestBuilder';
-import { type WorkbookTableItemRequestBuilderDeleteRequestConfiguration } from './workbookTableItemRequestBuilderDeleteRequestConfiguration';
-import { type WorkbookTableItemRequestBuilderGetRequestConfiguration } from './workbookTableItemRequestBuilderGetRequestConfiguration';
-import { type WorkbookTableItemRequestBuilderPatchRequestConfiguration } from './workbookTableItemRequestBuilderPatchRequestConfiguration';
 import { WorksheetRequestBuilder } from './worksheet/worksheetRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface WorkbookTableItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface WorkbookTableItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface WorkbookTableItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: WorkbookTableItemRequestBuilderGetQueryParameters;
+}
+export interface WorkbookTableItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
  */

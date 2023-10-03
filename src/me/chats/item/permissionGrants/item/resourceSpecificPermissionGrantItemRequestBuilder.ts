@@ -1,21 +1,57 @@
-import { createResourceSpecificPermissionGrantFromDiscriminatorValue } from '../../../../../models/createResourceSpecificPermissionGrantFromDiscriminatorValue';
-import { deserializeIntoResourceSpecificPermissionGrant } from '../../../../../models/deserializeIntoResourceSpecificPermissionGrant';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type ResourceSpecificPermissionGrant } from '../../../../../models/resourceSpecificPermissionGrant';
-import { serializeResourceSpecificPermissionGrant } from '../../../../../models/serializeResourceSpecificPermissionGrant';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createResourceSpecificPermissionGrantFromDiscriminatorValue, deserializeIntoResourceSpecificPermissionGrant, serializeResourceSpecificPermissionGrant, type ResourceSpecificPermissionGrant } from '../../../../../models/resourceSpecificPermissionGrant';
 import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
 import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
-import { type ResourceSpecificPermissionGrantItemRequestBuilderDeleteRequestConfiguration } from './resourceSpecificPermissionGrantItemRequestBuilderDeleteRequestConfiguration';
-import { type ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration } from './resourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration';
-import { type ResourceSpecificPermissionGrantItemRequestBuilderPatchRequestConfiguration } from './resourceSpecificPermissionGrantItemRequestBuilderPatchRequestConfiguration';
 import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ResourceSpecificPermissionGrantItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters;
+}
+export interface ResourceSpecificPermissionGrantItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.
  */

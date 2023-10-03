@@ -1,21 +1,57 @@
-import { createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue } from '../../../../models/createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue';
-import { deserializeIntoUnifiedRoleAssignmentScheduleInstance } from '../../../../models/deserializeIntoUnifiedRoleAssignmentScheduleInstance';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { serializeUnifiedRoleAssignmentScheduleInstance } from '../../../../models/serializeUnifiedRoleAssignmentScheduleInstance';
-import { type UnifiedRoleAssignmentScheduleInstance } from '../../../../models/unifiedRoleAssignmentScheduleInstance';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue, deserializeIntoUnifiedRoleAssignmentScheduleInstance, serializeUnifiedRoleAssignmentScheduleInstance, type UnifiedRoleAssignmentScheduleInstance } from '../../../../models/unifiedRoleAssignmentScheduleInstance';
 import { ActivatedUsingRequestBuilder } from './activatedUsing/activatedUsingRequestBuilder';
 import { AppScopeRequestBuilder } from './appScope/appScopeRequestBuilder';
 import { DirectoryScopeRequestBuilder } from './directoryScope/directoryScopeRequestBuilder';
 import { PrincipalRequestBuilder } from './principal/principalRequestBuilder';
 import { RoleDefinitionRequestBuilder } from './roleDefinition/roleDefinitionRequestBuilder';
-import { type UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderDeleteRequestConfiguration } from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderDeleteRequestConfiguration';
-import { type UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration } from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration';
-import { type UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderPatchRequestConfiguration } from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters;
+}
+export interface UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity.
  */
@@ -73,7 +109,7 @@ export class UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder extends Bas
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the instance of an active role assignment.
+     * Get the instance of an active role assignment. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleAssignmentScheduleInstance
      * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignmentscheduleinstance-get?view=graph-rest-1.0|Find more info here}
@@ -121,7 +157,7 @@ export class UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder extends Bas
         return requestInfo;
     };
     /**
-     * Get the instance of an active role assignment.
+     * Get the instance of an active role assignment. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

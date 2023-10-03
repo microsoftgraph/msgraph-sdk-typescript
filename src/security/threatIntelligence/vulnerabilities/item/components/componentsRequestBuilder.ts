@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type VulnerabilityComponentCollectionResponse } from '../../../../../models/security/';
-import { createVulnerabilityComponentCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createVulnerabilityComponentCollectionResponseFromDiscriminatorValue';
-import { createVulnerabilityComponentFromDiscriminatorValue } from '../../../../../models/security/createVulnerabilityComponentFromDiscriminatorValue';
-import { deserializeIntoVulnerabilityComponent } from '../../../../../models/security/deserializeIntoVulnerabilityComponent';
-import { serializeVulnerabilityComponent } from '../../../../../models/security/serializeVulnerabilityComponent';
-import { type VulnerabilityComponent } from '../../../../../models/security/vulnerabilityComponent';
-import { type ComponentsRequestBuilderGetRequestConfiguration } from './componentsRequestBuilderGetRequestConfiguration';
-import { type ComponentsRequestBuilderPostRequestConfiguration } from './componentsRequestBuilderPostRequestConfiguration';
+import { createVulnerabilityComponentFromDiscriminatorValue, deserializeIntoVulnerabilityComponent, serializeVulnerabilityComponent, type VulnerabilityComponent } from '../../../../../models/security/vulnerabilityComponent';
+import { createVulnerabilityComponentCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/vulnerabilityComponentCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { VulnerabilityComponentItemRequestBuilder } from './item/vulnerabilityComponentItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ComponentsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ComponentsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ComponentsRequestBuilderGetQueryParameters;
+}
+export interface ComponentsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the components property of the microsoft.graph.security.vulnerability entity.
  */
@@ -44,7 +95,7 @@ export class ComponentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}/components{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the microsoft.graph.security.vulnerabilityComponent objects and their properties.
+     * Get a list of vulnerabilityComponent objects related to a known vulnerability. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of VulnerabilityComponentCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-vulnerability-list-components?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class ComponentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<VulnerabilityComponent>(requestInfo, createVulnerabilityComponentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the microsoft.graph.security.vulnerabilityComponent objects and their properties.
+     * Get a list of vulnerabilityComponent objects related to a known vulnerability. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

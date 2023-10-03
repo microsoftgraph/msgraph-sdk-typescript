@@ -1,17 +1,19 @@
-import { createGroupFromDiscriminatorValue } from '../../../models/createGroupFromDiscriminatorValue';
-import { deserializeIntoGroup } from '../../../models/deserializeIntoGroup';
-import { type Group } from '../../../models/group';
+import { createGroupFromDiscriminatorValue, deserializeIntoGroup, serializeGroup, type Group } from '../../../models/group';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeGroup } from '../../../models/serializeGroup';
-import { type AssignLicensePostRequestBody } from './assignLicensePostRequestBody';
-import { type AssignLicenseRequestBuilderPostRequestConfiguration } from './assignLicenseRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAssignLicensePostRequestBody } from './deserializeIntoAssignLicensePostRequestBody';
-import { serializeAssignLicensePostRequestBody } from './serializeAssignLicensePostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { deserializeIntoAssignLicensePostRequestBody, serializeAssignLicensePostRequestBody, type AssignLicensePostRequestBody } from './assignLicensePostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AssignLicenseRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the assignLicense method.
  */
@@ -25,7 +27,7 @@ export class AssignLicenseRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/assignLicense");
     };
     /**
-     * Add or remove licenses on the group. Licenses assigned to the group will be assigned to all users in the group. To learn more about group-based licensing, see What is group-based licensing in Azure Active Directory. To get the subscriptions available in the directory, perform a GET subscribedSkus request.
+     * Add or remove licenses on the group. Licenses assigned to the group will be assigned to all users in the group. To learn more about group-based licensing, see What is group-based licensing in Azure Active Directory. To get the subscriptions available in the directory, perform a GET subscribedSkus request. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Group
@@ -42,7 +44,7 @@ export class AssignLicenseRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Group>(requestInfo, createGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add or remove licenses on the group. Licenses assigned to the group will be assigned to all users in the group. To learn more about group-based licensing, see What is group-based licensing in Azure Active Directory. To get the subscriptions available in the directory, perform a GET subscribedSkus request.
+     * Add or remove licenses on the group. Licenses assigned to the group will be assigned to all users in the group. To learn more about group-based licensing, see What is group-based licensing in Azure Active Directory. To get the subscriptions available in the directory, perform a GET subscribedSkus request. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

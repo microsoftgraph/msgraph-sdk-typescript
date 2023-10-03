@@ -1,18 +1,54 @@
-import { createCustomTaskExtensionFromDiscriminatorValue } from '../../../../models/identityGovernance/createCustomTaskExtensionFromDiscriminatorValue';
-import { type CustomTaskExtension } from '../../../../models/identityGovernance/customTaskExtension';
-import { deserializeIntoCustomTaskExtension } from '../../../../models/identityGovernance/deserializeIntoCustomTaskExtension';
-import { serializeCustomTaskExtension } from '../../../../models/identityGovernance/serializeCustomTaskExtension';
+import { createCustomTaskExtensionFromDiscriminatorValue, deserializeIntoCustomTaskExtension, serializeCustomTaskExtension, type CustomTaskExtension } from '../../../../models/identityGovernance/customTaskExtension';
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CreatedByRequestBuilder } from './createdBy/createdByRequestBuilder';
-import { type CustomTaskExtensionItemRequestBuilderDeleteRequestConfiguration } from './customTaskExtensionItemRequestBuilderDeleteRequestConfiguration';
-import { type CustomTaskExtensionItemRequestBuilderGetRequestConfiguration } from './customTaskExtensionItemRequestBuilderGetRequestConfiguration';
-import { type CustomTaskExtensionItemRequestBuilderPatchRequestConfiguration } from './customTaskExtensionItemRequestBuilderPatchRequestConfiguration';
 import { LastModifiedByRequestBuilder } from './lastModifiedBy/lastModifiedByRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface CustomTaskExtensionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface CustomTaskExtensionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface CustomTaskExtensionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: CustomTaskExtensionItemRequestBuilderGetQueryParameters;
+}
+export interface CustomTaskExtensionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
  */
@@ -38,7 +74,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/customTaskExtensions/{customTaskExtension%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a customTaskExtension object. A custom task extension  can only be deleted if it is not referenced in any task objects in a lifecycle workflow.
+     * Delete a customTaskExtension object. A custom task extension  can only be deleted if it is not referenced in any task objects in a lifecycle workflow. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-customtaskextension-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -53,7 +89,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a customTaskExtension object.
+     * Read the properties and relationships of a customTaskExtension object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomTaskExtension
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-customtaskextension-get?view=graph-rest-1.0|Find more info here}
@@ -69,7 +105,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CustomTaskExtension>(requestInfo, createCustomTaskExtensionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a customTaskExtension object.
+     * Update the properties of a customTaskExtension object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomTaskExtension
@@ -86,7 +122,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CustomTaskExtension>(requestInfo, createCustomTaskExtensionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a customTaskExtension object. A custom task extension  can only be deleted if it is not referenced in any task objects in a lifecycle workflow.
+     * Delete a customTaskExtension object. A custom task extension  can only be deleted if it is not referenced in any task objects in a lifecycle workflow. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +138,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a customTaskExtension object.
+     * Read the properties and relationships of a customTaskExtension object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -120,7 +156,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a customTaskExtension object.
+     * Update the properties of a customTaskExtension object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

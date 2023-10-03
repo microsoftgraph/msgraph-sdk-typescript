@@ -1,16 +1,52 @@
-import { createIdentityProviderBaseFromDiscriminatorValue } from '../../../models/createIdentityProviderBaseFromDiscriminatorValue';
-import { deserializeIntoIdentityProviderBase } from '../../../models/deserializeIntoIdentityProviderBase';
-import { type IdentityProviderBase } from '../../../models/identityProviderBase';
+import { createIdentityProviderBaseFromDiscriminatorValue, deserializeIntoIdentityProviderBase, serializeIdentityProviderBase, type IdentityProviderBase } from '../../../models/identityProviderBase';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeIdentityProviderBase } from '../../../models/serializeIdentityProviderBase';
-import { type IdentityProviderBaseItemRequestBuilderDeleteRequestConfiguration } from './identityProviderBaseItemRequestBuilderDeleteRequestConfiguration';
-import { type IdentityProviderBaseItemRequestBuilderGetRequestConfiguration } from './identityProviderBaseItemRequestBuilderGetRequestConfiguration';
-import { type IdentityProviderBaseItemRequestBuilderPatchRequestConfiguration } from './identityProviderBaseItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface IdentityProviderBaseItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface IdentityProviderBaseItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface IdentityProviderBaseItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: IdentityProviderBaseItemRequestBuilderGetQueryParameters;
+}
+export interface IdentityProviderBaseItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
  */
@@ -24,7 +60,7 @@ export class IdentityProviderBaseItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directory/federationConfigurations/{identityProviderBase%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a samlOrWsFedExternalDomainFederation object.
+     * Delete a samlOrWsFedExternalDomainFederation object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/samlorwsfedexternaldomainfederation-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -70,7 +106,7 @@ export class IdentityProviderBaseItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<IdentityProviderBase>(requestInfo, createIdentityProviderBaseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a samlOrWsFedExternalDomainFederation object.
+     * Delete a samlOrWsFedExternalDomainFederation object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

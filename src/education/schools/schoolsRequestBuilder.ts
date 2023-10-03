@@ -1,20 +1,71 @@
 import { type EducationSchoolCollectionResponse } from '../../models/';
-import { createEducationSchoolCollectionResponseFromDiscriminatorValue } from '../../models/createEducationSchoolCollectionResponseFromDiscriminatorValue';
-import { createEducationSchoolFromDiscriminatorValue } from '../../models/createEducationSchoolFromDiscriminatorValue';
-import { deserializeIntoEducationSchool } from '../../models/deserializeIntoEducationSchool';
-import { type EducationSchool } from '../../models/educationSchool';
+import { createEducationSchoolFromDiscriminatorValue, deserializeIntoEducationSchool, serializeEducationSchool, type EducationSchool } from '../../models/educationSchool';
+import { createEducationSchoolCollectionResponseFromDiscriminatorValue } from '../../models/educationSchoolCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeEducationSchool } from '../../models/serializeEducationSchool';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
 import { EducationSchoolItemRequestBuilder } from './item/educationSchoolItemRequestBuilder';
-import { type SchoolsRequestBuilderGetRequestConfiguration } from './schoolsRequestBuilderGetRequestConfiguration';
-import { type SchoolsRequestBuilderPostRequestConfiguration } from './schoolsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SchoolsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SchoolsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SchoolsRequestBuilderGetQueryParameters;
+}
+export interface SchoolsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
  */
@@ -51,7 +102,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/schools{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the educationSchool objects and their properties.
+     * Get a list of the educationSchool objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSchoolCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/educationschool-list?view=graph-rest-1.0|Find more info here}
@@ -67,7 +118,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationSchoolCollectionResponse>(requestInfo, createEducationSchoolCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new educationSchool object.
+     * Create a new educationSchool object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSchool
@@ -84,7 +135,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationSchool>(requestInfo, createEducationSchoolFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the educationSchool objects and their properties.
+     * Get a list of the educationSchool objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +153,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new educationSchool object.
+     * Create a new educationSchool object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

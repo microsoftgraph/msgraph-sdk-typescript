@@ -1,5 +1,2 @@
-export * from './createStopHoldMusicPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoStopHoldMusicPostRequestBody'
-export * from './serializeStopHoldMusicPostRequestBody'
 export * from './stopHoldMusicPostRequestBody'
-export * from './stopHoldMusicRequestBuilderPostRequestConfiguration'
+export * from './stopHoldMusicRequestBuilder'

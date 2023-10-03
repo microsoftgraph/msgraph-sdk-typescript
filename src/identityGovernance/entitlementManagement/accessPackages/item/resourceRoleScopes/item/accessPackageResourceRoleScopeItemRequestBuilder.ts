@@ -1,18 +1,54 @@
-import { type AccessPackageResourceRoleScope } from '../../../../../../models/accessPackageResourceRoleScope';
-import { createAccessPackageResourceRoleScopeFromDiscriminatorValue } from '../../../../../../models/createAccessPackageResourceRoleScopeFromDiscriminatorValue';
-import { deserializeIntoAccessPackageResourceRoleScope } from '../../../../../../models/deserializeIntoAccessPackageResourceRoleScope';
+import { createAccessPackageResourceRoleScopeFromDiscriminatorValue, deserializeIntoAccessPackageResourceRoleScope, serializeAccessPackageResourceRoleScope, type AccessPackageResourceRoleScope } from '../../../../../../models/accessPackageResourceRoleScope';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessPackageResourceRoleScope } from '../../../../../../models/serializeAccessPackageResourceRoleScope';
-import { type AccessPackageResourceRoleScopeItemRequestBuilderDeleteRequestConfiguration } from './accessPackageResourceRoleScopeItemRequestBuilderDeleteRequestConfiguration';
-import { type AccessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration } from './accessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration';
-import { type AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration } from './accessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { RoleRequestBuilder } from './role/roleRequestBuilder';
 import { ScopeRequestBuilder } from './scope/scopeRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AccessPackageResourceRoleScopeItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface AccessPackageResourceRoleScopeItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface AccessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AccessPackageResourceRoleScopeItemRequestBuilderGetQueryParameters;
+}
+export interface AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.accessPackage entity.
  */
@@ -38,7 +74,7 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}{?%24select,%24expand}");
     };
     /**
-     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes.
+     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/accesspackage-delete-resourcerolescopes?view=graph-rest-1.0|Find more info here}
      */
@@ -84,7 +120,7 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
         return this.requestAdapter.sendAsync<AccessPackageResourceRoleScope>(requestInfo, createAccessPackageResourceRoleScopeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes.
+     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

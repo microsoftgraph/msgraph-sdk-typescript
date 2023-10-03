@@ -1,17 +1,19 @@
 import { type ODataError } from '../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
-import { createUnfavoriteResponseFromDiscriminatorValue } from './createUnfavoriteResponseFromDiscriminatorValue';
-import { deserializeIntoUnfavoritePostRequestBody } from './deserializeIntoUnfavoritePostRequestBody';
-import { deserializeIntoUnfavoriteResponse } from './deserializeIntoUnfavoriteResponse';
-import { serializeUnfavoritePostRequestBody } from './serializeUnfavoritePostRequestBody';
-import { serializeUnfavoriteResponse } from './serializeUnfavoriteResponse';
-import { type UnfavoritePostRequestBody } from './unfavoritePostRequestBody';
-import { type UnfavoriteRequestBuilderPostRequestConfiguration } from './unfavoriteRequestBuilderPostRequestConfiguration';
-import { type UnfavoriteResponse } from './unfavoriteResponse';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
+import { deserializeIntoUnfavoritePostRequestBody, serializeUnfavoritePostRequestBody, type UnfavoritePostRequestBody } from './unfavoritePostRequestBody';
+import { createUnfavoritePostResponseFromDiscriminatorValue, deserializeIntoUnfavoritePostResponse, serializeUnfavoritePostResponse, type UnfavoritePostResponse } from './unfavoritePostResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UnfavoriteRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the unfavorite method.
  */
@@ -25,13 +27,13 @@ export class UnfavoriteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/unfavorite");
     };
     /**
-     * Remove the favorite status of serviceUpdateMessages for the signed in user.
+     * Remove the favorite status of serviceUpdateMessages for the signed in user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of UnfavoriteResponse
+     * @returns a Promise of UnfavoritePostResponse
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-unfavorite?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: UnfavoritePostRequestBody, requestConfiguration?: UnfavoriteRequestBuilderPostRequestConfiguration | undefined) : Promise<UnfavoriteResponse | undefined> {
+    public post(body: UnfavoritePostRequestBody, requestConfiguration?: UnfavoriteRequestBuilderPostRequestConfiguration | undefined) : Promise<UnfavoritePostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -39,10 +41,10 @@ export class UnfavoriteRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<UnfavoriteResponse>(requestInfo, createUnfavoriteResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<UnfavoritePostResponse>(requestInfo, createUnfavoritePostResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Remove the favorite status of serviceUpdateMessages for the signed in user.
+     * Remove the favorite status of serviceUpdateMessages for the signed in user. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,20 +1,71 @@
 import { type AccessReviewInstanceDecisionItemCollectionResponse } from '../../../../../../../models/';
-import { type AccessReviewInstanceDecisionItem } from '../../../../../../../models/accessReviewInstanceDecisionItem';
-import { createAccessReviewInstanceDecisionItemCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createAccessReviewInstanceDecisionItemCollectionResponseFromDiscriminatorValue';
-import { createAccessReviewInstanceDecisionItemFromDiscriminatorValue } from '../../../../../../../models/createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
-import { deserializeIntoAccessReviewInstanceDecisionItem } from '../../../../../../../models/deserializeIntoAccessReviewInstanceDecisionItem';
+import { createAccessReviewInstanceDecisionItemFromDiscriminatorValue, deserializeIntoAccessReviewInstanceDecisionItem, serializeAccessReviewInstanceDecisionItem, type AccessReviewInstanceDecisionItem } from '../../../../../../../models/accessReviewInstanceDecisionItem';
+import { createAccessReviewInstanceDecisionItemCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/accessReviewInstanceDecisionItemCollectionResponse';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeAccessReviewInstanceDecisionItem } from '../../../../../../../models/serializeAccessReviewInstanceDecisionItem';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { type DecisionsRequestBuilderGetRequestConfiguration } from './decisionsRequestBuilderGetRequestConfiguration';
-import { type DecisionsRequestBuilderPostRequestConfiguration } from './decisionsRequestBuilderPostRequestConfiguration';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { AccessReviewInstanceDecisionItemItemRequestBuilder } from './item/accessReviewInstanceDecisionItemItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DecisionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface DecisionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DecisionsRequestBuilderGetQueryParameters;
+}
+export interface DecisionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
  */
@@ -54,7 +105,7 @@ export class DecisionsRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Retrieve the accessReviewInstanceDecisionItem objects for a specific accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties.
+     * Retrieve the accessReviewInstanceDecisionItem objects for a specific accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewInstanceDecisionItemCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstance-list-decisions?view=graph-rest-1.0|Find more info here}
@@ -86,7 +137,7 @@ export class DecisionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessReviewInstanceDecisionItem>(requestInfo, createAccessReviewInstanceDecisionItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the accessReviewInstanceDecisionItem objects for a specific accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties.
+     * Retrieve the accessReviewInstanceDecisionItem objects for a specific accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

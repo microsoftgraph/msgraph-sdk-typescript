@@ -1,16 +1,52 @@
-import { type Application } from '../models/application';
-import { createApplicationFromDiscriminatorValue } from '../models/createApplicationFromDiscriminatorValue';
-import { deserializeIntoApplication } from '../models/deserializeIntoApplication';
+import { createApplicationFromDiscriminatorValue, deserializeIntoApplication, serializeApplication, type Application } from '../models/application';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { serializeApplication } from '../models/serializeApplication';
-import { type ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration } from './applicationsWithAppIdRequestBuilderDeleteRequestConfiguration';
-import { type ApplicationsWithAppIdRequestBuilderGetRequestConfiguration } from './applicationsWithAppIdRequestBuilderGetRequestConfiguration';
-import { type ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration } from './applicationsWithAppIdRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ApplicationsWithAppIdRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ApplicationsWithAppIdRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ApplicationsWithAppIdRequestBuilderGetQueryParameters;
+}
+export interface ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of application entities.
  */
@@ -26,7 +62,7 @@ export class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder {
         this.pathParameters["appId"] = appId
     };
     /**
-     * Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
+     * Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/application-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -41,7 +77,7 @@ export class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the properties and relationships of an application object.
+     * Get the properties and relationships of an application object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Application
      * @see {@link https://learn.microsoft.com/graph/api/application-get?view=graph-rest-1.0|Find more info here}
@@ -57,7 +93,7 @@ export class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an application object.
+     * Update the properties of an application object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Application
@@ -74,7 +110,7 @@ export class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
+     * Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -90,7 +126,7 @@ export class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties and relationships of an application object.
+     * Get the properties and relationships of an application object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -108,7 +144,7 @@ export class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an application object.
+     * Update the properties of an application object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

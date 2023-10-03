@@ -1,18 +1,54 @@
-import { createDriveItemVersionFromDiscriminatorValue } from '../../../../../../models/createDriveItemVersionFromDiscriminatorValue';
-import { deserializeIntoDriveItemVersion } from '../../../../../../models/deserializeIntoDriveItemVersion';
-import { type DriveItemVersion } from '../../../../../../models/driveItemVersion';
+import { createDriveItemVersionFromDiscriminatorValue, deserializeIntoDriveItemVersion, serializeDriveItemVersion, type DriveItemVersion } from '../../../../../../models/driveItemVersion';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
-import { serializeDriveItemVersion } from '../../../../../../models/serializeDriveItemVersion';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { ContentRequestBuilder } from './content/contentRequestBuilder';
-import { type DriveItemVersionItemRequestBuilderDeleteRequestConfiguration } from './driveItemVersionItemRequestBuilderDeleteRequestConfiguration';
-import { type DriveItemVersionItemRequestBuilderGetRequestConfiguration } from './driveItemVersionItemRequestBuilderGetRequestConfiguration';
-import { type DriveItemVersionItemRequestBuilderPatchRequestConfiguration } from './driveItemVersionItemRequestBuilderPatchRequestConfiguration';
 import { RestoreVersionRequestBuilder } from './restoreVersion/restoreVersionRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface DriveItemVersionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface DriveItemVersionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface DriveItemVersionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: DriveItemVersionItemRequestBuilderGetQueryParameters;
+}
+export interface DriveItemVersionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the versions property of the microsoft.graph.driveItem entity.
  */
@@ -52,7 +88,7 @@ export class DriveItemVersionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the metadata for a specific version of a DriveItem.
+     * Retrieve the metadata for a specific version of a DriveItem. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItemVersion
      * @see {@link https://learn.microsoft.com/graph/api/driveitemversion-get?view=graph-rest-1.0|Find more info here}
@@ -100,7 +136,7 @@ export class DriveItemVersionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the metadata for a specific version of a DriveItem.
+     * Retrieve the metadata for a specific version of a DriveItem. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

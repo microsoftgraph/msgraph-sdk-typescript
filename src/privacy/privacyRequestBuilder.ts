@@ -1,16 +1,43 @@
-import { createPrivacyFromDiscriminatorValue } from '../models/createPrivacyFromDiscriminatorValue';
-import { deserializeIntoPrivacy } from '../models/deserializeIntoPrivacy';
 import { type ODataError } from '../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../models/oDataErrors/serializeODataError';
-import { type Privacy } from '../models/privacy';
-import { serializePrivacy } from '../models/serializePrivacy';
-import { type PrivacyRequestBuilderGetRequestConfiguration } from './privacyRequestBuilderGetRequestConfiguration';
-import { type PrivacyRequestBuilderPatchRequestConfiguration } from './privacyRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
+import { createPrivacyFromDiscriminatorValue, deserializeIntoPrivacy, serializePrivacy, type Privacy } from '../models/privacy';
 import { SubjectRightsRequestsRequestBuilder } from './subjectRightsRequests/subjectRightsRequestsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PrivacyRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PrivacyRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PrivacyRequestBuilderGetQueryParameters;
+}
+export interface PrivacyRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the privacy singleton.
  */

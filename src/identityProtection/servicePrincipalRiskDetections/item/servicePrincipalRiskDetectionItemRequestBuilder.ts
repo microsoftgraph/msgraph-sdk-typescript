@@ -1,16 +1,52 @@
-import { createServicePrincipalRiskDetectionFromDiscriminatorValue } from '../../../models/createServicePrincipalRiskDetectionFromDiscriminatorValue';
-import { deserializeIntoServicePrincipalRiskDetection } from '../../../models/deserializeIntoServicePrincipalRiskDetection';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeServicePrincipalRiskDetection } from '../../../models/serializeServicePrincipalRiskDetection';
-import { type ServicePrincipalRiskDetection } from '../../../models/servicePrincipalRiskDetection';
-import { type ServicePrincipalRiskDetectionItemRequestBuilderDeleteRequestConfiguration } from './servicePrincipalRiskDetectionItemRequestBuilderDeleteRequestConfiguration';
-import { type ServicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration } from './servicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration';
-import { type ServicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration } from './servicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { createServicePrincipalRiskDetectionFromDiscriminatorValue, deserializeIntoServicePrincipalRiskDetection, serializeServicePrincipalRiskDetection, type ServicePrincipalRiskDetection } from '../../../models/servicePrincipalRiskDetection';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServicePrincipalRiskDetectionItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ServicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParameters;
+}
+export interface ServicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
  */
@@ -38,7 +74,7 @@ export class ServicePrincipalRiskDetectionItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a servicePrincipalRiskDetection object.
+     * Read the properties and relationships of a servicePrincipalRiskDetection object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipalRiskDetection
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipalriskdetection-get?view=graph-rest-1.0|Find more info here}
@@ -86,7 +122,7 @@ export class ServicePrincipalRiskDetectionItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a servicePrincipalRiskDetection object.
+     * Read the properties and relationships of a servicePrincipalRiskDetection object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

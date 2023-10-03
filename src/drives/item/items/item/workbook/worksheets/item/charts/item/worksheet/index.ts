@@ -1,2 +1,1 @@
-export * from './worksheetRequestBuilderGetQueryParameters'
-export * from './worksheetRequestBuilderGetRequestConfiguration'
+export * from './worksheetRequestBuilder'

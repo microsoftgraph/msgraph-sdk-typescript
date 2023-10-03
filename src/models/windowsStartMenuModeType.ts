@@ -9,3 +9,5 @@ export enum WindowsStartMenuModeType {
     /** Non-full screen. */
     NonFullScreen = "nonFullScreen",
 }
+// tslint:enable
+// eslint-enable

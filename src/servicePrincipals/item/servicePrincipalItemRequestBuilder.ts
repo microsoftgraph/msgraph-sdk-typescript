@@ -1,11 +1,6 @@
-import { createServicePrincipalFromDiscriminatorValue } from '../../models/createServicePrincipalFromDiscriminatorValue';
-import { deserializeIntoServicePrincipal } from '../../models/deserializeIntoServicePrincipal';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeServicePrincipal } from '../../models/serializeServicePrincipal';
-import { type ServicePrincipal } from '../../models/servicePrincipal';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
+import { createServicePrincipalFromDiscriminatorValue, deserializeIntoServicePrincipal, serializeServicePrincipal, type ServicePrincipal } from '../../models/servicePrincipal';
 import { AddKeyRequestBuilder } from './addKey/addKeyRequestBuilder';
 import { AddPasswordRequestBuilder } from './addPassword/addPasswordRequestBuilder';
 import { AddTokenSigningCertificateRequestBuilder } from './addTokenSigningCertificate/addTokenSigningCertificateRequestBuilder';
@@ -29,15 +24,56 @@ import { OwnersRequestBuilder } from './owners/ownersRequestBuilder';
 import { RemoveKeyRequestBuilder } from './removeKey/removeKeyRequestBuilder';
 import { RemovePasswordRequestBuilder } from './removePassword/removePasswordRequestBuilder';
 import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
-import { type ServicePrincipalItemRequestBuilderDeleteRequestConfiguration } from './servicePrincipalItemRequestBuilderDeleteRequestConfiguration';
-import { type ServicePrincipalItemRequestBuilderGetRequestConfiguration } from './servicePrincipalItemRequestBuilderGetRequestConfiguration';
-import { type ServicePrincipalItemRequestBuilderPatchRequestConfiguration } from './servicePrincipalItemRequestBuilderPatchRequestConfiguration';
 import { SynchronizationRequestBuilder } from './synchronization/synchronizationRequestBuilder';
 import { TokenIssuancePoliciesRequestBuilder } from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import { TokenLifetimePoliciesRequestBuilder } from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import { TransitiveMemberOfRequestBuilder } from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ServicePrincipalItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ServicePrincipalItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ServicePrincipalItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ServicePrincipalItemRequestBuilderGetQueryParameters;
+}
+export interface ServicePrincipalItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the collection of servicePrincipal entities.
  */
@@ -213,7 +249,7 @@ export class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a servicePrincipal object.
+     * Delete a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -228,7 +264,7 @@ export class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
+     * Retrieve the properties and relationships of a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipal
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0|Find more info here}
@@ -260,7 +296,7 @@ export class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ServicePrincipal>(requestInfo, createServicePrincipalFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a servicePrincipal object.
+     * Delete a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -276,7 +312,7 @@ export class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
+     * Retrieve the properties and relationships of a servicePrincipal object. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

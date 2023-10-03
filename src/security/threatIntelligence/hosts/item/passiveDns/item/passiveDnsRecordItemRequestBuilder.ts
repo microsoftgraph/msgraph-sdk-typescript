@@ -1,12 +1,33 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { type PassiveDnsRecord } from '../../../../../../models/security/';
-import { createPassiveDnsRecordFromDiscriminatorValue } from '../../../../../../models/security/createPassiveDnsRecordFromDiscriminatorValue';
-import { type PassiveDnsRecordItemRequestBuilderGetRequestConfiguration } from './passiveDnsRecordItemRequestBuilderGetRequestConfiguration';
+import { createPassiveDnsRecordFromDiscriminatorValue } from '../../../../../../models/security/passiveDnsRecord';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PassiveDnsRecordItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PassiveDnsRecordItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PassiveDnsRecordItemRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to manage the passiveDns property of the microsoft.graph.security.host entity.
  */

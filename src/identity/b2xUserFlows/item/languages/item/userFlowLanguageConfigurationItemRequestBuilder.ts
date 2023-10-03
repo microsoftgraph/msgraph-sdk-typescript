@@ -1,18 +1,54 @@
-import { createUserFlowLanguageConfigurationFromDiscriminatorValue } from '../../../../../models/createUserFlowLanguageConfigurationFromDiscriminatorValue';
-import { deserializeIntoUserFlowLanguageConfiguration } from '../../../../../models/deserializeIntoUserFlowLanguageConfiguration';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeUserFlowLanguageConfiguration } from '../../../../../models/serializeUserFlowLanguageConfiguration';
-import { type UserFlowLanguageConfiguration } from '../../../../../models/userFlowLanguageConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createUserFlowLanguageConfigurationFromDiscriminatorValue, deserializeIntoUserFlowLanguageConfiguration, serializeUserFlowLanguageConfiguration, type UserFlowLanguageConfiguration } from '../../../../../models/userFlowLanguageConfiguration';
 import { DefaultPagesRequestBuilder } from './defaultPages/defaultPagesRequestBuilder';
 import { OverridesPagesRequestBuilder } from './overridesPages/overridesPagesRequestBuilder';
-import { type UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration } from './userFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration';
-import { type UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration } from './userFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration';
-import { type UserFlowLanguageConfigurationItemRequestBuilderPatchRequestConfiguration } from './userFlowLanguageConfigurationItemRequestBuilderPatchRequestConfiguration';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface UserFlowLanguageConfigurationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: UserFlowLanguageConfigurationItemRequestBuilderGetQueryParameters;
+}
+export interface UserFlowLanguageConfigurationItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
  */
@@ -52,7 +88,7 @@ export class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: Language customization is enabled by default in Azure Active Directory user flows.
+     * Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: Language customization is enabled by default in Azure Active Directory user flows. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserFlowLanguageConfiguration
      * @see {@link https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-get?view=graph-rest-1.0|Find more info here}
@@ -100,7 +136,7 @@ export class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: Language customization is enabled by default in Azure Active Directory user flows.
+     * Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: Language customization is enabled by default in Azure Active Directory user flows. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

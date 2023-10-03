@@ -1,19 +1,70 @@
 import { type AppManagementPolicyCollectionResponse } from '../../models/';
-import { type AppManagementPolicy } from '../../models/appManagementPolicy';
-import { createAppManagementPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createAppManagementPolicyCollectionResponseFromDiscriminatorValue';
-import { createAppManagementPolicyFromDiscriminatorValue } from '../../models/createAppManagementPolicyFromDiscriminatorValue';
-import { deserializeIntoAppManagementPolicy } from '../../models/deserializeIntoAppManagementPolicy';
+import { createAppManagementPolicyFromDiscriminatorValue, deserializeIntoAppManagementPolicy, serializeAppManagementPolicy, type AppManagementPolicy } from '../../models/appManagementPolicy';
+import { createAppManagementPolicyCollectionResponseFromDiscriminatorValue } from '../../models/appManagementPolicyCollectionResponse';
 import { type ODataError } from '../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
-import { serializeAppManagementPolicy } from '../../models/serializeAppManagementPolicy';
-import { type AppManagementPoliciesRequestBuilderGetRequestConfiguration } from './appManagementPoliciesRequestBuilderGetRequestConfiguration';
-import { type AppManagementPoliciesRequestBuilderPostRequestConfiguration } from './appManagementPoliciesRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AppManagementPolicyItemRequestBuilder } from './item/appManagementPolicyItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AppManagementPoliciesRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface AppManagementPoliciesRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: AppManagementPoliciesRequestBuilderGetQueryParameters;
+}
+export interface AppManagementPoliciesRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
  */
@@ -44,7 +95,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/appManagementPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of appManagementPolicy objects.
+     * Retrieve a list of appManagementPolicy objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppManagementPolicyCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-list?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AppManagementPolicyCollectionResponse>(requestInfo, createAppManagementPolicyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an appManagementPolicy object.
+     * Create an appManagementPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppManagementPolicy
@@ -77,7 +128,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AppManagementPolicy>(requestInfo, createAppManagementPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of appManagementPolicy objects.
+     * Retrieve a list of appManagementPolicy objects. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create an appManagementPolicy object.
+     * Create an appManagementPolicy object. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

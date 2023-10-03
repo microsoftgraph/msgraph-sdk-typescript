@@ -7,3 +7,5 @@ export enum ManagedAppAvailability {
     /** A line of business apps private to an organization. */
     LineOfBusiness = "lineOfBusiness",
 }
+// tslint:enable
+// eslint-enable

@@ -1,16 +1,48 @@
-import { createTimeOffFromDiscriminatorValue } from '../../../../../models/createTimeOffFromDiscriminatorValue';
-import { deserializeIntoTimeOff } from '../../../../../models/deserializeIntoTimeOff';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeTimeOff } from '../../../../../models/serializeTimeOff';
-import { type TimeOff } from '../../../../../models/timeOff';
-import { type TimeOffItemRequestBuilderDeleteRequestConfiguration } from './timeOffItemRequestBuilderDeleteRequestConfiguration';
-import { type TimeOffItemRequestBuilderGetRequestConfiguration } from './timeOffItemRequestBuilderGetRequestConfiguration';
-import { type TimeOffItemRequestBuilderPatchRequestConfiguration } from './timeOffItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createTimeOffFromDiscriminatorValue, deserializeIntoTimeOff, serializeTimeOff, type TimeOff } from '../../../../../models/timeOff';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface TimeOffItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface TimeOffItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface TimeOffItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: TimeOffItemRequestBuilderGetQueryParameters;
+}
+export interface TimeOffItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the timesOff property of the microsoft.graph.schedule entity.
  */
@@ -24,7 +56,7 @@ export class TimeOffItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/schedule/timesOff/{timeOff%2Did}{?%24select}");
     };
     /**
-     * Delete a timeOff instance from a schedule.
+     * Delete a timeOff instance from a schedule. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/timeoff-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +71,7 @@ export class TimeOffItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a timeOff object by ID.
+     * Retrieve the properties and relationships of a timeOff object by ID. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOff
      * @see {@link https://learn.microsoft.com/graph/api/timeoff-get?view=graph-rest-1.0|Find more info here}
@@ -72,7 +104,7 @@ export class TimeOffItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TimeOff>(requestInfo, createTimeOffFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a timeOff instance from a schedule.
+     * Delete a timeOff instance from a schedule. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +120,7 @@ export class TimeOffItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a timeOff object by ID.
+     * Retrieve the properties and relationships of a timeOff object by ID. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

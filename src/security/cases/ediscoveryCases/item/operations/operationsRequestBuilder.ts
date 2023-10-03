@@ -1,19 +1,70 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type CaseOperationCollectionResponse } from '../../../../../models/security/';
-import { type CaseOperation } from '../../../../../models/security/caseOperation';
-import { createCaseOperationCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createCaseOperationCollectionResponseFromDiscriminatorValue';
-import { createCaseOperationFromDiscriminatorValue } from '../../../../../models/security/createCaseOperationFromDiscriminatorValue';
-import { deserializeIntoCaseOperation } from '../../../../../models/security/deserializeIntoCaseOperation';
-import { serializeCaseOperation } from '../../../../../models/security/serializeCaseOperation';
+import { createCaseOperationFromDiscriminatorValue, deserializeIntoCaseOperation, serializeCaseOperation, type CaseOperation } from '../../../../../models/security/caseOperation';
+import { createCaseOperationCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/caseOperationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { CaseOperationItemRequestBuilder } from './item/caseOperationItemRequestBuilder';
-import { type OperationsRequestBuilderGetRequestConfiguration } from './operationsRequestBuilderGetRequestConfiguration';
-import { type OperationsRequestBuilderPostRequestConfiguration } from './operationsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface OperationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface OperationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: OperationsRequestBuilderGetQueryParameters;
+}
+export interface OperationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
  */
@@ -44,7 +95,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/operations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the caseOperation objects and their properties.
+     * Get a list of the caseOperation objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CaseOperationCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-operations?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CaseOperation>(requestInfo, createCaseOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the caseOperation objects and their properties.
+     * Get a list of the caseOperation objects and their properties. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

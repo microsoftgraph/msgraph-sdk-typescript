@@ -1,1 +1,1 @@
-export * from './microsoftGraphSecurityReopenRequestBuilderPostRequestConfiguration'
+export * from './microsoftGraphSecurityReopenRequestBuilder'

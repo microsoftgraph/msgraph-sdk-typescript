@@ -1,19 +1,55 @@
 import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { createSetFromDiscriminatorValue } from '../../../../../../../../../../models/termStore/createSetFromDiscriminatorValue';
-import { deserializeIntoSet } from '../../../../../../../../../../models/termStore/deserializeIntoSet';
-import { serializeSet } from '../../../../../../../../../../models/termStore/serializeSet';
-import { type Set } from '../../../../../../../../../../models/termStore/set';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../models/oDataErrors/oDataError';
+import { createSetFromDiscriminatorValue, deserializeIntoSet, serializeSet, type Set } from '../../../../../../../../../../models/termStore/set';
 import { ChildrenRequestBuilder } from './children/childrenRequestBuilder';
 import { RelationsRequestBuilder } from './relations/relationsRequestBuilder';
-import { type SetItemRequestBuilderDeleteRequestConfiguration } from './setItemRequestBuilderDeleteRequestConfiguration';
-import { type SetItemRequestBuilderGetRequestConfiguration } from './setItemRequestBuilderGetRequestConfiguration';
-import { type SetItemRequestBuilderPatchRequestConfiguration } from './setItemRequestBuilderPatchRequestConfiguration';
 import { TermsRequestBuilder } from './terms/termsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SetItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface SetItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface SetItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SetItemRequestBuilderGetQueryParameters;
+}
+export interface SetItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
  */

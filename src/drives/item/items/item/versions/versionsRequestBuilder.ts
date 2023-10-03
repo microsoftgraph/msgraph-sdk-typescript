@@ -1,19 +1,70 @@
 import { type DriveItemVersionCollectionResponse } from '../../../../../models/';
-import { createDriveItemVersionCollectionResponseFromDiscriminatorValue } from '../../../../../models/createDriveItemVersionCollectionResponseFromDiscriminatorValue';
-import { createDriveItemVersionFromDiscriminatorValue } from '../../../../../models/createDriveItemVersionFromDiscriminatorValue';
-import { deserializeIntoDriveItemVersion } from '../../../../../models/deserializeIntoDriveItemVersion';
-import { type DriveItemVersion } from '../../../../../models/driveItemVersion';
+import { createDriveItemVersionFromDiscriminatorValue, deserializeIntoDriveItemVersion, serializeDriveItemVersion, type DriveItemVersion } from '../../../../../models/driveItemVersion';
+import { createDriveItemVersionCollectionResponseFromDiscriminatorValue } from '../../../../../models/driveItemVersionCollectionResponse';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { serializeDriveItemVersion } from '../../../../../models/serializeDriveItemVersion';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DriveItemVersionItemRequestBuilder } from './item/driveItemVersionItemRequestBuilder';
-import { type VersionsRequestBuilderGetRequestConfiguration } from './versionsRequestBuilderGetRequestConfiguration';
-import { type VersionsRequestBuilderPostRequestConfiguration } from './versionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface VersionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface VersionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: VersionsRequestBuilderGetQueryParameters;
+}
+export interface VersionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the versions property of the microsoft.graph.driveItem entity.
  */
@@ -44,7 +95,7 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/versions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * OneDrive and SharePoint can be configured to retain the history for files.Depending on the service and configuration, a new version can be created for each edit, each time the file is saved, manually, or never. Previous versions of a document may be retained for a finite period of time depending on admin settings which may be unique per user or location.
+     * OneDrive and SharePoint can be configured to retain the history for files.Depending on the service and configuration, a new version can be created for each edit, each time the file is saved, manually, or never. Previous versions of a document may be retained for a finite period of time depending on admin settings that may be unique per user or location. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItemVersionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/driveitem-list-versions?view=graph-rest-1.0|Find more info here}
@@ -76,7 +127,7 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DriveItemVersion>(requestInfo, createDriveItemVersionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * OneDrive and SharePoint can be configured to retain the history for files.Depending on the service and configuration, a new version can be created for each edit, each time the file is saved, manually, or never. Previous versions of a document may be retained for a finite period of time depending on admin settings which may be unique per user or location.
+     * OneDrive and SharePoint can be configured to retain the history for files.Depending on the service and configuration, a new version can be created for each edit, each time the file is saved, manually, or never. Previous versions of a document may be retained for a finite period of time depending on admin settings that may be unique per user or location. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

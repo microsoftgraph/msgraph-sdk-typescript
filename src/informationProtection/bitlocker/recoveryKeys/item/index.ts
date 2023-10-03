@@ -1,2 +1,1 @@
-export * from './bitlockerRecoveryKeyItemRequestBuilderGetQueryParameters'
-export * from './bitlockerRecoveryKeyItemRequestBuilderGetRequestConfiguration'
+export * from './bitlockerRecoveryKeyItemRequestBuilder'

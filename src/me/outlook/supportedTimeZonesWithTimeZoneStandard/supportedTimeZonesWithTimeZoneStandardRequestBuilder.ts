@@ -1,12 +1,45 @@
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue } from './createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue';
-import { type SupportedTimeZonesWithTimeZoneStandardResponse } from './index';
-import { type SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration } from './supportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
+import { type SupportedTimeZonesWithTimeZoneStandardGetResponse } from './index';
+import { createSupportedTimeZonesWithTimeZoneStandardGetResponseFromDiscriminatorValue } from './supportedTimeZonesWithTimeZoneStandardGetResponse';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters;
+}
 /**
  * Provides operations to call the supportedTimeZones method.
  */
@@ -24,9 +57,9 @@ export class SupportedTimeZonesWithTimeZoneStandardRequestBuilder extends BaseRe
     /**
      * Invoke function supportedTimeZones
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a Promise of SupportedTimeZonesWithTimeZoneStandardResponse
+     * @returns a Promise of SupportedTimeZonesWithTimeZoneStandardGetResponse
      */
-    public get(requestConfiguration?: SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration | undefined) : Promise<SupportedTimeZonesWithTimeZoneStandardResponse | undefined> {
+    public get(requestConfiguration?: SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration | undefined) : Promise<SupportedTimeZonesWithTimeZoneStandardGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -34,7 +67,7 @@ export class SupportedTimeZonesWithTimeZoneStandardRequestBuilder extends BaseRe
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter.sendAsync<SupportedTimeZonesWithTimeZoneStandardResponse>(requestInfo, createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue, errorMapping);
+        return this.requestAdapter.sendAsync<SupportedTimeZonesWithTimeZoneStandardGetResponse>(requestInfo, createSupportedTimeZonesWithTimeZoneStandardGetResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function supportedTimeZones

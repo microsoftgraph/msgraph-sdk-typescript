@@ -1,20 +1,56 @@
-import { createPlannerTaskFromDiscriminatorValue } from '../../../../../../../models/createPlannerTaskFromDiscriminatorValue';
-import { deserializeIntoPlannerTask } from '../../../../../../../models/deserializeIntoPlannerTask';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { type PlannerTask } from '../../../../../../../models/plannerTask';
-import { serializePlannerTask } from '../../../../../../../models/serializePlannerTask';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createPlannerTaskFromDiscriminatorValue, deserializeIntoPlannerTask, serializePlannerTask, type PlannerTask } from '../../../../../../../models/plannerTask';
 import { AssignedToTaskBoardFormatRequestBuilder } from './assignedToTaskBoardFormat/assignedToTaskBoardFormatRequestBuilder';
 import { BucketTaskBoardFormatRequestBuilder } from './bucketTaskBoardFormat/bucketTaskBoardFormatRequestBuilder';
 import { DetailsRequestBuilder } from './details/detailsRequestBuilder';
-import { type PlannerTaskItemRequestBuilderDeleteRequestConfiguration } from './plannerTaskItemRequestBuilderDeleteRequestConfiguration';
-import { type PlannerTaskItemRequestBuilderGetRequestConfiguration } from './plannerTaskItemRequestBuilderGetRequestConfiguration';
-import { type PlannerTaskItemRequestBuilderPatchRequestConfiguration } from './plannerTaskItemRequestBuilderPatchRequestConfiguration';
 import { ProgressTaskBoardFormatRequestBuilder } from './progressTaskBoardFormat/progressTaskBoardFormatRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PlannerTaskItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface PlannerTaskItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface PlannerTaskItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PlannerTaskItemRequestBuilderGetQueryParameters;
+}
+export interface PlannerTaskItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.plannerBucket entity.
  */

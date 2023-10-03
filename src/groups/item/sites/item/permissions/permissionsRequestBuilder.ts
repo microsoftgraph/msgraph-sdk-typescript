@@ -1,19 +1,70 @@
 import { type PermissionCollectionResponse } from '../../../../../models/';
-import { createPermissionCollectionResponseFromDiscriminatorValue } from '../../../../../models/createPermissionCollectionResponseFromDiscriminatorValue';
-import { createPermissionFromDiscriminatorValue } from '../../../../../models/createPermissionFromDiscriminatorValue';
-import { deserializeIntoPermission } from '../../../../../models/deserializeIntoPermission';
 import { type ODataError } from '../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
-import { type Permission } from '../../../../../models/permission';
-import { serializePermission } from '../../../../../models/serializePermission';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
+import { createPermissionFromDiscriminatorValue, deserializeIntoPermission, serializePermission, type Permission } from '../../../../../models/permission';
+import { createPermissionCollectionResponseFromDiscriminatorValue } from '../../../../../models/permissionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PermissionItemRequestBuilder } from './item/permissionItemRequestBuilder';
-import { type PermissionsRequestBuilderGetRequestConfiguration } from './permissionsRequestBuilderGetRequestConfiguration';
-import { type PermissionsRequestBuilderPostRequestConfiguration } from './permissionsRequestBuilderPostRequestConfiguration';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface PermissionsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface PermissionsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: PermissionsRequestBuilderGetQueryParameters;
+}
+export interface PermissionsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the permissions property of the microsoft.graph.site entity.
  */
@@ -44,7 +95,7 @@ export class PermissionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/permissions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the permission resources from the permissions navigation property on a site.
+     * Get the permission resources from the permissions navigation property on a site. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PermissionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/site-list-permissions?view=graph-rest-1.0|Find more info here}
@@ -60,7 +111,7 @@ export class PermissionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PermissionCollectionResponse>(requestInfo, createPermissionCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new permission object on a site. 
+     * Create a new permission object on a site.  This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Permission
@@ -77,7 +128,7 @@ export class PermissionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Permission>(requestInfo, createPermissionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the permission resources from the permissions navigation property on a site.
+     * Get the permission resources from the permissions navigation property on a site. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +146,7 @@ export class PermissionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new permission object on a site. 
+     * Create a new permission object on a site.  This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

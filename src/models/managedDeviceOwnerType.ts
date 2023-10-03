@@ -9,3 +9,5 @@ export enum ManagedDeviceOwnerType {
     /** Owned by person. */
     Personal = "personal",
 }
+// tslint:enable
+// eslint-enable

@@ -1,19 +1,66 @@
 import { type ConversationCollectionResponse } from '../../../models/';
-import { type Conversation } from '../../../models/conversation';
-import { createConversationCollectionResponseFromDiscriminatorValue } from '../../../models/createConversationCollectionResponseFromDiscriminatorValue';
-import { createConversationFromDiscriminatorValue } from '../../../models/createConversationFromDiscriminatorValue';
-import { deserializeIntoConversation } from '../../../models/deserializeIntoConversation';
+import { createConversationFromDiscriminatorValue, deserializeIntoConversation, serializeConversation, type Conversation } from '../../../models/conversation';
+import { createConversationCollectionResponseFromDiscriminatorValue } from '../../../models/conversationCollectionResponse';
 import { type ODataError } from '../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
-import { serializeConversation } from '../../../models/serializeConversation';
-import { type ConversationsRequestBuilderGetRequestConfiguration } from './conversationsRequestBuilderGetRequestConfiguration';
-import { type ConversationsRequestBuilderPostRequestConfiguration } from './conversationsRequestBuilderPostRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ConversationItemRequestBuilder } from './item/conversationItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ConversationsRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
+}
+export interface ConversationsRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ConversationsRequestBuilderGetQueryParameters;
+}
+export interface ConversationsRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the conversations property of the microsoft.graph.group entity.
  */
@@ -44,7 +91,7 @@ export class ConversationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/conversations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Retrieve the list of conversations in this group.
+     * Retrieve the list of conversations in this group. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/group-list-conversations?view=graph-rest-1.0|Find more info here}
@@ -60,11 +107,11 @@ export class ConversationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationCollectionResponse>(requestInfo, createConversationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. The table in the Permissions section lists the resources that support open extensions.
+     * Use reply thread or reply post to further post to that conversation. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Conversation
-     * @see {@link https://learn.microsoft.com/graph/api/opentypeextension-post-opentypeextension?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-post-conversations?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Conversation, requestConfiguration?: ConversationsRequestBuilderPostRequestConfiguration | undefined) : Promise<Conversation | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -77,7 +124,7 @@ export class ConversationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Conversation>(requestInfo, createConversationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the list of conversations in this group.
+     * Retrieve the list of conversations in this group. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +142,7 @@ export class ConversationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. The table in the Permissions section lists the resources that support open extensions.
+     * Use reply thread or reply post to further post to that conversation. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

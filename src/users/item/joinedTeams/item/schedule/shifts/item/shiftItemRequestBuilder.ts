@@ -1,16 +1,48 @@
-import { createShiftFromDiscriminatorValue } from '../../../../../../../models/createShiftFromDiscriminatorValue';
-import { deserializeIntoShift } from '../../../../../../../models/deserializeIntoShift';
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeShift } from '../../../../../../../models/serializeShift';
-import { type Shift } from '../../../../../../../models/shift';
-import { type ShiftItemRequestBuilderDeleteRequestConfiguration } from './shiftItemRequestBuilderDeleteRequestConfiguration';
-import { type ShiftItemRequestBuilderGetRequestConfiguration } from './shiftItemRequestBuilderGetRequestConfiguration';
-import { type ShiftItemRequestBuilderPatchRequestConfiguration } from './shiftItemRequestBuilderPatchRequestConfiguration';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
+import { createShiftFromDiscriminatorValue, deserializeIntoShift, serializeShift, type Shift } from '../../../../../../../models/shift';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface ShiftItemRequestBuilderDeleteRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
+export interface ShiftItemRequestBuilderGetQueryParameters {
+    /**
+     * Select properties to be returned
+     */
+    select?: string[];
+}
+export interface ShiftItemRequestBuilderGetRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+    /**
+     * Request query parameters
+     */
+    queryParameters?: ShiftItemRequestBuilderGetQueryParameters;
+}
+export interface ShiftItemRequestBuilderPatchRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
  */
@@ -24,7 +56,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/shifts/{shift%2Did}{?%24select}");
     };
     /**
-     * Delete a shift from the schedule.
+     * Delete a shift from the schedule. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/shift-delete?view=graph-rest-1.0|Find more info here}
      */
@@ -39,7 +71,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a shift object by ID.
+     * Retrieve the properties and relationships of a shift object by ID. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Shift
      * @see {@link https://learn.microsoft.com/graph/api/shift-get?view=graph-rest-1.0|Find more info here}
@@ -72,7 +104,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Shift>(requestInfo, createShiftFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a shift from the schedule.
+     * Delete a shift from the schedule. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,7 +120,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a shift object by ID.
+     * Retrieve the properties and relationships of a shift object by ID. This API is supported in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

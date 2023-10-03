@@ -1,17 +1,19 @@
-import { createWorkbookTableColumnFromDiscriminatorValue } from '../../../../../../../../../../../models/createWorkbookTableColumnFromDiscriminatorValue';
-import { deserializeIntoWorkbookTableColumn } from '../../../../../../../../../../../models/deserializeIntoWorkbookTableColumn';
 import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookTableColumn } from '../../../../../../../../../../../models/serializeWorkbookTableColumn';
-import { type WorkbookTableColumn } from '../../../../../../../../../../../models/workbookTableColumn';
-import { type AddPostRequestBody } from './addPostRequestBody';
-import { type AddRequestBuilderPostRequestConfiguration } from './addRequestBuilderPostRequestConfiguration';
-import { deserializeIntoAddPostRequestBody } from './deserializeIntoAddPostRequestBody';
-import { serializeAddPostRequestBody } from './serializeAddPostRequestBody';
+import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../../../models/oDataErrors/oDataError';
+import { createWorkbookTableColumnFromDiscriminatorValue, deserializeIntoWorkbookTableColumn, serializeWorkbookTableColumn, type WorkbookTableColumn } from '../../../../../../../../../../../models/workbookTableColumn';
+import { deserializeIntoAddPostRequestBody, serializeAddPostRequestBody, type AddPostRequestBody } from './addPostRequestBody';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
+export interface AddRequestBuilderPostRequestConfiguration {
+    /**
+     * Request headers
+     */
+    headers?: Record<string, string[]>;
+    /**
+     * Request options
+     */
+    options?: RequestOption[];
+}
 /**
  * Provides operations to call the add method.
  */
@@ -25,7 +27,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/{workbookTable%2Did}/columns/add");
     };
     /**
-     * Adds a new column to the table.
+     * Adds a new column to the table. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableColumn
@@ -42,7 +44,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookTableColumn>(requestInfo, createWorkbookTableColumnFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Adds a new column to the table.
+     * Adds a new column to the table. This API is supported in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
