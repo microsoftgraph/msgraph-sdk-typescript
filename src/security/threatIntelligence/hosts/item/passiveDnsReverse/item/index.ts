@@ -1,2 +1,1 @@
-export * from './passiveDnsRecordItemRequestBuilderGetQueryParameters'
-export * from './passiveDnsRecordItemRequestBuilderGetRequestConfiguration'
+export * from './passiveDnsRecordItemRequestBuilder'

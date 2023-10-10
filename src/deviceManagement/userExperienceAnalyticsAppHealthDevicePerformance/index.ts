@@ -1,3 +1,1 @@
-export * from './userExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderGetQueryParameters'
-export * from './userExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderGetRequestConfiguration'
-export * from './userExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderPostRequestConfiguration'
+export * from './userExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder'

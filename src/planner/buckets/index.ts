@@ -1,3 +1,1 @@
-export * from './bucketsRequestBuilderGetQueryParameters'
-export * from './bucketsRequestBuilderGetRequestConfiguration'
-export * from './bucketsRequestBuilderPostRequestConfiguration'
+export * from './bucketsRequestBuilder'

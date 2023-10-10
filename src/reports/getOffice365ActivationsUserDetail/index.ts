@@ -1,1 +1,1 @@
-export * from './getOffice365ActivationsUserDetailRequestBuilderGetRequestConfiguration'
+export * from './getOffice365ActivationsUserDetailRequestBuilder'

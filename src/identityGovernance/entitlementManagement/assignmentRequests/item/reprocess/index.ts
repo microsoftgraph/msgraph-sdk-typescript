@@ -1,1 +1,1 @@
-export * from './reprocessRequestBuilderPostRequestConfiguration'
+export * from './reprocessRequestBuilder'

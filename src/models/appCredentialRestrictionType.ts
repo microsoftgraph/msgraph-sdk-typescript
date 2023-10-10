@@ -6,3 +6,5 @@ export enum AppCredentialRestrictionType {
     CustomPasswordAddition = "customPasswordAddition",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

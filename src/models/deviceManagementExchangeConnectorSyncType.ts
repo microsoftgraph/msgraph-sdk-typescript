@@ -7,3 +7,5 @@ export enum DeviceManagementExchangeConnectorSyncType {
     /** Discover only the device in Exchange which have updated during the delta sync window. */
     DeltaSync = "deltaSync",
 }
+// tslint:enable
+// eslint-enable

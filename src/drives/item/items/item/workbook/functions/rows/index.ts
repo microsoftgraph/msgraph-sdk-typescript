@@ -1,5 +1,2 @@
-export * from './createRowsPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoRowsPostRequestBody'
 export * from './rowsPostRequestBody'
-export * from './rowsRequestBuilderPostRequestConfiguration'
-export * from './serializeRowsPostRequestBody'
+export * from './rowsRequestBuilder'

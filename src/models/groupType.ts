@@ -3,3 +3,5 @@ export enum GroupType {
     AzureAD = "azureAD",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

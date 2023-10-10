@@ -1,5 +1,2 @@
 export * from './assignSensitivityLabelPostRequestBody'
-export * from './assignSensitivityLabelRequestBuilderPostRequestConfiguration'
-export * from './createAssignSensitivityLabelPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAssignSensitivityLabelPostRequestBody'
-export * from './serializeAssignSensitivityLabelPostRequestBody'
+export * from './assignSensitivityLabelRequestBuilder'

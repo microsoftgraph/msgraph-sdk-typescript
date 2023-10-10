@@ -4,3 +4,5 @@ export enum AccessPackageCatalogType {
     ServiceManaged = "serviceManaged",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

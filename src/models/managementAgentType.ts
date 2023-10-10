@@ -25,3 +25,5 @@ export enum ManagementAgentType {
     Microsoft365ManagedMdm = "microsoft365ManagedMdm",
     MsSense = "msSense",
 }
+// tslint:enable
+// eslint-enable

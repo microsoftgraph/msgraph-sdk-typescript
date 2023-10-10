@@ -4,3 +4,5 @@ export enum NetworkTransportProtocol {
     Tcp = "tcp",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

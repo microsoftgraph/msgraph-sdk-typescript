@@ -45,3 +45,5 @@ export enum SynchronizationSecret {
     TestReferences = "TestReferences",
     ConnectionString = "ConnectionString",
 }
+// tslint:enable
+// eslint-enable

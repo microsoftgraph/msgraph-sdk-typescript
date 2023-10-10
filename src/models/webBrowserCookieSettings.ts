@@ -13,3 +13,5 @@ export enum WebBrowserCookieSettings {
     /** Always allow cookies. */
     AllowAlways = "allowAlways",
 }
+// tslint:enable
+// eslint-enable

@@ -1,5 +1,2 @@
-export * from './createOddLYieldPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoOddLYieldPostRequestBody'
 export * from './oddLYieldPostRequestBody'
-export * from './oddLYieldRequestBuilderPostRequestConfiguration'
-export * from './serializeOddLYieldPostRequestBody'
+export * from './oddLYieldRequestBuilder'

@@ -7,3 +7,5 @@ export enum StagedFeatureName {
     CertificateBasedAuthentication = "certificateBasedAuthentication",
     MultiFactorAuthentication = "multiFactorAuthentication",
 }
+// tslint:enable
+// eslint-enable

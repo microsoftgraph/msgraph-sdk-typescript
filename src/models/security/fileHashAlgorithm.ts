@@ -6,3 +6,5 @@ export enum FileHashAlgorithm {
     Sha256ac = "sha256ac",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

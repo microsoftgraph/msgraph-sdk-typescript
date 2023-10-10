@@ -1,2 +1,1 @@
-export * from './taughtClassesRequestBuilderGetQueryParameters'
-export * from './taughtClassesRequestBuilderGetRequestConfiguration'
+export * from './taughtClassesRequestBuilder'

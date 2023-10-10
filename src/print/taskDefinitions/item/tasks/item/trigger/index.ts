@@ -1,2 +1,1 @@
-export * from './triggerRequestBuilderGetQueryParameters'
-export * from './triggerRequestBuilderGetRequestConfiguration'
+export * from './triggerRequestBuilder'

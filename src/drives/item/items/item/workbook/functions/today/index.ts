@@ -1,1 +1,1 @@
-export * from './todayRequestBuilderPostRequestConfiguration'
+export * from './todayRequestBuilder'

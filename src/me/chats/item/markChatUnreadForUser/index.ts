@@ -1,5 +1,2 @@
-export * from './createMarkChatUnreadForUserPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoMarkChatUnreadForUserPostRequestBody'
 export * from './markChatUnreadForUserPostRequestBody'
-export * from './markChatUnreadForUserRequestBuilderPostRequestConfiguration'
-export * from './serializeMarkChatUnreadForUserPostRequestBody'
+export * from './markChatUnreadForUserRequestBuilder'

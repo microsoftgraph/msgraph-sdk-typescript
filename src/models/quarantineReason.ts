@@ -8,3 +8,5 @@ export enum QuarantineReason {
     TooManyDeletes = "TooManyDeletes",
     IngestionInterrupted = "IngestionInterrupted",
 }
+// tslint:enable
+// eslint-enable

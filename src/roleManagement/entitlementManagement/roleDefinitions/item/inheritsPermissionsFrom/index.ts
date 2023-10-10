@@ -1,3 +1,1 @@
-export * from './inheritsPermissionsFromRequestBuilderGetQueryParameters'
-export * from './inheritsPermissionsFromRequestBuilderGetRequestConfiguration'
-export * from './inheritsPermissionsFromRequestBuilderPostRequestConfiguration'
+export * from './inheritsPermissionsFromRequestBuilder'

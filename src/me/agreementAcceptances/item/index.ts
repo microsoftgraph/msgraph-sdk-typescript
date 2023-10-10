@@ -1,2 +1,1 @@
-export * from './agreementAcceptanceItemRequestBuilderGetQueryParameters'
-export * from './agreementAcceptanceItemRequestBuilderGetRequestConfiguration'
+export * from './agreementAcceptanceItemRequestBuilder'

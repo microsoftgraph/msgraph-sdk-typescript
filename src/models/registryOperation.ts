@@ -5,3 +5,5 @@ export enum RegistryOperation {
     Delete = "delete",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

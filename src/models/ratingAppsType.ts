@@ -15,3 +15,5 @@ export enum RatingAppsType {
     /** 17+, age 17 and above */
     AgesAbove17 = "agesAbove17",
 }
+// tslint:enable
+// eslint-enable

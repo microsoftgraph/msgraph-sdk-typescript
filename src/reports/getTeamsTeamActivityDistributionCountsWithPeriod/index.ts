@@ -1,1 +1,1 @@
-export * from './getTeamsTeamActivityDistributionCountsWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder'

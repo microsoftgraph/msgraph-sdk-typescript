@@ -3,3 +3,5 @@ export enum DelegateMeetingMessageDeliveryOptions {
     SendToDelegateAndPrincipal = "sendToDelegateAndPrincipal",
     SendToDelegateOnly = "sendToDelegateOnly",
 }
+// tslint:enable
+// eslint-enable

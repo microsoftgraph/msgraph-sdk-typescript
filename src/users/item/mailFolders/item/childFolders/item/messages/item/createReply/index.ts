@@ -1,5 +1,2 @@
-export * from './createCreateReplyPostRequestBodyFromDiscriminatorValue'
 export * from './createReplyPostRequestBody'
-export * from './createReplyRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoCreateReplyPostRequestBody'
-export * from './serializeCreateReplyPostRequestBody'
+export * from './createReplyRequestBuilder'

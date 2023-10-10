@@ -1,5 +1,2 @@
-export * from './createIsNonTextPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoIsNonTextPostRequestBody'
 export * from './isNonTextPostRequestBody'
-export * from './isNonTextRequestBuilderPostRequestConfiguration'
-export * from './serializeIsNonTextPostRequestBody'
+export * from './isNonTextRequestBuilder'

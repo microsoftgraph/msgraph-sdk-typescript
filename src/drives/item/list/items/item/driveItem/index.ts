@@ -1,2 +1,1 @@
-export * from './driveItemRequestBuilderGetQueryParameters'
-export * from './driveItemRequestBuilderGetRequestConfiguration'
+export * from './driveItemRequestBuilder'

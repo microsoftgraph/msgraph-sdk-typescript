@@ -1,2 +1,1 @@
-export * from './graphAppRoleAssignmentRequestBuilderGetQueryParameters'
-export * from './graphAppRoleAssignmentRequestBuilderGetRequestConfiguration'
+export * from './graphAppRoleAssignmentRequestBuilder'

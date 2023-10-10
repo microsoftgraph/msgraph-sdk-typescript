@@ -3,3 +3,5 @@ export enum VmCloudProvider {
     Azure = "azure",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

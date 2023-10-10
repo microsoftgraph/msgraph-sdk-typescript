@@ -11,3 +11,5 @@ export enum ManagedAppDataEncryptionType {
     /** App data associated with this policy is encrypted when the device is locked */
     WhenDeviceLocked = "whenDeviceLocked",
 }
+// tslint:enable
+// eslint-enable

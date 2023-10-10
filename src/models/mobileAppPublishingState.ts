@@ -9,3 +9,5 @@ export enum MobileAppPublishingState {
     /** The app is published. */
     Published = "published",
 }
+// tslint:enable
+// eslint-enable

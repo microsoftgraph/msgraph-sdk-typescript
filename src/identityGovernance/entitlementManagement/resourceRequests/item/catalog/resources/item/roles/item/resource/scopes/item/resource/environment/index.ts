@@ -1,2 +1,1 @@
-export * from './environmentRequestBuilderGetQueryParameters'
-export * from './environmentRequestBuilderGetRequestConfiguration'
+export * from './environmentRequestBuilder'

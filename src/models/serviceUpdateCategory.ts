@@ -4,3 +4,5 @@ export enum ServiceUpdateCategory {
     StayInformed = "stayInformed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -6,3 +6,5 @@ export enum DataSourceScopes {
     AllCaseNoncustodialDataSources = "allCaseNoncustodialDataSources",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

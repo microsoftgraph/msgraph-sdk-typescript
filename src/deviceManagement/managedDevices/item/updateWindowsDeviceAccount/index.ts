@@ -1,5 +1,2 @@
-export * from './createUpdateWindowsDeviceAccountPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoUpdateWindowsDeviceAccountPostRequestBody'
-export * from './serializeUpdateWindowsDeviceAccountPostRequestBody'
 export * from './updateWindowsDeviceAccountPostRequestBody'
-export * from './updateWindowsDeviceAccountRequestBuilderPostRequestConfiguration'
+export * from './updateWindowsDeviceAccountRequestBuilder'

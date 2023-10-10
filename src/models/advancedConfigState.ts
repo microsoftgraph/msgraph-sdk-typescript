@@ -4,3 +4,5 @@ export enum AdvancedConfigState {
     Disabled = "disabled",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

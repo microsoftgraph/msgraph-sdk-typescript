@@ -9,3 +9,5 @@ export enum ManagedAppDataTransferLevel {
     /** No apps. */
     None = "none",
 }
+// tslint:enable
+// eslint-enable

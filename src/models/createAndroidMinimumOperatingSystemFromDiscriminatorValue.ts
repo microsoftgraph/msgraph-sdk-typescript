@@ -1,8 +1,0 @@
-import { deserializeIntoAndroidMinimumOperatingSystem } from './deserializeIntoAndroidMinimumOperatingSystem';
-import { type AndroidMinimumOperatingSystem } from './index';
-import { type ParseNode } from '@microsoft/kiota-abstractions';
-
-export function createAndroidMinimumOperatingSystemFromDiscriminatorValue(parseNode: ParseNode | undefined) {
-    if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return deserializeIntoAndroidMinimumOperatingSystem;
-}

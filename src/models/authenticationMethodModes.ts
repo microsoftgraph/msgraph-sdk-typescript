@@ -17,3 +17,5 @@ export enum AuthenticationMethodModes {
     FederatedMultiFactor = "federatedMultiFactor",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

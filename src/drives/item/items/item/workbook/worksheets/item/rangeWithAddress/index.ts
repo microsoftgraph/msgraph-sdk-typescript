@@ -1,1 +1,1 @@
-export * from './rangeWithAddressRequestBuilderGetRequestConfiguration'
+export * from './rangeWithAddressRequestBuilder'

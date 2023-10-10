@@ -1,1 +1,1 @@
-export * from './refreshSessionRequestBuilderPostRequestConfiguration'
+export * from './refreshSessionRequestBuilder'

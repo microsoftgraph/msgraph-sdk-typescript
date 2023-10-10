@@ -1,2 +1,1 @@
-export * from './printerRequestBuilderGetQueryParameters'
-export * from './printerRequestBuilderGetRequestConfiguration'
+export * from './printerRequestBuilder'

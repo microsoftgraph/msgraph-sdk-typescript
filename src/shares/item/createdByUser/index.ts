@@ -1,2 +1,1 @@
-export * from './createdByUserRequestBuilderGetQueryParameters'
-export * from './createdByUserRequestBuilderGetRequestConfiguration'
+export * from './createdByUserRequestBuilder'

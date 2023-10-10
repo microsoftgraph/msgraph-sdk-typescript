@@ -4,3 +4,5 @@ export enum PrintDuplexMode {
     OneSided = "oneSided",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

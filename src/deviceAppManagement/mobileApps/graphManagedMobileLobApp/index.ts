@@ -1,2 +1,1 @@
-export * from './graphManagedMobileLobAppRequestBuilderGetQueryParameters'
-export * from './graphManagedMobileLobAppRequestBuilderGetRequestConfiguration'
+export * from './graphManagedMobileLobAppRequestBuilder'

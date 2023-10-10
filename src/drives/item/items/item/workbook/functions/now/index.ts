@@ -1,1 +1,1 @@
-export * from './nowRequestBuilderPostRequestConfiguration'
+export * from './nowRequestBuilder'

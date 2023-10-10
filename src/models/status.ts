@@ -5,3 +5,5 @@ export enum Status {
     Ignored = "ignored",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

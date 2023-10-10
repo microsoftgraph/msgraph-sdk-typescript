@@ -1,1 +1,1 @@
-export * from './exportDeviceAndAppManagementDataRequestBuilderGetRequestConfiguration'
+export * from './exportDeviceAndAppManagementDataRequestBuilder'

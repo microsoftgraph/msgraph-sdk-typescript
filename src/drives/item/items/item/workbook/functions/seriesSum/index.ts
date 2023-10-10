@@ -1,5 +1,2 @@
-export * from './createSeriesSumPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoSeriesSumPostRequestBody'
-export * from './serializeSeriesSumPostRequestBody'
 export * from './seriesSumPostRequestBody'
-export * from './seriesSumRequestBuilderPostRequestConfiguration'
+export * from './seriesSumRequestBuilder'

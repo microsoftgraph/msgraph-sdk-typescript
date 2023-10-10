@@ -1,5 +1,2 @@
-export * from './createHourPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoHourPostRequestBody'
 export * from './hourPostRequestBody'
-export * from './hourRequestBuilderPostRequestConfiguration'
-export * from './serializeHourPostRequestBody'
+export * from './hourRequestBuilder'

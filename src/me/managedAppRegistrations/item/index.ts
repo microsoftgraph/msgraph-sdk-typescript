@@ -1,2 +1,1 @@
-export * from './managedAppRegistrationItemRequestBuilderGetQueryParameters'
-export * from './managedAppRegistrationItemRequestBuilderGetRequestConfiguration'
+export * from './managedAppRegistrationItemRequestBuilder'

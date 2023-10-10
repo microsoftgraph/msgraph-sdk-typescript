@@ -11,3 +11,5 @@ export enum FirewallCertificateRevocationListCheckMethodType {
     /** Require a successful CRL check before allowing a certificate */
     Require = "require",
 }
+// tslint:enable
+// eslint-enable

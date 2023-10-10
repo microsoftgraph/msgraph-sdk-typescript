@@ -1,5 +1,2 @@
-export * from './createHideForUserPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoHideForUserPostRequestBody'
 export * from './hideForUserPostRequestBody'
-export * from './hideForUserRequestBuilderPostRequestConfiguration'
-export * from './serializeHideForUserPostRequestBody'
+export * from './hideForUserRequestBuilder'

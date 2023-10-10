@@ -6,3 +6,5 @@ export enum ConnectionStatus {
     Failed = "failed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -17,3 +17,5 @@ export enum Win32LobAppPowerShellScriptRuleOperationType {
     /** Output data type is boolean. */
     Boolean = "boolean",
 }
+// tslint:enable
+// eslint-enable

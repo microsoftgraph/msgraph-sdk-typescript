@@ -1,1 +1,1 @@
-export * from './resetDecisionsRequestBuilderPostRequestConfiguration'
+export * from './resetDecisionsRequestBuilder'

@@ -1,5 +1,2 @@
 export * from './asinhPostRequestBody'
-export * from './asinhRequestBuilderPostRequestConfiguration'
-export * from './createAsinhPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAsinhPostRequestBody'
-export * from './serializeAsinhPostRequestBody'
+export * from './asinhRequestBuilder'

@@ -1,2 +1,1 @@
-export * from './graphIosLobAppRequestBuilderGetQueryParameters'
-export * from './graphIosLobAppRequestBuilderGetRequestConfiguration'
+export * from './graphIosLobAppRequestBuilder'

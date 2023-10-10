@@ -9,3 +9,5 @@ export enum WelcomeScreenMeetingInformation {
     /** Show organizer, time and subject (subject is hidden for private meetings). */
     ShowOrganizerAndTimeAndSubject = "showOrganizerAndTimeAndSubject",
 }
+// tslint:enable
+// eslint-enable

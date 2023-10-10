@@ -4,3 +4,5 @@ export enum IndicatorSource {
     Public = "public",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

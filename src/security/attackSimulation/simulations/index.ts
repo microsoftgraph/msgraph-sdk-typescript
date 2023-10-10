@@ -1,3 +1,1 @@
-export * from './simulationsRequestBuilderGetQueryParameters'
-export * from './simulationsRequestBuilderGetRequestConfiguration'
-export * from './simulationsRequestBuilderPostRequestConfiguration'
+export * from './simulationsRequestBuilder'

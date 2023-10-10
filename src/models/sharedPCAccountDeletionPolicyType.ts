@@ -9,3 +9,5 @@ export enum SharedPCAccountDeletionPolicyType {
     /** Delete at disk space threshold or inactive threshold. */
     DiskSpaceThresholdOrInactiveThreshold = "diskSpaceThresholdOrInactiveThreshold",
 }
+// tslint:enable
+// eslint-enable

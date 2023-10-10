@@ -1,3 +1,1 @@
-export * from './staffMembersRequestBuilderGetQueryParameters'
-export * from './staffMembersRequestBuilderGetRequestConfiguration'
-export * from './staffMembersRequestBuilderPostRequestConfiguration'
+export * from './staffMembersRequestBuilder'

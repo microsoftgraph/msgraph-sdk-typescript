@@ -1,5 +1,2 @@
-export * from './createNegBinom_DistPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoNegBinom_DistPostRequestBody'
 export * from './negBinom_DistPostRequestBody'
-export * from './negBinom_DistRequestBuilderPostRequestConfiguration'
-export * from './serializeNegBinom_DistPostRequestBody'
+export * from './negBinom_DistRequestBuilder'

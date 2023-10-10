@@ -1,2 +1,1 @@
-export * from './assignmentRequestBuilderGetQueryParameters'
-export * from './assignmentRequestBuilderGetRequestConfiguration'
+export * from './assignmentRequestBuilder'

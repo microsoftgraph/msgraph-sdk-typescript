@@ -1,5 +1,2 @@
-export * from './createGetApplicablePolicyRequirementsResponseFromDiscriminatorValue'
-export * from './deserializeIntoGetApplicablePolicyRequirementsResponse'
-export * from './getApplicablePolicyRequirementsRequestBuilderPostRequestConfiguration'
-export * from './getApplicablePolicyRequirementsResponse'
-export * from './serializeGetApplicablePolicyRequirementsResponse'
+export * from './getApplicablePolicyRequirementsPostResponse'
+export * from './getApplicablePolicyRequirementsRequestBuilder'

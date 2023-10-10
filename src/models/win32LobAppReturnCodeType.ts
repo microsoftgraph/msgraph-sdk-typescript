@@ -13,3 +13,5 @@ export enum Win32LobAppReturnCodeType {
     /** Retry. */
     Retry = "retry",
 }
+// tslint:enable
+// eslint-enable

@@ -10,3 +10,5 @@ export enum UnifiedRoleScheduleRequestActions {
     SelfRenew = "selfRenew",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

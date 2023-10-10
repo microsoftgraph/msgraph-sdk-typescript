@@ -4,3 +4,5 @@ export enum ImageTaggingChoice {
     Enhanced = "enhanced",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

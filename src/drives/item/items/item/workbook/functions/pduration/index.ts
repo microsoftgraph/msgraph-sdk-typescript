@@ -1,5 +1,2 @@
-export * from './createPdurationPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoPdurationPostRequestBody'
 export * from './pdurationPostRequestBody'
-export * from './pdurationRequestBuilderPostRequestConfiguration'
-export * from './serializePdurationPostRequestBody'
+export * from './pdurationRequestBuilder'

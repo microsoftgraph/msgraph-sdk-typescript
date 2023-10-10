@@ -4,3 +4,5 @@ export enum AppLogDecryptionAlgorithm {
     /** Evolvable enumeration sentinel value. Do not use. */
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

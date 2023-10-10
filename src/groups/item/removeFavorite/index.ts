@@ -1,1 +1,1 @@
-export * from './removeFavoriteRequestBuilderPostRequestConfiguration'
+export * from './removeFavoriteRequestBuilder'

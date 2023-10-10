@@ -1,2 +1,1 @@
-export * from './catalogRequestBuilderGetQueryParameters'
-export * from './catalogRequestBuilderGetRequestConfiguration'
+export * from './catalogRequestBuilder'

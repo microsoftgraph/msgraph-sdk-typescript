@@ -1,3 +1,1 @@
-export * from './metricDevicesRequestBuilderGetQueryParameters'
-export * from './metricDevicesRequestBuilderGetRequestConfiguration'
-export * from './metricDevicesRequestBuilderPostRequestConfiguration'
+export * from './metricDevicesRequestBuilder'

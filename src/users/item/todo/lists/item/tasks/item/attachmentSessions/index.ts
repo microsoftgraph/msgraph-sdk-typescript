@@ -1,2 +1,1 @@
-export * from './attachmentSessionsRequestBuilderGetQueryParameters'
-export * from './attachmentSessionsRequestBuilderGetRequestConfiguration'
+export * from './attachmentSessionsRequestBuilder'

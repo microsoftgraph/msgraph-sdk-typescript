@@ -1,3 +1,1 @@
-export * from './attendanceReportsRequestBuilderGetQueryParameters'
-export * from './attendanceReportsRequestBuilderGetRequestConfiguration'
-export * from './attendanceReportsRequestBuilderPostRequestConfiguration'
+export * from './attendanceReportsRequestBuilder'

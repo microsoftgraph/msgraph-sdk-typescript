@@ -1,5 +1,2 @@
-export * from './createDcountPostRequestBodyFromDiscriminatorValue'
 export * from './dcountPostRequestBody'
-export * from './dcountRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoDcountPostRequestBody'
-export * from './serializeDcountPostRequestBody'
+export * from './dcountRequestBuilder'

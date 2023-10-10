@@ -1,5 +1,2 @@
 export * from './applyTagsPostRequestBody'
-export * from './createApplyTagsPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoApplyTagsPostRequestBody'
-export * from './microsoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration'
-export * from './serializeApplyTagsPostRequestBody'
+export * from './microsoftGraphSecurityApplyTagsRequestBuilder'

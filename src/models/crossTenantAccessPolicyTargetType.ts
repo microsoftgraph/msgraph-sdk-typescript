@@ -4,3 +4,5 @@ export enum CrossTenantAccessPolicyTargetType {
     Application = "application",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,4 +1,1 @@
-export * from './attributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration'
-export * from './attributeMappingFunctionSchemaItemRequestBuilderGetQueryParameters'
-export * from './attributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration'
-export * from './attributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration'
+export * from './attributeMappingFunctionSchemaItemRequestBuilder'

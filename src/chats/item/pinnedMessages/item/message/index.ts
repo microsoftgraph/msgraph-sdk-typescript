@@ -1,2 +1,1 @@
-export * from './messageRequestBuilderGetQueryParameters'
-export * from './messageRequestBuilderGetRequestConfiguration'
+export * from './messageRequestBuilder'

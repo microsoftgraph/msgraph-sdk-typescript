@@ -4,3 +4,5 @@ export enum RejectReason {
     Forbidden = "forbidden",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

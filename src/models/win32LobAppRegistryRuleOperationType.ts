@@ -15,3 +15,5 @@ export enum Win32LobAppRegistryRuleOperationType {
     /** Version value type. */
     Version = "version",
 }
+// tslint:enable
+// eslint-enable

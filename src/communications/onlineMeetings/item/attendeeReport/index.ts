@@ -1,2 +1,1 @@
-export * from './attendeeReportRequestBuilderGetRequestConfiguration'
-export * from './attendeeReportRequestBuilderPutRequestConfiguration'
+export * from './attendeeReportRequestBuilder'

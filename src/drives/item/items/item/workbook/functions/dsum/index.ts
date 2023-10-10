@@ -1,5 +1,2 @@
-export * from './createDsumPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoDsumPostRequestBody'
 export * from './dsumPostRequestBody'
-export * from './dsumRequestBuilderPostRequestConfiguration'
-export * from './serializeDsumPostRequestBody'
+export * from './dsumRequestBuilder'

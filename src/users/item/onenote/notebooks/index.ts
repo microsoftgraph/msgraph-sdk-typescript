@@ -1,3 +1,1 @@
-export * from './notebooksRequestBuilderGetQueryParameters'
-export * from './notebooksRequestBuilderGetRequestConfiguration'
-export * from './notebooksRequestBuilderPostRequestConfiguration'
+export * from './notebooksRequestBuilder'

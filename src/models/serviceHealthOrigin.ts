@@ -4,3 +4,5 @@ export enum ServiceHealthOrigin {
     Customer = "customer",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

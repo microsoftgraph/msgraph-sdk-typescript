@@ -19,3 +19,5 @@ export enum RatingUnitedStatesTelevisionType {
     /** TV-MA, adults only */
     Adults = "adults",
 }
+// tslint:enable
+// eslint-enable

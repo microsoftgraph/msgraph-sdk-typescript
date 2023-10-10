@@ -1,2 +1,1 @@
-export * from './invitedUserRequestBuilderGetQueryParameters'
-export * from './invitedUserRequestBuilderGetRequestConfiguration'
+export * from './invitedUserRequestBuilder'

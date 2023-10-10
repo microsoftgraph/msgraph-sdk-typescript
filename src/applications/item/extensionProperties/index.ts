@@ -1,3 +1,1 @@
-export * from './extensionPropertiesRequestBuilderGetQueryParameters'
-export * from './extensionPropertiesRequestBuilderGetRequestConfiguration'
-export * from './extensionPropertiesRequestBuilderPostRequestConfiguration'
+export * from './extensionPropertiesRequestBuilder'

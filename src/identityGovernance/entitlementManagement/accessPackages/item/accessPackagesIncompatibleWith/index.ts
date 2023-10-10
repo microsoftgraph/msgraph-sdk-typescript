@@ -1,2 +1,1 @@
-export * from './accessPackagesIncompatibleWithRequestBuilderGetQueryParameters'
-export * from './accessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration'
+export * from './accessPackagesIncompatibleWithRequestBuilder'

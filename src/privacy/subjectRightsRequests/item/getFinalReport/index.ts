@@ -1,1 +1,1 @@
-export * from './getFinalReportRequestBuilderGetRequestConfiguration'
+export * from './getFinalReportRequestBuilder'

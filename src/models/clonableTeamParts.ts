@@ -5,3 +5,5 @@ export enum ClonableTeamParts {
     Channels = "channels",
     Members = "members",
 }
+// tslint:enable
+// eslint-enable

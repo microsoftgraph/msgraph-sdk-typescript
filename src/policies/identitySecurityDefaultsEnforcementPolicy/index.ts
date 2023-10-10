@@ -1,4 +1,1 @@
-export * from './identitySecurityDefaultsEnforcementPolicyRequestBuilderDeleteRequestConfiguration'
-export * from './identitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters'
-export * from './identitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration'
-export * from './identitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration'
+export * from './identitySecurityDefaultsEnforcementPolicyRequestBuilder'

@@ -8,3 +8,5 @@ export enum ContactRelationship {
     Other = "other",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -4,3 +4,5 @@ export enum OnenoteUserRole {
     Contributor = "Contributor",
     Reader = "Reader",
 }
+// tslint:enable
+// eslint-enable

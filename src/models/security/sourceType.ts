@@ -3,3 +3,5 @@ export enum SourceType {
     Site = "site",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

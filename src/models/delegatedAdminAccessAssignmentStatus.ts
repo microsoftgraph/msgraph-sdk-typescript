@@ -6,3 +6,5 @@ export enum DelegatedAdminAccessAssignmentStatus {
     ErrorEscaped = "error",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

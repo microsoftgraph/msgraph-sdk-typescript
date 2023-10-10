@@ -1,5 +1,2 @@
-export * from './createNetworkDaysPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoNetworkDaysPostRequestBody'
 export * from './networkDaysPostRequestBody'
-export * from './networkDaysRequestBuilderPostRequestConfiguration'
-export * from './serializeNetworkDaysPostRequestBody'
+export * from './networkDaysRequestBuilder'

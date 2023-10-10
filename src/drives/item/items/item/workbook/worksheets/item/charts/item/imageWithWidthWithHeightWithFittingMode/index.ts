@@ -1,5 +1,2 @@
-export * from './createImageWithWidthWithHeightWithFittingModeResponseFromDiscriminatorValue'
-export * from './deserializeIntoImageWithWidthWithHeightWithFittingModeResponse'
-export * from './imageWithWidthWithHeightWithFittingModeRequestBuilderGetRequestConfiguration'
-export * from './imageWithWidthWithHeightWithFittingModeResponse'
-export * from './serializeImageWithWidthWithHeightWithFittingModeResponse'
+export * from './imageWithWidthWithHeightWithFittingModeGetResponse'
+export * from './imageWithWidthWithHeightWithFittingModeRequestBuilder'

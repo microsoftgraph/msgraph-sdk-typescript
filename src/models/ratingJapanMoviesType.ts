@@ -15,3 +15,5 @@ export enum RatingJapanMoviesType {
     /** The R18+ classification is suitable for viewers of 18 or older */
     AgesAbove18 = "agesAbove18",
 }
+// tslint:enable
+// eslint-enable

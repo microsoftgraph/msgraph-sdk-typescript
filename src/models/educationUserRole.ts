@@ -4,3 +4,5 @@ export enum EducationUserRole {
     None = "none",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -9,3 +9,5 @@ export enum WindowsHelloForBusinessPinUsage {
     /** Forbit the usage of certain pin rule */
     Disallowed = "disallowed",
 }
+// tslint:enable
+// eslint-enable

@@ -3,3 +3,5 @@ export enum WorkflowExecutionType {
     OnDemand = "onDemand",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

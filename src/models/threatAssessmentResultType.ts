@@ -3,3 +3,5 @@ export enum ThreatAssessmentResultType {
     Rescan = "rescan",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

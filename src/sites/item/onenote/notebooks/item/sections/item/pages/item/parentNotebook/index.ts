@@ -1,2 +1,1 @@
-export * from './parentNotebookRequestBuilderGetQueryParameters'
-export * from './parentNotebookRequestBuilderGetRequestConfiguration'
+export * from './parentNotebookRequestBuilder'

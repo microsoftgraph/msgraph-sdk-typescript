@@ -1,2 +1,1 @@
-export * from './listItemRequestBuilderGetQueryParameters'
-export * from './listItemRequestBuilderGetRequestConfiguration'
+export * from './listItemRequestBuilder'

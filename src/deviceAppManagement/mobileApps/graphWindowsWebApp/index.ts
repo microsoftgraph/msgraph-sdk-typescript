@@ -1,2 +1,1 @@
-export * from './graphWindowsWebAppRequestBuilderGetQueryParameters'
-export * from './graphWindowsWebAppRequestBuilderGetRequestConfiguration'
+export * from './graphWindowsWebAppRequestBuilder'

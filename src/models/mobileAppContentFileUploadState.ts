@@ -19,3 +19,5 @@ export enum MobileAppContentFileUploadState {
     CommitFileFailed = "commitFileFailed",
     CommitFileTimedOut = "commitFileTimedOut",
 }
+// tslint:enable
+// eslint-enable

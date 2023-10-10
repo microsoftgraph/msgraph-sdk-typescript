@@ -9,3 +9,5 @@ export enum WindowsSpotlightEnablementSettings {
     /** Enable Windows Spotlight on lock screen */
     Enabled = "enabled",
 }
+// tslint:enable
+// eslint-enable

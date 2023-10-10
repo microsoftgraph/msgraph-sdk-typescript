@@ -1,2 +1,1 @@
-export * from './approversRequestBuilderGetQueryParameters'
-export * from './approversRequestBuilderGetRequestConfiguration'
+export * from './approversRequestBuilder'

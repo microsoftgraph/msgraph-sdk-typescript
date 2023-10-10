@@ -3,3 +3,5 @@ export enum RelationType {
     Reuse = "reuse",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

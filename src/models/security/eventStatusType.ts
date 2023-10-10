@@ -5,3 +5,5 @@ export enum EventStatusType {
     NotAvaliable = "notAvaliable",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

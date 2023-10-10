@@ -9,3 +9,5 @@ export enum FirewallPreSharedKeyEncodingMethodType {
     /** Encode the preshared key using UTF-8 */
     UtF8 = "utF8",
 }
+// tslint:enable
+// eslint-enable

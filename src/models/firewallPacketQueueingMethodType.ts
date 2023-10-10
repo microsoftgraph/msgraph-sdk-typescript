@@ -13,3 +13,5 @@ export enum FirewallPacketQueueingMethodType {
     /** Queue both inbound and outbound packets */
     QueueBoth = "queueBoth",
 }
+// tslint:enable
+// eslint-enable

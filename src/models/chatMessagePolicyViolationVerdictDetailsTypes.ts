@@ -4,3 +4,5 @@ export enum ChatMessagePolicyViolationVerdictDetailsTypes {
     AllowOverrideWithoutJustification = "allowOverrideWithoutJustification",
     AllowOverrideWithJustification = "allowOverrideWithJustification",
 }
+// tslint:enable
+// eslint-enable

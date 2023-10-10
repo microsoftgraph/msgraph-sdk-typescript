@@ -4,3 +4,5 @@ export enum ChatMessagePolicyViolationDlpActionTypes {
     BlockAccess = "blockAccess",
     BlockAccessExternal = "blockAccessExternal",
 }
+// tslint:enable
+// eslint-enable

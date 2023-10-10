@@ -1,5 +1,2 @@
-export * from './createImCosPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoImCosPostRequestBody'
 export * from './imCosPostRequestBody'
-export * from './imCosRequestBuilderPostRequestConfiguration'
-export * from './serializeImCosPostRequestBody'
+export * from './imCosRequestBuilder'

@@ -1,5 +1,2 @@
 export * from './cosPostRequestBody'
-export * from './cosRequestBuilderPostRequestConfiguration'
-export * from './createCosPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoCosPostRequestBody'
-export * from './serializeCosPostRequestBody'
+export * from './cosRequestBuilder'

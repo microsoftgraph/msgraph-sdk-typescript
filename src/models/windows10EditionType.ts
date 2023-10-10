@@ -27,3 +27,5 @@ export enum Windows10EditionType {
     /** Windows 10 Professional for Workstations N */
     Windows10ProfessionalWorkstationN = "windows10ProfessionalWorkstationN",
 }
+// tslint:enable
+// eslint-enable

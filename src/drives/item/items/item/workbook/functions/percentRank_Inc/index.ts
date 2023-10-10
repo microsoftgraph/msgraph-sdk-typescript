@@ -1,5 +1,2 @@
-export * from './createPercentRank_IncPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoPercentRank_IncPostRequestBody'
 export * from './percentRank_IncPostRequestBody'
-export * from './percentRank_IncRequestBuilderPostRequestConfiguration'
-export * from './serializePercentRank_IncPostRequestBody'
+export * from './percentRank_IncRequestBuilder'

@@ -4,3 +4,5 @@ export enum ServiceUpdateSeverity {
     Critical = "critical",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

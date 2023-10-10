@@ -1,5 +1,2 @@
 export * from './changeScreenSharingRolePostRequestBody'
-export * from './changeScreenSharingRoleRequestBuilderPostRequestConfiguration'
-export * from './createChangeScreenSharingRolePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoChangeScreenSharingRolePostRequestBody'
-export * from './serializeChangeScreenSharingRolePostRequestBody'
+export * from './changeScreenSharingRoleRequestBuilder'

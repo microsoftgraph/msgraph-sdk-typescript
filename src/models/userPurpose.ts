@@ -7,3 +7,5 @@ export enum UserPurpose {
     Others = "others",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

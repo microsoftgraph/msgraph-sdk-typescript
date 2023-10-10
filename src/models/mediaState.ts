@@ -3,3 +3,5 @@ export enum MediaState {
     Inactive = "inactive",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

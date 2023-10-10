@@ -1,1 +1,1 @@
-export * from './getM365AppUserDetailWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getM365AppUserDetailWithPeriodRequestBuilder'

@@ -4,3 +4,5 @@ export enum VolumeType {
     RemovableDataVolume = "removableDataVolume",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

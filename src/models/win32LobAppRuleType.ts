@@ -7,3 +7,5 @@ export enum Win32LobAppRuleType {
     /** Requirement rule. */
     Requirement = "requirement",
 }
+// tslint:enable
+// eslint-enable

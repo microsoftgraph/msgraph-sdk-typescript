@@ -1,5 +1,2 @@
-export * from './createWeibull_DistPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoWeibull_DistPostRequestBody'
-export * from './serializeWeibull_DistPostRequestBody'
 export * from './weibull_DistPostRequestBody'
-export * from './weibull_DistRequestBuilderPostRequestConfiguration'
+export * from './weibull_DistRequestBuilder'

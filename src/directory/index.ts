@@ -1,3 +1,1 @@
-export * from './directoryRequestBuilderGetQueryParameters'
-export * from './directoryRequestBuilderGetRequestConfiguration'
-export * from './directoryRequestBuilderPatchRequestConfiguration'
+export * from './directoryRequestBuilder'

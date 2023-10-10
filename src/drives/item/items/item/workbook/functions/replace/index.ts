@@ -1,5 +1,2 @@
-export * from './createReplacePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoReplacePostRequestBody'
 export * from './replacePostRequestBody'
-export * from './replaceRequestBuilderPostRequestConfiguration'
-export * from './serializeReplacePostRequestBody'
+export * from './replaceRequestBuilder'

@@ -3,3 +3,5 @@ export enum RecurrenceRangeType {
     NoEnd = "noEnd",
     Numbered = "numbered",
 }
+// tslint:enable
+// eslint-enable

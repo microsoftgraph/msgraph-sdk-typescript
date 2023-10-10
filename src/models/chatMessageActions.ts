@@ -4,3 +4,5 @@ export enum ChatMessageActions {
     ActionUndefined = "actionUndefined",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

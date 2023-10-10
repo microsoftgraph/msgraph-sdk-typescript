@@ -1,2 +1,1 @@
-export * from './customCSSRequestBuilderGetRequestConfiguration'
-export * from './customCSSRequestBuilderPutRequestConfiguration'
+export * from './customCSSRequestBuilder'

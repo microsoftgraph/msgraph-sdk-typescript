@@ -4,3 +4,5 @@ export enum DetectionStatus {
     Prevented = "prevented",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

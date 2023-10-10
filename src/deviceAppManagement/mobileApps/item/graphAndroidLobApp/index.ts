@@ -1,2 +1,1 @@
-export * from './graphAndroidLobAppRequestBuilderGetQueryParameters'
-export * from './graphAndroidLobAppRequestBuilderGetRequestConfiguration'
+export * from './graphAndroidLobAppRequestBuilder'
