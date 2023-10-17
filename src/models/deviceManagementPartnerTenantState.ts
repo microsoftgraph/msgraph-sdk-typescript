@@ -15,3 +15,5 @@ export enum DeviceManagementPartnerTenantState {
     /** Partner is unresponsive. */
     Unresponsive = "unresponsive",
 }
+// tslint:enable
+// eslint-enable

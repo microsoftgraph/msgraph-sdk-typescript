@@ -1,3 +1,1 @@
-export * from './linkedResourcesRequestBuilderGetQueryParameters'
-export * from './linkedResourcesRequestBuilderGetRequestConfiguration'
-export * from './linkedResourcesRequestBuilderPostRequestConfiguration'
+export * from './linkedResourcesRequestBuilder'

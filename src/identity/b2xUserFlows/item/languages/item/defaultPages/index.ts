@@ -1,3 +1,1 @@
-export * from './defaultPagesRequestBuilderGetQueryParameters'
-export * from './defaultPagesRequestBuilderGetRequestConfiguration'
-export * from './defaultPagesRequestBuilderPostRequestConfiguration'
+export * from './defaultPagesRequestBuilder'

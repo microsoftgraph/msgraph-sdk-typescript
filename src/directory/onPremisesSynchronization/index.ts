@@ -1,3 +1,1 @@
-export * from './onPremisesSynchronizationRequestBuilderGetQueryParameters'
-export * from './onPremisesSynchronizationRequestBuilderGetRequestConfiguration'
-export * from './onPremisesSynchronizationRequestBuilderPostRequestConfiguration'
+export * from './onPremisesSynchronizationRequestBuilder'

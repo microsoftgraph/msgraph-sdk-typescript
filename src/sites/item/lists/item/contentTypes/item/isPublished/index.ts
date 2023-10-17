@@ -1,5 +1,2 @@
-export * from './createIsPublishedResponseFromDiscriminatorValue'
-export * from './deserializeIntoIsPublishedResponse'
-export * from './isPublishedRequestBuilderGetRequestConfiguration'
-export * from './isPublishedResponse'
-export * from './serializeIsPublishedResponse'
+export * from './isPublishedGetResponse'
+export * from './isPublishedRequestBuilder'

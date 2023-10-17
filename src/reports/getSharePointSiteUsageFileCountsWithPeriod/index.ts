@@ -1,1 +1,1 @@
-export * from './getSharePointSiteUsageFileCountsWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getSharePointSiteUsageFileCountsWithPeriodRequestBuilder'

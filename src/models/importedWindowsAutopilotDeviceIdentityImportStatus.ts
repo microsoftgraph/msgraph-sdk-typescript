@@ -10,3 +10,5 @@ export enum ImportedWindowsAutopilotDeviceIdentityImportStatus {
     /** Error status. */
     ErrorEscaped = "error",
 }
+// tslint:enable
+// eslint-enable

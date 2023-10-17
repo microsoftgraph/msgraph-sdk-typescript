@@ -10,3 +10,5 @@ export enum PropertyType {
     DateTimeCollection = "dateTimeCollection",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

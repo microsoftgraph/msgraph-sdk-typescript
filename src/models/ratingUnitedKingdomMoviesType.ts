@@ -21,3 +21,5 @@ export enum RatingUnitedKingdomMoviesType {
     /** Suitable only for adults */
     Adults = "adults",
 }
+// tslint:enable
+// eslint-enable

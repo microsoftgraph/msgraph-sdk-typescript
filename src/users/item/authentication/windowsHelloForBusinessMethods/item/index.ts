@@ -1,3 +1,1 @@
-export * from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration'
-export * from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters'
-export * from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration'
+export * from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilder'

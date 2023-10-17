@@ -9,3 +9,5 @@ export enum StateManagementSetting {
     /** Allowed. */
     Allowed = "allowed",
 }
+// tslint:enable
+// eslint-enable

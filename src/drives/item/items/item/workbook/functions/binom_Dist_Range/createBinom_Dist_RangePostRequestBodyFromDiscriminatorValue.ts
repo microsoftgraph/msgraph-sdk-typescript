@@ -1,8 +1,0 @@
-import { deserializeIntoBinom_Dist_RangePostRequestBody } from './deserializeIntoBinom_Dist_RangePostRequestBody';
-import { type Binom_Dist_RangePostRequestBody } from './index';
-import { type ParseNode } from '@microsoft/kiota-abstractions';
-
-export function createBinom_Dist_RangePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
-    if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return deserializeIntoBinom_Dist_RangePostRequestBody;
-}

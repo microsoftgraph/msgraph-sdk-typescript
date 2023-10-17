@@ -1,3 +1,1 @@
-export * from './appRoleAssignmentsRequestBuilderGetQueryParameters'
-export * from './appRoleAssignmentsRequestBuilderGetRequestConfiguration'
-export * from './appRoleAssignmentsRequestBuilderPostRequestConfiguration'
+export * from './appRoleAssignmentsRequestBuilder'

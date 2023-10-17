@@ -19,3 +19,5 @@ export enum DeviceRegistrationState {
     /** The device registration status is unknown. */
     Unknown = "unknown",
 }
+// tslint:enable
+// eslint-enable

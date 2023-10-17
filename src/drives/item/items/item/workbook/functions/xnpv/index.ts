@@ -1,5 +1,2 @@
-export * from './createXnpvPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoXnpvPostRequestBody'
-export * from './serializeXnpvPostRequestBody'
 export * from './xnpvPostRequestBody'
-export * from './xnpvRequestBuilderPostRequestConfiguration'
+export * from './xnpvRequestBuilder'

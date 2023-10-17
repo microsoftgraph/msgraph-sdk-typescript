@@ -1,5 +1,2 @@
-export * from './createSetReactionPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoSetReactionPostRequestBody'
-export * from './serializeSetReactionPostRequestBody'
 export * from './setReactionPostRequestBody'
-export * from './setReactionRequestBuilderPostRequestConfiguration'
+export * from './setReactionRequestBuilder'

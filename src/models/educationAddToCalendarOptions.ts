@@ -5,3 +5,5 @@ export enum EducationAddToCalendarOptions {
     UnknownFutureValue = "unknownFutureValue",
     StudentsOnly = "studentsOnly",
 }
+// tslint:enable
+// eslint-enable

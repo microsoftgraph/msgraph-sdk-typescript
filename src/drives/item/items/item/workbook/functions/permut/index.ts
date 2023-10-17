@@ -1,5 +1,2 @@
-export * from './createPermutPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoPermutPostRequestBody'
 export * from './permutPostRequestBody'
-export * from './permutRequestBuilderPostRequestConfiguration'
-export * from './serializePermutPostRequestBody'
+export * from './permutRequestBuilder'

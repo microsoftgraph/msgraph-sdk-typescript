@@ -5,3 +5,5 @@ export enum WeekIndex {
     Fourth = "fourth",
     Last = "last",
 }
+// tslint:enable
+// eslint-enable

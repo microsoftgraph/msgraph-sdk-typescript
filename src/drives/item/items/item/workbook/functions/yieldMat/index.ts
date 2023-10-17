@@ -1,5 +1,2 @@
-export * from './createYieldMatPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoYieldMatPostRequestBody'
-export * from './serializeYieldMatPostRequestBody'
 export * from './yieldMatPostRequestBody'
-export * from './yieldMatRequestBuilderPostRequestConfiguration'
+export * from './yieldMatRequestBuilder'

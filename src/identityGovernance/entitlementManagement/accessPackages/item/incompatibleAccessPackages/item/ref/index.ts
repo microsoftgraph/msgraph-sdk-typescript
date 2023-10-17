@@ -1,2 +1,1 @@
-export * from './refRequestBuilderDeleteQueryParameters'
-export * from './refRequestBuilderDeleteRequestConfiguration'
+export * from './refRequestBuilder'

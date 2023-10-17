@@ -4,3 +4,5 @@ export enum BookingReminderRecipients {
     Customer = "customer",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

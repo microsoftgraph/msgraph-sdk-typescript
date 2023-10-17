@@ -1,2 +1,1 @@
-export * from './incompatibleGroupsRequestBuilderGetQueryParameters'
-export * from './incompatibleGroupsRequestBuilderGetRequestConfiguration'
+export * from './incompatibleGroupsRequestBuilder'

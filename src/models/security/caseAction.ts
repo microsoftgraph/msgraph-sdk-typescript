@@ -9,3 +9,5 @@ export enum CaseAction {
     UnknownFutureValue = "unknownFutureValue",
     PurgeData = "purgeData",
 }
+// tslint:enable
+// eslint-enable

@@ -7,3 +7,5 @@ export enum ObjectDefinitionMetadata {
     Extensions = "Extensions",
     BaseObjectName = "BaseObjectName",
 }
+// tslint:enable
+// eslint-enable

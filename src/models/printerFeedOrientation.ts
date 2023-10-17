@@ -3,3 +3,5 @@ export enum PrinterFeedOrientation {
     ShortEdgeFirst = "shortEdgeFirst",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

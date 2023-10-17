@@ -5,3 +5,5 @@ export enum GoogleCloudLocationType {
     Global = "global",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,4 +1,1 @@
-export * from './windowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration'
-export * from './windowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters'
-export * from './windowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration'
-export * from './windowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration'
+export * from './windowsInformationProtectionPolicyItemRequestBuilder'

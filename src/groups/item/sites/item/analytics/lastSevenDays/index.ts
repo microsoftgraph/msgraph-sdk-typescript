@@ -1,2 +1,1 @@
-export * from './lastSevenDaysRequestBuilderGetQueryParameters'
-export * from './lastSevenDaysRequestBuilderGetRequestConfiguration'
+export * from './lastSevenDaysRequestBuilder'

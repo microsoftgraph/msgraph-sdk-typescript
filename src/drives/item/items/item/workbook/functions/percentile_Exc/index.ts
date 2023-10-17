@@ -1,5 +1,2 @@
-export * from './createPercentile_ExcPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoPercentile_ExcPostRequestBody'
 export * from './percentile_ExcPostRequestBody'
-export * from './percentile_ExcRequestBuilderPostRequestConfiguration'
-export * from './serializePercentile_ExcPostRequestBody'
+export * from './percentile_ExcRequestBuilder'

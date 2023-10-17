@@ -1,2 +1,1 @@
-export * from './photosRequestBuilderGetQueryParameters'
-export * from './photosRequestBuilderGetRequestConfiguration'
+export * from './photosRequestBuilder'

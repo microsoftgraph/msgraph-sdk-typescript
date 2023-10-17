@@ -1,3 +1,1 @@
-export * from './windowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters'
-export * from './windowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration'
-export * from './windowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration'
+export * from './windowsAutopilotDeviceIdentitiesRequestBuilder'

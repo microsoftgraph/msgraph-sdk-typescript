@@ -1,3 +1,1 @@
-export * from './claimsMappingPoliciesRequestBuilderGetQueryParameters'
-export * from './claimsMappingPoliciesRequestBuilderGetRequestConfiguration'
-export * from './claimsMappingPoliciesRequestBuilderPostRequestConfiguration'
+export * from './claimsMappingPoliciesRequestBuilder'

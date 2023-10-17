@@ -1,4 +1,1 @@
-export * from './accessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration'
-export * from './accessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters'
-export * from './accessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration'
-export * from './accessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration'
+export * from './accessReviewScheduleDefinitionItemRequestBuilder'

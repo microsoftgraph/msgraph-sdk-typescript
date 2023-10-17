@@ -1,3 +1,1 @@
-export * from './serviceManagementDetailsRequestBuilderGetQueryParameters'
-export * from './serviceManagementDetailsRequestBuilderGetRequestConfiguration'
-export * from './serviceManagementDetailsRequestBuilderPostRequestConfiguration'
+export * from './serviceManagementDetailsRequestBuilder'

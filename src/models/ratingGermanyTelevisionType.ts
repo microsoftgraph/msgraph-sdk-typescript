@@ -17,3 +17,5 @@ export enum RatingGermanyTelevisionType {
     /** Ab 18 Jahren, adults only */
     Adults = "adults",
 }
+// tslint:enable
+// eslint-enable

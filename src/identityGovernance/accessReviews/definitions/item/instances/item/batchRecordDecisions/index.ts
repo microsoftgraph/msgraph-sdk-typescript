@@ -1,5 +1,2 @@
 export * from './batchRecordDecisionsPostRequestBody'
-export * from './batchRecordDecisionsRequestBuilderPostRequestConfiguration'
-export * from './createBatchRecordDecisionsPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoBatchRecordDecisionsPostRequestBody'
-export * from './serializeBatchRecordDecisionsPostRequestBody'
+export * from './batchRecordDecisionsRequestBuilder'

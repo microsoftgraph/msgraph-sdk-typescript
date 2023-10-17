@@ -1,17 +1,3 @@
-import { createWorkbookFunctionResultFromDiscriminatorValue } from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
-import { deserializeIntoWorkbookFunctionResult } from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
-import { type ODataError } from '../../../../../../../models/oDataErrors/';
-import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
-import { serializeWorkbookFunctionResult } from '../../../../../../../models/serializeWorkbookFunctionResult';
-import { type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
-import { type BasePostRequestBody } from './basePostRequestBody';
-import { type BaseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration } from './baseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration';
-import { deserializeIntoBasePostRequestBody } from './deserializeIntoBasePostRequestBody';
-import { serializeBasePostRequestBody } from './serializeBasePostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
-
 /**
  * Provides operations to call the base method.
  */

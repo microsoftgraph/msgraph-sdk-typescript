@@ -1,3 +1,1 @@
-export * from './metricValuesRequestBuilderGetQueryParameters'
-export * from './metricValuesRequestBuilderGetRequestConfiguration'
-export * from './metricValuesRequestBuilderPostRequestConfiguration'
+export * from './metricValuesRequestBuilder'

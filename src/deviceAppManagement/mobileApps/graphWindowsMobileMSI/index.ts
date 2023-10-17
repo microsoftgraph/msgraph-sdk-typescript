@@ -1,2 +1,1 @@
-export * from './graphWindowsMobileMSIRequestBuilderGetQueryParameters'
-export * from './graphWindowsMobileMSIRequestBuilderGetRequestConfiguration'
+export * from './graphWindowsMobileMSIRequestBuilder'

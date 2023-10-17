@@ -1,3 +1,1 @@
-export * from './domainDnsRecordsRequestBuilderGetQueryParameters'
-export * from './domainDnsRecordsRequestBuilderGetRequestConfiguration'
-export * from './domainDnsRecordsRequestBuilderPostRequestConfiguration'
+export * from './domainDnsRecordsRequestBuilder'

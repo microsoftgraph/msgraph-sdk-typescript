@@ -1,1 +1,1 @@
-export * from './restoreFactoryDefaultsRequestBuilderPostRequestConfiguration'
+export * from './restoreFactoryDefaultsRequestBuilder'

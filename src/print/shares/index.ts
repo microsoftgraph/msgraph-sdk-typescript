@@ -1,3 +1,1 @@
-export * from './sharesRequestBuilderGetQueryParameters'
-export * from './sharesRequestBuilderGetRequestConfiguration'
-export * from './sharesRequestBuilderPostRequestConfiguration'
+export * from './sharesRequestBuilder'

@@ -11,3 +11,5 @@ export enum EdgeCookiePolicy {
     /** Block all cookies. */
     BlockAll = "blockAll",
 }
+// tslint:enable
+// eslint-enable

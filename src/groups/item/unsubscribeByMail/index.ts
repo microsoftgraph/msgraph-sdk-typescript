@@ -1,1 +1,1 @@
-export * from './unsubscribeByMailRequestBuilderPostRequestConfiguration'
+export * from './unsubscribeByMailRequestBuilder'

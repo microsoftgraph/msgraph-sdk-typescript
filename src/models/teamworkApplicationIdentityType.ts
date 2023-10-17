@@ -6,3 +6,5 @@ export enum TeamworkApplicationIdentityType {
     OutgoingWebhook = "outgoingWebhook",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

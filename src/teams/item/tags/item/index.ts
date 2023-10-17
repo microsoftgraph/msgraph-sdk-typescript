@@ -1,4 +1,1 @@
-export * from './teamworkTagItemRequestBuilderDeleteRequestConfiguration'
-export * from './teamworkTagItemRequestBuilderGetQueryParameters'
-export * from './teamworkTagItemRequestBuilderGetRequestConfiguration'
-export * from './teamworkTagItemRequestBuilderPatchRequestConfiguration'
+export * from './teamworkTagItemRequestBuilder'

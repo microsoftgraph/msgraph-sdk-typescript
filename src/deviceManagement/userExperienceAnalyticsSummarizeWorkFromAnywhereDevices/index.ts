@@ -1,1 +1,1 @@
-export * from './userExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilderGetRequestConfiguration'
+export * from './userExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder'

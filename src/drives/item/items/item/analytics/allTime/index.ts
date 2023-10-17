@@ -1,2 +1,1 @@
-export * from './allTimeRequestBuilderGetQueryParameters'
-export * from './allTimeRequestBuilderGetRequestConfiguration'
+export * from './allTimeRequestBuilder'

@@ -1,2 +1,1 @@
-export * from './conditionalAccessTemplateItemRequestBuilderGetQueryParameters'
-export * from './conditionalAccessTemplateItemRequestBuilderGetRequestConfiguration'
+export * from './conditionalAccessTemplateItemRequestBuilder'

@@ -1,3 +1,1 @@
-export * from './invitationsRequestBuilderGetQueryParameters'
-export * from './invitationsRequestBuilderGetRequestConfiguration'
-export * from './invitationsRequestBuilderPostRequestConfiguration'
+export * from './invitationsRequestBuilder'

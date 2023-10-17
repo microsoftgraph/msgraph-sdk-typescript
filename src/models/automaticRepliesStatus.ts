@@ -3,3 +3,5 @@ export enum AutomaticRepliesStatus {
     AlwaysEnabled = "alwaysEnabled",
     Scheduled = "scheduled",
 }
+// tslint:enable
+// eslint-enable

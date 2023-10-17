@@ -3,3 +3,5 @@ export enum Fido2RestrictionEnforcementType {
     Block = "block",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

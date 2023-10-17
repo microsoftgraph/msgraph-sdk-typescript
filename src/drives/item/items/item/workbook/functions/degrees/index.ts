@@ -1,5 +1,2 @@
-export * from './createDegreesPostRequestBodyFromDiscriminatorValue'
 export * from './degreesPostRequestBody'
-export * from './degreesRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoDegreesPostRequestBody'
-export * from './serializeDegreesPostRequestBody'
+export * from './degreesRequestBuilder'

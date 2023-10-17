@@ -1,5 +1,2 @@
-export * from './createPurgeDataPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoPurgeDataPostRequestBody'
-export * from './microsoftGraphSecurityPurgeDataRequestBuilderPostRequestConfiguration'
+export * from './microsoftGraphSecurityPurgeDataRequestBuilder'
 export * from './purgeDataPostRequestBody'
-export * from './serializePurgeDataPostRequestBody'

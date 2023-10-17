@@ -5,3 +5,5 @@ export enum LocationUniqueIdType {
     Private = "private",
     Bing = "bing",
 }
+// tslint:enable
+// eslint-enable

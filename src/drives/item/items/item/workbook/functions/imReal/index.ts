@@ -1,5 +1,2 @@
-export * from './createImRealPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoImRealPostRequestBody'
 export * from './imRealPostRequestBody'
-export * from './imRealRequestBuilderPostRequestConfiguration'
-export * from './serializeImRealPostRequestBody'
+export * from './imRealRequestBuilder'

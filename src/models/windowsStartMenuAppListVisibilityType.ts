@@ -11,3 +11,5 @@ export enum WindowsStartMenuAppListVisibilityType {
     /** Disables the corresponding toggle (Collapse or Remove) in the Settings app. */
     DisableSettingsApp = "disableSettingsApp",
 }
+// tslint:enable
+// eslint-enable

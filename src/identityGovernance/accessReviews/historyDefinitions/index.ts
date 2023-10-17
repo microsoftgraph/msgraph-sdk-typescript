@@ -1,3 +1,1 @@
-export * from './historyDefinitionsRequestBuilderGetQueryParameters'
-export * from './historyDefinitionsRequestBuilderGetRequestConfiguration'
-export * from './historyDefinitionsRequestBuilderPostRequestConfiguration'
+export * from './historyDefinitionsRequestBuilder'

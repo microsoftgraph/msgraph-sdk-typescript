@@ -7,3 +7,5 @@ export enum LobbyBypassScope {
     Invited = "invited",
     OrganizationExcludingGuests = "organizationExcludingGuests",
 }
+// tslint:enable
+// eslint-enable

@@ -1,4 +1,1 @@
-export * from './userExperienceAnalyticsBaselineItemRequestBuilderDeleteRequestConfiguration'
-export * from './userExperienceAnalyticsBaselineItemRequestBuilderGetQueryParameters'
-export * from './userExperienceAnalyticsBaselineItemRequestBuilderGetRequestConfiguration'
-export * from './userExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration'
+export * from './userExperienceAnalyticsBaselineItemRequestBuilder'

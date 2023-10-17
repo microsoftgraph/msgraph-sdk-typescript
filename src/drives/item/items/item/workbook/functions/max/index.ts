@@ -1,5 +1,2 @@
-export * from './createMaxPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoMaxPostRequestBody'
 export * from './maxPostRequestBody'
-export * from './maxRequestBuilderPostRequestConfiguration'
-export * from './serializeMaxPostRequestBody'
+export * from './maxRequestBuilder'

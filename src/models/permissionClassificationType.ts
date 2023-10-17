@@ -4,3 +4,5 @@ export enum PermissionClassificationType {
     High = "high",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

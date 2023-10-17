@@ -16,3 +16,5 @@ export enum AlertDetermination {
     LineOfBusinessApplication = "lineOfBusinessApplication",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

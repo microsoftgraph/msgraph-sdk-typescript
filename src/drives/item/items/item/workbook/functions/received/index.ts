@@ -1,5 +1,2 @@
-export * from './createReceivedPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoReceivedPostRequestBody'
 export * from './receivedPostRequestBody'
-export * from './receivedRequestBuilderPostRequestConfiguration'
-export * from './serializeReceivedPostRequestBody'
+export * from './receivedRequestBuilder'

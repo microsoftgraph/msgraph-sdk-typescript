@@ -6,3 +6,5 @@ export enum KubernetesServiceType {
     LoadBalancer = "loadBalancer",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,8 +1,0 @@
-import { deserializeIntoOnlineMeetingRestricted } from './deserializeIntoOnlineMeetingRestricted';
-import { type OnlineMeetingRestricted } from './index';
-import { type ParseNode } from '@microsoft/kiota-abstractions';
-
-export function createOnlineMeetingRestrictedFromDiscriminatorValue(parseNode: ParseNode | undefined) {
-    if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return deserializeIntoOnlineMeetingRestricted;
-}

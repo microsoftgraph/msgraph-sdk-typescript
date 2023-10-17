@@ -12,3 +12,5 @@ export enum AccessPackageRequestType {
     OnBehalfAdd = "onBehalfAdd",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

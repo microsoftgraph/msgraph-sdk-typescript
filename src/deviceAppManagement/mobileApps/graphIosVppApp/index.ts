@@ -1,2 +1,1 @@
-export * from './graphIosVppAppRequestBuilderGetQueryParameters'
-export * from './graphIosVppAppRequestBuilderGetRequestConfiguration'
+export * from './graphIosVppAppRequestBuilder'

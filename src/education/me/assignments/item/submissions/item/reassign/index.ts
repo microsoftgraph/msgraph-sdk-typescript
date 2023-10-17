@@ -1,1 +1,1 @@
-export * from './reassignRequestBuilderPostRequestConfiguration'
+export * from './reassignRequestBuilder'

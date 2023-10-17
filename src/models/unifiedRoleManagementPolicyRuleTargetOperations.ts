@@ -9,3 +9,5 @@ export enum UnifiedRoleManagementPolicyRuleTargetOperations {
     Renew = "renew",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

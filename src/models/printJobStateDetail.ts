@@ -8,3 +8,5 @@ export enum PrintJobStateDetail {
     Interpreting = "interpreting",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

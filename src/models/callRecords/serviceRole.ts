@@ -22,3 +22,5 @@ export enum ServiceRole {
     Voicemail = "voicemail",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

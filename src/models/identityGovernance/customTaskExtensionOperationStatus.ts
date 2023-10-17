@@ -3,3 +3,5 @@ export enum CustomTaskExtensionOperationStatus {
     Failed = "failed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

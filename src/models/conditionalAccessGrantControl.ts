@@ -8,3 +8,5 @@ export enum ConditionalAccessGrantControl {
     PasswordChange = "passwordChange",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

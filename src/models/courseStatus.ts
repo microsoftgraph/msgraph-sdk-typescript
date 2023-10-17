@@ -4,3 +4,5 @@ export enum CourseStatus {
     Completed = "completed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

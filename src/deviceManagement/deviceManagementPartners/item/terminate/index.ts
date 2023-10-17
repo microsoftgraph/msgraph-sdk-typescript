@@ -1,1 +1,1 @@
-export * from './terminateRequestBuilderPostRequestConfiguration'
+export * from './terminateRequestBuilder'

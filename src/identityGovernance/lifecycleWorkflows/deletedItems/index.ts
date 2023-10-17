@@ -1,3 +1,1 @@
-export * from './deletedItemsRequestBuilderDeleteRequestConfiguration'
-export * from './deletedItemsRequestBuilderGetQueryParameters'
-export * from './deletedItemsRequestBuilderGetRequestConfiguration'
+export * from './deletedItemsRequestBuilder'

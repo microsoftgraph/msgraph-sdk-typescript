@@ -5,3 +5,5 @@ export enum AlertFeedback {
     BenignPositive = "benignPositive",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

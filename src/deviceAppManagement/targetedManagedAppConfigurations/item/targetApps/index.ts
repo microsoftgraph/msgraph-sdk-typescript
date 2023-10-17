@@ -1,5 +1,2 @@
-export * from './createTargetAppsPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoTargetAppsPostRequestBody'
-export * from './serializeTargetAppsPostRequestBody'
 export * from './targetAppsPostRequestBody'
-export * from './targetAppsRequestBuilderPostRequestConfiguration'
+export * from './targetAppsRequestBuilder'

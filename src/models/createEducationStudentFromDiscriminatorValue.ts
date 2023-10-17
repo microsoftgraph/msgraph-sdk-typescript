@@ -1,8 +1,0 @@
-import { deserializeIntoEducationStudent } from './deserializeIntoEducationStudent';
-import { type EducationStudent } from './index';
-import { type ParseNode } from '@microsoft/kiota-abstractions';
-
-export function createEducationStudentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
-    if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return deserializeIntoEducationStudent;
-}

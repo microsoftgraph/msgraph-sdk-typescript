@@ -1,2 +1,1 @@
-export * from './appHealthMetricsRequestBuilderGetQueryParameters'
-export * from './appHealthMetricsRequestBuilderGetRequestConfiguration'
+export * from './appHealthMetricsRequestBuilder'

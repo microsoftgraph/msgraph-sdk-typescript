@@ -6,3 +6,5 @@ export enum RiskLevel {
     None = "none",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

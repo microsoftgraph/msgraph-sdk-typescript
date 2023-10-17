@@ -7,3 +7,5 @@ export enum RunAsAccountType {
     /** User context */
     User = "user",
 }
+// tslint:enable
+// eslint-enable

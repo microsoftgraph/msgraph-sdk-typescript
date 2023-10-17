@@ -1,5 +1,2 @@
 export * from './averageAPostRequestBody'
-export * from './averageARequestBuilderPostRequestConfiguration'
-export * from './createAverageAPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAverageAPostRequestBody'
-export * from './serializeAverageAPostRequestBody'
+export * from './averageARequestBuilder'

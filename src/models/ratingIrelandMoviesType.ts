@@ -19,3 +19,5 @@ export enum RatingIrelandMoviesType {
     /** The 18 classification, suitable only for adults */
     Adults = "adults",
 }
+// tslint:enable
+// eslint-enable

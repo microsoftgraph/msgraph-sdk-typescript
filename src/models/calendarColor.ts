@@ -11,3 +11,5 @@ export enum CalendarColor {
     LightRed = "lightRed",
     MaxColor = "maxColor",
 }
+// tslint:enable
+// eslint-enable

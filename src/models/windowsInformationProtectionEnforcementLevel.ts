@@ -11,3 +11,5 @@ export enum WindowsInformationProtectionEnforcementLevel {
     /** Encrypt, Audit and Block */
     EncryptAuditAndBlock = "encryptAuditAndBlock",
 }
+// tslint:enable
+// eslint-enable

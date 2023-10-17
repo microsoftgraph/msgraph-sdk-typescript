@@ -1,3 +1,1 @@
-export * from './directoryAuditsRequestBuilderGetQueryParameters'
-export * from './directoryAuditsRequestBuilderGetRequestConfiguration'
-export * from './directoryAuditsRequestBuilderPostRequestConfiguration'
+export * from './directoryAuditsRequestBuilder'

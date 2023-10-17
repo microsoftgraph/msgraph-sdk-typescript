@@ -5,3 +5,5 @@ export enum AccessReviewHistoryStatus {
     Requested = "requested",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

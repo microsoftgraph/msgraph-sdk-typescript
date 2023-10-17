@@ -1,3 +1,1 @@
-export * from './categoriesRequestBuilderGetQueryParameters'
-export * from './categoriesRequestBuilderGetRequestConfiguration'
-export * from './categoriesRequestBuilderPostRequestConfiguration'
+export * from './categoriesRequestBuilder'

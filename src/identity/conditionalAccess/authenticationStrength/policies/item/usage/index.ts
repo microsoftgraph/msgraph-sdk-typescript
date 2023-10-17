@@ -1,1 +1,1 @@
-export * from './usageRequestBuilderGetRequestConfiguration'
+export * from './usageRequestBuilder'

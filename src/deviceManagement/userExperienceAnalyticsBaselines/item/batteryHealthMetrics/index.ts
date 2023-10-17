@@ -1,2 +1,1 @@
-export * from './batteryHealthMetricsRequestBuilderGetQueryParameters'
-export * from './batteryHealthMetricsRequestBuilderGetRequestConfiguration'
+export * from './batteryHealthMetricsRequestBuilder'

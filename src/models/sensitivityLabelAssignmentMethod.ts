@@ -4,3 +4,5 @@ export enum SensitivityLabelAssignmentMethod {
     Auto = "auto",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

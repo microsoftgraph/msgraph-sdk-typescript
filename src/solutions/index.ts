@@ -1,3 +1,1 @@
-export * from './solutionsRequestBuilderGetQueryParameters'
-export * from './solutionsRequestBuilderGetRequestConfiguration'
-export * from './solutionsRequestBuilderPatchRequestConfiguration'
+export * from './solutionsRequestBuilder'

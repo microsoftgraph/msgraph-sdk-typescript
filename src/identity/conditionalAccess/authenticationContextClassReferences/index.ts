@@ -1,3 +1,1 @@
-export * from './authenticationContextClassReferencesRequestBuilderGetQueryParameters'
-export * from './authenticationContextClassReferencesRequestBuilderGetRequestConfiguration'
-export * from './authenticationContextClassReferencesRequestBuilderPostRequestConfiguration'
+export * from './authenticationContextClassReferencesRequestBuilder'

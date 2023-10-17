@@ -3,3 +3,5 @@ export enum PurgeAreas {
     TeamsMessages = "teamsMessages",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

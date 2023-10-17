@@ -1,1 +1,1 @@
-export * from './getTeamsDeviceUsageUserDetailWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getTeamsDeviceUsageUserDetailWithPeriodRequestBuilder'

@@ -7,3 +7,5 @@ export enum ApplicationType {
     /** The windows desktop application */
     Desktop = "desktop",
 }
+// tslint:enable
+// eslint-enable

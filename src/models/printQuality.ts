@@ -4,3 +4,5 @@ export enum PrintQuality {
     High = "high",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

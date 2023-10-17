@@ -1,4 +1,1 @@
-export * from './importedWindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration'
-export * from './importedWindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters'
-export * from './importedWindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration'
-export * from './importedWindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration'
+export * from './importedWindowsAutopilotDeviceIdentityItemRequestBuilder'

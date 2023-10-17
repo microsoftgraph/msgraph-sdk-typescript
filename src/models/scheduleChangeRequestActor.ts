@@ -5,3 +5,5 @@ export enum ScheduleChangeRequestActor {
     System = "system",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

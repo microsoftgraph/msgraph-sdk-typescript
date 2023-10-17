@@ -1,2 +1,1 @@
-export * from './postItemRequestBuilderGetQueryParameters'
-export * from './postItemRequestBuilderGetRequestConfiguration'
+export * from './postItemRequestBuilder'

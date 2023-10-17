@@ -1,5 +1,2 @@
-export * from './createResetPasswordPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoResetPasswordPostRequestBody'
 export * from './resetPasswordPostRequestBody'
-export * from './resetPasswordRequestBuilderPostRequestConfiguration'
-export * from './serializeResetPasswordPostRequestBody'
+export * from './resetPasswordRequestBuilder'

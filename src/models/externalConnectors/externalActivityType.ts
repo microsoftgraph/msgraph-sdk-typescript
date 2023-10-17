@@ -5,3 +5,5 @@ export enum ExternalActivityType {
     Commented = "commented",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

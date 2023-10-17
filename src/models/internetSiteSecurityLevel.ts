@@ -11,3 +11,5 @@ export enum InternetSiteSecurityLevel {
     /** High. */
     High = "high",
 }
+// tslint:enable
+// eslint-enable

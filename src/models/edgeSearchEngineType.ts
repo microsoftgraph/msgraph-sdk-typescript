@@ -7,3 +7,5 @@ export enum EdgeSearchEngineType {
     /** Sets Bing as the default search engine */
     Bing = "bing",
 }
+// tslint:enable
+// eslint-enable

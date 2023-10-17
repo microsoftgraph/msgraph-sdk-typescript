@@ -5,3 +5,5 @@ export enum ChatMessageType {
     UnknownFutureValue = "unknownFutureValue",
     SystemEventMessage = "systemEventMessage",
 }
+// tslint:enable
+// eslint-enable

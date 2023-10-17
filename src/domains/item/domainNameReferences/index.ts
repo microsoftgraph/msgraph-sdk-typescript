@@ -1,2 +1,1 @@
-export * from './domainNameReferencesRequestBuilderGetQueryParameters'
-export * from './domainNameReferencesRequestBuilderGetRequestConfiguration'
+export * from './domainNameReferencesRequestBuilder'

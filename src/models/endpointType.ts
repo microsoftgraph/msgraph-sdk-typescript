@@ -5,3 +5,5 @@ export enum EndpointType {
     SkypeForBusinessVoipPhone = "skypeForBusinessVoipPhone",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

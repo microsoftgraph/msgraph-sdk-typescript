@@ -1,1 +1,1 @@
-export * from './deviceConfigurationDeviceActivityRequestBuilderGetRequestConfiguration'
+export * from './deviceConfigurationDeviceActivityRequestBuilder'

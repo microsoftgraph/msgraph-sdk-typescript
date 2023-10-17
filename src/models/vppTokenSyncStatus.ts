@@ -11,3 +11,5 @@ export enum VppTokenSyncStatus {
     /** Last Sync failed. */
     Failed = "failed",
 }
+// tslint:enable
+// eslint-enable

@@ -1,2 +1,1 @@
-export * from './chatRequestBuilderGetQueryParameters'
-export * from './chatRequestBuilderGetRequestConfiguration'
+export * from './chatRequestBuilder'

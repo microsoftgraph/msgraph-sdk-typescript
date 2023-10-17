@@ -7,3 +7,5 @@ export enum BookingStaffRole {
     Scheduler = "scheduler",
     TeamMember = "teamMember",
 }
+// tslint:enable
+// eslint-enable

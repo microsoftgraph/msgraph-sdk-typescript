@@ -1,3 +1,1 @@
-export * from './refRequestBuilderGetQueryParameters'
-export * from './refRequestBuilderGetRequestConfiguration'
-export * from './refRequestBuilderPostRequestConfiguration'
+export * from './refRequestBuilder'

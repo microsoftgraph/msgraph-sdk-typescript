@@ -1,1 +1,1 @@
-export * from './extractSensitivityLabelsRequestBuilderPostRequestConfiguration'
+export * from './extractSensitivityLabelsRequestBuilder'

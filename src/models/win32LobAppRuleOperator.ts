@@ -17,3 +17,5 @@ export enum Win32LobAppRuleOperator {
     /** Less than or equal operator. */
     LessThanOrEqual = "lessThanOrEqual",
 }
+// tslint:enable
+// eslint-enable

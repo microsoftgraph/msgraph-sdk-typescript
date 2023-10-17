@@ -1,2 +1,1 @@
-export * from './siteRequestBuilderGetQueryParameters'
-export * from './siteRequestBuilderGetRequestConfiguration'
+export * from './siteRequestBuilder'

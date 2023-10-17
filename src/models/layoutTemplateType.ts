@@ -3,3 +3,5 @@ export enum LayoutTemplateType {
     VerticalSplit = "verticalSplit",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

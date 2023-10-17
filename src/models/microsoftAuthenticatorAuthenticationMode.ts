@@ -3,3 +3,5 @@ export enum MicrosoftAuthenticatorAuthenticationMode {
     Push = "push",
     Any = "any",
 }
+// tslint:enable
+// eslint-enable

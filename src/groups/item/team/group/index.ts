@@ -1,2 +1,1 @@
-export * from './groupRequestBuilderGetQueryParameters'
-export * from './groupRequestBuilderGetRequestConfiguration'
+export * from './groupRequestBuilder'

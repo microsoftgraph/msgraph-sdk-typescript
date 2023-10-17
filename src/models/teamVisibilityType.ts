@@ -4,3 +4,5 @@ export enum TeamVisibilityType {
     HiddenMembership = "hiddenMembership",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

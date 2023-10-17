@@ -1,1 +1,1 @@
-export * from './submitRequestBuilderPostRequestConfiguration'
+export * from './submitRequestBuilder'

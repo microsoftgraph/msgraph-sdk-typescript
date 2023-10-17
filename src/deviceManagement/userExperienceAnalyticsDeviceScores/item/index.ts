@@ -1,4 +1,1 @@
-export * from './userExperienceAnalyticsDeviceScoresItemRequestBuilderDeleteRequestConfiguration'
-export * from './userExperienceAnalyticsDeviceScoresItemRequestBuilderGetQueryParameters'
-export * from './userExperienceAnalyticsDeviceScoresItemRequestBuilderGetRequestConfiguration'
-export * from './userExperienceAnalyticsDeviceScoresItemRequestBuilderPatchRequestConfiguration'
+export * from './userExperienceAnalyticsDeviceScoresItemRequestBuilder'

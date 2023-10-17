@@ -11,3 +11,5 @@ export enum DelegatedAdminRelationshipStatus {
     TerminationRequested = "terminationRequested",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

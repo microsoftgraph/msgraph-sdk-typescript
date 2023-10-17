@@ -9,3 +9,5 @@ export enum RatingUnitedKingdomTelevisionType {
     /** Allowing TV contents with a warning message */
     Caution = "caution",
 }
+// tslint:enable
+// eslint-enable

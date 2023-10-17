@@ -8,3 +8,5 @@ export enum ConditionalAccessDevicePlatform {
     UnknownFutureValue = "unknownFutureValue",
     Linux = "linux",
 }
+// tslint:enable
+// eslint-enable

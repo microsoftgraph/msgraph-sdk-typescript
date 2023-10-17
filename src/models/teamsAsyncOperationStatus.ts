@@ -6,3 +6,5 @@ export enum TeamsAsyncOperationStatus {
     Failed = "failed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

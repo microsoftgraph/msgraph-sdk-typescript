@@ -4,3 +4,5 @@ export enum InitiatorType {
     System = "system",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

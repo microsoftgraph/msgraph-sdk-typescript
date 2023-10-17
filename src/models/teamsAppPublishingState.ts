@@ -4,3 +4,5 @@ export enum TeamsAppPublishingState {
     Published = "published",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

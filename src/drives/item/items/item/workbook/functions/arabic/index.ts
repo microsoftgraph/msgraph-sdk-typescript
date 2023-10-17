@@ -1,5 +1,2 @@
 export * from './arabicPostRequestBody'
-export * from './arabicRequestBuilderPostRequestConfiguration'
-export * from './createArabicPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoArabicPostRequestBody'
-export * from './serializeArabicPostRequestBody'
+export * from './arabicRequestBuilder'

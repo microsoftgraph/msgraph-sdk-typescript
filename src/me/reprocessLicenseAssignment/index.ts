@@ -1,1 +1,1 @@
-export * from './reprocessLicenseAssignmentRequestBuilderPostRequestConfiguration'
+export * from './reprocessLicenseAssignmentRequestBuilder'

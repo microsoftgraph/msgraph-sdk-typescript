@@ -3,3 +3,5 @@ export enum AttestationLevel {
     NotAttested = "notAttested",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

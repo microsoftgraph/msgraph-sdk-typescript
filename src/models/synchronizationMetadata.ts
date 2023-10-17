@@ -9,3 +9,5 @@ export enum SynchronizationMetadata {
     SynchronizationLearnMoreIbizaFwLink = "SynchronizationLearnMoreIbizaFwLink",
     ConfigurationFields = "ConfigurationFields",
 }
+// tslint:enable
+// eslint-enable

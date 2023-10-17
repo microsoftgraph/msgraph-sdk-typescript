@@ -15,3 +15,5 @@ export enum Win32LobAppFileSystemOperationType {
     /** Size detection type. */
     SizeInMB = "sizeInMB",
 }
+// tslint:enable
+// eslint-enable

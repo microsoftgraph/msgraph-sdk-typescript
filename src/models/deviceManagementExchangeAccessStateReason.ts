@@ -35,3 +35,5 @@ export enum DeviceManagementExchangeAccessStateReason {
     /** Access state revoked by managed application challenge */
     DeviceNotKnownWithManagedApp = "deviceNotKnownWithManagedApp",
 }
+// tslint:enable
+// eslint-enable

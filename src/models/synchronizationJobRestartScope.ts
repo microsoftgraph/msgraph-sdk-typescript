@@ -7,3 +7,5 @@ export enum SynchronizationJobRestartScope {
     Full = "Full",
     ForceDeletes = "ForceDeletes",
 }
+// tslint:enable
+// eslint-enable

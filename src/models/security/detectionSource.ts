@@ -19,3 +19,5 @@ export enum DetectionSource {
     UnknownFutureValue = "unknownFutureValue",
     MicrosoftDefenderForCloud = "microsoftDefenderForCloud",
 }
+// tslint:enable
+// eslint-enable

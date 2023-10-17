@@ -19,3 +19,5 @@ export enum AndroidWorkProfileRequiredPasswordType {
     /** At least alphanumeric with symbols password required. */
     AlphanumericWithSymbols = "alphanumericWithSymbols",
 }
+// tslint:enable
+// eslint-enable
