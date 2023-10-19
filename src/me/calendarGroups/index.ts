@@ -1,3 +1,1 @@
-export * from './calendarGroupsRequestBuilderGetQueryParameters'
-export * from './calendarGroupsRequestBuilderGetRequestConfiguration'
-export * from './calendarGroupsRequestBuilderPostRequestConfiguration'
+export * from './calendarGroupsRequestBuilder'

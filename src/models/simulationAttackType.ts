@@ -5,3 +5,5 @@ export enum SimulationAttackType {
     Endpoint = "endpoint",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

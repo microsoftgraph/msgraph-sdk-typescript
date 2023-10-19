@@ -1,2 +1,1 @@
-export * from './educationClassItemRequestBuilderGetQueryParameters'
-export * from './educationClassItemRequestBuilderGetRequestConfiguration'
+export * from './educationClassItemRequestBuilder'

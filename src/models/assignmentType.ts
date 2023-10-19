@@ -3,3 +3,5 @@ export enum AssignmentType {
     Recommended = "recommended",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

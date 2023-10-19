@@ -4,3 +4,5 @@ export enum ContainerPortProtocol {
     Sctp = "sctp",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

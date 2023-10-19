@@ -1,3 +1,1 @@
-export * from './searchRequestBuilderGetQueryParameters'
-export * from './searchRequestBuilderGetRequestConfiguration'
-export * from './searchRequestBuilderPatchRequestConfiguration'
+export * from './searchRequestBuilder'

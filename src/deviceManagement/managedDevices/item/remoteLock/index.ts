@@ -1,1 +1,1 @@
-export * from './remoteLockRequestBuilderPostRequestConfiguration'
+export * from './remoteLockRequestBuilder'

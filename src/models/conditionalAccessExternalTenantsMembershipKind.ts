@@ -3,3 +3,5 @@ export enum ConditionalAccessExternalTenantsMembershipKind {
     Enumerated = "enumerated",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

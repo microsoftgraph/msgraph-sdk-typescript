@@ -1,5 +1,2 @@
 export * from './chiSq_InvPostRequestBody'
-export * from './chiSq_InvRequestBuilderPostRequestConfiguration'
-export * from './createChiSq_InvPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoChiSq_InvPostRequestBody'
-export * from './serializeChiSq_InvPostRequestBody'
+export * from './chiSq_InvRequestBuilder'

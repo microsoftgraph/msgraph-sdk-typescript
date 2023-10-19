@@ -7,3 +7,5 @@ export enum MeetingRequestType {
     Outdated = "outdated",
     PrincipalWantsCopy = "principalWantsCopy",
 }
+// tslint:enable
+// eslint-enable

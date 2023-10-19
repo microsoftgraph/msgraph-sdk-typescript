@@ -1,2 +1,1 @@
-export * from './logoRequestBuilderGetRequestConfiguration'
-export * from './logoRequestBuilderPutRequestConfiguration'
+export * from './logoRequestBuilder'

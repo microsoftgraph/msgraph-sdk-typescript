@@ -3,3 +3,5 @@ export enum SignInFrequencyInterval {
     EveryTime = "everyTime",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,1 +1,1 @@
-export * from './findTenantInformationByDomainNameWithDomainNameRequestBuilderGetRequestConfiguration'
+export * from './findTenantInformationByDomainNameWithDomainNameRequestBuilder'

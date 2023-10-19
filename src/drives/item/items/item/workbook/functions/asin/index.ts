@@ -1,5 +1,2 @@
 export * from './asinPostRequestBody'
-export * from './asinRequestBuilderPostRequestConfiguration'
-export * from './createAsinPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAsinPostRequestBody'
-export * from './serializeAsinPostRequestBody'
+export * from './asinRequestBuilder'

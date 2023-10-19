@@ -4,3 +4,5 @@ export enum ConditionalAccessStatus {
     NotApplied = "notApplied",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

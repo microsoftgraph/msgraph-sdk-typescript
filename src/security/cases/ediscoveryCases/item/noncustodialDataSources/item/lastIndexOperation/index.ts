@@ -1,2 +1,1 @@
-export * from './lastIndexOperationRequestBuilderGetQueryParameters'
-export * from './lastIndexOperationRequestBuilderGetRequestConfiguration'
+export * from './lastIndexOperationRequestBuilder'

@@ -1,1 +1,1 @@
-export * from './microsoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration'
+export * from './microsoftGraphSecurityApplyHoldRequestBuilder'

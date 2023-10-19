@@ -3,3 +3,5 @@ export enum ExternalItemContentType {
     Html = "html",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

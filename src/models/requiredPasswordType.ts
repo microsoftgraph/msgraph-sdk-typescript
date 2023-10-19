@@ -9,3 +9,5 @@ export enum RequiredPasswordType {
     /** Numeric password required. */
     Numeric = "numeric",
 }
+// tslint:enable
+// eslint-enable

@@ -4,3 +4,5 @@ export enum TeamworkConversationIdentityType {
     Chat = "chat",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

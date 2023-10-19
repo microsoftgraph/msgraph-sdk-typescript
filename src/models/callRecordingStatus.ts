@@ -5,3 +5,5 @@ export enum CallRecordingStatus {
     ChunkFinished = "chunkFinished",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -9,3 +9,5 @@ export enum Win32LobAppMsiPackageType {
     /** Indicates a dual-purpose app package. */
     DualPurpose = "dualPurpose",
 }
+// tslint:enable
+// eslint-enable

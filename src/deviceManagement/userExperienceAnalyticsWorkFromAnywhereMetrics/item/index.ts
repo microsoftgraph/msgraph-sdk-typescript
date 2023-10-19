@@ -1,4 +1,1 @@
-export * from './userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderDeleteRequestConfiguration'
-export * from './userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderGetQueryParameters'
-export * from './userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderGetRequestConfiguration'
-export * from './userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderPatchRequestConfiguration'
+export * from './userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder'

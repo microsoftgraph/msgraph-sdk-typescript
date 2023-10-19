@@ -20,3 +20,5 @@ export enum BrowserSiteCompatibilityMode {
     /** Placeholder for evolvable enum, but this enum is never returned to the caller, so it shouldn't be necessary. */
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

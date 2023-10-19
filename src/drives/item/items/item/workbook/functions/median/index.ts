@@ -1,5 +1,2 @@
-export * from './createMedianPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoMedianPostRequestBody'
 export * from './medianPostRequestBody'
-export * from './medianRequestBuilderPostRequestConfiguration'
-export * from './serializeMedianPostRequestBody'
+export * from './medianRequestBuilder'

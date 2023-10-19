@@ -1,1 +1,1 @@
-export * from './clearUserPreferredPresenceRequestBuilderPostRequestConfiguration'
+export * from './clearUserPreferredPresenceRequestBuilder'

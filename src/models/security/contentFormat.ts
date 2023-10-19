@@ -4,3 +4,5 @@ export enum ContentFormat {
     Markdown = "markdown",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

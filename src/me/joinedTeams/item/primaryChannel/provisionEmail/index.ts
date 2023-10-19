@@ -1,1 +1,1 @@
-export * from './provisionEmailRequestBuilderPostRequestConfiguration'
+export * from './provisionEmailRequestBuilder'

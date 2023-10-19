@@ -5,3 +5,5 @@ export enum ValueType {
     Bool = "bool",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

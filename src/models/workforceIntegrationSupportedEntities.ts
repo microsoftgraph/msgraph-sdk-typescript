@@ -8,3 +8,5 @@ export enum WorkforceIntegrationSupportedEntities {
     OfferShiftRequest = "offerShiftRequest",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

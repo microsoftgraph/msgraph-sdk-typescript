@@ -6,3 +6,5 @@ export enum AccessReviewHistoryDecisionFilter {
     NotNotified = "notNotified",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

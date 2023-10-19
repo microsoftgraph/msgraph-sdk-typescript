@@ -1,3 +1,1 @@
-export * from './channelsRequestBuilderGetQueryParameters'
-export * from './channelsRequestBuilderGetRequestConfiguration'
-export * from './channelsRequestBuilderPostRequestConfiguration'
+export * from './channelsRequestBuilder'

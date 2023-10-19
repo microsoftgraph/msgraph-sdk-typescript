@@ -1,5 +1,2 @@
-export * from './createDminPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoDminPostRequestBody'
 export * from './dminPostRequestBody'
-export * from './dminRequestBuilderPostRequestConfiguration'
-export * from './serializeDminPostRequestBody'
+export * from './dminRequestBuilder'

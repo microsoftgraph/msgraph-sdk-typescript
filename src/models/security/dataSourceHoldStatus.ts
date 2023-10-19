@@ -6,3 +6,5 @@ export enum DataSourceHoldStatus {
     Partial = "partial",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

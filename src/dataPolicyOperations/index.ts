@@ -1,3 +1,1 @@
-export * from './dataPolicyOperationsRequestBuilderGetQueryParameters'
-export * from './dataPolicyOperationsRequestBuilderGetRequestConfiguration'
-export * from './dataPolicyOperationsRequestBuilderPostRequestConfiguration'
+export * from './dataPolicyOperationsRequestBuilder'

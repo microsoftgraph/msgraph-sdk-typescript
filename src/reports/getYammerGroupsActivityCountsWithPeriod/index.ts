@@ -1,1 +1,1 @@
-export * from './getYammerGroupsActivityCountsWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getYammerGroupsActivityCountsWithPeriodRequestBuilder'

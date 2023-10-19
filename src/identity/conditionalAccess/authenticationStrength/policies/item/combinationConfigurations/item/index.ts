@@ -1,4 +1,1 @@
-export * from './authenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration'
-export * from './authenticationCombinationConfigurationItemRequestBuilderGetQueryParameters'
-export * from './authenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration'
-export * from './authenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration'
+export * from './authenticationCombinationConfigurationItemRequestBuilder'

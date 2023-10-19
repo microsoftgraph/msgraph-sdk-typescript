@@ -3,3 +3,5 @@ export enum TeamsAppResourceSpecificPermissionType {
     Application = "application",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

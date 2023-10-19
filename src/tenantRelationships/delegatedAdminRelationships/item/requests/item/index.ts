@@ -1,4 +1,1 @@
-export * from './delegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration'
-export * from './delegatedAdminRelationshipRequestItemRequestBuilderGetQueryParameters'
-export * from './delegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration'
-export * from './delegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration'
+export * from './delegatedAdminRelationshipRequestItemRequestBuilder'

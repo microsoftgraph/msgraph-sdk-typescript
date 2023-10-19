@@ -1,5 +1,2 @@
-export * from './createDaveragePostRequestBodyFromDiscriminatorValue'
 export * from './daveragePostRequestBody'
-export * from './daverageRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoDaveragePostRequestBody'
-export * from './serializeDaveragePostRequestBody'
+export * from './daverageRequestBuilder'

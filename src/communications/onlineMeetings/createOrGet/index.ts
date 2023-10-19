@@ -1,5 +1,2 @@
-export * from './createCreateOrGetPostRequestBodyFromDiscriminatorValue'
 export * from './createOrGetPostRequestBody'
-export * from './createOrGetRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoCreateOrGetPostRequestBody'
-export * from './serializeCreateOrGetPostRequestBody'
+export * from './createOrGetRequestBuilder'

@@ -9,3 +9,5 @@ export enum SimulationStatus {
     Excluded = "excluded",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

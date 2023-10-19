@@ -1,3 +1,1 @@
-export * from './scopedRoleMembersRequestBuilderGetQueryParameters'
-export * from './scopedRoleMembersRequestBuilderGetRequestConfiguration'
-export * from './scopedRoleMembersRequestBuilderPostRequestConfiguration'
+export * from './scopedRoleMembersRequestBuilder'

@@ -1,3 +1,1 @@
-export * from './calendarViewRequestBuilderGetQueryParameters'
-export * from './calendarViewRequestBuilderGetRequestConfiguration'
-export * from './calendarViewRequestBuilderPostRequestConfiguration'
+export * from './calendarViewRequestBuilder'

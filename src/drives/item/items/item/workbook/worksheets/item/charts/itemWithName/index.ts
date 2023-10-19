@@ -1,1 +1,1 @@
-export * from './itemWithNameRequestBuilderGetRequestConfiguration'
+export * from './itemWithNameRequestBuilder'

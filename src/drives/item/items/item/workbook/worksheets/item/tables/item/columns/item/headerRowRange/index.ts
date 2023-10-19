@@ -1,1 +1,1 @@
-export * from './headerRowRangeRequestBuilderGetRequestConfiguration'
+export * from './headerRowRangeRequestBuilder'

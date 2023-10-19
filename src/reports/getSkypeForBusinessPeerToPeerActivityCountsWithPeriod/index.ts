@@ -1,1 +1,1 @@
-export * from './getSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder'

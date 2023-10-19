@@ -5,3 +5,5 @@ export enum AllowInvitesFrom {
     Everyone = "everyone",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

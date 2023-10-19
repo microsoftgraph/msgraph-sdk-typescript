@@ -1,1 +1,1 @@
-export * from './microsoftGraphSecurityEstimateStatisticsRequestBuilderPostRequestConfiguration'
+export * from './microsoftGraphSecurityEstimateStatisticsRequestBuilder'

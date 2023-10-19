@@ -1,1 +1,1 @@
-export * from './beginOnboardingRequestBuilderPostRequestConfiguration'
+export * from './beginOnboardingRequestBuilder'

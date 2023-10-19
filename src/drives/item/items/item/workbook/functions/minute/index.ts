@@ -1,5 +1,2 @@
-export * from './createMinutePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoMinutePostRequestBody'
 export * from './minutePostRequestBody'
-export * from './minuteRequestBuilderPostRequestConfiguration'
-export * from './serializeMinutePostRequestBody'
+export * from './minuteRequestBuilder'

@@ -1,5 +1,2 @@
 export * from './archivePostRequestBody'
-export * from './archiveRequestBuilderPostRequestConfiguration'
-export * from './createArchivePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoArchivePostRequestBody'
-export * from './serializeArchivePostRequestBody'
+export * from './archiveRequestBuilder'

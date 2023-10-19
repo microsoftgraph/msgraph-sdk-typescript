@@ -1,2 +1,1 @@
-export * from './addToReviewSetOperationRequestBuilderGetQueryParameters'
-export * from './addToReviewSetOperationRequestBuilderGetRequestConfiguration'
+export * from './addToReviewSetOperationRequestBuilder'

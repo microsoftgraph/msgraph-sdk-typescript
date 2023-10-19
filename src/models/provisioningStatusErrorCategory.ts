@@ -4,3 +4,5 @@ export enum ProvisioningStatusErrorCategory {
     Success = "success",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

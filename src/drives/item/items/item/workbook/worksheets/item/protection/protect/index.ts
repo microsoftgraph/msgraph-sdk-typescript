@@ -1,5 +1,2 @@
-export * from './createProtectPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoProtectPostRequestBody'
 export * from './protectPostRequestBody'
-export * from './protectRequestBuilderPostRequestConfiguration'
-export * from './serializeProtectPostRequestBody'
+export * from './protectRequestBuilder'

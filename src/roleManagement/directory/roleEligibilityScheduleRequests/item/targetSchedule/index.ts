@@ -1,2 +1,1 @@
-export * from './targetScheduleRequestBuilderGetQueryParameters'
-export * from './targetScheduleRequestBuilderGetRequestConfiguration'
+export * from './targetScheduleRequestBuilder'

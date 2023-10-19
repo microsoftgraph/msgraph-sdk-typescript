@@ -17,3 +17,5 @@ export enum DeviceComplianceActionType {
     /** Send push notification to device */
     PushNotification = "pushNotification",
 }
+// tslint:enable
+// eslint-enable

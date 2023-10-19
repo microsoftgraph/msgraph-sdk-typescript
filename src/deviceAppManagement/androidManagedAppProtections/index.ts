@@ -1,3 +1,1 @@
-export * from './androidManagedAppProtectionsRequestBuilderGetQueryParameters'
-export * from './androidManagedAppProtectionsRequestBuilderGetRequestConfiguration'
-export * from './androidManagedAppProtectionsRequestBuilderPostRequestConfiguration'
+export * from './androidManagedAppProtectionsRequestBuilder'

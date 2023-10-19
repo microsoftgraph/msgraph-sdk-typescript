@@ -1,5 +1,2 @@
-export * from './createTbillEqPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoTbillEqPostRequestBody'
-export * from './serializeTbillEqPostRequestBody'
 export * from './tbillEqPostRequestBody'
-export * from './tbillEqRequestBuilderPostRequestConfiguration'
+export * from './tbillEqRequestBuilder'

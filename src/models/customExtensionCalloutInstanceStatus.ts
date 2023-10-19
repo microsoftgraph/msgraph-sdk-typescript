@@ -6,3 +6,5 @@ export enum CustomExtensionCalloutInstanceStatus {
     WaitingForCallback = "waitingForCallback",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

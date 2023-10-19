@@ -7,3 +7,5 @@ export enum ObjectMappingMetadata {
     ExcludeFromReporting = "ExcludeFromReporting",
     Unsynchronized = "Unsynchronized",
 }
+// tslint:enable
+// eslint-enable

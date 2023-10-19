@@ -6,3 +6,5 @@ export enum AppliedConditionalAccessPolicyResult {
     Unknown = "unknown",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

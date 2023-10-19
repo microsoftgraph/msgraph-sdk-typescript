@@ -1,5 +1,2 @@
-export * from './createVarPAPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoVarPAPostRequestBody'
-export * from './serializeVarPAPostRequestBody'
 export * from './varPAPostRequestBody'
-export * from './varPARequestBuilderPostRequestConfiguration'
+export * from './varPARequestBuilder'

@@ -13,3 +13,5 @@ export enum EntityType {
     ChatMessage = "chatMessage",
     Person = "person",
 }
+// tslint:enable
+// eslint-enable

@@ -1,5 +1,2 @@
-export * from './createDeleteUserFromSharedAppleDevicePostRequestBodyFromDiscriminatorValue'
 export * from './deleteUserFromSharedAppleDevicePostRequestBody'
-export * from './deleteUserFromSharedAppleDeviceRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoDeleteUserFromSharedAppleDevicePostRequestBody'
-export * from './serializeDeleteUserFromSharedAppleDevicePostRequestBody'
+export * from './deleteUserFromSharedAppleDeviceRequestBuilder'

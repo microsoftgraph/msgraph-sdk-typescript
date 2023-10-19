@@ -1,1 +1,1 @@
-export * from './unprotectRequestBuilderPostRequestConfiguration'
+export * from './unprotectRequestBuilder'

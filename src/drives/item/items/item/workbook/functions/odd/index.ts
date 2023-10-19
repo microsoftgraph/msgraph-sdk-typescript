@@ -1,5 +1,2 @@
-export * from './createOddPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoOddPostRequestBody'
 export * from './oddPostRequestBody'
-export * from './oddRequestBuilderPostRequestConfiguration'
-export * from './serializeOddPostRequestBody'
+export * from './oddRequestBuilder'

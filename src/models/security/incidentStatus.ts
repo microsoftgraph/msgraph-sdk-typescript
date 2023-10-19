@@ -6,3 +6,5 @@ export enum IncidentStatus {
     UnknownFutureValue = "unknownFutureValue",
     AwaitingAction = "awaitingAction",
 }
+// tslint:enable
+// eslint-enable

@@ -1,2 +1,1 @@
-export * from './managedDeviceItemRequestBuilderGetQueryParameters'
-export * from './managedDeviceItemRequestBuilderGetRequestConfiguration'
+export * from './managedDeviceItemRequestBuilder'

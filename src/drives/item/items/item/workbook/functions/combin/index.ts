@@ -1,5 +1,2 @@
 export * from './combinPostRequestBody'
-export * from './combinRequestBuilderPostRequestConfiguration'
-export * from './createCombinPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoCombinPostRequestBody'
-export * from './serializeCombinPostRequestBody'
+export * from './combinRequestBuilder'

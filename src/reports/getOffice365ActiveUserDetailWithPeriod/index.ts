@@ -1,1 +1,1 @@
-export * from './getOffice365ActiveUserDetailWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getOffice365ActiveUserDetailWithPeriodRequestBuilder'

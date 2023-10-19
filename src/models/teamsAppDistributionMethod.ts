@@ -4,3 +4,5 @@ export enum TeamsAppDistributionMethod {
     Sideloaded = "sideloaded",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

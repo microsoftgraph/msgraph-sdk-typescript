@@ -1,1 +1,1 @@
-export * from './getYammerDeviceUsageUserDetailWithDateRequestBuilderGetRequestConfiguration'
+export * from './getYammerDeviceUsageUserDetailWithDateRequestBuilder'

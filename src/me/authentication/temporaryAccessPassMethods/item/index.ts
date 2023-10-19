@@ -1,3 +1,1 @@
-export * from './temporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration'
-export * from './temporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameters'
-export * from './temporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration'
+export * from './temporaryAccessPassAuthenticationMethodItemRequestBuilder'

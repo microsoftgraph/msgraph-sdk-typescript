@@ -11,3 +11,5 @@ export enum AutoRestartNotificationDismissalMethod {
     /** Evolvable enum member */
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

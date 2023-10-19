@@ -1,12 +1,13 @@
 {
-  "descriptionHash": "B1FAB0B1196D62E40988BB0FF390FCC63760941731E6B1FBE61CC79525D05B947BBCE4EEF2413BE999BFBD094F04E3329406ED49061CD609231079D0EA158EA4",
+  "descriptionHash": "1BC12D42CF5D04CB53FFEEC5B324AB11D5777FB47B3B94C7C97E4AEEBD86D42EC9579134069419054647EFC8B02A521FD75AB7D2278746A80209DC6AA7BD8392",
   "descriptionLocation": "/mnt/vss/_work/1/s/msgraph-metadata/clean_v10_openapi/openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.7.0",
+  "kiotaVersion": "1.8.0",
   "clientClassName": "GraphBaseServiceClient",
   "clientNamespaceName": "github.com/microsoftgraph/msgraph-sdk-typescript/",
   "language": "TypeScript",
   "usesBackingStore": false,
+  "excludeBackwardCompatible": false,
   "includeAdditionalData": true,
   "serializers": [
     "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",

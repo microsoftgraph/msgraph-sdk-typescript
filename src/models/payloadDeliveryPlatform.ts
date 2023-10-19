@@ -5,3 +5,5 @@ export enum PayloadDeliveryPlatform {
     Teams = "teams",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

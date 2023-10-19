@@ -1,1 +1,1 @@
-export * from './closeSessionRequestBuilderPostRequestConfiguration'
+export * from './closeSessionRequestBuilder'

@@ -17,3 +17,5 @@ export enum DeviceManagementSubscriptionState {
     /** LockedOut */
     LockedOut = "lockedOut",
 }
+// tslint:enable
+// eslint-enable

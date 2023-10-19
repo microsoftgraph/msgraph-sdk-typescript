@@ -7,3 +7,5 @@ export enum DayOfWeek {
     Friday = "friday",
     Saturday = "saturday",
 }
+// tslint:enable
+// eslint-enable

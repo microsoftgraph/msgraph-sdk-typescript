@@ -6,3 +6,5 @@ export enum AttributeType {
     Boolean = "Boolean",
     DateTime = "DateTime",
 }
+// tslint:enable
+// eslint-enable

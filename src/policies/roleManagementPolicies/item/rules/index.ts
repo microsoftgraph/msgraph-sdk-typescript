@@ -1,3 +1,1 @@
-export * from './rulesRequestBuilderGetQueryParameters'
-export * from './rulesRequestBuilderGetRequestConfiguration'
-export * from './rulesRequestBuilderPostRequestConfiguration'
+export * from './rulesRequestBuilder'

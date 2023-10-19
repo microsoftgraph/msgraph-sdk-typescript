@@ -1,5 +1,2 @@
-export * from './createIsoWeekNumPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoIsoWeekNumPostRequestBody'
 export * from './isoWeekNumPostRequestBody'
-export * from './isoWeekNumRequestBuilderPostRequestConfiguration'
-export * from './serializeIsoWeekNumPostRequestBody'
+export * from './isoWeekNumRequestBuilder'

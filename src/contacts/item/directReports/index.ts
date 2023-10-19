@@ -1,2 +1,1 @@
-export * from './directReportsRequestBuilderGetQueryParameters'
-export * from './directReportsRequestBuilderGetRequestConfiguration'
+export * from './directReportsRequestBuilder'

@@ -1,2 +1,1 @@
-export * from './userAttributeRequestBuilderGetQueryParameters'
-export * from './userAttributeRequestBuilderGetRequestConfiguration'
+export * from './userAttributeRequestBuilder'

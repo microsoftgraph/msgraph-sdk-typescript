@@ -1,5 +1,2 @@
-export * from './createHypGeom_DistPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoHypGeom_DistPostRequestBody'
 export * from './hypGeom_DistPostRequestBody'
-export * from './hypGeom_DistRequestBuilderPostRequestConfiguration'
-export * from './serializeHypGeom_DistPostRequestBody'
+export * from './hypGeom_DistRequestBuilder'

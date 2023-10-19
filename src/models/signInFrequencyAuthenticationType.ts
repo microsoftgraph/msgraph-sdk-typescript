@@ -3,3 +3,5 @@ export enum SignInFrequencyAuthenticationType {
     SecondaryAuthentication = "secondaryAuthentication",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

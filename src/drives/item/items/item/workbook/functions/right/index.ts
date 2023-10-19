@@ -1,5 +1,2 @@
-export * from './createRightPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoRightPostRequestBody'
 export * from './rightPostRequestBody'
-export * from './rightRequestBuilderPostRequestConfiguration'
-export * from './serializeRightPostRequestBody'
+export * from './rightRequestBuilder'

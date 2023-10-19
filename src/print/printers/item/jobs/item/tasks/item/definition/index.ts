@@ -1,2 +1,1 @@
-export * from './definitionRequestBuilderGetQueryParameters'
-export * from './definitionRequestBuilderGetRequestConfiguration'
+export * from './definitionRequestBuilder'

@@ -1,2 +1,1 @@
-export * from './printConnectorItemRequestBuilderGetQueryParameters'
-export * from './printConnectorItemRequestBuilderGetRequestConfiguration'
+export * from './printConnectorItemRequestBuilder'

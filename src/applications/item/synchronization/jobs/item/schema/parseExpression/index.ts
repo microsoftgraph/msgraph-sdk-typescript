@@ -1,5 +1,2 @@
-export * from './createParseExpressionPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoParseExpressionPostRequestBody'
 export * from './parseExpressionPostRequestBody'
-export * from './parseExpressionRequestBuilderPostRequestConfiguration'
-export * from './serializeParseExpressionPostRequestBody'
+export * from './parseExpressionRequestBuilder'

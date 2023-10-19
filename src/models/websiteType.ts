@@ -5,3 +5,5 @@ export enum WebsiteType {
     Blog = "blog",
     Profile = "profile",
 }
+// tslint:enable
+// eslint-enable

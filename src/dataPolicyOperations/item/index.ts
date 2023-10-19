@@ -1,4 +1,1 @@
-export * from './dataPolicyOperationItemRequestBuilderDeleteRequestConfiguration'
-export * from './dataPolicyOperationItemRequestBuilderGetQueryParameters'
-export * from './dataPolicyOperationItemRequestBuilderGetRequestConfiguration'
-export * from './dataPolicyOperationItemRequestBuilderPatchRequestConfiguration'
+export * from './dataPolicyOperationItemRequestBuilder'

@@ -1,1 +1,1 @@
-export * from './getMailboxUsageMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getMailboxUsageMailboxCountsWithPeriodRequestBuilder'

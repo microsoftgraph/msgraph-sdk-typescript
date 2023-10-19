@@ -5,3 +5,5 @@ export enum EducationFeedbackResourceOutcomeStatus {
     FailedPublish = "failedPublish",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

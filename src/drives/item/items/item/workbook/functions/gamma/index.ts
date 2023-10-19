@@ -1,5 +1,2 @@
-export * from './createGammaPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoGammaPostRequestBody'
 export * from './gammaPostRequestBody'
-export * from './gammaRequestBuilderPostRequestConfiguration'
-export * from './serializeGammaPostRequestBody'
+export * from './gammaRequestBuilder'

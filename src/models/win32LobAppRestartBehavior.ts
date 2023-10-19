@@ -11,3 +11,5 @@ export enum Win32LobAppRestartBehavior {
     /** Intune will force the device to restart immediately after the app installation operation. */
     Force = "force",
 }
+// tslint:enable
+// eslint-enable

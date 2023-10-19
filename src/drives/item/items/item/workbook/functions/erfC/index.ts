@@ -1,5 +1,2 @@
-export * from './createErfCPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoErfCPostRequestBody'
 export * from './erfCPostRequestBody'
-export * from './erfCRequestBuilderPostRequestConfiguration'
-export * from './serializeErfCPostRequestBody'
+export * from './erfCRequestBuilder'

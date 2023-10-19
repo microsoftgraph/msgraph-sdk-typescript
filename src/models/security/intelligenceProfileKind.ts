@@ -3,3 +3,5 @@ export enum IntelligenceProfileKind {
     Tool = "tool",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

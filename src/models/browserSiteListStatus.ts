@@ -8,3 +8,5 @@ export enum BrowserSiteListStatus {
     /** Placeholder for evolvable enum, but this enum is never returned to the caller, so it shoudn't be necessary. */
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

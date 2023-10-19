@@ -3,3 +3,5 @@ export enum AuthenticationProtocol {
     Saml = "saml",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

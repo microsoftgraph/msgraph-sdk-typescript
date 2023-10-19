@@ -1,5 +1,2 @@
 export * from './complexPostRequestBody'
-export * from './complexRequestBuilderPostRequestConfiguration'
-export * from './createComplexPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoComplexPostRequestBody'
-export * from './serializeComplexPostRequestBody'
+export * from './complexRequestBuilder'

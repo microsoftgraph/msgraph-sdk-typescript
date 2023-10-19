@@ -1,5 +1,2 @@
-export * from './createQuotientPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoQuotientPostRequestBody'
 export * from './quotientPostRequestBody'
-export * from './quotientRequestBuilderPostRequestConfiguration'
-export * from './serializeQuotientPostRequestBody'
+export * from './quotientRequestBuilder'

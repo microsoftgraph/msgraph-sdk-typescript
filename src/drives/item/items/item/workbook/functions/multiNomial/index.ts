@@ -1,5 +1,2 @@
-export * from './createMultiNomialPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoMultiNomialPostRequestBody'
 export * from './multiNomialPostRequestBody'
-export * from './multiNomialRequestBuilderPostRequestConfiguration'
-export * from './serializeMultiNomialPostRequestBody'
+export * from './multiNomialRequestBuilder'

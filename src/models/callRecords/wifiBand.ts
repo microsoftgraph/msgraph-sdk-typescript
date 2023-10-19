@@ -5,3 +5,5 @@ export enum WifiBand {
     Frequency60GHz = "frequency60GHz",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

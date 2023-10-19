@@ -5,3 +5,5 @@ export enum OnenotePatchActionType {
     Insert = "Insert",
     Prepend = "Prepend",
 }
+// tslint:enable
+// eslint-enable

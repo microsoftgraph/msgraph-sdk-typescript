@@ -1,1 +1,1 @@
-export * from './bypassActivationLockRequestBuilderPostRequestConfiguration'
+export * from './bypassActivationLockRequestBuilder'

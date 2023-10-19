@@ -1,3 +1,1 @@
-export * from './federatedIdentityCredentialsRequestBuilderGetQueryParameters'
-export * from './federatedIdentityCredentialsRequestBuilderGetRequestConfiguration'
-export * from './federatedIdentityCredentialsRequestBuilderPostRequestConfiguration'
+export * from './federatedIdentityCredentialsRequestBuilder'

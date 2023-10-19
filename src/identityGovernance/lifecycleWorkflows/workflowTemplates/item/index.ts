@@ -1,2 +1,1 @@
-export * from './workflowTemplateItemRequestBuilderGetQueryParameters'
-export * from './workflowTemplateItemRequestBuilderGetRequestConfiguration'
+export * from './workflowTemplateItemRequestBuilder'

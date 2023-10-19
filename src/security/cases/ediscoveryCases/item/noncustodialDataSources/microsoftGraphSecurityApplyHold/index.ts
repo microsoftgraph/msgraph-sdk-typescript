@@ -1,5 +1,2 @@
 export * from './applyHoldPostRequestBody'
-export * from './createApplyHoldPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoApplyHoldPostRequestBody'
-export * from './microsoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration'
-export * from './serializeApplyHoldPostRequestBody'
+export * from './microsoftGraphSecurityApplyHoldRequestBuilder'

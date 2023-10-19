@@ -1,3 +1,1 @@
-export * from './settingsRequestBuilderGetQueryParameters'
-export * from './settingsRequestBuilderGetRequestConfiguration'
-export * from './settingsRequestBuilderPostRequestConfiguration'
+export * from './settingsRequestBuilder'

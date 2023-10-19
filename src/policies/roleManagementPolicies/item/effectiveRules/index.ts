@@ -1,3 +1,1 @@
-export * from './effectiveRulesRequestBuilderGetQueryParameters'
-export * from './effectiveRulesRequestBuilderGetRequestConfiguration'
-export * from './effectiveRulesRequestBuilderPostRequestConfiguration'
+export * from './effectiveRulesRequestBuilder'

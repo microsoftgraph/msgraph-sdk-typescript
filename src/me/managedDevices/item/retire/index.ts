@@ -1,1 +1,1 @@
-export * from './retireRequestBuilderPostRequestConfiguration'
+export * from './retireRequestBuilder'

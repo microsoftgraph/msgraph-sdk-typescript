@@ -5,3 +5,5 @@ export enum SubjectRightsRequestType {
     TagForAction = "tagForAction",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

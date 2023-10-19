@@ -4,3 +4,5 @@ export enum CalendarSharingAction {
     ViewCalendar = "viewCalendar",
     AddThisCalendar = "addThisCalendar",
 }
+// tslint:enable
+// eslint-enable

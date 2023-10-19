@@ -3,3 +3,5 @@ export enum PermissionType {
     Delegated = "delegated",
     DelegatedUserConsentable = "delegatedUserConsentable",
 }
+// tslint:enable
+// eslint-enable

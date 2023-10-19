@@ -11,3 +11,5 @@ export enum InstallIntent {
     /** Available without enrollment install intent. */
     AvailableWithoutEnrollment = "availableWithoutEnrollment",
 }
+// tslint:enable
+// eslint-enable

@@ -1,1 +1,1 @@
-export * from './getOneDriveActivityUserDetailWithDateRequestBuilderGetRequestConfiguration'
+export * from './getOneDriveActivityUserDetailWithDateRequestBuilder'

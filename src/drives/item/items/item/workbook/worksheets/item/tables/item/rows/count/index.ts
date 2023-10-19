@@ -1,5 +1,2 @@
-export * from './countRequestBuilderGetRequestConfiguration'
-export * from './countResponse'
-export * from './createCountResponseFromDiscriminatorValue'
-export * from './deserializeIntoCountResponse'
-export * from './serializeCountResponse'
+export * from './countGetResponse'
+export * from './countRequestBuilder'

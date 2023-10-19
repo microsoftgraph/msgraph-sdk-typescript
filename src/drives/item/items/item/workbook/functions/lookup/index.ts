@@ -1,5 +1,2 @@
-export * from './createLookupPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoLookupPostRequestBody'
 export * from './lookupPostRequestBody'
-export * from './lookupRequestBuilderPostRequestConfiguration'
-export * from './serializeLookupPostRequestBody'
+export * from './lookupRequestBuilder'

@@ -3,3 +3,5 @@ export enum SubjectRightsRequestStatus {
     Closed = "closed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

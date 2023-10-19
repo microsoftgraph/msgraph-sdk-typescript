@@ -1,4 +1,1 @@
-export * from './workbookNamedItemItemRequestBuilderDeleteRequestConfiguration'
-export * from './workbookNamedItemItemRequestBuilderGetQueryParameters'
-export * from './workbookNamedItemItemRequestBuilderGetRequestConfiguration'
-export * from './workbookNamedItemItemRequestBuilderPatchRequestConfiguration'
+export * from './workbookNamedItemItemRequestBuilder'

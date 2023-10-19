@@ -1,4 +1,1 @@
-export * from './calendarItemRequestBuilderDeleteRequestConfiguration'
-export * from './calendarItemRequestBuilderGetQueryParameters'
-export * from './calendarItemRequestBuilderGetRequestConfiguration'
-export * from './calendarItemRequestBuilderPatchRequestConfiguration'
+export * from './calendarItemRequestBuilder'

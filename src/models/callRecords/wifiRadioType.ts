@@ -8,3 +8,5 @@ export enum WifiRadioType {
     Wifi80211ax = "wifi80211ax",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

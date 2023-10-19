@@ -5,3 +5,5 @@ export enum PrinterProcessingState {
     Stopped = "stopped",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,5 +1,2 @@
-export * from './createIntPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoIntPostRequestBody'
 export * from './intPostRequestBody'
-export * from './intRequestBuilderPostRequestConfiguration'
-export * from './serializeIntPostRequestBody'
+export * from './intRequestBuilder'

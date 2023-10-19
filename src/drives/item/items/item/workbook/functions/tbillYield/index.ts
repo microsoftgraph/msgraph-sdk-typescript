@@ -1,5 +1,2 @@
-export * from './createTbillYieldPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoTbillYieldPostRequestBody'
-export * from './serializeTbillYieldPostRequestBody'
 export * from './tbillYieldPostRequestBody'
-export * from './tbillYieldRequestBuilderPostRequestConfiguration'
+export * from './tbillYieldRequestBuilder'

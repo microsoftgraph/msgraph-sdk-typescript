@@ -9,3 +9,5 @@ export enum RemoteAssistanceOnboardingStatus {
     /** The status reported when the system has successfully exchanged account information with TeamViewer and can now initiate remote assistance sessions with clients */
     Onboarded = "onboarded",
 }
+// tslint:enable
+// eslint-enable

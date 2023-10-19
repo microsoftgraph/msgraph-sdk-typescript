@@ -4,3 +4,5 @@ export enum IdentityUserFlowAttributeType {
     Required = "required",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

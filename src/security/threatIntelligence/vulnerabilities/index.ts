@@ -1,3 +1,1 @@
-export * from './vulnerabilitiesRequestBuilderGetQueryParameters'
-export * from './vulnerabilitiesRequestBuilderGetRequestConfiguration'
-export * from './vulnerabilitiesRequestBuilderPostRequestConfiguration'
+export * from './vulnerabilitiesRequestBuilder'

@@ -1,5 +1,2 @@
 export * from './answerPostRequestBody'
-export * from './answerRequestBuilderPostRequestConfiguration'
-export * from './createAnswerPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAnswerPostRequestBody'
-export * from './serializeAnswerPostRequestBody'
+export * from './answerRequestBuilder'
