@@ -1,1 +1,1 @@
-export * from './microsoftGraphSecurityUpdateIndexRequestBuilderPostRequestConfiguration'
+export * from './microsoftGraphSecurityUpdateIndexRequestBuilder'

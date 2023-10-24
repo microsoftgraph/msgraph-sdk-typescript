@@ -3,3 +3,5 @@ export enum PurgeType {
     PermanentlyDeleted = "permanentlyDeleted",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

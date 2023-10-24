@@ -1,4 +1,1 @@
-export * from './certificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration'
-export * from './certificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters'
-export * from './certificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration'
-export * from './certificateBasedAuthConfigurationItemRequestBuilderPatchRequestConfiguration'
+export * from './certificateBasedAuthConfigurationItemRequestBuilder'

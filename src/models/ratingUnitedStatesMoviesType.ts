@@ -17,3 +17,5 @@ export enum RatingUnitedStatesMoviesType {
     /** NC17, adults only */
     Adults = "adults",
 }
+// tslint:enable
+// eslint-enable

@@ -3,3 +3,5 @@ export enum QueryType {
     Messages = "messages",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

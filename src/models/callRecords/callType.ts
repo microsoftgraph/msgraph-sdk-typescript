@@ -4,3 +4,5 @@ export enum CallType {
     PeerToPeer = "peerToPeer",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

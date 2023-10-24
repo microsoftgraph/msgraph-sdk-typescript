@@ -4,3 +4,5 @@ export enum AccessReviewExpirationBehavior {
     AcceptAccessRecommendation = "acceptAccessRecommendation",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

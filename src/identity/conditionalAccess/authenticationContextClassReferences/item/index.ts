@@ -1,4 +1,1 @@
-export * from './authenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration'
-export * from './authenticationContextClassReferenceItemRequestBuilderGetQueryParameters'
-export * from './authenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration'
-export * from './authenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration'
+export * from './authenticationContextClassReferenceItemRequestBuilder'

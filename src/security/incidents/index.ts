@@ -1,3 +1,1 @@
-export * from './incidentsRequestBuilderGetQueryParameters'
-export * from './incidentsRequestBuilderGetRequestConfiguration'
-export * from './incidentsRequestBuilderPostRequestConfiguration'
+export * from './incidentsRequestBuilder'

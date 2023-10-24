@@ -5,3 +5,5 @@ export enum RecipientScopeType {
     ExternalPartner = "externalPartner",
     ExternalNonPartner = "externalNonPartner",
 }
+// tslint:enable
+// eslint-enable

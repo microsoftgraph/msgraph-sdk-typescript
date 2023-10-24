@@ -1,2 +1,1 @@
-export * from './passwordAuthenticationMethodItemRequestBuilderGetQueryParameters'
-export * from './passwordAuthenticationMethodItemRequestBuilderGetRequestConfiguration'
+export * from './passwordAuthenticationMethodItemRequestBuilder'

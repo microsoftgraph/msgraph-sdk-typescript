@@ -5,3 +5,5 @@ export enum TaskStatus {
     WaitingOnOthers = "waitingOnOthers",
     Deferred = "deferred",
 }
+// tslint:enable
+// eslint-enable

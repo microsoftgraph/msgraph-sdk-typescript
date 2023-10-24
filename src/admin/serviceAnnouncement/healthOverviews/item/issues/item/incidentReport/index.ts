@@ -1,1 +1,1 @@
-export * from './incidentReportRequestBuilderGetRequestConfiguration'
+export * from './incidentReportRequestBuilder'

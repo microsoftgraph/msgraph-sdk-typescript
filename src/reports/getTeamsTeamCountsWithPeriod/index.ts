@@ -1,1 +1,1 @@
-export * from './getTeamsTeamCountsWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getTeamsTeamCountsWithPeriodRequestBuilder'

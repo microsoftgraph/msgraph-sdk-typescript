@@ -13,3 +13,5 @@ export enum WindowsArchitecture {
     /** Whether or not the Neutral Windows architecture type is supported. */
     Neutral = "neutral",
 }
+// tslint:enable
+// eslint-enable

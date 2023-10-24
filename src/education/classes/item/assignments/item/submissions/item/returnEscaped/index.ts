@@ -1,1 +1,1 @@
-export * from './returnRequestBuilderPostRequestConfiguration'
+export * from './returnRequestBuilder'

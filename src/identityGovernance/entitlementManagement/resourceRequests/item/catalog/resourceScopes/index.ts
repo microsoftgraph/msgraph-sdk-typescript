@@ -1,3 +1,1 @@
-export * from './resourceScopesRequestBuilderGetQueryParameters'
-export * from './resourceScopesRequestBuilderGetRequestConfiguration'
-export * from './resourceScopesRequestBuilderPostRequestConfiguration'
+export * from './resourceScopesRequestBuilder'

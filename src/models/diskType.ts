@@ -8,3 +8,5 @@ export enum DiskType {
     /** Evolvable enumeration sentinel value.Do not use. */
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -11,3 +11,5 @@ export enum PrereleaseFeatures {
     /** Pre-release features not allowed. */
     NotAllowed = "notAllowed",
 }
+// tslint:enable
+// eslint-enable

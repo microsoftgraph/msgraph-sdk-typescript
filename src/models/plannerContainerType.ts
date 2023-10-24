@@ -3,3 +3,5 @@ export enum PlannerContainerType {
     UnknownFutureValue = "unknownFutureValue",
     Roster = "roster",
 }
+// tslint:enable
+// eslint-enable

@@ -1,2 +1,1 @@
-export * from './graphWindowsUniversalAppXRequestBuilderGetQueryParameters'
-export * from './graphWindowsUniversalAppXRequestBuilderGetRequestConfiguration'
+export * from './graphWindowsUniversalAppXRequestBuilder'

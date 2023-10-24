@@ -3,3 +3,5 @@ export enum AdditionalDataOptions {
     LinkedFiles = "linkedFiles",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

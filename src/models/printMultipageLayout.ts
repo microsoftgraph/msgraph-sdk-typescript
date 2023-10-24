@@ -9,3 +9,5 @@ export enum PrintMultipageLayout {
     ClockwiseFromBottomRight = "clockwiseFromBottomRight",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

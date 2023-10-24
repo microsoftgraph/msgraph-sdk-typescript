@@ -10,3 +10,5 @@ export enum LocationType {
     LocalBusiness = "localBusiness",
     PostalAddress = "postalAddress",
 }
+// tslint:enable
+// eslint-enable

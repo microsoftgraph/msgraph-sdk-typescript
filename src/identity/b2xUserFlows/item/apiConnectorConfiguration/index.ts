@@ -1,2 +1,1 @@
-export * from './apiConnectorConfigurationRequestBuilderGetQueryParameters'
-export * from './apiConnectorConfigurationRequestBuilderGetRequestConfiguration'
+export * from './apiConnectorConfigurationRequestBuilder'

@@ -13,3 +13,5 @@ export enum DeviceManagementExchangeAccessState {
     /** Device is Quarantined in Exchange */
     Quarantined = "quarantined",
 }
+// tslint:enable
+// eslint-enable

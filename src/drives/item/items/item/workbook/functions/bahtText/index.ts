@@ -1,5 +1,2 @@
 export * from './bahtTextPostRequestBody'
-export * from './bahtTextRequestBuilderPostRequestConfiguration'
-export * from './createBahtTextPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoBahtTextPostRequestBody'
-export * from './serializeBahtTextPostRequestBody'
+export * from './bahtTextRequestBuilder'

@@ -6,3 +6,5 @@ export enum EducationSubmissionStatus {
     UnknownFutureValue = "unknownFutureValue",
     Reassigned = "reassigned",
 }
+// tslint:enable
+// eslint-enable

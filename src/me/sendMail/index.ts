@@ -1,5 +1,2 @@
-export * from './createSendMailPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoSendMailPostRequestBody'
 export * from './sendMailPostRequestBody'
-export * from './sendMailRequestBuilderPostRequestConfiguration'
-export * from './serializeSendMailPostRequestBody'
+export * from './sendMailRequestBuilder'

@@ -1,2 +1,1 @@
-export * from './outlookRequestBuilderGetQueryParameters'
-export * from './outlookRequestBuilderGetRequestConfiguration'
+export * from './outlookRequestBuilder'

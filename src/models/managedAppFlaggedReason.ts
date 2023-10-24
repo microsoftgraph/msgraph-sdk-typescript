@@ -7,3 +7,5 @@ export enum ManagedAppFlaggedReason {
     /** The app registration is running on a rooted/unlocked device. */
     RootedDevice = "rootedDevice",
 }
+// tslint:enable
+// eslint-enable

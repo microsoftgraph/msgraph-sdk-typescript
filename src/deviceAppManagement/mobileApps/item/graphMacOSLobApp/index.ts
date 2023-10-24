@@ -1,2 +1,1 @@
-export * from './graphMacOSLobAppRequestBuilderGetQueryParameters'
-export * from './graphMacOSLobAppRequestBuilderGetRequestConfiguration'
+export * from './graphMacOSLobAppRequestBuilder'

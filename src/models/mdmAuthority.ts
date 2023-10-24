@@ -11,3 +11,5 @@ export enum MdmAuthority {
     /** Office365 */
     Office365 = "office365",
 }
+// tslint:enable
+// eslint-enable

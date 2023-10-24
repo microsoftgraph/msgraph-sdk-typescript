@@ -23,3 +23,5 @@ export enum AudioCodec {
     XmsRta = "xmsRta",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

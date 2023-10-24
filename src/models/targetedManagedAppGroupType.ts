@@ -11,3 +11,5 @@ export enum TargetedManagedAppGroupType {
     /** Target all apps with an available assignment. */
     AllApps = "allApps",
 }
+// tslint:enable
+// eslint-enable

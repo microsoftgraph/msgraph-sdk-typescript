@@ -6,3 +6,5 @@ export enum AccessPackageAssignmentState {
     DeliveryFailed = "deliveryFailed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

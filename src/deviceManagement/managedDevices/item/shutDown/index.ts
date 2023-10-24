@@ -1,1 +1,1 @@
-export * from './shutDownRequestBuilderPostRequestConfiguration'
+export * from './shutDownRequestBuilder'

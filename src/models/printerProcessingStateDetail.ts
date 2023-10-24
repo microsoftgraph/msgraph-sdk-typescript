@@ -826,3 +826,5 @@ export enum PrinterProcessingStateDetail {
     WrapperUnrecoverableStorageError = "wrapperUnrecoverableStorageError",
     WrapperWarmingUp = "wrapperWarmingUp",
 }
+// tslint:enable
+// eslint-enable

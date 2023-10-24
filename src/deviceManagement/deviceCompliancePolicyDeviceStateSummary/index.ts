@@ -1,4 +1,1 @@
-export * from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderDeleteRequestConfiguration'
-export * from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryParameters'
-export * from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration'
-export * from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration'
+export * from './deviceCompliancePolicyDeviceStateSummaryRequestBuilder'

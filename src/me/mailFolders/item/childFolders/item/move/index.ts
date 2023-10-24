@@ -1,5 +1,2 @@
-export * from './createMovePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoMovePostRequestBody'
 export * from './movePostRequestBody'
-export * from './moveRequestBuilderPostRequestConfiguration'
-export * from './serializeMovePostRequestBody'
+export * from './moveRequestBuilder'

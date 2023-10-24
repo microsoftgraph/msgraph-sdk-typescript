@@ -1,2 +1,1 @@
-export * from './workFromAnywhereMetricsRequestBuilderGetQueryParameters'
-export * from './workFromAnywhereMetricsRequestBuilderGetRequestConfiguration'
+export * from './workFromAnywhereMetricsRequestBuilder'

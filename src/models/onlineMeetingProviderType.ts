@@ -4,3 +4,5 @@ export enum OnlineMeetingProviderType {
     SkypeForConsumer = "skypeForConsumer",
     TeamsForBusiness = "teamsForBusiness",
 }
+// tslint:enable
+// eslint-enable

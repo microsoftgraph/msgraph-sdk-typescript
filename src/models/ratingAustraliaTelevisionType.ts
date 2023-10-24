@@ -21,3 +21,5 @@ export enum RatingAustraliaTelevisionType {
     /** The AV15+ classification is not suitable for viewers under 15, adult violence-specific */
     AgesAbove15AdultViolence = "agesAbove15AdultViolence",
 }
+// tslint:enable
+// eslint-enable

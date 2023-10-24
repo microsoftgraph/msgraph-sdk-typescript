@@ -1,1 +1,1 @@
-export * from './usedRangeRequestBuilderGetRequestConfiguration'
+export * from './usedRangeRequestBuilder'

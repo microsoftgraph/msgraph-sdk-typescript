@@ -24,3 +24,5 @@ export enum SecurityNetworkProtocol {
     SpxII = "spxII",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

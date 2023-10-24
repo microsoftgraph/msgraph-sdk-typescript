@@ -7,3 +7,5 @@ export enum LifecycleWorkflowProcessingStatus {
     Failed = "failed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

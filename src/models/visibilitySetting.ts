@@ -9,3 +9,5 @@ export enum VisibilitySetting {
     /** Show. */
     Show = "show",
 }
+// tslint:enable
+// eslint-enable

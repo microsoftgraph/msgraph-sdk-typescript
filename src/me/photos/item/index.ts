@@ -1,2 +1,1 @@
-export * from './profilePhotoItemRequestBuilderGetQueryParameters'
-export * from './profilePhotoItemRequestBuilderGetRequestConfiguration'
+export * from './profilePhotoItemRequestBuilder'

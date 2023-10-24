@@ -9,4 +9,7 @@ export enum Label {
     FileName = "fileName",
     FileExtension = "fileExtension",
     UnknownFutureValue = "unknownFutureValue",
+    IconUrl = "iconUrl",
 }
+// tslint:enable
+// eslint-enable

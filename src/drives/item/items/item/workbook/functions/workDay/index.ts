@@ -1,5 +1,2 @@
-export * from './createWorkDayPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoWorkDayPostRequestBody'
-export * from './serializeWorkDayPostRequestBody'
 export * from './workDayPostRequestBody'
-export * from './workDayRequestBuilderPostRequestConfiguration'
+export * from './workDayRequestBuilder'

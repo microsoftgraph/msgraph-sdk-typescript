@@ -1,2 +1,1 @@
-export * from './executionScopeRequestBuilderGetQueryParameters'
-export * from './executionScopeRequestBuilderGetRequestConfiguration'
+export * from './executionScopeRequestBuilder'

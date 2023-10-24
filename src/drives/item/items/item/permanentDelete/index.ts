@@ -1,1 +1,1 @@
-export * from './permanentDeleteRequestBuilderPostRequestConfiguration'
+export * from './permanentDeleteRequestBuilder'

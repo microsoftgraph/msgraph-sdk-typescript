@@ -1,3 +1,1 @@
-export * from './administrativeUnitRequestBuilderGetQueryParameters'
-export * from './administrativeUnitRequestBuilderGetRequestConfiguration'
-export * from './administrativeUnitRequestBuilderPatchRequestConfiguration'
+export * from './administrativeUnitRequestBuilder'

@@ -15,3 +15,5 @@ export enum AutomaticUpdateMode {
     /** Auto-install and restart without end-user control */
     AutoInstallAndRebootWithoutEndUserControl = "autoInstallAndRebootWithoutEndUserControl",
 }
+// tslint:enable
+// eslint-enable

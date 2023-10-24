@@ -9,3 +9,5 @@ export enum TeamworkUserIdentityType {
     UnknownFutureValue = "unknownFutureValue",
     EmailUser = "emailUser",
 }
+// tslint:enable
+// eslint-enable

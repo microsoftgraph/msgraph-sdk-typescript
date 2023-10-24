@@ -8,3 +8,5 @@ export enum SubjectRightsRequestStage {
     UnknownFutureValue = "unknownFutureValue",
     Approval = "approval",
 }
+// tslint:enable
+// eslint-enable

@@ -1,5 +1,2 @@
-export * from './createSecondPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoSecondPostRequestBody'
 export * from './secondPostRequestBody'
-export * from './secondRequestBuilderPostRequestConfiguration'
-export * from './serializeSecondPostRequestBody'
+export * from './secondRequestBuilder'

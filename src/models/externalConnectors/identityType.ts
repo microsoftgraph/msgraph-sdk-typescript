@@ -4,3 +4,5 @@ export enum IdentityType {
     ExternalGroup = "externalGroup",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

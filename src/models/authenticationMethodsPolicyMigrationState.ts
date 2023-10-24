@@ -4,3 +4,5 @@ export enum AuthenticationMethodsPolicyMigrationState {
     MigrationComplete = "migrationComplete",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

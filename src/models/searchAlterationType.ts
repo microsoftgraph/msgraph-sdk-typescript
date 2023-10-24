@@ -3,3 +3,5 @@ export enum SearchAlterationType {
     Modification = "modification",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,5 +1,2 @@
 export * from './assignLicensePostRequestBody'
-export * from './assignLicenseRequestBuilderPostRequestConfiguration'
-export * from './createAssignLicensePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAssignLicensePostRequestBody'
-export * from './serializeAssignLicensePostRequestBody'
+export * from './assignLicenseRequestBuilder'

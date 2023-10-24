@@ -17,3 +17,5 @@ export enum WindowsDeliveryOptimizationMode {
     /** Bypass mode. Do not use Delivery Optimization and use BITS instead */
     BypassMode = "bypassMode",
 }
+// tslint:enable
+// eslint-enable

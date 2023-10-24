@@ -17,3 +17,5 @@ export enum Tone {
     D = "d",
     Flash = "flash",
 }
+// tslint:enable
+// eslint-enable

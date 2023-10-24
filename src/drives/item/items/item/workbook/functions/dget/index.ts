@@ -1,5 +1,2 @@
-export * from './createDgetPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoDgetPostRequestBody'
 export * from './dgetPostRequestBody'
-export * from './dgetRequestBuilderPostRequestConfiguration'
-export * from './serializeDgetPostRequestBody'
+export * from './dgetRequestBuilder'

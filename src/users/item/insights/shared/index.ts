@@ -1,3 +1,1 @@
-export * from './sharedRequestBuilderGetQueryParameters'
-export * from './sharedRequestBuilderGetRequestConfiguration'
-export * from './sharedRequestBuilderPostRequestConfiguration'
+export * from './sharedRequestBuilder'

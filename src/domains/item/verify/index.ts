@@ -1,1 +1,1 @@
-export * from './verifyRequestBuilderPostRequestConfiguration'
+export * from './verifyRequestBuilder'

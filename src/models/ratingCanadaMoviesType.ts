@@ -17,3 +17,5 @@ export enum RatingCanadaMoviesType {
     /** The R classification is restricted to 18 years and older */
     Restricted = "restricted",
 }
+// tslint:enable
+// eslint-enable

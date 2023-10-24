@@ -1,5 +1,2 @@
-export * from './createRriPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoRriPostRequestBody'
 export * from './rriPostRequestBody'
-export * from './rriRequestBuilderPostRequestConfiguration'
-export * from './serializeRriPostRequestBody'
+export * from './rriRequestBuilder'

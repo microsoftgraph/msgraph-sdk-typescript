@@ -29,3 +29,5 @@ export enum DeviceEnrollmentType {
     /** Device managed by Apple user enrollment with service account */
     AppleUserEnrollmentWithServiceAccount = "appleUserEnrollmentWithServiceAccount",
 }
+// tslint:enable
+// eslint-enable

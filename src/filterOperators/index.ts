@@ -1,3 +1,1 @@
-export * from './filterOperatorsRequestBuilderGetQueryParameters'
-export * from './filterOperatorsRequestBuilderGetRequestConfiguration'
-export * from './filterOperatorsRequestBuilderPostRequestConfiguration'
+export * from './filterOperatorsRequestBuilder'

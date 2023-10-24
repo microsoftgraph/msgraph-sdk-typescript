@@ -5,3 +5,5 @@ export enum SynchronizationStatusCode {
     Paused = "Paused",
     Quarantine = "Quarantine",
 }
+// tslint:enable
+// eslint-enable

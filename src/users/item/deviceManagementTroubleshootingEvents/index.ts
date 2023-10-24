@@ -1,3 +1,1 @@
-export * from './deviceManagementTroubleshootingEventsRequestBuilderGetQueryParameters'
-export * from './deviceManagementTroubleshootingEventsRequestBuilderGetRequestConfiguration'
-export * from './deviceManagementTroubleshootingEventsRequestBuilderPostRequestConfiguration'
+export * from './deviceManagementTroubleshootingEventsRequestBuilder'

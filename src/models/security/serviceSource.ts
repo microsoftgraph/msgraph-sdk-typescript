@@ -10,4 +10,7 @@ export enum ServiceSource {
     DataLossPrevention = "dataLossPrevention",
     UnknownFutureValue = "unknownFutureValue",
     MicrosoftDefenderForCloud = "microsoftDefenderForCloud",
+    MicrosoftSentinel = "microsoftSentinel",
 }
+// tslint:enable
+// eslint-enable

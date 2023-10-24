@@ -1,5 +1,2 @@
-export * from './createReplaceBPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoReplaceBPostRequestBody'
 export * from './replaceBPostRequestBody'
-export * from './replaceBRequestBuilderPostRequestConfiguration'
-export * from './serializeReplaceBPostRequestBody'
+export * from './replaceBRequestBuilder'

@@ -1,5 +1,2 @@
-export * from './createDstDevPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoDstDevPostRequestBody'
 export * from './dstDevPostRequestBody'
-export * from './dstDevRequestBuilderPostRequestConfiguration'
-export * from './serializeDstDevPostRequestBody'
+export * from './dstDevRequestBuilder'

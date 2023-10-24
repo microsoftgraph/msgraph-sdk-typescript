@@ -1,2 +1,1 @@
-export * from './graphOrgContactRequestBuilderGetQueryParameters'
-export * from './graphOrgContactRequestBuilderGetRequestConfiguration'
+export * from './graphOrgContactRequestBuilder'

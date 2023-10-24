@@ -1,8 +1,0 @@
-import { deserializeIntoOperationError } from './deserializeIntoOperationError';
-import { type OperationError } from './index';
-import { type ParseNode } from '@microsoft/kiota-abstractions';
-
-export function createOperationErrorFromDiscriminatorValue(parseNode: ParseNode | undefined) {
-    if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return deserializeIntoOperationError;
-}

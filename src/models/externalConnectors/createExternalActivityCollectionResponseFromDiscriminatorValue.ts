@@ -1,8 +1,0 @@
-import { deserializeIntoExternalActivityCollectionResponse } from './deserializeIntoExternalActivityCollectionResponse';
-import { type ExternalActivityCollectionResponse } from './index';
-import { type ParseNode } from '@microsoft/kiota-abstractions';
-
-export function createExternalActivityCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
-    if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return deserializeIntoExternalActivityCollectionResponse;
-}

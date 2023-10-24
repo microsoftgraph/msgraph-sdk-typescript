@@ -1,5 +1,2 @@
-export * from './createPermutationaPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoPermutationaPostRequestBody'
 export * from './permutationaPostRequestBody'
-export * from './permutationaRequestBuilderPostRequestConfiguration'
-export * from './serializePermutationaPostRequestBody'
+export * from './permutationaRequestBuilder'

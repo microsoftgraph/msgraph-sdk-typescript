@@ -3,3 +3,5 @@ export enum MeetingChatHistoryDefaultMode {
     All = "all",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

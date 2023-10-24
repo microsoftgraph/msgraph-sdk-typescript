@@ -17,3 +17,5 @@ export enum RatingAustraliaMoviesType {
     /** The R18+ classification is not suitable for viewers under 18 */
     AgesAbove18 = "agesAbove18",
 }
+// tslint:enable
+// eslint-enable

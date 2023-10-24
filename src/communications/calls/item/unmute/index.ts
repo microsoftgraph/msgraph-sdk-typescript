@@ -1,5 +1,2 @@
-export * from './createUnmutePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoUnmutePostRequestBody'
-export * from './serializeUnmutePostRequestBody'
 export * from './unmutePostRequestBody'
-export * from './unmuteRequestBuilderPostRequestConfiguration'
+export * from './unmuteRequestBuilder'

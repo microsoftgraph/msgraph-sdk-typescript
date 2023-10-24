@@ -6,3 +6,5 @@ export enum RecurrencePatternType {
     AbsoluteYearly = "absoluteYearly",
     RelativeYearly = "relativeYearly",
 }
+// tslint:enable
+// eslint-enable

@@ -10,3 +10,5 @@ export enum AccessPackageRequestState {
     PartiallyDelivered = "partiallyDelivered",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

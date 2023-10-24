@@ -5,3 +5,5 @@ export enum SubjectRightsRequestStageStatus {
     Failed = "failed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

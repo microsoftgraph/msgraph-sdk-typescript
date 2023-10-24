@@ -1,3 +1,1 @@
-export * from './windowsInformationProtectionPoliciesRequestBuilderGetQueryParameters'
-export * from './windowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration'
-export * from './windowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration'
+export * from './windowsInformationProtectionPoliciesRequestBuilder'

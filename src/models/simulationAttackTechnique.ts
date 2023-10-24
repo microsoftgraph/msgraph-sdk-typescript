@@ -7,3 +7,5 @@ export enum SimulationAttackTechnique {
     LinkToMalwareFile = "linkToMalwareFile",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

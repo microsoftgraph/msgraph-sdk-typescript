@@ -1,1 +1,1 @@
-export * from './cancelRequestBuilderPostRequestConfiguration'
+export * from './cancelRequestBuilder'

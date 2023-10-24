@@ -3,3 +3,5 @@ export enum ServiceHealthClassificationType {
     Incident = "incident",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

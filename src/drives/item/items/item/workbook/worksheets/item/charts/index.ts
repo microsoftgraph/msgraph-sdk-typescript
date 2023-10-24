@@ -1,3 +1,1 @@
-export * from './chartsRequestBuilderGetQueryParameters'
-export * from './chartsRequestBuilderGetRequestConfiguration'
-export * from './chartsRequestBuilderPostRequestConfiguration'
+export * from './chartsRequestBuilder'

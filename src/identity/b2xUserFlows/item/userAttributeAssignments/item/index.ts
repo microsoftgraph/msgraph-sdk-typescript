@@ -1,4 +1,1 @@
-export * from './identityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration'
-export * from './identityUserFlowAttributeAssignmentItemRequestBuilderGetQueryParameters'
-export * from './identityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration'
-export * from './identityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration'
+export * from './identityUserFlowAttributeAssignmentItemRequestBuilder'

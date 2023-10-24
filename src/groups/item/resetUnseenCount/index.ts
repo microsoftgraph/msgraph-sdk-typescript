@@ -1,1 +1,1 @@
-export * from './resetUnseenCountRequestBuilderPostRequestConfiguration'
+export * from './resetUnseenCountRequestBuilder'

@@ -1,2 +1,1 @@
-export * from './rejectedSendersRequestBuilderGetQueryParameters'
-export * from './rejectedSendersRequestBuilderGetRequestConfiguration'
+export * from './rejectedSendersRequestBuilder'

@@ -1,1 +1,1 @@
-export * from './rebootNowRequestBuilderPostRequestConfiguration'
+export * from './rebootNowRequestBuilder'

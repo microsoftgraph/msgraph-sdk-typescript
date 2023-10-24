@@ -1,3 +1,1 @@
-export * from './certificateBasedAuthConfigurationRequestBuilderGetQueryParameters'
-export * from './certificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration'
-export * from './certificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration'
+export * from './certificateBasedAuthConfigurationRequestBuilder'

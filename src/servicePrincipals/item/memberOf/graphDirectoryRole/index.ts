@@ -1,2 +1,1 @@
-export * from './graphDirectoryRoleRequestBuilderGetQueryParameters'
-export * from './graphDirectoryRoleRequestBuilderGetRequestConfiguration'
+export * from './graphDirectoryRoleRequestBuilder'

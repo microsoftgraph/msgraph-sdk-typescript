@@ -18,4 +18,11 @@ export enum DetectionSource {
     AppGovernanceDetection = "appGovernanceDetection",
     UnknownFutureValue = "unknownFutureValue",
     MicrosoftDefenderForCloud = "microsoftDefenderForCloud",
+    NrtAlerts = "nrtAlerts",
+    ScheduledAlerts = "scheduledAlerts",
+    MicrosoftDefenderThreatIntelligenceAnalytics = "microsoftDefenderThreatIntelligenceAnalytics",
+    BuiltInMl = "builtInMl",
+    MicrosoftSentinel = "microsoftSentinel",
 }
+// tslint:enable
+// eslint-enable

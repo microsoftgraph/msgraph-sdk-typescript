@@ -1,2 +1,1 @@
-export * from './applicationTemplatesRequestBuilderGetQueryParameters'
-export * from './applicationTemplatesRequestBuilderGetRequestConfiguration'
+export * from './applicationTemplatesRequestBuilder'

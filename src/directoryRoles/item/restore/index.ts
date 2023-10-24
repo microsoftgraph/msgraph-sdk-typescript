@@ -1,1 +1,1 @@
-export * from './restoreRequestBuilderPostRequestConfiguration'
+export * from './restoreRequestBuilder'

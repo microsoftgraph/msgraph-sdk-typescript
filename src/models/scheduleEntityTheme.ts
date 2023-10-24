@@ -13,3 +13,5 @@ export enum ScheduleEntityTheme {
     DarkYellow = "darkYellow",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

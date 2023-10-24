@@ -1,4 +1,1 @@
-export * from './accessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration'
-export * from './accessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters'
-export * from './accessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration'
-export * from './accessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration'
+export * from './accessPackageAssignmentPolicyItemRequestBuilder'

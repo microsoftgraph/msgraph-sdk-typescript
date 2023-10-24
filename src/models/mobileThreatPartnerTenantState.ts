@@ -11,3 +11,5 @@ export enum MobileThreatPartnerTenantState {
     /** Partner is unresponsive. */
     Unresponsive = "unresponsive",
 }
+// tslint:enable
+// eslint-enable

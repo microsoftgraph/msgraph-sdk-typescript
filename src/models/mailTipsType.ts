@@ -10,3 +10,5 @@ export enum MailTipsType {
     RecipientScope = "recipientScope",
     RecipientSuggestions = "recipientSuggestions",
 }
+// tslint:enable
+// eslint-enable

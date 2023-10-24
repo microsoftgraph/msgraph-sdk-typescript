@@ -1,1 +1,1 @@
-export * from './pauseRequestBuilderPostRequestConfiguration'
+export * from './pauseRequestBuilder'

@@ -1,5 +1,2 @@
-export * from './createPriceMatPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoPriceMatPostRequestBody'
 export * from './priceMatPostRequestBody'
-export * from './priceMatRequestBuilderPostRequestConfiguration'
-export * from './serializePriceMatPostRequestBody'
+export * from './priceMatRequestBuilder'

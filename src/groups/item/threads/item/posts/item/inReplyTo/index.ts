@@ -1,2 +1,1 @@
-export * from './inReplyToRequestBuilderGetQueryParameters'
-export * from './inReplyToRequestBuilderGetRequestConfiguration'
+export * from './inReplyToRequestBuilder'

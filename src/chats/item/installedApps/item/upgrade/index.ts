@@ -1,5 +1,2 @@
-export * from './createUpgradePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoUpgradePostRequestBody'
-export * from './serializeUpgradePostRequestBody'
 export * from './upgradePostRequestBody'
-export * from './upgradeRequestBuilderPostRequestConfiguration'
+export * from './upgradeRequestBuilder'

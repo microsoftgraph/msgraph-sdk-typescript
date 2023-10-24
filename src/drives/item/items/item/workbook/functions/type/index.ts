@@ -1,5 +1,2 @@
-export * from './createTypePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoTypePostRequestBody'
-export * from './serializeTypePostRequestBody'
 export * from './typePostRequestBody'
-export * from './typeRequestBuilderPostRequestConfiguration'
+export * from './typeRequestBuilder'

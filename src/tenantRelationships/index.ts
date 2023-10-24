@@ -1,3 +1,1 @@
-export * from './tenantRelationshipsRequestBuilderGetQueryParameters'
-export * from './tenantRelationshipsRequestBuilderGetRequestConfiguration'
-export * from './tenantRelationshipsRequestBuilderPatchRequestConfiguration'
+export * from './tenantRelationshipsRequestBuilder'

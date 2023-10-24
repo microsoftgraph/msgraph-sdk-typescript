@@ -1,2 +1,1 @@
-export * from './graphMicrosoftStoreForBusinessAppRequestBuilderGetQueryParameters'
-export * from './graphMicrosoftStoreForBusinessAppRequestBuilderGetRequestConfiguration'
+export * from './graphMicrosoftStoreForBusinessAppRequestBuilder'

@@ -17,3 +17,5 @@ export enum RatingIrelandTelevisionType {
     /** The MA classification is suitable for adults */
     Mature = "mature",
 }
+// tslint:enable
+// eslint-enable

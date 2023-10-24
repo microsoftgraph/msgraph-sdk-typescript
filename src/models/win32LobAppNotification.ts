@@ -9,3 +9,5 @@ export enum Win32LobAppNotification {
     /** Hide all notifications. */
     HideAll = "hideAll",
 }
+// tslint:enable
+// eslint-enable

@@ -3,3 +3,5 @@ export enum CountryLookupMethodType {
     AuthenticatorAppGps = "authenticatorAppGps",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

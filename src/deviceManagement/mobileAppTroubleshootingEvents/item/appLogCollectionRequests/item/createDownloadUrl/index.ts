@@ -1,1 +1,1 @@
-export * from './createDownloadUrlRequestBuilderPostRequestConfiguration'
+export * from './createDownloadUrlRequestBuilder'

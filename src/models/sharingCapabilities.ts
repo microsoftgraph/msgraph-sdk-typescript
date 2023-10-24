@@ -5,3 +5,5 @@ export enum SharingCapabilities {
     ExistingExternalUserSharingOnly = "existingExternalUserSharingOnly",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

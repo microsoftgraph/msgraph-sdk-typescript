@@ -20,3 +20,5 @@ export enum BookingPriceType {
     NotSet = "notSet",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

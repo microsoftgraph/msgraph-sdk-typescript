@@ -11,3 +11,5 @@ export enum DefenderScanType {
     /** Full system scan. */
     Full = "full",
 }
+// tslint:enable
+// eslint-enable

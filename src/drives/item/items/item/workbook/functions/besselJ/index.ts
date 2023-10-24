@@ -1,5 +1,2 @@
 export * from './besselJPostRequestBody'
-export * from './besselJRequestBuilderPostRequestConfiguration'
-export * from './createBesselJPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoBesselJPostRequestBody'
-export * from './serializeBesselJPostRequestBody'
+export * from './besselJRequestBuilder'

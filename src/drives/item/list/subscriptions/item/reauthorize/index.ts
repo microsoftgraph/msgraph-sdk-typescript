@@ -1,1 +1,1 @@
-export * from './reauthorizeRequestBuilderPostRequestConfiguration'
+export * from './reauthorizeRequestBuilder'

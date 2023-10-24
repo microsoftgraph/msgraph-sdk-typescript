@@ -4,3 +4,5 @@ export enum RoutingType {
     SelfFork = "selfFork",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

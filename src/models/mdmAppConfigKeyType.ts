@@ -8,3 +8,5 @@ export enum MdmAppConfigKeyType {
     BooleanType = "booleanType",
     TokenType = "tokenType",
 }
+// tslint:enable
+// eslint-enable

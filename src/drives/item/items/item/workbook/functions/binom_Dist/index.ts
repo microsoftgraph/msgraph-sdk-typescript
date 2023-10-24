@@ -1,5 +1,2 @@
 export * from './binom_DistPostRequestBody'
-export * from './binom_DistRequestBuilderPostRequestConfiguration'
-export * from './createBinom_DistPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoBinom_DistPostRequestBody'
-export * from './serializeBinom_DistPostRequestBody'
+export * from './binom_DistRequestBuilder'

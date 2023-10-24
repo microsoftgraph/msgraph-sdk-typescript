@@ -1,5 +1,2 @@
-export * from './createSendActivityNotificationPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoSendActivityNotificationPostRequestBody'
 export * from './sendActivityNotificationPostRequestBody'
-export * from './sendActivityNotificationRequestBuilderPostRequestConfiguration'
-export * from './serializeSendActivityNotificationPostRequestBody'
+export * from './sendActivityNotificationRequestBuilder'
