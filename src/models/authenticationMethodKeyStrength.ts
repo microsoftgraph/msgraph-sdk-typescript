@@ -3,3 +3,5 @@ export enum AuthenticationMethodKeyStrength {
     Weak = "weak",
     Unknown = "unknown",
 }
+// tslint:enable
+// eslint-enable

@@ -1,2 +1,1 @@
-export * from './roleDefinitionRequestBuilderGetQueryParameters'
-export * from './roleDefinitionRequestBuilderGetRequestConfiguration'
+export * from './roleDefinitionRequestBuilder'

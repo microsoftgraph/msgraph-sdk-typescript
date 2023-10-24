@@ -5,3 +5,5 @@ export enum Modality {
     Data = "data",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

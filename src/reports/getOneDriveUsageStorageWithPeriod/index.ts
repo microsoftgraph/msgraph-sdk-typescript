@@ -1,1 +1,1 @@
-export * from './getOneDriveUsageStorageWithPeriodRequestBuilderGetRequestConfiguration'
+export * from './getOneDriveUsageStorageWithPeriodRequestBuilder'

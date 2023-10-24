@@ -9,3 +9,5 @@ export enum DeviceManagementPartnerAppType {
     /** Partner App is Multi tenant in AAD. */
     MultiTenantApp = "multiTenantApp",
 }
+// tslint:enable
+// eslint-enable

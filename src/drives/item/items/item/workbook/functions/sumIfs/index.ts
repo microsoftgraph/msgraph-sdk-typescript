@@ -1,5 +1,2 @@
-export * from './createSumIfsPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoSumIfsPostRequestBody'
-export * from './serializeSumIfsPostRequestBody'
 export * from './sumIfsPostRequestBody'
-export * from './sumIfsRequestBuilderPostRequestConfiguration'
+export * from './sumIfsRequestBuilder'

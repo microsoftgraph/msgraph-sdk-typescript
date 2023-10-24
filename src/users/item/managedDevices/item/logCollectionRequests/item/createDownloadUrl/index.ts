@@ -1,5 +1,2 @@
-export * from './createCreateDownloadUrlResponseFromDiscriminatorValue'
-export * from './createDownloadUrlRequestBuilderPostRequestConfiguration'
-export * from './createDownloadUrlResponse'
-export * from './deserializeIntoCreateDownloadUrlResponse'
-export * from './serializeCreateDownloadUrlResponse'
+export * from './createDownloadUrlPostResponse'
+export * from './createDownloadUrlRequestBuilder'

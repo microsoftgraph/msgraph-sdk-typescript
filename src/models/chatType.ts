@@ -4,3 +4,5 @@ export enum ChatType {
     Meeting = "meeting",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

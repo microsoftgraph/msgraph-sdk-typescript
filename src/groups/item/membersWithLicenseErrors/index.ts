@@ -1,2 +1,1 @@
-export * from './membersWithLicenseErrorsRequestBuilderGetQueryParameters'
-export * from './membersWithLicenseErrorsRequestBuilderGetRequestConfiguration'
+export * from './membersWithLicenseErrorsRequestBuilder'

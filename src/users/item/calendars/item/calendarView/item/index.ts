@@ -1,2 +1,1 @@
-export * from './eventItemRequestBuilderGetQueryParameters'
-export * from './eventItemRequestBuilderGetRequestConfiguration'
+export * from './eventItemRequestBuilder'

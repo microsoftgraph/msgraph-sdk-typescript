@@ -1,2 +1,1 @@
-export * from './bannerLogoRequestBuilderGetRequestConfiguration'
-export * from './bannerLogoRequestBuilderPutRequestConfiguration'
+export * from './bannerLogoRequestBuilder'

@@ -7,3 +7,5 @@ export enum AuthenticationMethodSignInState {
     NotConfigured = "notConfigured",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

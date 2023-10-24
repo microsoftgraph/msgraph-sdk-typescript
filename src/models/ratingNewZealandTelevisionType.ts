@@ -13,3 +13,5 @@ export enum RatingNewZealandTelevisionType {
     /** The AO classification is not suitable for children */
     Adults = "adults",
 }
+// tslint:enable
+// eslint-enable

@@ -7,3 +7,5 @@ export enum TemplateScenarios {
     EmergingThreats = "emergingThreats",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

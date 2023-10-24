@@ -1,5 +1,2 @@
-export * from './createRecordResponsePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoRecordResponsePostRequestBody'
 export * from './recordResponsePostRequestBody'
-export * from './recordResponseRequestBuilderPostRequestConfiguration'
-export * from './serializeRecordResponsePostRequestBody'
+export * from './recordResponseRequestBuilder'

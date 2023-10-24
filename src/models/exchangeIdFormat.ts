@@ -5,3 +5,5 @@ export enum ExchangeIdFormat {
     RestId = "restId",
     RestImmutableEntryId = "restImmutableEntryId",
 }
+// tslint:enable
+// eslint-enable

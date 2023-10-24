@@ -6,3 +6,5 @@ export enum KubernetesPlatform {
     Arc = "arc",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

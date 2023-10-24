@@ -3,3 +3,5 @@ export enum ThreatAssessmentContentType {
     Url = "url",
     File = "file",
 }
+// tslint:enable
+// eslint-enable

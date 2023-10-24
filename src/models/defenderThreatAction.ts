@@ -17,3 +17,5 @@ export enum DefenderThreatAction {
     /** Block the detected threat. */
     Block = "block",
 }
+// tslint:enable
+// eslint-enable

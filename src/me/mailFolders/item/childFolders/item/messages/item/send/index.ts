@@ -1,1 +1,1 @@
-export * from './sendRequestBuilderPostRequestConfiguration'
+export * from './sendRequestBuilder'

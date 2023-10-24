@@ -1,5 +1,2 @@
-export * from './createIrrPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoIrrPostRequestBody'
 export * from './irrPostRequestBody'
-export * from './irrRequestBuilderPostRequestConfiguration'
-export * from './serializeIrrPostRequestBody'
+export * from './irrRequestBuilder'

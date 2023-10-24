@@ -1,2 +1,1 @@
-export * from './columnDefinitionItemRequestBuilderGetQueryParameters'
-export * from './columnDefinitionItemRequestBuilderGetRequestConfiguration'
+export * from './columnDefinitionItemRequestBuilder'

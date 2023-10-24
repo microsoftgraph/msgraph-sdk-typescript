@@ -4,3 +4,5 @@ export enum ConnectionDirection {
     Outbound = "outbound",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

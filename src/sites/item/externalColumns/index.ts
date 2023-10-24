@@ -1,2 +1,1 @@
-export * from './externalColumnsRequestBuilderGetQueryParameters'
-export * from './externalColumnsRequestBuilderGetRequestConfiguration'
+export * from './externalColumnsRequestBuilder'

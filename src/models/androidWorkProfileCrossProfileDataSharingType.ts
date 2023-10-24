@@ -11,3 +11,5 @@ export enum AndroidWorkProfileCrossProfileDataSharingType {
     /** No restrictions on sharing. */
     NoRestrictions = "noRestrictions",
 }
+// tslint:enable
+// eslint-enable

@@ -4,3 +4,5 @@ export enum PromptLoginBehavior {
     Disabled = "disabled",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

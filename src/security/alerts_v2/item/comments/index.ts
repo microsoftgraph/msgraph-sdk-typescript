@@ -1,1 +1,1 @@
-export * from './commentsRequestBuilderPostRequestConfiguration'
+export * from './commentsRequestBuilder'

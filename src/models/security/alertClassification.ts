@@ -5,3 +5,5 @@ export enum AlertClassification {
     InformationalExpectedActivity = "informationalExpectedActivity",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

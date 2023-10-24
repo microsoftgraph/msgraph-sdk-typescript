@@ -11,3 +11,5 @@ export enum BitLockerEncryptionMethod {
     /** XTS-AES 256-bit. */
     XtsAes256 = "xtsAes256",
 }
+// tslint:enable
+// eslint-enable

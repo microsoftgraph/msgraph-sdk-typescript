@@ -1,3 +1,1 @@
-export * from './microsoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration'
-export * from './microsoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters'
-export * from './microsoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration'
+export * from './microsoftAuthenticatorAuthenticationMethodItemRequestBuilder'

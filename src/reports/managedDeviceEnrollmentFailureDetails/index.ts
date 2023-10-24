@@ -1,1 +1,1 @@
-export * from './managedDeviceEnrollmentFailureDetailsRequestBuilderGetRequestConfiguration'
+export * from './managedDeviceEnrollmentFailureDetailsRequestBuilder'

@@ -9,3 +9,5 @@ export enum DataSubjectType {
     Other = "other",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -3,3 +3,5 @@ export enum ChatMessagePolicyViolationUserActionTypes {
     Override = "override",
     ReportFalsePositive = "reportFalsePositive",
 }
+// tslint:enable
+// eslint-enable

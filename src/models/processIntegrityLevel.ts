@@ -7,3 +7,5 @@ export enum ProcessIntegrityLevel {
     System = "system",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

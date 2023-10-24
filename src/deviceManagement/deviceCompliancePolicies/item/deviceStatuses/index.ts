@@ -1,3 +1,1 @@
-export * from './deviceStatusesRequestBuilderGetQueryParameters'
-export * from './deviceStatusesRequestBuilderGetRequestConfiguration'
-export * from './deviceStatusesRequestBuilderPostRequestConfiguration'
+export * from './deviceStatusesRequestBuilder'

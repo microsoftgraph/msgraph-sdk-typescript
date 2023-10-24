@@ -1,2 +1,1 @@
-export * from './bitlockerRequestBuilderGetQueryParameters'
-export * from './bitlockerRequestBuilderGetRequestConfiguration'
+export * from './bitlockerRequestBuilder'

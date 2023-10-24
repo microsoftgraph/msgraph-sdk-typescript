@@ -1,3 +1,1 @@
-export * from './customExtensionStageSettingsRequestBuilderGetQueryParameters'
-export * from './customExtensionStageSettingsRequestBuilderGetRequestConfiguration'
-export * from './customExtensionStageSettingsRequestBuilderPostRequestConfiguration'
+export * from './customExtensionStageSettingsRequestBuilder'

@@ -6,3 +6,5 @@ export enum Modality {
     ScreenSharing = "screenSharing",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

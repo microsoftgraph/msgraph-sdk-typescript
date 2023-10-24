@@ -3,3 +3,5 @@ export enum UserSignInRecommendationScope {
     Application = "application",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

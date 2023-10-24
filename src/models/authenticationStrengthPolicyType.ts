@@ -3,3 +3,5 @@ export enum AuthenticationStrengthPolicyType {
     Custom = "custom",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

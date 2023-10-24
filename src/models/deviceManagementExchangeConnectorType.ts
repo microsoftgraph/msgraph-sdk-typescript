@@ -13,3 +13,5 @@ export enum DeviceManagementExchangeConnectorType {
     /** Evolvable enumeration sentinel value. Do not use. */
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

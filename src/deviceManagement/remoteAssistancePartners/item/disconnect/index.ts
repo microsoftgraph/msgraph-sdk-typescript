@@ -1,1 +1,1 @@
-export * from './disconnectRequestBuilderPostRequestConfiguration'
+export * from './disconnectRequestBuilder'

@@ -1,5 +1,2 @@
-export * from './createFloor_MathPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoFloor_MathPostRequestBody'
 export * from './floor_MathPostRequestBody'
-export * from './floor_MathRequestBuilderPostRequestConfiguration'
-export * from './serializeFloor_MathPostRequestBody'
+export * from './floor_MathRequestBuilder'

@@ -1,1 +1,1 @@
-export * from './removeAllDevicesFromManagementRequestBuilderPostRequestConfiguration'
+export * from './removeAllDevicesFromManagementRequestBuilder'

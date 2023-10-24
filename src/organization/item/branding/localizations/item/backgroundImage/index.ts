@@ -1,2 +1,1 @@
-export * from './backgroundImageRequestBuilderGetRequestConfiguration'
-export * from './backgroundImageRequestBuilderPutRequestConfiguration'
+export * from './backgroundImageRequestBuilder'

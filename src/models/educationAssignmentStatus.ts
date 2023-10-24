@@ -4,3 +4,5 @@ export enum EducationAssignmentStatus {
     Assigned = "assigned",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

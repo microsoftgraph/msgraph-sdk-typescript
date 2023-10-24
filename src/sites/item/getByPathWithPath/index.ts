@@ -1,1 +1,1 @@
-export * from './getByPathWithPathRequestBuilderGetRequestConfiguration'
+export * from './getByPathWithPathRequestBuilder'

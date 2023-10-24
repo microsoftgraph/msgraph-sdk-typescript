@@ -1,5 +1,2 @@
 export * from './activatePostRequestBody'
-export * from './createActivatePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoActivatePostRequestBody'
-export * from './microsoftGraphIdentityGovernanceActivateRequestBuilderPostRequestConfiguration'
-export * from './serializeActivatePostRequestBody'
+export * from './microsoftGraphIdentityGovernanceActivateRequestBuilder'

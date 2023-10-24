@@ -45,3 +45,5 @@ export enum MiracastChannel {
     /** OneHundredSixty-Five. */
     OneHundredSixtyFive = "oneHundredSixtyFive",
 }
+// tslint:enable
+// eslint-enable

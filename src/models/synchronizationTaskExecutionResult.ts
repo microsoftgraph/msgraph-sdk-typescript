@@ -3,3 +3,5 @@ export enum SynchronizationTaskExecutionResult {
     Failed = "Failed",
     EntryLevelErrors = "EntryLevelErrors",
 }
+// tslint:enable
+// eslint-enable

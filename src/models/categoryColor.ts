@@ -26,3 +26,5 @@ export enum CategoryColor {
     Preset23 = "preset23",
     Preset24 = "preset24",
 }
+// tslint:enable
+// eslint-enable

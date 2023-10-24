@@ -9,3 +9,5 @@ export enum AttributeDefinitionMetadata {
     MaximumLength = "MaximumLength",
     ReferencedProperty = "ReferencedProperty",
 }
+// tslint:enable
+// eslint-enable

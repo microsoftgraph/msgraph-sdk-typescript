@@ -1,2 +1,1 @@
-export * from './noncustodialSourcesRequestBuilderGetQueryParameters'
-export * from './noncustodialSourcesRequestBuilderGetRequestConfiguration'
+export * from './noncustodialSourcesRequestBuilder'

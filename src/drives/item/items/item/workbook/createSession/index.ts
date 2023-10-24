@@ -1,5 +1,2 @@
-export * from './createCreateSessionPostRequestBodyFromDiscriminatorValue'
 export * from './createSessionPostRequestBody'
-export * from './createSessionRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoCreateSessionPostRequestBody'
-export * from './serializeCreateSessionPostRequestBody'
+export * from './createSessionRequestBuilder'

@@ -4,3 +4,5 @@ export enum AuthenticationPhoneType {
     Office = "office",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

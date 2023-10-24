@@ -7,3 +7,5 @@ export enum CaseOperationStatus {
     Failed = "failed",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

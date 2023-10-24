@@ -1,5 +1,2 @@
-export * from './createMinPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoMinPostRequestBody'
 export * from './minPostRequestBody'
-export * from './minRequestBuilderPostRequestConfiguration'
-export * from './serializeMinPostRequestBody'
+export * from './minRequestBuilder'

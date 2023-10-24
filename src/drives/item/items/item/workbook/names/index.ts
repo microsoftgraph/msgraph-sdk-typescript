@@ -1,3 +1,1 @@
-export * from './namesRequestBuilderGetQueryParameters'
-export * from './namesRequestBuilderGetRequestConfiguration'
-export * from './namesRequestBuilderPostRequestConfiguration'
+export * from './namesRequestBuilder'

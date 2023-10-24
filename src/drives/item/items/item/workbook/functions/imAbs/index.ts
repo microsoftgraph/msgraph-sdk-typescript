@@ -1,5 +1,2 @@
-export * from './createImAbsPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoImAbsPostRequestBody'
 export * from './imAbsPostRequestBody'
-export * from './imAbsRequestBuilderPostRequestConfiguration'
-export * from './serializeImAbsPostRequestBody'
+export * from './imAbsRequestBuilder'

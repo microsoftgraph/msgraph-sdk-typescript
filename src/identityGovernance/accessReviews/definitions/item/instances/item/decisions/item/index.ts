@@ -1,4 +1,1 @@
-export * from './accessReviewInstanceDecisionItemItemRequestBuilderDeleteRequestConfiguration'
-export * from './accessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters'
-export * from './accessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration'
-export * from './accessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration'
+export * from './accessReviewInstanceDecisionItemItemRequestBuilder'

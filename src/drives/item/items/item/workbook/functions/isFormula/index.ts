@@ -1,5 +1,2 @@
-export * from './createIsFormulaPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoIsFormulaPostRequestBody'
 export * from './isFormulaPostRequestBody'
-export * from './isFormulaRequestBuilderPostRequestConfiguration'
-export * from './serializeIsFormulaPostRequestBody'
+export * from './isFormulaRequestBuilder'

@@ -1,2 +1,1 @@
-export * from './lastEstimateStatisticsOperationRequestBuilderGetQueryParameters'
-export * from './lastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration'
+export * from './lastEstimateStatisticsOperationRequestBuilder'

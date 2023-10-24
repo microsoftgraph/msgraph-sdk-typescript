@@ -1,5 +1,2 @@
-export * from './createDayPostRequestBodyFromDiscriminatorValue'
 export * from './dayPostRequestBody'
-export * from './dayRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoDayPostRequestBody'
-export * from './serializeDayPostRequestBody'
+export * from './dayRequestBuilder'

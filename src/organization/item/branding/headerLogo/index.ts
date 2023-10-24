@@ -1,2 +1,1 @@
-export * from './headerLogoRequestBuilderGetRequestConfiguration'
-export * from './headerLogoRequestBuilderPutRequestConfiguration'
+export * from './headerLogoRequestBuilder'

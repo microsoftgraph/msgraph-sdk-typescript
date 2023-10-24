@@ -1,4 +1,1 @@
-export * from './printUsageByPrinterItemRequestBuilderDeleteRequestConfiguration'
-export * from './printUsageByPrinterItemRequestBuilderGetQueryParameters'
-export * from './printUsageByPrinterItemRequestBuilderGetRequestConfiguration'
-export * from './printUsageByPrinterItemRequestBuilderPatchRequestConfiguration'
+export * from './printUsageByPrinterItemRequestBuilder'

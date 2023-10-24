@@ -1,5 +1,2 @@
-export * from './createDollarDePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoDollarDePostRequestBody'
 export * from './dollarDePostRequestBody'
-export * from './dollarDeRequestBuilderPostRequestConfiguration'
-export * from './serializeDollarDePostRequestBody'
+export * from './dollarDeRequestBuilder'

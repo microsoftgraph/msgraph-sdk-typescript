@@ -13,3 +13,5 @@ export enum AppLockerApplicationControlType {
     /** Audit Windows components, store apps and smart locker​. */
     AuditComponentsStoreAppsAndSmartlocker = "auditComponentsStoreAppsAndSmartlocker",
 }
+// tslint:enable
+// eslint-enable

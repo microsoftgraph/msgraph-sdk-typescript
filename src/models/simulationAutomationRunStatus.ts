@@ -6,3 +6,5 @@ export enum SimulationAutomationRunStatus {
     Skipped = "skipped",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,1 +1,1 @@
-export * from './syncLicensesRequestBuilderPostRequestConfiguration'
+export * from './syncLicensesRequestBuilder'

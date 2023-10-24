@@ -1,5 +1,2 @@
-export * from './createCumPrincPostRequestBodyFromDiscriminatorValue'
 export * from './cumPrincPostRequestBody'
-export * from './cumPrincRequestBuilderPostRequestConfiguration'
-export * from './deserializeIntoCumPrincPostRequestBody'
-export * from './serializeCumPrincPostRequestBody'
+export * from './cumPrincRequestBuilder'

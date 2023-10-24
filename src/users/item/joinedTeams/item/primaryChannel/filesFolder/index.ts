@@ -1,2 +1,1 @@
-export * from './filesFolderRequestBuilderGetQueryParameters'
-export * from './filesFolderRequestBuilderGetRequestConfiguration'
+export * from './filesFolderRequestBuilder'

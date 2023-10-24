@@ -4,3 +4,5 @@ export enum WellknownListName {
     FlaggedEmails = "flaggedEmails",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

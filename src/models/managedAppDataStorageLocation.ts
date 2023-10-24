@@ -11,3 +11,5 @@ export enum ManagedAppDataStorageLocation {
     /** Local storage on the device */
     LocalStorage = "localStorage",
 }
+// tslint:enable
+// eslint-enable

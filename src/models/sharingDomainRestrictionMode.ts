@@ -4,3 +4,5 @@ export enum SharingDomainRestrictionMode {
     BlockList = "blockList",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

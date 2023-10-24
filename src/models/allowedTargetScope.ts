@@ -10,3 +10,5 @@ export enum AllowedTargetScope {
     AllExternalUsers = "allExternalUsers",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

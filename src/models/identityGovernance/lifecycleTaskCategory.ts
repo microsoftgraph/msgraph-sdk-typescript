@@ -4,3 +4,5 @@ export enum LifecycleTaskCategory {
     UnknownFutureValue = "unknownFutureValue",
     Mover = "mover",
 }
+// tslint:enable
+// eslint-enable

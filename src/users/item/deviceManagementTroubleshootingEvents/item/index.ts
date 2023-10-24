@@ -1,4 +1,1 @@
-export * from './deviceManagementTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration'
-export * from './deviceManagementTroubleshootingEventItemRequestBuilderGetQueryParameters'
-export * from './deviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration'
-export * from './deviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration'
+export * from './deviceManagementTroubleshootingEventItemRequestBuilder'

@@ -7,3 +7,5 @@ export enum PartnerTenantType {
     ValueAddedResellerPartnerDelegatedAdmin = "valueAddedResellerPartnerDelegatedAdmin",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

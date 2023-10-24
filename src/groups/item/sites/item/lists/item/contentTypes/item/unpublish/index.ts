@@ -1,1 +1,1 @@
-export * from './unpublishRequestBuilderPostRequestConfiguration'
+export * from './unpublishRequestBuilder'

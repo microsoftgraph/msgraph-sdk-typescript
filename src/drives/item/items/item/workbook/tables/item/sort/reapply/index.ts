@@ -1,1 +1,1 @@
-export * from './reapplyRequestBuilderPostRequestConfiguration'
+export * from './reapplyRequestBuilder'

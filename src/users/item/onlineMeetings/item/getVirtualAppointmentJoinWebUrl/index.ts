@@ -1,5 +1,2 @@
-export * from './createGetVirtualAppointmentJoinWebUrlResponseFromDiscriminatorValue'
-export * from './deserializeIntoGetVirtualAppointmentJoinWebUrlResponse'
-export * from './getVirtualAppointmentJoinWebUrlRequestBuilderGetRequestConfiguration'
-export * from './getVirtualAppointmentJoinWebUrlResponse'
-export * from './serializeGetVirtualAppointmentJoinWebUrlResponse'
+export * from './getVirtualAppointmentJoinWebUrlGetResponse'
+export * from './getVirtualAppointmentJoinWebUrlRequestBuilder'

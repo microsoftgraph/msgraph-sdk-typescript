@@ -4,3 +4,5 @@ export enum TermGroupScope {
     SiteCollection = "siteCollection",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,5 +1,2 @@
-export * from './createFixedPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoFixedPostRequestBody'
 export * from './fixedPostRequestBody'
-export * from './fixedRequestBuilderPostRequestConfiguration'
-export * from './serializeFixedPostRequestBody'
+export * from './fixedRequestBuilder'

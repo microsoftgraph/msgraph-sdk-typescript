@@ -1,1 +1,1 @@
-export * from './discoverRequestBuilderPostRequestConfiguration'
+export * from './discoverRequestBuilder'

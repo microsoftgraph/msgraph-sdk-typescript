@@ -1,2 +1,1 @@
-export * from './tokenIssuancePolicyItemRequestBuilderGetQueryParameters'
-export * from './tokenIssuancePolicyItemRequestBuilderGetRequestConfiguration'
+export * from './tokenIssuancePolicyItemRequestBuilder'

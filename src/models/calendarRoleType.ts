@@ -8,3 +8,5 @@ export enum CalendarRoleType {
     DelegateWithPrivateEventAccess = "delegateWithPrivateEventAccess",
     Custom = "custom",
 }
+// tslint:enable
+// eslint-enable

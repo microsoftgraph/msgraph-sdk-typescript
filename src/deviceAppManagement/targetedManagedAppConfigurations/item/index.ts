@@ -1,4 +1,1 @@
-export * from './targetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration'
-export * from './targetedManagedAppConfigurationItemRequestBuilderGetQueryParameters'
-export * from './targetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration'
-export * from './targetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration'
+export * from './targetedManagedAppConfigurationItemRequestBuilder'

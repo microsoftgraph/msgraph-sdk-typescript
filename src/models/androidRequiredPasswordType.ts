@@ -19,3 +19,5 @@ export enum AndroidRequiredPasswordType {
     /** A password or pattern is required, and any is acceptable. */
     Any = "any",
 }
+// tslint:enable
+// eslint-enable

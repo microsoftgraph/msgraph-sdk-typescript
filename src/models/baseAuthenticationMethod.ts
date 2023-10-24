@@ -13,3 +13,5 @@ export enum BaseAuthenticationMethod {
     Federation = "federation",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -1,5 +1,2 @@
-export * from './createResumePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoResumePostRequestBody'
 export * from './resumePostRequestBody'
-export * from './resumeRequestBuilderPostRequestConfiguration'
-export * from './serializeResumePostRequestBody'
+export * from './resumeRequestBuilder'

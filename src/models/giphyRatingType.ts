@@ -3,3 +3,5 @@ export enum GiphyRatingType {
     Moderate = "moderate",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

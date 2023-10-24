@@ -8,3 +8,5 @@ export enum TeamSpecialization {
     HealthcareCareCoordination = "healthcareCareCoordination",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -5,3 +5,5 @@ export enum BookingsAvailabilityStatus {
     OutOfOffice = "outOfOffice",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

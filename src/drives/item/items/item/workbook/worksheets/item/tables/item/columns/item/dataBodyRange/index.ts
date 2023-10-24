@@ -1,1 +1,1 @@
-export * from './dataBodyRangeRequestBuilderGetRequestConfiguration'
+export * from './dataBodyRangeRequestBuilder'

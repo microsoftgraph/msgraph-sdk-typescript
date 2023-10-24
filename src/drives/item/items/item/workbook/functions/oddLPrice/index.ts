@@ -1,5 +1,2 @@
-export * from './createOddLPricePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoOddLPricePostRequestBody'
 export * from './oddLPricePostRequestBody'
-export * from './oddLPriceRequestBuilderPostRequestConfiguration'
-export * from './serializeOddLPricePostRequestBody'
+export * from './oddLPriceRequestBuilder'

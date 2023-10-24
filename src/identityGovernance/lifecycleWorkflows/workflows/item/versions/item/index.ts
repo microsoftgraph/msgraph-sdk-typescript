@@ -1,2 +1,1 @@
-export * from './workflowVersionVersionNumberItemRequestBuilderGetQueryParameters'
-export * from './workflowVersionVersionNumberItemRequestBuilderGetRequestConfiguration'
+export * from './workflowVersionVersionNumberItemRequestBuilder'

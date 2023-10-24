@@ -13,3 +13,5 @@ export enum WindowsUserAccountControlSettings {
     /** Never notify. */
     NeverNotify = "neverNotify",
 }
+// tslint:enable
+// eslint-enable

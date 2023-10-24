@@ -1,1 +1,1 @@
-export * from './getOffice365GroupsActivityDetailWithDateRequestBuilderGetRequestConfiguration'
+export * from './getOffice365GroupsActivityDetailWithDateRequestBuilder'

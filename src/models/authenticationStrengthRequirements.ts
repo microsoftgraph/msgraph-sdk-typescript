@@ -3,3 +3,5 @@ export enum AuthenticationStrengthRequirements {
     Mfa = "mfa",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

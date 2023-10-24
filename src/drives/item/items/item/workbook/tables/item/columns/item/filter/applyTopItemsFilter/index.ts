@@ -1,5 +1,2 @@
 export * from './applyTopItemsFilterPostRequestBody'
-export * from './applyTopItemsFilterRequestBuilderPostRequestConfiguration'
-export * from './createApplyTopItemsFilterPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoApplyTopItemsFilterPostRequestBody'
-export * from './serializeApplyTopItemsFilterPostRequestBody'
+export * from './applyTopItemsFilterRequestBuilder'

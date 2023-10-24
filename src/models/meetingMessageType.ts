@@ -6,3 +6,5 @@ export enum MeetingMessageType {
     MeetingTenativelyAccepted = "meetingTenativelyAccepted",
     MeetingDeclined = "meetingDeclined",
 }
+// tslint:enable
+// eslint-enable

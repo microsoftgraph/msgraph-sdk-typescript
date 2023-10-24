@@ -1,5 +1,2 @@
 export * from './addPasswordPostRequestBody'
-export * from './addPasswordRequestBuilderPostRequestConfiguration'
-export * from './createAddPasswordPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoAddPasswordPostRequestBody'
-export * from './serializeAddPasswordPostRequestBody'
+export * from './addPasswordRequestBuilder'

@@ -3,3 +3,5 @@ export enum SearchContent {
     PrivateContent = "privateContent",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

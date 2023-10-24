@@ -3,3 +3,5 @@ export enum EducationExternalSource {
     Manual = "manual",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

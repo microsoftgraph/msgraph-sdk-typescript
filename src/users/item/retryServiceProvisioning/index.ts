@@ -1,1 +1,1 @@
-export * from './retryServiceProvisioningRequestBuilderPostRequestConfiguration'
+export * from './retryServiceProvisioningRequestBuilder'

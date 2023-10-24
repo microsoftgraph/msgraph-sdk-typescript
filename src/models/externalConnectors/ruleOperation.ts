@@ -8,3 +8,5 @@ export enum RuleOperation {
     StartsWith = "startsWith",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

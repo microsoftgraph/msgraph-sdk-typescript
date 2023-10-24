@@ -1,3 +1,1 @@
-export * from './documentSetVersionsRequestBuilderGetQueryParameters'
-export * from './documentSetVersionsRequestBuilderGetRequestConfiguration'
-export * from './documentSetVersionsRequestBuilderPostRequestConfiguration'
+export * from './documentSetVersionsRequestBuilder'

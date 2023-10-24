@@ -1,2 +1,1 @@
-export * from './ownedDevicesRequestBuilderGetQueryParameters'
-export * from './ownedDevicesRequestBuilderGetRequestConfiguration'
+export * from './ownedDevicesRequestBuilder'

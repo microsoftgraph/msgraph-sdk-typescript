@@ -1,5 +1,2 @@
-export * from './createSetStatusMessagePostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoSetStatusMessagePostRequestBody'
-export * from './serializeSetStatusMessagePostRequestBody'
 export * from './setStatusMessagePostRequestBody'
-export * from './setStatusMessageRequestBuilderPostRequestConfiguration'
+export * from './setStatusMessageRequestBuilder'

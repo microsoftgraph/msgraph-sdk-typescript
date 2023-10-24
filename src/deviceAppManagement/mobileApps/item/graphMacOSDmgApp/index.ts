@@ -1,2 +1,1 @@
-export * from './graphMacOSDmgAppRequestBuilderGetQueryParameters'
-export * from './graphMacOSDmgAppRequestBuilderGetRequestConfiguration'
+export * from './graphMacOSDmgAppRequestBuilder'

@@ -1,2 +1,1 @@
-export * from './custodianSourcesRequestBuilderGetQueryParameters'
-export * from './custodianSourcesRequestBuilderGetRequestConfiguration'
+export * from './custodianSourcesRequestBuilder'

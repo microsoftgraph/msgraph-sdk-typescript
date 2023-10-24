@@ -1,5 +1,2 @@
-export * from './createStDev_PPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoStDev_PPostRequestBody'
-export * from './serializeStDev_PPostRequestBody'
 export * from './stDev_PPostRequestBody'
-export * from './stDev_PRequestBuilderPostRequestConfiguration'
+export * from './stDev_PRequestBuilder'

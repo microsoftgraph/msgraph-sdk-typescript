@@ -8,3 +8,5 @@ export enum TeamsAsyncOperationType {
     TeamifyGroup = "teamifyGroup",
     CreateChannel = "createChannel",
 }
+// tslint:enable
+// eslint-enable

@@ -1,2 +1,1 @@
-export * from './parentSectionRequestBuilderGetQueryParameters'
-export * from './parentSectionRequestBuilderGetRequestConfiguration'
+export * from './parentSectionRequestBuilder'

@@ -10,3 +10,5 @@ export enum PhoneType {
     Pager = "pager",
     Radio = "radio",
 }
+// tslint:enable
+// eslint-enable

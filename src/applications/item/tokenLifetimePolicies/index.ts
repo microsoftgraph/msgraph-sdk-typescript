@@ -1,2 +1,1 @@
-export * from './tokenLifetimePoliciesRequestBuilderGetQueryParameters'
-export * from './tokenLifetimePoliciesRequestBuilderGetRequestConfiguration'
+export * from './tokenLifetimePoliciesRequestBuilder'

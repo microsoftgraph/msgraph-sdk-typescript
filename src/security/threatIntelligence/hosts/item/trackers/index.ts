@@ -1,2 +1,1 @@
-export * from './trackersRequestBuilderGetQueryParameters'
-export * from './trackersRequestBuilderGetRequestConfiguration'
+export * from './trackersRequestBuilder'

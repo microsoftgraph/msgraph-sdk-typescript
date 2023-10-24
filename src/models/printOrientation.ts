@@ -5,3 +5,5 @@ export enum PrintOrientation {
     ReversePortrait = "reversePortrait",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

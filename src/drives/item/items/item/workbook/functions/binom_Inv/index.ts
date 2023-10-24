@@ -1,5 +1,2 @@
 export * from './binom_InvPostRequestBody'
-export * from './binom_InvRequestBuilderPostRequestConfiguration'
-export * from './createBinom_InvPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoBinom_InvPostRequestBody'
-export * from './serializeBinom_InvPostRequestBody'
+export * from './binom_InvRequestBuilder'

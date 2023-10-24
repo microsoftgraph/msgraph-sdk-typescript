@@ -1,2 +1,1 @@
-export * from './toTermRequestBuilderGetQueryParameters'
-export * from './toTermRequestBuilderGetRequestConfiguration'
+export * from './toTermRequestBuilder'

@@ -5,3 +5,5 @@ export enum PrintTaskProcessingState {
     Aborted = "aborted",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

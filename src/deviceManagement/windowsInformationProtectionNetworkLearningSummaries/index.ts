@@ -1,3 +1,1 @@
-export * from './windowsInformationProtectionNetworkLearningSummariesRequestBuilderGetQueryParameters'
-export * from './windowsInformationProtectionNetworkLearningSummariesRequestBuilderGetRequestConfiguration'
-export * from './windowsInformationProtectionNetworkLearningSummariesRequestBuilderPostRequestConfiguration'
+export * from './windowsInformationProtectionNetworkLearningSummariesRequestBuilder'

@@ -1,1 +1,1 @@
-export * from './resetToSystemDefaultRequestBuilderPostRequestConfiguration'
+export * from './resetToSystemDefaultRequestBuilder'

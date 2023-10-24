@@ -4,3 +4,5 @@ export enum ActivityDomain {
     Personal = "personal",
     Unrestricted = "unrestricted",
 }
+// tslint:enable
+// eslint-enable

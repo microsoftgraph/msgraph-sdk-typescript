@@ -4,3 +4,5 @@ export enum CallTranscriptionState {
     Inactive = "inactive",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

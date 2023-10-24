@@ -1,5 +1,2 @@
-export * from './createGetConfigurationPolicyNonComplianceSummaryReportPostRequestBodyFromDiscriminatorValue'
-export * from './deserializeIntoGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody'
 export * from './getConfigurationPolicyNonComplianceSummaryReportPostRequestBody'
-export * from './getConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration'
-export * from './serializeGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody'
+export * from './getConfigurationPolicyNonComplianceSummaryReportRequestBuilder'

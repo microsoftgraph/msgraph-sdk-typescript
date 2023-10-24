@@ -1,1 +1,1 @@
-export * from './renewRequestBuilderPostRequestConfiguration'
+export * from './renewRequestBuilder'

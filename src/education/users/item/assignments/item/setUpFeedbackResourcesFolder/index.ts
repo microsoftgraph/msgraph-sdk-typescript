@@ -1,1 +1,1 @@
-export * from './setUpFeedbackResourcesFolderRequestBuilderPostRequestConfiguration'
+export * from './setUpFeedbackResourcesFolderRequestBuilder'

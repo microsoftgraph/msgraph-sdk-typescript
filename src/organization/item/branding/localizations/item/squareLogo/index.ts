@@ -1,2 +1,1 @@
-export * from './squareLogoRequestBuilderGetRequestConfiguration'
-export * from './squareLogoRequestBuilderPutRequestConfiguration'
+export * from './squareLogoRequestBuilder'

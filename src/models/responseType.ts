@@ -6,3 +6,5 @@ export enum ResponseType {
     Declined = "declined",
     NotResponded = "notResponded",
 }
+// tslint:enable
+// eslint-enable

@@ -6,3 +6,5 @@ export enum IdentityUserFlowAttributeDataType {
     DateTime = "dateTime",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

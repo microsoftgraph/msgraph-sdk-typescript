@@ -3,3 +3,5 @@ export enum ThreatAssessmentRequestSource {
     User = "user",
     Administrator = "administrator",
 }
+// tslint:enable
+// eslint-enable

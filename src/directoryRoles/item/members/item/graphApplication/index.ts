@@ -1,2 +1,1 @@
-export * from './graphApplicationRequestBuilderGetQueryParameters'
-export * from './graphApplicationRequestBuilderGetRequestConfiguration'
+export * from './graphApplicationRequestBuilder'

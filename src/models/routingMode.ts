@@ -3,3 +3,5 @@ export enum RoutingMode {
     Multicast = "multicast",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

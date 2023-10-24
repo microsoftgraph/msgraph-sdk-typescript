@@ -15,3 +15,5 @@ export enum RiskDetail {
     AdminDismissedAllRiskForServicePrincipal = "adminDismissedAllRiskForServicePrincipal",
     M365DAdminDismissedDetection = "m365DAdminDismissedDetection",
 }
+// tslint:enable
+// eslint-enable

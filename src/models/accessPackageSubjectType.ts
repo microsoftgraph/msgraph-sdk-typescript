@@ -4,3 +4,5 @@ export enum AccessPackageSubjectType {
     ServicePrincipal = "servicePrincipal",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

@@ -5,3 +5,5 @@ export enum EvidenceVerdict {
     NoThreatsFound = "noThreatsFound",
     UnknownFutureValue = "unknownFutureValue",
 }
+// tslint:enable
+// eslint-enable

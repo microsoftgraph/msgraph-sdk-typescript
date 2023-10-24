@@ -3,4 +3,7 @@ export enum DelegatedAdminRelationshipRequestAction {
     Approve = "approve",
     Terminate = "terminate",
     UnknownFutureValue = "unknownFutureValue",
+    Reject = "reject",
 }
+// tslint:enable
+// eslint-enable

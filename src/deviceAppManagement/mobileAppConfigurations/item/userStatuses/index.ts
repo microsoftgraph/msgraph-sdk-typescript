@@ -1,3 +1,1 @@
-export * from './userStatusesRequestBuilderGetQueryParameters'
-export * from './userStatusesRequestBuilderGetRequestConfiguration'
-export * from './userStatusesRequestBuilderPostRequestConfiguration'
+export * from './userStatusesRequestBuilder'
