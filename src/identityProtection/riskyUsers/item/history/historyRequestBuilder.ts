@@ -98,10 +98,10 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityProtection/riskyUsers/{riskyUser%2Did}/history{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read the properties and relationships of a riskyUserHistoryItem object. This API is available in the following national cloud deployments.
+     * Get the riskyUserHistoryItems from the history navigation property. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyUserHistoryItemCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/riskyuser-get-riskyuserhistoryitem?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/riskyuser-list-history?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HistoryRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskyUserHistoryItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -130,7 +130,7 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RiskyUserHistoryItem>(requestInfo, createRiskyUserHistoryItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the properties and relationships of a riskyUserHistoryItem object. This API is available in the following national cloud deployments.
+     * Get the riskyUserHistoryItems from the history navigation property. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

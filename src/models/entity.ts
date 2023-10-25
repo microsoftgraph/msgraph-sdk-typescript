@@ -527,7 +527,7 @@ import { deserializeIntoSectionGroup } from './sectionGroup';
 import { deserializeIntoSecureScore } from './secureScore';
 import { deserializeIntoSecureScoreControlProfile } from './secureScoreControlProfile';
 import { deserializeIntoSecurity } from './security';
-import { type Alert as I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8, type Article, type ArticleIndicator, type Artifact, type CaseEscaped, type CaseOperation, type CasesRoot, type DataSet, type DataSource, type DataSourceContainer, type EdiscoveryAddToReviewSetOperation, type EdiscoveryCase, type EdiscoveryCaseSettings, type EdiscoveryCustodian, type EdiscoveryEstimateOperation, type EdiscoveryExportOperation, type EdiscoveryHoldOperation, type EdiscoveryIndexOperation, type EdiscoveryNoncustodialDataSource, type EdiscoveryPurgeDataOperation, type EdiscoveryReviewSet, type EdiscoveryReviewSetQuery, type EdiscoveryReviewTag, type EdiscoverySearch, type EdiscoveryTagOperation, type Host, type HostComponent, type HostCookie, type Hostname, type HostPair, type HostReputation, type HostSslCertificate, type HostTracker, type Incident, type Indicator, type IntelligenceProfile, type IntelligenceProfileIndicator, type IpAddress, type PassiveDnsRecord, type RetentionEvent, type RetentionEventType, type Search, type SiteSource, type SslCertificate, type Subdomain, type Tag, type ThreatIntelligence, type TriggersRoot, type TriggerTypesRoot, type UnclassifiedArtifact, type UnifiedGroupSource, type UserSource, type Vulnerability, type VulnerabilityComponent, type WhoisBaseRecord, type WhoisHistoryRecord, type WhoisRecord } from './security/';
+import { type Alert as I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8, type Article, type ArticleIndicator, type Artifact, type CaseEscaped, type CaseOperation, type CasesRoot, type DataSet, type DataSource, type DataSourceContainer, type EdiscoveryAddToReviewSetOperation, type EdiscoveryCase, type EdiscoveryCaseSettings, type EdiscoveryCustodian, type EdiscoveryEstimateOperation, type EdiscoveryExportOperation, type EdiscoveryHoldOperation, type EdiscoveryIndexOperation, type EdiscoveryNoncustodialDataSource, type EdiscoveryPurgeDataOperation, type EdiscoveryReviewSet, type EdiscoveryReviewSetQuery, type EdiscoveryReviewTag, type EdiscoverySearch, type EdiscoveryTagOperation, type Host, type HostComponent, type HostCookie, type Hostname, type HostPair, type HostPort, type HostReputation, type HostSslCertificate, type HostTracker, type Incident, type Indicator, type IntelligenceProfile, type IntelligenceProfileIndicator, type IpAddress, type PassiveDnsRecord, type RetentionEvent, type RetentionEventType, type Search, type SiteSource, type SslCertificate, type Subdomain, type Tag, type ThreatIntelligence, type TriggersRoot, type TriggerTypesRoot, type UnclassifiedArtifact, type UnifiedGroupSource, type UserSource, type Vulnerability, type VulnerabilityComponent, type WhoisBaseRecord, type WhoisHistoryRecord, type WhoisRecord } from './security/';
 import { deserializeIntoAlert as I6505bc1c6fce3ff5954d022e7fc93d3127679a577fa33bf9d60b79a6ac991f2c } from './security/alert';
 import { deserializeIntoArticle } from './security/article';
 import { deserializeIntoArticleIndicator } from './security/articleIndicator';
@@ -558,6 +558,7 @@ import { deserializeIntoHostComponent } from './security/hostComponent';
 import { deserializeIntoHostCookie } from './security/hostCookie';
 import { deserializeIntoHostname } from './security/hostname';
 import { deserializeIntoHostPair } from './security/hostPair';
+import { deserializeIntoHostPort } from './security/hostPort';
 import { deserializeIntoHostReputation } from './security/hostReputation';
 import { deserializeIntoHostSslCertificate } from './security/hostSslCertificate';
 import { deserializeIntoHostTracker } from './security/hostTracker';
@@ -902,7 +903,7 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                 case "#microsoft.graph.agreementFileVersion":
                     return deserializeIntoAgreementFileVersion;
                 case "#microsoft.graph.alert":
-                    return I6505bc1c6fce3ff5954d022e7fc93d3127679a577fa33bf9d60b79a6ac991f2c;
+                    return I31715a026b1ced0f6a88616d35905e458c4d7672e4ac2cfaebeef17eefa762ea;
                 case "#microsoft.graph.allowedValue":
                     return deserializeIntoAllowedValue;
                 case "#microsoft.graph.androidCompliancePolicy":
@@ -1872,7 +1873,7 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                 case "#microsoft.graph.security":
                     return deserializeIntoSecurity;
                 case "#microsoft.graph.security.alert":
-                    return I6505bc1c6fce3ff5954d022e7fc93d3127679a577fa33bf9d60b79a6ac991f2c;
+                    return I31715a026b1ced0f6a88616d35905e458c4d7672e4ac2cfaebeef17eefa762ea;
                 case "#microsoft.graph.security.article":
                     return deserializeIntoArticle;
                 case "#microsoft.graph.security.articleIndicator":
@@ -1931,6 +1932,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoHostname;
                 case "#microsoft.graph.security.hostPair":
                     return deserializeIntoHostPair;
+                case "#microsoft.graph.security.hostPort":
+                    return deserializeIntoHostPort;
                 case "#microsoft.graph.security.hostReputation":
                     return deserializeIntoHostReputation;
                 case "#microsoft.graph.security.hostSslCertificate":

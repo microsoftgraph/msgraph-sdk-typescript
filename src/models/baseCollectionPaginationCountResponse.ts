@@ -344,6 +344,7 @@ import { deserializeIntoHostCollectionResponse } from './security/hostCollection
 import { deserializeIntoHostComponentCollectionResponse } from './security/hostComponentCollectionResponse';
 import { deserializeIntoHostCookieCollectionResponse } from './security/hostCookieCollectionResponse';
 import { deserializeIntoHostPairCollectionResponse } from './security/hostPairCollectionResponse';
+import { deserializeIntoHostPortCollectionResponse } from './security/hostPortCollectionResponse';
 import { deserializeIntoHostSslCertificateCollectionResponse } from './security/hostSslCertificateCollectionResponse';
 import { deserializeIntoHostTrackerCollectionResponse } from './security/hostTrackerCollectionResponse';
 import { deserializeIntoIncidentCollectionResponse } from './security/incidentCollectionResponse';

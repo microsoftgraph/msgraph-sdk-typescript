@@ -8,6 +8,7 @@ import { createHostFromDiscriminatorValue, serializeHost, type Host } from './ho
 import { createHostComponentFromDiscriminatorValue, serializeHostComponent, type HostComponent } from './hostComponent';
 import { createHostCookieFromDiscriminatorValue, serializeHostCookie, type HostCookie } from './hostCookie';
 import { createHostPairFromDiscriminatorValue, serializeHostPair, type HostPair } from './hostPair';
+import { createHostPortFromDiscriminatorValue, serializeHostPort, type HostPort } from './hostPort';
 import { createHostSslCertificateFromDiscriminatorValue, serializeHostSslCertificate, type HostSslCertificate } from './hostSslCertificate';
 import { createHostTrackerFromDiscriminatorValue, serializeHostTracker, type HostTracker } from './hostTracker';
 import { createIntelligenceProfileFromDiscriminatorValue, serializeIntelligenceProfile, type IntelligenceProfile } from './intelligenceProfile';
@@ -32,6 +33,7 @@ export function deserializeIntoThreatIntelligence(threatIntelligence: ThreatInte
         "hostComponents": n => { threatIntelligence.hostComponents = n.getCollectionOfObjectValues<HostComponent>(createHostComponentFromDiscriminatorValue); },
         "hostCookies": n => { threatIntelligence.hostCookies = n.getCollectionOfObjectValues<HostCookie>(createHostCookieFromDiscriminatorValue); },
         "hostPairs": n => { threatIntelligence.hostPairs = n.getCollectionOfObjectValues<HostPair>(createHostPairFromDiscriminatorValue); },
+        "hostPorts": n => { threatIntelligence.hostPorts = n.getCollectionOfObjectValues<HostPort>(createHostPortFromDiscriminatorValue); },
         "hosts": n => { threatIntelligence.hosts = n.getCollectionOfObjectValues<Host>(createHostFromDiscriminatorValue); },
         "hostSslCertificates": n => { threatIntelligence.hostSslCertificates = n.getCollectionOfObjectValues<HostSslCertificate>(createHostSslCertificateFromDiscriminatorValue); },
         "hostTrackers": n => { threatIntelligence.hostTrackers = n.getCollectionOfObjectValues<HostTracker>(createHostTrackerFromDiscriminatorValue); },
@@ -52,6 +54,7 @@ export function serializeThreatIntelligence(writer: SerializationWriter, threatI
         writer.writeCollectionOfObjectValues<HostComponent>("hostComponents", threatIntelligence.hostComponents, );
         writer.writeCollectionOfObjectValues<HostCookie>("hostCookies", threatIntelligence.hostCookies, );
         writer.writeCollectionOfObjectValues<HostPair>("hostPairs", threatIntelligence.hostPairs, );
+        writer.writeCollectionOfObjectValues<HostPort>("hostPorts", threatIntelligence.hostPorts, );
         writer.writeCollectionOfObjectValues<Host>("hosts", threatIntelligence.hosts, );
         writer.writeCollectionOfObjectValues<HostSslCertificate>("hostSslCertificates", threatIntelligence.hostSslCertificates, );
         writer.writeCollectionOfObjectValues<HostTracker>("hostTrackers", threatIntelligence.hostTrackers, );
@@ -85,6 +88,10 @@ export interface ThreatIntelligence extends Entity, Parsable {
      * Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
      */
     hostPairs?: HostPair[];
+    /**
+     * Retrieve details about hostPort objects.Note: List retrieval is not yet supported.
+     */
+    hostPorts?: HostPort[];
     /**
      * Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
      */

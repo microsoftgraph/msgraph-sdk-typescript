@@ -109,7 +109,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of table objects. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/table-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-tables?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TablesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

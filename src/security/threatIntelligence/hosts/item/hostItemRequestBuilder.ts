@@ -11,6 +11,7 @@ import { HostPairsRequestBuilder } from './hostPairs/hostPairsRequestBuilder';
 import { ParentHostPairsRequestBuilder } from './parentHostPairs/parentHostPairsRequestBuilder';
 import { PassiveDnsRequestBuilder } from './passiveDns/passiveDnsRequestBuilder';
 import { PassiveDnsReverseRequestBuilder } from './passiveDnsReverse/passiveDnsReverseRequestBuilder';
+import { PortsRequestBuilder } from './ports/portsRequestBuilder';
 import { ReputationRequestBuilder } from './reputation/reputationRequestBuilder';
 import { SslCertificatesRequestBuilder } from './sslCertificates/sslCertificatesRequestBuilder';
 import { SubdomainsRequestBuilder } from './subdomains/subdomainsRequestBuilder';
@@ -107,6 +108,12 @@ export class HostItemRequestBuilder extends BaseRequestBuilder {
      */
     public get passiveDnsReverse(): PassiveDnsReverseRequestBuilder {
         return new PassiveDnsReverseRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the ports property of the microsoft.graph.security.host entity.
+     */
+    public get ports(): PortsRequestBuilder {
+        return new PortsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the reputation property of the microsoft.graph.security.host entity.
