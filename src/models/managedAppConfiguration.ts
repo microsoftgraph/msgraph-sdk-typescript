@@ -35,7 +35,7 @@ export interface ManagedAppConfiguration extends ManagedAppPolicy, Parsable {
 }
 export function serializeManagedAppConfiguration(writer: SerializationWriter, managedAppConfiguration: ManagedAppConfiguration | undefined = {} as ManagedAppConfiguration) : void {
         serializeManagedAppPolicy(writer, managedAppConfiguration)
-        writer.writeCollectionOfObjectValues<KeyValuePair>("customSettings", managedAppConfiguration.customSettings, );
+        writer.writeCollectionOfObjectValues<KeyValuePair>("customSettings", managedAppConfiguration.customSettings, serializeKeyValuePair);
 }
 // tslint:enable
 // eslint-enable

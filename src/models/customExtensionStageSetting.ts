@@ -29,7 +29,7 @@ export function deserializeIntoCustomExtensionStageSetting(customExtensionStageS
 }
 export function serializeCustomExtensionStageSetting(writer: SerializationWriter, customExtensionStageSetting: CustomExtensionStageSetting | undefined = {} as CustomExtensionStageSetting) : void {
         serializeEntity(writer, customExtensionStageSetting)
-        writer.writeObjectValue<CustomCalloutExtension>("customExtension", customExtensionStageSetting.customExtension, );
+        writer.writeObjectValue<CustomCalloutExtension>("customExtension", customExtensionStageSetting.customExtension, serializeCustomCalloutExtension);
         writer.writeEnumValue<AccessPackageCustomExtensionStage>("stage", customExtensionStageSetting.stage);
 }
 // tslint:enable

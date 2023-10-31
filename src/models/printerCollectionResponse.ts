@@ -23,7 +23,7 @@ export interface PrinterCollectionResponse extends BaseCollectionPaginationCount
 }
 export function serializePrinterCollectionResponse(writer: SerializationWriter, printerCollectionResponse: PrinterCollectionResponse | undefined = {} as PrinterCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, printerCollectionResponse)
-        writer.writeCollectionOfObjectValues<Printer>("value", printerCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Printer>("value", printerCollectionResponse.value, serializePrinter);
 }
 // tslint:enable
 // eslint-enable

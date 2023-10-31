@@ -50,8 +50,8 @@ export interface RubricQuality extends AdditionalDataHolder, Parsable {
     weight?: number;
 }
 export function serializeRubricQuality(writer: SerializationWriter, rubricQuality: RubricQuality | undefined = {} as RubricQuality) : void {
-        writer.writeCollectionOfObjectValues<RubricCriterion>("criteria", rubricQuality.criteria, );
-        writer.writeObjectValue<EducationItemBody>("description", rubricQuality.description, );
+        writer.writeCollectionOfObjectValues<RubricCriterion>("criteria", rubricQuality.criteria, serializeRubricCriterion);
+        writer.writeObjectValue<EducationItemBody>("description", rubricQuality.description, serializeEducationItemBody);
         writer.writeStringValue("displayName", rubricQuality.displayName);
         writer.writeStringValue("@odata.type", rubricQuality.odataType);
         writer.writeStringValue("qualityId", rubricQuality.qualityId);

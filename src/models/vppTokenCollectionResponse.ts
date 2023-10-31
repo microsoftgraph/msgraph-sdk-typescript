@@ -17,7 +17,7 @@ export function deserializeIntoVppTokenCollectionResponse(vppTokenCollectionResp
 }
 export function serializeVppTokenCollectionResponse(writer: SerializationWriter, vppTokenCollectionResponse: VppTokenCollectionResponse | undefined = {} as VppTokenCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, vppTokenCollectionResponse)
-        writer.writeCollectionOfObjectValues<VppToken>("value", vppTokenCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<VppToken>("value", vppTokenCollectionResponse.value, serializeVppToken);
 }
 export interface VppTokenCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

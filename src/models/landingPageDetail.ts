@@ -18,15 +18,15 @@ export function deserializeIntoLandingPageDetail(landingPageDetail: LandingPageD
 }
 export interface LandingPageDetail extends Entity, Parsable {
     /**
-     * The content property
+     * Landing page detail content.
      */
     content?: string;
     /**
-     * The isDefaultLangauge property
+     * Indicates whether this language detail is default for the landing page.
      */
     isDefaultLangauge?: boolean;
     /**
-     * The language property
+     * The content language for the landing page.
      */
     language?: string;
 }

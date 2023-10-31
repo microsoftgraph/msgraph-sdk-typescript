@@ -35,10 +35,10 @@ export function deserializeIntoAuthenticationStrengthRoot(authenticationStrength
 }
 export function serializeAuthenticationStrengthRoot(writer: SerializationWriter, authenticationStrengthRoot: AuthenticationStrengthRoot | undefined = {} as AuthenticationStrengthRoot) : void {
         serializeEntity(writer, authenticationStrengthRoot)
-        writer.writeCollectionOfObjectValues<AuthenticationMethodModeDetail>("authenticationMethodModes", authenticationStrengthRoot.authenticationMethodModes, );
+        writer.writeCollectionOfObjectValues<AuthenticationMethodModeDetail>("authenticationMethodModes", authenticationStrengthRoot.authenticationMethodModes, serializeAuthenticationMethodModeDetail);
         if(authenticationStrengthRoot.combinations)
         writer.writeEnumValue<AuthenticationMethodModes>("combinations", ...authenticationStrengthRoot.combinations);
-        writer.writeCollectionOfObjectValues<AuthenticationStrengthPolicy>("policies", authenticationStrengthRoot.policies, );
+        writer.writeCollectionOfObjectValues<AuthenticationStrengthPolicy>("policies", authenticationStrengthRoot.policies, serializeAuthenticationStrengthPolicy);
 }
 // tslint:enable
 // eslint-enable

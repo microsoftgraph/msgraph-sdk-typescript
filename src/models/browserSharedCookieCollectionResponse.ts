@@ -23,7 +23,7 @@ export function deserializeIntoBrowserSharedCookieCollectionResponse(browserShar
 }
 export function serializeBrowserSharedCookieCollectionResponse(writer: SerializationWriter, browserSharedCookieCollectionResponse: BrowserSharedCookieCollectionResponse | undefined = {} as BrowserSharedCookieCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, browserSharedCookieCollectionResponse)
-        writer.writeCollectionOfObjectValues<BrowserSharedCookie>("value", browserSharedCookieCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<BrowserSharedCookie>("value", browserSharedCookieCollectionResponse.value, serializeBrowserSharedCookie);
 }
 // tslint:enable
 // eslint-enable

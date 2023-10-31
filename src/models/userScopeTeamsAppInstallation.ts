@@ -17,7 +17,7 @@ export function deserializeIntoUserScopeTeamsAppInstallation(userScopeTeamsAppIn
 }
 export function serializeUserScopeTeamsAppInstallation(writer: SerializationWriter, userScopeTeamsAppInstallation: UserScopeTeamsAppInstallation | undefined = {} as UserScopeTeamsAppInstallation) : void {
         serializeTeamsAppInstallation(writer, userScopeTeamsAppInstallation)
-        writer.writeObjectValue<Chat>("chat", userScopeTeamsAppInstallation.chat, );
+        writer.writeObjectValue<Chat>("chat", userScopeTeamsAppInstallation.chat, serializeChat);
 }
 export interface UserScopeTeamsAppInstallation extends Parsable, TeamsAppInstallation {
     /**

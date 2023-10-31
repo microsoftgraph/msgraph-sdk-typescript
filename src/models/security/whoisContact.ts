@@ -20,7 +20,7 @@ export function deserializeIntoWhoisContact(whoisContact: WhoisContact | undefin
     }
 }
 export function serializeWhoisContact(writer: SerializationWriter, whoisContact: WhoisContact | undefined = {} as WhoisContact) : void {
-        writer.writeObjectValue<PhysicalAddress>("address", whoisContact.address, );
+        writer.writeObjectValue<PhysicalAddress>("address", whoisContact.address, serializePhysicalAddress);
         writer.writeStringValue("email", whoisContact.email);
         writer.writeStringValue("fax", whoisContact.fax);
         writer.writeStringValue("name", whoisContact.name);

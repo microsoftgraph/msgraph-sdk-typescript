@@ -68,15 +68,15 @@ export interface KubernetesPodEvidence extends AlertEvidence, Parsable {
 }
 export function serializeKubernetesPodEvidence(writer: SerializationWriter, kubernetesPodEvidence: KubernetesPodEvidence | undefined = {} as KubernetesPodEvidence) : void {
         serializeAlertEvidence(writer, kubernetesPodEvidence)
-        writer.writeCollectionOfObjectValues<ContainerEvidence>("containers", kubernetesPodEvidence.containers, );
-        writer.writeObjectValue<KubernetesControllerEvidence>("controller", kubernetesPodEvidence.controller, );
-        writer.writeCollectionOfObjectValues<ContainerEvidence>("ephemeralContainers", kubernetesPodEvidence.ephemeralContainers, );
-        writer.writeCollectionOfObjectValues<ContainerEvidence>("initContainers", kubernetesPodEvidence.initContainers, );
-        writer.writeObjectValue<Dictionary>("labels", kubernetesPodEvidence.labels, );
+        writer.writeCollectionOfObjectValues<ContainerEvidence>("containers", kubernetesPodEvidence.containers, serializeContainerEvidence);
+        writer.writeObjectValue<KubernetesControllerEvidence>("controller", kubernetesPodEvidence.controller, serializeKubernetesControllerEvidence);
+        writer.writeCollectionOfObjectValues<ContainerEvidence>("ephemeralContainers", kubernetesPodEvidence.ephemeralContainers, serializeContainerEvidence);
+        writer.writeCollectionOfObjectValues<ContainerEvidence>("initContainers", kubernetesPodEvidence.initContainers, serializeContainerEvidence);
+        writer.writeObjectValue<Dictionary>("labels", kubernetesPodEvidence.labels, serializeDictionary);
         writer.writeStringValue("name", kubernetesPodEvidence.name);
-        writer.writeObjectValue<KubernetesNamespaceEvidence>("namespace", kubernetesPodEvidence.namespace, );
-        writer.writeObjectValue<IpEvidence>("podIp", kubernetesPodEvidence.podIp, );
-        writer.writeObjectValue<KubernetesServiceAccountEvidence>("serviceAccount", kubernetesPodEvidence.serviceAccount, );
+        writer.writeObjectValue<KubernetesNamespaceEvidence>("namespace", kubernetesPodEvidence.namespace, serializeKubernetesNamespaceEvidence);
+        writer.writeObjectValue<IpEvidence>("podIp", kubernetesPodEvidence.podIp, serializeIpEvidence);
+        writer.writeObjectValue<KubernetesServiceAccountEvidence>("serviceAccount", kubernetesPodEvidence.serviceAccount, serializeKubernetesServiceAccountEvidence);
 }
 // tslint:enable
 // eslint-enable

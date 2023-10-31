@@ -23,7 +23,7 @@ export interface GetActivitiesByIntervalGetResponse extends BaseCollectionPagina
 }
 export function serializeGetActivitiesByIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalGetResponse: GetActivitiesByIntervalGetResponse | undefined = {} as GetActivitiesByIntervalGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalGetResponse)
-        writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalGetResponse.value, );
+        writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalGetResponse.value, serializeItemActivityStat);
 }
 // tslint:enable
 // eslint-enable

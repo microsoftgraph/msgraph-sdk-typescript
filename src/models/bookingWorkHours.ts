@@ -37,7 +37,7 @@ export function deserializeIntoBookingWorkHours(bookingWorkHours: BookingWorkHou
 export function serializeBookingWorkHours(writer: SerializationWriter, bookingWorkHours: BookingWorkHours | undefined = {} as BookingWorkHours) : void {
         writer.writeEnumValue<DayOfWeek>("day", bookingWorkHours.day);
         writer.writeStringValue("@odata.type", bookingWorkHours.odataType);
-        writer.writeCollectionOfObjectValues<BookingWorkTimeSlot>("timeSlots", bookingWorkHours.timeSlots, );
+        writer.writeCollectionOfObjectValues<BookingWorkTimeSlot>("timeSlots", bookingWorkHours.timeSlots, serializeBookingWorkTimeSlot);
         writer.writeAdditionalData(bookingWorkHours.additionalData);
 }
 // tslint:enable

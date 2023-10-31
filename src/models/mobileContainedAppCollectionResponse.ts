@@ -23,7 +23,7 @@ export interface MobileContainedAppCollectionResponse extends BaseCollectionPagi
 }
 export function serializeMobileContainedAppCollectionResponse(writer: SerializationWriter, mobileContainedAppCollectionResponse: MobileContainedAppCollectionResponse | undefined = {} as MobileContainedAppCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, mobileContainedAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<MobileContainedApp>("value", mobileContainedAppCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<MobileContainedApp>("value", mobileContainedAppCollectionResponse.value, serializeMobileContainedApp);
 }
 // tslint:enable
 // eslint-enable

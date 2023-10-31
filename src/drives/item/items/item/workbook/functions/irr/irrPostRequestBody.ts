@@ -29,8 +29,8 @@ export interface IrrPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeIrrPostRequestBody(writer: SerializationWriter, irrPostRequestBody: IrrPostRequestBody | undefined = {} as IrrPostRequestBody) : void {
-        writer.writeObjectValue<Json>("guess", irrPostRequestBody.guess, );
-        writer.writeObjectValue<Json>("values", irrPostRequestBody.values, );
+        writer.writeObjectValue<Json>("guess", irrPostRequestBody.guess, serializeJson);
+        writer.writeObjectValue<Json>("values", irrPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(irrPostRequestBody.additionalData);
 }
 // tslint:enable

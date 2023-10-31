@@ -14,7 +14,7 @@ export function deserializeIntoSqrtPiPostRequestBody(sqrtPiPostRequestBody: Sqrt
     }
 }
 export function serializeSqrtPiPostRequestBody(writer: SerializationWriter, sqrtPiPostRequestBody: SqrtPiPostRequestBody | undefined = {} as SqrtPiPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", sqrtPiPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", sqrtPiPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(sqrtPiPostRequestBody.additionalData);
 }
 export interface SqrtPiPostRequestBody extends AdditionalDataHolder, Parsable {

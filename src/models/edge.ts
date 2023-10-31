@@ -23,7 +23,7 @@ export interface Edge extends Entity, Parsable {
 }
 export function serializeEdge(writer: SerializationWriter, edge: Edge | undefined = {} as Edge) : void {
         serializeEntity(writer, edge)
-        writer.writeObjectValue<InternetExplorerMode>("internetExplorerMode", edge.internetExplorerMode, );
+        writer.writeObjectValue<InternetExplorerMode>("internetExplorerMode", edge.internetExplorerMode, serializeInternetExplorerMode);
 }
 // tslint:enable
 // eslint-enable

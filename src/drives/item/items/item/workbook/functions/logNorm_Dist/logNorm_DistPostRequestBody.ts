@@ -39,10 +39,10 @@ export interface LogNorm_DistPostRequestBody extends AdditionalDataHolder, Parsa
     x?: Json;
 }
 export function serializeLogNorm_DistPostRequestBody(writer: SerializationWriter, logNorm_DistPostRequestBody: LogNorm_DistPostRequestBody | undefined = {} as LogNorm_DistPostRequestBody) : void {
-        writer.writeObjectValue<Json>("cumulative", logNorm_DistPostRequestBody.cumulative, );
-        writer.writeObjectValue<Json>("mean", logNorm_DistPostRequestBody.mean, );
-        writer.writeObjectValue<Json>("standardDev", logNorm_DistPostRequestBody.standardDev, );
-        writer.writeObjectValue<Json>("x", logNorm_DistPostRequestBody.x, );
+        writer.writeObjectValue<Json>("cumulative", logNorm_DistPostRequestBody.cumulative, serializeJson);
+        writer.writeObjectValue<Json>("mean", logNorm_DistPostRequestBody.mean, serializeJson);
+        writer.writeObjectValue<Json>("standardDev", logNorm_DistPostRequestBody.standardDev, serializeJson);
+        writer.writeObjectValue<Json>("x", logNorm_DistPostRequestBody.x, serializeJson);
         writer.writeAdditionalData(logNorm_DistPostRequestBody.additionalData);
 }
 // tslint:enable

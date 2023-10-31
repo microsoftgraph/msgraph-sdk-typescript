@@ -23,7 +23,7 @@ export interface ManagedEBookAssignmentCollectionResponse extends BaseCollection
 }
 export function serializeManagedEBookAssignmentCollectionResponse(writer: SerializationWriter, managedEBookAssignmentCollectionResponse: ManagedEBookAssignmentCollectionResponse | undefined = {} as ManagedEBookAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, managedEBookAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedEBookAssignment>("value", managedEBookAssignmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ManagedEBookAssignment>("value", managedEBookAssignmentCollectionResponse.value, serializeManagedEBookAssignment);
 }
 // tslint:enable
 // eslint-enable

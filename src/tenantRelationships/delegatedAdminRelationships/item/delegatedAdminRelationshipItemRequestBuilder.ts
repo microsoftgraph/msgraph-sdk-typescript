@@ -115,7 +115,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the created status. This API is available in the following national cloud deployments.
+     * Update the properties of a delegatedAdminRelationship object. You can only update a relationship when it's in the created status. However, you can update the autoExtendDuration property when the relationship is in either the created or active status. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationship
@@ -167,7 +167,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the created status. This API is available in the following national cloud deployments.
+     * Update the properties of a delegatedAdminRelationship object. You can only update a relationship when it's in the created status. However, you can update the autoExtendDuration property when the relationship is in either the created or active status. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

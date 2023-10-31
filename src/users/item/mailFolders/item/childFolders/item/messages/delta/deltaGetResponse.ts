@@ -23,7 +23,7 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: DeltaGetRespon
 }
 export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: DeltaGetResponse | undefined = {} as DeltaGetResponse) : void {
         serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
-        writer.writeCollectionOfObjectValues<Message>("value", deltaGetResponse.value, );
+        writer.writeCollectionOfObjectValues<Message>("value", deltaGetResponse.value, serializeMessage);
 }
 // tslint:enable
 // eslint-enable

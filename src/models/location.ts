@@ -79,8 +79,8 @@ export interface Location extends AdditionalDataHolder, Parsable {
     uniqueIdType?: LocationUniqueIdType;
 }
 export function serializeLocation(writer: SerializationWriter, location: Location | undefined = {} as Location) : void {
-        writer.writeObjectValue<PhysicalAddress>("address", location.address, );
-        writer.writeObjectValue<OutlookGeoCoordinates>("coordinates", location.coordinates, );
+        writer.writeObjectValue<PhysicalAddress>("address", location.address, serializePhysicalAddress);
+        writer.writeObjectValue<OutlookGeoCoordinates>("coordinates", location.coordinates, serializeOutlookGeoCoordinates);
         writer.writeStringValue("displayName", location.displayName);
         writer.writeStringValue("locationEmailAddress", location.locationEmailAddress);
         writer.writeEnumValue<LocationType>("locationType", location.locationType);

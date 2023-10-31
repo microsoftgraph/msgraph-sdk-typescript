@@ -30,11 +30,11 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/add");
     };
     /**
-     * Use this API to create a new Table. This API is available in the following national cloud deployments.
+     * Create a new table. The range source address determines the worksheet under which the table will be added. If the table can't be added (for example, because the address is invalid, or the table would overlap with another table), an error is generated. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTable
-     * @see {@link https://learn.microsoft.com/graph/api/workbook-post-tables?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablecollection-add?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddPostRequestBody, requestConfiguration?: AddRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookTable | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -47,7 +47,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookTable>(requestInfo, createWorkbookTableFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Use this API to create a new Table. This API is available in the following national cloud deployments.
+     * Create a new table. The range source address determines the worksheet under which the table will be added. If the table can't be added (for example, because the address is invalid, or the table would overlap with another table), an error is generated. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

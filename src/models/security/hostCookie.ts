@@ -45,7 +45,7 @@ export function serializeHostCookie(writer: SerializationWriter, hostCookie: Hos
         serializeArtifact(writer, hostCookie)
         writer.writeStringValue("domain", hostCookie.domain);
         writer.writeDateValue("firstSeenDateTime", hostCookie.firstSeenDateTime);
-        writer.writeObjectValue<Host>("host", hostCookie.host, );
+        writer.writeObjectValue<Host>("host", hostCookie.host, serializeHost);
         writer.writeDateValue("lastSeenDateTime", hostCookie.lastSeenDateTime);
         writer.writeStringValue("name", hostCookie.name);
 }

@@ -40,7 +40,7 @@ export function serializeAadUserConversationMember(writer: SerializationWriter, 
         serializeConversationMember(writer, aadUserConversationMember)
         writer.writeStringValue("email", aadUserConversationMember.email);
         writer.writeStringValue("tenantId", aadUserConversationMember.tenantId);
-        writer.writeObjectValue<User>("user", aadUserConversationMember.user, );
+        writer.writeObjectValue<User>("user", aadUserConversationMember.user, serializeUser);
         writer.writeStringValue("userId", aadUserConversationMember.userId);
 }
 // tslint:enable

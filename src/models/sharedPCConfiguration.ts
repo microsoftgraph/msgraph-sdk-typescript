@@ -29,7 +29,7 @@ export function deserializeIntoSharedPCConfiguration(sharedPCConfiguration: Shar
 }
 export function serializeSharedPCConfiguration(writer: SerializationWriter, sharedPCConfiguration: SharedPCConfiguration | undefined = {} as SharedPCConfiguration) : void {
         serializeDeviceConfiguration(writer, sharedPCConfiguration)
-        writer.writeObjectValue<SharedPCAccountManagerPolicy>("accountManagerPolicy", sharedPCConfiguration.accountManagerPolicy, );
+        writer.writeObjectValue<SharedPCAccountManagerPolicy>("accountManagerPolicy", sharedPCConfiguration.accountManagerPolicy, serializeSharedPCAccountManagerPolicy);
         writer.writeEnumValue<SharedPCAllowedAccountType[]>("allowedAccounts", sharedPCConfiguration.allowedAccounts);
         writer.writeBooleanValue("allowLocalStorage", sharedPCConfiguration.allowLocalStorage);
         writer.writeBooleanValue("disableAccountManager", sharedPCConfiguration.disableAccountManager);

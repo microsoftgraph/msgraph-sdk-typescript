@@ -7,15 +7,15 @@ import { type Parsable, type ParseNode, type SerializationWriter } from '@micros
 
 export interface AttackSimulationOperation extends LongRunningOperation, Parsable {
     /**
-     * The percentageCompleted property
+     * Percentage of completion of the respective operation.
      */
     percentageCompleted?: number;
     /**
-     * The tenantId property
+     * Tenant identifier.
      */
     tenantId?: string;
     /**
-     * The type property
+     * The attack simulation operation type. Possible values are: createSimulation, updateSimulation, unknownFutureValue.
      */
     type?: AttackSimulationOperationType;
 }

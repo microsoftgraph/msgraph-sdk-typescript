@@ -56,9 +56,9 @@ export interface OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectMo
 }
 export function serializeOnenoteEntityHierarchyModel(writer: SerializationWriter, onenoteEntityHierarchyModel: OnenoteEntityHierarchyModel | undefined = {} as OnenoteEntityHierarchyModel) : void {
         serializeOnenoteEntitySchemaObjectModel(writer, onenoteEntityHierarchyModel)
-        writer.writeObjectValue<IdentitySet>("createdBy", onenoteEntityHierarchyModel.createdBy, );
+        writer.writeObjectValue<IdentitySet>("createdBy", onenoteEntityHierarchyModel.createdBy, serializeIdentitySet);
         writer.writeStringValue("displayName", onenoteEntityHierarchyModel.displayName);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", onenoteEntityHierarchyModel.lastModifiedBy, );
+        writer.writeObjectValue<IdentitySet>("lastModifiedBy", onenoteEntityHierarchyModel.lastModifiedBy, serializeIdentitySet);
         writer.writeDateValue("lastModifiedDateTime", onenoteEntityHierarchyModel.lastModifiedDateTime);
 }
 // tslint:enable

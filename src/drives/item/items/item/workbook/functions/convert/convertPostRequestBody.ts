@@ -34,9 +34,9 @@ export function deserializeIntoConvertPostRequestBody(convertPostRequestBody: Co
     }
 }
 export function serializeConvertPostRequestBody(writer: SerializationWriter, convertPostRequestBody: ConvertPostRequestBody | undefined = {} as ConvertPostRequestBody) : void {
-        writer.writeObjectValue<Json>("fromUnit", convertPostRequestBody.fromUnit, );
-        writer.writeObjectValue<Json>("number", convertPostRequestBody.number, );
-        writer.writeObjectValue<Json>("toUnit", convertPostRequestBody.toUnit, );
+        writer.writeObjectValue<Json>("fromUnit", convertPostRequestBody.fromUnit, serializeJson);
+        writer.writeObjectValue<Json>("number", convertPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("toUnit", convertPostRequestBody.toUnit, serializeJson);
         writer.writeAdditionalData(convertPostRequestBody.additionalData);
 }
 // tslint:enable

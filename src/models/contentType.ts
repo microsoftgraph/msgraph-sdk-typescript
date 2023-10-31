@@ -119,20 +119,20 @@ export function deserializeIntoContentType(contentType: ContentType | undefined 
 export function serializeContentType(writer: SerializationWriter, contentType: ContentType | undefined = {} as ContentType) : void {
         serializeEntity(writer, contentType)
         writer.writeCollectionOfPrimitiveValues<string>("associatedHubsUrls", contentType.associatedHubsUrls);
-        writer.writeObjectValue<ContentType>("base", contentType.base, );
-        writer.writeCollectionOfObjectValues<ContentType>("baseTypes", contentType.baseTypes, );
-        writer.writeCollectionOfObjectValues<ColumnLink>("columnLinks", contentType.columnLinks, );
-        writer.writeCollectionOfObjectValues<ColumnDefinition>("columnPositions", contentType.columnPositions, );
-        writer.writeCollectionOfObjectValues<ColumnDefinition>("columns", contentType.columns, );
+        writer.writeObjectValue<ContentType>("base", contentType.base, serializeContentType);
+        writer.writeCollectionOfObjectValues<ContentType>("baseTypes", contentType.baseTypes, serializeContentType);
+        writer.writeCollectionOfObjectValues<ColumnLink>("columnLinks", contentType.columnLinks, serializeColumnLink);
+        writer.writeCollectionOfObjectValues<ColumnDefinition>("columnPositions", contentType.columnPositions, serializeColumnDefinition);
+        writer.writeCollectionOfObjectValues<ColumnDefinition>("columns", contentType.columns, serializeColumnDefinition);
         writer.writeStringValue("description", contentType.description);
-        writer.writeObjectValue<DocumentSet>("documentSet", contentType.documentSet, );
-        writer.writeObjectValue<DocumentSetContent>("documentTemplate", contentType.documentTemplate, );
+        writer.writeObjectValue<DocumentSet>("documentSet", contentType.documentSet, serializeDocumentSet);
+        writer.writeObjectValue<DocumentSetContent>("documentTemplate", contentType.documentTemplate, serializeDocumentSetContent);
         writer.writeStringValue("group", contentType.group);
         writer.writeBooleanValue("hidden", contentType.hidden);
-        writer.writeObjectValue<ItemReference>("inheritedFrom", contentType.inheritedFrom, );
+        writer.writeObjectValue<ItemReference>("inheritedFrom", contentType.inheritedFrom, serializeItemReference);
         writer.writeBooleanValue("isBuiltIn", contentType.isBuiltIn);
         writer.writeStringValue("name", contentType.name);
-        writer.writeObjectValue<ContentTypeOrder>("order", contentType.order, );
+        writer.writeObjectValue<ContentTypeOrder>("order", contentType.order, serializeContentTypeOrder);
         writer.writeStringValue("parentId", contentType.parentId);
         writer.writeBooleanValue("propagateChanges", contentType.propagateChanges);
         writer.writeBooleanValue("readOnly", contentType.readOnly);

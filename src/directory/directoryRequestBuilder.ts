@@ -8,6 +8,7 @@ import { AdministrativeUnitsRequestBuilder } from './administrativeUnits/adminis
 import { AttributeSetsRequestBuilder } from './attributeSets/attributeSetsRequestBuilder';
 import { CustomSecurityAttributeDefinitionsRequestBuilder } from './customSecurityAttributeDefinitions/customSecurityAttributeDefinitionsRequestBuilder';
 import { DeletedItemsRequestBuilder } from './deletedItems/deletedItemsRequestBuilder';
+import { DeviceLocalCredentialsRequestBuilder } from './deviceLocalCredentials/deviceLocalCredentialsRequestBuilder';
 import { FederationConfigurationsRequestBuilder } from './federationConfigurations/federationConfigurationsRequestBuilder';
 import { OnPremisesSynchronizationRequestBuilder } from './onPremisesSynchronization/onPremisesSynchronizationRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
@@ -73,6 +74,12 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
      */
     public get deletedItems(): DeletedItemsRequestBuilder {
         return new DeletedItemsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the deviceLocalCredentials property of the microsoft.graph.directory entity.
+     */
+    public get deviceLocalCredentials(): DeviceLocalCredentialsRequestBuilder {
+        return new DeviceLocalCredentialsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.

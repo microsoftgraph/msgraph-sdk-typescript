@@ -23,7 +23,7 @@ export function serializeTermsAndConditionsAcceptanceStatus(writer: Serializatio
         serializeEntity(writer, termsAndConditionsAcceptanceStatus)
         writer.writeDateValue("acceptedDateTime", termsAndConditionsAcceptanceStatus.acceptedDateTime);
         writer.writeNumberValue("acceptedVersion", termsAndConditionsAcceptanceStatus.acceptedVersion);
-        writer.writeObjectValue<TermsAndConditions>("termsAndConditions", termsAndConditionsAcceptanceStatus.termsAndConditions, );
+        writer.writeObjectValue<TermsAndConditions>("termsAndConditions", termsAndConditionsAcceptanceStatus.termsAndConditions, serializeTermsAndConditions);
         writer.writeStringValue("userDisplayName", termsAndConditionsAcceptanceStatus.userDisplayName);
         writer.writeStringValue("userPrincipalName", termsAndConditionsAcceptanceStatus.userPrincipalName);
 }

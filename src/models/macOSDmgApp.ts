@@ -45,8 +45,8 @@ export interface MacOSDmgApp extends MobileLobApp, Parsable {
 export function serializeMacOSDmgApp(writer: SerializationWriter, macOSDmgApp: MacOSDmgApp | undefined = {} as MacOSDmgApp) : void {
         serializeMobileLobApp(writer, macOSDmgApp)
         writer.writeBooleanValue("ignoreVersionDetection", macOSDmgApp.ignoreVersionDetection);
-        writer.writeCollectionOfObjectValues<MacOSIncludedApp>("includedApps", macOSDmgApp.includedApps, );
-        writer.writeObjectValue<MacOSMinimumOperatingSystem>("minimumSupportedOperatingSystem", macOSDmgApp.minimumSupportedOperatingSystem, );
+        writer.writeCollectionOfObjectValues<MacOSIncludedApp>("includedApps", macOSDmgApp.includedApps, serializeMacOSIncludedApp);
+        writer.writeObjectValue<MacOSMinimumOperatingSystem>("minimumSupportedOperatingSystem", macOSDmgApp.minimumSupportedOperatingSystem, serializeMacOSMinimumOperatingSystem);
         writer.writeStringValue("primaryBundleId", macOSDmgApp.primaryBundleId);
         writer.writeStringValue("primaryBundleVersion", macOSDmgApp.primaryBundleVersion);
 }

@@ -24,7 +24,7 @@ export interface MonthPostRequestBody extends AdditionalDataHolder, Parsable {
     serialNumber?: Json;
 }
 export function serializeMonthPostRequestBody(writer: SerializationWriter, monthPostRequestBody: MonthPostRequestBody | undefined = {} as MonthPostRequestBody) : void {
-        writer.writeObjectValue<Json>("serialNumber", monthPostRequestBody.serialNumber, );
+        writer.writeObjectValue<Json>("serialNumber", monthPostRequestBody.serialNumber, serializeJson);
         writer.writeAdditionalData(monthPostRequestBody.additionalData);
 }
 // tslint:enable

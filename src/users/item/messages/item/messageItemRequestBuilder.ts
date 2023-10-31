@@ -169,7 +169,7 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
      * The messages in a mailbox or folder. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Message
-     * @see {@link https://learn.microsoft.com/graph/api/singlevaluelegacyextendedproperty-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/eventmessage-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MessageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Message | undefined> {
         const requestInfo = this.toGetRequestInformation(

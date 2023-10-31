@@ -23,7 +23,7 @@ export function deserializeIntoChatMessageMentionedIdentitySet(chatMessageMentio
 }
 export function serializeChatMessageMentionedIdentitySet(writer: SerializationWriter, chatMessageMentionedIdentitySet: ChatMessageMentionedIdentitySet | undefined = {} as ChatMessageMentionedIdentitySet) : void {
         serializeIdentitySet(writer, chatMessageMentionedIdentitySet)
-        writer.writeObjectValue<TeamworkConversationIdentity>("conversation", chatMessageMentionedIdentitySet.conversation, );
+        writer.writeObjectValue<TeamworkConversationIdentity>("conversation", chatMessageMentionedIdentitySet.conversation, serializeTeamworkConversationIdentity);
 }
 // tslint:enable
 // eslint-enable

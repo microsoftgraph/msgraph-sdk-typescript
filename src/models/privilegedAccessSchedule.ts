@@ -61,7 +61,7 @@ export function serializePrivilegedAccessSchedule(writer: SerializationWriter, p
         writer.writeDateValue("createdDateTime", privilegedAccessSchedule.createdDateTime);
         writer.writeStringValue("createdUsing", privilegedAccessSchedule.createdUsing);
         writer.writeDateValue("modifiedDateTime", privilegedAccessSchedule.modifiedDateTime);
-        writer.writeObjectValue<RequestSchedule>("scheduleInfo", privilegedAccessSchedule.scheduleInfo, );
+        writer.writeObjectValue<RequestSchedule>("scheduleInfo", privilegedAccessSchedule.scheduleInfo, serializeRequestSchedule);
         writer.writeStringValue("status", privilegedAccessSchedule.status);
 }
 // tslint:enable

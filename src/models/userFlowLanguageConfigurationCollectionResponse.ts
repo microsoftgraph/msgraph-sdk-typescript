@@ -17,7 +17,7 @@ export function deserializeIntoUserFlowLanguageConfigurationCollectionResponse(u
 }
 export function serializeUserFlowLanguageConfigurationCollectionResponse(writer: SerializationWriter, userFlowLanguageConfigurationCollectionResponse: UserFlowLanguageConfigurationCollectionResponse | undefined = {} as UserFlowLanguageConfigurationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, userFlowLanguageConfigurationCollectionResponse)
-        writer.writeCollectionOfObjectValues<UserFlowLanguageConfiguration>("value", userFlowLanguageConfigurationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<UserFlowLanguageConfiguration>("value", userFlowLanguageConfigurationCollectionResponse.value, serializeUserFlowLanguageConfiguration);
 }
 export interface UserFlowLanguageConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

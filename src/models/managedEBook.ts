@@ -99,19 +99,19 @@ export interface ManagedEBook extends Entity, Parsable {
 }
 export function serializeManagedEBook(writer: SerializationWriter, managedEBook: ManagedEBook | undefined = {} as ManagedEBook) : void {
         serializeEntity(writer, managedEBook)
-        writer.writeCollectionOfObjectValues<ManagedEBookAssignment>("assignments", managedEBook.assignments, );
+        writer.writeCollectionOfObjectValues<ManagedEBookAssignment>("assignments", managedEBook.assignments, serializeManagedEBookAssignment);
         writer.writeDateValue("createdDateTime", managedEBook.createdDateTime);
         writer.writeStringValue("description", managedEBook.description);
-        writer.writeCollectionOfObjectValues<DeviceInstallState>("deviceStates", managedEBook.deviceStates, );
+        writer.writeCollectionOfObjectValues<DeviceInstallState>("deviceStates", managedEBook.deviceStates, serializeDeviceInstallState);
         writer.writeStringValue("displayName", managedEBook.displayName);
         writer.writeStringValue("informationUrl", managedEBook.informationUrl);
-        writer.writeObjectValue<EBookInstallSummary>("installSummary", managedEBook.installSummary, );
-        writer.writeObjectValue<MimeContent>("largeCover", managedEBook.largeCover, );
+        writer.writeObjectValue<EBookInstallSummary>("installSummary", managedEBook.installSummary, serializeEBookInstallSummary);
+        writer.writeObjectValue<MimeContent>("largeCover", managedEBook.largeCover, serializeMimeContent);
         writer.writeDateValue("lastModifiedDateTime", managedEBook.lastModifiedDateTime);
         writer.writeStringValue("privacyInformationUrl", managedEBook.privacyInformationUrl);
         writer.writeDateValue("publishedDateTime", managedEBook.publishedDateTime);
         writer.writeStringValue("publisher", managedEBook.publisher);
-        writer.writeCollectionOfObjectValues<UserInstallStateSummary>("userStateSummary", managedEBook.userStateSummary, );
+        writer.writeCollectionOfObjectValues<UserInstallStateSummary>("userStateSummary", managedEBook.userStateSummary, serializeUserInstallStateSummary);
 }
 // tslint:enable
 // eslint-enable

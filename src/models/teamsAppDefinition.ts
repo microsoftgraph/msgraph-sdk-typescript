@@ -29,9 +29,9 @@ export function deserializeIntoTeamsAppDefinition(teamsAppDefinition: TeamsAppDe
 }
 export function serializeTeamsAppDefinition(writer: SerializationWriter, teamsAppDefinition: TeamsAppDefinition | undefined = {} as TeamsAppDefinition) : void {
         serializeEntity(writer, teamsAppDefinition)
-        writer.writeObjectValue<TeamsAppAuthorization>("authorization", teamsAppDefinition.authorization, );
-        writer.writeObjectValue<TeamworkBot>("bot", teamsAppDefinition.bot, );
-        writer.writeObjectValue<IdentitySet>("createdBy", teamsAppDefinition.createdBy, );
+        writer.writeObjectValue<TeamsAppAuthorization>("authorization", teamsAppDefinition.authorization, serializeTeamsAppAuthorization);
+        writer.writeObjectValue<TeamworkBot>("bot", teamsAppDefinition.bot, serializeTeamworkBot);
+        writer.writeObjectValue<IdentitySet>("createdBy", teamsAppDefinition.createdBy, serializeIdentitySet);
         writer.writeStringValue("description", teamsAppDefinition.description);
         writer.writeStringValue("displayName", teamsAppDefinition.displayName);
         writer.writeDateValue("lastModifiedDateTime", teamsAppDefinition.lastModifiedDateTime);

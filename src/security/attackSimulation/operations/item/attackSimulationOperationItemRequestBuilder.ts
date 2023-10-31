@@ -77,9 +77,10 @@ export class AttackSimulationOperationItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get operations from security
+     * Get an attack simulation operation to track a long-running operation request for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttackSimulationOperation
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttackSimulationOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AttackSimulationOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -125,7 +126,7 @@ export class AttackSimulationOperationItemRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Get operations from security
+     * Get an attack simulation operation to track a long-running operation request for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

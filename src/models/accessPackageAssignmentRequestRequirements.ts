@@ -72,8 +72,8 @@ export function serializeAccessPackageAssignmentRequestRequirements(writer: Seri
         writer.writeStringValue("policyDescription", accessPackageAssignmentRequestRequirements.policyDescription);
         writer.writeStringValue("policyDisplayName", accessPackageAssignmentRequestRequirements.policyDisplayName);
         writer.writeStringValue("policyId", accessPackageAssignmentRequestRequirements.policyId);
-        writer.writeCollectionOfObjectValues<AccessPackageQuestion>("questions", accessPackageAssignmentRequestRequirements.questions, );
-        writer.writeObjectValue<EntitlementManagementSchedule>("schedule", accessPackageAssignmentRequestRequirements.schedule, );
+        writer.writeCollectionOfObjectValues<AccessPackageQuestion>("questions", accessPackageAssignmentRequestRequirements.questions, serializeAccessPackageQuestion);
+        writer.writeObjectValue<EntitlementManagementSchedule>("schedule", accessPackageAssignmentRequestRequirements.schedule, serializeEntitlementManagementSchedule);
         writer.writeAdditionalData(accessPackageAssignmentRequestRequirements.additionalData);
 }
 // tslint:enable

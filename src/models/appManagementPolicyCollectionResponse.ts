@@ -23,7 +23,7 @@ export function deserializeIntoAppManagementPolicyCollectionResponse(appManageme
 }
 export function serializeAppManagementPolicyCollectionResponse(writer: SerializationWriter, appManagementPolicyCollectionResponse: AppManagementPolicyCollectionResponse | undefined = {} as AppManagementPolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, appManagementPolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<AppManagementPolicy>("value", appManagementPolicyCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AppManagementPolicy>("value", appManagementPolicyCollectionResponse.value, serializeAppManagementPolicy);
 }
 // tslint:enable
 // eslint-enable

@@ -297,7 +297,7 @@ export interface Group extends DirectoryObject, Parsable {
      */
     planner?: PlannerGroup;
     /**
-     * The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator's preferred data location. To set this property, the calling user must be assigned one of the following Microsoft Entra roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo. Nullable. Returned by default.
+     * The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator's preferred data location. To set this property, the calling app must be granted the Directory.ReadWrite.All permission and the user be assigned one of the following Microsoft Entra roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo. Nullable. Returned by default.
      */
     preferredDataLocation?: string;
     /**
@@ -367,26 +367,26 @@ export interface Group extends DirectoryObject, Parsable {
 }
 export function serializeGroup(writer: SerializationWriter, group: Group | undefined = {} as Group) : void {
         serializeDirectoryObject(writer, group)
-        writer.writeCollectionOfObjectValues<DirectoryObject>("acceptedSenders", group.acceptedSenders, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("acceptedSenders", group.acceptedSenders, serializeDirectoryObject);
         writer.writeBooleanValue("allowExternalSenders", group.allowExternalSenders);
-        writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", group.appRoleAssignments, );
-        writer.writeCollectionOfObjectValues<AssignedLabel>("assignedLabels", group.assignedLabels, );
-        writer.writeCollectionOfObjectValues<AssignedLicense>("assignedLicenses", group.assignedLicenses, );
+        writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", group.appRoleAssignments, serializeAppRoleAssignment);
+        writer.writeCollectionOfObjectValues<AssignedLabel>("assignedLabels", group.assignedLabels, serializeAssignedLabel);
+        writer.writeCollectionOfObjectValues<AssignedLicense>("assignedLicenses", group.assignedLicenses, serializeAssignedLicense);
         writer.writeBooleanValue("autoSubscribeNewMembers", group.autoSubscribeNewMembers);
-        writer.writeObjectValue<Calendar>("calendar", group.calendar, );
-        writer.writeCollectionOfObjectValues<Event>("calendarView", group.calendarView, );
+        writer.writeObjectValue<Calendar>("calendar", group.calendar, serializeCalendar);
+        writer.writeCollectionOfObjectValues<Event>("calendarView", group.calendarView, serializeEvent);
         writer.writeStringValue("classification", group.classification);
-        writer.writeCollectionOfObjectValues<Conversation>("conversations", group.conversations, );
+        writer.writeCollectionOfObjectValues<Conversation>("conversations", group.conversations, serializeConversation);
         writer.writeDateValue("createdDateTime", group.createdDateTime);
-        writer.writeObjectValue<DirectoryObject>("createdOnBehalfOf", group.createdOnBehalfOf, );
+        writer.writeObjectValue<DirectoryObject>("createdOnBehalfOf", group.createdOnBehalfOf, serializeDirectoryObject);
         writer.writeStringValue("description", group.description);
         writer.writeStringValue("displayName", group.displayName);
-        writer.writeObjectValue<Drive>("drive", group.drive, );
-        writer.writeCollectionOfObjectValues<Drive>("drives", group.drives, );
-        writer.writeCollectionOfObjectValues<Event>("events", group.events, );
+        writer.writeObjectValue<Drive>("drive", group.drive, serializeDrive);
+        writer.writeCollectionOfObjectValues<Drive>("drives", group.drives, serializeDrive);
+        writer.writeCollectionOfObjectValues<Event>("events", group.events, serializeEvent);
         writer.writeDateValue("expirationDateTime", group.expirationDateTime);
-        writer.writeCollectionOfObjectValues<Extension>("extensions", group.extensions, );
-        writer.writeCollectionOfObjectValues<GroupLifecyclePolicy>("groupLifecyclePolicies", group.groupLifecyclePolicies, );
+        writer.writeCollectionOfObjectValues<Extension>("extensions", group.extensions, serializeExtension);
+        writer.writeCollectionOfObjectValues<GroupLifecyclePolicy>("groupLifecyclePolicies", group.groupLifecyclePolicies, serializeGroupLifecyclePolicy);
         writer.writeCollectionOfPrimitiveValues<string>("groupTypes", group.groupTypes);
         writer.writeBooleanValue("hasMembersWithLicenseErrors", group.hasMembersWithLicenseErrors);
         writer.writeBooleanValue("hideFromAddressLists", group.hideFromAddressLists);
@@ -394,43 +394,43 @@ export function serializeGroup(writer: SerializationWriter, group: Group | undef
         writer.writeBooleanValue("isArchived", group.isArchived);
         writer.writeBooleanValue("isAssignableToRole", group.isAssignableToRole);
         writer.writeBooleanValue("isSubscribedByMail", group.isSubscribedByMail);
-        writer.writeObjectValue<LicenseProcessingState>("licenseProcessingState", group.licenseProcessingState, );
+        writer.writeObjectValue<LicenseProcessingState>("licenseProcessingState", group.licenseProcessingState, serializeLicenseProcessingState);
         writer.writeStringValue("mail", group.mail);
         writer.writeBooleanValue("mailEnabled", group.mailEnabled);
         writer.writeStringValue("mailNickname", group.mailNickname);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("memberOf", group.memberOf, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("members", group.members, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("memberOf", group.memberOf, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("members", group.members, serializeDirectoryObject);
         writer.writeStringValue("membershipRule", group.membershipRule);
         writer.writeStringValue("membershipRuleProcessingState", group.membershipRuleProcessingState);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("membersWithLicenseErrors", group.membersWithLicenseErrors, );
-        writer.writeObjectValue<Onenote>("onenote", group.onenote, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("membersWithLicenseErrors", group.membersWithLicenseErrors, serializeDirectoryObject);
+        writer.writeObjectValue<Onenote>("onenote", group.onenote, serializeOnenote);
         writer.writeStringValue("onPremisesDomainName", group.onPremisesDomainName);
         writer.writeDateValue("onPremisesLastSyncDateTime", group.onPremisesLastSyncDateTime);
         writer.writeStringValue("onPremisesNetBiosName", group.onPremisesNetBiosName);
-        writer.writeCollectionOfObjectValues<OnPremisesProvisioningError>("onPremisesProvisioningErrors", group.onPremisesProvisioningErrors, );
+        writer.writeCollectionOfObjectValues<OnPremisesProvisioningError>("onPremisesProvisioningErrors", group.onPremisesProvisioningErrors, serializeOnPremisesProvisioningError);
         writer.writeStringValue("onPremisesSamAccountName", group.onPremisesSamAccountName);
         writer.writeStringValue("onPremisesSecurityIdentifier", group.onPremisesSecurityIdentifier);
         writer.writeBooleanValue("onPremisesSyncEnabled", group.onPremisesSyncEnabled);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("owners", group.owners, );
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", group.permissionGrants, );
-        writer.writeObjectValue<ProfilePhoto>("photo", group.photo, );
-        writer.writeCollectionOfObjectValues<ProfilePhoto>("photos", group.photos, );
-        writer.writeObjectValue<PlannerGroup>("planner", group.planner, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("owners", group.owners, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", group.permissionGrants, serializeResourceSpecificPermissionGrant);
+        writer.writeObjectValue<ProfilePhoto>("photo", group.photo, serializeProfilePhoto);
+        writer.writeCollectionOfObjectValues<ProfilePhoto>("photos", group.photos, serializeProfilePhoto);
+        writer.writeObjectValue<PlannerGroup>("planner", group.planner, serializePlannerGroup);
         writer.writeStringValue("preferredDataLocation", group.preferredDataLocation);
         writer.writeStringValue("preferredLanguage", group.preferredLanguage);
         writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", group.proxyAddresses);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("rejectedSenders", group.rejectedSenders, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("rejectedSenders", group.rejectedSenders, serializeDirectoryObject);
         writer.writeDateValue("renewedDateTime", group.renewedDateTime);
         writer.writeBooleanValue("securityEnabled", group.securityEnabled);
         writer.writeStringValue("securityIdentifier", group.securityIdentifier);
-        writer.writeCollectionOfObjectValues<ServiceProvisioningError>("serviceProvisioningErrors", group.serviceProvisioningErrors, );
-        writer.writeCollectionOfObjectValues<GroupSetting>("settings", group.settings, );
-        writer.writeCollectionOfObjectValues<Site>("sites", group.sites, );
-        writer.writeObjectValue<Team>("team", group.team, );
+        writer.writeCollectionOfObjectValues<ServiceProvisioningError>("serviceProvisioningErrors", group.serviceProvisioningErrors, serializeServiceProvisioningError);
+        writer.writeCollectionOfObjectValues<GroupSetting>("settings", group.settings, serializeGroupSetting);
+        writer.writeCollectionOfObjectValues<Site>("sites", group.sites, serializeSite);
+        writer.writeObjectValue<Team>("team", group.team, serializeTeam);
         writer.writeStringValue("theme", group.theme);
-        writer.writeCollectionOfObjectValues<ConversationThread>("threads", group.threads, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", group.transitiveMemberOf, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMembers", group.transitiveMembers, );
+        writer.writeCollectionOfObjectValues<ConversationThread>("threads", group.threads, serializeConversationThread);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", group.transitiveMemberOf, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMembers", group.transitiveMembers, serializeDirectoryObject);
         writer.writeNumberValue("unseenCount", group.unseenCount);
         writer.writeStringValue("visibility", group.visibility);
 }

@@ -24,7 +24,7 @@ export interface IsLogicalPostRequestBody extends AdditionalDataHolder, Parsable
     value?: Json;
 }
 export function serializeIsLogicalPostRequestBody(writer: SerializationWriter, isLogicalPostRequestBody: IsLogicalPostRequestBody | undefined = {} as IsLogicalPostRequestBody) : void {
-        writer.writeObjectValue<Json>("value", isLogicalPostRequestBody.value, );
+        writer.writeObjectValue<Json>("value", isLogicalPostRequestBody.value, serializeJson);
         writer.writeAdditionalData(isLogicalPostRequestBody.additionalData);
 }
 // tslint:enable

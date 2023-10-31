@@ -176,28 +176,28 @@ export function serializeOnlineMeeting(writer: SerializationWriter, onlineMeetin
         writer.writeEnumValue<MeetingChatMode>("allowMeetingChat", onlineMeeting.allowMeetingChat);
         writer.writeBooleanValue("allowParticipantsToChangeName", onlineMeeting.allowParticipantsToChangeName);
         writer.writeBooleanValue("allowTeamworkReactions", onlineMeeting.allowTeamworkReactions);
-        writer.writeCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", onlineMeeting.attendanceReports, );
+        writer.writeCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", onlineMeeting.attendanceReports, serializeMeetingAttendanceReport);
         writer.writeStringValue("attendeeReport", onlineMeeting.attendeeReport);
-        writer.writeObjectValue<AudioConferencing>("audioConferencing", onlineMeeting.audioConferencing, );
-        writer.writeObjectValue<BroadcastMeetingSettings>("broadcastSettings", onlineMeeting.broadcastSettings, );
-        writer.writeObjectValue<ChatInfo>("chatInfo", onlineMeeting.chatInfo, );
+        writer.writeObjectValue<AudioConferencing>("audioConferencing", onlineMeeting.audioConferencing, serializeAudioConferencing);
+        writer.writeObjectValue<BroadcastMeetingSettings>("broadcastSettings", onlineMeeting.broadcastSettings, serializeBroadcastMeetingSettings);
+        writer.writeObjectValue<ChatInfo>("chatInfo", onlineMeeting.chatInfo, serializeChatInfo);
         writer.writeDateValue("creationDateTime", onlineMeeting.creationDateTime);
         writer.writeDateValue("endDateTime", onlineMeeting.endDateTime);
         writer.writeStringValue("externalId", onlineMeeting.externalId);
         writer.writeBooleanValue("isBroadcast", onlineMeeting.isBroadcast);
         writer.writeBooleanValue("isEntryExitAnnounced", onlineMeeting.isEntryExitAnnounced);
-        writer.writeObjectValue<ItemBody>("joinInformation", onlineMeeting.joinInformation, );
-        writer.writeObjectValue<JoinMeetingIdSettings>("joinMeetingIdSettings", onlineMeeting.joinMeetingIdSettings, );
+        writer.writeObjectValue<ItemBody>("joinInformation", onlineMeeting.joinInformation, serializeItemBody);
+        writer.writeObjectValue<JoinMeetingIdSettings>("joinMeetingIdSettings", onlineMeeting.joinMeetingIdSettings, serializeJoinMeetingIdSettings);
         writer.writeStringValue("joinWebUrl", onlineMeeting.joinWebUrl);
-        writer.writeObjectValue<LobbyBypassSettings>("lobbyBypassSettings", onlineMeeting.lobbyBypassSettings, );
-        writer.writeObjectValue<MeetingParticipants>("participants", onlineMeeting.participants, );
+        writer.writeObjectValue<LobbyBypassSettings>("lobbyBypassSettings", onlineMeeting.lobbyBypassSettings, serializeLobbyBypassSettings);
+        writer.writeObjectValue<MeetingParticipants>("participants", onlineMeeting.participants, serializeMeetingParticipants);
         writer.writeBooleanValue("recordAutomatically", onlineMeeting.recordAutomatically);
         writer.writeEnumValue<MeetingChatHistoryDefaultMode>("shareMeetingChatHistoryDefault", onlineMeeting.shareMeetingChatHistoryDefault);
         writer.writeDateValue("startDateTime", onlineMeeting.startDateTime);
         writer.writeStringValue("subject", onlineMeeting.subject);
-        writer.writeCollectionOfObjectValues<CallTranscript>("transcripts", onlineMeeting.transcripts, );
+        writer.writeCollectionOfObjectValues<CallTranscript>("transcripts", onlineMeeting.transcripts, serializeCallTranscript);
         writer.writeStringValue("videoTeleconferenceId", onlineMeeting.videoTeleconferenceId);
-        writer.writeObjectValue<WatermarkProtectionValues>("watermarkProtection", onlineMeeting.watermarkProtection, );
+        writer.writeObjectValue<WatermarkProtectionValues>("watermarkProtection", onlineMeeting.watermarkProtection, serializeWatermarkProtectionValues);
 }
 // tslint:enable
 // eslint-enable

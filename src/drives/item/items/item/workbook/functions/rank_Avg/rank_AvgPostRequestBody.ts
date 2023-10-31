@@ -34,9 +34,9 @@ export interface Rank_AvgPostRequestBody extends AdditionalDataHolder, Parsable 
     ref?: Json;
 }
 export function serializeRank_AvgPostRequestBody(writer: SerializationWriter, rank_AvgPostRequestBody: Rank_AvgPostRequestBody | undefined = {} as Rank_AvgPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", rank_AvgPostRequestBody.number, );
-        writer.writeObjectValue<Json>("order", rank_AvgPostRequestBody.order, );
-        writer.writeObjectValue<Json>("ref", rank_AvgPostRequestBody.ref, );
+        writer.writeObjectValue<Json>("number", rank_AvgPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("order", rank_AvgPostRequestBody.order, serializeJson);
+        writer.writeObjectValue<Json>("ref", rank_AvgPostRequestBody.ref, serializeJson);
         writer.writeAdditionalData(rank_AvgPostRequestBody.additionalData);
 }
 // tslint:enable

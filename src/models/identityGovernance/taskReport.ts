@@ -38,9 +38,9 @@ export function serializeTaskReport(writer: SerializationWriter, taskReport: Tas
         writer.writeStringValue("runId", taskReport.runId);
         writer.writeDateValue("startedDateTime", taskReport.startedDateTime);
         writer.writeNumberValue("successfulUsersCount", taskReport.successfulUsersCount);
-        writer.writeObjectValue<Task>("task", taskReport.task, );
-        writer.writeObjectValue<TaskDefinition>("taskDefinition", taskReport.taskDefinition, );
-        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", taskReport.taskProcessingResults, );
+        writer.writeObjectValue<Task>("task", taskReport.task, serializeTask);
+        writer.writeObjectValue<TaskDefinition>("taskDefinition", taskReport.taskDefinition, serializeTaskDefinition);
+        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", taskReport.taskProcessingResults, serializeTaskProcessingResult);
         writer.writeNumberValue("totalUsersCount", taskReport.totalUsersCount);
         writer.writeNumberValue("unprocessedUsersCount", taskReport.unprocessedUsersCount);
 }

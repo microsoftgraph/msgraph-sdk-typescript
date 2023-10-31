@@ -23,7 +23,7 @@ export interface DocumentSetVersionCollectionResponse extends BaseCollectionPagi
 }
 export function serializeDocumentSetVersionCollectionResponse(writer: SerializationWriter, documentSetVersionCollectionResponse: DocumentSetVersionCollectionResponse | undefined = {} as DocumentSetVersionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, documentSetVersionCollectionResponse)
-        writer.writeCollectionOfObjectValues<DocumentSetVersion>("value", documentSetVersionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DocumentSetVersion>("value", documentSetVersionCollectionResponse.value, serializeDocumentSetVersion);
 }
 // tslint:enable
 // eslint-enable

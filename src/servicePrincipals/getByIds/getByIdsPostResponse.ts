@@ -23,7 +23,7 @@ export interface GetByIdsPostResponse extends BaseCollectionPaginationCountRespo
 }
 export function serializeGetByIdsPostResponse(writer: SerializationWriter, getByIdsPostResponse: GetByIdsPostResponse | undefined = {} as GetByIdsPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getByIdsPostResponse)
-        writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdsPostResponse.value, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdsPostResponse.value, serializeDirectoryObject);
 }
 // tslint:enable
 // eslint-enable

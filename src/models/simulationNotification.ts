@@ -21,7 +21,7 @@ export function serializeSimulationNotification(writer: SerializationWriter, sim
 }
 export interface SimulationNotification extends BaseEndUserNotification, Parsable {
     /**
-     * The targettedUserType property
+     * Target user type. Possible values are: unknown, clicked, compromised, allUsers, unknownFutureValue.
      */
     targettedUserType?: TargettedUserType;
 }

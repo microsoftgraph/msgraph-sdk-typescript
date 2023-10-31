@@ -51,24 +51,24 @@ export function deserializeIntoWhoisBaseRecord(whoisBaseRecord: WhoisBaseRecord 
 }
 export function serializeWhoisBaseRecord(writer: SerializationWriter, whoisBaseRecord: WhoisBaseRecord | undefined = {} as WhoisBaseRecord) : void {
         serializeEntity(writer, whoisBaseRecord)
-        writer.writeObjectValue<WhoisContact>("abuse", whoisBaseRecord.abuse, );
-        writer.writeObjectValue<WhoisContact>("admin", whoisBaseRecord.admin, );
-        writer.writeObjectValue<WhoisContact>("billing", whoisBaseRecord.billing, );
+        writer.writeObjectValue<WhoisContact>("abuse", whoisBaseRecord.abuse, serializeWhoisContact);
+        writer.writeObjectValue<WhoisContact>("admin", whoisBaseRecord.admin, serializeWhoisContact);
+        writer.writeObjectValue<WhoisContact>("billing", whoisBaseRecord.billing, serializeWhoisContact);
         writer.writeStringValue("domainStatus", whoisBaseRecord.domainStatus);
         writer.writeDateValue("expirationDateTime", whoisBaseRecord.expirationDateTime);
         writer.writeDateValue("firstSeenDateTime", whoisBaseRecord.firstSeenDateTime);
-        writer.writeObjectValue<Host>("host", whoisBaseRecord.host, );
+        writer.writeObjectValue<Host>("host", whoisBaseRecord.host, serializeHost);
         writer.writeDateValue("lastSeenDateTime", whoisBaseRecord.lastSeenDateTime);
         writer.writeDateValue("lastUpdateDateTime", whoisBaseRecord.lastUpdateDateTime);
-        writer.writeCollectionOfObjectValues<WhoisNameserver>("nameservers", whoisBaseRecord.nameservers, );
-        writer.writeObjectValue<WhoisContact>("noc", whoisBaseRecord.noc, );
+        writer.writeCollectionOfObjectValues<WhoisNameserver>("nameservers", whoisBaseRecord.nameservers, serializeWhoisNameserver);
+        writer.writeObjectValue<WhoisContact>("noc", whoisBaseRecord.noc, serializeWhoisContact);
         writer.writeStringValue("rawWhoisText", whoisBaseRecord.rawWhoisText);
-        writer.writeObjectValue<WhoisContact>("registrant", whoisBaseRecord.registrant, );
-        writer.writeObjectValue<WhoisContact>("registrar", whoisBaseRecord.registrar, );
+        writer.writeObjectValue<WhoisContact>("registrant", whoisBaseRecord.registrant, serializeWhoisContact);
+        writer.writeObjectValue<WhoisContact>("registrar", whoisBaseRecord.registrar, serializeWhoisContact);
         writer.writeDateValue("registrationDateTime", whoisBaseRecord.registrationDateTime);
-        writer.writeObjectValue<WhoisContact>("technical", whoisBaseRecord.technical, );
+        writer.writeObjectValue<WhoisContact>("technical", whoisBaseRecord.technical, serializeWhoisContact);
         writer.writeStringValue("whoisServer", whoisBaseRecord.whoisServer);
-        writer.writeObjectValue<WhoisContact>("zone", whoisBaseRecord.zone, );
+        writer.writeObjectValue<WhoisContact>("zone", whoisBaseRecord.zone, serializeWhoisContact);
 }
 export interface WhoisBaseRecord extends Entity, Parsable {
     /**

@@ -24,7 +24,7 @@ export interface IsrefPostRequestBody extends AdditionalDataHolder, Parsable {
     value?: Json;
 }
 export function serializeIsrefPostRequestBody(writer: SerializationWriter, isrefPostRequestBody: IsrefPostRequestBody | undefined = {} as IsrefPostRequestBody) : void {
-        writer.writeObjectValue<Json>("value", isrefPostRequestBody.value, );
+        writer.writeObjectValue<Json>("value", isrefPostRequestBody.value, serializeJson);
         writer.writeAdditionalData(isrefPostRequestBody.additionalData);
 }
 // tslint:enable

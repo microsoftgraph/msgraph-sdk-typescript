@@ -23,7 +23,7 @@ export function deserializeIntoApprovalStageCollectionResponse(approvalStageColl
 }
 export function serializeApprovalStageCollectionResponse(writer: SerializationWriter, approvalStageCollectionResponse: ApprovalStageCollectionResponse | undefined = {} as ApprovalStageCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, approvalStageCollectionResponse)
-        writer.writeCollectionOfObjectValues<ApprovalStage>("value", approvalStageCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ApprovalStage>("value", approvalStageCollectionResponse.value, serializeApprovalStage);
 }
 // tslint:enable
 // eslint-enable

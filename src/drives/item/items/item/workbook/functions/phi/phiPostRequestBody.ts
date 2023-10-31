@@ -24,7 +24,7 @@ export interface PhiPostRequestBody extends AdditionalDataHolder, Parsable {
     x?: Json;
 }
 export function serializePhiPostRequestBody(writer: SerializationWriter, phiPostRequestBody: PhiPostRequestBody | undefined = {} as PhiPostRequestBody) : void {
-        writer.writeObjectValue<Json>("x", phiPostRequestBody.x, );
+        writer.writeObjectValue<Json>("x", phiPostRequestBody.x, serializeJson);
         writer.writeAdditionalData(phiPostRequestBody.additionalData);
 }
 // tslint:enable

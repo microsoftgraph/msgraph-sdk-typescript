@@ -39,7 +39,7 @@ export interface DocumentSetContent extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeDocumentSetContent(writer: SerializationWriter, documentSetContent: DocumentSetContent | undefined = {} as DocumentSetContent) : void {
-        writer.writeObjectValue<ContentTypeInfo>("contentType", documentSetContent.contentType, );
+        writer.writeObjectValue<ContentTypeInfo>("contentType", documentSetContent.contentType, serializeContentTypeInfo);
         writer.writeStringValue("fileName", documentSetContent.fileName);
         writer.writeStringValue("folderName", documentSetContent.folderName);
         writer.writeStringValue("@odata.type", documentSetContent.odataType);

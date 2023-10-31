@@ -40,8 +40,8 @@ export interface PresenceStatusMessage extends AdditionalDataHolder, Parsable {
     publishedDateTime?: Date;
 }
 export function serializePresenceStatusMessage(writer: SerializationWriter, presenceStatusMessage: PresenceStatusMessage | undefined = {} as PresenceStatusMessage) : void {
-        writer.writeObjectValue<DateTimeTimeZone>("expiryDateTime", presenceStatusMessage.expiryDateTime, );
-        writer.writeObjectValue<ItemBody>("message", presenceStatusMessage.message, );
+        writer.writeObjectValue<DateTimeTimeZone>("expiryDateTime", presenceStatusMessage.expiryDateTime, serializeDateTimeTimeZone);
+        writer.writeObjectValue<ItemBody>("message", presenceStatusMessage.message, serializeItemBody);
         writer.writeStringValue("@odata.type", presenceStatusMessage.odataType);
         writer.writeDateValue("publishedDateTime", presenceStatusMessage.publishedDateTime);
         writer.writeAdditionalData(presenceStatusMessage.additionalData);

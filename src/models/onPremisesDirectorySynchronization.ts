@@ -29,8 +29,8 @@ export interface OnPremisesDirectorySynchronization extends Entity, Parsable {
 }
 export function serializeOnPremisesDirectorySynchronization(writer: SerializationWriter, onPremisesDirectorySynchronization: OnPremisesDirectorySynchronization | undefined = {} as OnPremisesDirectorySynchronization) : void {
         serializeEntity(writer, onPremisesDirectorySynchronization)
-        writer.writeObjectValue<OnPremisesDirectorySynchronizationConfiguration>("configuration", onPremisesDirectorySynchronization.configuration, );
-        writer.writeObjectValue<OnPremisesDirectorySynchronizationFeature>("features", onPremisesDirectorySynchronization.features, );
+        writer.writeObjectValue<OnPremisesDirectorySynchronizationConfiguration>("configuration", onPremisesDirectorySynchronization.configuration, serializeOnPremisesDirectorySynchronizationConfiguration);
+        writer.writeObjectValue<OnPremisesDirectorySynchronizationFeature>("features", onPremisesDirectorySynchronization.features, serializeOnPremisesDirectorySynchronizationFeature);
 }
 // tslint:enable
 // eslint-enable

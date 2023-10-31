@@ -17,7 +17,7 @@ export function deserializeIntoUserExperienceAnalyticsOverview(userExperienceAna
 }
 export function serializeUserExperienceAnalyticsOverview(writer: SerializationWriter, userExperienceAnalyticsOverview: UserExperienceAnalyticsOverview | undefined = {} as UserExperienceAnalyticsOverview) : void {
         serializeEntity(writer, userExperienceAnalyticsOverview)
-        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsInsight>("insights", userExperienceAnalyticsOverview.insights, );
+        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsInsight>("insights", userExperienceAnalyticsOverview.insights, serializeUserExperienceAnalyticsInsight);
 }
 export interface UserExperienceAnalyticsOverview extends Entity, Parsable {
     /**

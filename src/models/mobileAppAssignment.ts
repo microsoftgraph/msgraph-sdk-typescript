@@ -36,8 +36,8 @@ export interface MobileAppAssignment extends Entity, Parsable {
 export function serializeMobileAppAssignment(writer: SerializationWriter, mobileAppAssignment: MobileAppAssignment | undefined = {} as MobileAppAssignment) : void {
         serializeEntity(writer, mobileAppAssignment)
         writer.writeEnumValue<InstallIntent>("intent", mobileAppAssignment.intent);
-        writer.writeObjectValue<MobileAppAssignmentSettings>("settings", mobileAppAssignment.settings, );
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", mobileAppAssignment.target, );
+        writer.writeObjectValue<MobileAppAssignmentSettings>("settings", mobileAppAssignment.settings, serializeMobileAppAssignmentSettings);
+        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", mobileAppAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
 }
 // tslint:enable
 // eslint-enable

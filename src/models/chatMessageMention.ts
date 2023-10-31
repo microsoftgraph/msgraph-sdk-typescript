@@ -40,7 +40,7 @@ export function deserializeIntoChatMessageMention(chatMessageMention: ChatMessag
 }
 export function serializeChatMessageMention(writer: SerializationWriter, chatMessageMention: ChatMessageMention | undefined = {} as ChatMessageMention) : void {
         writer.writeNumberValue("id", chatMessageMention.id);
-        writer.writeObjectValue<ChatMessageMentionedIdentitySet>("mentioned", chatMessageMention.mentioned, );
+        writer.writeObjectValue<ChatMessageMentionedIdentitySet>("mentioned", chatMessageMention.mentioned, serializeChatMessageMentionedIdentitySet);
         writer.writeStringValue("mentionText", chatMessageMention.mentionText);
         writer.writeStringValue("@odata.type", chatMessageMention.odataType);
         writer.writeAdditionalData(chatMessageMention.additionalData);

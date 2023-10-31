@@ -24,7 +24,7 @@ export interface IsNAPostRequestBody extends AdditionalDataHolder, Parsable {
     value?: Json;
 }
 export function serializeIsNAPostRequestBody(writer: SerializationWriter, isNAPostRequestBody: IsNAPostRequestBody | undefined = {} as IsNAPostRequestBody) : void {
-        writer.writeObjectValue<Json>("value", isNAPostRequestBody.value, );
+        writer.writeObjectValue<Json>("value", isNAPostRequestBody.value, serializeJson);
         writer.writeAdditionalData(isNAPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -20,9 +20,9 @@ export function deserializeIntoWorkbookChartSeries(workbookChartSeries: Workbook
 }
 export function serializeWorkbookChartSeries(writer: SerializationWriter, workbookChartSeries: WorkbookChartSeries | undefined = {} as WorkbookChartSeries) : void {
         serializeEntity(writer, workbookChartSeries)
-        writer.writeObjectValue<WorkbookChartSeriesFormat>("format", workbookChartSeries.format, );
+        writer.writeObjectValue<WorkbookChartSeriesFormat>("format", workbookChartSeries.format, serializeWorkbookChartSeriesFormat);
         writer.writeStringValue("name", workbookChartSeries.name);
-        writer.writeCollectionOfObjectValues<WorkbookChartPoint>("points", workbookChartSeries.points, );
+        writer.writeCollectionOfObjectValues<WorkbookChartPoint>("points", workbookChartSeries.points, serializeWorkbookChartPoint);
 }
 export interface WorkbookChartSeries extends Entity, Parsable {
     /**

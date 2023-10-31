@@ -17,7 +17,7 @@ export function deserializeIntoWorkforceIntegrationCollectionResponse(workforceI
 }
 export function serializeWorkforceIntegrationCollectionResponse(writer: SerializationWriter, workforceIntegrationCollectionResponse: WorkforceIntegrationCollectionResponse | undefined = {} as WorkforceIntegrationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, workforceIntegrationCollectionResponse)
-        writer.writeCollectionOfObjectValues<WorkforceIntegration>("value", workforceIntegrationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<WorkforceIntegration>("value", workforceIntegrationCollectionResponse.value, serializeWorkforceIntegration);
 }
 export interface WorkforceIntegrationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

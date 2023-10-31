@@ -17,7 +17,7 @@ export function deserializeIntoSharedWithChannelTeamInfoCollectionResponse(share
 }
 export function serializeSharedWithChannelTeamInfoCollectionResponse(writer: SerializationWriter, sharedWithChannelTeamInfoCollectionResponse: SharedWithChannelTeamInfoCollectionResponse | undefined = {} as SharedWithChannelTeamInfoCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, sharedWithChannelTeamInfoCollectionResponse)
-        writer.writeCollectionOfObjectValues<SharedWithChannelTeamInfo>("value", sharedWithChannelTeamInfoCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<SharedWithChannelTeamInfo>("value", sharedWithChannelTeamInfoCollectionResponse.value, serializeSharedWithChannelTeamInfo);
 }
 export interface SharedWithChannelTeamInfoCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

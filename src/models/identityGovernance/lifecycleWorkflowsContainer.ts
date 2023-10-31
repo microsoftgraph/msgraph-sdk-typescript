@@ -53,12 +53,12 @@ export interface LifecycleWorkflowsContainer extends Entity, Parsable {
 }
 export function serializeLifecycleWorkflowsContainer(writer: SerializationWriter, lifecycleWorkflowsContainer: LifecycleWorkflowsContainer | undefined = {} as LifecycleWorkflowsContainer) : void {
         serializeEntity(writer, lifecycleWorkflowsContainer)
-        writer.writeCollectionOfObjectValues<CustomTaskExtension>("customTaskExtensions", lifecycleWorkflowsContainer.customTaskExtensions, );
-        writer.writeObjectValue<DeletedItemContainer>("deletedItems", lifecycleWorkflowsContainer.deletedItems, );
-        writer.writeObjectValue<LifecycleManagementSettings>("settings", lifecycleWorkflowsContainer.settings, );
-        writer.writeCollectionOfObjectValues<TaskDefinition>("taskDefinitions", lifecycleWorkflowsContainer.taskDefinitions, );
-        writer.writeCollectionOfObjectValues<Workflow>("workflows", lifecycleWorkflowsContainer.workflows, );
-        writer.writeCollectionOfObjectValues<WorkflowTemplate>("workflowTemplates", lifecycleWorkflowsContainer.workflowTemplates, );
+        writer.writeCollectionOfObjectValues<CustomTaskExtension>("customTaskExtensions", lifecycleWorkflowsContainer.customTaskExtensions, serializeCustomTaskExtension);
+        writer.writeObjectValue<DeletedItemContainer>("deletedItems", lifecycleWorkflowsContainer.deletedItems, serializeDeletedItemContainer);
+        writer.writeObjectValue<LifecycleManagementSettings>("settings", lifecycleWorkflowsContainer.settings, serializeLifecycleManagementSettings);
+        writer.writeCollectionOfObjectValues<TaskDefinition>("taskDefinitions", lifecycleWorkflowsContainer.taskDefinitions, serializeTaskDefinition);
+        writer.writeCollectionOfObjectValues<Workflow>("workflows", lifecycleWorkflowsContainer.workflows, serializeWorkflow);
+        writer.writeCollectionOfObjectValues<WorkflowTemplate>("workflowTemplates", lifecycleWorkflowsContainer.workflowTemplates, serializeWorkflowTemplate);
 }
 // tslint:enable
 // eslint-enable

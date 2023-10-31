@@ -23,7 +23,7 @@ export interface FilterOperatorsGetResponse extends BaseCollectionPaginationCoun
 }
 export function serializeFilterOperatorsGetResponse(writer: SerializationWriter, filterOperatorsGetResponse: FilterOperatorsGetResponse | undefined = {} as FilterOperatorsGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, filterOperatorsGetResponse)
-        writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorsGetResponse.value, );
+        writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorsGetResponse.value, serializeFilterOperatorSchema);
 }
 // tslint:enable
 // eslint-enable

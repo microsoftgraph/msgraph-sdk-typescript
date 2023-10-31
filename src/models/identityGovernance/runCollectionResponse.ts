@@ -23,7 +23,7 @@ export interface RunCollectionResponse extends BaseCollectionPaginationCountResp
 }
 export function serializeRunCollectionResponse(writer: SerializationWriter, runCollectionResponse: RunCollectionResponse | undefined = {} as RunCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, runCollectionResponse)
-        writer.writeCollectionOfObjectValues<Run>("value", runCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Run>("value", runCollectionResponse.value, serializeRun);
 }
 // tslint:enable
 // eslint-enable

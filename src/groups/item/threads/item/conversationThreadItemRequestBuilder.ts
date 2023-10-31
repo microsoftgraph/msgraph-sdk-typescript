@@ -73,9 +73,9 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}{?%24select}");
     };
     /**
-     * This API is available in the following national cloud deployments.
+     * Delete conversationThread. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/group-delete-thread?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conversationthread-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConversationThreadItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -121,7 +121,7 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationThread>(requestInfo, createConversationThreadFromDiscriminatorValue, errorMapping);
     };
     /**
-     * This API is available in the following national cloud deployments.
+     * Delete conversationThread. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

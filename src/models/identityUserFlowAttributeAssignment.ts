@@ -53,8 +53,8 @@ export function serializeIdentityUserFlowAttributeAssignment(writer: Serializati
         writer.writeStringValue("displayName", identityUserFlowAttributeAssignment.displayName);
         writer.writeBooleanValue("isOptional", identityUserFlowAttributeAssignment.isOptional);
         writer.writeBooleanValue("requiresVerification", identityUserFlowAttributeAssignment.requiresVerification);
-        writer.writeObjectValue<IdentityUserFlowAttribute>("userAttribute", identityUserFlowAttributeAssignment.userAttribute, );
-        writer.writeCollectionOfObjectValues<UserAttributeValuesItem>("userAttributeValues", identityUserFlowAttributeAssignment.userAttributeValues, );
+        writer.writeObjectValue<IdentityUserFlowAttribute>("userAttribute", identityUserFlowAttributeAssignment.userAttribute, serializeIdentityUserFlowAttribute);
+        writer.writeCollectionOfObjectValues<UserAttributeValuesItem>("userAttributeValues", identityUserFlowAttributeAssignment.userAttributeValues, serializeUserAttributeValuesItem);
         writer.writeEnumValue<IdentityUserFlowAttributeInputType>("userInputType", identityUserFlowAttributeAssignment.userInputType);
 }
 // tslint:enable

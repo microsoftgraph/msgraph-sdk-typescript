@@ -555,9 +555,9 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a user.
+     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: UserItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -581,10 +581,10 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
         return new ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder(this.pathParameters, this.requestAdapter, skip, top);
     };
     /**
-     * Read properties and relationships of the user object.
+     * Retrieve the properties and relationships of user object. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserItemRequestBuilderGetRequestConfiguration | undefined) : Promise<User | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -601,7 +601,7 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: User, requestConfiguration?: UserItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<User | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -625,7 +625,7 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
         return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, startDateTime);
     };
     /**
-     * Deletes a user.
+     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -642,7 +642,7 @@ export class UserItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the user object.
+     * Retrieve the properties and relationships of user object. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

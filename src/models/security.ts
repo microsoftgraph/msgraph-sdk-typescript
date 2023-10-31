@@ -83,17 +83,17 @@ export interface Security extends Entity, Parsable {
 }
 export function serializeSecurity(writer: SerializationWriter, security: Security | undefined = {} as Security) : void {
         serializeEntity(writer, security)
-        writer.writeCollectionOfObjectValues<Ifc3dd46d8c20580598e3887e951736840b38f25b65d12c7df595f8b23d2eeae5>("alerts", security.alerts, );
-        writer.writeCollectionOfObjectValues<If337ba6a3f4441533bff674c7936f9a66ee7175d1fa8f344f99ced2d5f70813a>("alerts_v2", security.alerts_v2, );
-        writer.writeObjectValue<AttackSimulationRoot>("attackSimulation", security.attackSimulation, );
-        writer.writeObjectValue<CasesRoot>("cases", security.cases, );
-        writer.writeCollectionOfObjectValues<Incident>("incidents", security.incidents, );
-        writer.writeCollectionOfObjectValues<SecureScoreControlProfile>("secureScoreControlProfiles", security.secureScoreControlProfiles, );
-        writer.writeCollectionOfObjectValues<SecureScore>("secureScores", security.secureScores, );
-        writer.writeCollectionOfObjectValues<SubjectRightsRequest>("subjectRightsRequests", security.subjectRightsRequests, );
-        writer.writeObjectValue<ThreatIntelligence>("threatIntelligence", security.threatIntelligence, );
-        writer.writeObjectValue<TriggersRoot>("triggers", security.triggers, );
-        writer.writeObjectValue<TriggerTypesRoot>("triggerTypes", security.triggerTypes, );
+        writer.writeCollectionOfObjectValues<Ifc3dd46d8c20580598e3887e951736840b38f25b65d12c7df595f8b23d2eeae5>("alerts", security.alerts, I158b11783bd5d0b71051c264728d2a6f353dbcaf1e7fa436fae43a16aeb39163);
+        writer.writeCollectionOfObjectValues<If337ba6a3f4441533bff674c7936f9a66ee7175d1fa8f344f99ced2d5f70813a>("alerts_v2", security.alerts_v2, I0f6f1640bad114888c183d249a1463b82216dae028f69d31b9f11cc554a90f84);
+        writer.writeObjectValue<AttackSimulationRoot>("attackSimulation", security.attackSimulation, serializeAttackSimulationRoot);
+        writer.writeObjectValue<CasesRoot>("cases", security.cases, serializeCasesRoot);
+        writer.writeCollectionOfObjectValues<Incident>("incidents", security.incidents, serializeIncident);
+        writer.writeCollectionOfObjectValues<SecureScoreControlProfile>("secureScoreControlProfiles", security.secureScoreControlProfiles, serializeSecureScoreControlProfile);
+        writer.writeCollectionOfObjectValues<SecureScore>("secureScores", security.secureScores, serializeSecureScore);
+        writer.writeCollectionOfObjectValues<SubjectRightsRequest>("subjectRightsRequests", security.subjectRightsRequests, serializeSubjectRightsRequest);
+        writer.writeObjectValue<ThreatIntelligence>("threatIntelligence", security.threatIntelligence, serializeThreatIntelligence);
+        writer.writeObjectValue<TriggersRoot>("triggers", security.triggers, serializeTriggersRoot);
+        writer.writeObjectValue<TriggerTypesRoot>("triggerTypes", security.triggerTypes, serializeTriggerTypesRoot);
 }
 // tslint:enable
 // eslint-enable

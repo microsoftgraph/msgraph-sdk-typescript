@@ -30,7 +30,7 @@ export function deserializeIntoActivitySettings(activitySettings: ActivitySettin
 }
 export function serializeActivitySettings(writer: SerializationWriter, activitySettings: ActivitySettings | undefined = {} as ActivitySettings) : void {
         writer.writeStringValue("@odata.type", activitySettings.odataType);
-        writer.writeCollectionOfObjectValues<UrlToItemResolverBase>("urlToItemResolvers", activitySettings.urlToItemResolvers, );
+        writer.writeCollectionOfObjectValues<UrlToItemResolverBase>("urlToItemResolvers", activitySettings.urlToItemResolvers, serializeUrlToItemResolverBase);
         writer.writeAdditionalData(activitySettings.additionalData);
 }
 // tslint:enable

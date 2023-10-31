@@ -59,7 +59,8 @@ export class FaviconRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
      */
-    public put(body: ArrayBuffer | undefined, requestConfiguration?: FaviconRequestBuilderPutRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
+    public put(body: ArrayBuffer | undefined, contentType: string, requestConfiguration?: FaviconRequestBuilderPutRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
+        if(!contentType) throw new Error("contentType cannot be undefined");
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
@@ -83,7 +84,7 @@ export class FaviconRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/octet-stream, application/json, application/json");
+        requestInfo.tryAddRequestHeaders("Accept", "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff, application/json, application/json");
         return requestInfo;
     };
     /**
@@ -92,8 +93,9 @@ export class FaviconRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPutRequestInformation(body: ArrayBuffer | undefined, requestConfiguration?: FaviconRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: ArrayBuffer | undefined, contentType: string, requestConfiguration?: FaviconRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
+        if(!contentType) throw new Error("contentType cannot be undefined");
         const requestInfo = new RequestInformation();
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
@@ -103,7 +105,7 @@ export class FaviconRequestBuilder extends BaseRequestBuilder {
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PUT;
         requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
-        requestInfo.setStreamContent(body, "application/octet-stream");
+        requestInfo.setStreamContent(body, contentType);
         return requestInfo;
     };
     /**

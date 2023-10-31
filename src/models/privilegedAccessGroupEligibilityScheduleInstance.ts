@@ -58,10 +58,10 @@ export function serializePrivilegedAccessGroupEligibilityScheduleInstance(writer
         serializePrivilegedAccessScheduleInstance(writer, privilegedAccessGroupEligibilityScheduleInstance)
         writer.writeEnumValue<PrivilegedAccessGroupRelationships>("accessId", privilegedAccessGroupEligibilityScheduleInstance.accessId);
         writer.writeStringValue("eligibilityScheduleId", privilegedAccessGroupEligibilityScheduleInstance.eligibilityScheduleId);
-        writer.writeObjectValue<Group>("group", privilegedAccessGroupEligibilityScheduleInstance.group, );
+        writer.writeObjectValue<Group>("group", privilegedAccessGroupEligibilityScheduleInstance.group, serializeGroup);
         writer.writeStringValue("groupId", privilegedAccessGroupEligibilityScheduleInstance.groupId);
         writer.writeEnumValue<PrivilegedAccessGroupMemberType>("memberType", privilegedAccessGroupEligibilityScheduleInstance.memberType);
-        writer.writeObjectValue<DirectoryObject>("principal", privilegedAccessGroupEligibilityScheduleInstance.principal, );
+        writer.writeObjectValue<DirectoryObject>("principal", privilegedAccessGroupEligibilityScheduleInstance.principal, serializeDirectoryObject);
         writer.writeStringValue("principalId", privilegedAccessGroupEligibilityScheduleInstance.principalId);
 }
 // tslint:enable

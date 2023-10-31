@@ -23,7 +23,7 @@ export interface EducationAssignmentResourceCollectionResponse extends BaseColle
 }
 export function serializeEducationAssignmentResourceCollectionResponse(writer: SerializationWriter, educationAssignmentResourceCollectionResponse: EducationAssignmentResourceCollectionResponse | undefined = {} as EducationAssignmentResourceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, educationAssignmentResourceCollectionResponse)
-        writer.writeCollectionOfObjectValues<EducationAssignmentResource>("value", educationAssignmentResourceCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<EducationAssignmentResource>("value", educationAssignmentResourceCollectionResponse.value, serializeEducationAssignmentResource);
 }
 // tslint:enable
 // eslint-enable

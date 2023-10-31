@@ -35,7 +35,7 @@ export function deserializeIntoTeamInfo(teamInfo: TeamInfo | undefined = {} as T
 export function serializeTeamInfo(writer: SerializationWriter, teamInfo: TeamInfo | undefined = {} as TeamInfo) : void {
         serializeEntity(writer, teamInfo)
         writer.writeStringValue("displayName", teamInfo.displayName);
-        writer.writeObjectValue<Team>("team", teamInfo.team, );
+        writer.writeObjectValue<Team>("team", teamInfo.team, serializeTeam);
         writer.writeStringValue("tenantId", teamInfo.tenantId);
 }
 export interface TeamInfo extends Entity, Parsable {

@@ -17,7 +17,7 @@ export function deserializeIntoSoftwareOathAuthenticationMethodConfiguration(sof
 }
 export function serializeSoftwareOathAuthenticationMethodConfiguration(writer: SerializationWriter, softwareOathAuthenticationMethodConfiguration: SoftwareOathAuthenticationMethodConfiguration | undefined = {} as SoftwareOathAuthenticationMethodConfiguration) : void {
         serializeAuthenticationMethodConfiguration(writer, softwareOathAuthenticationMethodConfiguration)
-        writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", softwareOathAuthenticationMethodConfiguration.includeTargets, );
+        writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", softwareOathAuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
 }
 export interface SoftwareOathAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {
     /**

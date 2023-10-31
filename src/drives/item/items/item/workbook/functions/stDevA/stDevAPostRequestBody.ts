@@ -14,7 +14,7 @@ export function deserializeIntoStDevAPostRequestBody(stDevAPostRequestBody: StDe
     }
 }
 export function serializeStDevAPostRequestBody(writer: SerializationWriter, stDevAPostRequestBody: StDevAPostRequestBody | undefined = {} as StDevAPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", stDevAPostRequestBody.values, );
+        writer.writeObjectValue<Json>("values", stDevAPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(stDevAPostRequestBody.additionalData);
 }
 export interface StDevAPostRequestBody extends AdditionalDataHolder, Parsable {

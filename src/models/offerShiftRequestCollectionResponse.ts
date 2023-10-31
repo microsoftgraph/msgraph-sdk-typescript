@@ -23,7 +23,7 @@ export interface OfferShiftRequestCollectionResponse extends BaseCollectionPagin
 }
 export function serializeOfferShiftRequestCollectionResponse(writer: SerializationWriter, offerShiftRequestCollectionResponse: OfferShiftRequestCollectionResponse | undefined = {} as OfferShiftRequestCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, offerShiftRequestCollectionResponse)
-        writer.writeCollectionOfObjectValues<OfferShiftRequest>("value", offerShiftRequestCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<OfferShiftRequest>("value", offerShiftRequestCollectionResponse.value, serializeOfferShiftRequest);
 }
 // tslint:enable
 // eslint-enable

@@ -28,7 +28,7 @@ export interface LifecycleManagementSettings extends Entity, Parsable {
 }
 export function serializeLifecycleManagementSettings(writer: SerializationWriter, lifecycleManagementSettings: LifecycleManagementSettings | undefined = {} as LifecycleManagementSettings) : void {
         serializeEntity(writer, lifecycleManagementSettings)
-        writer.writeObjectValue<EmailSettings>("emailSettings", lifecycleManagementSettings.emailSettings, );
+        writer.writeObjectValue<EmailSettings>("emailSettings", lifecycleManagementSettings.emailSettings, serializeEmailSettings);
         writer.writeNumberValue("workflowScheduleIntervalInHours", lifecycleManagementSettings.workflowScheduleIntervalInHours);
 }
 // tslint:enable

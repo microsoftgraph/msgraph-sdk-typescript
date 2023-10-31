@@ -17,8 +17,8 @@ export function deserializeIntoSolutionsRoot(solutionsRoot: SolutionsRoot | unde
     }
 }
 export function serializeSolutionsRoot(writer: SerializationWriter, solutionsRoot: SolutionsRoot | undefined = {} as SolutionsRoot) : void {
-        writer.writeCollectionOfObjectValues<BookingBusiness>("bookingBusinesses", solutionsRoot.bookingBusinesses, );
-        writer.writeCollectionOfObjectValues<BookingCurrency>("bookingCurrencies", solutionsRoot.bookingCurrencies, );
+        writer.writeCollectionOfObjectValues<BookingBusiness>("bookingBusinesses", solutionsRoot.bookingBusinesses, serializeBookingBusiness);
+        writer.writeCollectionOfObjectValues<BookingCurrency>("bookingCurrencies", solutionsRoot.bookingCurrencies, serializeBookingCurrency);
         writer.writeStringValue("@odata.type", solutionsRoot.odataType);
         writer.writeAdditionalData(solutionsRoot.additionalData);
 }

@@ -50,11 +50,11 @@ export interface Segment extends Entity, Parsable {
 }
 export function serializeSegment(writer: SerializationWriter, segment: Segment | undefined = {} as Segment) : void {
         serializeEntity(writer, segment)
-        writer.writeObjectValue<Endpoint>("callee", segment.callee, );
-        writer.writeObjectValue<Endpoint>("caller", segment.caller, );
+        writer.writeObjectValue<Endpoint>("callee", segment.callee, serializeEndpoint);
+        writer.writeObjectValue<Endpoint>("caller", segment.caller, serializeEndpoint);
         writer.writeDateValue("endDateTime", segment.endDateTime);
-        writer.writeObjectValue<FailureInfo>("failureInfo", segment.failureInfo, );
-        writer.writeCollectionOfObjectValues<Media>("media", segment.media, );
+        writer.writeObjectValue<FailureInfo>("failureInfo", segment.failureInfo, serializeFailureInfo);
+        writer.writeCollectionOfObjectValues<Media>("media", segment.media, serializeMedia);
         writer.writeDateValue("startDateTime", segment.startDateTime);
 }
 // tslint:enable

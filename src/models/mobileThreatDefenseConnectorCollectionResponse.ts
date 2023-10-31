@@ -23,7 +23,7 @@ export interface MobileThreatDefenseConnectorCollectionResponse extends BaseColl
 }
 export function serializeMobileThreatDefenseConnectorCollectionResponse(writer: SerializationWriter, mobileThreatDefenseConnectorCollectionResponse: MobileThreatDefenseConnectorCollectionResponse | undefined = {} as MobileThreatDefenseConnectorCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, mobileThreatDefenseConnectorCollectionResponse)
-        writer.writeCollectionOfObjectValues<MobileThreatDefenseConnector>("value", mobileThreatDefenseConnectorCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<MobileThreatDefenseConnector>("value", mobileThreatDefenseConnectorCollectionResponse.value, serializeMobileThreatDefenseConnector);
 }
 // tslint:enable
 // eslint-enable

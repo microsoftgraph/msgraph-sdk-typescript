@@ -73,7 +73,7 @@ export function serializeWindows10EndpointProtectionConfiguration(writer: Serial
         writer.writeBooleanValue("bitLockerDisableWarningForOtherDiskEncryption", windows10EndpointProtectionConfiguration.bitLockerDisableWarningForOtherDiskEncryption);
         writer.writeBooleanValue("bitLockerEnableStorageCardEncryptionOnMobile", windows10EndpointProtectionConfiguration.bitLockerEnableStorageCardEncryptionOnMobile);
         writer.writeBooleanValue("bitLockerEncryptDevice", windows10EndpointProtectionConfiguration.bitLockerEncryptDevice);
-        writer.writeObjectValue<BitLockerRemovableDrivePolicy>("bitLockerRemovableDrivePolicy", windows10EndpointProtectionConfiguration.bitLockerRemovableDrivePolicy, );
+        writer.writeObjectValue<BitLockerRemovableDrivePolicy>("bitLockerRemovableDrivePolicy", windows10EndpointProtectionConfiguration.bitLockerRemovableDrivePolicy, serializeBitLockerRemovableDrivePolicy);
         writer.writeCollectionOfPrimitiveValues<string>("defenderAdditionalGuardedFolders", windows10EndpointProtectionConfiguration.defenderAdditionalGuardedFolders);
         writer.writeCollectionOfPrimitiveValues<string>("defenderAttackSurfaceReductionExcludedPaths", windows10EndpointProtectionConfiguration.defenderAttackSurfaceReductionExcludedPaths);
         writer.writeStringValue("defenderExploitProtectionXml", windows10EndpointProtectionConfiguration.defenderExploitProtectionXml);
@@ -90,9 +90,9 @@ export function serializeWindows10EndpointProtectionConfiguration(writer: Serial
         writer.writeBooleanValue("firewallMergeKeyingModuleSettings", windows10EndpointProtectionConfiguration.firewallMergeKeyingModuleSettings);
         writer.writeEnumValue<FirewallPacketQueueingMethodType>("firewallPacketQueueingMethod", windows10EndpointProtectionConfiguration.firewallPacketQueueingMethod);
         writer.writeEnumValue<FirewallPreSharedKeyEncodingMethodType>("firewallPreSharedKeyEncodingMethod", windows10EndpointProtectionConfiguration.firewallPreSharedKeyEncodingMethod);
-        writer.writeObjectValue<WindowsFirewallNetworkProfile>("firewallProfileDomain", windows10EndpointProtectionConfiguration.firewallProfileDomain, );
-        writer.writeObjectValue<WindowsFirewallNetworkProfile>("firewallProfilePrivate", windows10EndpointProtectionConfiguration.firewallProfilePrivate, );
-        writer.writeObjectValue<WindowsFirewallNetworkProfile>("firewallProfilePublic", windows10EndpointProtectionConfiguration.firewallProfilePublic, );
+        writer.writeObjectValue<WindowsFirewallNetworkProfile>("firewallProfileDomain", windows10EndpointProtectionConfiguration.firewallProfileDomain, serializeWindowsFirewallNetworkProfile);
+        writer.writeObjectValue<WindowsFirewallNetworkProfile>("firewallProfilePrivate", windows10EndpointProtectionConfiguration.firewallProfilePrivate, serializeWindowsFirewallNetworkProfile);
+        writer.writeObjectValue<WindowsFirewallNetworkProfile>("firewallProfilePublic", windows10EndpointProtectionConfiguration.firewallProfilePublic, serializeWindowsFirewallNetworkProfile);
         writer.writeBooleanValue("smartScreenBlockOverrideForFiles", windows10EndpointProtectionConfiguration.smartScreenBlockOverrideForFiles);
         writer.writeBooleanValue("smartScreenEnableInShell", windows10EndpointProtectionConfiguration.smartScreenEnableInShell);
 }

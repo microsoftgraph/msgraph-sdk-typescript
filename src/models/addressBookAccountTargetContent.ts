@@ -6,7 +6,7 @@ import { type Parsable, type ParseNode, type SerializationWriter } from '@micros
 
 export interface AddressBookAccountTargetContent extends AccountTargetContent, Parsable {
     /**
-     * The accountTargetEmails property
+     * List of user emails targeted for an attack simulation training campaign.
      */
     accountTargetEmails?: string[];
 }

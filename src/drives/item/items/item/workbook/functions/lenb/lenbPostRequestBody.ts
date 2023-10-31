@@ -24,7 +24,7 @@ export interface LenbPostRequestBody extends AdditionalDataHolder, Parsable {
     text?: Json;
 }
 export function serializeLenbPostRequestBody(writer: SerializationWriter, lenbPostRequestBody: LenbPostRequestBody | undefined = {} as LenbPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", lenbPostRequestBody.text, );
+        writer.writeObjectValue<Json>("text", lenbPostRequestBody.text, serializeJson);
         writer.writeAdditionalData(lenbPostRequestBody.additionalData);
 }
 // tslint:enable

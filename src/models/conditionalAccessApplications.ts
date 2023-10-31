@@ -49,7 +49,7 @@ export function deserializeIntoConditionalAccessApplications(conditionalAccessAp
     }
 }
 export function serializeConditionalAccessApplications(writer: SerializationWriter, conditionalAccessApplications: ConditionalAccessApplications | undefined = {} as ConditionalAccessApplications) : void {
-        writer.writeObjectValue<ConditionalAccessFilter>("applicationFilter", conditionalAccessApplications.applicationFilter, );
+        writer.writeObjectValue<ConditionalAccessFilter>("applicationFilter", conditionalAccessApplications.applicationFilter, serializeConditionalAccessFilter);
         writer.writeCollectionOfPrimitiveValues<string>("excludeApplications", conditionalAccessApplications.excludeApplications);
         writer.writeCollectionOfPrimitiveValues<string>("includeApplications", conditionalAccessApplications.includeApplications);
         writer.writeCollectionOfPrimitiveValues<string>("includeAuthenticationContextClassReferences", conditionalAccessApplications.includeAuthenticationContextClassReferences);

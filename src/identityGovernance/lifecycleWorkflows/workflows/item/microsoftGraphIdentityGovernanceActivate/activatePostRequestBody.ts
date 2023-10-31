@@ -24,7 +24,7 @@ export function deserializeIntoActivatePostRequestBody(activatePostRequestBody: 
     }
 }
 export function serializeActivatePostRequestBody(writer: SerializationWriter, activatePostRequestBody: ActivatePostRequestBody | undefined = {} as ActivatePostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<User>("subjects", activatePostRequestBody.subjects, );
+        writer.writeCollectionOfObjectValues<User>("subjects", activatePostRequestBody.subjects, serializeUser);
         writer.writeAdditionalData(activatePostRequestBody.additionalData);
 }
 // tslint:enable

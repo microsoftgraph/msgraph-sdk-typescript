@@ -23,7 +23,7 @@ export function deserializeIntoAccessReviewHistoryDefinitionCollectionResponse(a
 }
 export function serializeAccessReviewHistoryDefinitionCollectionResponse(writer: SerializationWriter, accessReviewHistoryDefinitionCollectionResponse: AccessReviewHistoryDefinitionCollectionResponse | undefined = {} as AccessReviewHistoryDefinitionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessReviewHistoryDefinitionCollectionResponse)
-        writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinition>("value", accessReviewHistoryDefinitionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinition>("value", accessReviewHistoryDefinitionCollectionResponse.value, serializeAccessReviewHistoryDefinition);
 }
 // tslint:enable
 // eslint-enable

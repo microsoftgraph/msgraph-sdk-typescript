@@ -39,9 +39,9 @@ export interface Filter extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeFilter(writer: SerializationWriter, filter: Filter | undefined = {} as Filter) : void {
-        writer.writeCollectionOfObjectValues<FilterGroup>("categoryFilterGroups", filter.categoryFilterGroups, );
-        writer.writeCollectionOfObjectValues<FilterGroup>("groups", filter.groups, );
-        writer.writeCollectionOfObjectValues<FilterGroup>("inputFilterGroups", filter.inputFilterGroups, );
+        writer.writeCollectionOfObjectValues<FilterGroup>("categoryFilterGroups", filter.categoryFilterGroups, serializeFilterGroup);
+        writer.writeCollectionOfObjectValues<FilterGroup>("groups", filter.groups, serializeFilterGroup);
+        writer.writeCollectionOfObjectValues<FilterGroup>("inputFilterGroups", filter.inputFilterGroups, serializeFilterGroup);
         writer.writeStringValue("@odata.type", filter.odataType);
         writer.writeAdditionalData(filter.additionalData);
 }

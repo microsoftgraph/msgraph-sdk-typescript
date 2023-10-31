@@ -23,7 +23,7 @@ export function deserializeIntoDeltaWithTokenGetResponse(deltaWithTokenGetRespon
 }
 export function serializeDeltaWithTokenGetResponse(writer: SerializationWriter, deltaWithTokenGetResponse: DeltaWithTokenGetResponse | undefined = {} as DeltaWithTokenGetResponse) : void {
         serializeBaseDeltaFunctionResponse(writer, deltaWithTokenGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", deltaWithTokenGetResponse.value, );
+        writer.writeCollectionOfObjectValues<DriveItem>("value", deltaWithTokenGetResponse.value, serializeDriveItem);
 }
 // tslint:enable
 // eslint-enable

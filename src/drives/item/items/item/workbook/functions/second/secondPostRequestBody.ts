@@ -24,7 +24,7 @@ export interface SecondPostRequestBody extends AdditionalDataHolder, Parsable {
     serialNumber?: Json;
 }
 export function serializeSecondPostRequestBody(writer: SerializationWriter, secondPostRequestBody: SecondPostRequestBody | undefined = {} as SecondPostRequestBody) : void {
-        writer.writeObjectValue<Json>("serialNumber", secondPostRequestBody.serialNumber, );
+        writer.writeObjectValue<Json>("serialNumber", secondPostRequestBody.serialNumber, serializeJson);
         writer.writeAdditionalData(secondPostRequestBody.additionalData);
 }
 // tslint:enable

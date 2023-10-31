@@ -17,7 +17,7 @@ export function deserializeIntoWorkbookCommentCollectionResponse(workbookComment
 }
 export function serializeWorkbookCommentCollectionResponse(writer: SerializationWriter, workbookCommentCollectionResponse: WorkbookCommentCollectionResponse | undefined = {} as WorkbookCommentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, workbookCommentCollectionResponse)
-        writer.writeCollectionOfObjectValues<WorkbookComment>("value", workbookCommentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<WorkbookComment>("value", workbookCommentCollectionResponse.value, serializeWorkbookComment);
 }
 export interface WorkbookCommentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

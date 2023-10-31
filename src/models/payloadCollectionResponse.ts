@@ -23,7 +23,7 @@ export interface PayloadCollectionResponse extends BaseCollectionPaginationCount
 }
 export function serializePayloadCollectionResponse(writer: SerializationWriter, payloadCollectionResponse: PayloadCollectionResponse | undefined = {} as PayloadCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, payloadCollectionResponse)
-        writer.writeCollectionOfObjectValues<Payload>("value", payloadCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Payload>("value", payloadCollectionResponse.value, serializePayload);
 }
 // tslint:enable
 // eslint-enable

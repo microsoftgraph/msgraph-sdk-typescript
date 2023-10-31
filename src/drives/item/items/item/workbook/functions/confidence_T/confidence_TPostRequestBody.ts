@@ -34,9 +34,9 @@ export function deserializeIntoConfidence_TPostRequestBody(confidence_TPostReque
     }
 }
 export function serializeConfidence_TPostRequestBody(writer: SerializationWriter, confidence_TPostRequestBody: Confidence_TPostRequestBody | undefined = {} as Confidence_TPostRequestBody) : void {
-        writer.writeObjectValue<Json>("alpha", confidence_TPostRequestBody.alpha, );
-        writer.writeObjectValue<Json>("size", confidence_TPostRequestBody.size, );
-        writer.writeObjectValue<Json>("standardDev", confidence_TPostRequestBody.standardDev, );
+        writer.writeObjectValue<Json>("alpha", confidence_TPostRequestBody.alpha, serializeJson);
+        writer.writeObjectValue<Json>("size", confidence_TPostRequestBody.size, serializeJson);
+        writer.writeObjectValue<Json>("standardDev", confidence_TPostRequestBody.standardDev, serializeJson);
         writer.writeAdditionalData(confidence_TPostRequestBody.additionalData);
 }
 // tslint:enable

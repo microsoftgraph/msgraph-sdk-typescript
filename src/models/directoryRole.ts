@@ -45,9 +45,9 @@ export function serializeDirectoryRole(writer: SerializationWriter, directoryRol
         serializeDirectoryObject(writer, directoryRole)
         writer.writeStringValue("description", directoryRole.description);
         writer.writeStringValue("displayName", directoryRole.displayName);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("members", directoryRole.members, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("members", directoryRole.members, serializeDirectoryObject);
         writer.writeStringValue("roleTemplateId", directoryRole.roleTemplateId);
-        writer.writeCollectionOfObjectValues<ScopedRoleMembership>("scopedMembers", directoryRole.scopedMembers, );
+        writer.writeCollectionOfObjectValues<ScopedRoleMembership>("scopedMembers", directoryRole.scopedMembers, serializeScopedRoleMembership);
 }
 // tslint:enable
 // eslint-enable

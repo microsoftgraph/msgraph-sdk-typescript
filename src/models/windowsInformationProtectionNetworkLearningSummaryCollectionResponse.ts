@@ -17,7 +17,7 @@ export function deserializeIntoWindowsInformationProtectionNetworkLearningSummar
 }
 export function serializeWindowsInformationProtectionNetworkLearningSummaryCollectionResponse(writer: SerializationWriter, windowsInformationProtectionNetworkLearningSummaryCollectionResponse: WindowsInformationProtectionNetworkLearningSummaryCollectionResponse | undefined = {} as WindowsInformationProtectionNetworkLearningSummaryCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, windowsInformationProtectionNetworkLearningSummaryCollectionResponse)
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionNetworkLearningSummary>("value", windowsInformationProtectionNetworkLearningSummaryCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionNetworkLearningSummary>("value", windowsInformationProtectionNetworkLearningSummaryCollectionResponse.value, serializeWindowsInformationProtectionNetworkLearningSummary);
 }
 export interface WindowsInformationProtectionNetworkLearningSummaryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

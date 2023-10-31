@@ -162,7 +162,7 @@ export function serializePrinterCapabilities(writer: SerializationWriter, printe
         if(printerCapabilities.colorModes)
         writer.writeEnumValue<PrintColorMode>("colorModes", ...printerCapabilities.colorModes);
         writer.writeCollectionOfPrimitiveValues<string>("contentTypes", printerCapabilities.contentTypes);
-        writer.writeObjectValue<IntegerRange>("copiesPerJob", printerCapabilities.copiesPerJob, );
+        writer.writeObjectValue<IntegerRange>("copiesPerJob", printerCapabilities.copiesPerJob, serializeIntegerRange);
         writer.writeCollectionOfPrimitiveValues<number>("dpis", printerCapabilities.dpis);
         if(printerCapabilities.duplexModes)
         writer.writeEnumValue<PrintDuplexMode>("duplexModes", ...printerCapabilities.duplexModes);

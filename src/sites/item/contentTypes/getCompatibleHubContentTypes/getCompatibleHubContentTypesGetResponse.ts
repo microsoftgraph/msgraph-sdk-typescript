@@ -23,7 +23,7 @@ export interface GetCompatibleHubContentTypesGetResponse extends BaseCollectionP
 }
 export function serializeGetCompatibleHubContentTypesGetResponse(writer: SerializationWriter, getCompatibleHubContentTypesGetResponse: GetCompatibleHubContentTypesGetResponse | undefined = {} as GetCompatibleHubContentTypesGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getCompatibleHubContentTypesGetResponse)
-        writer.writeCollectionOfObjectValues<ContentType>("value", getCompatibleHubContentTypesGetResponse.value, );
+        writer.writeCollectionOfObjectValues<ContentType>("value", getCompatibleHubContentTypesGetResponse.value, serializeContentType);
 }
 // tslint:enable
 // eslint-enable

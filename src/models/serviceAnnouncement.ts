@@ -21,9 +21,9 @@ export function deserializeIntoServiceAnnouncement(serviceAnnouncement: ServiceA
 }
 export function serializeServiceAnnouncement(writer: SerializationWriter, serviceAnnouncement: ServiceAnnouncement | undefined = {} as ServiceAnnouncement) : void {
         serializeEntity(writer, serviceAnnouncement)
-        writer.writeCollectionOfObjectValues<ServiceHealth>("healthOverviews", serviceAnnouncement.healthOverviews, );
-        writer.writeCollectionOfObjectValues<ServiceHealthIssue>("issues", serviceAnnouncement.issues, );
-        writer.writeCollectionOfObjectValues<ServiceUpdateMessage>("messages", serviceAnnouncement.messages, );
+        writer.writeCollectionOfObjectValues<ServiceHealth>("healthOverviews", serviceAnnouncement.healthOverviews, serializeServiceHealth);
+        writer.writeCollectionOfObjectValues<ServiceHealthIssue>("issues", serviceAnnouncement.issues, serializeServiceHealthIssue);
+        writer.writeCollectionOfObjectValues<ServiceUpdateMessage>("messages", serviceAnnouncement.messages, serializeServiceUpdateMessage);
 }
 export interface ServiceAnnouncement extends Entity, Parsable {
     /**

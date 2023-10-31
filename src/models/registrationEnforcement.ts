@@ -29,7 +29,7 @@ export interface RegistrationEnforcement extends AdditionalDataHolder, Parsable 
     odataType?: string;
 }
 export function serializeRegistrationEnforcement(writer: SerializationWriter, registrationEnforcement: RegistrationEnforcement | undefined = {} as RegistrationEnforcement) : void {
-        writer.writeObjectValue<AuthenticationMethodsRegistrationCampaign>("authenticationMethodsRegistrationCampaign", registrationEnforcement.authenticationMethodsRegistrationCampaign, );
+        writer.writeObjectValue<AuthenticationMethodsRegistrationCampaign>("authenticationMethodsRegistrationCampaign", registrationEnforcement.authenticationMethodsRegistrationCampaign, serializeAuthenticationMethodsRegistrationCampaign);
         writer.writeStringValue("@odata.type", registrationEnforcement.odataType);
         writer.writeAdditionalData(registrationEnforcement.additionalData);
 }

@@ -41,8 +41,8 @@ export function serializeAppConsentRequest(writer: SerializationWriter, appConse
         serializeEntity(writer, appConsentRequest)
         writer.writeStringValue("appDisplayName", appConsentRequest.appDisplayName);
         writer.writeStringValue("appId", appConsentRequest.appId);
-        writer.writeCollectionOfObjectValues<AppConsentRequestScope>("pendingScopes", appConsentRequest.pendingScopes, );
-        writer.writeCollectionOfObjectValues<UserConsentRequest>("userConsentRequests", appConsentRequest.userConsentRequests, );
+        writer.writeCollectionOfObjectValues<AppConsentRequestScope>("pendingScopes", appConsentRequest.pendingScopes, serializeAppConsentRequestScope);
+        writer.writeCollectionOfObjectValues<UserConsentRequest>("userConsentRequests", appConsentRequest.userConsentRequests, serializeUserConsentRequest);
 }
 // tslint:enable
 // eslint-enable

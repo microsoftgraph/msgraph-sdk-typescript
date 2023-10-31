@@ -34,9 +34,9 @@ export interface FindBPostRequestBody extends AdditionalDataHolder, Parsable {
     withinText?: Json;
 }
 export function serializeFindBPostRequestBody(writer: SerializationWriter, findBPostRequestBody: FindBPostRequestBody | undefined = {} as FindBPostRequestBody) : void {
-        writer.writeObjectValue<Json>("findText", findBPostRequestBody.findText, );
-        writer.writeObjectValue<Json>("startNum", findBPostRequestBody.startNum, );
-        writer.writeObjectValue<Json>("withinText", findBPostRequestBody.withinText, );
+        writer.writeObjectValue<Json>("findText", findBPostRequestBody.findText, serializeJson);
+        writer.writeObjectValue<Json>("startNum", findBPostRequestBody.startNum, serializeJson);
+        writer.writeObjectValue<Json>("withinText", findBPostRequestBody.withinText, serializeJson);
         writer.writeAdditionalData(findBPostRequestBody.additionalData);
 }
 // tslint:enable

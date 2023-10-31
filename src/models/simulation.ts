@@ -56,30 +56,30 @@ export function serializeSimulation(writer: SerializationWriter, simulation: Sim
         writer.writeEnumValue<SimulationAttackType>("attackType", simulation.attackType);
         writer.writeStringValue("automationId", simulation.automationId);
         writer.writeDateValue("completionDateTime", simulation.completionDateTime);
-        writer.writeObjectValue<EmailIdentity>("createdBy", simulation.createdBy, );
+        writer.writeObjectValue<EmailIdentity>("createdBy", simulation.createdBy, serializeEmailIdentity);
         writer.writeDateValue("createdDateTime", simulation.createdDateTime);
         writer.writeStringValue("description", simulation.description);
         writer.writeStringValue("displayName", simulation.displayName);
         writer.writeNumberValue("durationInDays", simulation.durationInDays);
-        writer.writeObjectValue<EndUserNotificationSetting>("endUserNotificationSetting", simulation.endUserNotificationSetting, );
-        writer.writeObjectValue<AccountTargetContent>("excludedAccountTarget", simulation.excludedAccountTarget, );
-        writer.writeObjectValue<AccountTargetContent>("includedAccountTarget", simulation.includedAccountTarget, );
+        writer.writeObjectValue<EndUserNotificationSetting>("endUserNotificationSetting", simulation.endUserNotificationSetting, serializeEndUserNotificationSetting);
+        writer.writeObjectValue<AccountTargetContent>("excludedAccountTarget", simulation.excludedAccountTarget, serializeAccountTargetContent);
+        writer.writeObjectValue<AccountTargetContent>("includedAccountTarget", simulation.includedAccountTarget, serializeAccountTargetContent);
         writer.writeBooleanValue("isAutomated", simulation.isAutomated);
-        writer.writeObjectValue<LandingPage>("landingPage", simulation.landingPage, );
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", simulation.lastModifiedBy, );
+        writer.writeObjectValue<LandingPage>("landingPage", simulation.landingPage, serializeLandingPage);
+        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", simulation.lastModifiedBy, serializeEmailIdentity);
         writer.writeDateValue("lastModifiedDateTime", simulation.lastModifiedDateTime);
         writer.writeDateValue("launchDateTime", simulation.launchDateTime);
-        writer.writeObjectValue<LoginPage>("loginPage", simulation.loginPage, );
-        writer.writeObjectValue<OAuthConsentAppDetail>("oAuthConsentAppDetail", simulation.oAuthConsentAppDetail, );
-        writer.writeObjectValue<Payload>("payload", simulation.payload, );
+        writer.writeObjectValue<LoginPage>("loginPage", simulation.loginPage, serializeLoginPage);
+        writer.writeObjectValue<OAuthConsentAppDetail>("oAuthConsentAppDetail", simulation.oAuthConsentAppDetail, serializeOAuthConsentAppDetail);
+        writer.writeObjectValue<Payload>("payload", simulation.payload, serializePayload);
         writer.writeEnumValue<PayloadDeliveryPlatform>("payloadDeliveryPlatform", simulation.payloadDeliveryPlatform);
-        writer.writeObjectValue<SimulationReport>("report", simulation.report, );
+        writer.writeObjectValue<SimulationReport>("report", simulation.report, serializeSimulationReport);
         writer.writeEnumValue<SimulationStatus>("status", simulation.status);
-        writer.writeObjectValue<TrainingSetting>("trainingSetting", simulation.trainingSetting, );
+        writer.writeObjectValue<TrainingSetting>("trainingSetting", simulation.trainingSetting, serializeTrainingSetting);
 }
 export interface Simulation extends Entity, Parsable {
     /**
-     * The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue. For more information on the types of social engineering attack techniques, see simulations.
+     * The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue, oAuthConsentGrant. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: oAuthConsentGrant. For more information on the types of social engineering attack techniques, see simulations.
      */
     attackTechnique?: SimulationAttackTechnique;
     /**
@@ -111,19 +111,19 @@ export interface Simulation extends Entity, Parsable {
      */
     displayName?: string;
     /**
-     * The durationInDays property
+     * Simulation duration in days.
      */
     durationInDays?: number;
     /**
-     * The endUserNotificationSetting property
+     * Details about the end user notification setting.
      */
     endUserNotificationSetting?: EndUserNotificationSetting;
     /**
-     * The excludedAccountTarget property
+     * Users excluded from the simulation.
      */
     excludedAccountTarget?: AccountTargetContent;
     /**
-     * The includedAccountTarget property
+     * Users targeted in the simulation.
      */
     includedAccountTarget?: AccountTargetContent;
     /**
@@ -131,7 +131,7 @@ export interface Simulation extends Entity, Parsable {
      */
     isAutomated?: boolean;
     /**
-     * The landingPage property
+     * The landing page associated with a simulation during its creation.
      */
     landingPage?: LandingPage;
     /**
@@ -147,15 +147,15 @@ export interface Simulation extends Entity, Parsable {
      */
     launchDateTime?: Date;
     /**
-     * The loginPage property
+     * The login page associated with a simulation during its creation.
      */
     loginPage?: LoginPage;
     /**
-     * The oAuthConsentAppDetail property
+     * OAuth app details for the OAuth technique.
      */
     oAuthConsentAppDetail?: OAuthConsentAppDetail;
     /**
-     * The payload property
+     * The payload associated with a simulation during its creation.
      */
     payload?: Payload;
     /**
@@ -171,7 +171,7 @@ export interface Simulation extends Entity, Parsable {
      */
     status?: SimulationStatus;
     /**
-     * The trainingSetting property
+     * Details about the training settings for a simulation.
      */
     trainingSetting?: TrainingSetting;
 }

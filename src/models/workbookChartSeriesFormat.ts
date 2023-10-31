@@ -19,8 +19,8 @@ export function deserializeIntoWorkbookChartSeriesFormat(workbookChartSeriesForm
 }
 export function serializeWorkbookChartSeriesFormat(writer: SerializationWriter, workbookChartSeriesFormat: WorkbookChartSeriesFormat | undefined = {} as WorkbookChartSeriesFormat) : void {
         serializeEntity(writer, workbookChartSeriesFormat)
-        writer.writeObjectValue<WorkbookChartFill>("fill", workbookChartSeriesFormat.fill, );
-        writer.writeObjectValue<WorkbookChartLineFormat>("line", workbookChartSeriesFormat.line, );
+        writer.writeObjectValue<WorkbookChartFill>("fill", workbookChartSeriesFormat.fill, serializeWorkbookChartFill);
+        writer.writeObjectValue<WorkbookChartLineFormat>("line", workbookChartSeriesFormat.line, serializeWorkbookChartLineFormat);
 }
 export interface WorkbookChartSeriesFormat extends Entity, Parsable {
     /**

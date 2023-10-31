@@ -17,7 +17,7 @@ export function deserializeIntoSharedDriveItemCollectionResponse(sharedDriveItem
 }
 export function serializeSharedDriveItemCollectionResponse(writer: SerializationWriter, sharedDriveItemCollectionResponse: SharedDriveItemCollectionResponse | undefined = {} as SharedDriveItemCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, sharedDriveItemCollectionResponse)
-        writer.writeCollectionOfObjectValues<SharedDriveItem>("value", sharedDriveItemCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<SharedDriveItem>("value", sharedDriveItemCollectionResponse.value, serializeSharedDriveItem);
 }
 export interface SharedDriveItemCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

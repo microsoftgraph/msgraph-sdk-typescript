@@ -35,7 +35,7 @@ export function serializeGroupSettingTemplate(writer: SerializationWriter, group
         serializeDirectoryObject(writer, groupSettingTemplate)
         writer.writeStringValue("description", groupSettingTemplate.description);
         writer.writeStringValue("displayName", groupSettingTemplate.displayName);
-        writer.writeCollectionOfObjectValues<SettingTemplateValue>("values", groupSettingTemplate.values, );
+        writer.writeCollectionOfObjectValues<SettingTemplateValue>("values", groupSettingTemplate.values, serializeSettingTemplateValue);
 }
 // tslint:enable
 // eslint-enable

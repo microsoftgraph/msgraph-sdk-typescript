@@ -29,8 +29,8 @@ export function deserializeIntoCeiling_PrecisePostRequestBody(ceiling_PrecisePos
     }
 }
 export function serializeCeiling_PrecisePostRequestBody(writer: SerializationWriter, ceiling_PrecisePostRequestBody: Ceiling_PrecisePostRequestBody | undefined = {} as Ceiling_PrecisePostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", ceiling_PrecisePostRequestBody.number, );
-        writer.writeObjectValue<Json>("significance", ceiling_PrecisePostRequestBody.significance, );
+        writer.writeObjectValue<Json>("number", ceiling_PrecisePostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("significance", ceiling_PrecisePostRequestBody.significance, serializeJson);
         writer.writeAdditionalData(ceiling_PrecisePostRequestBody.additionalData);
 }
 // tslint:enable

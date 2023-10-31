@@ -92,7 +92,7 @@ export function serializeDeviceConfigurationSettingState(writer: SerializationWr
         writer.writeStringValue("@odata.type", deviceConfigurationSettingState.odataType);
         writer.writeStringValue("setting", deviceConfigurationSettingState.setting);
         writer.writeStringValue("settingName", deviceConfigurationSettingState.settingName);
-        writer.writeCollectionOfObjectValues<SettingSource>("sources", deviceConfigurationSettingState.sources, );
+        writer.writeCollectionOfObjectValues<SettingSource>("sources", deviceConfigurationSettingState.sources, serializeSettingSource);
         writer.writeEnumValue<ComplianceStatus>("state", deviceConfigurationSettingState.state);
         writer.writeStringValue("userEmail", deviceConfigurationSettingState.userEmail);
         writer.writeStringValue("userId", deviceConfigurationSettingState.userId);

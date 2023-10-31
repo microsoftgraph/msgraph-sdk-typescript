@@ -21,10 +21,10 @@ export function deserializeIntoWorkbookTableColumn(workbookTableColumn: Workbook
 }
 export function serializeWorkbookTableColumn(writer: SerializationWriter, workbookTableColumn: WorkbookTableColumn | undefined = {} as WorkbookTableColumn) : void {
         serializeEntity(writer, workbookTableColumn)
-        writer.writeObjectValue<WorkbookFilter>("filter", workbookTableColumn.filter, );
+        writer.writeObjectValue<WorkbookFilter>("filter", workbookTableColumn.filter, serializeWorkbookFilter);
         writer.writeNumberValue("index", workbookTableColumn.index);
         writer.writeStringValue("name", workbookTableColumn.name);
-        writer.writeObjectValue<Json>("values", workbookTableColumn.values, );
+        writer.writeObjectValue<Json>("values", workbookTableColumn.values, serializeJson);
 }
 export interface WorkbookTableColumn extends Entity, Parsable {
     /**

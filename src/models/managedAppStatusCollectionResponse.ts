@@ -23,7 +23,7 @@ export interface ManagedAppStatusCollectionResponse extends BaseCollectionPagina
 }
 export function serializeManagedAppStatusCollectionResponse(writer: SerializationWriter, managedAppStatusCollectionResponse: ManagedAppStatusCollectionResponse | undefined = {} as ManagedAppStatusCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, managedAppStatusCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppStatus>("value", managedAppStatusCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ManagedAppStatus>("value", managedAppStatusCollectionResponse.value, serializeManagedAppStatus);
 }
 // tslint:enable
 // eslint-enable

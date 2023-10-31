@@ -183,15 +183,15 @@ export interface MobileApp extends Entity, Parsable {
 }
 export function serializeMobileApp(writer: SerializationWriter, mobileApp: MobileApp | undefined = {} as MobileApp) : void {
         serializeEntity(writer, mobileApp)
-        writer.writeCollectionOfObjectValues<MobileAppAssignment>("assignments", mobileApp.assignments, );
-        writer.writeCollectionOfObjectValues<MobileAppCategory>("categories", mobileApp.categories, );
+        writer.writeCollectionOfObjectValues<MobileAppAssignment>("assignments", mobileApp.assignments, serializeMobileAppAssignment);
+        writer.writeCollectionOfObjectValues<MobileAppCategory>("categories", mobileApp.categories, serializeMobileAppCategory);
         writer.writeDateValue("createdDateTime", mobileApp.createdDateTime);
         writer.writeStringValue("description", mobileApp.description);
         writer.writeStringValue("developer", mobileApp.developer);
         writer.writeStringValue("displayName", mobileApp.displayName);
         writer.writeStringValue("informationUrl", mobileApp.informationUrl);
         writer.writeBooleanValue("isFeatured", mobileApp.isFeatured);
-        writer.writeObjectValue<MimeContent>("largeIcon", mobileApp.largeIcon, );
+        writer.writeObjectValue<MimeContent>("largeIcon", mobileApp.largeIcon, serializeMimeContent);
         writer.writeDateValue("lastModifiedDateTime", mobileApp.lastModifiedDateTime);
         writer.writeStringValue("notes", mobileApp.notes);
         writer.writeStringValue("owner", mobileApp.owner);

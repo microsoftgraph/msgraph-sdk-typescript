@@ -9,6 +9,7 @@ import { ArticlesRequestBuilder } from './articles/articlesRequestBuilder';
 import { HostComponentsRequestBuilder } from './hostComponents/hostComponentsRequestBuilder';
 import { HostCookiesRequestBuilder } from './hostCookies/hostCookiesRequestBuilder';
 import { HostPairsRequestBuilder } from './hostPairs/hostPairsRequestBuilder';
+import { HostPortsRequestBuilder } from './hostPorts/hostPortsRequestBuilder';
 import { HostsRequestBuilder } from './hosts/hostsRequestBuilder';
 import { HostSslCertificatesRequestBuilder } from './hostSslCertificates/hostSslCertificatesRequestBuilder';
 import { HostTrackersRequestBuilder } from './hostTrackers/hostTrackersRequestBuilder';
@@ -99,6 +100,12 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
      */
     public get hostPairs(): HostPairsRequestBuilder {
         return new HostPairsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the hostPorts property of the microsoft.graph.security.threatIntelligence entity.
+     */
+    public get hostPorts(): HostPortsRequestBuilder {
+        return new HostPortsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the hosts property of the microsoft.graph.security.threatIntelligence entity.

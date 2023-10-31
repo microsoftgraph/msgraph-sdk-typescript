@@ -10,6 +10,10 @@ export interface CountRequestBuilderGetQueryParameters {
      * Filter items by property values
      */
     filter?: string;
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
 }
 export interface CountRequestBuilderGetRequestConfiguration {
     /**
@@ -35,7 +39,7 @@ export class CountRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/me/photos/$count{?%24filter}");
+        super(pathParameters, requestAdapter, "{+baseurl}/directory/deviceLocalCredentials/$count{?%24search,%24filter}");
     };
     /**
      * Get the number of the resource

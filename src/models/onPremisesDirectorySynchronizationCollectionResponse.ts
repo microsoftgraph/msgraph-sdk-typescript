@@ -23,7 +23,7 @@ export interface OnPremisesDirectorySynchronizationCollectionResponse extends Ba
 }
 export function serializeOnPremisesDirectorySynchronizationCollectionResponse(writer: SerializationWriter, onPremisesDirectorySynchronizationCollectionResponse: OnPremisesDirectorySynchronizationCollectionResponse | undefined = {} as OnPremisesDirectorySynchronizationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, onPremisesDirectorySynchronizationCollectionResponse)
-        writer.writeCollectionOfObjectValues<OnPremisesDirectorySynchronization>("value", onPremisesDirectorySynchronizationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<OnPremisesDirectorySynchronization>("value", onPremisesDirectorySynchronizationCollectionResponse.value, serializeOnPremisesDirectorySynchronization);
 }
 // tslint:enable
 // eslint-enable

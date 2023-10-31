@@ -23,7 +23,7 @@ export function deserializeIntoChannelCollectionResponse(channelCollectionRespon
 }
 export function serializeChannelCollectionResponse(writer: SerializationWriter, channelCollectionResponse: ChannelCollectionResponse | undefined = {} as ChannelCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, channelCollectionResponse)
-        writer.writeCollectionOfObjectValues<Channel>("value", channelCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Channel>("value", channelCollectionResponse.value, serializeChannel);
 }
 // tslint:enable
 // eslint-enable

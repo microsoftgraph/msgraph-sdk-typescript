@@ -51,7 +51,7 @@ export function serializeCallTranscript(writer: SerializationWriter, callTranscr
         writer.writeStringValue("content", callTranscript.content);
         writer.writeDateValue("createdDateTime", callTranscript.createdDateTime);
         writer.writeStringValue("meetingId", callTranscript.meetingId);
-        writer.writeObjectValue<IdentitySet>("meetingOrganizer", callTranscript.meetingOrganizer, );
+        writer.writeObjectValue<IdentitySet>("meetingOrganizer", callTranscript.meetingOrganizer, serializeIdentitySet);
         writer.writeStringValue("metadataContent", callTranscript.metadataContent);
         writer.writeStringValue("transcriptContentUrl", callTranscript.transcriptContentUrl);
 }

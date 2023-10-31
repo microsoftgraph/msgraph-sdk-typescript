@@ -36,8 +36,8 @@ export interface HuntingQueryResults extends AdditionalDataHolder, Parsable {
 }
 export function serializeHuntingQueryResults(writer: SerializationWriter, huntingQueryResults: HuntingQueryResults | undefined = {} as HuntingQueryResults) : void {
         writer.writeStringValue("@odata.type", huntingQueryResults.odataType);
-        writer.writeCollectionOfObjectValues<HuntingRowResult>("results", huntingQueryResults.results, );
-        writer.writeCollectionOfObjectValues<SinglePropertySchema>("schema", huntingQueryResults.schema, );
+        writer.writeCollectionOfObjectValues<HuntingRowResult>("results", huntingQueryResults.results, serializeHuntingRowResult);
+        writer.writeCollectionOfObjectValues<SinglePropertySchema>("schema", huntingQueryResults.schema, serializeSinglePropertySchema);
         writer.writeAdditionalData(huntingQueryResults.additionalData);
 }
 // tslint:enable

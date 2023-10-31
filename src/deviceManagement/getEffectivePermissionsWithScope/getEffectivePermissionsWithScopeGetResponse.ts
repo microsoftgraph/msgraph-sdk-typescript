@@ -23,7 +23,7 @@ export interface GetEffectivePermissionsWithScopeGetResponse extends BaseCollect
 }
 export function serializeGetEffectivePermissionsWithScopeGetResponse(writer: SerializationWriter, getEffectivePermissionsWithScopeGetResponse: GetEffectivePermissionsWithScopeGetResponse | undefined = {} as GetEffectivePermissionsWithScopeGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getEffectivePermissionsWithScopeGetResponse)
-        writer.writeCollectionOfObjectValues<RolePermission>("value", getEffectivePermissionsWithScopeGetResponse.value, );
+        writer.writeCollectionOfObjectValues<RolePermission>("value", getEffectivePermissionsWithScopeGetResponse.value, serializeRolePermission);
 }
 // tslint:enable
 // eslint-enable

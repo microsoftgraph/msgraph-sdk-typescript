@@ -34,9 +34,9 @@ export interface NetworkDaysPostRequestBody extends AdditionalDataHolder, Parsab
     startDate?: Json;
 }
 export function serializeNetworkDaysPostRequestBody(writer: SerializationWriter, networkDaysPostRequestBody: NetworkDaysPostRequestBody | undefined = {} as NetworkDaysPostRequestBody) : void {
-        writer.writeObjectValue<Json>("endDate", networkDaysPostRequestBody.endDate, );
-        writer.writeObjectValue<Json>("holidays", networkDaysPostRequestBody.holidays, );
-        writer.writeObjectValue<Json>("startDate", networkDaysPostRequestBody.startDate, );
+        writer.writeObjectValue<Json>("endDate", networkDaysPostRequestBody.endDate, serializeJson);
+        writer.writeObjectValue<Json>("holidays", networkDaysPostRequestBody.holidays, serializeJson);
+        writer.writeObjectValue<Json>("startDate", networkDaysPostRequestBody.startDate, serializeJson);
         writer.writeAdditionalData(networkDaysPostRequestBody.additionalData);
 }
 // tslint:enable

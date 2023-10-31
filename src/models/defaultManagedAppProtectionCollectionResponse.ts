@@ -23,7 +23,7 @@ export function deserializeIntoDefaultManagedAppProtectionCollectionResponse(def
 }
 export function serializeDefaultManagedAppProtectionCollectionResponse(writer: SerializationWriter, defaultManagedAppProtectionCollectionResponse: DefaultManagedAppProtectionCollectionResponse | undefined = {} as DefaultManagedAppProtectionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, defaultManagedAppProtectionCollectionResponse)
-        writer.writeCollectionOfObjectValues<DefaultManagedAppProtection>("value", defaultManagedAppProtectionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DefaultManagedAppProtection>("value", defaultManagedAppProtectionCollectionResponse.value, serializeDefaultManagedAppProtection);
 }
 // tslint:enable
 // eslint-enable

@@ -114,10 +114,11 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SimulationCollectionResponse>(requestInfo, createSimulationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to simulations for security
+     * Create an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Simulation
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-post-simulation?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Simulation, requestConfiguration?: SimulationsRequestBuilderPostRequestConfiguration | undefined) : Promise<Simulation | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -148,7 +149,7 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to simulations for security
+     * Create an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -78,7 +78,7 @@ export function serializeWindowsUpdateForBusinessConfiguration(writer: Serializa
         writer.writeDateValue("featureUpdatesRollbackStartDateTime", windowsUpdateForBusinessConfiguration.featureUpdatesRollbackStartDateTime);
         writer.writeNumberValue("featureUpdatesRollbackWindowInDays", windowsUpdateForBusinessConfiguration.featureUpdatesRollbackWindowInDays);
         writer.writeBooleanValue("featureUpdatesWillBeRolledBack", windowsUpdateForBusinessConfiguration.featureUpdatesWillBeRolledBack);
-        writer.writeObjectValue<WindowsUpdateInstallScheduleType>("installationSchedule", windowsUpdateForBusinessConfiguration.installationSchedule, );
+        writer.writeObjectValue<WindowsUpdateInstallScheduleType>("installationSchedule", windowsUpdateForBusinessConfiguration.installationSchedule, serializeWindowsUpdateInstallScheduleType);
         writer.writeBooleanValue("microsoftUpdateServiceAllowed", windowsUpdateForBusinessConfiguration.microsoftUpdateServiceAllowed);
         writer.writeBooleanValue("postponeRebootUntilAfterDeadline", windowsUpdateForBusinessConfiguration.postponeRebootUntilAfterDeadline);
         writer.writeEnumValue<PrereleaseFeatures>("prereleaseFeatures", windowsUpdateForBusinessConfiguration.prereleaseFeatures);

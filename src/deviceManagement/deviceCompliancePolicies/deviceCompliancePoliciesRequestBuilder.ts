@@ -114,11 +114,11 @@ export class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceCompliancePolicyCollectionResponse>(requestInfo, createDeviceCompliancePolicyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new macOSCompliancePolicy object.
+     * Create a new windows10MobileCompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicy
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macoscompliancepolicy-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10mobilecompliancepolicy-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceCompliancePolicy, requestConfiguration?: DeviceCompliancePoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceCompliancePolicy | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -149,7 +149,7 @@ export class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new macOSCompliancePolicy object.
+     * Create a new windows10MobileCompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

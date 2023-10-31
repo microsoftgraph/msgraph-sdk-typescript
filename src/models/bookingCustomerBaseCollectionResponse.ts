@@ -23,7 +23,7 @@ export function deserializeIntoBookingCustomerBaseCollectionResponse(bookingCust
 }
 export function serializeBookingCustomerBaseCollectionResponse(writer: SerializationWriter, bookingCustomerBaseCollectionResponse: BookingCustomerBaseCollectionResponse | undefined = {} as BookingCustomerBaseCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, bookingCustomerBaseCollectionResponse)
-        writer.writeCollectionOfObjectValues<BookingCustomerBase>("value", bookingCustomerBaseCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<BookingCustomerBase>("value", bookingCustomerBaseCollectionResponse.value, serializeBookingCustomerBase);
 }
 // tslint:enable
 // eslint-enable

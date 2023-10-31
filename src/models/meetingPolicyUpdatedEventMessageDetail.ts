@@ -33,7 +33,7 @@ export interface MeetingPolicyUpdatedEventMessageDetail extends EventMessageDeta
 }
 export function serializeMeetingPolicyUpdatedEventMessageDetail(writer: SerializationWriter, meetingPolicyUpdatedEventMessageDetail: MeetingPolicyUpdatedEventMessageDetail | undefined = {} as MeetingPolicyUpdatedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, meetingPolicyUpdatedEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", meetingPolicyUpdatedEventMessageDetail.initiator, );
+        writer.writeObjectValue<IdentitySet>("initiator", meetingPolicyUpdatedEventMessageDetail.initiator, serializeIdentitySet);
         writer.writeBooleanValue("meetingChatEnabled", meetingPolicyUpdatedEventMessageDetail.meetingChatEnabled);
         writer.writeStringValue("meetingChatId", meetingPolicyUpdatedEventMessageDetail.meetingChatId);
 }

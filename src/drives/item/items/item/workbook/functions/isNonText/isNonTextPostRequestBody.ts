@@ -24,7 +24,7 @@ export interface IsNonTextPostRequestBody extends AdditionalDataHolder, Parsable
     value?: Json;
 }
 export function serializeIsNonTextPostRequestBody(writer: SerializationWriter, isNonTextPostRequestBody: IsNonTextPostRequestBody | undefined = {} as IsNonTextPostRequestBody) : void {
-        writer.writeObjectValue<Json>("value", isNonTextPostRequestBody.value, );
+        writer.writeObjectValue<Json>("value", isNonTextPostRequestBody.value, serializeJson);
         writer.writeAdditionalData(isNonTextPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -72,7 +72,7 @@ export function serializeAccessPackageAssignmentRequestorSettings(writer: Serial
         writer.writeBooleanValue("enableTargetsToSelfRemoveAccess", accessPackageAssignmentRequestorSettings.enableTargetsToSelfRemoveAccess);
         writer.writeBooleanValue("enableTargetsToSelfUpdateAccess", accessPackageAssignmentRequestorSettings.enableTargetsToSelfUpdateAccess);
         writer.writeStringValue("@odata.type", accessPackageAssignmentRequestorSettings.odataType);
-        writer.writeCollectionOfObjectValues<SubjectSet>("onBehalfRequestors", accessPackageAssignmentRequestorSettings.onBehalfRequestors, );
+        writer.writeCollectionOfObjectValues<SubjectSet>("onBehalfRequestors", accessPackageAssignmentRequestorSettings.onBehalfRequestors, serializeSubjectSet);
         writer.writeAdditionalData(accessPackageAssignmentRequestorSettings.additionalData);
 }
 // tslint:enable

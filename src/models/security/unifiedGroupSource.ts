@@ -19,7 +19,7 @@ export function deserializeIntoUnifiedGroupSource(unifiedGroupSource: UnifiedGro
 }
 export function serializeUnifiedGroupSource(writer: SerializationWriter, unifiedGroupSource: UnifiedGroupSource | undefined = {} as UnifiedGroupSource) : void {
         serializeDataSource(writer, unifiedGroupSource)
-        writer.writeObjectValue<Group>("group", unifiedGroupSource.group, );
+        writer.writeObjectValue<Group>("group", unifiedGroupSource.group, serializeGroup);
         writer.writeEnumValue<SourceType[]>("includedSources", unifiedGroupSource.includedSources);
 }
 export interface UnifiedGroupSource extends DataSource, Parsable {

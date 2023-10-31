@@ -60,8 +60,8 @@ export function serializeAutomaticRepliesSetting(writer: SerializationWriter, au
         writer.writeStringValue("externalReplyMessage", automaticRepliesSetting.externalReplyMessage);
         writer.writeStringValue("internalReplyMessage", automaticRepliesSetting.internalReplyMessage);
         writer.writeStringValue("@odata.type", automaticRepliesSetting.odataType);
-        writer.writeObjectValue<DateTimeTimeZone>("scheduledEndDateTime", automaticRepliesSetting.scheduledEndDateTime, );
-        writer.writeObjectValue<DateTimeTimeZone>("scheduledStartDateTime", automaticRepliesSetting.scheduledStartDateTime, );
+        writer.writeObjectValue<DateTimeTimeZone>("scheduledEndDateTime", automaticRepliesSetting.scheduledEndDateTime, serializeDateTimeTimeZone);
+        writer.writeObjectValue<DateTimeTimeZone>("scheduledStartDateTime", automaticRepliesSetting.scheduledStartDateTime, serializeDateTimeTimeZone);
         writer.writeEnumValue<AutomaticRepliesStatus>("status", automaticRepliesSetting.status);
         writer.writeAdditionalData(automaticRepliesSetting.additionalData);
 }

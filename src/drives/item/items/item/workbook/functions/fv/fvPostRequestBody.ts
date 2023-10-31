@@ -44,11 +44,11 @@ export interface FvPostRequestBody extends AdditionalDataHolder, Parsable {
     type?: Json;
 }
 export function serializeFvPostRequestBody(writer: SerializationWriter, fvPostRequestBody: FvPostRequestBody | undefined = {} as FvPostRequestBody) : void {
-        writer.writeObjectValue<Json>("nper", fvPostRequestBody.nper, );
-        writer.writeObjectValue<Json>("pmt", fvPostRequestBody.pmt, );
-        writer.writeObjectValue<Json>("pv", fvPostRequestBody.pv, );
-        writer.writeObjectValue<Json>("rate", fvPostRequestBody.rate, );
-        writer.writeObjectValue<Json>("type", fvPostRequestBody.type, );
+        writer.writeObjectValue<Json>("nper", fvPostRequestBody.nper, serializeJson);
+        writer.writeObjectValue<Json>("pmt", fvPostRequestBody.pmt, serializeJson);
+        writer.writeObjectValue<Json>("pv", fvPostRequestBody.pv, serializeJson);
+        writer.writeObjectValue<Json>("rate", fvPostRequestBody.rate, serializeJson);
+        writer.writeObjectValue<Json>("type", fvPostRequestBody.type, serializeJson);
         writer.writeAdditionalData(fvPostRequestBody.additionalData);
 }
 // tslint:enable

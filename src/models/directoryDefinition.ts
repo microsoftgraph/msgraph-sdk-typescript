@@ -52,7 +52,7 @@ export function serializeDirectoryDefinition(writer: SerializationWriter, direct
         writer.writeEnumValue<DirectoryDefinitionDiscoverabilities[]>("discoverabilities", directoryDefinition.discoverabilities);
         writer.writeDateValue("discoveryDateTime", directoryDefinition.discoveryDateTime);
         writer.writeStringValue("name", directoryDefinition.name);
-        writer.writeCollectionOfObjectValues<ObjectDefinition>("objects", directoryDefinition.objects, );
+        writer.writeCollectionOfObjectValues<ObjectDefinition>("objects", directoryDefinition.objects, serializeObjectDefinition);
         writer.writeBooleanValue("readOnly", directoryDefinition.readOnly);
         writer.writeStringValue("version", directoryDefinition.version);
 }

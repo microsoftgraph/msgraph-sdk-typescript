@@ -60,7 +60,7 @@ export function serializeInternalDomainFederation(writer: SerializationWriter, i
         writer.writeBooleanValue("isSignedAuthenticationRequestRequired", internalDomainFederation.isSignedAuthenticationRequestRequired);
         writer.writeStringValue("nextSigningCertificate", internalDomainFederation.nextSigningCertificate);
         writer.writeEnumValue<PromptLoginBehavior>("promptLoginBehavior", internalDomainFederation.promptLoginBehavior);
-        writer.writeObjectValue<SigningCertificateUpdateStatus>("signingCertificateUpdateStatus", internalDomainFederation.signingCertificateUpdateStatus, );
+        writer.writeObjectValue<SigningCertificateUpdateStatus>("signingCertificateUpdateStatus", internalDomainFederation.signingCertificateUpdateStatus, serializeSigningCertificateUpdateStatus);
         writer.writeStringValue("signOutUri", internalDomainFederation.signOutUri);
 }
 // tslint:enable

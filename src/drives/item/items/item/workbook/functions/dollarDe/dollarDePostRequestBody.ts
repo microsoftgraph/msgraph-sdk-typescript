@@ -29,8 +29,8 @@ export interface DollarDePostRequestBody extends AdditionalDataHolder, Parsable 
     fractionalDollar?: Json;
 }
 export function serializeDollarDePostRequestBody(writer: SerializationWriter, dollarDePostRequestBody: DollarDePostRequestBody | undefined = {} as DollarDePostRequestBody) : void {
-        writer.writeObjectValue<Json>("fraction", dollarDePostRequestBody.fraction, );
-        writer.writeObjectValue<Json>("fractionalDollar", dollarDePostRequestBody.fractionalDollar, );
+        writer.writeObjectValue<Json>("fraction", dollarDePostRequestBody.fraction, serializeJson);
+        writer.writeObjectValue<Json>("fractionalDollar", dollarDePostRequestBody.fractionalDollar, serializeJson);
         writer.writeAdditionalData(dollarDePostRequestBody.additionalData);
 }
 // tslint:enable

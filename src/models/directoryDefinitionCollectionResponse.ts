@@ -23,7 +23,7 @@ export interface DirectoryDefinitionCollectionResponse extends BaseCollectionPag
 }
 export function serializeDirectoryDefinitionCollectionResponse(writer: SerializationWriter, directoryDefinitionCollectionResponse: DirectoryDefinitionCollectionResponse | undefined = {} as DirectoryDefinitionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, directoryDefinitionCollectionResponse)
-        writer.writeCollectionOfObjectValues<DirectoryDefinition>("value", directoryDefinitionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DirectoryDefinition>("value", directoryDefinitionCollectionResponse.value, serializeDirectoryDefinition);
 }
 // tslint:enable
 // eslint-enable

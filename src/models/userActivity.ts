@@ -37,16 +37,16 @@ export function serializeUserActivity(writer: SerializationWriter, userActivity:
         writer.writeStringValue("activitySourceHost", userActivity.activitySourceHost);
         writer.writeStringValue("appActivityId", userActivity.appActivityId);
         writer.writeStringValue("appDisplayName", userActivity.appDisplayName);
-        writer.writeObjectValue<Json>("contentInfo", userActivity.contentInfo, );
+        writer.writeObjectValue<Json>("contentInfo", userActivity.contentInfo, serializeJson);
         writer.writeStringValue("contentUrl", userActivity.contentUrl);
         writer.writeDateValue("createdDateTime", userActivity.createdDateTime);
         writer.writeDateValue("expirationDateTime", userActivity.expirationDateTime);
         writer.writeStringValue("fallbackUrl", userActivity.fallbackUrl);
-        writer.writeCollectionOfObjectValues<ActivityHistoryItem>("historyItems", userActivity.historyItems, );
+        writer.writeCollectionOfObjectValues<ActivityHistoryItem>("historyItems", userActivity.historyItems, serializeActivityHistoryItem);
         writer.writeDateValue("lastModifiedDateTime", userActivity.lastModifiedDateTime);
         writer.writeEnumValue<Status>("status", userActivity.status);
         writer.writeStringValue("userTimezone", userActivity.userTimezone);
-        writer.writeObjectValue<VisualInfo>("visualElements", userActivity.visualElements, );
+        writer.writeObjectValue<VisualInfo>("visualElements", userActivity.visualElements, serializeVisualInfo);
 }
 export interface UserActivity extends Entity, Parsable {
     /**

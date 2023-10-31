@@ -23,7 +23,7 @@ export interface RoomCollectionResponse extends BaseCollectionPaginationCountRes
 }
 export function serializeRoomCollectionResponse(writer: SerializationWriter, roomCollectionResponse: RoomCollectionResponse | undefined = {} as RoomCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, roomCollectionResponse)
-        writer.writeCollectionOfObjectValues<Room>("value", roomCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Room>("value", roomCollectionResponse.value, serializeRoom);
 }
 // tslint:enable
 // eslint-enable

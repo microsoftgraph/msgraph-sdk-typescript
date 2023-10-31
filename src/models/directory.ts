@@ -4,6 +4,7 @@
 import { createAdministrativeUnitFromDiscriminatorValue, serializeAdministrativeUnit, type AdministrativeUnit } from './administrativeUnit';
 import { createAttributeSetFromDiscriminatorValue, serializeAttributeSet, type AttributeSet } from './attributeSet';
 import { createCustomSecurityAttributeDefinitionFromDiscriminatorValue, serializeCustomSecurityAttributeDefinition, type CustomSecurityAttributeDefinition } from './customSecurityAttributeDefinition';
+import { createDeviceLocalCredentialInfoFromDiscriminatorValue, serializeDeviceLocalCredentialInfo, type DeviceLocalCredentialInfo } from './deviceLocalCredentialInfo';
 import { createDirectoryObjectFromDiscriminatorValue, serializeDirectoryObject, type DirectoryObject } from './directoryObject';
 import { deserializeIntoEntity, serializeEntity, type Entity } from './entity';
 import { createIdentityProviderBaseFromDiscriminatorValue, serializeIdentityProviderBase, type IdentityProviderBase } from './identityProviderBase';
@@ -21,6 +22,7 @@ export function deserializeIntoDirectory(directory: Directory | undefined = {} a
         "attributeSets": n => { directory.attributeSets = n.getCollectionOfObjectValues<AttributeSet>(createAttributeSetFromDiscriminatorValue); },
         "customSecurityAttributeDefinitions": n => { directory.customSecurityAttributeDefinitions = n.getCollectionOfObjectValues<CustomSecurityAttributeDefinition>(createCustomSecurityAttributeDefinitionFromDiscriminatorValue); },
         "deletedItems": n => { directory.deletedItems = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
+        "deviceLocalCredentials": n => { directory.deviceLocalCredentials = n.getCollectionOfObjectValues<DeviceLocalCredentialInfo>(createDeviceLocalCredentialInfoFromDiscriminatorValue); },
         "federationConfigurations": n => { directory.federationConfigurations = n.getCollectionOfObjectValues<IdentityProviderBase>(createIdentityProviderBaseFromDiscriminatorValue); },
         "onPremisesSynchronization": n => { directory.onPremisesSynchronization = n.getCollectionOfObjectValues<OnPremisesDirectorySynchronization>(createOnPremisesDirectorySynchronizationFromDiscriminatorValue); },
     }
@@ -43,6 +45,10 @@ export interface Directory extends Entity, Parsable {
      */
     deletedItems?: DirectoryObject[];
     /**
+     * The credentials of the device's local administrator account backed up to Microsoft Entra ID.
+     */
+    deviceLocalCredentials?: DeviceLocalCredentialInfo[];
+    /**
      * Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.
      */
     federationConfigurations?: IdentityProviderBase[];
@@ -53,12 +59,13 @@ export interface Directory extends Entity, Parsable {
 }
 export function serializeDirectory(writer: SerializationWriter, directory: Directory | undefined = {} as Directory) : void {
         serializeEntity(writer, directory)
-        writer.writeCollectionOfObjectValues<AdministrativeUnit>("administrativeUnits", directory.administrativeUnits, );
-        writer.writeCollectionOfObjectValues<AttributeSet>("attributeSets", directory.attributeSets, );
-        writer.writeCollectionOfObjectValues<CustomSecurityAttributeDefinition>("customSecurityAttributeDefinitions", directory.customSecurityAttributeDefinitions, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("deletedItems", directory.deletedItems, );
-        writer.writeCollectionOfObjectValues<IdentityProviderBase>("federationConfigurations", directory.federationConfigurations, );
-        writer.writeCollectionOfObjectValues<OnPremisesDirectorySynchronization>("onPremisesSynchronization", directory.onPremisesSynchronization, );
+        writer.writeCollectionOfObjectValues<AdministrativeUnit>("administrativeUnits", directory.administrativeUnits, serializeAdministrativeUnit);
+        writer.writeCollectionOfObjectValues<AttributeSet>("attributeSets", directory.attributeSets, serializeAttributeSet);
+        writer.writeCollectionOfObjectValues<CustomSecurityAttributeDefinition>("customSecurityAttributeDefinitions", directory.customSecurityAttributeDefinitions, serializeCustomSecurityAttributeDefinition);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("deletedItems", directory.deletedItems, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<DeviceLocalCredentialInfo>("deviceLocalCredentials", directory.deviceLocalCredentials, serializeDeviceLocalCredentialInfo);
+        writer.writeCollectionOfObjectValues<IdentityProviderBase>("federationConfigurations", directory.federationConfigurations, serializeIdentityProviderBase);
+        writer.writeCollectionOfObjectValues<OnPremisesDirectorySynchronization>("onPremisesSynchronization", directory.onPremisesSynchronization, serializeOnPremisesDirectorySynchronization);
 }
 // tslint:enable
 // eslint-enable

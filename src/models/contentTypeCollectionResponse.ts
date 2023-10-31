@@ -23,7 +23,7 @@ export function deserializeIntoContentTypeCollectionResponse(contentTypeCollecti
 }
 export function serializeContentTypeCollectionResponse(writer: SerializationWriter, contentTypeCollectionResponse: ContentTypeCollectionResponse | undefined = {} as ContentTypeCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, contentTypeCollectionResponse)
-        writer.writeCollectionOfObjectValues<ContentType>("value", contentTypeCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ContentType>("value", contentTypeCollectionResponse.value, serializeContentType);
 }
 // tslint:enable
 // eslint-enable

@@ -33,9 +33,9 @@ export function deserializeIntoTeamsAppInstallation(teamsAppInstallation: TeamsA
 }
 export function serializeTeamsAppInstallation(writer: SerializationWriter, teamsAppInstallation: TeamsAppInstallation | undefined = {} as TeamsAppInstallation) : void {
         serializeEntity(writer, teamsAppInstallation)
-        writer.writeObjectValue<TeamsAppPermissionSet>("consentedPermissionSet", teamsAppInstallation.consentedPermissionSet, );
-        writer.writeObjectValue<TeamsApp>("teamsApp", teamsAppInstallation.teamsApp, );
-        writer.writeObjectValue<TeamsAppDefinition>("teamsAppDefinition", teamsAppInstallation.teamsAppDefinition, );
+        writer.writeObjectValue<TeamsAppPermissionSet>("consentedPermissionSet", teamsAppInstallation.consentedPermissionSet, serializeTeamsAppPermissionSet);
+        writer.writeObjectValue<TeamsApp>("teamsApp", teamsAppInstallation.teamsApp, serializeTeamsApp);
+        writer.writeObjectValue<TeamsAppDefinition>("teamsAppDefinition", teamsAppInstallation.teamsAppDefinition, serializeTeamsAppDefinition);
 }
 export interface TeamsAppInstallation extends Entity, Parsable {
     /**

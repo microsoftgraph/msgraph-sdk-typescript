@@ -23,7 +23,7 @@ export function deserializeIntoClaimsMappingPolicyCollectionResponse(claimsMappi
 }
 export function serializeClaimsMappingPolicyCollectionResponse(writer: SerializationWriter, claimsMappingPolicyCollectionResponse: ClaimsMappingPolicyCollectionResponse | undefined = {} as ClaimsMappingPolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, claimsMappingPolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("value", claimsMappingPolicyCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("value", claimsMappingPolicyCollectionResponse.value, serializeClaimsMappingPolicy);
 }
 // tslint:enable
 // eslint-enable

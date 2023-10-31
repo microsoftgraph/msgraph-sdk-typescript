@@ -53,7 +53,7 @@ export function serializeNotificationMessageTemplate(writer: SerializationWriter
         writer.writeStringValue("defaultLocale", notificationMessageTemplate.defaultLocale);
         writer.writeStringValue("displayName", notificationMessageTemplate.displayName);
         writer.writeDateValue("lastModifiedDateTime", notificationMessageTemplate.lastModifiedDateTime);
-        writer.writeCollectionOfObjectValues<LocalizedNotificationMessage>("localizedNotificationMessages", notificationMessageTemplate.localizedNotificationMessages, );
+        writer.writeCollectionOfObjectValues<LocalizedNotificationMessage>("localizedNotificationMessages", notificationMessageTemplate.localizedNotificationMessages, serializeLocalizedNotificationMessage);
         writer.writeCollectionOfPrimitiveValues<string>("roleScopeTagIds", notificationMessageTemplate.roleScopeTagIds);
 }
 // tslint:enable

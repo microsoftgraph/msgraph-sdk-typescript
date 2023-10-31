@@ -129,24 +129,24 @@ export interface RemoteItem extends AdditionalDataHolder, Parsable {
     webUrl?: string;
 }
 export function serializeRemoteItem(writer: SerializationWriter, remoteItem: RemoteItem | undefined = {} as RemoteItem) : void {
-        writer.writeObjectValue<IdentitySet>("createdBy", remoteItem.createdBy, );
+        writer.writeObjectValue<IdentitySet>("createdBy", remoteItem.createdBy, serializeIdentitySet);
         writer.writeDateValue("createdDateTime", remoteItem.createdDateTime);
-        writer.writeObjectValue<File>("file", remoteItem.file, );
-        writer.writeObjectValue<FileSystemInfo>("fileSystemInfo", remoteItem.fileSystemInfo, );
-        writer.writeObjectValue<Folder>("folder", remoteItem.folder, );
+        writer.writeObjectValue<File>("file", remoteItem.file, serializeFile);
+        writer.writeObjectValue<FileSystemInfo>("fileSystemInfo", remoteItem.fileSystemInfo, serializeFileSystemInfo);
+        writer.writeObjectValue<Folder>("folder", remoteItem.folder, serializeFolder);
         writer.writeStringValue("id", remoteItem.id);
-        writer.writeObjectValue<Image>("image", remoteItem.image, );
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", remoteItem.lastModifiedBy, );
+        writer.writeObjectValue<Image>("image", remoteItem.image, serializeImage);
+        writer.writeObjectValue<IdentitySet>("lastModifiedBy", remoteItem.lastModifiedBy, serializeIdentitySet);
         writer.writeDateValue("lastModifiedDateTime", remoteItem.lastModifiedDateTime);
         writer.writeStringValue("name", remoteItem.name);
         writer.writeStringValue("@odata.type", remoteItem.odataType);
-        writer.writeObjectValue<PackageEscaped>("package", remoteItem.packageEscaped, );
-        writer.writeObjectValue<ItemReference>("parentReference", remoteItem.parentReference, );
-        writer.writeObjectValue<Shared>("shared", remoteItem.shared, );
-        writer.writeObjectValue<SharepointIds>("sharepointIds", remoteItem.sharepointIds, );
+        writer.writeObjectValue<PackageEscaped>("package", remoteItem.packageEscaped, serializePackageEscaped);
+        writer.writeObjectValue<ItemReference>("parentReference", remoteItem.parentReference, serializeItemReference);
+        writer.writeObjectValue<Shared>("shared", remoteItem.shared, serializeShared);
+        writer.writeObjectValue<SharepointIds>("sharepointIds", remoteItem.sharepointIds, serializeSharepointIds);
         writer.writeNumberValue("size", remoteItem.size);
-        writer.writeObjectValue<SpecialFolder>("specialFolder", remoteItem.specialFolder, );
-        writer.writeObjectValue<Video>("video", remoteItem.video, );
+        writer.writeObjectValue<SpecialFolder>("specialFolder", remoteItem.specialFolder, serializeSpecialFolder);
+        writer.writeObjectValue<Video>("video", remoteItem.video, serializeVideo);
         writer.writeStringValue("webDavUrl", remoteItem.webDavUrl);
         writer.writeStringValue("webUrl", remoteItem.webUrl);
         writer.writeAdditionalData(remoteItem.additionalData);

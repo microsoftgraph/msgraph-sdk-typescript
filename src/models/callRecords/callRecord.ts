@@ -76,9 +76,9 @@ export function serializeCallRecord(writer: SerializationWriter, callRecord: Cal
         writer.writeDateValue("lastModifiedDateTime", callRecord.lastModifiedDateTime);
         if(callRecord.modalities)
         writer.writeEnumValue<Modality>("modalities", ...callRecord.modalities);
-        writer.writeObjectValue<IdentitySet>("organizer", callRecord.organizer, );
-        writer.writeCollectionOfObjectValues<IdentitySet>("participants", callRecord.participants, );
-        writer.writeCollectionOfObjectValues<Session>("sessions", callRecord.sessions, );
+        writer.writeObjectValue<IdentitySet>("organizer", callRecord.organizer, serializeIdentitySet);
+        writer.writeCollectionOfObjectValues<IdentitySet>("participants", callRecord.participants, serializeIdentitySet);
+        writer.writeCollectionOfObjectValues<Session>("sessions", callRecord.sessions, serializeSession);
         writer.writeDateValue("startDateTime", callRecord.startDateTime);
         writer.writeEnumValue<CallType>("type", callRecord.type);
         writer.writeNumberValue("version", callRecord.version);

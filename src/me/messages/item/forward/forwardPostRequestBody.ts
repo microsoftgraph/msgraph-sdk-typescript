@@ -36,8 +36,8 @@ export interface ForwardPostRequestBody extends AdditionalDataHolder, Parsable {
 }
 export function serializeForwardPostRequestBody(writer: SerializationWriter, forwardPostRequestBody: ForwardPostRequestBody | undefined = {} as ForwardPostRequestBody) : void {
         writer.writeStringValue("Comment", forwardPostRequestBody.comment);
-        writer.writeObjectValue<Message>("Message", forwardPostRequestBody.message, );
-        writer.writeCollectionOfObjectValues<Recipient>("ToRecipients", forwardPostRequestBody.toRecipients, );
+        writer.writeObjectValue<Message>("Message", forwardPostRequestBody.message, serializeMessage);
+        writer.writeCollectionOfObjectValues<Recipient>("ToRecipients", forwardPostRequestBody.toRecipients, serializeRecipient);
         writer.writeAdditionalData(forwardPostRequestBody.additionalData);
 }
 // tslint:enable

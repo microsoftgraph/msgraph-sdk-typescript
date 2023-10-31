@@ -14,7 +14,7 @@ export function deserializeIntoSetStatusMessagePostRequestBody(setStatusMessageP
     }
 }
 export function serializeSetStatusMessagePostRequestBody(writer: SerializationWriter, setStatusMessagePostRequestBody: SetStatusMessagePostRequestBody | undefined = {} as SetStatusMessagePostRequestBody) : void {
-        writer.writeObjectValue<PresenceStatusMessage>("statusMessage", setStatusMessagePostRequestBody.statusMessage, );
+        writer.writeObjectValue<PresenceStatusMessage>("statusMessage", setStatusMessagePostRequestBody.statusMessage, serializePresenceStatusMessage);
         writer.writeAdditionalData(setStatusMessagePostRequestBody.additionalData);
 }
 export interface SetStatusMessagePostRequestBody extends AdditionalDataHolder, Parsable {

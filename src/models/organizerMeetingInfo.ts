@@ -23,7 +23,7 @@ export interface OrganizerMeetingInfo extends MeetingInfo, Parsable {
 }
 export function serializeOrganizerMeetingInfo(writer: SerializationWriter, organizerMeetingInfo: OrganizerMeetingInfo | undefined = {} as OrganizerMeetingInfo) : void {
         serializeMeetingInfo(writer, organizerMeetingInfo)
-        writer.writeObjectValue<IdentitySet>("organizer", organizerMeetingInfo.organizer, );
+        writer.writeObjectValue<IdentitySet>("organizer", organizerMeetingInfo.organizer, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

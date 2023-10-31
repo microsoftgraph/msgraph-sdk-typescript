@@ -28,7 +28,7 @@ export function deserializeIntoAccessPackageMultipleChoiceQuestion(accessPackage
 }
 export function serializeAccessPackageMultipleChoiceQuestion(writer: SerializationWriter, accessPackageMultipleChoiceQuestion: AccessPackageMultipleChoiceQuestion | undefined = {} as AccessPackageMultipleChoiceQuestion) : void {
         serializeAccessPackageQuestion(writer, accessPackageMultipleChoiceQuestion)
-        writer.writeCollectionOfObjectValues<AccessPackageAnswerChoice>("choices", accessPackageMultipleChoiceQuestion.choices, );
+        writer.writeCollectionOfObjectValues<AccessPackageAnswerChoice>("choices", accessPackageMultipleChoiceQuestion.choices, serializeAccessPackageAnswerChoice);
         writer.writeBooleanValue("isMultipleSelectionAllowed", accessPackageMultipleChoiceQuestion.isMultipleSelectionAllowed);
 }
 // tslint:enable

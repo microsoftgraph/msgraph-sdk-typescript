@@ -82,10 +82,10 @@ export function deserializeIntoDefaultManagedAppProtection(defaultManagedAppProt
 export function serializeDefaultManagedAppProtection(writer: SerializationWriter, defaultManagedAppProtection: DefaultManagedAppProtection | undefined = {} as DefaultManagedAppProtection) : void {
         serializeManagedAppProtection(writer, defaultManagedAppProtection)
         writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", defaultManagedAppProtection.appDataEncryptionType);
-        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", defaultManagedAppProtection.apps, );
-        writer.writeCollectionOfObjectValues<KeyValuePair>("customSettings", defaultManagedAppProtection.customSettings, );
+        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", defaultManagedAppProtection.apps, serializeManagedMobileApp);
+        writer.writeCollectionOfObjectValues<KeyValuePair>("customSettings", defaultManagedAppProtection.customSettings, serializeKeyValuePair);
         writer.writeNumberValue("deployedAppCount", defaultManagedAppProtection.deployedAppCount);
-        writer.writeObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", defaultManagedAppProtection.deploymentSummary, );
+        writer.writeObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", defaultManagedAppProtection.deploymentSummary, serializeManagedAppPolicyDeploymentSummary);
         writer.writeBooleanValue("disableAppEncryptionIfDeviceEncryptionIsEnabled", defaultManagedAppProtection.disableAppEncryptionIfDeviceEncryptionIsEnabled);
         writer.writeBooleanValue("encryptAppData", defaultManagedAppProtection.encryptAppData);
         writer.writeBooleanValue("faceIdBlocked", defaultManagedAppProtection.faceIdBlocked);

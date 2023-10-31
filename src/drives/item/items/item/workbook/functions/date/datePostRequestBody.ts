@@ -34,9 +34,9 @@ export function deserializeIntoDatePostRequestBody(datePostRequestBody: DatePost
     }
 }
 export function serializeDatePostRequestBody(writer: SerializationWriter, datePostRequestBody: DatePostRequestBody | undefined = {} as DatePostRequestBody) : void {
-        writer.writeObjectValue<Json>("day", datePostRequestBody.day, );
-        writer.writeObjectValue<Json>("month", datePostRequestBody.month, );
-        writer.writeObjectValue<Json>("year", datePostRequestBody.year, );
+        writer.writeObjectValue<Json>("day", datePostRequestBody.day, serializeJson);
+        writer.writeObjectValue<Json>("month", datePostRequestBody.month, serializeJson);
+        writer.writeObjectValue<Json>("year", datePostRequestBody.year, serializeJson);
         writer.writeAdditionalData(datePostRequestBody.additionalData);
 }
 // tslint:enable

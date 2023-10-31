@@ -34,7 +34,7 @@ export interface ResumePostRequestBody extends AdditionalDataHolder, Parsable {
     type?: string;
 }
 export function serializeResumePostRequestBody(writer: SerializationWriter, resumePostRequestBody: ResumePostRequestBody | undefined = {} as ResumePostRequestBody) : void {
-        writer.writeObjectValue<CustomExtensionData>("data", resumePostRequestBody.data, );
+        writer.writeObjectValue<CustomExtensionData>("data", resumePostRequestBody.data, serializeCustomExtensionData);
         writer.writeStringValue("source", resumePostRequestBody.source);
         writer.writeStringValue("type", resumePostRequestBody.type);
         writer.writeAdditionalData(resumePostRequestBody.additionalData);
