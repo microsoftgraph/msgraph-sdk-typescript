@@ -91,57 +91,57 @@ export function deserializeIntoServicePrincipal(servicePrincipal: ServicePrincip
 export function serializeServicePrincipal(writer: SerializationWriter, servicePrincipal: ServicePrincipal | undefined = {} as ServicePrincipal) : void {
         serializeDirectoryObject(writer, servicePrincipal)
         writer.writeBooleanValue("accountEnabled", servicePrincipal.accountEnabled);
-        writer.writeCollectionOfObjectValues<AddIn>("addIns", servicePrincipal.addIns, );
+        writer.writeCollectionOfObjectValues<AddIn>("addIns", servicePrincipal.addIns, serializeAddIn);
         writer.writeCollectionOfPrimitiveValues<string>("alternativeNames", servicePrincipal.alternativeNames);
         writer.writeStringValue("appDescription", servicePrincipal.appDescription);
         writer.writeStringValue("appDisplayName", servicePrincipal.appDisplayName);
         writer.writeStringValue("appId", servicePrincipal.appId);
         writer.writeStringValue("applicationTemplateId", servicePrincipal.applicationTemplateId);
-        writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", servicePrincipal.appManagementPolicies, );
+        writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", servicePrincipal.appManagementPolicies, serializeAppManagementPolicy);
         writer.writeGuidValue("appOwnerOrganizationId", servicePrincipal.appOwnerOrganizationId);
-        writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignedTo", servicePrincipal.appRoleAssignedTo, );
+        writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignedTo", servicePrincipal.appRoleAssignedTo, serializeAppRoleAssignment);
         writer.writeBooleanValue("appRoleAssignmentRequired", servicePrincipal.appRoleAssignmentRequired);
-        writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", servicePrincipal.appRoleAssignments, );
-        writer.writeCollectionOfObjectValues<AppRole>("appRoles", servicePrincipal.appRoles, );
-        writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", servicePrincipal.claimsMappingPolicies, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("createdObjects", servicePrincipal.createdObjects, );
-        writer.writeObjectValue<CustomSecurityAttributeValue>("customSecurityAttributes", servicePrincipal.customSecurityAttributes, );
-        writer.writeCollectionOfObjectValues<DelegatedPermissionClassification>("delegatedPermissionClassifications", servicePrincipal.delegatedPermissionClassifications, );
+        writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", servicePrincipal.appRoleAssignments, serializeAppRoleAssignment);
+        writer.writeCollectionOfObjectValues<AppRole>("appRoles", servicePrincipal.appRoles, serializeAppRole);
+        writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", servicePrincipal.claimsMappingPolicies, serializeClaimsMappingPolicy);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("createdObjects", servicePrincipal.createdObjects, serializeDirectoryObject);
+        writer.writeObjectValue<CustomSecurityAttributeValue>("customSecurityAttributes", servicePrincipal.customSecurityAttributes, serializeCustomSecurityAttributeValue);
+        writer.writeCollectionOfObjectValues<DelegatedPermissionClassification>("delegatedPermissionClassifications", servicePrincipal.delegatedPermissionClassifications, serializeDelegatedPermissionClassification);
         writer.writeStringValue("description", servicePrincipal.description);
         writer.writeStringValue("disabledByMicrosoftStatus", servicePrincipal.disabledByMicrosoftStatus);
         writer.writeStringValue("displayName", servicePrincipal.displayName);
-        writer.writeCollectionOfObjectValues<Endpoint>("endpoints", servicePrincipal.endpoints, );
-        writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", servicePrincipal.federatedIdentityCredentials, );
+        writer.writeCollectionOfObjectValues<Endpoint>("endpoints", servicePrincipal.endpoints, serializeEndpoint);
+        writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", servicePrincipal.federatedIdentityCredentials, serializeFederatedIdentityCredential);
         writer.writeStringValue("homepage", servicePrincipal.homepage);
-        writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", servicePrincipal.homeRealmDiscoveryPolicies, );
-        writer.writeObjectValue<InformationalUrl>("info", servicePrincipal.info, );
-        writer.writeCollectionOfObjectValues<KeyCredential>("keyCredentials", servicePrincipal.keyCredentials, );
+        writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", servicePrincipal.homeRealmDiscoveryPolicies, serializeHomeRealmDiscoveryPolicy);
+        writer.writeObjectValue<InformationalUrl>("info", servicePrincipal.info, serializeInformationalUrl);
+        writer.writeCollectionOfObjectValues<KeyCredential>("keyCredentials", servicePrincipal.keyCredentials, serializeKeyCredential);
         writer.writeStringValue("loginUrl", servicePrincipal.loginUrl);
         writer.writeStringValue("logoutUrl", servicePrincipal.logoutUrl);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("memberOf", servicePrincipal.memberOf, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("memberOf", servicePrincipal.memberOf, serializeDirectoryObject);
         writer.writeStringValue("notes", servicePrincipal.notes);
         writer.writeCollectionOfPrimitiveValues<string>("notificationEmailAddresses", servicePrincipal.notificationEmailAddresses);
-        writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("oauth2PermissionGrants", servicePrincipal.oauth2PermissionGrants, );
-        writer.writeCollectionOfObjectValues<PermissionScope>("oauth2PermissionScopes", servicePrincipal.oauth2PermissionScopes, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("ownedObjects", servicePrincipal.ownedObjects, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("owners", servicePrincipal.owners, );
-        writer.writeCollectionOfObjectValues<PasswordCredential>("passwordCredentials", servicePrincipal.passwordCredentials, );
+        writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("oauth2PermissionGrants", servicePrincipal.oauth2PermissionGrants, serializeOAuth2PermissionGrant);
+        writer.writeCollectionOfObjectValues<PermissionScope>("oauth2PermissionScopes", servicePrincipal.oauth2PermissionScopes, serializePermissionScope);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("ownedObjects", servicePrincipal.ownedObjects, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("owners", servicePrincipal.owners, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<PasswordCredential>("passwordCredentials", servicePrincipal.passwordCredentials, serializePasswordCredential);
         writer.writeStringValue("preferredSingleSignOnMode", servicePrincipal.preferredSingleSignOnMode);
         writer.writeStringValue("preferredTokenSigningKeyThumbprint", servicePrincipal.preferredTokenSigningKeyThumbprint);
-        writer.writeObjectValue<RemoteDesktopSecurityConfiguration>("remoteDesktopSecurityConfiguration", servicePrincipal.remoteDesktopSecurityConfiguration, );
+        writer.writeObjectValue<RemoteDesktopSecurityConfiguration>("remoteDesktopSecurityConfiguration", servicePrincipal.remoteDesktopSecurityConfiguration, serializeRemoteDesktopSecurityConfiguration);
         writer.writeCollectionOfPrimitiveValues<string>("replyUrls", servicePrincipal.replyUrls);
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermission>("resourceSpecificApplicationPermissions", servicePrincipal.resourceSpecificApplicationPermissions, );
-        writer.writeObjectValue<SamlSingleSignOnSettings>("samlSingleSignOnSettings", servicePrincipal.samlSingleSignOnSettings, );
+        writer.writeCollectionOfObjectValues<ResourceSpecificPermission>("resourceSpecificApplicationPermissions", servicePrincipal.resourceSpecificApplicationPermissions, serializeResourceSpecificPermission);
+        writer.writeObjectValue<SamlSingleSignOnSettings>("samlSingleSignOnSettings", servicePrincipal.samlSingleSignOnSettings, serializeSamlSingleSignOnSettings);
         writer.writeCollectionOfPrimitiveValues<string>("servicePrincipalNames", servicePrincipal.servicePrincipalNames);
         writer.writeStringValue("servicePrincipalType", servicePrincipal.servicePrincipalType);
         writer.writeStringValue("signInAudience", servicePrincipal.signInAudience);
-        writer.writeObjectValue<Synchronization>("synchronization", servicePrincipal.synchronization, );
+        writer.writeObjectValue<Synchronization>("synchronization", servicePrincipal.synchronization, serializeSynchronization);
         writer.writeCollectionOfPrimitiveValues<string>("tags", servicePrincipal.tags);
         writer.writeGuidValue("tokenEncryptionKeyId", servicePrincipal.tokenEncryptionKeyId);
-        writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", servicePrincipal.tokenIssuancePolicies, );
-        writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", servicePrincipal.tokenLifetimePolicies, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", servicePrincipal.transitiveMemberOf, );
-        writer.writeObjectValue<VerifiedPublisher>("verifiedPublisher", servicePrincipal.verifiedPublisher, );
+        writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", servicePrincipal.tokenIssuancePolicies, serializeTokenIssuancePolicy);
+        writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", servicePrincipal.tokenLifetimePolicies, serializeTokenLifetimePolicy);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", servicePrincipal.transitiveMemberOf, serializeDirectoryObject);
+        writer.writeObjectValue<VerifiedPublisher>("verifiedPublisher", servicePrincipal.verifiedPublisher, serializeVerifiedPublisher);
 }
 export interface ServicePrincipal extends DirectoryObject, Parsable {
     /**
@@ -297,7 +297,7 @@ export interface ServicePrincipal extends DirectoryObject, Parsable {
      */
     preferredTokenSigningKeyThumbprint?: string;
     /**
-     * The remoteDesktopSecurityConfiguration property
+     * The remoteDesktopSecurityConfiguration object applied to this service principal. Supports $filter (eq) for isRemoteDesktopProtocolEnabled property.
      */
     remoteDesktopSecurityConfiguration?: RemoteDesktopSecurityConfiguration;
     /**

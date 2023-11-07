@@ -53,7 +53,7 @@ export function serializeAccessPackageResourceScope(writer: SerializationWriter,
         writer.writeBooleanValue("isRootScope", accessPackageResourceScope.isRootScope);
         writer.writeStringValue("originId", accessPackageResourceScope.originId);
         writer.writeStringValue("originSystem", accessPackageResourceScope.originSystem);
-        writer.writeObjectValue<AccessPackageResource>("resource", accessPackageResourceScope.resource, );
+        writer.writeObjectValue<AccessPackageResource>("resource", accessPackageResourceScope.resource, serializeAccessPackageResource);
 }
 // tslint:enable
 // eslint-enable

@@ -14,7 +14,7 @@ export function deserializeIntoSinhPostRequestBody(sinhPostRequestBody: SinhPost
     }
 }
 export function serializeSinhPostRequestBody(writer: SerializationWriter, sinhPostRequestBody: SinhPostRequestBody | undefined = {} as SinhPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", sinhPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", sinhPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(sinhPostRequestBody.additionalData);
 }
 export interface SinhPostRequestBody extends AdditionalDataHolder, Parsable {

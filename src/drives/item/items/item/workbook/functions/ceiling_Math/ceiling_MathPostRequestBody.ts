@@ -34,9 +34,9 @@ export function deserializeIntoCeiling_MathPostRequestBody(ceiling_MathPostReque
     }
 }
 export function serializeCeiling_MathPostRequestBody(writer: SerializationWriter, ceiling_MathPostRequestBody: Ceiling_MathPostRequestBody | undefined = {} as Ceiling_MathPostRequestBody) : void {
-        writer.writeObjectValue<Json>("mode", ceiling_MathPostRequestBody.mode, );
-        writer.writeObjectValue<Json>("number", ceiling_MathPostRequestBody.number, );
-        writer.writeObjectValue<Json>("significance", ceiling_MathPostRequestBody.significance, );
+        writer.writeObjectValue<Json>("mode", ceiling_MathPostRequestBody.mode, serializeJson);
+        writer.writeObjectValue<Json>("number", ceiling_MathPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("significance", ceiling_MathPostRequestBody.significance, serializeJson);
         writer.writeAdditionalData(ceiling_MathPostRequestBody.additionalData);
 }
 // tslint:enable

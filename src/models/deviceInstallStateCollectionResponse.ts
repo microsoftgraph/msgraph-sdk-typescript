@@ -23,7 +23,7 @@ export interface DeviceInstallStateCollectionResponse extends BaseCollectionPagi
 }
 export function serializeDeviceInstallStateCollectionResponse(writer: SerializationWriter, deviceInstallStateCollectionResponse: DeviceInstallStateCollectionResponse | undefined = {} as DeviceInstallStateCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceInstallStateCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceInstallState>("value", deviceInstallStateCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DeviceInstallState>("value", deviceInstallStateCollectionResponse.value, serializeDeviceInstallState);
 }
 // tslint:enable
 // eslint-enable

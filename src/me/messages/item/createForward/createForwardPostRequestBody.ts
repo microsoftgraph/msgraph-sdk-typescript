@@ -36,8 +36,8 @@ export function deserializeIntoCreateForwardPostRequestBody(createForwardPostReq
 }
 export function serializeCreateForwardPostRequestBody(writer: SerializationWriter, createForwardPostRequestBody: CreateForwardPostRequestBody | undefined = {} as CreateForwardPostRequestBody) : void {
         writer.writeStringValue("Comment", createForwardPostRequestBody.comment);
-        writer.writeObjectValue<Message>("Message", createForwardPostRequestBody.message, );
-        writer.writeCollectionOfObjectValues<Recipient>("ToRecipients", createForwardPostRequestBody.toRecipients, );
+        writer.writeObjectValue<Message>("Message", createForwardPostRequestBody.message, serializeMessage);
+        writer.writeCollectionOfObjectValues<Recipient>("ToRecipients", createForwardPostRequestBody.toRecipients, serializeRecipient);
         writer.writeAdditionalData(createForwardPostRequestBody.additionalData);
 }
 // tslint:enable

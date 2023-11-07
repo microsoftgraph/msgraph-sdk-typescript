@@ -17,7 +17,7 @@ export function deserializeIntoSettingStateDeviceSummaryCollectionResponse(setti
 }
 export function serializeSettingStateDeviceSummaryCollectionResponse(writer: SerializationWriter, settingStateDeviceSummaryCollectionResponse: SettingStateDeviceSummaryCollectionResponse | undefined = {} as SettingStateDeviceSummaryCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, settingStateDeviceSummaryCollectionResponse)
-        writer.writeCollectionOfObjectValues<SettingStateDeviceSummary>("value", settingStateDeviceSummaryCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<SettingStateDeviceSummary>("value", settingStateDeviceSummaryCollectionResponse.value, serializeSettingStateDeviceSummary);
 }
 export interface SettingStateDeviceSummaryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

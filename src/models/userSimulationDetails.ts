@@ -32,9 +32,9 @@ export function serializeUserSimulationDetails(writer: SerializationWriter, user
         writer.writeBooleanValue("isCompromised", userSimulationDetails.isCompromised);
         writer.writeStringValue("@odata.type", userSimulationDetails.odataType);
         writer.writeDateValue("reportedPhishDateTime", userSimulationDetails.reportedPhishDateTime);
-        writer.writeCollectionOfObjectValues<UserSimulationEventInfo>("simulationEvents", userSimulationDetails.simulationEvents, );
-        writer.writeObjectValue<AttackSimulationUser>("simulationUser", userSimulationDetails.simulationUser, );
-        writer.writeCollectionOfObjectValues<UserTrainingEventInfo>("trainingEvents", userSimulationDetails.trainingEvents, );
+        writer.writeCollectionOfObjectValues<UserSimulationEventInfo>("simulationEvents", userSimulationDetails.simulationEvents, serializeUserSimulationEventInfo);
+        writer.writeObjectValue<AttackSimulationUser>("simulationUser", userSimulationDetails.simulationUser, serializeAttackSimulationUser);
+        writer.writeCollectionOfObjectValues<UserTrainingEventInfo>("trainingEvents", userSimulationDetails.trainingEvents, serializeUserTrainingEventInfo);
         writer.writeAdditionalData(userSimulationDetails.additionalData);
 }
 export interface UserSimulationDetails extends AdditionalDataHolder, Parsable {

@@ -29,8 +29,8 @@ export interface PlannerUser extends Entity, Parsable {
 }
 export function serializePlannerUser(writer: SerializationWriter, plannerUser: PlannerUser | undefined = {} as PlannerUser) : void {
         serializeEntity(writer, plannerUser)
-        writer.writeCollectionOfObjectValues<PlannerPlan>("plans", plannerUser.plans, );
-        writer.writeCollectionOfObjectValues<PlannerTask>("tasks", plannerUser.tasks, );
+        writer.writeCollectionOfObjectValues<PlannerPlan>("plans", plannerUser.plans, serializePlannerPlan);
+        writer.writeCollectionOfObjectValues<PlannerTask>("tasks", plannerUser.tasks, serializePlannerTask);
 }
 // tslint:enable
 // eslint-enable

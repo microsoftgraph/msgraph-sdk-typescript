@@ -35,9 +35,9 @@ export interface EdiscoveryCaseSettings extends Entity, Parsable {
 }
 export function serializeEdiscoveryCaseSettings(writer: SerializationWriter, ediscoveryCaseSettings: EdiscoveryCaseSettings | undefined = {} as EdiscoveryCaseSettings) : void {
         serializeEntity(writer, ediscoveryCaseSettings)
-        writer.writeObjectValue<OcrSettings>("ocr", ediscoveryCaseSettings.ocr, );
-        writer.writeObjectValue<RedundancyDetectionSettings>("redundancyDetection", ediscoveryCaseSettings.redundancyDetection, );
-        writer.writeObjectValue<TopicModelingSettings>("topicModeling", ediscoveryCaseSettings.topicModeling, );
+        writer.writeObjectValue<OcrSettings>("ocr", ediscoveryCaseSettings.ocr, serializeOcrSettings);
+        writer.writeObjectValue<RedundancyDetectionSettings>("redundancyDetection", ediscoveryCaseSettings.redundancyDetection, serializeRedundancyDetectionSettings);
+        writer.writeObjectValue<TopicModelingSettings>("topicModeling", ediscoveryCaseSettings.topicModeling, serializeTopicModelingSettings);
 }
 // tslint:enable
 // eslint-enable

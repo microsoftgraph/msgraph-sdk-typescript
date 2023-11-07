@@ -81,7 +81,7 @@ export interface MacOSGeneralDeviceConfiguration extends DeviceConfiguration, Pa
 export function serializeMacOSGeneralDeviceConfiguration(writer: SerializationWriter, macOSGeneralDeviceConfiguration: MacOSGeneralDeviceConfiguration | undefined = {} as MacOSGeneralDeviceConfiguration) : void {
         serializeDeviceConfiguration(writer, macOSGeneralDeviceConfiguration)
         writer.writeEnumValue<AppListType>("compliantAppListType", macOSGeneralDeviceConfiguration.compliantAppListType);
-        writer.writeCollectionOfObjectValues<AppListItem>("compliantAppsList", macOSGeneralDeviceConfiguration.compliantAppsList, );
+        writer.writeCollectionOfObjectValues<AppListItem>("compliantAppsList", macOSGeneralDeviceConfiguration.compliantAppsList, serializeAppListItem);
         writer.writeCollectionOfPrimitiveValues<string>("emailInDomainSuffixes", macOSGeneralDeviceConfiguration.emailInDomainSuffixes);
         writer.writeBooleanValue("passwordBlockSimple", macOSGeneralDeviceConfiguration.passwordBlockSimple);
         writer.writeNumberValue("passwordExpirationDays", macOSGeneralDeviceConfiguration.passwordExpirationDays);

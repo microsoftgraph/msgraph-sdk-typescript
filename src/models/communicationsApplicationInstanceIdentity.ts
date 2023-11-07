@@ -6,11 +6,11 @@ import { type Parsable, type ParseNode, type SerializationWriter } from '@micros
 
 export interface CommunicationsApplicationInstanceIdentity extends Identity, Parsable {
     /**
-     * The hidden property
+     * True if the participant shouldn't be shown in other participants' rosters.
      */
     hidden?: boolean;
     /**
-     * The tenantId property
+     * The tenant ID of the application.
      */
     tenantId?: string;
 }

@@ -63,9 +63,9 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/primaryChannel/members/{conversationMember%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared. This API is available in the following national cloud deployments.
+     * Delete a conversationMember from a channel. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/channel-delete-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conversationmember-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConversationMemberItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -94,11 +94,11 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationMember>(requestInfo, createConversationMemberFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the role of a conversationMember in a team or channel. This API is available in the following national cloud deployments.
+     * Update the role of a conversationMember in a channel. This operation is allowed only for channels with a membershipType value of private or shared. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
-     * @see {@link https://learn.microsoft.com/graph/api/conversationmember-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ConversationMember, requestConfiguration?: ConversationMemberItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -111,7 +111,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationMember>(requestInfo, createConversationMemberFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared. This API is available in the following national cloud deployments.
+     * Delete a conversationMember from a channel. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -146,7 +146,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the role of a conversationMember in a team or channel. This API is available in the following national cloud deployments.
+     * Update the role of a conversationMember in a channel. This operation is allowed only for channels with a membershipType value of private or shared. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -77,7 +77,7 @@ export class PayloadItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get payloads from security
+     * Represents an attack simulation training campaign payload in a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Payload
      */
@@ -125,7 +125,7 @@ export class PayloadItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get payloads from security
+     * Represents an attack simulation training campaign payload in a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

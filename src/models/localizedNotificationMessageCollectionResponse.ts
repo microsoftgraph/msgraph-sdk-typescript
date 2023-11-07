@@ -23,7 +23,7 @@ export interface LocalizedNotificationMessageCollectionResponse extends BaseColl
 }
 export function serializeLocalizedNotificationMessageCollectionResponse(writer: SerializationWriter, localizedNotificationMessageCollectionResponse: LocalizedNotificationMessageCollectionResponse | undefined = {} as LocalizedNotificationMessageCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, localizedNotificationMessageCollectionResponse)
-        writer.writeCollectionOfObjectValues<LocalizedNotificationMessage>("value", localizedNotificationMessageCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<LocalizedNotificationMessage>("value", localizedNotificationMessageCollectionResponse.value, serializeLocalizedNotificationMessage);
 }
 // tslint:enable
 // eslint-enable

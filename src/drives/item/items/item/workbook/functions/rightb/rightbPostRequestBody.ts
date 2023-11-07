@@ -29,8 +29,8 @@ export interface RightbPostRequestBody extends AdditionalDataHolder, Parsable {
     text?: Json;
 }
 export function serializeRightbPostRequestBody(writer: SerializationWriter, rightbPostRequestBody: RightbPostRequestBody | undefined = {} as RightbPostRequestBody) : void {
-        writer.writeObjectValue<Json>("numBytes", rightbPostRequestBody.numBytes, );
-        writer.writeObjectValue<Json>("text", rightbPostRequestBody.text, );
+        writer.writeObjectValue<Json>("numBytes", rightbPostRequestBody.numBytes, serializeJson);
+        writer.writeObjectValue<Json>("text", rightbPostRequestBody.text, serializeJson);
         writer.writeAdditionalData(rightbPostRequestBody.additionalData);
 }
 // tslint:enable

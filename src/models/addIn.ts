@@ -42,7 +42,7 @@ export function deserializeIntoAddIn(addIn: AddIn | undefined = {} as AddIn) : R
 export function serializeAddIn(writer: SerializationWriter, addIn: AddIn | undefined = {} as AddIn) : void {
         writer.writeGuidValue("id", addIn.id);
         writer.writeStringValue("@odata.type", addIn.odataType);
-        writer.writeCollectionOfObjectValues<KeyValue>("properties", addIn.properties, );
+        writer.writeCollectionOfObjectValues<KeyValue>("properties", addIn.properties, serializeKeyValue);
         writer.writeStringValue("type", addIn.type);
         writer.writeAdditionalData(addIn.additionalData);
 }

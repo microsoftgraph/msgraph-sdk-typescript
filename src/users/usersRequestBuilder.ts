@@ -138,11 +138,11 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<UserCollectionResponse>(requestInfo, createUserCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new user object.
+     * Create a new user.The request body contains the user to create. At a minimum, you must specify the required properties for the user. You can optionally specify any other writable properties. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0|Find more info here}
      */
     public post(body: User, requestConfiguration?: UsersRequestBuilderPostRequestConfiguration | undefined) : Promise<User | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -173,7 +173,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new user object.
+     * Create a new user.The request body contains the user to create. At a minimum, you must specify the required properties for the user. You can optionally specify any other writable properties. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

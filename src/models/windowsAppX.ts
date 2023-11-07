@@ -30,7 +30,7 @@ export function serializeWindowsAppX(writer: SerializationWriter, windowsAppX: W
         writer.writeStringValue("identityResourceIdentifier", windowsAppX.identityResourceIdentifier);
         writer.writeStringValue("identityVersion", windowsAppX.identityVersion);
         writer.writeBooleanValue("isBundle", windowsAppX.isBundle);
-        writer.writeObjectValue<WindowsMinimumOperatingSystem>("minimumSupportedOperatingSystem", windowsAppX.minimumSupportedOperatingSystem, );
+        writer.writeObjectValue<WindowsMinimumOperatingSystem>("minimumSupportedOperatingSystem", windowsAppX.minimumSupportedOperatingSystem, serializeWindowsMinimumOperatingSystem);
 }
 export interface WindowsAppX extends MobileLobApp, Parsable {
     /**

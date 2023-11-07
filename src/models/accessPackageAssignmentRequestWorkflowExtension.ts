@@ -43,7 +43,7 @@ export function deserializeIntoAccessPackageAssignmentRequestWorkflowExtension(a
 }
 export function serializeAccessPackageAssignmentRequestWorkflowExtension(writer: SerializationWriter, accessPackageAssignmentRequestWorkflowExtension: AccessPackageAssignmentRequestWorkflowExtension | undefined = {} as AccessPackageAssignmentRequestWorkflowExtension) : void {
         serializeCustomCalloutExtension(writer, accessPackageAssignmentRequestWorkflowExtension)
-        writer.writeObjectValue<CustomExtensionCallbackConfiguration>("callbackConfiguration", accessPackageAssignmentRequestWorkflowExtension.callbackConfiguration, );
+        writer.writeObjectValue<CustomExtensionCallbackConfiguration>("callbackConfiguration", accessPackageAssignmentRequestWorkflowExtension.callbackConfiguration, serializeCustomExtensionCallbackConfiguration);
         writer.writeStringValue("createdBy", accessPackageAssignmentRequestWorkflowExtension.createdBy);
         writer.writeDateValue("createdDateTime", accessPackageAssignmentRequestWorkflowExtension.createdDateTime);
         writer.writeStringValue("lastModifiedBy", accessPackageAssignmentRequestWorkflowExtension.lastModifiedBy);

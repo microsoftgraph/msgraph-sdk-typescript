@@ -19,7 +19,7 @@ export function deserializeIntoTimeConstraint(timeConstraint: TimeConstraint | u
 export function serializeTimeConstraint(writer: SerializationWriter, timeConstraint: TimeConstraint | undefined = {} as TimeConstraint) : void {
         writer.writeEnumValue<ActivityDomain>("activityDomain", timeConstraint.activityDomain);
         writer.writeStringValue("@odata.type", timeConstraint.odataType);
-        writer.writeCollectionOfObjectValues<TimeSlot>("timeSlots", timeConstraint.timeSlots, );
+        writer.writeCollectionOfObjectValues<TimeSlot>("timeSlots", timeConstraint.timeSlots, serializeTimeSlot);
         writer.writeAdditionalData(timeConstraint.additionalData);
 }
 export interface TimeConstraint extends AdditionalDataHolder, Parsable {

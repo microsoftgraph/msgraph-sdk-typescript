@@ -24,7 +24,7 @@ export interface IsEvenPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeIsEvenPostRequestBody(writer: SerializationWriter, isEvenPostRequestBody: IsEvenPostRequestBody | undefined = {} as IsEvenPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", isEvenPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", isEvenPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(isEvenPostRequestBody.additionalData);
 }
 // tslint:enable

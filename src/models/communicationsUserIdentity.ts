@@ -6,7 +6,7 @@ import { type Parsable, type ParseNode, type SerializationWriter } from '@micros
 
 export interface CommunicationsUserIdentity extends Identity, Parsable {
     /**
-     * The tenantId property
+     * The user's tenant ID.
      */
     tenantId?: string;
 }

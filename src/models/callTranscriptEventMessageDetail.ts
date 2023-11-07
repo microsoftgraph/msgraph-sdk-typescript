@@ -35,7 +35,7 @@ export function serializeCallTranscriptEventMessageDetail(writer: SerializationW
         serializeEventMessageDetail(writer, callTranscriptEventMessageDetail)
         writer.writeStringValue("callId", callTranscriptEventMessageDetail.callId);
         writer.writeStringValue("callTranscriptICalUid", callTranscriptEventMessageDetail.callTranscriptICalUid);
-        writer.writeObjectValue<IdentitySet>("meetingOrganizer", callTranscriptEventMessageDetail.meetingOrganizer, );
+        writer.writeObjectValue<IdentitySet>("meetingOrganizer", callTranscriptEventMessageDetail.meetingOrganizer, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

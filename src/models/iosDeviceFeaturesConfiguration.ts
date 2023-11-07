@@ -46,10 +46,10 @@ export interface IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfi
 export function serializeIosDeviceFeaturesConfiguration(writer: SerializationWriter, iosDeviceFeaturesConfiguration: IosDeviceFeaturesConfiguration | undefined = {} as IosDeviceFeaturesConfiguration) : void {
         serializeAppleDeviceFeaturesConfigurationBase(writer, iosDeviceFeaturesConfiguration)
         writer.writeStringValue("assetTagTemplate", iosDeviceFeaturesConfiguration.assetTagTemplate);
-        writer.writeCollectionOfObjectValues<IosHomeScreenItem>("homeScreenDockIcons", iosDeviceFeaturesConfiguration.homeScreenDockIcons, );
-        writer.writeCollectionOfObjectValues<IosHomeScreenPage>("homeScreenPages", iosDeviceFeaturesConfiguration.homeScreenPages, );
+        writer.writeCollectionOfObjectValues<IosHomeScreenItem>("homeScreenDockIcons", iosDeviceFeaturesConfiguration.homeScreenDockIcons, serializeIosHomeScreenItem);
+        writer.writeCollectionOfObjectValues<IosHomeScreenPage>("homeScreenPages", iosDeviceFeaturesConfiguration.homeScreenPages, serializeIosHomeScreenPage);
         writer.writeStringValue("lockScreenFootnote", iosDeviceFeaturesConfiguration.lockScreenFootnote);
-        writer.writeCollectionOfObjectValues<IosNotificationSettings>("notificationSettings", iosDeviceFeaturesConfiguration.notificationSettings, );
+        writer.writeCollectionOfObjectValues<IosNotificationSettings>("notificationSettings", iosDeviceFeaturesConfiguration.notificationSettings, serializeIosNotificationSettings);
 }
 // tslint:enable
 // eslint-enable

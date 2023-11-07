@@ -34,9 +34,9 @@ export interface Norm_InvPostRequestBody extends AdditionalDataHolder, Parsable 
     standardDev?: Json;
 }
 export function serializeNorm_InvPostRequestBody(writer: SerializationWriter, norm_InvPostRequestBody: Norm_InvPostRequestBody | undefined = {} as Norm_InvPostRequestBody) : void {
-        writer.writeObjectValue<Json>("mean", norm_InvPostRequestBody.mean, );
-        writer.writeObjectValue<Json>("probability", norm_InvPostRequestBody.probability, );
-        writer.writeObjectValue<Json>("standardDev", norm_InvPostRequestBody.standardDev, );
+        writer.writeObjectValue<Json>("mean", norm_InvPostRequestBody.mean, serializeJson);
+        writer.writeObjectValue<Json>("probability", norm_InvPostRequestBody.probability, serializeJson);
+        writer.writeObjectValue<Json>("standardDev", norm_InvPostRequestBody.standardDev, serializeJson);
         writer.writeAdditionalData(norm_InvPostRequestBody.additionalData);
 }
 // tslint:enable

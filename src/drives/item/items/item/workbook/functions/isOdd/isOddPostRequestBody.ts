@@ -24,7 +24,7 @@ export interface IsOddPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeIsOddPostRequestBody(writer: SerializationWriter, isOddPostRequestBody: IsOddPostRequestBody | undefined = {} as IsOddPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", isOddPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", isOddPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(isOddPostRequestBody.additionalData);
 }
 // tslint:enable

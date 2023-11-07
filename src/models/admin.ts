@@ -21,7 +21,7 @@ export interface Admin extends AdditionalDataHolder, Parsable {
      */
     odataType?: string;
     /**
-     * The people property
+     * Represents a setting to control people-related admin settings in the tenant.
      */
     people?: PeopleAdminSettings;
     /**
@@ -47,11 +47,11 @@ export function deserializeIntoAdmin(admin: Admin | undefined = {} as Admin) : R
     }
 }
 export function serializeAdmin(writer: SerializationWriter, admin: Admin | undefined = {} as Admin) : void {
-        writer.writeObjectValue<Edge>("edge", admin.edge, );
+        writer.writeObjectValue<Edge>("edge", admin.edge, serializeEdge);
         writer.writeStringValue("@odata.type", admin.odataType);
-        writer.writeObjectValue<PeopleAdminSettings>("people", admin.people, );
-        writer.writeObjectValue<ServiceAnnouncement>("serviceAnnouncement", admin.serviceAnnouncement, );
-        writer.writeObjectValue<Sharepoint>("sharepoint", admin.sharepoint, );
+        writer.writeObjectValue<PeopleAdminSettings>("people", admin.people, serializePeopleAdminSettings);
+        writer.writeObjectValue<ServiceAnnouncement>("serviceAnnouncement", admin.serviceAnnouncement, serializeServiceAnnouncement);
+        writer.writeObjectValue<Sharepoint>("sharepoint", admin.sharepoint, serializeSharepoint);
         writer.writeAdditionalData(admin.additionalData);
 }
 // tslint:enable

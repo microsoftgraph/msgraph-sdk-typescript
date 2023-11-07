@@ -23,7 +23,7 @@ export interface IosLobAppProvisioningConfigurationAssignment extends Entity, Pa
 }
 export function serializeIosLobAppProvisioningConfigurationAssignment(writer: SerializationWriter, iosLobAppProvisioningConfigurationAssignment: IosLobAppProvisioningConfigurationAssignment | undefined = {} as IosLobAppProvisioningConfigurationAssignment) : void {
         serializeEntity(writer, iosLobAppProvisioningConfigurationAssignment)
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", iosLobAppProvisioningConfigurationAssignment.target, );
+        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", iosLobAppProvisioningConfigurationAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
 }
 // tslint:enable
 // eslint-enable

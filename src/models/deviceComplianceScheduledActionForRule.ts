@@ -29,7 +29,7 @@ export interface DeviceComplianceScheduledActionForRule extends Entity, Parsable
 export function serializeDeviceComplianceScheduledActionForRule(writer: SerializationWriter, deviceComplianceScheduledActionForRule: DeviceComplianceScheduledActionForRule | undefined = {} as DeviceComplianceScheduledActionForRule) : void {
         serializeEntity(writer, deviceComplianceScheduledActionForRule)
         writer.writeStringValue("ruleName", deviceComplianceScheduledActionForRule.ruleName);
-        writer.writeCollectionOfObjectValues<DeviceComplianceActionItem>("scheduledActionConfigurations", deviceComplianceScheduledActionForRule.scheduledActionConfigurations, );
+        writer.writeCollectionOfObjectValues<DeviceComplianceActionItem>("scheduledActionConfigurations", deviceComplianceScheduledActionForRule.scheduledActionConfigurations, serializeDeviceComplianceActionItem);
 }
 // tslint:enable
 // eslint-enable

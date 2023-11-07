@@ -23,7 +23,7 @@ export function deserializeIntoAdditionalAccessGetResponse(additionalAccessGetRe
 }
 export function serializeAdditionalAccessGetResponse(writer: SerializationWriter, additionalAccessGetResponse: AdditionalAccessGetResponse | undefined = {} as AdditionalAccessGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, additionalAccessGetResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessGetResponse.value, );
+        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessGetResponse.value, serializeAccessPackageAssignment);
 }
 // tslint:enable
 // eslint-enable

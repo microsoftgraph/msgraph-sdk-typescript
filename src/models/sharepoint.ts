@@ -17,7 +17,7 @@ export function deserializeIntoSharepoint(sharepoint: Sharepoint | undefined = {
 }
 export function serializeSharepoint(writer: SerializationWriter, sharepoint: Sharepoint | undefined = {} as Sharepoint) : void {
         serializeEntity(writer, sharepoint)
-        writer.writeObjectValue<SharepointSettings>("settings", sharepoint.settings, );
+        writer.writeObjectValue<SharepointSettings>("settings", sharepoint.settings, serializeSharepointSettings);
 }
 export interface Sharepoint extends Entity, Parsable {
     /**

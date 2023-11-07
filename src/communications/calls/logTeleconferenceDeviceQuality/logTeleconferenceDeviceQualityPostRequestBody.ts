@@ -24,7 +24,7 @@ export interface LogTeleconferenceDeviceQualityPostRequestBody extends Additiona
     quality?: TeleconferenceDeviceQuality;
 }
 export function serializeLogTeleconferenceDeviceQualityPostRequestBody(writer: SerializationWriter, logTeleconferenceDeviceQualityPostRequestBody: LogTeleconferenceDeviceQualityPostRequestBody | undefined = {} as LogTeleconferenceDeviceQualityPostRequestBody) : void {
-        writer.writeObjectValue<TeleconferenceDeviceQuality>("quality", logTeleconferenceDeviceQualityPostRequestBody.quality, );
+        writer.writeObjectValue<TeleconferenceDeviceQuality>("quality", logTeleconferenceDeviceQualityPostRequestBody.quality, serializeTeleconferenceDeviceQuality);
         writer.writeAdditionalData(logTeleconferenceDeviceQualityPostRequestBody.additionalData);
 }
 // tslint:enable

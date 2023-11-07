@@ -23,7 +23,7 @@ export function deserializeIntoAppCatalogs(appCatalogs: AppCatalogs | undefined 
 }
 export function serializeAppCatalogs(writer: SerializationWriter, appCatalogs: AppCatalogs | undefined = {} as AppCatalogs) : void {
         serializeEntity(writer, appCatalogs)
-        writer.writeCollectionOfObjectValues<TeamsApp>("teamsApps", appCatalogs.teamsApps, );
+        writer.writeCollectionOfObjectValues<TeamsApp>("teamsApps", appCatalogs.teamsApps, serializeTeamsApp);
 }
 // tslint:enable
 // eslint-enable

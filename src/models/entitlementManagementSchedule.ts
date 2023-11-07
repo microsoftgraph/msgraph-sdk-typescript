@@ -40,9 +40,9 @@ export interface EntitlementManagementSchedule extends AdditionalDataHolder, Par
     startDateTime?: Date;
 }
 export function serializeEntitlementManagementSchedule(writer: SerializationWriter, entitlementManagementSchedule: EntitlementManagementSchedule | undefined = {} as EntitlementManagementSchedule) : void {
-        writer.writeObjectValue<ExpirationPattern>("expiration", entitlementManagementSchedule.expiration, );
+        writer.writeObjectValue<ExpirationPattern>("expiration", entitlementManagementSchedule.expiration, serializeExpirationPattern);
         writer.writeStringValue("@odata.type", entitlementManagementSchedule.odataType);
-        writer.writeObjectValue<PatternedRecurrence>("recurrence", entitlementManagementSchedule.recurrence, );
+        writer.writeObjectValue<PatternedRecurrence>("recurrence", entitlementManagementSchedule.recurrence, serializePatternedRecurrence);
         writer.writeDateValue("startDateTime", entitlementManagementSchedule.startDateTime);
         writer.writeAdditionalData(entitlementManagementSchedule.additionalData);
 }

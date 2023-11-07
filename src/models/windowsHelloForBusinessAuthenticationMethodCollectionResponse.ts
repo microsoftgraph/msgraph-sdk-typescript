@@ -17,7 +17,7 @@ export function deserializeIntoWindowsHelloForBusinessAuthenticationMethodCollec
 }
 export function serializeWindowsHelloForBusinessAuthenticationMethodCollectionResponse(writer: SerializationWriter, windowsHelloForBusinessAuthenticationMethodCollectionResponse: WindowsHelloForBusinessAuthenticationMethodCollectionResponse | undefined = {} as WindowsHelloForBusinessAuthenticationMethodCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, windowsHelloForBusinessAuthenticationMethodCollectionResponse)
-        writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>("value", windowsHelloForBusinessAuthenticationMethodCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>("value", windowsHelloForBusinessAuthenticationMethodCollectionResponse.value, serializeWindowsHelloForBusinessAuthenticationMethod);
 }
 export interface WindowsHelloForBusinessAuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

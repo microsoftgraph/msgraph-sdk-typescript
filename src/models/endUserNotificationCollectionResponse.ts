@@ -23,7 +23,7 @@ export interface EndUserNotificationCollectionResponse extends BaseCollectionPag
 }
 export function serializeEndUserNotificationCollectionResponse(writer: SerializationWriter, endUserNotificationCollectionResponse: EndUserNotificationCollectionResponse | undefined = {} as EndUserNotificationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, endUserNotificationCollectionResponse)
-        writer.writeCollectionOfObjectValues<EndUserNotification>("value", endUserNotificationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<EndUserNotification>("value", endUserNotificationCollectionResponse.value, serializeEndUserNotification);
 }
 // tslint:enable
 // eslint-enable

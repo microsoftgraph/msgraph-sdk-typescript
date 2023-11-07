@@ -21,9 +21,9 @@ export function deserializeIntoTeamwork(teamwork: Teamwork | undefined = {} as T
 }
 export function serializeTeamwork(writer: SerializationWriter, teamwork: Teamwork | undefined = {} as Teamwork) : void {
         serializeEntity(writer, teamwork)
-        writer.writeCollectionOfObjectValues<DeletedTeam>("deletedTeams", teamwork.deletedTeams, );
-        writer.writeObjectValue<TeamsAppSettings>("teamsAppSettings", teamwork.teamsAppSettings, );
-        writer.writeCollectionOfObjectValues<WorkforceIntegration>("workforceIntegrations", teamwork.workforceIntegrations, );
+        writer.writeCollectionOfObjectValues<DeletedTeam>("deletedTeams", teamwork.deletedTeams, serializeDeletedTeam);
+        writer.writeObjectValue<TeamsAppSettings>("teamsAppSettings", teamwork.teamsAppSettings, serializeTeamsAppSettings);
+        writer.writeCollectionOfObjectValues<WorkforceIntegration>("workforceIntegrations", teamwork.workforceIntegrations, serializeWorkforceIntegration);
 }
 export interface Teamwork extends Entity, Parsable {
     /**

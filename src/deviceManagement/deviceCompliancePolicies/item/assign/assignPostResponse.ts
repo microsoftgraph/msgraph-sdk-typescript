@@ -23,7 +23,7 @@ export function deserializeIntoAssignPostResponse(assignPostResponse: AssignPost
 }
 export function serializeAssignPostResponse(writer: SerializationWriter, assignPostResponse: AssignPostResponse | undefined = {} as AssignPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, assignPostResponse)
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("value", assignPostResponse.value, );
+        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("value", assignPostResponse.value, serializeDeviceCompliancePolicyAssignment);
 }
 // tslint:enable
 // eslint-enable

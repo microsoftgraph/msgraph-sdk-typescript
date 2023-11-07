@@ -24,7 +24,7 @@ export function deserializeIntoDbcsPostRequestBody(dbcsPostRequestBody: DbcsPost
     }
 }
 export function serializeDbcsPostRequestBody(writer: SerializationWriter, dbcsPostRequestBody: DbcsPostRequestBody | undefined = {} as DbcsPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", dbcsPostRequestBody.text, );
+        writer.writeObjectValue<Json>("text", dbcsPostRequestBody.text, serializeJson);
         writer.writeAdditionalData(dbcsPostRequestBody.additionalData);
 }
 // tslint:enable

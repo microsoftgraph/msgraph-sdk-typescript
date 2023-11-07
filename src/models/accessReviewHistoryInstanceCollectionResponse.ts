@@ -23,7 +23,7 @@ export function deserializeIntoAccessReviewHistoryInstanceCollectionResponse(acc
 }
 export function serializeAccessReviewHistoryInstanceCollectionResponse(writer: SerializationWriter, accessReviewHistoryInstanceCollectionResponse: AccessReviewHistoryInstanceCollectionResponse | undefined = {} as AccessReviewHistoryInstanceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessReviewHistoryInstanceCollectionResponse)
-        writer.writeCollectionOfObjectValues<AccessReviewHistoryInstance>("value", accessReviewHistoryInstanceCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AccessReviewHistoryInstance>("value", accessReviewHistoryInstanceCollectionResponse.value, serializeAccessReviewHistoryInstance);
 }
 // tslint:enable
 // eslint-enable

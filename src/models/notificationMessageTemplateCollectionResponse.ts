@@ -23,7 +23,7 @@ export interface NotificationMessageTemplateCollectionResponse extends BaseColle
 }
 export function serializeNotificationMessageTemplateCollectionResponse(writer: SerializationWriter, notificationMessageTemplateCollectionResponse: NotificationMessageTemplateCollectionResponse | undefined = {} as NotificationMessageTemplateCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, notificationMessageTemplateCollectionResponse)
-        writer.writeCollectionOfObjectValues<NotificationMessageTemplate>("value", notificationMessageTemplateCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<NotificationMessageTemplate>("value", notificationMessageTemplateCollectionResponse.value, serializeNotificationMessageTemplate);
 }
 // tslint:enable
 // eslint-enable

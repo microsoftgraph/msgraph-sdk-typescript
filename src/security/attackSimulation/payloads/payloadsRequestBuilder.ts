@@ -98,9 +98,10 @@ export class PayloadsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/payloads{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get payloads from security
+     * Get a list of payloads for attack simulation campaigns. This operation expects the mandatory parameter source to filter and query the respective data source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PayloadCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-payloads?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PayloadsRequestBuilderGetRequestConfiguration | undefined) : Promise<PayloadCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -129,7 +130,7 @@ export class PayloadsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Payload>(requestInfo, createPayloadFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get payloads from security
+     * Get a list of payloads for attack simulation campaigns. This operation expects the mandatory parameter source to filter and query the respective data source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

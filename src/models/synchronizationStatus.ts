@@ -33,15 +33,15 @@ export function serializeSynchronizationStatus(writer: SerializationWriter, sync
         writer.writeEnumValue<SynchronizationStatusCode>("code", synchronizationStatus.code);
         writer.writeNumberValue("countSuccessiveCompleteFailures", synchronizationStatus.countSuccessiveCompleteFailures);
         writer.writeBooleanValue("escrowsPruned", synchronizationStatus.escrowsPruned);
-        writer.writeObjectValue<SynchronizationTaskExecution>("lastExecution", synchronizationStatus.lastExecution, );
-        writer.writeObjectValue<SynchronizationTaskExecution>("lastSuccessfulExecution", synchronizationStatus.lastSuccessfulExecution, );
-        writer.writeObjectValue<SynchronizationTaskExecution>("lastSuccessfulExecutionWithExports", synchronizationStatus.lastSuccessfulExecutionWithExports, );
+        writer.writeObjectValue<SynchronizationTaskExecution>("lastExecution", synchronizationStatus.lastExecution, serializeSynchronizationTaskExecution);
+        writer.writeObjectValue<SynchronizationTaskExecution>("lastSuccessfulExecution", synchronizationStatus.lastSuccessfulExecution, serializeSynchronizationTaskExecution);
+        writer.writeObjectValue<SynchronizationTaskExecution>("lastSuccessfulExecutionWithExports", synchronizationStatus.lastSuccessfulExecutionWithExports, serializeSynchronizationTaskExecution);
         writer.writeStringValue("@odata.type", synchronizationStatus.odataType);
-        writer.writeCollectionOfObjectValues<SynchronizationProgress>("progress", synchronizationStatus.progress, );
-        writer.writeObjectValue<SynchronizationQuarantine>("quarantine", synchronizationStatus.quarantine, );
+        writer.writeCollectionOfObjectValues<SynchronizationProgress>("progress", synchronizationStatus.progress, serializeSynchronizationProgress);
+        writer.writeObjectValue<SynchronizationQuarantine>("quarantine", synchronizationStatus.quarantine, serializeSynchronizationQuarantine);
         writer.writeDateValue("steadyStateFirstAchievedTime", synchronizationStatus.steadyStateFirstAchievedTime);
         writer.writeDateValue("steadyStateLastAchievedTime", synchronizationStatus.steadyStateLastAchievedTime);
-        writer.writeCollectionOfObjectValues<StringKeyLongValuePair>("synchronizedEntryCountByType", synchronizationStatus.synchronizedEntryCountByType, );
+        writer.writeCollectionOfObjectValues<StringKeyLongValuePair>("synchronizedEntryCountByType", synchronizationStatus.synchronizedEntryCountByType, serializeStringKeyLongValuePair);
         writer.writeStringValue("troubleshootingUrl", synchronizationStatus.troubleshootingUrl);
         writer.writeAdditionalData(synchronizationStatus.additionalData);
 }

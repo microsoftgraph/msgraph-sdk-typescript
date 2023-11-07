@@ -56,12 +56,14 @@ export class BackgroundImageRequestBuilder extends BaseRequestBuilder {
     /**
      * Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.
      * @param body Binary request body
+     * @param contentType The request body content type.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
      */
-    public put(body: ArrayBuffer | undefined, requestConfiguration?: BackgroundImageRequestBuilderPutRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
+    public put(body: ArrayBuffer | undefined, contentType: string, requestConfiguration?: BackgroundImageRequestBuilderPutRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
+        if(!contentType) throw new Error("contentType cannot be undefined");
         const requestInfo = this.toPutRequestInformation(
-            body, requestConfiguration
+            body, contentType, requestConfiguration
         );
         const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -83,17 +85,19 @@ export class BackgroundImageRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/octet-stream, application/json, application/json");
+        requestInfo.tryAddRequestHeaders("Accept", "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff, application/json, application/json");
         return requestInfo;
     };
     /**
      * Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.
      * @param body Binary request body
+     * @param contentType The request body content type.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPutRequestInformation(body: ArrayBuffer | undefined, requestConfiguration?: BackgroundImageRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: ArrayBuffer | undefined, contentType: string, requestConfiguration?: BackgroundImageRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
+        if(!contentType) throw new Error("contentType cannot be undefined");
         const requestInfo = new RequestInformation();
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
@@ -103,7 +107,7 @@ export class BackgroundImageRequestBuilder extends BaseRequestBuilder {
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PUT;
         requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
-        requestInfo.setStreamContent(body, "application/octet-stream");
+        requestInfo.setStreamContent(body, contentType);
         return requestInfo;
     };
     /**

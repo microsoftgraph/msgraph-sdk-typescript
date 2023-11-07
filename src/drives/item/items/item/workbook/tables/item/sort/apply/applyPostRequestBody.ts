@@ -34,7 +34,7 @@ export function deserializeIntoApplyPostRequestBody(applyPostRequestBody: ApplyP
     }
 }
 export function serializeApplyPostRequestBody(writer: SerializationWriter, applyPostRequestBody: ApplyPostRequestBody | undefined = {} as ApplyPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<WorkbookSortField>("fields", applyPostRequestBody.fields, );
+        writer.writeCollectionOfObjectValues<WorkbookSortField>("fields", applyPostRequestBody.fields, serializeWorkbookSortField);
         writer.writeBooleanValue("matchCase", applyPostRequestBody.matchCase);
         writer.writeStringValue("method", applyPostRequestBody.method);
         writer.writeAdditionalData(applyPostRequestBody.additionalData);

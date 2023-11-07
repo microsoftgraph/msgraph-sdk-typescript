@@ -23,7 +23,7 @@ export interface ManagedIOSLobAppCollectionResponse extends BaseCollectionPagina
 }
 export function serializeManagedIOSLobAppCollectionResponse(writer: SerializationWriter, managedIOSLobAppCollectionResponse: ManagedIOSLobAppCollectionResponse | undefined = {} as ManagedIOSLobAppCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, managedIOSLobAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedIOSLobApp>("value", managedIOSLobAppCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ManagedIOSLobApp>("value", managedIOSLobAppCollectionResponse.value, serializeManagedIOSLobApp);
 }
 // tslint:enable
 // eslint-enable

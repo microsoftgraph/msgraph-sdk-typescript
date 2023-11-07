@@ -94,7 +94,7 @@ export interface DriveItem extends BaseItem, Parsable {
      */
     content?: string;
     /**
-     * An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.
+     * An eTag for the content of the item. This eTag isn't changed if only the metadata is changed. Note This property isn't returned if the item is a folder. Read-only.
      */
     cTag?: string;
     /**
@@ -146,7 +146,7 @@ export interface DriveItem extends BaseItem, Parsable {
      */
     photo?: Photo;
     /**
-     * Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only.
+     * Provides information about the published or checked-out state of an item, in locations that support such actions. This property isn't returned by default. Read-only.
      */
     publication?: PublicationFacet;
     /**
@@ -162,7 +162,7 @@ export interface DriveItem extends BaseItem, Parsable {
      */
     searchResult?: SearchResult;
     /**
-     * Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
+     * Indicates that the item was shared with others and provides information about the shared state of the item. Read-only.
      */
     shared?: Shared;
     /**
@@ -182,7 +182,7 @@ export interface DriveItem extends BaseItem, Parsable {
      */
     subscriptions?: Subscription[];
     /**
-     * Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.
+     * Collection of [thumbnailSet][] objects associated with the item. For more information, see [getting thumbnails][]. Read-only. Nullable.
      */
     thumbnails?: ThumbnailSet[];
     /**
@@ -198,44 +198,44 @@ export interface DriveItem extends BaseItem, Parsable {
      */
     webDavUrl?: string;
     /**
-     * For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
+     * For files that are Excel spreadsheets, access to the workbook API to work with the spreadsheet's contents. Nullable.
      */
     workbook?: Workbook;
 }
 export function serializeDriveItem(writer: SerializationWriter, driveItem: DriveItem | undefined = {} as DriveItem) : void {
         serializeBaseItem(writer, driveItem)
-        writer.writeObjectValue<ItemAnalytics>("analytics", driveItem.analytics, );
-        writer.writeObjectValue<Audio>("audio", driveItem.audio, );
-        writer.writeObjectValue<Bundle>("bundle", driveItem.bundle, );
-        writer.writeCollectionOfObjectValues<DriveItem>("children", driveItem.children, );
+        writer.writeObjectValue<ItemAnalytics>("analytics", driveItem.analytics, serializeItemAnalytics);
+        writer.writeObjectValue<Audio>("audio", driveItem.audio, serializeAudio);
+        writer.writeObjectValue<Bundle>("bundle", driveItem.bundle, serializeBundle);
+        writer.writeCollectionOfObjectValues<DriveItem>("children", driveItem.children, serializeDriveItem);
         writer.writeStringValue("content", driveItem.content);
         writer.writeStringValue("cTag", driveItem.cTag);
-        writer.writeObjectValue<Deleted>("deleted", driveItem.deleted, );
-        writer.writeObjectValue<File>("file", driveItem.file, );
-        writer.writeObjectValue<FileSystemInfo>("fileSystemInfo", driveItem.fileSystemInfo, );
-        writer.writeObjectValue<Folder>("folder", driveItem.folder, );
-        writer.writeObjectValue<Image>("image", driveItem.image, );
-        writer.writeObjectValue<ListItem>("listItem", driveItem.listItem, );
-        writer.writeObjectValue<GeoCoordinates>("location", driveItem.location, );
-        writer.writeObjectValue<Malware>("malware", driveItem.malware, );
-        writer.writeObjectValue<PackageEscaped>("package", driveItem.packageEscaped, );
-        writer.writeObjectValue<PendingOperations>("pendingOperations", driveItem.pendingOperations, );
-        writer.writeCollectionOfObjectValues<Permission>("permissions", driveItem.permissions, );
-        writer.writeObjectValue<Photo>("photo", driveItem.photo, );
-        writer.writeObjectValue<PublicationFacet>("publication", driveItem.publication, );
-        writer.writeObjectValue<RemoteItem>("remoteItem", driveItem.remoteItem, );
-        writer.writeObjectValue<Root>("root", driveItem.root, );
-        writer.writeObjectValue<SearchResult>("searchResult", driveItem.searchResult, );
-        writer.writeObjectValue<Shared>("shared", driveItem.shared, );
-        writer.writeObjectValue<SharepointIds>("sharepointIds", driveItem.sharepointIds, );
+        writer.writeObjectValue<Deleted>("deleted", driveItem.deleted, serializeDeleted);
+        writer.writeObjectValue<File>("file", driveItem.file, serializeFile);
+        writer.writeObjectValue<FileSystemInfo>("fileSystemInfo", driveItem.fileSystemInfo, serializeFileSystemInfo);
+        writer.writeObjectValue<Folder>("folder", driveItem.folder, serializeFolder);
+        writer.writeObjectValue<Image>("image", driveItem.image, serializeImage);
+        writer.writeObjectValue<ListItem>("listItem", driveItem.listItem, serializeListItem);
+        writer.writeObjectValue<GeoCoordinates>("location", driveItem.location, serializeGeoCoordinates);
+        writer.writeObjectValue<Malware>("malware", driveItem.malware, serializeMalware);
+        writer.writeObjectValue<PackageEscaped>("package", driveItem.packageEscaped, serializePackageEscaped);
+        writer.writeObjectValue<PendingOperations>("pendingOperations", driveItem.pendingOperations, serializePendingOperations);
+        writer.writeCollectionOfObjectValues<Permission>("permissions", driveItem.permissions, serializePermission);
+        writer.writeObjectValue<Photo>("photo", driveItem.photo, serializePhoto);
+        writer.writeObjectValue<PublicationFacet>("publication", driveItem.publication, serializePublicationFacet);
+        writer.writeObjectValue<RemoteItem>("remoteItem", driveItem.remoteItem, serializeRemoteItem);
+        writer.writeObjectValue<Root>("root", driveItem.root, serializeRoot);
+        writer.writeObjectValue<SearchResult>("searchResult", driveItem.searchResult, serializeSearchResult);
+        writer.writeObjectValue<Shared>("shared", driveItem.shared, serializeShared);
+        writer.writeObjectValue<SharepointIds>("sharepointIds", driveItem.sharepointIds, serializeSharepointIds);
         writer.writeNumberValue("size", driveItem.size);
-        writer.writeObjectValue<SpecialFolder>("specialFolder", driveItem.specialFolder, );
-        writer.writeCollectionOfObjectValues<Subscription>("subscriptions", driveItem.subscriptions, );
-        writer.writeCollectionOfObjectValues<ThumbnailSet>("thumbnails", driveItem.thumbnails, );
-        writer.writeCollectionOfObjectValues<DriveItemVersion>("versions", driveItem.versions, );
-        writer.writeObjectValue<Video>("video", driveItem.video, );
+        writer.writeObjectValue<SpecialFolder>("specialFolder", driveItem.specialFolder, serializeSpecialFolder);
+        writer.writeCollectionOfObjectValues<Subscription>("subscriptions", driveItem.subscriptions, serializeSubscription);
+        writer.writeCollectionOfObjectValues<ThumbnailSet>("thumbnails", driveItem.thumbnails, serializeThumbnailSet);
+        writer.writeCollectionOfObjectValues<DriveItemVersion>("versions", driveItem.versions, serializeDriveItemVersion);
+        writer.writeObjectValue<Video>("video", driveItem.video, serializeVideo);
         writer.writeStringValue("webDavUrl", driveItem.webDavUrl);
-        writer.writeObjectValue<Workbook>("workbook", driveItem.workbook, );
+        writer.writeObjectValue<Workbook>("workbook", driveItem.workbook, serializeWorkbook);
 }
 // tslint:enable
 // eslint-enable

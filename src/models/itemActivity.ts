@@ -40,10 +40,10 @@ export interface ItemActivity extends Entity, Parsable {
 }
 export function serializeItemActivity(writer: SerializationWriter, itemActivity: ItemActivity | undefined = {} as ItemActivity) : void {
         serializeEntity(writer, itemActivity)
-        writer.writeObjectValue<AccessAction>("access", itemActivity.access, );
+        writer.writeObjectValue<AccessAction>("access", itemActivity.access, serializeAccessAction);
         writer.writeDateValue("activityDateTime", itemActivity.activityDateTime);
-        writer.writeObjectValue<IdentitySet>("actor", itemActivity.actor, );
-        writer.writeObjectValue<DriveItem>("driveItem", itemActivity.driveItem, );
+        writer.writeObjectValue<IdentitySet>("actor", itemActivity.actor, serializeIdentitySet);
+        writer.writeObjectValue<DriveItem>("driveItem", itemActivity.driveItem, serializeDriveItem);
 }
 // tslint:enable
 // eslint-enable

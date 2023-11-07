@@ -29,8 +29,8 @@ export interface Hex2BinPostRequestBody extends AdditionalDataHolder, Parsable {
     places?: Json;
 }
 export function serializeHex2BinPostRequestBody(writer: SerializationWriter, hex2BinPostRequestBody: Hex2BinPostRequestBody | undefined = {} as Hex2BinPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", hex2BinPostRequestBody.number, );
-        writer.writeObjectValue<Json>("places", hex2BinPostRequestBody.places, );
+        writer.writeObjectValue<Json>("number", hex2BinPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("places", hex2BinPostRequestBody.places, serializeJson);
         writer.writeAdditionalData(hex2BinPostRequestBody.additionalData);
 }
 // tslint:enable

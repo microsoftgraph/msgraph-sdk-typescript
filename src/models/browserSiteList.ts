@@ -73,13 +73,13 @@ export function serializeBrowserSiteList(writer: SerializationWriter, browserSit
         serializeEntity(writer, browserSiteList)
         writer.writeStringValue("description", browserSiteList.description);
         writer.writeStringValue("displayName", browserSiteList.displayName);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSiteList.lastModifiedBy, );
+        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSiteList.lastModifiedBy, serializeIdentitySet);
         writer.writeDateValue("lastModifiedDateTime", browserSiteList.lastModifiedDateTime);
-        writer.writeObjectValue<IdentitySet>("publishedBy", browserSiteList.publishedBy, );
+        writer.writeObjectValue<IdentitySet>("publishedBy", browserSiteList.publishedBy, serializeIdentitySet);
         writer.writeDateValue("publishedDateTime", browserSiteList.publishedDateTime);
         writer.writeStringValue("revision", browserSiteList.revision);
-        writer.writeCollectionOfObjectValues<BrowserSharedCookie>("sharedCookies", browserSiteList.sharedCookies, );
-        writer.writeCollectionOfObjectValues<BrowserSite>("sites", browserSiteList.sites, );
+        writer.writeCollectionOfObjectValues<BrowserSharedCookie>("sharedCookies", browserSiteList.sharedCookies, serializeBrowserSharedCookie);
+        writer.writeCollectionOfObjectValues<BrowserSite>("sites", browserSiteList.sites, serializeBrowserSite);
         writer.writeEnumValue<BrowserSiteListStatus>("status", browserSiteList.status);
 }
 // tslint:enable

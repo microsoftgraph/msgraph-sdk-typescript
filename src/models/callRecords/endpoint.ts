@@ -45,7 +45,7 @@ export interface Endpoint extends AdditionalDataHolder, Parsable {
 }
 export function serializeEndpoint(writer: SerializationWriter, endpoint: Endpoint | undefined = {} as Endpoint) : void {
         writer.writeStringValue("@odata.type", endpoint.odataType);
-        writer.writeObjectValue<UserAgent>("userAgent", endpoint.userAgent, );
+        writer.writeObjectValue<UserAgent>("userAgent", endpoint.userAgent, serializeUserAgent);
         writer.writeAdditionalData(endpoint.additionalData);
 }
 // tslint:enable

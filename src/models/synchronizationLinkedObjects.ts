@@ -17,10 +17,10 @@ export function deserializeIntoSynchronizationLinkedObjects(synchronizationLinke
     }
 }
 export function serializeSynchronizationLinkedObjects(writer: SerializationWriter, synchronizationLinkedObjects: SynchronizationLinkedObjects | undefined = {} as SynchronizationLinkedObjects) : void {
-        writer.writeObjectValue<SynchronizationJobSubject>("manager", synchronizationLinkedObjects.manager, );
-        writer.writeCollectionOfObjectValues<SynchronizationJobSubject>("members", synchronizationLinkedObjects.members, );
+        writer.writeObjectValue<SynchronizationJobSubject>("manager", synchronizationLinkedObjects.manager, serializeSynchronizationJobSubject);
+        writer.writeCollectionOfObjectValues<SynchronizationJobSubject>("members", synchronizationLinkedObjects.members, serializeSynchronizationJobSubject);
         writer.writeStringValue("@odata.type", synchronizationLinkedObjects.odataType);
-        writer.writeCollectionOfObjectValues<SynchronizationJobSubject>("owners", synchronizationLinkedObjects.owners, );
+        writer.writeCollectionOfObjectValues<SynchronizationJobSubject>("owners", synchronizationLinkedObjects.owners, serializeSynchronizationJobSubject);
         writer.writeAdditionalData(synchronizationLinkedObjects.additionalData);
 }
 export interface SynchronizationLinkedObjects extends AdditionalDataHolder, Parsable {

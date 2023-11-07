@@ -17,7 +17,7 @@ export function deserializeIntoWorkbookChartSeriesCollectionResponse(workbookCha
 }
 export function serializeWorkbookChartSeriesCollectionResponse(writer: SerializationWriter, workbookChartSeriesCollectionResponse: WorkbookChartSeriesCollectionResponse | undefined = {} as WorkbookChartSeriesCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, workbookChartSeriesCollectionResponse)
-        writer.writeCollectionOfObjectValues<WorkbookChartSeries>("value", workbookChartSeriesCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<WorkbookChartSeries>("value", workbookChartSeriesCollectionResponse.value, serializeWorkbookChartSeries);
 }
 export interface WorkbookChartSeriesCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

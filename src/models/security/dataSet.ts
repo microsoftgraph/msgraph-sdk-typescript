@@ -45,7 +45,7 @@ export function deserializeIntoDataSet(dataSet: DataSet | undefined = {} as Data
 }
 export function serializeDataSet(writer: SerializationWriter, dataSet: DataSet | undefined = {} as DataSet) : void {
         serializeEntity(writer, dataSet)
-        writer.writeObjectValue<IdentitySet>("createdBy", dataSet.createdBy, );
+        writer.writeObjectValue<IdentitySet>("createdBy", dataSet.createdBy, serializeIdentitySet);
         writer.writeDateValue("createdDateTime", dataSet.createdDateTime);
         writer.writeStringValue("displayName", dataSet.displayName);
 }

@@ -80,12 +80,12 @@ export function serializeAuditEvent(writer: SerializationWriter, auditEvent: Aud
         writer.writeStringValue("activityOperationType", auditEvent.activityOperationType);
         writer.writeStringValue("activityResult", auditEvent.activityResult);
         writer.writeStringValue("activityType", auditEvent.activityType);
-        writer.writeObjectValue<AuditActor>("actor", auditEvent.actor, );
+        writer.writeObjectValue<AuditActor>("actor", auditEvent.actor, serializeAuditActor);
         writer.writeStringValue("category", auditEvent.category);
         writer.writeStringValue("componentName", auditEvent.componentName);
         writer.writeGuidValue("correlationId", auditEvent.correlationId);
         writer.writeStringValue("displayName", auditEvent.displayName);
-        writer.writeCollectionOfObjectValues<AuditResource>("resources", auditEvent.resources, );
+        writer.writeCollectionOfObjectValues<AuditResource>("resources", auditEvent.resources, serializeAuditResource);
 }
 // tslint:enable
 // eslint-enable

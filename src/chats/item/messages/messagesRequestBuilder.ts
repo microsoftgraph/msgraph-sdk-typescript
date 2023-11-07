@@ -121,11 +121,11 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ChatMessageCollectionResponse>(requestInfo, createChatMessageCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Send a new chatMessage in the specified channel or a chat. This API is available in the following national cloud deployments.
+     * Send a new chatMessage in the specified chat. This API can't create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can create a chat message. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessage
-     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-post-messages?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ChatMessage, requestConfiguration?: MessagesRequestBuilderPostRequestConfiguration | undefined) : Promise<ChatMessage | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -156,7 +156,7 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Send a new chatMessage in the specified channel or a chat. This API is available in the following national cloud deployments.
+     * Send a new chatMessage in the specified chat. This API can't create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can create a chat message. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

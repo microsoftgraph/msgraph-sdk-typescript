@@ -35,8 +35,8 @@ export function deserializeIntoCustomTimeZone(customTimeZone: CustomTimeZone | u
 export function serializeCustomTimeZone(writer: SerializationWriter, customTimeZone: CustomTimeZone | undefined = {} as CustomTimeZone) : void {
         serializeTimeZoneBase(writer, customTimeZone)
         writer.writeNumberValue("bias", customTimeZone.bias);
-        writer.writeObjectValue<DaylightTimeZoneOffset>("daylightOffset", customTimeZone.daylightOffset, );
-        writer.writeObjectValue<StandardTimeZoneOffset>("standardOffset", customTimeZone.standardOffset, );
+        writer.writeObjectValue<DaylightTimeZoneOffset>("daylightOffset", customTimeZone.daylightOffset, serializeDaylightTimeZoneOffset);
+        writer.writeObjectValue<StandardTimeZoneOffset>("standardOffset", customTimeZone.standardOffset, serializeStandardTimeZoneOffset);
 }
 // tslint:enable
 // eslint-enable

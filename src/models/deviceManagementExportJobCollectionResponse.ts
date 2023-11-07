@@ -23,7 +23,7 @@ export interface DeviceManagementExportJobCollectionResponse extends BaseCollect
 }
 export function serializeDeviceManagementExportJobCollectionResponse(writer: SerializationWriter, deviceManagementExportJobCollectionResponse: DeviceManagementExportJobCollectionResponse | undefined = {} as DeviceManagementExportJobCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceManagementExportJobCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceManagementExportJob>("value", deviceManagementExportJobCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DeviceManagementExportJob>("value", deviceManagementExportJobCollectionResponse.value, serializeDeviceManagementExportJob);
 }
 // tslint:enable
 // eslint-enable

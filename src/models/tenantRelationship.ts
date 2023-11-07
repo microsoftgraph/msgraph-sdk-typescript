@@ -17,8 +17,8 @@ export function deserializeIntoTenantRelationship(tenantRelationship: TenantRela
     }
 }
 export function serializeTenantRelationship(writer: SerializationWriter, tenantRelationship: TenantRelationship | undefined = {} as TenantRelationship) : void {
-        writer.writeCollectionOfObjectValues<DelegatedAdminCustomer>("delegatedAdminCustomers", tenantRelationship.delegatedAdminCustomers, );
-        writer.writeCollectionOfObjectValues<DelegatedAdminRelationship>("delegatedAdminRelationships", tenantRelationship.delegatedAdminRelationships, );
+        writer.writeCollectionOfObjectValues<DelegatedAdminCustomer>("delegatedAdminCustomers", tenantRelationship.delegatedAdminCustomers, serializeDelegatedAdminCustomer);
+        writer.writeCollectionOfObjectValues<DelegatedAdminRelationship>("delegatedAdminRelationships", tenantRelationship.delegatedAdminRelationships, serializeDelegatedAdminRelationship);
         writer.writeStringValue("@odata.type", tenantRelationship.odataType);
         writer.writeAdditionalData(tenantRelationship.additionalData);
 }

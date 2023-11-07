@@ -23,7 +23,7 @@ export function deserializeIntoCasesRoot(casesRoot: CasesRoot | undefined = {} a
 }
 export function serializeCasesRoot(writer: SerializationWriter, casesRoot: CasesRoot | undefined = {} as CasesRoot) : void {
         serializeEntity(writer, casesRoot)
-        writer.writeCollectionOfObjectValues<EdiscoveryCase>("ediscoveryCases", casesRoot.ediscoveryCases, );
+        writer.writeCollectionOfObjectValues<EdiscoveryCase>("ediscoveryCases", casesRoot.ediscoveryCases, serializeEdiscoveryCase);
 }
 // tslint:enable
 // eslint-enable

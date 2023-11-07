@@ -42,7 +42,7 @@ export function serializeAccessPackageAssignmentApprovalSettings(writer: Seriali
         writer.writeBooleanValue("isApprovalRequiredForAdd", accessPackageAssignmentApprovalSettings.isApprovalRequiredForAdd);
         writer.writeBooleanValue("isApprovalRequiredForUpdate", accessPackageAssignmentApprovalSettings.isApprovalRequiredForUpdate);
         writer.writeStringValue("@odata.type", accessPackageAssignmentApprovalSettings.odataType);
-        writer.writeCollectionOfObjectValues<AccessPackageApprovalStage>("stages", accessPackageAssignmentApprovalSettings.stages, );
+        writer.writeCollectionOfObjectValues<AccessPackageApprovalStage>("stages", accessPackageAssignmentApprovalSettings.stages, serializeAccessPackageApprovalStage);
         writer.writeAdditionalData(accessPackageAssignmentApprovalSettings.additionalData);
 }
 // tslint:enable

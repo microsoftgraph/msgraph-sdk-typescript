@@ -33,7 +33,7 @@ export interface IdentityApiConnector extends Entity, Parsable {
 }
 export function serializeIdentityApiConnector(writer: SerializationWriter, identityApiConnector: IdentityApiConnector | undefined = {} as IdentityApiConnector) : void {
         serializeEntity(writer, identityApiConnector)
-        writer.writeObjectValue<ApiAuthenticationConfigurationBase>("authenticationConfiguration", identityApiConnector.authenticationConfiguration, );
+        writer.writeObjectValue<ApiAuthenticationConfigurationBase>("authenticationConfiguration", identityApiConnector.authenticationConfiguration, serializeApiAuthenticationConfigurationBase);
         writer.writeStringValue("displayName", identityApiConnector.displayName);
         writer.writeStringValue("targetUrl", identityApiConnector.targetUrl);
 }

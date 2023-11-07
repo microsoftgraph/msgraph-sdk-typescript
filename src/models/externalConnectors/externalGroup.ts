@@ -35,7 +35,7 @@ export function serializeExternalGroup(writer: SerializationWriter, externalGrou
         serializeEntity(writer, externalGroup)
         writer.writeStringValue("description", externalGroup.description);
         writer.writeStringValue("displayName", externalGroup.displayName);
-        writer.writeCollectionOfObjectValues<Identity>("members", externalGroup.members, );
+        writer.writeCollectionOfObjectValues<Identity>("members", externalGroup.members, serializeIdentity);
 }
 // tslint:enable
 // eslint-enable

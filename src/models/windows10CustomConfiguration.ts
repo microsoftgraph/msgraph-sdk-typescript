@@ -17,7 +17,7 @@ export function deserializeIntoWindows10CustomConfiguration(windows10CustomConfi
 }
 export function serializeWindows10CustomConfiguration(writer: SerializationWriter, windows10CustomConfiguration: Windows10CustomConfiguration | undefined = {} as Windows10CustomConfiguration) : void {
         serializeDeviceConfiguration(writer, windows10CustomConfiguration)
-        writer.writeCollectionOfObjectValues<OmaSetting>("omaSettings", windows10CustomConfiguration.omaSettings, );
+        writer.writeCollectionOfObjectValues<OmaSetting>("omaSettings", windows10CustomConfiguration.omaSettings, serializeOmaSetting);
 }
 export interface Windows10CustomConfiguration extends DeviceConfiguration, Parsable {
     /**

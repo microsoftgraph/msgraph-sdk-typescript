@@ -23,7 +23,7 @@ export function deserializeIntoAndroidCustomConfiguration(androidCustomConfigura
 }
 export function serializeAndroidCustomConfiguration(writer: SerializationWriter, androidCustomConfiguration: AndroidCustomConfiguration | undefined = {} as AndroidCustomConfiguration) : void {
         serializeDeviceConfiguration(writer, androidCustomConfiguration)
-        writer.writeCollectionOfObjectValues<OmaSetting>("omaSettings", androidCustomConfiguration.omaSettings, );
+        writer.writeCollectionOfObjectValues<OmaSetting>("omaSettings", androidCustomConfiguration.omaSettings, serializeOmaSetting);
 }
 // tslint:enable
 // eslint-enable

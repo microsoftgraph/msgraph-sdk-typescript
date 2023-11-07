@@ -29,8 +29,8 @@ export function deserializeIntoChoosePostRequestBody(choosePostRequestBody: Choo
     }
 }
 export function serializeChoosePostRequestBody(writer: SerializationWriter, choosePostRequestBody: ChoosePostRequestBody | undefined = {} as ChoosePostRequestBody) : void {
-        writer.writeObjectValue<Json>("indexNum", choosePostRequestBody.indexNum, );
-        writer.writeObjectValue<Json>("values", choosePostRequestBody.values, );
+        writer.writeObjectValue<Json>("indexNum", choosePostRequestBody.indexNum, serializeJson);
+        writer.writeObjectValue<Json>("values", choosePostRequestBody.values, serializeJson);
         writer.writeAdditionalData(choosePostRequestBody.additionalData);
 }
 // tslint:enable

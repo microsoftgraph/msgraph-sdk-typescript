@@ -50,7 +50,7 @@ export function deserializeIntoApprovalSettings(approvalSettings: ApprovalSettin
 }
 export function serializeApprovalSettings(writer: SerializationWriter, approvalSettings: ApprovalSettings | undefined = {} as ApprovalSettings) : void {
         writer.writeStringValue("approvalMode", approvalSettings.approvalMode);
-        writer.writeCollectionOfObjectValues<UnifiedApprovalStage>("approvalStages", approvalSettings.approvalStages, );
+        writer.writeCollectionOfObjectValues<UnifiedApprovalStage>("approvalStages", approvalSettings.approvalStages, serializeUnifiedApprovalStage);
         writer.writeBooleanValue("isApprovalRequired", approvalSettings.isApprovalRequired);
         writer.writeBooleanValue("isApprovalRequiredForExtension", approvalSettings.isApprovalRequiredForExtension);
         writer.writeBooleanValue("isRequestorJustificationRequired", approvalSettings.isRequestorJustificationRequired);

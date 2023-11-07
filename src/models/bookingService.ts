@@ -128,12 +128,12 @@ export function deserializeIntoBookingService(bookingService: BookingService | u
 export function serializeBookingService(writer: SerializationWriter, bookingService: BookingService | undefined = {} as BookingService) : void {
         serializeEntity(writer, bookingService)
         writer.writeStringValue("additionalInformation", bookingService.additionalInformation);
-        writer.writeCollectionOfObjectValues<BookingQuestionAssignment>("customQuestions", bookingService.customQuestions, );
+        writer.writeCollectionOfObjectValues<BookingQuestionAssignment>("customQuestions", bookingService.customQuestions, serializeBookingQuestionAssignment);
         writer.writeDurationValue("defaultDuration", bookingService.defaultDuration);
-        writer.writeObjectValue<Location>("defaultLocation", bookingService.defaultLocation, );
+        writer.writeObjectValue<Location>("defaultLocation", bookingService.defaultLocation, serializeLocation);
         writer.writeNumberValue("defaultPrice", bookingService.defaultPrice);
         writer.writeEnumValue<BookingPriceType>("defaultPriceType", bookingService.defaultPriceType);
-        writer.writeCollectionOfObjectValues<BookingReminder>("defaultReminders", bookingService.defaultReminders, );
+        writer.writeCollectionOfObjectValues<BookingReminder>("defaultReminders", bookingService.defaultReminders, serializeBookingReminder);
         writer.writeStringValue("description", bookingService.description);
         writer.writeStringValue("displayName", bookingService.displayName);
         writer.writeBooleanValue("isAnonymousJoinEnabled", bookingService.isAnonymousJoinEnabled);
@@ -144,7 +144,7 @@ export function serializeBookingService(writer: SerializationWriter, bookingServ
         writer.writeStringValue("notes", bookingService.notes);
         writer.writeDurationValue("postBuffer", bookingService.postBuffer);
         writer.writeDurationValue("preBuffer", bookingService.preBuffer);
-        writer.writeObjectValue<BookingSchedulingPolicy>("schedulingPolicy", bookingService.schedulingPolicy, );
+        writer.writeObjectValue<BookingSchedulingPolicy>("schedulingPolicy", bookingService.schedulingPolicy, serializeBookingSchedulingPolicy);
         writer.writeBooleanValue("smsNotificationsEnabled", bookingService.smsNotificationsEnabled);
         writer.writeCollectionOfPrimitiveValues<string>("staffMemberIds", bookingService.staffMemberIds);
 }

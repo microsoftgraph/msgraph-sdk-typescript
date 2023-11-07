@@ -21,11 +21,11 @@ export interface ProfileCardAnnotation extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The displayName property
+     * If present, the value of this field is used by the profile card as the default property label in the experience (for example, 'Cost Center').
      */
     displayName?: string;
     /**
-     * The localizations property
+     * Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a nb-NO client gets 'Kostnadssenter' as the attribute label, rather than 'Cost Center.'
      */
     localizations?: DisplayNameLocalization[];
     /**
@@ -35,7 +35,7 @@ export interface ProfileCardAnnotation extends AdditionalDataHolder, Parsable {
 }
 export function serializeProfileCardAnnotation(writer: SerializationWriter, profileCardAnnotation: ProfileCardAnnotation | undefined = {} as ProfileCardAnnotation) : void {
         writer.writeStringValue("displayName", profileCardAnnotation.displayName);
-        writer.writeCollectionOfObjectValues<DisplayNameLocalization>("localizations", profileCardAnnotation.localizations, );
+        writer.writeCollectionOfObjectValues<DisplayNameLocalization>("localizations", profileCardAnnotation.localizations, serializeDisplayNameLocalization);
         writer.writeStringValue("@odata.type", profileCardAnnotation.odataType);
         writer.writeAdditionalData(profileCardAnnotation.additionalData);
 }

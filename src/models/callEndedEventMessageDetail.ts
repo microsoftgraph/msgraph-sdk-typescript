@@ -48,8 +48,8 @@ export function serializeCallEndedEventMessageDetail(writer: SerializationWriter
         writer.writeDurationValue("callDuration", callEndedEventMessageDetail.callDuration);
         writer.writeEnumValue<TeamworkCallEventType>("callEventType", callEndedEventMessageDetail.callEventType);
         writer.writeStringValue("callId", callEndedEventMessageDetail.callId);
-        writer.writeCollectionOfObjectValues<CallParticipantInfo>("callParticipants", callEndedEventMessageDetail.callParticipants, );
-        writer.writeObjectValue<IdentitySet>("initiator", callEndedEventMessageDetail.initiator, );
+        writer.writeCollectionOfObjectValues<CallParticipantInfo>("callParticipants", callEndedEventMessageDetail.callParticipants, serializeCallParticipantInfo);
+        writer.writeObjectValue<IdentitySet>("initiator", callEndedEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

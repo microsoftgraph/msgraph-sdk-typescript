@@ -46,7 +46,7 @@ export function deserializeIntoAuditResource(auditResource: AuditResource | unde
 export function serializeAuditResource(writer: SerializationWriter, auditResource: AuditResource | undefined = {} as AuditResource) : void {
         writer.writeStringValue("auditResourceType", auditResource.auditResourceType);
         writer.writeStringValue("displayName", auditResource.displayName);
-        writer.writeCollectionOfObjectValues<AuditProperty>("modifiedProperties", auditResource.modifiedProperties, );
+        writer.writeCollectionOfObjectValues<AuditProperty>("modifiedProperties", auditResource.modifiedProperties, serializeAuditProperty);
         writer.writeStringValue("@odata.type", auditResource.odataType);
         writer.writeStringValue("resourceId", auditResource.resourceId);
         writer.writeAdditionalData(auditResource.additionalData);

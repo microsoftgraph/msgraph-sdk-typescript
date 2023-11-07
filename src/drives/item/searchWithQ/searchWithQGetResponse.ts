@@ -23,7 +23,7 @@ export interface SearchWithQGetResponse extends BaseCollectionPaginationCountRes
 }
 export function serializeSearchWithQGetResponse(writer: SerializationWriter, searchWithQGetResponse: SearchWithQGetResponse | undefined = {} as SearchWithQGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, searchWithQGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", searchWithQGetResponse.value, );
+        writer.writeCollectionOfObjectValues<DriveItem>("value", searchWithQGetResponse.value, serializeDriveItem);
 }
 // tslint:enable
 // eslint-enable

@@ -52,10 +52,10 @@ export interface PrivilegedAccessGroupEligibilitySchedule extends Parsable, Priv
 export function serializePrivilegedAccessGroupEligibilitySchedule(writer: SerializationWriter, privilegedAccessGroupEligibilitySchedule: PrivilegedAccessGroupEligibilitySchedule | undefined = {} as PrivilegedAccessGroupEligibilitySchedule) : void {
         serializePrivilegedAccessSchedule(writer, privilegedAccessGroupEligibilitySchedule)
         writer.writeEnumValue<PrivilegedAccessGroupRelationships>("accessId", privilegedAccessGroupEligibilitySchedule.accessId);
-        writer.writeObjectValue<Group>("group", privilegedAccessGroupEligibilitySchedule.group, );
+        writer.writeObjectValue<Group>("group", privilegedAccessGroupEligibilitySchedule.group, serializeGroup);
         writer.writeStringValue("groupId", privilegedAccessGroupEligibilitySchedule.groupId);
         writer.writeEnumValue<PrivilegedAccessGroupMemberType>("memberType", privilegedAccessGroupEligibilitySchedule.memberType);
-        writer.writeObjectValue<DirectoryObject>("principal", privilegedAccessGroupEligibilitySchedule.principal, );
+        writer.writeObjectValue<DirectoryObject>("principal", privilegedAccessGroupEligibilitySchedule.principal, serializeDirectoryObject);
         writer.writeStringValue("principalId", privilegedAccessGroupEligibilitySchedule.principalId);
 }
 // tslint:enable

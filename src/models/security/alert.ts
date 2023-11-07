@@ -182,13 +182,13 @@ export function serializeAlert(writer: SerializationWriter, alert: Alert | undef
         writer.writeStringValue("assignedTo", alert.assignedTo);
         writer.writeStringValue("category", alert.category);
         writer.writeEnumValue<AlertClassification>("classification", alert.classification);
-        writer.writeCollectionOfObjectValues<AlertComment>("comments", alert.comments, );
+        writer.writeCollectionOfObjectValues<AlertComment>("comments", alert.comments, serializeAlertComment);
         writer.writeDateValue("createdDateTime", alert.createdDateTime);
         writer.writeStringValue("description", alert.description);
         writer.writeEnumValue<DetectionSource>("detectionSource", alert.detectionSource);
         writer.writeStringValue("detectorId", alert.detectorId);
         writer.writeEnumValue<AlertDetermination>("determination", alert.determination);
-        writer.writeCollectionOfObjectValues<AlertEvidence>("evidence", alert.evidence, );
+        writer.writeCollectionOfObjectValues<AlertEvidence>("evidence", alert.evidence, serializeAlertEvidence);
         writer.writeDateValue("firstActivityDateTime", alert.firstActivityDateTime);
         writer.writeStringValue("incidentId", alert.incidentId);
         writer.writeStringValue("incidentWebUrl", alert.incidentWebUrl);

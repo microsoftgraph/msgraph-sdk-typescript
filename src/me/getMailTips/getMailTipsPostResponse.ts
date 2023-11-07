@@ -23,7 +23,7 @@ export interface GetMailTipsPostResponse extends BaseCollectionPaginationCountRe
 }
 export function serializeGetMailTipsPostResponse(writer: SerializationWriter, getMailTipsPostResponse: GetMailTipsPostResponse | undefined = {} as GetMailTipsPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getMailTipsPostResponse)
-        writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipsPostResponse.value, );
+        writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipsPostResponse.value, serializeMailTips);
 }
 // tslint:enable
 // eslint-enable

@@ -28,12 +28,12 @@ export function deserializeIntoWorkbookRangeFormat(workbookRangeFormat: Workbook
 }
 export function serializeWorkbookRangeFormat(writer: SerializationWriter, workbookRangeFormat: WorkbookRangeFormat | undefined = {} as WorkbookRangeFormat) : void {
         serializeEntity(writer, workbookRangeFormat)
-        writer.writeCollectionOfObjectValues<WorkbookRangeBorder>("borders", workbookRangeFormat.borders, );
+        writer.writeCollectionOfObjectValues<WorkbookRangeBorder>("borders", workbookRangeFormat.borders, serializeWorkbookRangeBorder);
         writer.writeNumberValue("columnWidth", workbookRangeFormat.columnWidth);
-        writer.writeObjectValue<WorkbookRangeFill>("fill", workbookRangeFormat.fill, );
-        writer.writeObjectValue<WorkbookRangeFont>("font", workbookRangeFormat.font, );
+        writer.writeObjectValue<WorkbookRangeFill>("fill", workbookRangeFormat.fill, serializeWorkbookRangeFill);
+        writer.writeObjectValue<WorkbookRangeFont>("font", workbookRangeFormat.font, serializeWorkbookRangeFont);
         writer.writeStringValue("horizontalAlignment", workbookRangeFormat.horizontalAlignment);
-        writer.writeObjectValue<WorkbookFormatProtection>("protection", workbookRangeFormat.protection, );
+        writer.writeObjectValue<WorkbookFormatProtection>("protection", workbookRangeFormat.protection, serializeWorkbookFormatProtection);
         writer.writeNumberValue("rowHeight", workbookRangeFormat.rowHeight);
         writer.writeStringValue("verticalAlignment", workbookRangeFormat.verticalAlignment);
         writer.writeBooleanValue("wrapText", workbookRangeFormat.wrapText);

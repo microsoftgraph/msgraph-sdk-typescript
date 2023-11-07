@@ -23,7 +23,7 @@ export function deserializeIntoComplianceManagementPartnerCollectionResponse(com
 }
 export function serializeComplianceManagementPartnerCollectionResponse(writer: SerializationWriter, complianceManagementPartnerCollectionResponse: ComplianceManagementPartnerCollectionResponse | undefined = {} as ComplianceManagementPartnerCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, complianceManagementPartnerCollectionResponse)
-        writer.writeCollectionOfObjectValues<ComplianceManagementPartner>("value", complianceManagementPartnerCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ComplianceManagementPartner>("value", complianceManagementPartnerCollectionResponse.value, serializeComplianceManagementPartner);
 }
 // tslint:enable
 // eslint-enable

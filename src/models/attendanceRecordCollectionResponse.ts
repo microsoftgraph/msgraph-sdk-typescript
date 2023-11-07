@@ -23,7 +23,7 @@ export function deserializeIntoAttendanceRecordCollectionResponse(attendanceReco
 }
 export function serializeAttendanceRecordCollectionResponse(writer: SerializationWriter, attendanceRecordCollectionResponse: AttendanceRecordCollectionResponse | undefined = {} as AttendanceRecordCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, attendanceRecordCollectionResponse)
-        writer.writeCollectionOfObjectValues<AttendanceRecord>("value", attendanceRecordCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AttendanceRecord>("value", attendanceRecordCollectionResponse.value, serializeAttendanceRecord);
 }
 // tslint:enable
 // eslint-enable

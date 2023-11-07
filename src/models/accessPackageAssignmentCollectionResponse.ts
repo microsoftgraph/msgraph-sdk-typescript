@@ -23,7 +23,7 @@ export function deserializeIntoAccessPackageAssignmentCollectionResponse(accessP
 }
 export function serializeAccessPackageAssignmentCollectionResponse(writer: SerializationWriter, accessPackageAssignmentCollectionResponse: AccessPackageAssignmentCollectionResponse | undefined = {} as AccessPackageAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessPackageAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", accessPackageAssignmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", accessPackageAssignmentCollectionResponse.value, serializeAccessPackageAssignment);
 }
 // tslint:enable
 // eslint-enable

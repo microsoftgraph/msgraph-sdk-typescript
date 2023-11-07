@@ -23,7 +23,7 @@ export function deserializeIntoAccessReviewScheduleDefinitionCollectionResponse(
 }
 export function serializeAccessReviewScheduleDefinitionCollectionResponse(writer: SerializationWriter, accessReviewScheduleDefinitionCollectionResponse: AccessReviewScheduleDefinitionCollectionResponse | undefined = {} as AccessReviewScheduleDefinitionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessReviewScheduleDefinitionCollectionResponse)
-        writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinition>("value", accessReviewScheduleDefinitionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinition>("value", accessReviewScheduleDefinitionCollectionResponse.value, serializeAccessReviewScheduleDefinition);
 }
 // tslint:enable
 // eslint-enable

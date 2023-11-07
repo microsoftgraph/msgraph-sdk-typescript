@@ -24,7 +24,7 @@ export function serializeTemporaryAccessPassAuthenticationMethodConfiguration(wr
         serializeAuthenticationMethodConfiguration(writer, temporaryAccessPassAuthenticationMethodConfiguration)
         writer.writeNumberValue("defaultLength", temporaryAccessPassAuthenticationMethodConfiguration.defaultLength);
         writer.writeNumberValue("defaultLifetimeInMinutes", temporaryAccessPassAuthenticationMethodConfiguration.defaultLifetimeInMinutes);
-        writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", temporaryAccessPassAuthenticationMethodConfiguration.includeTargets, );
+        writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", temporaryAccessPassAuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
         writer.writeBooleanValue("isUsableOnce", temporaryAccessPassAuthenticationMethodConfiguration.isUsableOnce);
         writer.writeNumberValue("maximumLifetimeInMinutes", temporaryAccessPassAuthenticationMethodConfiguration.maximumLifetimeInMinutes);
         writer.writeNumberValue("minimumLifetimeInMinutes", temporaryAccessPassAuthenticationMethodConfiguration.minimumLifetimeInMinutes);

@@ -23,7 +23,7 @@ export function deserializeIntoUnifiedRoleAssignmentScheduleInstance(unifiedRole
 }
 export function serializeUnifiedRoleAssignmentScheduleInstance(writer: SerializationWriter, unifiedRoleAssignmentScheduleInstance: UnifiedRoleAssignmentScheduleInstance | undefined = {} as UnifiedRoleAssignmentScheduleInstance) : void {
         serializeUnifiedRoleScheduleInstanceBase(writer, unifiedRoleAssignmentScheduleInstance)
-        writer.writeObjectValue<UnifiedRoleEligibilityScheduleInstance>("activatedUsing", unifiedRoleAssignmentScheduleInstance.activatedUsing, );
+        writer.writeObjectValue<UnifiedRoleEligibilityScheduleInstance>("activatedUsing", unifiedRoleAssignmentScheduleInstance.activatedUsing, serializeUnifiedRoleEligibilityScheduleInstance);
         writer.writeStringValue("assignmentType", unifiedRoleAssignmentScheduleInstance.assignmentType);
         writer.writeDateValue("endDateTime", unifiedRoleAssignmentScheduleInstance.endDateTime);
         writer.writeStringValue("memberType", unifiedRoleAssignmentScheduleInstance.memberType);

@@ -51,8 +51,8 @@ export interface PublicError extends AdditionalDataHolder, Parsable {
 }
 export function serializePublicError(writer: SerializationWriter, publicError: PublicError | undefined = {} as PublicError) : void {
         writer.writeStringValue("code", publicError.code);
-        writer.writeCollectionOfObjectValues<PublicErrorDetail>("details", publicError.details, );
-        writer.writeObjectValue<PublicInnerError>("innerError", publicError.innerError, );
+        writer.writeCollectionOfObjectValues<PublicErrorDetail>("details", publicError.details, serializePublicErrorDetail);
+        writer.writeObjectValue<PublicInnerError>("innerError", publicError.innerError, serializePublicInnerError);
         writer.writeStringValue("message", publicError.message);
         writer.writeStringValue("@odata.type", publicError.odataType);
         writer.writeStringValue("target", publicError.target);

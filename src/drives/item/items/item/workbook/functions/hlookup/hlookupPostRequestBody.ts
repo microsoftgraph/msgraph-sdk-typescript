@@ -39,10 +39,10 @@ export interface HlookupPostRequestBody extends AdditionalDataHolder, Parsable {
     tableArray?: Json;
 }
 export function serializeHlookupPostRequestBody(writer: SerializationWriter, hlookupPostRequestBody: HlookupPostRequestBody | undefined = {} as HlookupPostRequestBody) : void {
-        writer.writeObjectValue<Json>("lookupValue", hlookupPostRequestBody.lookupValue, );
-        writer.writeObjectValue<Json>("rangeLookup", hlookupPostRequestBody.rangeLookup, );
-        writer.writeObjectValue<Json>("rowIndexNum", hlookupPostRequestBody.rowIndexNum, );
-        writer.writeObjectValue<Json>("tableArray", hlookupPostRequestBody.tableArray, );
+        writer.writeObjectValue<Json>("lookupValue", hlookupPostRequestBody.lookupValue, serializeJson);
+        writer.writeObjectValue<Json>("rangeLookup", hlookupPostRequestBody.rangeLookup, serializeJson);
+        writer.writeObjectValue<Json>("rowIndexNum", hlookupPostRequestBody.rowIndexNum, serializeJson);
+        writer.writeObjectValue<Json>("tableArray", hlookupPostRequestBody.tableArray, serializeJson);
         writer.writeAdditionalData(hlookupPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -23,7 +23,7 @@ export interface IdentityApiConnectorCollectionResponse extends BaseCollectionPa
 }
 export function serializeIdentityApiConnectorCollectionResponse(writer: SerializationWriter, identityApiConnectorCollectionResponse: IdentityApiConnectorCollectionResponse | undefined = {} as IdentityApiConnectorCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, identityApiConnectorCollectionResponse)
-        writer.writeCollectionOfObjectValues<IdentityApiConnector>("value", identityApiConnectorCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<IdentityApiConnector>("value", identityApiConnectorCollectionResponse.value, serializeIdentityApiConnector);
 }
 // tslint:enable
 // eslint-enable

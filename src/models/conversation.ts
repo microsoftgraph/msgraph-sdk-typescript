@@ -51,7 +51,7 @@ export function serializeConversation(writer: SerializationWriter, conversation:
         writer.writeBooleanValue("hasAttachments", conversation.hasAttachments);
         writer.writeDateValue("lastDeliveredDateTime", conversation.lastDeliveredDateTime);
         writer.writeStringValue("preview", conversation.preview);
-        writer.writeCollectionOfObjectValues<ConversationThread>("threads", conversation.threads, );
+        writer.writeCollectionOfObjectValues<ConversationThread>("threads", conversation.threads, serializeConversationThread);
         writer.writeStringValue("topic", conversation.topic);
         writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", conversation.uniqueSenders);
 }

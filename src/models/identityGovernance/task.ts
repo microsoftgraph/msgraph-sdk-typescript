@@ -27,7 +27,7 @@ export function deserializeIntoTask(task: Task | undefined = {} as Task) : Recor
 }
 export function serializeTask(writer: SerializationWriter, task: Task | undefined = {} as Task) : void {
         serializeEntity(writer, task)
-        writer.writeCollectionOfObjectValues<KeyValuePair>("arguments", task.arguments, );
+        writer.writeCollectionOfObjectValues<KeyValuePair>("arguments", task.arguments, serializeKeyValuePair);
         writer.writeEnumValue<LifecycleTaskCategory[]>("category", task.category);
         writer.writeBooleanValue("continueOnError", task.continueOnError);
         writer.writeStringValue("description", task.description);
@@ -35,7 +35,7 @@ export function serializeTask(writer: SerializationWriter, task: Task | undefine
         writer.writeNumberValue("executionSequence", task.executionSequence);
         writer.writeBooleanValue("isEnabled", task.isEnabled);
         writer.writeStringValue("taskDefinitionId", task.taskDefinitionId);
-        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", task.taskProcessingResults, );
+        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", task.taskProcessingResults, serializeTaskProcessingResult);
 }
 export interface Task extends Entity, Parsable {
     /**

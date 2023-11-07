@@ -24,7 +24,7 @@ export interface GammaLnPostRequestBody extends AdditionalDataHolder, Parsable {
     x?: Json;
 }
 export function serializeGammaLnPostRequestBody(writer: SerializationWriter, gammaLnPostRequestBody: GammaLnPostRequestBody | undefined = {} as GammaLnPostRequestBody) : void {
-        writer.writeObjectValue<Json>("x", gammaLnPostRequestBody.x, );
+        writer.writeObjectValue<Json>("x", gammaLnPostRequestBody.x, serializeJson);
         writer.writeAdditionalData(gammaLnPostRequestBody.additionalData);
 }
 // tslint:enable

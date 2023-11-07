@@ -14,7 +14,7 @@ export function deserializeIntoUnicodePostRequestBody(unicodePostRequestBody: Un
     }
 }
 export function serializeUnicodePostRequestBody(writer: SerializationWriter, unicodePostRequestBody: UnicodePostRequestBody | undefined = {} as UnicodePostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", unicodePostRequestBody.text, );
+        writer.writeObjectValue<Json>("text", unicodePostRequestBody.text, serializeJson);
         writer.writeAdditionalData(unicodePostRequestBody.additionalData);
 }
 export interface UnicodePostRequestBody extends AdditionalDataHolder, Parsable {

@@ -23,7 +23,7 @@ export interface PinnedChatMessageInfoCollectionResponse extends BaseCollectionP
 }
 export function serializePinnedChatMessageInfoCollectionResponse(writer: SerializationWriter, pinnedChatMessageInfoCollectionResponse: PinnedChatMessageInfoCollectionResponse | undefined = {} as PinnedChatMessageInfoCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, pinnedChatMessageInfoCollectionResponse)
-        writer.writeCollectionOfObjectValues<PinnedChatMessageInfo>("value", pinnedChatMessageInfoCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<PinnedChatMessageInfo>("value", pinnedChatMessageInfoCollectionResponse.value, serializePinnedChatMessageInfo);
 }
 // tslint:enable
 // eslint-enable

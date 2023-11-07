@@ -23,7 +23,7 @@ export interface HostComponentCollectionResponse extends BaseCollectionPaginatio
 }
 export function serializeHostComponentCollectionResponse(writer: SerializationWriter, hostComponentCollectionResponse: HostComponentCollectionResponse | undefined = {} as HostComponentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, hostComponentCollectionResponse)
-        writer.writeCollectionOfObjectValues<HostComponent>("value", hostComponentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<HostComponent>("value", hostComponentCollectionResponse.value, serializeHostComponent);
 }
 // tslint:enable
 // eslint-enable

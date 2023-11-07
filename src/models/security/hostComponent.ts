@@ -50,7 +50,7 @@ export function serializeHostComponent(writer: SerializationWriter, hostComponen
         serializeArtifact(writer, hostComponent)
         writer.writeStringValue("category", hostComponent.category);
         writer.writeDateValue("firstSeenDateTime", hostComponent.firstSeenDateTime);
-        writer.writeObjectValue<Host>("host", hostComponent.host, );
+        writer.writeObjectValue<Host>("host", hostComponent.host, serializeHost);
         writer.writeDateValue("lastSeenDateTime", hostComponent.lastSeenDateTime);
         writer.writeStringValue("name", hostComponent.name);
         writer.writeStringValue("version", hostComponent.version);

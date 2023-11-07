@@ -16,9 +16,9 @@ export function deserializeIntoTbillEqPostRequestBody(tbillEqPostRequestBody: Tb
     }
 }
 export function serializeTbillEqPostRequestBody(writer: SerializationWriter, tbillEqPostRequestBody: TbillEqPostRequestBody | undefined = {} as TbillEqPostRequestBody) : void {
-        writer.writeObjectValue<Json>("discount", tbillEqPostRequestBody.discount, );
-        writer.writeObjectValue<Json>("maturity", tbillEqPostRequestBody.maturity, );
-        writer.writeObjectValue<Json>("settlement", tbillEqPostRequestBody.settlement, );
+        writer.writeObjectValue<Json>("discount", tbillEqPostRequestBody.discount, serializeJson);
+        writer.writeObjectValue<Json>("maturity", tbillEqPostRequestBody.maturity, serializeJson);
+        writer.writeObjectValue<Json>("settlement", tbillEqPostRequestBody.settlement, serializeJson);
         writer.writeAdditionalData(tbillEqPostRequestBody.additionalData);
 }
 export interface TbillEqPostRequestBody extends AdditionalDataHolder, Parsable {

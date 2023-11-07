@@ -39,7 +39,7 @@ export function serializeSynchronizationTaskExecution(writer: SerializationWrite
         writer.writeNumberValue("countImported", synchronizationTaskExecution.countImported);
         writer.writeNumberValue("countImportedDeltas", synchronizationTaskExecution.countImportedDeltas);
         writer.writeNumberValue("countImportedReferenceDeltas", synchronizationTaskExecution.countImportedReferenceDeltas);
-        writer.writeObjectValue<SynchronizationError>("error", synchronizationTaskExecution.errorEscaped, );
+        writer.writeObjectValue<SynchronizationError>("error", synchronizationTaskExecution.errorEscaped, serializeSynchronizationError);
         writer.writeStringValue("@odata.type", synchronizationTaskExecution.odataType);
         writer.writeEnumValue<SynchronizationTaskExecutionResult>("state", synchronizationTaskExecution.state);
         writer.writeDateValue("timeBegan", synchronizationTaskExecution.timeBegan);

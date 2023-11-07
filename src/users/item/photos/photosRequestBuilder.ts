@@ -5,15 +5,10 @@ import { type ProfilePhotoCollectionResponse } from '../../../models/';
 import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { createProfilePhotoCollectionResponseFromDiscriminatorValue } from '../../../models/profilePhotoCollectionResponse';
-import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ProfilePhotoItemRequestBuilder } from './item/profilePhotoItemRequestBuilder';
 import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PhotosRequestBuilderGetQueryParameters {
-    /**
-     * Include count of items
-     */
-    count?: boolean;
     /**
      * Filter items by property values
      */
@@ -54,12 +49,6 @@ export interface PhotosRequestBuilderGetRequestConfiguration {
  */
 export class PhotosRequestBuilder extends BaseRequestBuilder {
     /**
-     * Provides operations to count the resources in the collection.
-     */
-    public get count(): CountRequestBuilder {
-        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
      * Provides operations to manage the photos property of the microsoft.graph.user entity.
      * @param profilePhotoId The unique identifier of profilePhoto
      * @returns a ProfilePhotoItemRequestBuilder
@@ -76,10 +65,10 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/photos{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/photos{?%24top,%24skip,%24filter,%24orderby,%24select}");
     };
     /**
-     * Get photos from users
+     * The collection of the user's profile photos in different sizes. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProfilePhotoCollectionResponse
      */
@@ -94,7 +83,7 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ProfilePhotoCollectionResponse>(requestInfo, createProfilePhotoCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get photos from users
+     * The collection of the user's profile photos in different sizes. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

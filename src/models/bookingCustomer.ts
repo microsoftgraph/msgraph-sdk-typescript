@@ -39,10 +39,10 @@ export function deserializeIntoBookingCustomer(bookingCustomer: BookingCustomer 
 }
 export function serializeBookingCustomer(writer: SerializationWriter, bookingCustomer: BookingCustomer | undefined = {} as BookingCustomer) : void {
         serializeBookingCustomerBase(writer, bookingCustomer)
-        writer.writeCollectionOfObjectValues<PhysicalAddress>("addresses", bookingCustomer.addresses, );
+        writer.writeCollectionOfObjectValues<PhysicalAddress>("addresses", bookingCustomer.addresses, serializePhysicalAddress);
         writer.writeStringValue("displayName", bookingCustomer.displayName);
         writer.writeStringValue("emailAddress", bookingCustomer.emailAddress);
-        writer.writeCollectionOfObjectValues<Phone>("phones", bookingCustomer.phones, );
+        writer.writeCollectionOfObjectValues<Phone>("phones", bookingCustomer.phones, serializePhone);
 }
 // tslint:enable
 // eslint-enable

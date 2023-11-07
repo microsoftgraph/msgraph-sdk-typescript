@@ -24,7 +24,7 @@ export interface Norm_S_InvPostRequestBody extends AdditionalDataHolder, Parsabl
     probability?: Json;
 }
 export function serializeNorm_S_InvPostRequestBody(writer: SerializationWriter, norm_S_InvPostRequestBody: Norm_S_InvPostRequestBody | undefined = {} as Norm_S_InvPostRequestBody) : void {
-        writer.writeObjectValue<Json>("probability", norm_S_InvPostRequestBody.probability, );
+        writer.writeObjectValue<Json>("probability", norm_S_InvPostRequestBody.probability, serializeJson);
         writer.writeAdditionalData(norm_S_InvPostRequestBody.additionalData);
 }
 // tslint:enable

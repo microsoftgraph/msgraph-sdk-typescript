@@ -35,8 +35,8 @@ export function deserializeIntoCrossTenantAccessPolicy(crossTenantAccessPolicy: 
 export function serializeCrossTenantAccessPolicy(writer: SerializationWriter, crossTenantAccessPolicy: CrossTenantAccessPolicy | undefined = {} as CrossTenantAccessPolicy) : void {
         serializePolicyBase(writer, crossTenantAccessPolicy)
         writer.writeCollectionOfPrimitiveValues<string>("allowedCloudEndpoints", crossTenantAccessPolicy.allowedCloudEndpoints);
-        writer.writeObjectValue<CrossTenantAccessPolicyConfigurationDefault>("default", crossTenantAccessPolicy.defaultEscaped, );
-        writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>("partners", crossTenantAccessPolicy.partners, );
+        writer.writeObjectValue<CrossTenantAccessPolicyConfigurationDefault>("default", crossTenantAccessPolicy.defaultEscaped, serializeCrossTenantAccessPolicyConfigurationDefault);
+        writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>("partners", crossTenantAccessPolicy.partners, serializeCrossTenantAccessPolicyConfigurationPartner);
 }
 // tslint:enable
 // eslint-enable

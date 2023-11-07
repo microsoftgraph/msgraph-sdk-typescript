@@ -24,7 +24,7 @@ export function deserializeIntoAndPostRequestBody(andPostRequestBody: AndPostReq
     }
 }
 export function serializeAndPostRequestBody(writer: SerializationWriter, andPostRequestBody: AndPostRequestBody | undefined = {} as AndPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", andPostRequestBody.values, );
+        writer.writeObjectValue<Json>("values", andPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(andPostRequestBody.additionalData);
 }
 // tslint:enable

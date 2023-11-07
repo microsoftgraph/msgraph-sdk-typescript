@@ -44,10 +44,10 @@ export function deserializeIntoCustomTaskExtension(customTaskExtension: CustomTa
 }
 export function serializeCustomTaskExtension(writer: SerializationWriter, customTaskExtension: CustomTaskExtension | undefined = {} as CustomTaskExtension) : void {
         serializeCustomCalloutExtension(writer, customTaskExtension)
-        writer.writeObjectValue<CustomExtensionCallbackConfiguration>("callbackConfiguration", customTaskExtension.callbackConfiguration, );
-        writer.writeObjectValue<User>("createdBy", customTaskExtension.createdBy, );
+        writer.writeObjectValue<CustomExtensionCallbackConfiguration>("callbackConfiguration", customTaskExtension.callbackConfiguration, serializeCustomExtensionCallbackConfiguration);
+        writer.writeObjectValue<User>("createdBy", customTaskExtension.createdBy, serializeUser);
         writer.writeDateValue("createdDateTime", customTaskExtension.createdDateTime);
-        writer.writeObjectValue<User>("lastModifiedBy", customTaskExtension.lastModifiedBy, );
+        writer.writeObjectValue<User>("lastModifiedBy", customTaskExtension.lastModifiedBy, serializeUser);
         writer.writeDateValue("lastModifiedDateTime", customTaskExtension.lastModifiedDateTime);
 }
 // tslint:enable

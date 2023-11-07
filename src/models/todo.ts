@@ -17,7 +17,7 @@ export function deserializeIntoTodo(todo: Todo | undefined = {} as Todo) : Recor
 }
 export function serializeTodo(writer: SerializationWriter, todo: Todo | undefined = {} as Todo) : void {
         serializeEntity(writer, todo)
-        writer.writeCollectionOfObjectValues<TodoTaskList>("lists", todo.lists, );
+        writer.writeCollectionOfObjectValues<TodoTaskList>("lists", todo.lists, serializeTodoTaskList);
 }
 export interface Todo extends Entity, Parsable {
     /**

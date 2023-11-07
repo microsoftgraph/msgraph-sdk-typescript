@@ -34,9 +34,9 @@ export function deserializeIntoDcountAPostRequestBody(dcountAPostRequestBody: Dc
     }
 }
 export function serializeDcountAPostRequestBody(writer: SerializationWriter, dcountAPostRequestBody: DcountAPostRequestBody | undefined = {} as DcountAPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dcountAPostRequestBody.criteria, );
-        writer.writeObjectValue<Json>("database", dcountAPostRequestBody.database, );
-        writer.writeObjectValue<Json>("field", dcountAPostRequestBody.field, );
+        writer.writeObjectValue<Json>("criteria", dcountAPostRequestBody.criteria, serializeJson);
+        writer.writeObjectValue<Json>("database", dcountAPostRequestBody.database, serializeJson);
+        writer.writeObjectValue<Json>("field", dcountAPostRequestBody.field, serializeJson);
         writer.writeAdditionalData(dcountAPostRequestBody.additionalData);
 }
 // tslint:enable

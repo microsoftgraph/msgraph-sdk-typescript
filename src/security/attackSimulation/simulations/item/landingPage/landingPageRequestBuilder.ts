@@ -44,7 +44,7 @@ export class LandingPageRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/landingPage{?%24select,%24expand}");
     };
     /**
-     * Get landingPage from security
+     * The landing page associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LandingPage
      */
@@ -59,7 +59,7 @@ export class LandingPageRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<LandingPage>(requestInfo, createLandingPageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get landingPage from security
+     * The landing page associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

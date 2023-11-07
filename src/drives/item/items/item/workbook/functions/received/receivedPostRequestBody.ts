@@ -44,11 +44,11 @@ export interface ReceivedPostRequestBody extends AdditionalDataHolder, Parsable 
     settlement?: Json;
 }
 export function serializeReceivedPostRequestBody(writer: SerializationWriter, receivedPostRequestBody: ReceivedPostRequestBody | undefined = {} as ReceivedPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", receivedPostRequestBody.basis, );
-        writer.writeObjectValue<Json>("discount", receivedPostRequestBody.discount, );
-        writer.writeObjectValue<Json>("investment", receivedPostRequestBody.investment, );
-        writer.writeObjectValue<Json>("maturity", receivedPostRequestBody.maturity, );
-        writer.writeObjectValue<Json>("settlement", receivedPostRequestBody.settlement, );
+        writer.writeObjectValue<Json>("basis", receivedPostRequestBody.basis, serializeJson);
+        writer.writeObjectValue<Json>("discount", receivedPostRequestBody.discount, serializeJson);
+        writer.writeObjectValue<Json>("investment", receivedPostRequestBody.investment, serializeJson);
+        writer.writeObjectValue<Json>("maturity", receivedPostRequestBody.maturity, serializeJson);
+        writer.writeObjectValue<Json>("settlement", receivedPostRequestBody.settlement, serializeJson);
         writer.writeAdditionalData(receivedPostRequestBody.additionalData);
 }
 // tslint:enable

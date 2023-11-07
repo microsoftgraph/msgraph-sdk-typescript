@@ -23,7 +23,7 @@ export interface PresenceCollectionResponse extends BaseCollectionPaginationCoun
 }
 export function serializePresenceCollectionResponse(writer: SerializationWriter, presenceCollectionResponse: PresenceCollectionResponse | undefined = {} as PresenceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, presenceCollectionResponse)
-        writer.writeCollectionOfObjectValues<Presence>("value", presenceCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Presence>("value", presenceCollectionResponse.value, serializePresence);
 }
 // tslint:enable
 // eslint-enable

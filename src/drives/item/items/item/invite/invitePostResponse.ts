@@ -23,7 +23,7 @@ export interface InvitePostResponse extends BaseCollectionPaginationCountRespons
 }
 export function serializeInvitePostResponse(writer: SerializationWriter, invitePostResponse: InvitePostResponse | undefined = {} as InvitePostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, invitePostResponse)
-        writer.writeCollectionOfObjectValues<Permission>("value", invitePostResponse.value, );
+        writer.writeCollectionOfObjectValues<Permission>("value", invitePostResponse.value, serializePermission);
 }
 // tslint:enable
 // eslint-enable

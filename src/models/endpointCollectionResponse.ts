@@ -23,7 +23,7 @@ export interface EndpointCollectionResponse extends BaseCollectionPaginationCoun
 }
 export function serializeEndpointCollectionResponse(writer: SerializationWriter, endpointCollectionResponse: EndpointCollectionResponse | undefined = {} as EndpointCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, endpointCollectionResponse)
-        writer.writeCollectionOfObjectValues<Endpoint>("value", endpointCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Endpoint>("value", endpointCollectionResponse.value, serializeEndpoint);
 }
 // tslint:enable
 // eslint-enable

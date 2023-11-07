@@ -69,7 +69,7 @@ export function serializeBrowserSharedCookieHistory(writer: SerializationWriter,
         writer.writeStringValue("displayName", browserSharedCookieHistory.displayName);
         writer.writeBooleanValue("hostOnly", browserSharedCookieHistory.hostOnly);
         writer.writeStringValue("hostOrDomain", browserSharedCookieHistory.hostOrDomain);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSharedCookieHistory.lastModifiedBy, );
+        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSharedCookieHistory.lastModifiedBy, serializeIdentitySet);
         writer.writeStringValue("@odata.type", browserSharedCookieHistory.odataType);
         writer.writeStringValue("path", browserSharedCookieHistory.path);
         writer.writeDateValue("publishedDateTime", browserSharedCookieHistory.publishedDateTime);

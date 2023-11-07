@@ -18,7 +18,7 @@ export function deserializeIntoStringKeyAttributeMappingSourceValuePair(stringKe
 export function serializeStringKeyAttributeMappingSourceValuePair(writer: SerializationWriter, stringKeyAttributeMappingSourceValuePair: StringKeyAttributeMappingSourceValuePair | undefined = {} as StringKeyAttributeMappingSourceValuePair) : void {
         writer.writeStringValue("key", stringKeyAttributeMappingSourceValuePair.key);
         writer.writeStringValue("@odata.type", stringKeyAttributeMappingSourceValuePair.odataType);
-        writer.writeObjectValue<AttributeMappingSource>("value", stringKeyAttributeMappingSourceValuePair.value, );
+        writer.writeObjectValue<AttributeMappingSource>("value", stringKeyAttributeMappingSourceValuePair.value, serializeAttributeMappingSource);
         writer.writeAdditionalData(stringKeyAttributeMappingSourceValuePair.additionalData);
 }
 export interface StringKeyAttributeMappingSourceValuePair extends AdditionalDataHolder, Parsable {

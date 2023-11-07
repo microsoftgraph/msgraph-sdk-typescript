@@ -23,7 +23,7 @@ export function deserializeIntoBookingCurrencyCollectionResponse(bookingCurrency
 }
 export function serializeBookingCurrencyCollectionResponse(writer: SerializationWriter, bookingCurrencyCollectionResponse: BookingCurrencyCollectionResponse | undefined = {} as BookingCurrencyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, bookingCurrencyCollectionResponse)
-        writer.writeCollectionOfObjectValues<BookingCurrency>("value", bookingCurrencyCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<BookingCurrency>("value", bookingCurrencyCollectionResponse.value, serializeBookingCurrency);
 }
 // tslint:enable
 // eslint-enable

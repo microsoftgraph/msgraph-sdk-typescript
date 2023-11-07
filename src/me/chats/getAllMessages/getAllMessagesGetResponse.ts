@@ -23,7 +23,7 @@ export interface GetAllMessagesGetResponse extends BaseCollectionPaginationCount
 }
 export function serializeGetAllMessagesGetResponse(writer: SerializationWriter, getAllMessagesGetResponse: GetAllMessagesGetResponse | undefined = {} as GetAllMessagesGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getAllMessagesGetResponse)
-        writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesGetResponse.value, );
+        writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesGetResponse.value, serializeChatMessage);
 }
 // tslint:enable
 // eslint-enable

@@ -54,7 +54,7 @@ export function serializeBucketAggregationDefinition(writer: SerializationWriter
         writer.writeNumberValue("minimumCount", bucketAggregationDefinition.minimumCount);
         writer.writeStringValue("@odata.type", bucketAggregationDefinition.odataType);
         writer.writeStringValue("prefixFilter", bucketAggregationDefinition.prefixFilter);
-        writer.writeCollectionOfObjectValues<BucketAggregationRange>("ranges", bucketAggregationDefinition.ranges, );
+        writer.writeCollectionOfObjectValues<BucketAggregationRange>("ranges", bucketAggregationDefinition.ranges, serializeBucketAggregationRange);
         writer.writeEnumValue<BucketAggregationSortProperty>("sortBy", bucketAggregationDefinition.sortBy);
         writer.writeAdditionalData(bucketAggregationDefinition.additionalData);
 }

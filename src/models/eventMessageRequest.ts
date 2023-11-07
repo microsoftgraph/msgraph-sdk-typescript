@@ -52,9 +52,9 @@ export function serializeEventMessageRequest(writer: SerializationWriter, eventM
         serializeEventMessage(writer, eventMessageRequest)
         writer.writeBooleanValue("allowNewTimeProposals", eventMessageRequest.allowNewTimeProposals);
         writer.writeEnumValue<MeetingRequestType>("meetingRequestType", eventMessageRequest.meetingRequestType);
-        writer.writeObjectValue<DateTimeTimeZone>("previousEndDateTime", eventMessageRequest.previousEndDateTime, );
-        writer.writeObjectValue<Location>("previousLocation", eventMessageRequest.previousLocation, );
-        writer.writeObjectValue<DateTimeTimeZone>("previousStartDateTime", eventMessageRequest.previousStartDateTime, );
+        writer.writeObjectValue<DateTimeTimeZone>("previousEndDateTime", eventMessageRequest.previousEndDateTime, serializeDateTimeTimeZone);
+        writer.writeObjectValue<Location>("previousLocation", eventMessageRequest.previousLocation, serializeLocation);
+        writer.writeObjectValue<DateTimeTimeZone>("previousStartDateTime", eventMessageRequest.previousStartDateTime, serializeDateTimeTimeZone);
         writer.writeBooleanValue("responseRequested", eventMessageRequest.responseRequested);
 }
 // tslint:enable

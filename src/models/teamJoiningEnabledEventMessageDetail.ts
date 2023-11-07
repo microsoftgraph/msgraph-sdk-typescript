@@ -18,7 +18,7 @@ export function deserializeIntoTeamJoiningEnabledEventMessageDetail(teamJoiningE
 }
 export function serializeTeamJoiningEnabledEventMessageDetail(writer: SerializationWriter, teamJoiningEnabledEventMessageDetail: TeamJoiningEnabledEventMessageDetail | undefined = {} as TeamJoiningEnabledEventMessageDetail) : void {
         serializeEventMessageDetail(writer, teamJoiningEnabledEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", teamJoiningEnabledEventMessageDetail.initiator, );
+        writer.writeObjectValue<IdentitySet>("initiator", teamJoiningEnabledEventMessageDetail.initiator, serializeIdentitySet);
         writer.writeStringValue("teamId", teamJoiningEnabledEventMessageDetail.teamId);
 }
 export interface TeamJoiningEnabledEventMessageDetail extends EventMessageDetail, Parsable {

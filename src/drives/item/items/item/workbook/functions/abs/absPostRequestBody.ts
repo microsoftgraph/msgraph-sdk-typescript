@@ -24,7 +24,7 @@ export function deserializeIntoAbsPostRequestBody(absPostRequestBody: AbsPostReq
     }
 }
 export function serializeAbsPostRequestBody(writer: SerializationWriter, absPostRequestBody: AbsPostRequestBody | undefined = {} as AbsPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", absPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", absPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(absPostRequestBody.additionalData);
 }
 // tslint:enable

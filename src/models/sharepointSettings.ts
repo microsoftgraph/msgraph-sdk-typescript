@@ -53,7 +53,7 @@ export function serializeSharepointSettings(writer: SerializationWriter, sharepo
         writer.writeCollectionOfPrimitiveValues<string>("availableManagedPathsForSiteCreation", sharepointSettings.availableManagedPathsForSiteCreation);
         writer.writeNumberValue("deletedUserPersonalSiteRetentionPeriodInDays", sharepointSettings.deletedUserPersonalSiteRetentionPeriodInDays);
         writer.writeCollectionOfPrimitiveValues<string>("excludedFileExtensionsForSyncApp", sharepointSettings.excludedFileExtensionsForSyncApp);
-        writer.writeObjectValue<IdleSessionSignOut>("idleSessionSignOut", sharepointSettings.idleSessionSignOut, );
+        writer.writeObjectValue<IdleSessionSignOut>("idleSessionSignOut", sharepointSettings.idleSessionSignOut, serializeIdleSessionSignOut);
         writer.writeEnumValue<ImageTaggingChoice>("imageTaggingOption", sharepointSettings.imageTaggingOption);
         writer.writeBooleanValue("isCommentingOnSitePagesEnabled", sharepointSettings.isCommentingOnSitePagesEnabled);
         writer.writeBooleanValue("isFileActivityNotificationEnabled", sharepointSettings.isFileActivityNotificationEnabled);

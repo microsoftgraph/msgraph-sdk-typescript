@@ -74,6 +74,7 @@ import { deserializeIntoCalendarCollectionResponse } from './calendarCollectionR
 import { deserializeIntoCalendarGroupCollectionResponse } from './calendarGroupCollectionResponse';
 import { deserializeIntoCalendarPermissionCollectionResponse } from './calendarPermissionCollectionResponse';
 import { deserializeIntoCallCollectionResponse } from './callCollectionResponse';
+import { deserializeIntoCallRecordingCollectionResponse } from './callRecordingCollectionResponse';
 import { deserializeIntoCallRecordCollectionResponse } from './callRecords/callRecordCollectionResponse';
 import { deserializeIntoSegmentCollectionResponse } from './callRecords/segmentCollectionResponse';
 import { deserializeIntoSessionCollectionResponse } from './callRecords/sessionCollectionResponse';
@@ -134,6 +135,7 @@ import { deserializeIntoDeviceConfigurationStateCollectionResponse } from './dev
 import { deserializeIntoDeviceConfigurationUserStatusCollectionResponse } from './deviceConfigurationUserStatusCollectionResponse';
 import { deserializeIntoDeviceEnrollmentConfigurationCollectionResponse } from './deviceEnrollmentConfigurationCollectionResponse';
 import { deserializeIntoDeviceInstallStateCollectionResponse } from './deviceInstallStateCollectionResponse';
+import { deserializeIntoDeviceLocalCredentialInfoCollectionResponse } from './deviceLocalCredentialInfoCollectionResponse';
 import { deserializeIntoDeviceLogCollectionResponseCollectionResponse } from './deviceLogCollectionResponseCollectionResponse';
 import { deserializeIntoDeviceManagementExchangeConnectorCollectionResponse } from './deviceManagementExchangeConnectorCollectionResponse';
 import { deserializeIntoDeviceManagementExportJobCollectionResponse } from './deviceManagementExportJobCollectionResponse';
@@ -344,6 +346,7 @@ import { deserializeIntoHostCollectionResponse } from './security/hostCollection
 import { deserializeIntoHostComponentCollectionResponse } from './security/hostComponentCollectionResponse';
 import { deserializeIntoHostCookieCollectionResponse } from './security/hostCookieCollectionResponse';
 import { deserializeIntoHostPairCollectionResponse } from './security/hostPairCollectionResponse';
+import { deserializeIntoHostPortCollectionResponse } from './security/hostPortCollectionResponse';
 import { deserializeIntoHostSslCertificateCollectionResponse } from './security/hostSslCertificateCollectionResponse';
 import { deserializeIntoHostTrackerCollectionResponse } from './security/hostTrackerCollectionResponse';
 import { deserializeIntoIncidentCollectionResponse } from './security/incidentCollectionResponse';

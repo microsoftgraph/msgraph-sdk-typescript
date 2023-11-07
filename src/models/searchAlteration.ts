@@ -41,7 +41,7 @@ export interface SearchAlteration extends AdditionalDataHolder, Parsable {
 export function serializeSearchAlteration(writer: SerializationWriter, searchAlteration: SearchAlteration | undefined = {} as SearchAlteration) : void {
         writer.writeStringValue("alteredHighlightedQueryString", searchAlteration.alteredHighlightedQueryString);
         writer.writeStringValue("alteredQueryString", searchAlteration.alteredQueryString);
-        writer.writeCollectionOfObjectValues<AlteredQueryToken>("alteredQueryTokens", searchAlteration.alteredQueryTokens, );
+        writer.writeCollectionOfObjectValues<AlteredQueryToken>("alteredQueryTokens", searchAlteration.alteredQueryTokens, serializeAlteredQueryToken);
         writer.writeStringValue("@odata.type", searchAlteration.odataType);
         writer.writeAdditionalData(searchAlteration.additionalData);
 }

@@ -35,8 +35,8 @@ export function deserializeIntoAccessPackageResourceRoleScope(accessPackageResou
 export function serializeAccessPackageResourceRoleScope(writer: SerializationWriter, accessPackageResourceRoleScope: AccessPackageResourceRoleScope | undefined = {} as AccessPackageResourceRoleScope) : void {
         serializeEntity(writer, accessPackageResourceRoleScope)
         writer.writeDateValue("createdDateTime", accessPackageResourceRoleScope.createdDateTime);
-        writer.writeObjectValue<AccessPackageResourceRole>("role", accessPackageResourceRoleScope.role, );
-        writer.writeObjectValue<AccessPackageResourceScope>("scope", accessPackageResourceRoleScope.scope, );
+        writer.writeObjectValue<AccessPackageResourceRole>("role", accessPackageResourceRoleScope.role, serializeAccessPackageResourceRole);
+        writer.writeObjectValue<AccessPackageResourceScope>("scope", accessPackageResourceRoleScope.scope, serializeAccessPackageResourceScope);
 }
 // tslint:enable
 // eslint-enable

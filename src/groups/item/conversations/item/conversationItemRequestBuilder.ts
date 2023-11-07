@@ -72,10 +72,10 @@ export class ConversationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of conversation object. This API is available in the following national cloud deployments.
+     * This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Conversation
-     * @see {@link https://learn.microsoft.com/graph/api/conversation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-get-conversation?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConversationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Conversation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -105,7 +105,7 @@ export class ConversationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of conversation object. This API is available in the following national cloud deployments.
+     * This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

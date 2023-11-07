@@ -29,8 +29,8 @@ export interface MembersLeftEventMessageDetail extends EventMessageDetail, Parsa
 }
 export function serializeMembersLeftEventMessageDetail(writer: SerializationWriter, membersLeftEventMessageDetail: MembersLeftEventMessageDetail | undefined = {} as MembersLeftEventMessageDetail) : void {
         serializeEventMessageDetail(writer, membersLeftEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", membersLeftEventMessageDetail.initiator, );
-        writer.writeCollectionOfObjectValues<TeamworkUserIdentity>("members", membersLeftEventMessageDetail.members, );
+        writer.writeObjectValue<IdentitySet>("initiator", membersLeftEventMessageDetail.initiator, serializeIdentitySet);
+        writer.writeCollectionOfObjectValues<TeamworkUserIdentity>("members", membersLeftEventMessageDetail.members, serializeTeamworkUserIdentity);
 }
 // tslint:enable
 // eslint-enable

@@ -29,7 +29,7 @@ export interface OnPremisesDirectorySynchronizationConfiguration extends Additio
     odataType?: string;
 }
 export function serializeOnPremisesDirectorySynchronizationConfiguration(writer: SerializationWriter, onPremisesDirectorySynchronizationConfiguration: OnPremisesDirectorySynchronizationConfiguration | undefined = {} as OnPremisesDirectorySynchronizationConfiguration) : void {
-        writer.writeObjectValue<OnPremisesAccidentalDeletionPrevention>("accidentalDeletionPrevention", onPremisesDirectorySynchronizationConfiguration.accidentalDeletionPrevention, );
+        writer.writeObjectValue<OnPremisesAccidentalDeletionPrevention>("accidentalDeletionPrevention", onPremisesDirectorySynchronizationConfiguration.accidentalDeletionPrevention, serializeOnPremisesAccidentalDeletionPrevention);
         writer.writeStringValue("@odata.type", onPremisesDirectorySynchronizationConfiguration.odataType);
         writer.writeAdditionalData(onPremisesDirectorySynchronizationConfiguration.additionalData);
 }

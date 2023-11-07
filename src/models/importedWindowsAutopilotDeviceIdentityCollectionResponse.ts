@@ -23,7 +23,7 @@ export interface ImportedWindowsAutopilotDeviceIdentityCollectionResponse extend
 }
 export function serializeImportedWindowsAutopilotDeviceIdentityCollectionResponse(writer: SerializationWriter, importedWindowsAutopilotDeviceIdentityCollectionResponse: ImportedWindowsAutopilotDeviceIdentityCollectionResponse | undefined = {} as ImportedWindowsAutopilotDeviceIdentityCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, importedWindowsAutopilotDeviceIdentityCollectionResponse)
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importedWindowsAutopilotDeviceIdentityCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importedWindowsAutopilotDeviceIdentityCollectionResponse.value, serializeImportedWindowsAutopilotDeviceIdentity);
 }
 // tslint:enable
 // eslint-enable

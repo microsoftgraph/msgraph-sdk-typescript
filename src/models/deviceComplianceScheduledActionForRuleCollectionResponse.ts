@@ -23,7 +23,7 @@ export interface DeviceComplianceScheduledActionForRuleCollectionResponse extend
 }
 export function serializeDeviceComplianceScheduledActionForRuleCollectionResponse(writer: SerializationWriter, deviceComplianceScheduledActionForRuleCollectionResponse: DeviceComplianceScheduledActionForRuleCollectionResponse | undefined = {} as DeviceComplianceScheduledActionForRuleCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceComplianceScheduledActionForRuleCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("value", deviceComplianceScheduledActionForRuleCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("value", deviceComplianceScheduledActionForRuleCollectionResponse.value, serializeDeviceComplianceScheduledActionForRule);
 }
 // tslint:enable
 // eslint-enable

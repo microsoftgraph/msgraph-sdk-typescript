@@ -17,7 +17,7 @@ export function deserializeIntoTargetDeviceGroupCollectionResponse(targetDeviceG
 }
 export function serializeTargetDeviceGroupCollectionResponse(writer: SerializationWriter, targetDeviceGroupCollectionResponse: TargetDeviceGroupCollectionResponse | undefined = {} as TargetDeviceGroupCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, targetDeviceGroupCollectionResponse)
-        writer.writeCollectionOfObjectValues<TargetDeviceGroup>("value", targetDeviceGroupCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<TargetDeviceGroup>("value", targetDeviceGroupCollectionResponse.value, serializeTargetDeviceGroup);
 }
 export interface TargetDeviceGroupCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

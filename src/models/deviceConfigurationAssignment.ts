@@ -23,7 +23,7 @@ export interface DeviceConfigurationAssignment extends Entity, Parsable {
 }
 export function serializeDeviceConfigurationAssignment(writer: SerializationWriter, deviceConfigurationAssignment: DeviceConfigurationAssignment | undefined = {} as DeviceConfigurationAssignment) : void {
         serializeEntity(writer, deviceConfigurationAssignment)
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", deviceConfigurationAssignment.target, );
+        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", deviceConfigurationAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
 }
 // tslint:enable
 // eslint-enable

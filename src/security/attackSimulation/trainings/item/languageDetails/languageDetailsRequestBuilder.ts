@@ -98,7 +98,7 @@ export class LanguageDetailsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/trainings/{training%2Did}/languageDetails{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get languageDetails from security
+     * Language specific details on a training.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TrainingLanguageDetailCollectionResponse
      */
@@ -129,7 +129,7 @@ export class LanguageDetailsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TrainingLanguageDetail>(requestInfo, createTrainingLanguageDetailFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get languageDetails from security
+     * Language specific details on a training.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -49,12 +49,12 @@ export interface MdurationPostRequestBody extends AdditionalDataHolder, Parsable
     yld?: Json;
 }
 export function serializeMdurationPostRequestBody(writer: SerializationWriter, mdurationPostRequestBody: MdurationPostRequestBody | undefined = {} as MdurationPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", mdurationPostRequestBody.basis, );
-        writer.writeObjectValue<Json>("coupon", mdurationPostRequestBody.coupon, );
-        writer.writeObjectValue<Json>("frequency", mdurationPostRequestBody.frequency, );
-        writer.writeObjectValue<Json>("maturity", mdurationPostRequestBody.maturity, );
-        writer.writeObjectValue<Json>("settlement", mdurationPostRequestBody.settlement, );
-        writer.writeObjectValue<Json>("yld", mdurationPostRequestBody.yld, );
+        writer.writeObjectValue<Json>("basis", mdurationPostRequestBody.basis, serializeJson);
+        writer.writeObjectValue<Json>("coupon", mdurationPostRequestBody.coupon, serializeJson);
+        writer.writeObjectValue<Json>("frequency", mdurationPostRequestBody.frequency, serializeJson);
+        writer.writeObjectValue<Json>("maturity", mdurationPostRequestBody.maturity, serializeJson);
+        writer.writeObjectValue<Json>("settlement", mdurationPostRequestBody.settlement, serializeJson);
+        writer.writeObjectValue<Json>("yld", mdurationPostRequestBody.yld, serializeJson);
         writer.writeAdditionalData(mdurationPostRequestBody.additionalData);
 }
 // tslint:enable

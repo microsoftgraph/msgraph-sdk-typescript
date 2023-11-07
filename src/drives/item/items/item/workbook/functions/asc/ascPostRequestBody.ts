@@ -24,7 +24,7 @@ export function deserializeIntoAscPostRequestBody(ascPostRequestBody: AscPostReq
     }
 }
 export function serializeAscPostRequestBody(writer: SerializationWriter, ascPostRequestBody: AscPostRequestBody | undefined = {} as AscPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", ascPostRequestBody.text, );
+        writer.writeObjectValue<Json>("text", ascPostRequestBody.text, serializeJson);
         writer.writeAdditionalData(ascPostRequestBody.additionalData);
 }
 // tslint:enable

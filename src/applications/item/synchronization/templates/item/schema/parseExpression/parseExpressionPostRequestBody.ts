@@ -36,8 +36,8 @@ export interface ParseExpressionPostRequestBody extends AdditionalDataHolder, Pa
 }
 export function serializeParseExpressionPostRequestBody(writer: SerializationWriter, parseExpressionPostRequestBody: ParseExpressionPostRequestBody | undefined = {} as ParseExpressionPostRequestBody) : void {
         writer.writeStringValue("expression", parseExpressionPostRequestBody.expression);
-        writer.writeObjectValue<AttributeDefinition>("targetAttributeDefinition", parseExpressionPostRequestBody.targetAttributeDefinition, );
-        writer.writeObjectValue<ExpressionInputObject>("testInputObject", parseExpressionPostRequestBody.testInputObject, );
+        writer.writeObjectValue<AttributeDefinition>("targetAttributeDefinition", parseExpressionPostRequestBody.targetAttributeDefinition, serializeAttributeDefinition);
+        writer.writeObjectValue<ExpressionInputObject>("testInputObject", parseExpressionPostRequestBody.testInputObject, serializeExpressionInputObject);
         writer.writeAdditionalData(parseExpressionPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -19,7 +19,7 @@ export function deserializeIntoWorkbookTableSort(workbookTableSort: WorkbookTabl
 }
 export function serializeWorkbookTableSort(writer: SerializationWriter, workbookTableSort: WorkbookTableSort | undefined = {} as WorkbookTableSort) : void {
         serializeEntity(writer, workbookTableSort)
-        writer.writeCollectionOfObjectValues<WorkbookSortField>("fields", workbookTableSort.fields, );
+        writer.writeCollectionOfObjectValues<WorkbookSortField>("fields", workbookTableSort.fields, serializeWorkbookSortField);
         writer.writeBooleanValue("matchCase", workbookTableSort.matchCase);
         writer.writeStringValue("method", workbookTableSort.method);
 }

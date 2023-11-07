@@ -29,8 +29,8 @@ export function deserializeIntoCombinPostRequestBody(combinPostRequestBody: Comb
     }
 }
 export function serializeCombinPostRequestBody(writer: SerializationWriter, combinPostRequestBody: CombinPostRequestBody | undefined = {} as CombinPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", combinPostRequestBody.number, );
-        writer.writeObjectValue<Json>("numberChosen", combinPostRequestBody.numberChosen, );
+        writer.writeObjectValue<Json>("number", combinPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("numberChosen", combinPostRequestBody.numberChosen, serializeJson);
         writer.writeAdditionalData(combinPostRequestBody.additionalData);
 }
 // tslint:enable

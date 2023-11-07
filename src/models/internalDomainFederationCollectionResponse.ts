@@ -23,7 +23,7 @@ export interface InternalDomainFederationCollectionResponse extends BaseCollecti
 }
 export function serializeInternalDomainFederationCollectionResponse(writer: SerializationWriter, internalDomainFederationCollectionResponse: InternalDomainFederationCollectionResponse | undefined = {} as InternalDomainFederationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, internalDomainFederationCollectionResponse)
-        writer.writeCollectionOfObjectValues<InternalDomainFederation>("value", internalDomainFederationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<InternalDomainFederation>("value", internalDomainFederationCollectionResponse.value, serializeInternalDomainFederation);
 }
 // tslint:enable
 // eslint-enable

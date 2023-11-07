@@ -14,23 +14,23 @@ import { type Parsable, type ParseNode, type SerializationWriter } from '@micros
 
 export interface AttackSimulationRoot extends Entity, Parsable {
     /**
-     * The endUserNotifications property
+     * Represents an end user's notification for an attack simulation training.
      */
     endUserNotifications?: EndUserNotification[];
     /**
-     * The landingPages property
+     * Represents an attack simulation training landing page.
      */
     landingPages?: LandingPage[];
     /**
-     * The loginPages property
+     * Represents an attack simulation training login page.
      */
     loginPages?: LoginPage[];
     /**
-     * The operations property
+     * Represents an attack simulation training operation.
      */
     operations?: AttackSimulationOperation[];
     /**
-     * The payloads property
+     * Represents an attack simulation training campaign payload in a tenant.
      */
     payloads?: Payload[];
     /**
@@ -42,7 +42,7 @@ export interface AttackSimulationRoot extends Entity, Parsable {
      */
     simulations?: Simulation[];
     /**
-     * The trainings property
+     * Represents details about attack simulation trainings.
      */
     trainings?: Training[];
 }
@@ -65,14 +65,14 @@ export function deserializeIntoAttackSimulationRoot(attackSimulationRoot: Attack
 }
 export function serializeAttackSimulationRoot(writer: SerializationWriter, attackSimulationRoot: AttackSimulationRoot | undefined = {} as AttackSimulationRoot) : void {
         serializeEntity(writer, attackSimulationRoot)
-        writer.writeCollectionOfObjectValues<EndUserNotification>("endUserNotifications", attackSimulationRoot.endUserNotifications, );
-        writer.writeCollectionOfObjectValues<LandingPage>("landingPages", attackSimulationRoot.landingPages, );
-        writer.writeCollectionOfObjectValues<LoginPage>("loginPages", attackSimulationRoot.loginPages, );
-        writer.writeCollectionOfObjectValues<AttackSimulationOperation>("operations", attackSimulationRoot.operations, );
-        writer.writeCollectionOfObjectValues<Payload>("payloads", attackSimulationRoot.payloads, );
-        writer.writeCollectionOfObjectValues<SimulationAutomation>("simulationAutomations", attackSimulationRoot.simulationAutomations, );
-        writer.writeCollectionOfObjectValues<Simulation>("simulations", attackSimulationRoot.simulations, );
-        writer.writeCollectionOfObjectValues<Training>("trainings", attackSimulationRoot.trainings, );
+        writer.writeCollectionOfObjectValues<EndUserNotification>("endUserNotifications", attackSimulationRoot.endUserNotifications, serializeEndUserNotification);
+        writer.writeCollectionOfObjectValues<LandingPage>("landingPages", attackSimulationRoot.landingPages, serializeLandingPage);
+        writer.writeCollectionOfObjectValues<LoginPage>("loginPages", attackSimulationRoot.loginPages, serializeLoginPage);
+        writer.writeCollectionOfObjectValues<AttackSimulationOperation>("operations", attackSimulationRoot.operations, serializeAttackSimulationOperation);
+        writer.writeCollectionOfObjectValues<Payload>("payloads", attackSimulationRoot.payloads, serializePayload);
+        writer.writeCollectionOfObjectValues<SimulationAutomation>("simulationAutomations", attackSimulationRoot.simulationAutomations, serializeSimulationAutomation);
+        writer.writeCollectionOfObjectValues<Simulation>("simulations", attackSimulationRoot.simulations, serializeSimulation);
+        writer.writeCollectionOfObjectValues<Training>("trainings", attackSimulationRoot.trainings, serializeTraining);
 }
 // tslint:enable
 // eslint-enable

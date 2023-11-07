@@ -29,8 +29,8 @@ export interface MroundPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeMroundPostRequestBody(writer: SerializationWriter, mroundPostRequestBody: MroundPostRequestBody | undefined = {} as MroundPostRequestBody) : void {
-        writer.writeObjectValue<Json>("multiple", mroundPostRequestBody.multiple, );
-        writer.writeObjectValue<Json>("number", mroundPostRequestBody.number, );
+        writer.writeObjectValue<Json>("multiple", mroundPostRequestBody.multiple, serializeJson);
+        writer.writeObjectValue<Json>("number", mroundPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(mroundPostRequestBody.additionalData);
 }
 // tslint:enable

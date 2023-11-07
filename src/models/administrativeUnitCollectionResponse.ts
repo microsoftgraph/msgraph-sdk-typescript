@@ -23,7 +23,7 @@ export function deserializeIntoAdministrativeUnitCollectionResponse(administrati
 }
 export function serializeAdministrativeUnitCollectionResponse(writer: SerializationWriter, administrativeUnitCollectionResponse: AdministrativeUnitCollectionResponse | undefined = {} as AdministrativeUnitCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, administrativeUnitCollectionResponse)
-        writer.writeCollectionOfObjectValues<AdministrativeUnit>("value", administrativeUnitCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AdministrativeUnit>("value", administrativeUnitCollectionResponse.value, serializeAdministrativeUnit);
 }
 // tslint:enable
 // eslint-enable

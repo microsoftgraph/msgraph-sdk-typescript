@@ -62,13 +62,13 @@ export interface PlannerPlan extends Entity, Parsable {
 }
 export function serializePlannerPlan(writer: SerializationWriter, plannerPlan: PlannerPlan | undefined = {} as PlannerPlan) : void {
         serializeEntity(writer, plannerPlan)
-        writer.writeCollectionOfObjectValues<PlannerBucket>("buckets", plannerPlan.buckets, );
-        writer.writeObjectValue<PlannerPlanContainer>("container", plannerPlan.container, );
-        writer.writeObjectValue<IdentitySet>("createdBy", plannerPlan.createdBy, );
+        writer.writeCollectionOfObjectValues<PlannerBucket>("buckets", plannerPlan.buckets, serializePlannerBucket);
+        writer.writeObjectValue<PlannerPlanContainer>("container", plannerPlan.container, serializePlannerPlanContainer);
+        writer.writeObjectValue<IdentitySet>("createdBy", plannerPlan.createdBy, serializeIdentitySet);
         writer.writeDateValue("createdDateTime", plannerPlan.createdDateTime);
-        writer.writeObjectValue<PlannerPlanDetails>("details", plannerPlan.details, );
+        writer.writeObjectValue<PlannerPlanDetails>("details", plannerPlan.details, serializePlannerPlanDetails);
         writer.writeStringValue("owner", plannerPlan.owner);
-        writer.writeCollectionOfObjectValues<PlannerTask>("tasks", plannerPlan.tasks, );
+        writer.writeCollectionOfObjectValues<PlannerTask>("tasks", plannerPlan.tasks, serializePlannerTask);
         writer.writeStringValue("title", plannerPlan.title);
 }
 // tslint:enable

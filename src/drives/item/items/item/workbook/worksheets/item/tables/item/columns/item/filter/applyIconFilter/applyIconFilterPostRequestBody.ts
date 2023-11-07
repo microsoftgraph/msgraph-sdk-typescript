@@ -24,7 +24,7 @@ export function deserializeIntoApplyIconFilterPostRequestBody(applyIconFilterPos
     }
 }
 export function serializeApplyIconFilterPostRequestBody(writer: SerializationWriter, applyIconFilterPostRequestBody: ApplyIconFilterPostRequestBody | undefined = {} as ApplyIconFilterPostRequestBody) : void {
-        writer.writeObjectValue<WorkbookIcon>("icon", applyIconFilterPostRequestBody.icon, );
+        writer.writeObjectValue<WorkbookIcon>("icon", applyIconFilterPostRequestBody.icon, serializeWorkbookIcon);
         writer.writeAdditionalData(applyIconFilterPostRequestBody.additionalData);
 }
 // tslint:enable

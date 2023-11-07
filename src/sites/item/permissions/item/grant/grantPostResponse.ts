@@ -23,7 +23,7 @@ export interface GrantPostResponse extends BaseCollectionPaginationCountResponse
 }
 export function serializeGrantPostResponse(writer: SerializationWriter, grantPostResponse: GrantPostResponse | undefined = {} as GrantPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, grantPostResponse)
-        writer.writeCollectionOfObjectValues<Permission>("value", grantPostResponse.value, );
+        writer.writeCollectionOfObjectValues<Permission>("value", grantPostResponse.value, serializePermission);
 }
 // tslint:enable
 // eslint-enable

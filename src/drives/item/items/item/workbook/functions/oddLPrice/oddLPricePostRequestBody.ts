@@ -59,14 +59,14 @@ export interface OddLPricePostRequestBody extends AdditionalDataHolder, Parsable
     yld?: Json;
 }
 export function serializeOddLPricePostRequestBody(writer: SerializationWriter, oddLPricePostRequestBody: OddLPricePostRequestBody | undefined = {} as OddLPricePostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", oddLPricePostRequestBody.basis, );
-        writer.writeObjectValue<Json>("frequency", oddLPricePostRequestBody.frequency, );
-        writer.writeObjectValue<Json>("lastInterest", oddLPricePostRequestBody.lastInterest, );
-        writer.writeObjectValue<Json>("maturity", oddLPricePostRequestBody.maturity, );
-        writer.writeObjectValue<Json>("rate", oddLPricePostRequestBody.rate, );
-        writer.writeObjectValue<Json>("redemption", oddLPricePostRequestBody.redemption, );
-        writer.writeObjectValue<Json>("settlement", oddLPricePostRequestBody.settlement, );
-        writer.writeObjectValue<Json>("yld", oddLPricePostRequestBody.yld, );
+        writer.writeObjectValue<Json>("basis", oddLPricePostRequestBody.basis, serializeJson);
+        writer.writeObjectValue<Json>("frequency", oddLPricePostRequestBody.frequency, serializeJson);
+        writer.writeObjectValue<Json>("lastInterest", oddLPricePostRequestBody.lastInterest, serializeJson);
+        writer.writeObjectValue<Json>("maturity", oddLPricePostRequestBody.maturity, serializeJson);
+        writer.writeObjectValue<Json>("rate", oddLPricePostRequestBody.rate, serializeJson);
+        writer.writeObjectValue<Json>("redemption", oddLPricePostRequestBody.redemption, serializeJson);
+        writer.writeObjectValue<Json>("settlement", oddLPricePostRequestBody.settlement, serializeJson);
+        writer.writeObjectValue<Json>("yld", oddLPricePostRequestBody.yld, serializeJson);
         writer.writeAdditionalData(oddLPricePostRequestBody.additionalData);
 }
 // tslint:enable

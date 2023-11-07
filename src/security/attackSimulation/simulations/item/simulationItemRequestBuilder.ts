@@ -84,8 +84,9 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property simulations for security
+     * Delete an attack simulation campaign for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://learn.microsoft.com/graph/api/simulation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: SimulationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -114,10 +115,11 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Simulation>(requestInfo, createSimulationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property simulations in security
+     * Update an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Simulation
+     * @see {@link https://learn.microsoft.com/graph/api/simulation-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Simulation, requestConfiguration?: SimulationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Simulation | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -130,7 +132,7 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Simulation>(requestInfo, createSimulationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property simulations for security
+     * Delete an attack simulation campaign for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -165,7 +167,7 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property simulations in security
+     * Update an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -23,7 +23,7 @@ export function deserializeIntoAuthenticationMethodConfigurationCollectionRespon
 }
 export function serializeAuthenticationMethodConfigurationCollectionResponse(writer: SerializationWriter, authenticationMethodConfigurationCollectionResponse: AuthenticationMethodConfigurationCollectionResponse | undefined = {} as AuthenticationMethodConfigurationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, authenticationMethodConfigurationCollectionResponse)
-        writer.writeCollectionOfObjectValues<AuthenticationMethodConfiguration>("value", authenticationMethodConfigurationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AuthenticationMethodConfiguration>("value", authenticationMethodConfigurationCollectionResponse.value, serializeAuthenticationMethodConfiguration);
 }
 // tslint:enable
 // eslint-enable

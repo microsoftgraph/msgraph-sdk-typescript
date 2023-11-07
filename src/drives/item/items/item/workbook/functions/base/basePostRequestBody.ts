@@ -34,9 +34,9 @@ export function deserializeIntoBasePostRequestBody(basePostRequestBody: BasePost
     }
 }
 export function serializeBasePostRequestBody(writer: SerializationWriter, basePostRequestBody: BasePostRequestBody | undefined = {} as BasePostRequestBody) : void {
-        writer.writeObjectValue<Json>("minLength", basePostRequestBody.minLength, );
-        writer.writeObjectValue<Json>("number", basePostRequestBody.number, );
-        writer.writeObjectValue<Json>("radix", basePostRequestBody.radix, );
+        writer.writeObjectValue<Json>("minLength", basePostRequestBody.minLength, serializeJson);
+        writer.writeObjectValue<Json>("number", basePostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("radix", basePostRequestBody.radix, serializeJson);
         writer.writeAdditionalData(basePostRequestBody.additionalData);
 }
 // tslint:enable

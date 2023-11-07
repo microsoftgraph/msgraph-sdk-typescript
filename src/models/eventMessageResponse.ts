@@ -29,7 +29,7 @@ export interface EventMessageResponse extends EventMessage, Parsable {
 }
 export function serializeEventMessageResponse(writer: SerializationWriter, eventMessageResponse: EventMessageResponse | undefined = {} as EventMessageResponse) : void {
         serializeEventMessage(writer, eventMessageResponse)
-        writer.writeObjectValue<TimeSlot>("proposedNewTime", eventMessageResponse.proposedNewTime, );
+        writer.writeObjectValue<TimeSlot>("proposedNewTime", eventMessageResponse.proposedNewTime, serializeTimeSlot);
         writer.writeEnumValue<ResponseType>("responseType", eventMessageResponse.responseType);
 }
 // tslint:enable

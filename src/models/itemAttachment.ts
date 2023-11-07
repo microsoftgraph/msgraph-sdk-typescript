@@ -23,7 +23,7 @@ export interface ItemAttachment extends Attachment, Parsable {
 }
 export function serializeItemAttachment(writer: SerializationWriter, itemAttachment: ItemAttachment | undefined = {} as ItemAttachment) : void {
         serializeAttachment(writer, itemAttachment)
-        writer.writeObjectValue<OutlookItem>("item", itemAttachment.item, );
+        writer.writeObjectValue<OutlookItem>("item", itemAttachment.item, serializeOutlookItem);
 }
 // tslint:enable
 // eslint-enable

@@ -48,8 +48,8 @@ export function serializeLearningAssignment(writer: SerializationWriter, learnin
         writer.writeDateValue("assignedDateTime", learningAssignment.assignedDateTime);
         writer.writeStringValue("assignerUserId", learningAssignment.assignerUserId);
         writer.writeEnumValue<AssignmentType>("assignmentType", learningAssignment.assignmentType);
-        writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", learningAssignment.dueDateTime, );
-        writer.writeObjectValue<ItemBody>("notes", learningAssignment.notes, );
+        writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", learningAssignment.dueDateTime, serializeDateTimeTimeZone);
+        writer.writeObjectValue<ItemBody>("notes", learningAssignment.notes, serializeItemBody);
 }
 // tslint:enable
 // eslint-enable

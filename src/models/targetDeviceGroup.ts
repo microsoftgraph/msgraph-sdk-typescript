@@ -20,7 +20,7 @@ export function serializeTargetDeviceGroup(writer: SerializationWriter, targetDe
 }
 export interface TargetDeviceGroup extends Entity, Parsable {
     /**
-     * The displayName property
+     * Display name for the target device group.
      */
     displayName?: string;
 }

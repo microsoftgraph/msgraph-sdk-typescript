@@ -24,7 +24,7 @@ export interface ProvisionOnDemandPostRequestBody extends AdditionalDataHolder, 
     parameters?: SynchronizationJobApplicationParameters[];
 }
 export function serializeProvisionOnDemandPostRequestBody(writer: SerializationWriter, provisionOnDemandPostRequestBody: ProvisionOnDemandPostRequestBody | undefined = {} as ProvisionOnDemandPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<SynchronizationJobApplicationParameters>("parameters", provisionOnDemandPostRequestBody.parameters, );
+        writer.writeCollectionOfObjectValues<SynchronizationJobApplicationParameters>("parameters", provisionOnDemandPostRequestBody.parameters, serializeSynchronizationJobApplicationParameters);
         writer.writeAdditionalData(provisionOnDemandPostRequestBody.additionalData);
 }
 // tslint:enable

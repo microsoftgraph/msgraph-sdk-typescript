@@ -49,7 +49,7 @@ export interface EducationOutcome extends Entity, Parsable {
 }
 export function serializeEducationOutcome(writer: SerializationWriter, educationOutcome: EducationOutcome | undefined = {} as EducationOutcome) : void {
         serializeEntity(writer, educationOutcome)
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", educationOutcome.lastModifiedBy, );
+        writer.writeObjectValue<IdentitySet>("lastModifiedBy", educationOutcome.lastModifiedBy, serializeIdentitySet);
         writer.writeDateValue("lastModifiedDateTime", educationOutcome.lastModifiedDateTime);
 }
 // tslint:enable

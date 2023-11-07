@@ -127,10 +127,10 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an accessPackage object. This API is available in the following national cloud deployments.
+     * Retrieve an access package with a list of accessPackageResourceRoleScope objects. These objects represent the resource roles that an access package assigns to each subject. Each object links to an accessPackageResourceRole and an accessPackageResourceScope. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackage
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-list-resourcerolescopes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackage | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -177,7 +177,7 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of an accessPackage object. This API is available in the following national cloud deployments.
+     * Retrieve an access package with a list of accessPackageResourceRoleScope objects. These objects represent the resource roles that an access package assigns to each subject. Each object links to an accessPackageResourceRole and an accessPackageResourceScope. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

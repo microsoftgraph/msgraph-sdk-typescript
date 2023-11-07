@@ -45,10 +45,10 @@ export function deserializeIntoAvailabilityItem(availabilityItem: AvailabilityIt
     }
 }
 export function serializeAvailabilityItem(writer: SerializationWriter, availabilityItem: AvailabilityItem | undefined = {} as AvailabilityItem) : void {
-        writer.writeObjectValue<DateTimeTimeZone>("endDateTime", availabilityItem.endDateTime, );
+        writer.writeObjectValue<DateTimeTimeZone>("endDateTime", availabilityItem.endDateTime, serializeDateTimeTimeZone);
         writer.writeStringValue("@odata.type", availabilityItem.odataType);
         writer.writeStringValue("serviceId", availabilityItem.serviceId);
-        writer.writeObjectValue<DateTimeTimeZone>("startDateTime", availabilityItem.startDateTime, );
+        writer.writeObjectValue<DateTimeTimeZone>("startDateTime", availabilityItem.startDateTime, serializeDateTimeTimeZone);
         writer.writeEnumValue<BookingsAvailabilityStatus>("status", availabilityItem.status);
         writer.writeAdditionalData(availabilityItem.additionalData);
 }

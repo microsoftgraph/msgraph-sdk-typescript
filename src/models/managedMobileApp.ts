@@ -28,7 +28,7 @@ export interface ManagedMobileApp extends Entity, Parsable {
 }
 export function serializeManagedMobileApp(writer: SerializationWriter, managedMobileApp: ManagedMobileApp | undefined = {} as ManagedMobileApp) : void {
         serializeEntity(writer, managedMobileApp)
-        writer.writeObjectValue<MobileAppIdentifier>("mobileAppIdentifier", managedMobileApp.mobileAppIdentifier, );
+        writer.writeObjectValue<MobileAppIdentifier>("mobileAppIdentifier", managedMobileApp.mobileAppIdentifier, serializeMobileAppIdentifier);
         writer.writeStringValue("version", managedMobileApp.version);
 }
 // tslint:enable

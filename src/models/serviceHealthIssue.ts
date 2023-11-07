@@ -34,7 +34,7 @@ export function serializeServiceHealthIssue(writer: SerializationWriter, service
         writer.writeStringValue("impactDescription", serviceHealthIssue.impactDescription);
         writer.writeBooleanValue("isResolved", serviceHealthIssue.isResolved);
         writer.writeEnumValue<ServiceHealthOrigin>("origin", serviceHealthIssue.origin);
-        writer.writeCollectionOfObjectValues<ServiceHealthIssuePost>("posts", serviceHealthIssue.posts, );
+        writer.writeCollectionOfObjectValues<ServiceHealthIssuePost>("posts", serviceHealthIssue.posts, serializeServiceHealthIssuePost);
         writer.writeStringValue("service", serviceHealthIssue.service);
         writer.writeEnumValue<ServiceHealthStatus>("status", serviceHealthIssue.status);
 }

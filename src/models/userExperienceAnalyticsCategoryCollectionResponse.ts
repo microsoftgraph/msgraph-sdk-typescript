@@ -17,7 +17,7 @@ export function deserializeIntoUserExperienceAnalyticsCategoryCollectionResponse
 }
 export function serializeUserExperienceAnalyticsCategoryCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsCategoryCollectionResponse: UserExperienceAnalyticsCategoryCollectionResponse | undefined = {} as UserExperienceAnalyticsCategoryCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsCategoryCollectionResponse)
-        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsCategory>("value", userExperienceAnalyticsCategoryCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsCategory>("value", userExperienceAnalyticsCategoryCollectionResponse.value, serializeUserExperienceAnalyticsCategory);
 }
 export interface UserExperienceAnalyticsCategoryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

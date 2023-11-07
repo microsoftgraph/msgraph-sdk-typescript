@@ -91,7 +91,7 @@ export function deserializeIntoAccessReviewScheduleSettings(accessReviewSchedule
     }
 }
 export function serializeAccessReviewScheduleSettings(writer: SerializationWriter, accessReviewScheduleSettings: AccessReviewScheduleSettings | undefined = {} as AccessReviewScheduleSettings) : void {
-        writer.writeCollectionOfObjectValues<AccessReviewApplyAction>("applyActions", accessReviewScheduleSettings.applyActions, );
+        writer.writeCollectionOfObjectValues<AccessReviewApplyAction>("applyActions", accessReviewScheduleSettings.applyActions, serializeAccessReviewApplyAction);
         writer.writeBooleanValue("autoApplyDecisionsEnabled", accessReviewScheduleSettings.autoApplyDecisionsEnabled);
         writer.writeBooleanValue("decisionHistoriesForReviewersEnabled", accessReviewScheduleSettings.decisionHistoriesForReviewersEnabled);
         writer.writeStringValue("defaultDecision", accessReviewScheduleSettings.defaultDecision);
@@ -100,10 +100,10 @@ export function serializeAccessReviewScheduleSettings(writer: SerializationWrite
         writer.writeBooleanValue("justificationRequiredOnApproval", accessReviewScheduleSettings.justificationRequiredOnApproval);
         writer.writeBooleanValue("mailNotificationsEnabled", accessReviewScheduleSettings.mailNotificationsEnabled);
         writer.writeStringValue("@odata.type", accessReviewScheduleSettings.odataType);
-        writer.writeCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>("recommendationInsightSettings", accessReviewScheduleSettings.recommendationInsightSettings, );
+        writer.writeCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>("recommendationInsightSettings", accessReviewScheduleSettings.recommendationInsightSettings, serializeAccessReviewRecommendationInsightSetting);
         writer.writeDurationValue("recommendationLookBackDuration", accessReviewScheduleSettings.recommendationLookBackDuration);
         writer.writeBooleanValue("recommendationsEnabled", accessReviewScheduleSettings.recommendationsEnabled);
-        writer.writeObjectValue<PatternedRecurrence>("recurrence", accessReviewScheduleSettings.recurrence, );
+        writer.writeObjectValue<PatternedRecurrence>("recurrence", accessReviewScheduleSettings.recurrence, serializePatternedRecurrence);
         writer.writeBooleanValue("reminderNotificationsEnabled", accessReviewScheduleSettings.reminderNotificationsEnabled);
         writer.writeAdditionalData(accessReviewScheduleSettings.additionalData);
 }

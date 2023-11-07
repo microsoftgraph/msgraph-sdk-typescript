@@ -34,9 +34,9 @@ export function deserializeIntoChiSq_DistPostRequestBody(chiSq_DistPostRequestBo
     }
 }
 export function serializeChiSq_DistPostRequestBody(writer: SerializationWriter, chiSq_DistPostRequestBody: ChiSq_DistPostRequestBody | undefined = {} as ChiSq_DistPostRequestBody) : void {
-        writer.writeObjectValue<Json>("cumulative", chiSq_DistPostRequestBody.cumulative, );
-        writer.writeObjectValue<Json>("degFreedom", chiSq_DistPostRequestBody.degFreedom, );
-        writer.writeObjectValue<Json>("x", chiSq_DistPostRequestBody.x, );
+        writer.writeObjectValue<Json>("cumulative", chiSq_DistPostRequestBody.cumulative, serializeJson);
+        writer.writeObjectValue<Json>("degFreedom", chiSq_DistPostRequestBody.degFreedom, serializeJson);
+        writer.writeObjectValue<Json>("x", chiSq_DistPostRequestBody.x, serializeJson);
         writer.writeAdditionalData(chiSq_DistPostRequestBody.additionalData);
 }
 // tslint:enable

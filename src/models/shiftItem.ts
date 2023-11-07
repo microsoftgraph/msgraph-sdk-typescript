@@ -31,7 +31,7 @@ export function deserializeIntoShiftItem(shiftItem: ShiftItem | undefined = {} a
 }
 export function serializeShiftItem(writer: SerializationWriter, shiftItem: ShiftItem | undefined = {} as ShiftItem) : void {
         serializeScheduleEntity(writer, shiftItem)
-        writer.writeCollectionOfObjectValues<ShiftActivity>("activities", shiftItem.activities, );
+        writer.writeCollectionOfObjectValues<ShiftActivity>("activities", shiftItem.activities, serializeShiftActivity);
         writer.writeStringValue("displayName", shiftItem.displayName);
         writer.writeStringValue("notes", shiftItem.notes);
 }

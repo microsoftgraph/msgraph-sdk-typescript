@@ -59,8 +59,8 @@ export function serializeCallRecordingEventMessageDetail(writer: SerializationWr
         writer.writeDurationValue("callRecordingDuration", callRecordingEventMessageDetail.callRecordingDuration);
         writer.writeEnumValue<CallRecordingStatus>("callRecordingStatus", callRecordingEventMessageDetail.callRecordingStatus);
         writer.writeStringValue("callRecordingUrl", callRecordingEventMessageDetail.callRecordingUrl);
-        writer.writeObjectValue<IdentitySet>("initiator", callRecordingEventMessageDetail.initiator, );
-        writer.writeObjectValue<IdentitySet>("meetingOrganizer", callRecordingEventMessageDetail.meetingOrganizer, );
+        writer.writeObjectValue<IdentitySet>("initiator", callRecordingEventMessageDetail.initiator, serializeIdentitySet);
+        writer.writeObjectValue<IdentitySet>("meetingOrganizer", callRecordingEventMessageDetail.meetingOrganizer, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

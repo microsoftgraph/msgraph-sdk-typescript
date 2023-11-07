@@ -35,7 +35,7 @@ export function serializeChatRenamedEventMessageDetail(writer: SerializationWrit
         serializeEventMessageDetail(writer, chatRenamedEventMessageDetail)
         writer.writeStringValue("chatDisplayName", chatRenamedEventMessageDetail.chatDisplayName);
         writer.writeStringValue("chatId", chatRenamedEventMessageDetail.chatId);
-        writer.writeObjectValue<IdentitySet>("initiator", chatRenamedEventMessageDetail.initiator, );
+        writer.writeObjectValue<IdentitySet>("initiator", chatRenamedEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

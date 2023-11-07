@@ -16,7 +16,7 @@ import { EvidenceRole } from './evidenceRole';
 import { EvidenceVerdict } from './evidenceVerdict';
 import { deserializeIntoFileEvidence } from './fileEvidence';
 import { deserializeIntoGoogleCloudResourceEvidence } from './googleCloudResourceEvidence';
-import { type AmazonResourceEvidence, type AnalyzedMessageEvidence, type AzureResourceEvidence, type BlobContainerEvidence, type BlobEvidence, type CloudApplicationEvidence, type ContainerEvidence, type ContainerImageEvidence, type ContainerRegistryEvidence, type DeviceEvidence, type FileEvidence, type GoogleCloudResourceEvidence, type IpEvidence, type KubernetesClusterEvidence, type KubernetesControllerEvidence, type KubernetesNamespaceEvidence, type KubernetesPodEvidence, type KubernetesSecretEvidence, type KubernetesServiceAccountEvidence, type KubernetesServiceEvidence, type MailboxEvidence, type MailClusterEvidence, type OauthApplicationEvidence, type ProcessEvidence, type RegistryKeyEvidence, type RegistryValueEvidence, type SecurityGroupEvidence, type UrlEvidence, type UserEvidence } from './index';
+import { type AmazonResourceEvidence, type AnalyzedMessageEvidence, type AzureResourceEvidence, type BlobContainerEvidence, type BlobEvidence, type CloudApplicationEvidence, type ContainerEvidence, type ContainerImageEvidence, type ContainerRegistryEvidence, type DeviceEvidence, type FileEvidence, type GoogleCloudResourceEvidence, type IpEvidence, type KubernetesClusterEvidence, type KubernetesControllerEvidence, type KubernetesNamespaceEvidence, type KubernetesPodEvidence, type KubernetesSecretEvidence, type KubernetesServiceAccountEvidence, type KubernetesServiceEvidence, type MailboxEvidence, type MailClusterEvidence, type OauthApplicationEvidence, type ProcessEvidence, type RegistryKeyEvidence, type RegistryValueEvidence, type SecurityGroupEvidence, type UrlEvidence } from './index';
 import { deserializeIntoIpEvidence } from './ipEvidence';
 import { deserializeIntoKubernetesClusterEvidence } from './kubernetesClusterEvidence';
 import { deserializeIntoKubernetesControllerEvidence } from './kubernetesControllerEvidence';
@@ -33,7 +33,6 @@ import { deserializeIntoRegistryKeyEvidence } from './registryKeyEvidence';
 import { deserializeIntoRegistryValueEvidence } from './registryValueEvidence';
 import { deserializeIntoSecurityGroupEvidence } from './securityGroupEvidence';
 import { deserializeIntoUrlEvidence } from './urlEvidence';
-import { deserializeIntoUserEvidence } from './userEvidence';
 import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export interface AlertEvidence extends AdditionalDataHolder, Parsable {
@@ -137,8 +136,6 @@ export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode |
                     return deserializeIntoSecurityGroupEvidence;
                 case "#microsoft.graph.security.urlEvidence":
                     return deserializeIntoUrlEvidence;
-                case "#microsoft.graph.security.userEvidence":
-                    return deserializeIntoUserEvidence;
             }
         }
     }

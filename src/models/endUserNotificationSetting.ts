@@ -39,7 +39,7 @@ export interface EndUserNotificationSetting extends AdditionalDataHolder, Parsab
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The notificationPreference property
+     * Notification preference. Possible values are: unknown, microsoft, custom, unknownFutureValue.
      */
     notificationPreference?: EndUserNotificationPreference;
     /**
@@ -47,18 +47,18 @@ export interface EndUserNotificationSetting extends AdditionalDataHolder, Parsab
      */
     odataType?: string;
     /**
-     * The positiveReinforcement property
+     * Positive reinforcement detail.
      */
     positiveReinforcement?: PositiveReinforcementNotification;
     /**
-     * The settingType property
+     * End user notification type. Possible values are: unknown, noTraining, trainingSelected, noNotification, unknownFutureValue.
      */
     settingType?: EndUserNotificationSettingType;
 }
 export function serializeEndUserNotificationSetting(writer: SerializationWriter, endUserNotificationSetting: EndUserNotificationSetting | undefined = {} as EndUserNotificationSetting) : void {
         writer.writeEnumValue<EndUserNotificationPreference>("notificationPreference", endUserNotificationSetting.notificationPreference);
         writer.writeStringValue("@odata.type", endUserNotificationSetting.odataType);
-        writer.writeObjectValue<PositiveReinforcementNotification>("positiveReinforcement", endUserNotificationSetting.positiveReinforcement, );
+        writer.writeObjectValue<PositiveReinforcementNotification>("positiveReinforcement", endUserNotificationSetting.positiveReinforcement, serializePositiveReinforcementNotification);
         writer.writeEnumValue<EndUserNotificationSettingType>("settingType", endUserNotificationSetting.settingType);
         writer.writeAdditionalData(endUserNotificationSetting.additionalData);
 }

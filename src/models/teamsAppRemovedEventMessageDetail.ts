@@ -19,7 +19,7 @@ export function deserializeIntoTeamsAppRemovedEventMessageDetail(teamsAppRemoved
 }
 export function serializeTeamsAppRemovedEventMessageDetail(writer: SerializationWriter, teamsAppRemovedEventMessageDetail: TeamsAppRemovedEventMessageDetail | undefined = {} as TeamsAppRemovedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, teamsAppRemovedEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", teamsAppRemovedEventMessageDetail.initiator, );
+        writer.writeObjectValue<IdentitySet>("initiator", teamsAppRemovedEventMessageDetail.initiator, serializeIdentitySet);
         writer.writeStringValue("teamsAppDisplayName", teamsAppRemovedEventMessageDetail.teamsAppDisplayName);
         writer.writeStringValue("teamsAppId", teamsAppRemovedEventMessageDetail.teamsAppId);
 }

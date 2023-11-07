@@ -77,7 +77,7 @@ export class TrainingLanguageDetailItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get languageDetails from security
+     * Language specific details on a training.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TrainingLanguageDetail
      */
@@ -125,7 +125,7 @@ export class TrainingLanguageDetailItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Get languageDetails from security
+     * Language specific details on a training.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

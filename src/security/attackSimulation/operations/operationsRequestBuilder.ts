@@ -98,7 +98,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/operations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get operations from security
+     * Get an attack simulation operation to track a long-running operation request for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttackSimulationOperationCollectionResponse
      */
@@ -129,7 +129,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AttackSimulationOperation>(requestInfo, createAttackSimulationOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get operations from security
+     * Get an attack simulation operation to track a long-running operation request for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

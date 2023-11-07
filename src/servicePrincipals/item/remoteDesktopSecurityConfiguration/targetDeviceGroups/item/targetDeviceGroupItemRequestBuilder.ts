@@ -63,8 +63,9 @@ export class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/remoteDesktopSecurityConfiguration/targetDeviceGroups/{targetDeviceGroup%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property targetDeviceGroups for servicePrincipals
+     * Delete a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. Any user authenticating using the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to a Microsoft Entra joined or Microsoft Entra hybrid joined device that's in the removed targetDeviceGroup doesn't get SSO prompts.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://learn.microsoft.com/graph/api/remotedesktopsecurityconfiguration-delete-targetdevicegroups?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TargetDeviceGroupItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -77,9 +78,10 @@ export class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get targetDeviceGroups from servicePrincipals
+     * Read the properties and relationships of a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TargetDeviceGroup
+     * @see {@link https://learn.microsoft.com/graph/api/targetdevicegroup-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TargetDeviceGroupItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TargetDeviceGroup | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -92,10 +94,11 @@ export class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TargetDeviceGroup>(requestInfo, createTargetDeviceGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property targetDeviceGroups in servicePrincipals
+     * Update the properties of a targetDeviceGroup object for remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguraiton object on the servicePrincipal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TargetDeviceGroup
+     * @see {@link https://learn.microsoft.com/graph/api/targetdevicegroup-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TargetDeviceGroup, requestConfiguration?: TargetDeviceGroupItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TargetDeviceGroup | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -108,7 +111,7 @@ export class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TargetDeviceGroup>(requestInfo, createTargetDeviceGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property targetDeviceGroups for servicePrincipals
+     * Delete a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. Any user authenticating using the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to a Microsoft Entra joined or Microsoft Entra hybrid joined device that's in the removed targetDeviceGroup doesn't get SSO prompts.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -125,7 +128,7 @@ export class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get targetDeviceGroups from servicePrincipals
+     * Read the properties and relationships of a targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -143,7 +146,7 @@ export class TargetDeviceGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property targetDeviceGroups in servicePrincipals
+     * Update the properties of a targetDeviceGroup object for remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguraiton object on the servicePrincipal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

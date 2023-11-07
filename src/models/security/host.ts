@@ -6,6 +6,7 @@ import { createHostComponentFromDiscriminatorValue, serializeHostComponent, type
 import { createHostCookieFromDiscriminatorValue, serializeHostCookie, type HostCookie } from './hostCookie';
 import { deserializeIntoHostname } from './hostname';
 import { createHostPairFromDiscriminatorValue, serializeHostPair, type HostPair } from './hostPair';
+import { createHostPortFromDiscriminatorValue, serializeHostPort, type HostPort } from './hostPort';
 import { createHostReputationFromDiscriminatorValue, serializeHostReputation, type HostReputation } from './hostReputation';
 import { createHostSslCertificateFromDiscriminatorValue, serializeHostSslCertificate, type HostSslCertificate } from './hostSslCertificate';
 import { createHostTrackerFromDiscriminatorValue, serializeHostTracker, type HostTracker } from './hostTracker';
@@ -44,6 +45,7 @@ export function deserializeIntoHost(host: Host | undefined = {} as Host) : Recor
         "parentHostPairs": n => { host.parentHostPairs = n.getCollectionOfObjectValues<HostPair>(createHostPairFromDiscriminatorValue); },
         "passiveDns": n => { host.passiveDns = n.getCollectionOfObjectValues<PassiveDnsRecord>(createPassiveDnsRecordFromDiscriminatorValue); },
         "passiveDnsReverse": n => { host.passiveDnsReverse = n.getCollectionOfObjectValues<PassiveDnsRecord>(createPassiveDnsRecordFromDiscriminatorValue); },
+        "ports": n => { host.ports = n.getCollectionOfObjectValues<HostPort>(createHostPortFromDiscriminatorValue); },
         "reputation": n => { host.reputation = n.getObjectValue<HostReputation>(createHostReputationFromDiscriminatorValue); },
         "sslCertificates": n => { host.sslCertificates = n.getCollectionOfObjectValues<HostSslCertificate>(createHostSslCertificateFromDiscriminatorValue); },
         "subdomains": n => { host.subdomains = n.getCollectionOfObjectValues<Subdomain>(createSubdomainFromDiscriminatorValue); },
@@ -89,6 +91,10 @@ export interface Host extends Artifact, Parsable {
      */
     passiveDnsReverse?: PassiveDnsRecord[];
     /**
+     * The hostPorts associated with a host.
+     */
+    ports?: HostPort[];
+    /**
      * Represents a calculated reputation of this host.
      */
     reputation?: HostReputation;
@@ -111,20 +117,21 @@ export interface Host extends Artifact, Parsable {
 }
 export function serializeHost(writer: SerializationWriter, host: Host | undefined = {} as Host) : void {
         serializeArtifact(writer, host)
-        writer.writeCollectionOfObjectValues<HostPair>("childHostPairs", host.childHostPairs, );
-        writer.writeCollectionOfObjectValues<HostComponent>("components", host.components, );
-        writer.writeCollectionOfObjectValues<HostCookie>("cookies", host.cookies, );
+        writer.writeCollectionOfObjectValues<HostPair>("childHostPairs", host.childHostPairs, serializeHostPair);
+        writer.writeCollectionOfObjectValues<HostComponent>("components", host.components, serializeHostComponent);
+        writer.writeCollectionOfObjectValues<HostCookie>("cookies", host.cookies, serializeHostCookie);
         writer.writeDateValue("firstSeenDateTime", host.firstSeenDateTime);
-        writer.writeCollectionOfObjectValues<HostPair>("hostPairs", host.hostPairs, );
+        writer.writeCollectionOfObjectValues<HostPair>("hostPairs", host.hostPairs, serializeHostPair);
         writer.writeDateValue("lastSeenDateTime", host.lastSeenDateTime);
-        writer.writeCollectionOfObjectValues<HostPair>("parentHostPairs", host.parentHostPairs, );
-        writer.writeCollectionOfObjectValues<PassiveDnsRecord>("passiveDns", host.passiveDns, );
-        writer.writeCollectionOfObjectValues<PassiveDnsRecord>("passiveDnsReverse", host.passiveDnsReverse, );
-        writer.writeObjectValue<HostReputation>("reputation", host.reputation, );
-        writer.writeCollectionOfObjectValues<HostSslCertificate>("sslCertificates", host.sslCertificates, );
-        writer.writeCollectionOfObjectValues<Subdomain>("subdomains", host.subdomains, );
-        writer.writeCollectionOfObjectValues<HostTracker>("trackers", host.trackers, );
-        writer.writeObjectValue<WhoisRecord>("whois", host.whois, );
+        writer.writeCollectionOfObjectValues<HostPair>("parentHostPairs", host.parentHostPairs, serializeHostPair);
+        writer.writeCollectionOfObjectValues<PassiveDnsRecord>("passiveDns", host.passiveDns, serializePassiveDnsRecord);
+        writer.writeCollectionOfObjectValues<PassiveDnsRecord>("passiveDnsReverse", host.passiveDnsReverse, serializePassiveDnsRecord);
+        writer.writeCollectionOfObjectValues<HostPort>("ports", host.ports, serializeHostPort);
+        writer.writeObjectValue<HostReputation>("reputation", host.reputation, serializeHostReputation);
+        writer.writeCollectionOfObjectValues<HostSslCertificate>("sslCertificates", host.sslCertificates, serializeHostSslCertificate);
+        writer.writeCollectionOfObjectValues<Subdomain>("subdomains", host.subdomains, serializeSubdomain);
+        writer.writeCollectionOfObjectValues<HostTracker>("trackers", host.trackers, serializeHostTracker);
+        writer.writeObjectValue<WhoisRecord>("whois", host.whois, serializeWhoisRecord);
 }
 // tslint:enable
 // eslint-enable

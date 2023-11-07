@@ -60,7 +60,7 @@ export function serializeAccessPackageQuestion(writer: SerializationWriter, acce
         serializeEntity(writer, accessPackageQuestion)
         writer.writeBooleanValue("isAnswerEditable", accessPackageQuestion.isAnswerEditable);
         writer.writeBooleanValue("isRequired", accessPackageQuestion.isRequired);
-        writer.writeCollectionOfObjectValues<AccessPackageLocalizedText>("localizations", accessPackageQuestion.localizations, );
+        writer.writeCollectionOfObjectValues<AccessPackageLocalizedText>("localizations", accessPackageQuestion.localizations, serializeAccessPackageLocalizedText);
         writer.writeNumberValue("sequence", accessPackageQuestion.sequence);
         writer.writeStringValue("text", accessPackageQuestion.text);
 }

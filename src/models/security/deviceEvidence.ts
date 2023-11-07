@@ -109,7 +109,7 @@ export function serializeDeviceEvidence(writer: SerializationWriter, deviceEvide
         writer.writeDateValue("firstSeenDateTime", deviceEvidence.firstSeenDateTime);
         writer.writeEnumValue<DeviceHealthStatus>("healthStatus", deviceEvidence.healthStatus);
         writer.writeCollectionOfPrimitiveValues<string>("ipInterfaces", deviceEvidence.ipInterfaces);
-        writer.writeCollectionOfObjectValues<LoggedOnUser>("loggedOnUsers", deviceEvidence.loggedOnUsers, );
+        writer.writeCollectionOfObjectValues<LoggedOnUser>("loggedOnUsers", deviceEvidence.loggedOnUsers, serializeLoggedOnUser);
         writer.writeStringValue("mdeDeviceId", deviceEvidence.mdeDeviceId);
         writer.writeEnumValue<OnboardingStatus>("onboardingStatus", deviceEvidence.onboardingStatus);
         writer.writeNumberValue("osBuild", deviceEvidence.osBuild);
@@ -118,7 +118,7 @@ export function serializeDeviceEvidence(writer: SerializationWriter, deviceEvide
         writer.writeStringValue("rbacGroupName", deviceEvidence.rbacGroupName);
         writer.writeEnumValue<DeviceRiskScore>("riskScore", deviceEvidence.riskScore);
         writer.writeStringValue("version", deviceEvidence.version);
-        writer.writeObjectValue<VmMetadata>("vmMetadata", deviceEvidence.vmMetadata, );
+        writer.writeObjectValue<VmMetadata>("vmMetadata", deviceEvidence.vmMetadata, serializeVmMetadata);
 }
 // tslint:enable
 // eslint-enable

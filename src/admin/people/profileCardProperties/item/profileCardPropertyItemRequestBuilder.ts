@@ -63,8 +63,9 @@ export class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/people/profileCardProperties/{profileCardProperty%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property profileCardProperties for admin
+     * Delete the profileCardProperty object specified by its directoryPropertyName from the organization's profile card, and remove any localized customizations for that property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://learn.microsoft.com/graph/api/profilecardproperty-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ProfileCardPropertyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -77,9 +78,10 @@ export class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get profileCardProperties from admin
+     * Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProfileCardProperty
+     * @see {@link https://learn.microsoft.com/graph/api/profilecardproperty-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ProfileCardPropertyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ProfileCardProperty | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -92,10 +94,11 @@ export class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ProfileCardProperty>(requestInfo, createProfileCardPropertyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property profileCardProperties in admin
+     * Update the properties of a profileCardProperty object, identified by its directoryPropertyName property.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProfileCardProperty
+     * @see {@link https://learn.microsoft.com/graph/api/profilecardproperty-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ProfileCardProperty, requestConfiguration?: ProfileCardPropertyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ProfileCardProperty | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -108,7 +111,7 @@ export class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ProfileCardProperty>(requestInfo, createProfileCardPropertyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property profileCardProperties for admin
+     * Delete the profileCardProperty object specified by its directoryPropertyName from the organization's profile card, and remove any localized customizations for that property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -125,7 +128,7 @@ export class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get profileCardProperties from admin
+     * Retrieve the properties of a profileCardProperty entity. The profileCardProperty is identified by its directoryPropertyName property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -143,7 +146,7 @@ export class ProfileCardPropertyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property profileCardProperties in admin
+     * Update the properties of a profileCardProperty object, identified by its directoryPropertyName property.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

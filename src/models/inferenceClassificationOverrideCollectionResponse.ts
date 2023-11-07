@@ -23,7 +23,7 @@ export interface InferenceClassificationOverrideCollectionResponse extends BaseC
 }
 export function serializeInferenceClassificationOverrideCollectionResponse(writer: SerializationWriter, inferenceClassificationOverrideCollectionResponse: InferenceClassificationOverrideCollectionResponse | undefined = {} as InferenceClassificationOverrideCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, inferenceClassificationOverrideCollectionResponse)
-        writer.writeCollectionOfObjectValues<InferenceClassificationOverride>("value", inferenceClassificationOverrideCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<InferenceClassificationOverride>("value", inferenceClassificationOverrideCollectionResponse.value, serializeInferenceClassificationOverride);
 }
 // tslint:enable
 // eslint-enable

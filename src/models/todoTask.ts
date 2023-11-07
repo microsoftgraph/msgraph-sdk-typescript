@@ -45,24 +45,24 @@ export function deserializeIntoTodoTask(todoTask: TodoTask | undefined = {} as T
 }
 export function serializeTodoTask(writer: SerializationWriter, todoTask: TodoTask | undefined = {} as TodoTask) : void {
         serializeEntity(writer, todoTask)
-        writer.writeCollectionOfObjectValues<AttachmentBase>("attachments", todoTask.attachments, );
-        writer.writeCollectionOfObjectValues<AttachmentSession>("attachmentSessions", todoTask.attachmentSessions, );
-        writer.writeObjectValue<ItemBody>("body", todoTask.body, );
+        writer.writeCollectionOfObjectValues<AttachmentBase>("attachments", todoTask.attachments, serializeAttachmentBase);
+        writer.writeCollectionOfObjectValues<AttachmentSession>("attachmentSessions", todoTask.attachmentSessions, serializeAttachmentSession);
+        writer.writeObjectValue<ItemBody>("body", todoTask.body, serializeItemBody);
         writer.writeDateValue("bodyLastModifiedDateTime", todoTask.bodyLastModifiedDateTime);
         writer.writeCollectionOfPrimitiveValues<string>("categories", todoTask.categories);
-        writer.writeCollectionOfObjectValues<ChecklistItem>("checklistItems", todoTask.checklistItems, );
-        writer.writeObjectValue<DateTimeTimeZone>("completedDateTime", todoTask.completedDateTime, );
+        writer.writeCollectionOfObjectValues<ChecklistItem>("checklistItems", todoTask.checklistItems, serializeChecklistItem);
+        writer.writeObjectValue<DateTimeTimeZone>("completedDateTime", todoTask.completedDateTime, serializeDateTimeTimeZone);
         writer.writeDateValue("createdDateTime", todoTask.createdDateTime);
-        writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", todoTask.dueDateTime, );
-        writer.writeCollectionOfObjectValues<Extension>("extensions", todoTask.extensions, );
+        writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", todoTask.dueDateTime, serializeDateTimeTimeZone);
+        writer.writeCollectionOfObjectValues<Extension>("extensions", todoTask.extensions, serializeExtension);
         writer.writeBooleanValue("hasAttachments", todoTask.hasAttachments);
         writer.writeEnumValue<Importance>("importance", todoTask.importance);
         writer.writeBooleanValue("isReminderOn", todoTask.isReminderOn);
         writer.writeDateValue("lastModifiedDateTime", todoTask.lastModifiedDateTime);
-        writer.writeCollectionOfObjectValues<LinkedResource>("linkedResources", todoTask.linkedResources, );
-        writer.writeObjectValue<PatternedRecurrence>("recurrence", todoTask.recurrence, );
-        writer.writeObjectValue<DateTimeTimeZone>("reminderDateTime", todoTask.reminderDateTime, );
-        writer.writeObjectValue<DateTimeTimeZone>("startDateTime", todoTask.startDateTime, );
+        writer.writeCollectionOfObjectValues<LinkedResource>("linkedResources", todoTask.linkedResources, serializeLinkedResource);
+        writer.writeObjectValue<PatternedRecurrence>("recurrence", todoTask.recurrence, serializePatternedRecurrence);
+        writer.writeObjectValue<DateTimeTimeZone>("reminderDateTime", todoTask.reminderDateTime, serializeDateTimeTimeZone);
+        writer.writeObjectValue<DateTimeTimeZone>("startDateTime", todoTask.startDateTime, serializeDateTimeTimeZone);
         writer.writeEnumValue<TaskStatus>("status", todoTask.status);
         writer.writeStringValue("title", todoTask.title);
 }

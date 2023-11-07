@@ -23,7 +23,7 @@ export interface GetAttackSimulationSimulationUserCoverageGetResponse extends Ba
 }
 export function serializeGetAttackSimulationSimulationUserCoverageGetResponse(writer: SerializationWriter, getAttackSimulationSimulationUserCoverageGetResponse: GetAttackSimulationSimulationUserCoverageGetResponse | undefined = {} as GetAttackSimulationSimulationUserCoverageGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationSimulationUserCoverageGetResponse)
-        writer.writeCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>("value", getAttackSimulationSimulationUserCoverageGetResponse.value, );
+        writer.writeCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>("value", getAttackSimulationSimulationUserCoverageGetResponse.value, serializeAttackSimulationSimulationUserCoverage);
 }
 // tslint:enable
 // eslint-enable

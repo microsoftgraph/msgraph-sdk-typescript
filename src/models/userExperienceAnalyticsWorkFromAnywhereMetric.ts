@@ -17,7 +17,7 @@ export function deserializeIntoUserExperienceAnalyticsWorkFromAnywhereMetric(use
 }
 export function serializeUserExperienceAnalyticsWorkFromAnywhereMetric(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereMetric: UserExperienceAnalyticsWorkFromAnywhereMetric | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereMetric) : void {
         serializeEntity(writer, userExperienceAnalyticsWorkFromAnywhereMetric)
-        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsWorkFromAnywhereDevice>("metricDevices", userExperienceAnalyticsWorkFromAnywhereMetric.metricDevices, );
+        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsWorkFromAnywhereDevice>("metricDevices", userExperienceAnalyticsWorkFromAnywhereMetric.metricDevices, serializeUserExperienceAnalyticsWorkFromAnywhereDevice);
 }
 export interface UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity, Parsable {
     /**

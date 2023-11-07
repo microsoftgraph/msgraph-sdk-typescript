@@ -23,7 +23,7 @@ export function deserializeIntoAccessPackageResourceScopeCollectionResponse(acce
 }
 export function serializeAccessPackageResourceScopeCollectionResponse(writer: SerializationWriter, accessPackageResourceScopeCollectionResponse: AccessPackageResourceScopeCollectionResponse | undefined = {} as AccessPackageResourceScopeCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessPackageResourceScopeCollectionResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageResourceScope>("value", accessPackageResourceScopeCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AccessPackageResourceScope>("value", accessPackageResourceScopeCollectionResponse.value, serializeAccessPackageResourceScope);
 }
 // tslint:enable
 // eslint-enable

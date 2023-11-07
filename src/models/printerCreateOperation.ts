@@ -29,7 +29,7 @@ export interface PrinterCreateOperation extends Parsable, PrintOperation {
 export function serializePrinterCreateOperation(writer: SerializationWriter, printerCreateOperation: PrinterCreateOperation | undefined = {} as PrinterCreateOperation) : void {
         serializePrintOperation(writer, printerCreateOperation)
         writer.writeStringValue("certificate", printerCreateOperation.certificate);
-        writer.writeObjectValue<Printer>("printer", printerCreateOperation.printer, );
+        writer.writeObjectValue<Printer>("printer", printerCreateOperation.printer, serializePrinter);
 }
 // tslint:enable
 // eslint-enable

@@ -7,6 +7,7 @@ import { createOnlineMeetingFromDiscriminatorValue, deserializeIntoOnlineMeeting
 import { AttendanceReportsRequestBuilder } from './attendanceReports/attendanceReportsRequestBuilder';
 import { AttendeeReportRequestBuilder } from './attendeeReport/attendeeReportRequestBuilder';
 import { GetVirtualAppointmentJoinWebUrlRequestBuilder } from './getVirtualAppointmentJoinWebUrl/getVirtualAppointmentJoinWebUrlRequestBuilder';
+import { RecordingsRequestBuilder } from './recordings/recordingsRequestBuilder';
 import { TranscriptsRequestBuilder } from './transcripts/transcriptsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
@@ -75,6 +76,12 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
      */
     public get getVirtualAppointmentJoinWebUrl(): GetVirtualAppointmentJoinWebUrlRequestBuilder {
         return new GetVirtualAppointmentJoinWebUrlRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
+     */
+    public get recordings(): RecordingsRequestBuilder {
+        return new RecordingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.

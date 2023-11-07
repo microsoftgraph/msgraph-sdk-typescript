@@ -24,7 +24,7 @@ export function deserializeIntoCschPostRequestBody(cschPostRequestBody: CschPost
     }
 }
 export function serializeCschPostRequestBody(writer: SerializationWriter, cschPostRequestBody: CschPostRequestBody | undefined = {} as CschPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", cschPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", cschPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(cschPostRequestBody.additionalData);
 }
 // tslint:enable

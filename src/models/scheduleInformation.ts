@@ -52,11 +52,11 @@ export interface ScheduleInformation extends AdditionalDataHolder, Parsable {
 }
 export function serializeScheduleInformation(writer: SerializationWriter, scheduleInformation: ScheduleInformation | undefined = {} as ScheduleInformation) : void {
         writer.writeStringValue("availabilityView", scheduleInformation.availabilityView);
-        writer.writeObjectValue<FreeBusyError>("error", scheduleInformation.errorEscaped, );
+        writer.writeObjectValue<FreeBusyError>("error", scheduleInformation.errorEscaped, serializeFreeBusyError);
         writer.writeStringValue("@odata.type", scheduleInformation.odataType);
         writer.writeStringValue("scheduleId", scheduleInformation.scheduleId);
-        writer.writeCollectionOfObjectValues<ScheduleItem>("scheduleItems", scheduleInformation.scheduleItems, );
-        writer.writeObjectValue<WorkingHours>("workingHours", scheduleInformation.workingHours, );
+        writer.writeCollectionOfObjectValues<ScheduleItem>("scheduleItems", scheduleInformation.scheduleItems, serializeScheduleItem);
+        writer.writeObjectValue<WorkingHours>("workingHours", scheduleInformation.workingHours, serializeWorkingHours);
         writer.writeAdditionalData(scheduleInformation.additionalData);
 }
 // tslint:enable

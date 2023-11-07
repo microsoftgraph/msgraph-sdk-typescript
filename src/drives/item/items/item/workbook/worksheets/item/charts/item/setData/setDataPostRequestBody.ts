@@ -16,7 +16,7 @@ export function deserializeIntoSetDataPostRequestBody(setDataPostRequestBody: Se
 }
 export function serializeSetDataPostRequestBody(writer: SerializationWriter, setDataPostRequestBody: SetDataPostRequestBody | undefined = {} as SetDataPostRequestBody) : void {
         writer.writeStringValue("seriesBy", setDataPostRequestBody.seriesBy);
-        writer.writeObjectValue<Json>("sourceData", setDataPostRequestBody.sourceData, );
+        writer.writeObjectValue<Json>("sourceData", setDataPostRequestBody.sourceData, serializeJson);
         writer.writeAdditionalData(setDataPostRequestBody.additionalData);
 }
 export interface SetDataPostRequestBody extends AdditionalDataHolder, Parsable {

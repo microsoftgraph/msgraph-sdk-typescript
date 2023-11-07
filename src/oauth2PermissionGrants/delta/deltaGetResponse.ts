@@ -23,7 +23,7 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: DeltaGetRespon
 }
 export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: DeltaGetResponse | undefined = {} as DeltaGetResponse) : void {
         serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
-        writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("value", deltaGetResponse.value, );
+        writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("value", deltaGetResponse.value, serializeOAuth2PermissionGrant);
 }
 // tslint:enable
 // eslint-enable

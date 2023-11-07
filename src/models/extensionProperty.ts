@@ -13,6 +13,7 @@ export function deserializeIntoExtensionProperty(extensionProperty: ExtensionPro
         ...deserializeIntoDirectoryObject(extensionProperty),
         "appDisplayName": n => { extensionProperty.appDisplayName = n.getStringValue(); },
         "dataType": n => { extensionProperty.dataType = n.getStringValue(); },
+        "isMultiValued": n => { extensionProperty.isMultiValued = n.getBooleanValue(); },
         "isSyncedFromOnPremises": n => { extensionProperty.isSyncedFromOnPremises = n.getBooleanValue(); },
         "name": n => { extensionProperty.name = n.getStringValue(); },
         "targetObjects": n => { extensionProperty.targetObjects = n.getCollectionOfPrimitiveValues<string>(); },
@@ -27,6 +28,10 @@ export interface ExtensionProperty extends DirectoryObject, Parsable {
      * Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum
      */
     dataType?: string;
+    /**
+     * The isMultiValued property
+     */
+    isMultiValued?: boolean;
     /**
      * Indicates if this extension property was synced from on-premises active directory using Microsoft Entra Connect. Read-only.
      */
@@ -44,6 +49,7 @@ export function serializeExtensionProperty(writer: SerializationWriter, extensio
         serializeDirectoryObject(writer, extensionProperty)
         writer.writeStringValue("appDisplayName", extensionProperty.appDisplayName);
         writer.writeStringValue("dataType", extensionProperty.dataType);
+        writer.writeBooleanValue("isMultiValued", extensionProperty.isMultiValued);
         writer.writeBooleanValue("isSyncedFromOnPremises", extensionProperty.isSyncedFromOnPremises);
         writer.writeStringValue("name", extensionProperty.name);
         writer.writeCollectionOfPrimitiveValues<string>("targetObjects", extensionProperty.targetObjects);

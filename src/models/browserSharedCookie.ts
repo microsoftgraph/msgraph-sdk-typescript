@@ -85,10 +85,10 @@ export function serializeBrowserSharedCookie(writer: SerializationWriter, browse
         writer.writeDateValue("createdDateTime", browserSharedCookie.createdDateTime);
         writer.writeDateValue("deletedDateTime", browserSharedCookie.deletedDateTime);
         writer.writeStringValue("displayName", browserSharedCookie.displayName);
-        writer.writeCollectionOfObjectValues<BrowserSharedCookieHistory>("history", browserSharedCookie.history, );
+        writer.writeCollectionOfObjectValues<BrowserSharedCookieHistory>("history", browserSharedCookie.history, serializeBrowserSharedCookieHistory);
         writer.writeBooleanValue("hostOnly", browserSharedCookie.hostOnly);
         writer.writeStringValue("hostOrDomain", browserSharedCookie.hostOrDomain);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSharedCookie.lastModifiedBy, );
+        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSharedCookie.lastModifiedBy, serializeIdentitySet);
         writer.writeDateValue("lastModifiedDateTime", browserSharedCookie.lastModifiedDateTime);
         writer.writeStringValue("path", browserSharedCookie.path);
         writer.writeEnumValue<BrowserSharedCookieSourceEnvironment>("sourceEnvironment", browserSharedCookie.sourceEnvironment);

@@ -23,7 +23,7 @@ export interface EnrollmentConfigurationAssignment extends Entity, Parsable {
 }
 export function serializeEnrollmentConfigurationAssignment(writer: SerializationWriter, enrollmentConfigurationAssignment: EnrollmentConfigurationAssignment | undefined = {} as EnrollmentConfigurationAssignment) : void {
         serializeEntity(writer, enrollmentConfigurationAssignment)
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", enrollmentConfigurationAssignment.target, );
+        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", enrollmentConfigurationAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
 }
 // tslint:enable
 // eslint-enable

@@ -29,8 +29,8 @@ export interface Quartile_IncPostRequestBody extends AdditionalDataHolder, Parsa
     quart?: Json;
 }
 export function serializeQuartile_IncPostRequestBody(writer: SerializationWriter, quartile_IncPostRequestBody: Quartile_IncPostRequestBody | undefined = {} as Quartile_IncPostRequestBody) : void {
-        writer.writeObjectValue<Json>("array", quartile_IncPostRequestBody.array, );
-        writer.writeObjectValue<Json>("quart", quartile_IncPostRequestBody.quart, );
+        writer.writeObjectValue<Json>("array", quartile_IncPostRequestBody.array, serializeJson);
+        writer.writeObjectValue<Json>("quart", quartile_IncPostRequestBody.quart, serializeJson);
         writer.writeAdditionalData(quartile_IncPostRequestBody.additionalData);
 }
 // tslint:enable

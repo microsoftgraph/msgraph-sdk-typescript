@@ -24,7 +24,7 @@ export function deserializeIntoDayPostRequestBody(dayPostRequestBody: DayPostReq
     }
 }
 export function serializeDayPostRequestBody(writer: SerializationWriter, dayPostRequestBody: DayPostRequestBody | undefined = {} as DayPostRequestBody) : void {
-        writer.writeObjectValue<Json>("serialNumber", dayPostRequestBody.serialNumber, );
+        writer.writeObjectValue<Json>("serialNumber", dayPostRequestBody.serialNumber, serializeJson);
         writer.writeAdditionalData(dayPostRequestBody.additionalData);
 }
 // tslint:enable

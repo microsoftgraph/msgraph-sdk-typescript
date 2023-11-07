@@ -98,9 +98,10 @@ export class TrainingsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/trainings{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get trainings from security
+     * Get a list of the training objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TrainingCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-trainings?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TrainingsRequestBuilderGetRequestConfiguration | undefined) : Promise<TrainingCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -129,7 +130,7 @@ export class TrainingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Training>(requestInfo, createTrainingFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get trainings from security
+     * Get a list of the training objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

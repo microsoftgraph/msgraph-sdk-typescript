@@ -24,7 +24,7 @@ export function deserializeIntoCodePostRequestBody(codePostRequestBody: CodePost
     }
 }
 export function serializeCodePostRequestBody(writer: SerializationWriter, codePostRequestBody: CodePostRequestBody | undefined = {} as CodePostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", codePostRequestBody.text, );
+        writer.writeObjectValue<Json>("text", codePostRequestBody.text, serializeJson);
         writer.writeAdditionalData(codePostRequestBody.additionalData);
 }
 // tslint:enable

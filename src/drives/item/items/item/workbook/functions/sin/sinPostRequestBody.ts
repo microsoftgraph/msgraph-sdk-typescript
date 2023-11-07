@@ -14,7 +14,7 @@ export function deserializeIntoSinPostRequestBody(sinPostRequestBody: SinPostReq
     }
 }
 export function serializeSinPostRequestBody(writer: SerializationWriter, sinPostRequestBody: SinPostRequestBody | undefined = {} as SinPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", sinPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", sinPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(sinPostRequestBody.additionalData);
 }
 export interface SinPostRequestBody extends AdditionalDataHolder, Parsable {

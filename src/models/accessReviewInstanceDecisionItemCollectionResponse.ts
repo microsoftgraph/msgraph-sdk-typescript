@@ -23,7 +23,7 @@ export function deserializeIntoAccessReviewInstanceDecisionItemCollectionRespons
 }
 export function serializeAccessReviewInstanceDecisionItemCollectionResponse(writer: SerializationWriter, accessReviewInstanceDecisionItemCollectionResponse: AccessReviewInstanceDecisionItemCollectionResponse | undefined = {} as AccessReviewInstanceDecisionItemCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessReviewInstanceDecisionItemCollectionResponse)
-        writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("value", accessReviewInstanceDecisionItemCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("value", accessReviewInstanceDecisionItemCollectionResponse.value, serializeAccessReviewInstanceDecisionItem);
 }
 // tslint:enable
 // eslint-enable

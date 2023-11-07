@@ -49,15 +49,15 @@ export function serializeSignIn(writer: SerializationWriter, signIn: SignIn | un
         serializeEntity(writer, signIn)
         writer.writeStringValue("appDisplayName", signIn.appDisplayName);
         writer.writeStringValue("appId", signIn.appId);
-        writer.writeCollectionOfObjectValues<AppliedConditionalAccessPolicy>("appliedConditionalAccessPolicies", signIn.appliedConditionalAccessPolicies, );
+        writer.writeCollectionOfObjectValues<AppliedConditionalAccessPolicy>("appliedConditionalAccessPolicies", signIn.appliedConditionalAccessPolicies, serializeAppliedConditionalAccessPolicy);
         writer.writeStringValue("clientAppUsed", signIn.clientAppUsed);
         writer.writeEnumValue<ConditionalAccessStatus>("conditionalAccessStatus", signIn.conditionalAccessStatus);
         writer.writeStringValue("correlationId", signIn.correlationId);
         writer.writeDateValue("createdDateTime", signIn.createdDateTime);
-        writer.writeObjectValue<DeviceDetail>("deviceDetail", signIn.deviceDetail, );
+        writer.writeObjectValue<DeviceDetail>("deviceDetail", signIn.deviceDetail, serializeDeviceDetail);
         writer.writeStringValue("ipAddress", signIn.ipAddress);
         writer.writeBooleanValue("isInteractive", signIn.isInteractive);
-        writer.writeObjectValue<SignInLocation>("location", signIn.location, );
+        writer.writeObjectValue<SignInLocation>("location", signIn.location, serializeSignInLocation);
         writer.writeStringValue("resourceDisplayName", signIn.resourceDisplayName);
         writer.writeStringValue("resourceId", signIn.resourceId);
         writer.writeEnumValue<RiskDetail>("riskDetail", signIn.riskDetail);
@@ -67,7 +67,7 @@ export function serializeSignIn(writer: SerializationWriter, signIn: SignIn | un
         writer.writeEnumValue<RiskLevel>("riskLevelAggregated", signIn.riskLevelAggregated);
         writer.writeEnumValue<RiskLevel>("riskLevelDuringSignIn", signIn.riskLevelDuringSignIn);
         writer.writeEnumValue<RiskState>("riskState", signIn.riskState);
-        writer.writeObjectValue<SignInStatus>("status", signIn.status, );
+        writer.writeObjectValue<SignInStatus>("status", signIn.status, serializeSignInStatus);
         writer.writeStringValue("userDisplayName", signIn.userDisplayName);
         writer.writeStringValue("userId", signIn.userId);
         writer.writeStringValue("userPrincipalName", signIn.userPrincipalName);
@@ -82,7 +82,7 @@ export interface SignIn extends Entity, Parsable {
      */
     appId?: string;
     /**
-     * Provides a list of conditional access policies that are triggered by the corresponding sign-in activity.
+     * Provides a list of conditional access policies that are triggered by the corresponding sign-in activity. Apps need additional Conditional Access-related privileges to read the details of this property. For more information, see Viewing applied conditional access (CA) policies in sign-ins.
      */
     appliedConditionalAccessPolicies?: AppliedConditionalAccessPolicy[];
     /**

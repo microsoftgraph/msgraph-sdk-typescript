@@ -36,7 +36,7 @@ export function serializeCallStartedEventMessageDetail(writer: SerializationWrit
         serializeEventMessageDetail(writer, callStartedEventMessageDetail)
         writer.writeEnumValue<TeamworkCallEventType>("callEventType", callStartedEventMessageDetail.callEventType);
         writer.writeStringValue("callId", callStartedEventMessageDetail.callId);
-        writer.writeObjectValue<IdentitySet>("initiator", callStartedEventMessageDetail.initiator, );
+        writer.writeObjectValue<IdentitySet>("initiator", callStartedEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

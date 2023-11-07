@@ -38,20 +38,20 @@ export function deserializeIntoUnifiedRoleEligibilityScheduleRequest(unifiedRole
 export function serializeUnifiedRoleEligibilityScheduleRequest(writer: SerializationWriter, unifiedRoleEligibilityScheduleRequest: UnifiedRoleEligibilityScheduleRequest | undefined = {} as UnifiedRoleEligibilityScheduleRequest) : void {
         serializeRequest(writer, unifiedRoleEligibilityScheduleRequest)
         writer.writeEnumValue<UnifiedRoleScheduleRequestActions>("action", unifiedRoleEligibilityScheduleRequest.action);
-        writer.writeObjectValue<AppScope>("appScope", unifiedRoleEligibilityScheduleRequest.appScope, );
+        writer.writeObjectValue<AppScope>("appScope", unifiedRoleEligibilityScheduleRequest.appScope, serializeAppScope);
         writer.writeStringValue("appScopeId", unifiedRoleEligibilityScheduleRequest.appScopeId);
-        writer.writeObjectValue<DirectoryObject>("directoryScope", unifiedRoleEligibilityScheduleRequest.directoryScope, );
+        writer.writeObjectValue<DirectoryObject>("directoryScope", unifiedRoleEligibilityScheduleRequest.directoryScope, serializeDirectoryObject);
         writer.writeStringValue("directoryScopeId", unifiedRoleEligibilityScheduleRequest.directoryScopeId);
         writer.writeBooleanValue("isValidationOnly", unifiedRoleEligibilityScheduleRequest.isValidationOnly);
         writer.writeStringValue("justification", unifiedRoleEligibilityScheduleRequest.justification);
-        writer.writeObjectValue<DirectoryObject>("principal", unifiedRoleEligibilityScheduleRequest.principal, );
+        writer.writeObjectValue<DirectoryObject>("principal", unifiedRoleEligibilityScheduleRequest.principal, serializeDirectoryObject);
         writer.writeStringValue("principalId", unifiedRoleEligibilityScheduleRequest.principalId);
-        writer.writeObjectValue<UnifiedRoleDefinition>("roleDefinition", unifiedRoleEligibilityScheduleRequest.roleDefinition, );
+        writer.writeObjectValue<UnifiedRoleDefinition>("roleDefinition", unifiedRoleEligibilityScheduleRequest.roleDefinition, serializeUnifiedRoleDefinition);
         writer.writeStringValue("roleDefinitionId", unifiedRoleEligibilityScheduleRequest.roleDefinitionId);
-        writer.writeObjectValue<RequestSchedule>("scheduleInfo", unifiedRoleEligibilityScheduleRequest.scheduleInfo, );
-        writer.writeObjectValue<UnifiedRoleEligibilitySchedule>("targetSchedule", unifiedRoleEligibilityScheduleRequest.targetSchedule, );
+        writer.writeObjectValue<RequestSchedule>("scheduleInfo", unifiedRoleEligibilityScheduleRequest.scheduleInfo, serializeRequestSchedule);
+        writer.writeObjectValue<UnifiedRoleEligibilitySchedule>("targetSchedule", unifiedRoleEligibilityScheduleRequest.targetSchedule, serializeUnifiedRoleEligibilitySchedule);
         writer.writeStringValue("targetScheduleId", unifiedRoleEligibilityScheduleRequest.targetScheduleId);
-        writer.writeObjectValue<TicketInfo>("ticketInfo", unifiedRoleEligibilityScheduleRequest.ticketInfo, );
+        writer.writeObjectValue<TicketInfo>("ticketInfo", unifiedRoleEligibilityScheduleRequest.ticketInfo, serializeTicketInfo);
 }
 export interface UnifiedRoleEligibilityScheduleRequest extends Parsable, Request {
     /**

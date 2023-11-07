@@ -23,7 +23,7 @@ export function deserializeIntoContactCollectionResponse(contactCollectionRespon
 }
 export function serializeContactCollectionResponse(writer: SerializationWriter, contactCollectionResponse: ContactCollectionResponse | undefined = {} as ContactCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, contactCollectionResponse)
-        writer.writeCollectionOfObjectValues<Contact>("value", contactCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Contact>("value", contactCollectionResponse.value, serializeContact);
 }
 // tslint:enable
 // eslint-enable

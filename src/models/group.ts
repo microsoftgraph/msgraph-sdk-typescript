@@ -101,11 +101,11 @@ export function deserializeIntoGroup(group: Group | undefined = {} as Group) : R
 }
 export interface Group extends DirectoryObject, Parsable {
     /**
-     * The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.
+     * The list of users or groups allowed to create posts or calendar events in this group. If this list is non-empty, then only users or groups listed here are allowed to post.
      */
     acceptedSenders?: DirectoryObject[];
     /**
-     * Indicates if people external to the organization can send messages to the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
+     * Indicates if people external to the organization can send messages to the group. The default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      */
     allowExternalSenders?: boolean;
     /**
@@ -169,7 +169,7 @@ export interface Group extends DirectoryObject, Parsable {
      */
     events?: Event[];
     /**
-     * Timestamp of when the group is set to expire. Is null for security groups but for Microsoft 365 groups, it represents when the group is set to expire as defined in the groupLifecyclePolicy. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
+     * Timestamp of when the group is set to expire. It is null for security groups, but for Microsoft 365 groups, it represents when the group is set to expire as defined in the groupLifecyclePolicy. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
      */
     expirationDateTime?: Date;
     /**
@@ -181,7 +181,7 @@ export interface Group extends DirectoryObject, Parsable {
      */
     groupLifecyclePolicies?: GroupLifecyclePolicy[];
     /**
-     * Specifies the group type and its membership. If the collection contains Unified, the group is a Microsoft 365 group; otherwise, it's either a security group or distribution group. For details, see groups overview.If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static. Returned by default. Supports $filter (eq, not).
+     * Specifies the group type and its membership. If the collection contains Unified, the group is a Microsoft 365 group; otherwise, it's either a security group or a distribution group. For details, see groups overview.If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static. Returned by default. Supports $filter (eq, not).
      */
     groupTypes?: string[];
     /**
@@ -193,23 +193,23 @@ export interface Group extends DirectoryObject, Parsable {
      */
     hideFromAddressLists?: boolean;
     /**
-     * True if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web; otherwise, false. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
+     * True if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web; otherwise, false. The default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      */
     hideFromOutlookClients?: boolean;
     /**
-     * When a group is associated with a team this property determines whether the team is in read-only mode.To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.
+     * When a group is associated with a team, this property determines whether the team is in read-only mode.To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.
      */
     isArchived?: boolean;
     /**
-     * Indicates whether this group can be assigned to a Microsoft Entra role or not. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true, visibility must be Hidden, and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Microsoft Entra role assignmentsUsing this feature requires a Microsoft Entra ID P1 license. Returned by default. Supports $filter (eq, ne, not).
+     * Indicates whether this group can be assigned to a Microsoft Entra role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true, visibility must be Hidden, and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global Administrator and Privileged Role Administrator roles can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Microsoft Entra role assignmentsUsing this feature requires a Microsoft Entra ID P1 license. Returned by default. Supports $filter (eq, ne, not).
      */
     isAssignableToRole?: boolean;
     /**
-     * Indicates whether the signed-in user is subscribed to receive email conversations. Default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
+     * Indicates whether the signed-in user is subscribed to receive email conversations. The default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      */
     isSubscribedByMail?: boolean;
     /**
-     * Indicates status of the group license assignment to all members of the group. Default value is false. Read-only. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete.Returned only on $select. Read-only.
+     * Indicates the status of the group license assignment to all group members. The default value is false. Read-only. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete.Returned only on $select. Read-only.
      */
     licenseProcessingState?: LicenseProcessingState;
     /**
@@ -265,11 +265,11 @@ export interface Group extends DirectoryObject, Parsable {
      */
     onPremisesProvisioningErrors?: OnPremisesProvisioningError[];
     /**
-     * Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect.Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith). Read-only.
+     * Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect.Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith). Read-only.
      */
     onPremisesSamAccountName?: string;
     /**
-     * Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Supports $filter (eq including on null values). Read-only.
+     * Contains the on-premises security identifier (SID) for the group synchronized from on-premises to the cloud. Returned by default. Supports $filter (eq including on null values). Read-only.
      */
     onPremisesSecurityIdentifier?: string;
     /**
@@ -297,11 +297,11 @@ export interface Group extends DirectoryObject, Parsable {
      */
     planner?: PlannerGroup;
     /**
-     * The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator's preferred data location. To set this property, the calling user must be assigned one of the following Microsoft Entra roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo. Nullable. Returned by default.
+     * The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator's preferred data location. To set this property, the calling app must be granted the Directory.ReadWrite.All permission and the user be assigned one of the following Microsoft Entra roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo. Nullable. Returned by default.
      */
     preferredDataLocation?: string;
     /**
-     * The preferred language for a Microsoft 365 group. Should follow ISO 639-1 Code; for example en-US. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+     * The preferred language for a Microsoft 365 group. Should follow ISO 639-1 Code; for example, en-US. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      */
     preferredLanguage?: string;
     /**
@@ -309,11 +309,11 @@ export interface Group extends DirectoryObject, Parsable {
      */
     proxyAddresses?: string[];
     /**
-     * The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable
+     * The list of users or groups not allowed to create posts or calendar events in this group. Nullable
      */
     rejectedSenders?: DirectoryObject[];
     /**
-     * Timestamp of when the group was last renewed. This cannot be modified directly and is only updated via the renew service action. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
+     * Timestamp of when the group was last renewed. This cannot be modified directly and is only updated via the renew service action. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
      */
     renewedDateTime?: Date;
     /**
@@ -349,7 +349,7 @@ export interface Group extends DirectoryObject, Parsable {
      */
     threads?: ConversationThread[];
     /**
-     * The groups that a group is a member of, either directly and through nested membership. Nullable.
+     * The groups that a group is a member of, either directly or through nested membership. Nullable.
      */
     transitiveMemberOf?: DirectoryObject[];
     /**
@@ -361,32 +361,32 @@ export interface Group extends DirectoryObject, Parsable {
      */
     unseenCount?: number;
     /**
-     * Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. To learn more, see group visibility options. Returned by default. Nullable.
+     * Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default, and the Microsoft 365 group is Public. Groups assignable to roles are always Private. To learn more, see group visibility options. Returned by default. Nullable.
      */
     visibility?: string;
 }
 export function serializeGroup(writer: SerializationWriter, group: Group | undefined = {} as Group) : void {
         serializeDirectoryObject(writer, group)
-        writer.writeCollectionOfObjectValues<DirectoryObject>("acceptedSenders", group.acceptedSenders, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("acceptedSenders", group.acceptedSenders, serializeDirectoryObject);
         writer.writeBooleanValue("allowExternalSenders", group.allowExternalSenders);
-        writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", group.appRoleAssignments, );
-        writer.writeCollectionOfObjectValues<AssignedLabel>("assignedLabels", group.assignedLabels, );
-        writer.writeCollectionOfObjectValues<AssignedLicense>("assignedLicenses", group.assignedLicenses, );
+        writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", group.appRoleAssignments, serializeAppRoleAssignment);
+        writer.writeCollectionOfObjectValues<AssignedLabel>("assignedLabels", group.assignedLabels, serializeAssignedLabel);
+        writer.writeCollectionOfObjectValues<AssignedLicense>("assignedLicenses", group.assignedLicenses, serializeAssignedLicense);
         writer.writeBooleanValue("autoSubscribeNewMembers", group.autoSubscribeNewMembers);
-        writer.writeObjectValue<Calendar>("calendar", group.calendar, );
-        writer.writeCollectionOfObjectValues<Event>("calendarView", group.calendarView, );
+        writer.writeObjectValue<Calendar>("calendar", group.calendar, serializeCalendar);
+        writer.writeCollectionOfObjectValues<Event>("calendarView", group.calendarView, serializeEvent);
         writer.writeStringValue("classification", group.classification);
-        writer.writeCollectionOfObjectValues<Conversation>("conversations", group.conversations, );
+        writer.writeCollectionOfObjectValues<Conversation>("conversations", group.conversations, serializeConversation);
         writer.writeDateValue("createdDateTime", group.createdDateTime);
-        writer.writeObjectValue<DirectoryObject>("createdOnBehalfOf", group.createdOnBehalfOf, );
+        writer.writeObjectValue<DirectoryObject>("createdOnBehalfOf", group.createdOnBehalfOf, serializeDirectoryObject);
         writer.writeStringValue("description", group.description);
         writer.writeStringValue("displayName", group.displayName);
-        writer.writeObjectValue<Drive>("drive", group.drive, );
-        writer.writeCollectionOfObjectValues<Drive>("drives", group.drives, );
-        writer.writeCollectionOfObjectValues<Event>("events", group.events, );
+        writer.writeObjectValue<Drive>("drive", group.drive, serializeDrive);
+        writer.writeCollectionOfObjectValues<Drive>("drives", group.drives, serializeDrive);
+        writer.writeCollectionOfObjectValues<Event>("events", group.events, serializeEvent);
         writer.writeDateValue("expirationDateTime", group.expirationDateTime);
-        writer.writeCollectionOfObjectValues<Extension>("extensions", group.extensions, );
-        writer.writeCollectionOfObjectValues<GroupLifecyclePolicy>("groupLifecyclePolicies", group.groupLifecyclePolicies, );
+        writer.writeCollectionOfObjectValues<Extension>("extensions", group.extensions, serializeExtension);
+        writer.writeCollectionOfObjectValues<GroupLifecyclePolicy>("groupLifecyclePolicies", group.groupLifecyclePolicies, serializeGroupLifecyclePolicy);
         writer.writeCollectionOfPrimitiveValues<string>("groupTypes", group.groupTypes);
         writer.writeBooleanValue("hasMembersWithLicenseErrors", group.hasMembersWithLicenseErrors);
         writer.writeBooleanValue("hideFromAddressLists", group.hideFromAddressLists);
@@ -394,43 +394,43 @@ export function serializeGroup(writer: SerializationWriter, group: Group | undef
         writer.writeBooleanValue("isArchived", group.isArchived);
         writer.writeBooleanValue("isAssignableToRole", group.isAssignableToRole);
         writer.writeBooleanValue("isSubscribedByMail", group.isSubscribedByMail);
-        writer.writeObjectValue<LicenseProcessingState>("licenseProcessingState", group.licenseProcessingState, );
+        writer.writeObjectValue<LicenseProcessingState>("licenseProcessingState", group.licenseProcessingState, serializeLicenseProcessingState);
         writer.writeStringValue("mail", group.mail);
         writer.writeBooleanValue("mailEnabled", group.mailEnabled);
         writer.writeStringValue("mailNickname", group.mailNickname);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("memberOf", group.memberOf, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("members", group.members, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("memberOf", group.memberOf, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("members", group.members, serializeDirectoryObject);
         writer.writeStringValue("membershipRule", group.membershipRule);
         writer.writeStringValue("membershipRuleProcessingState", group.membershipRuleProcessingState);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("membersWithLicenseErrors", group.membersWithLicenseErrors, );
-        writer.writeObjectValue<Onenote>("onenote", group.onenote, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("membersWithLicenseErrors", group.membersWithLicenseErrors, serializeDirectoryObject);
+        writer.writeObjectValue<Onenote>("onenote", group.onenote, serializeOnenote);
         writer.writeStringValue("onPremisesDomainName", group.onPremisesDomainName);
         writer.writeDateValue("onPremisesLastSyncDateTime", group.onPremisesLastSyncDateTime);
         writer.writeStringValue("onPremisesNetBiosName", group.onPremisesNetBiosName);
-        writer.writeCollectionOfObjectValues<OnPremisesProvisioningError>("onPremisesProvisioningErrors", group.onPremisesProvisioningErrors, );
+        writer.writeCollectionOfObjectValues<OnPremisesProvisioningError>("onPremisesProvisioningErrors", group.onPremisesProvisioningErrors, serializeOnPremisesProvisioningError);
         writer.writeStringValue("onPremisesSamAccountName", group.onPremisesSamAccountName);
         writer.writeStringValue("onPremisesSecurityIdentifier", group.onPremisesSecurityIdentifier);
         writer.writeBooleanValue("onPremisesSyncEnabled", group.onPremisesSyncEnabled);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("owners", group.owners, );
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", group.permissionGrants, );
-        writer.writeObjectValue<ProfilePhoto>("photo", group.photo, );
-        writer.writeCollectionOfObjectValues<ProfilePhoto>("photos", group.photos, );
-        writer.writeObjectValue<PlannerGroup>("planner", group.planner, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("owners", group.owners, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", group.permissionGrants, serializeResourceSpecificPermissionGrant);
+        writer.writeObjectValue<ProfilePhoto>("photo", group.photo, serializeProfilePhoto);
+        writer.writeCollectionOfObjectValues<ProfilePhoto>("photos", group.photos, serializeProfilePhoto);
+        writer.writeObjectValue<PlannerGroup>("planner", group.planner, serializePlannerGroup);
         writer.writeStringValue("preferredDataLocation", group.preferredDataLocation);
         writer.writeStringValue("preferredLanguage", group.preferredLanguage);
         writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", group.proxyAddresses);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("rejectedSenders", group.rejectedSenders, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("rejectedSenders", group.rejectedSenders, serializeDirectoryObject);
         writer.writeDateValue("renewedDateTime", group.renewedDateTime);
         writer.writeBooleanValue("securityEnabled", group.securityEnabled);
         writer.writeStringValue("securityIdentifier", group.securityIdentifier);
-        writer.writeCollectionOfObjectValues<ServiceProvisioningError>("serviceProvisioningErrors", group.serviceProvisioningErrors, );
-        writer.writeCollectionOfObjectValues<GroupSetting>("settings", group.settings, );
-        writer.writeCollectionOfObjectValues<Site>("sites", group.sites, );
-        writer.writeObjectValue<Team>("team", group.team, );
+        writer.writeCollectionOfObjectValues<ServiceProvisioningError>("serviceProvisioningErrors", group.serviceProvisioningErrors, serializeServiceProvisioningError);
+        writer.writeCollectionOfObjectValues<GroupSetting>("settings", group.settings, serializeGroupSetting);
+        writer.writeCollectionOfObjectValues<Site>("sites", group.sites, serializeSite);
+        writer.writeObjectValue<Team>("team", group.team, serializeTeam);
         writer.writeStringValue("theme", group.theme);
-        writer.writeCollectionOfObjectValues<ConversationThread>("threads", group.threads, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", group.transitiveMemberOf, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMembers", group.transitiveMembers, );
+        writer.writeCollectionOfObjectValues<ConversationThread>("threads", group.threads, serializeConversationThread);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", group.transitiveMemberOf, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMembers", group.transitiveMembers, serializeDirectoryObject);
         writer.writeNumberValue("unseenCount", group.unseenCount);
         writer.writeStringValue("visibility", group.visibility);
 }

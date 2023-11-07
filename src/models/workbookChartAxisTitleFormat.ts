@@ -17,7 +17,7 @@ export function deserializeIntoWorkbookChartAxisTitleFormat(workbookChartAxisTit
 }
 export function serializeWorkbookChartAxisTitleFormat(writer: SerializationWriter, workbookChartAxisTitleFormat: WorkbookChartAxisTitleFormat | undefined = {} as WorkbookChartAxisTitleFormat) : void {
         serializeEntity(writer, workbookChartAxisTitleFormat)
-        writer.writeObjectValue<WorkbookChartFont>("font", workbookChartAxisTitleFormat.font, );
+        writer.writeObjectValue<WorkbookChartFont>("font", workbookChartAxisTitleFormat.font, serializeWorkbookChartFont);
 }
 export interface WorkbookChartAxisTitleFormat extends Entity, Parsable {
     /**

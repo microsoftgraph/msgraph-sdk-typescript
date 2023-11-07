@@ -33,9 +33,9 @@ export interface OpenShift extends ChangeTrackedEntity, Parsable {
 }
 export function serializeOpenShift(writer: SerializationWriter, openShift: OpenShift | undefined = {} as OpenShift) : void {
         serializeChangeTrackedEntity(writer, openShift)
-        writer.writeObjectValue<OpenShiftItem>("draftOpenShift", openShift.draftOpenShift, );
+        writer.writeObjectValue<OpenShiftItem>("draftOpenShift", openShift.draftOpenShift, serializeOpenShiftItem);
         writer.writeStringValue("schedulingGroupId", openShift.schedulingGroupId);
-        writer.writeObjectValue<OpenShiftItem>("sharedOpenShift", openShift.sharedOpenShift, );
+        writer.writeObjectValue<OpenShiftItem>("sharedOpenShift", openShift.sharedOpenShift, serializeOpenShiftItem);
 }
 // tslint:enable
 // eslint-enable
