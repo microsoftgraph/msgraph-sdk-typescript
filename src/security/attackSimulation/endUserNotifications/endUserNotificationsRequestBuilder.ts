@@ -98,9 +98,10 @@ export class EndUserNotificationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/endUserNotifications{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get endUserNotifications from security
+     * Get a list of endUserNotification objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EndUserNotificationCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-endusernotifications?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EndUserNotificationsRequestBuilderGetRequestConfiguration | undefined) : Promise<EndUserNotificationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -129,7 +130,7 @@ export class EndUserNotificationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EndUserNotification>(requestInfo, createEndUserNotificationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get endUserNotifications from security
+     * Get a list of endUserNotification objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -143,7 +144,7 @@ export class EndUserNotificationsRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -162,7 +163,7 @@ export class EndUserNotificationsRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEndUserNotification);
         return requestInfo;
     };

@@ -47,11 +47,11 @@ export function deserializeIntoCloudCommunications(cloudCommunications: CloudCom
     }
 }
 export function serializeCloudCommunications(writer: SerializationWriter, cloudCommunications: CloudCommunications | undefined = {} as CloudCommunications) : void {
-        writer.writeCollectionOfObjectValues<CallRecord>("callRecords", cloudCommunications.callRecords, );
-        writer.writeCollectionOfObjectValues<Call>("calls", cloudCommunications.calls, );
+        writer.writeCollectionOfObjectValues<CallRecord>("callRecords", cloudCommunications.callRecords, serializeCallRecord);
+        writer.writeCollectionOfObjectValues<Call>("calls", cloudCommunications.calls, serializeCall);
         writer.writeStringValue("@odata.type", cloudCommunications.odataType);
-        writer.writeCollectionOfObjectValues<OnlineMeeting>("onlineMeetings", cloudCommunications.onlineMeetings, );
-        writer.writeCollectionOfObjectValues<Presence>("presences", cloudCommunications.presences, );
+        writer.writeCollectionOfObjectValues<OnlineMeeting>("onlineMeetings", cloudCommunications.onlineMeetings, serializeOnlineMeeting);
+        writer.writeCollectionOfObjectValues<Presence>("presences", cloudCommunications.presences, serializePresence);
         writer.writeAdditionalData(cloudCommunications.additionalData);
 }
 // tslint:enable

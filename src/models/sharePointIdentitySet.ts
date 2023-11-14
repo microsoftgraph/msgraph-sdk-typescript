@@ -20,9 +20,9 @@ export function deserializeIntoSharePointIdentitySet(sharePointIdentitySet: Shar
 }
 export function serializeSharePointIdentitySet(writer: SerializationWriter, sharePointIdentitySet: SharePointIdentitySet | undefined = {} as SharePointIdentitySet) : void {
         serializeIdentitySet(writer, sharePointIdentitySet)
-        writer.writeObjectValue<Identity>("group", sharePointIdentitySet.group, );
-        writer.writeObjectValue<SharePointIdentity>("siteGroup", sharePointIdentitySet.siteGroup, );
-        writer.writeObjectValue<SharePointIdentity>("siteUser", sharePointIdentitySet.siteUser, );
+        writer.writeObjectValue<Identity>("group", sharePointIdentitySet.group, serializeIdentity);
+        writer.writeObjectValue<SharePointIdentity>("siteGroup", sharePointIdentitySet.siteGroup, serializeSharePointIdentity);
+        writer.writeObjectValue<SharePointIdentity>("siteUser", sharePointIdentitySet.siteUser, serializeSharePointIdentity);
 }
 export interface SharePointIdentitySet extends IdentitySet, Parsable {
     /**

@@ -10,7 +10,7 @@ export interface CoachmarkLocation extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The length property
+     * Length of coachmark.
      */
     length?: number;
     /**
@@ -18,11 +18,11 @@ export interface CoachmarkLocation extends AdditionalDataHolder, Parsable {
      */
     odataType?: string;
     /**
-     * The offset property
+     * Offset of coachmark.
      */
     offset?: number;
     /**
-     * The type property
+     * Type of coachmark location. The possible values are: unknown, fromEmail, subject, externalTag, displayName, messageBody, unknownFutureValue.
      */
     type?: CoachmarkLocationType;
 }

@@ -49,12 +49,12 @@ export interface RatePostRequestBody extends AdditionalDataHolder, Parsable {
     type?: Json;
 }
 export function serializeRatePostRequestBody(writer: SerializationWriter, ratePostRequestBody: RatePostRequestBody | undefined = {} as RatePostRequestBody) : void {
-        writer.writeObjectValue<Json>("fv", ratePostRequestBody.fv, );
-        writer.writeObjectValue<Json>("guess", ratePostRequestBody.guess, );
-        writer.writeObjectValue<Json>("nper", ratePostRequestBody.nper, );
-        writer.writeObjectValue<Json>("pmt", ratePostRequestBody.pmt, );
-        writer.writeObjectValue<Json>("pv", ratePostRequestBody.pv, );
-        writer.writeObjectValue<Json>("type", ratePostRequestBody.type, );
+        writer.writeObjectValue<Json>("fv", ratePostRequestBody.fv, serializeJson);
+        writer.writeObjectValue<Json>("guess", ratePostRequestBody.guess, serializeJson);
+        writer.writeObjectValue<Json>("nper", ratePostRequestBody.nper, serializeJson);
+        writer.writeObjectValue<Json>("pmt", ratePostRequestBody.pmt, serializeJson);
+        writer.writeObjectValue<Json>("pv", ratePostRequestBody.pv, serializeJson);
+        writer.writeObjectValue<Json>("type", ratePostRequestBody.type, serializeJson);
         writer.writeAdditionalData(ratePostRequestBody.additionalData);
 }
 // tslint:enable

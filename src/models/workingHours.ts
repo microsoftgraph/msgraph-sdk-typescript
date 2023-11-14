@@ -24,7 +24,7 @@ export function serializeWorkingHours(writer: SerializationWriter, workingHours:
         writer.writeTimeOnlyValue("endTime", workingHours.endTime);
         writer.writeStringValue("@odata.type", workingHours.odataType);
         writer.writeTimeOnlyValue("startTime", workingHours.startTime);
-        writer.writeObjectValue<TimeZoneBase>("timeZone", workingHours.timeZone, );
+        writer.writeObjectValue<TimeZoneBase>("timeZone", workingHours.timeZone, serializeTimeZoneBase);
         writer.writeAdditionalData(workingHours.additionalData);
 }
 export interface WorkingHours extends AdditionalDataHolder, Parsable {

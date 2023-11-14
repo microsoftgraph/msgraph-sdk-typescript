@@ -23,7 +23,7 @@ export interface DeviceAndAppManagementRoleAssignmentCollectionResponse extends 
 }
 export function serializeDeviceAndAppManagementRoleAssignmentCollectionResponse(writer: SerializationWriter, deviceAndAppManagementRoleAssignmentCollectionResponse: DeviceAndAppManagementRoleAssignmentCollectionResponse | undefined = {} as DeviceAndAppManagementRoleAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceAndAppManagementRoleAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceAndAppManagementRoleAssignment>("value", deviceAndAppManagementRoleAssignmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DeviceAndAppManagementRoleAssignment>("value", deviceAndAppManagementRoleAssignmentCollectionResponse.value, serializeDeviceAndAppManagementRoleAssignment);
 }
 // tslint:enable
 // eslint-enable

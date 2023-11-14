@@ -21,7 +21,7 @@ export function deserializeIntoUpdateWindowsDeviceAccountActionParameter(updateW
 }
 export function serializeUpdateWindowsDeviceAccountActionParameter(writer: SerializationWriter, updateWindowsDeviceAccountActionParameter: UpdateWindowsDeviceAccountActionParameter | undefined = {} as UpdateWindowsDeviceAccountActionParameter) : void {
         writer.writeBooleanValue("calendarSyncEnabled", updateWindowsDeviceAccountActionParameter.calendarSyncEnabled);
-        writer.writeObjectValue<WindowsDeviceAccount>("deviceAccount", updateWindowsDeviceAccountActionParameter.deviceAccount, );
+        writer.writeObjectValue<WindowsDeviceAccount>("deviceAccount", updateWindowsDeviceAccountActionParameter.deviceAccount, serializeWindowsDeviceAccount);
         writer.writeStringValue("deviceAccountEmail", updateWindowsDeviceAccountActionParameter.deviceAccountEmail);
         writer.writeStringValue("exchangeServer", updateWindowsDeviceAccountActionParameter.exchangeServer);
         writer.writeStringValue("@odata.type", updateWindowsDeviceAccountActionParameter.odataType);

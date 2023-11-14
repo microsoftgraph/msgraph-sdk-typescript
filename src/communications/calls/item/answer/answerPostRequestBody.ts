@@ -49,8 +49,8 @@ export function serializeAnswerPostRequestBody(writer: SerializationWriter, answ
         if(answerPostRequestBody.acceptedModalities)
         writer.writeEnumValue<Modality>("acceptedModalities", ...answerPostRequestBody.acceptedModalities);
         writer.writeStringValue("callbackUri", answerPostRequestBody.callbackUri);
-        writer.writeObjectValue<IncomingCallOptions>("callOptions", answerPostRequestBody.callOptions, );
-        writer.writeObjectValue<MediaConfig>("mediaConfig", answerPostRequestBody.mediaConfig, );
+        writer.writeObjectValue<IncomingCallOptions>("callOptions", answerPostRequestBody.callOptions, serializeIncomingCallOptions);
+        writer.writeObjectValue<MediaConfig>("mediaConfig", answerPostRequestBody.mediaConfig, serializeMediaConfig);
         writer.writeNumberValue("participantCapacity", answerPostRequestBody.participantCapacity);
         writer.writeAdditionalData(answerPostRequestBody.additionalData);
 }

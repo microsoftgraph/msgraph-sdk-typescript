@@ -44,7 +44,7 @@ export interface FileSecurityState extends AdditionalDataHolder, Parsable {
     riskScore?: string;
 }
 export function serializeFileSecurityState(writer: SerializationWriter, fileSecurityState: FileSecurityState | undefined = {} as FileSecurityState) : void {
-        writer.writeObjectValue<FileHash>("fileHash", fileSecurityState.fileHash, );
+        writer.writeObjectValue<FileHash>("fileHash", fileSecurityState.fileHash, serializeFileHash);
         writer.writeStringValue("name", fileSecurityState.name);
         writer.writeStringValue("@odata.type", fileSecurityState.odataType);
         writer.writeStringValue("path", fileSecurityState.path);

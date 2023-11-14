@@ -30,8 +30,8 @@ export function serializeTaskProcessingResult(writer: SerializationWriter, taskP
         writer.writeStringValue("failureReason", taskProcessingResult.failureReason);
         writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", taskProcessingResult.processingStatus);
         writer.writeDateValue("startedDateTime", taskProcessingResult.startedDateTime);
-        writer.writeObjectValue<User>("subject", taskProcessingResult.subject, );
-        writer.writeObjectValue<Task>("task", taskProcessingResult.task, );
+        writer.writeObjectValue<User>("subject", taskProcessingResult.subject, serializeUser);
+        writer.writeObjectValue<Task>("task", taskProcessingResult.task, serializeTask);
 }
 export interface TaskProcessingResult extends Entity, Parsable {
     /**

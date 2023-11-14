@@ -17,7 +17,7 @@ export function deserializeIntoSoftwareOathAuthenticationMethodCollectionRespons
 }
 export function serializeSoftwareOathAuthenticationMethodCollectionResponse(writer: SerializationWriter, softwareOathAuthenticationMethodCollectionResponse: SoftwareOathAuthenticationMethodCollectionResponse | undefined = {} as SoftwareOathAuthenticationMethodCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, softwareOathAuthenticationMethodCollectionResponse)
-        writer.writeCollectionOfObjectValues<SoftwareOathAuthenticationMethod>("value", softwareOathAuthenticationMethodCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<SoftwareOathAuthenticationMethod>("value", softwareOathAuthenticationMethodCollectionResponse.value, serializeSoftwareOathAuthenticationMethod);
 }
 export interface SoftwareOathAuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -24,7 +24,7 @@ export interface LenPostRequestBody extends AdditionalDataHolder, Parsable {
     text?: Json;
 }
 export function serializeLenPostRequestBody(writer: SerializationWriter, lenPostRequestBody: LenPostRequestBody | undefined = {} as LenPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", lenPostRequestBody.text, );
+        writer.writeObjectValue<Json>("text", lenPostRequestBody.text, serializeJson);
         writer.writeAdditionalData(lenPostRequestBody.additionalData);
 }
 // tslint:enable

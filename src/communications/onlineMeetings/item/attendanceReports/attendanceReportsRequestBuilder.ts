@@ -69,7 +69,7 @@ export interface AttendanceReportsRequestBuilderPostRequestConfiguration {
     options?: RequestOption[];
 }
 /**
- * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
+ * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.
  */
 export class AttendanceReportsRequestBuilder extends BaseRequestBuilder {
     /**
@@ -79,7 +79,7 @@ export class AttendanceReportsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
+     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.
      * @param meetingAttendanceReportId The unique identifier of meetingAttendanceReport
      * @returns a MeetingAttendanceReportItemRequestBuilder
      */
@@ -98,10 +98,9 @@ export class AttendanceReportsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/onlineMeetings/{onlineMeeting%2Did}/attendanceReports{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of meetingAttendanceReport objects for an onlineMeeting. Each time an online meeting ends, an attendance report is generated for that session. This API is available in the following national cloud deployments.
+     * Get attendanceReports from communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MeetingAttendanceReportCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/meetingattendancereport-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttendanceReportsRequestBuilderGetRequestConfiguration | undefined) : Promise<MeetingAttendanceReportCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -130,7 +129,7 @@ export class AttendanceReportsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MeetingAttendanceReport>(requestInfo, createMeetingAttendanceReportFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of meetingAttendanceReport objects for an onlineMeeting. Each time an online meeting ends, an attendance report is generated for that session. This API is available in the following national cloud deployments.
+     * Get attendanceReports from communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -144,7 +143,7 @@ export class AttendanceReportsRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -163,7 +162,7 @@ export class AttendanceReportsRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMeetingAttendanceReport);
         return requestInfo;
     };

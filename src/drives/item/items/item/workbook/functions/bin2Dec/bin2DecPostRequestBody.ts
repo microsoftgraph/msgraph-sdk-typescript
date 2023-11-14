@@ -24,7 +24,7 @@ export function deserializeIntoBin2DecPostRequestBody(bin2DecPostRequestBody: Bi
     }
 }
 export function serializeBin2DecPostRequestBody(writer: SerializationWriter, bin2DecPostRequestBody: Bin2DecPostRequestBody | undefined = {} as Bin2DecPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", bin2DecPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", bin2DecPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(bin2DecPostRequestBody.additionalData);
 }
 // tslint:enable

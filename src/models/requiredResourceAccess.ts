@@ -35,7 +35,7 @@ export interface RequiredResourceAccess extends AdditionalDataHolder, Parsable {
 }
 export function serializeRequiredResourceAccess(writer: SerializationWriter, requiredResourceAccess: RequiredResourceAccess | undefined = {} as RequiredResourceAccess) : void {
         writer.writeStringValue("@odata.type", requiredResourceAccess.odataType);
-        writer.writeCollectionOfObjectValues<ResourceAccess>("resourceAccess", requiredResourceAccess.resourceAccess, );
+        writer.writeCollectionOfObjectValues<ResourceAccess>("resourceAccess", requiredResourceAccess.resourceAccess, serializeResourceAccess);
         writer.writeStringValue("resourceAppId", requiredResourceAccess.resourceAppId);
         writer.writeAdditionalData(requiredResourceAccess.additionalData);
 }

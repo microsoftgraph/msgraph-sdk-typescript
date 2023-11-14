@@ -264,9 +264,9 @@ export function serializeAndroidGeneralDeviceConfiguration(writer: Serialization
         writer.writeBooleanValue("appsBlockClipboardSharing", androidGeneralDeviceConfiguration.appsBlockClipboardSharing);
         writer.writeBooleanValue("appsBlockCopyPaste", androidGeneralDeviceConfiguration.appsBlockCopyPaste);
         writer.writeBooleanValue("appsBlockYouTube", androidGeneralDeviceConfiguration.appsBlockYouTube);
-        writer.writeCollectionOfObjectValues<AppListItem>("appsHideList", androidGeneralDeviceConfiguration.appsHideList, );
-        writer.writeCollectionOfObjectValues<AppListItem>("appsInstallAllowList", androidGeneralDeviceConfiguration.appsInstallAllowList, );
-        writer.writeCollectionOfObjectValues<AppListItem>("appsLaunchBlockList", androidGeneralDeviceConfiguration.appsLaunchBlockList, );
+        writer.writeCollectionOfObjectValues<AppListItem>("appsHideList", androidGeneralDeviceConfiguration.appsHideList, serializeAppListItem);
+        writer.writeCollectionOfObjectValues<AppListItem>("appsInstallAllowList", androidGeneralDeviceConfiguration.appsInstallAllowList, serializeAppListItem);
+        writer.writeCollectionOfObjectValues<AppListItem>("appsLaunchBlockList", androidGeneralDeviceConfiguration.appsLaunchBlockList, serializeAppListItem);
         writer.writeBooleanValue("bluetoothBlocked", androidGeneralDeviceConfiguration.bluetoothBlocked);
         writer.writeBooleanValue("cameraBlocked", androidGeneralDeviceConfiguration.cameraBlocked);
         writer.writeBooleanValue("cellularBlockDataRoaming", androidGeneralDeviceConfiguration.cellularBlockDataRoaming);
@@ -274,13 +274,13 @@ export function serializeAndroidGeneralDeviceConfiguration(writer: Serialization
         writer.writeBooleanValue("cellularBlockVoiceRoaming", androidGeneralDeviceConfiguration.cellularBlockVoiceRoaming);
         writer.writeBooleanValue("cellularBlockWiFiTethering", androidGeneralDeviceConfiguration.cellularBlockWiFiTethering);
         writer.writeEnumValue<AppListType>("compliantAppListType", androidGeneralDeviceConfiguration.compliantAppListType);
-        writer.writeCollectionOfObjectValues<AppListItem>("compliantAppsList", androidGeneralDeviceConfiguration.compliantAppsList, );
+        writer.writeCollectionOfObjectValues<AppListItem>("compliantAppsList", androidGeneralDeviceConfiguration.compliantAppsList, serializeAppListItem);
         writer.writeBooleanValue("deviceSharingAllowed", androidGeneralDeviceConfiguration.deviceSharingAllowed);
         writer.writeBooleanValue("diagnosticDataBlockSubmission", androidGeneralDeviceConfiguration.diagnosticDataBlockSubmission);
         writer.writeBooleanValue("factoryResetBlocked", androidGeneralDeviceConfiguration.factoryResetBlocked);
         writer.writeBooleanValue("googleAccountBlockAutoSync", androidGeneralDeviceConfiguration.googleAccountBlockAutoSync);
         writer.writeBooleanValue("googlePlayStoreBlocked", androidGeneralDeviceConfiguration.googlePlayStoreBlocked);
-        writer.writeCollectionOfObjectValues<AppListItem>("kioskModeApps", androidGeneralDeviceConfiguration.kioskModeApps, );
+        writer.writeCollectionOfObjectValues<AppListItem>("kioskModeApps", androidGeneralDeviceConfiguration.kioskModeApps, serializeAppListItem);
         writer.writeBooleanValue("kioskModeBlockSleepButton", androidGeneralDeviceConfiguration.kioskModeBlockSleepButton);
         writer.writeBooleanValue("kioskModeBlockVolumeButtons", androidGeneralDeviceConfiguration.kioskModeBlockVolumeButtons);
         writer.writeBooleanValue("locationServicesBlocked", androidGeneralDeviceConfiguration.locationServicesBlocked);

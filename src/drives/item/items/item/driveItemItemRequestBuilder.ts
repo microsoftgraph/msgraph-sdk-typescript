@@ -27,6 +27,7 @@ import { PermanentDeleteRequestBuilder } from './permanentDelete/permanentDelete
 import { PermissionsRequestBuilder } from './permissions/permissionsRequestBuilder';
 import { PreviewRequestBuilder } from './preview/previewRequestBuilder';
 import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { RetentionLabelRequestBuilder } from './retentionLabel/retentionLabelRequestBuilder';
 import { SearchWithQRequestBuilder } from './searchWithQ/searchWithQRequestBuilder';
 import { SubscriptionsRequestBuilder } from './subscriptions/subscriptionsRequestBuilder';
 import { ThumbnailsRequestBuilder } from './thumbnails/thumbnailsRequestBuilder';
@@ -211,6 +212,12 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the retentionLabel property of the microsoft.graph.driveItem entity.
+     */
+    public get retentionLabel(): RetentionLabelRequestBuilder {
+        return new RetentionLabelRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.
      */
     public get subscriptions(): SubscriptionsRequestBuilder {
@@ -346,7 +353,7 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -364,7 +371,7 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -383,7 +390,7 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDriveItem);
         return requestInfo;
     };

@@ -23,7 +23,7 @@ export interface RecentGetResponse extends BaseCollectionPaginationCountResponse
 }
 export function serializeRecentGetResponse(writer: SerializationWriter, recentGetResponse: RecentGetResponse | undefined = {} as RecentGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, recentGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", recentGetResponse.value, );
+        writer.writeCollectionOfObjectValues<DriveItem>("value", recentGetResponse.value, serializeDriveItem);
 }
 // tslint:enable
 // eslint-enable

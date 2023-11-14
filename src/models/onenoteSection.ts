@@ -52,11 +52,11 @@ export interface OnenoteSection extends OnenoteEntityHierarchyModel, Parsable {
 export function serializeOnenoteSection(writer: SerializationWriter, onenoteSection: OnenoteSection | undefined = {} as OnenoteSection) : void {
         serializeOnenoteEntityHierarchyModel(writer, onenoteSection)
         writer.writeBooleanValue("isDefault", onenoteSection.isDefault);
-        writer.writeObjectValue<SectionLinks>("links", onenoteSection.links, );
-        writer.writeCollectionOfObjectValues<OnenotePage>("pages", onenoteSection.pages, );
+        writer.writeObjectValue<SectionLinks>("links", onenoteSection.links, serializeSectionLinks);
+        writer.writeCollectionOfObjectValues<OnenotePage>("pages", onenoteSection.pages, serializeOnenotePage);
         writer.writeStringValue("pagesUrl", onenoteSection.pagesUrl);
-        writer.writeObjectValue<Notebook>("parentNotebook", onenoteSection.parentNotebook, );
-        writer.writeObjectValue<SectionGroup>("parentSectionGroup", onenoteSection.parentSectionGroup, );
+        writer.writeObjectValue<Notebook>("parentNotebook", onenoteSection.parentNotebook, serializeNotebook);
+        writer.writeObjectValue<SectionGroup>("parentSectionGroup", onenoteSection.parentSectionGroup, serializeSectionGroup);
 }
 // tslint:enable
 // eslint-enable

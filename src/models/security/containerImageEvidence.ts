@@ -33,9 +33,9 @@ export function deserializeIntoContainerImageEvidence(containerImageEvidence: Co
 }
 export function serializeContainerImageEvidence(writer: SerializationWriter, containerImageEvidence: ContainerImageEvidence | undefined = {} as ContainerImageEvidence) : void {
         serializeAlertEvidence(writer, containerImageEvidence)
-        writer.writeObjectValue<ContainerImageEvidence>("digestImage", containerImageEvidence.digestImage, );
+        writer.writeObjectValue<ContainerImageEvidence>("digestImage", containerImageEvidence.digestImage, serializeContainerImageEvidence);
         writer.writeStringValue("imageId", containerImageEvidence.imageId);
-        writer.writeObjectValue<ContainerRegistryEvidence>("registry", containerImageEvidence.registry, );
+        writer.writeObjectValue<ContainerRegistryEvidence>("registry", containerImageEvidence.registry, serializeContainerRegistryEvidence);
 }
 // tslint:enable
 // eslint-enable

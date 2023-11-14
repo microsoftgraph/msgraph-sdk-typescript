@@ -19,7 +19,7 @@ export function deserializeIntoUnifiedRbacResourceNamespace(unifiedRbacResourceN
 export function serializeUnifiedRbacResourceNamespace(writer: SerializationWriter, unifiedRbacResourceNamespace: UnifiedRbacResourceNamespace | undefined = {} as UnifiedRbacResourceNamespace) : void {
         serializeEntity(writer, unifiedRbacResourceNamespace)
         writer.writeStringValue("name", unifiedRbacResourceNamespace.name);
-        writer.writeCollectionOfObjectValues<UnifiedRbacResourceAction>("resourceActions", unifiedRbacResourceNamespace.resourceActions, );
+        writer.writeCollectionOfObjectValues<UnifiedRbacResourceAction>("resourceActions", unifiedRbacResourceNamespace.resourceActions, serializeUnifiedRbacResourceAction);
 }
 export interface UnifiedRbacResourceNamespace extends Entity, Parsable {
     /**

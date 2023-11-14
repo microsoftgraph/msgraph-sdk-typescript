@@ -24,7 +24,7 @@ export interface ErfC_PrecisePostRequestBody extends AdditionalDataHolder, Parsa
     x?: Json;
 }
 export function serializeErfC_PrecisePostRequestBody(writer: SerializationWriter, erfC_PrecisePostRequestBody: ErfC_PrecisePostRequestBody | undefined = {} as ErfC_PrecisePostRequestBody) : void {
-        writer.writeObjectValue<Json>("X", erfC_PrecisePostRequestBody.x, );
+        writer.writeObjectValue<Json>("X", erfC_PrecisePostRequestBody.x, serializeJson);
         writer.writeAdditionalData(erfC_PrecisePostRequestBody.additionalData);
 }
 // tslint:enable

@@ -29,7 +29,7 @@ export interface ExtractSensitivityLabelsResult extends AdditionalDataHolder, Pa
     odataType?: string;
 }
 export function serializeExtractSensitivityLabelsResult(writer: SerializationWriter, extractSensitivityLabelsResult: ExtractSensitivityLabelsResult | undefined = {} as ExtractSensitivityLabelsResult) : void {
-        writer.writeCollectionOfObjectValues<SensitivityLabelAssignment>("labels", extractSensitivityLabelsResult.labels, );
+        writer.writeCollectionOfObjectValues<SensitivityLabelAssignment>("labels", extractSensitivityLabelsResult.labels, serializeSensitivityLabelAssignment);
         writer.writeStringValue("@odata.type", extractSensitivityLabelsResult.odataType);
         writer.writeAdditionalData(extractSensitivityLabelsResult.additionalData);
 }

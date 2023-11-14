@@ -24,7 +24,7 @@ export interface FisherPostRequestBody extends AdditionalDataHolder, Parsable {
     x?: Json;
 }
 export function serializeFisherPostRequestBody(writer: SerializationWriter, fisherPostRequestBody: FisherPostRequestBody | undefined = {} as FisherPostRequestBody) : void {
-        writer.writeObjectValue<Json>("x", fisherPostRequestBody.x, );
+        writer.writeObjectValue<Json>("x", fisherPostRequestBody.x, serializeJson);
         writer.writeAdditionalData(fisherPostRequestBody.additionalData);
 }
 // tslint:enable

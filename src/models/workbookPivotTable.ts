@@ -19,7 +19,7 @@ export function deserializeIntoWorkbookPivotTable(workbookPivotTable: WorkbookPi
 export function serializeWorkbookPivotTable(writer: SerializationWriter, workbookPivotTable: WorkbookPivotTable | undefined = {} as WorkbookPivotTable) : void {
         serializeEntity(writer, workbookPivotTable)
         writer.writeStringValue("name", workbookPivotTable.name);
-        writer.writeObjectValue<WorkbookWorksheet>("worksheet", workbookPivotTable.worksheet, );
+        writer.writeObjectValue<WorkbookWorksheet>("worksheet", workbookPivotTable.worksheet, serializeWorkbookWorksheet);
 }
 export interface WorkbookPivotTable extends Entity, Parsable {
     /**

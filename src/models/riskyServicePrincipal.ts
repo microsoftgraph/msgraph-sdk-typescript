@@ -83,7 +83,7 @@ export function serializeRiskyServicePrincipal(writer: SerializationWriter, risk
         serializeEntity(writer, riskyServicePrincipal)
         writer.writeStringValue("appId", riskyServicePrincipal.appId);
         writer.writeStringValue("displayName", riskyServicePrincipal.displayName);
-        writer.writeCollectionOfObjectValues<RiskyServicePrincipalHistoryItem>("history", riskyServicePrincipal.history, );
+        writer.writeCollectionOfObjectValues<RiskyServicePrincipalHistoryItem>("history", riskyServicePrincipal.history, serializeRiskyServicePrincipalHistoryItem);
         writer.writeBooleanValue("isEnabled", riskyServicePrincipal.isEnabled);
         writer.writeBooleanValue("isProcessing", riskyServicePrincipal.isProcessing);
         writer.writeEnumValue<RiskDetail>("riskDetail", riskyServicePrincipal.riskDetail);

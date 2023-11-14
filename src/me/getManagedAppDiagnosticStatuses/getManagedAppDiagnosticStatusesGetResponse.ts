@@ -23,7 +23,7 @@ export interface GetManagedAppDiagnosticStatusesGetResponse extends BaseCollecti
 }
 export function serializeGetManagedAppDiagnosticStatusesGetResponse(writer: SerializationWriter, getManagedAppDiagnosticStatusesGetResponse: GetManagedAppDiagnosticStatusesGetResponse | undefined = {} as GetManagedAppDiagnosticStatusesGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getManagedAppDiagnosticStatusesGetResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", getManagedAppDiagnosticStatusesGetResponse.value, );
+        writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", getManagedAppDiagnosticStatusesGetResponse.value, serializeManagedAppDiagnosticStatus);
 }
 // tslint:enable
 // eslint-enable

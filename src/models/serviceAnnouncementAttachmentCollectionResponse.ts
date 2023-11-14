@@ -17,7 +17,7 @@ export function deserializeIntoServiceAnnouncementAttachmentCollectionResponse(s
 }
 export function serializeServiceAnnouncementAttachmentCollectionResponse(writer: SerializationWriter, serviceAnnouncementAttachmentCollectionResponse: ServiceAnnouncementAttachmentCollectionResponse | undefined = {} as ServiceAnnouncementAttachmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, serviceAnnouncementAttachmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachment>("value", serviceAnnouncementAttachmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachment>("value", serviceAnnouncementAttachmentCollectionResponse.value, serializeServiceAnnouncementAttachment);
 }
 export interface ServiceAnnouncementAttachmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

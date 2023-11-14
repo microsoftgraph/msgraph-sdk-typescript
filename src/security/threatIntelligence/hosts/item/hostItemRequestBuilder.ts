@@ -11,6 +11,7 @@ import { HostPairsRequestBuilder } from './hostPairs/hostPairsRequestBuilder';
 import { ParentHostPairsRequestBuilder } from './parentHostPairs/parentHostPairsRequestBuilder';
 import { PassiveDnsRequestBuilder } from './passiveDns/passiveDnsRequestBuilder';
 import { PassiveDnsReverseRequestBuilder } from './passiveDnsReverse/passiveDnsReverseRequestBuilder';
+import { PortsRequestBuilder } from './ports/portsRequestBuilder';
 import { ReputationRequestBuilder } from './reputation/reputationRequestBuilder';
 import { SslCertificatesRequestBuilder } from './sslCertificates/sslCertificatesRequestBuilder';
 import { SubdomainsRequestBuilder } from './subdomains/subdomainsRequestBuilder';
@@ -107,6 +108,12 @@ export class HostItemRequestBuilder extends BaseRequestBuilder {
      */
     public get passiveDnsReverse(): PassiveDnsReverseRequestBuilder {
         return new PassiveDnsReverseRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the ports property of the microsoft.graph.security.host entity.
+     */
+    public get ports(): PortsRequestBuilder {
+        return new PortsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the reputation property of the microsoft.graph.security.host entity.
@@ -206,7 +213,7 @@ export class HostItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -224,7 +231,7 @@ export class HostItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -243,7 +250,7 @@ export class HostItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHost);
         return requestInfo;
     };

@@ -34,9 +34,9 @@ export interface F_Dist_RTPostRequestBody extends AdditionalDataHolder, Parsable
     x?: Json;
 }
 export function serializeF_Dist_RTPostRequestBody(writer: SerializationWriter, f_Dist_RTPostRequestBody: F_Dist_RTPostRequestBody | undefined = {} as F_Dist_RTPostRequestBody) : void {
-        writer.writeObjectValue<Json>("degFreedom1", f_Dist_RTPostRequestBody.degFreedom1, );
-        writer.writeObjectValue<Json>("degFreedom2", f_Dist_RTPostRequestBody.degFreedom2, );
-        writer.writeObjectValue<Json>("x", f_Dist_RTPostRequestBody.x, );
+        writer.writeObjectValue<Json>("degFreedom1", f_Dist_RTPostRequestBody.degFreedom1, serializeJson);
+        writer.writeObjectValue<Json>("degFreedom2", f_Dist_RTPostRequestBody.degFreedom2, serializeJson);
+        writer.writeObjectValue<Json>("x", f_Dist_RTPostRequestBody.x, serializeJson);
         writer.writeAdditionalData(f_Dist_RTPostRequestBody.additionalData);
 }
 // tslint:enable

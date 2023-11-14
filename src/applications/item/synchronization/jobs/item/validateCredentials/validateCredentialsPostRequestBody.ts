@@ -18,7 +18,7 @@ export function deserializeIntoValidateCredentialsPostRequestBody(validateCreden
 }
 export function serializeValidateCredentialsPostRequestBody(writer: SerializationWriter, validateCredentialsPostRequestBody: ValidateCredentialsPostRequestBody | undefined = {} as ValidateCredentialsPostRequestBody) : void {
         writer.writeStringValue("applicationIdentifier", validateCredentialsPostRequestBody.applicationIdentifier);
-        writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", validateCredentialsPostRequestBody.credentials, );
+        writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", validateCredentialsPostRequestBody.credentials, serializeSynchronizationSecretKeyStringValuePair);
         writer.writeStringValue("templateId", validateCredentialsPostRequestBody.templateId);
         writer.writeBooleanValue("useSavedCredentials", validateCredentialsPostRequestBody.useSavedCredentials);
         writer.writeAdditionalData(validateCredentialsPostRequestBody.additionalData);

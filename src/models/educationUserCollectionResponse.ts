@@ -23,7 +23,7 @@ export interface EducationUserCollectionResponse extends BaseCollectionPaginatio
 }
 export function serializeEducationUserCollectionResponse(writer: SerializationWriter, educationUserCollectionResponse: EducationUserCollectionResponse | undefined = {} as EducationUserCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, educationUserCollectionResponse)
-        writer.writeCollectionOfObjectValues<EducationUser>("value", educationUserCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<EducationUser>("value", educationUserCollectionResponse.value, serializeEducationUser);
 }
 // tslint:enable
 // eslint-enable

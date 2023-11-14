@@ -25,23 +25,23 @@ export interface PayloadCoachmark extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The coachmarkLocation property
+     * The coachmark location.
      */
     coachmarkLocation?: CoachmarkLocation;
     /**
-     * The description property
+     * The description about the coachmark.
      */
     description?: string;
     /**
-     * The indicator property
+     * The coachmark indicator.
      */
     indicator?: string;
     /**
-     * The isValid property
+     * Indicates whether the coachmark is valid or not.
      */
     isValid?: boolean;
     /**
-     * The language property
+     * The coachmark language.
      */
     language?: string;
     /**
@@ -49,12 +49,12 @@ export interface PayloadCoachmark extends AdditionalDataHolder, Parsable {
      */
     odataType?: string;
     /**
-     * The order property
+     * The coachmark order.
      */
     order?: string;
 }
 export function serializePayloadCoachmark(writer: SerializationWriter, payloadCoachmark: PayloadCoachmark | undefined = {} as PayloadCoachmark) : void {
-        writer.writeObjectValue<CoachmarkLocation>("coachmarkLocation", payloadCoachmark.coachmarkLocation, );
+        writer.writeObjectValue<CoachmarkLocation>("coachmarkLocation", payloadCoachmark.coachmarkLocation, serializeCoachmarkLocation);
         writer.writeStringValue("description", payloadCoachmark.description);
         writer.writeStringValue("indicator", payloadCoachmark.indicator);
         writer.writeBooleanValue("isValid", payloadCoachmark.isValid);

@@ -34,9 +34,9 @@ export interface Gamma_InvPostRequestBody extends AdditionalDataHolder, Parsable
     probability?: Json;
 }
 export function serializeGamma_InvPostRequestBody(writer: SerializationWriter, gamma_InvPostRequestBody: Gamma_InvPostRequestBody | undefined = {} as Gamma_InvPostRequestBody) : void {
-        writer.writeObjectValue<Json>("alpha", gamma_InvPostRequestBody.alpha, );
-        writer.writeObjectValue<Json>("beta", gamma_InvPostRequestBody.beta, );
-        writer.writeObjectValue<Json>("probability", gamma_InvPostRequestBody.probability, );
+        writer.writeObjectValue<Json>("alpha", gamma_InvPostRequestBody.alpha, serializeJson);
+        writer.writeObjectValue<Json>("beta", gamma_InvPostRequestBody.beta, serializeJson);
+        writer.writeObjectValue<Json>("probability", gamma_InvPostRequestBody.probability, serializeJson);
         writer.writeAdditionalData(gamma_InvPostRequestBody.additionalData);
 }
 // tslint:enable

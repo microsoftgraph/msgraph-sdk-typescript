@@ -24,7 +24,7 @@ export function deserializeIntoCreateUploadSessionPostRequestBody(createUploadSe
     }
 }
 export function serializeCreateUploadSessionPostRequestBody(writer: SerializationWriter, createUploadSessionPostRequestBody: CreateUploadSessionPostRequestBody | undefined = {} as CreateUploadSessionPostRequestBody) : void {
-        writer.writeObjectValue<AttachmentItem>("AttachmentItem", createUploadSessionPostRequestBody.attachmentItem, );
+        writer.writeObjectValue<AttachmentItem>("AttachmentItem", createUploadSessionPostRequestBody.attachmentItem, serializeAttachmentItem);
         writer.writeAdditionalData(createUploadSessionPostRequestBody.additionalData);
 }
 // tslint:enable

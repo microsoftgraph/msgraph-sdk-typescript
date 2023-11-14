@@ -29,8 +29,8 @@ export function deserializeIntoDecimalPostRequestBody(decimalPostRequestBody: De
     }
 }
 export function serializeDecimalPostRequestBody(writer: SerializationWriter, decimalPostRequestBody: DecimalPostRequestBody | undefined = {} as DecimalPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", decimalPostRequestBody.number, );
-        writer.writeObjectValue<Json>("radix", decimalPostRequestBody.radix, );
+        writer.writeObjectValue<Json>("number", decimalPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("radix", decimalPostRequestBody.radix, serializeJson);
         writer.writeAdditionalData(decimalPostRequestBody.additionalData);
 }
 // tslint:enable

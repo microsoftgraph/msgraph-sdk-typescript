@@ -21,7 +21,7 @@ export function deserializeIntoUserInstallStateSummary(userInstallStateSummary: 
 }
 export function serializeUserInstallStateSummary(writer: SerializationWriter, userInstallStateSummary: UserInstallStateSummary | undefined = {} as UserInstallStateSummary) : void {
         serializeEntity(writer, userInstallStateSummary)
-        writer.writeCollectionOfObjectValues<DeviceInstallState>("deviceStates", userInstallStateSummary.deviceStates, );
+        writer.writeCollectionOfObjectValues<DeviceInstallState>("deviceStates", userInstallStateSummary.deviceStates, serializeDeviceInstallState);
         writer.writeNumberValue("failedDeviceCount", userInstallStateSummary.failedDeviceCount);
         writer.writeNumberValue("installedDeviceCount", userInstallStateSummary.installedDeviceCount);
         writer.writeNumberValue("notInstalledDeviceCount", userInstallStateSummary.notInstalledDeviceCount);

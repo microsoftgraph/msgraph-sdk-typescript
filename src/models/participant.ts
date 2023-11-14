@@ -56,13 +56,13 @@ export interface Participant extends Entity, Parsable {
 }
 export function serializeParticipant(writer: SerializationWriter, participant: Participant | undefined = {} as Participant) : void {
         serializeEntity(writer, participant)
-        writer.writeObjectValue<ParticipantInfo>("info", participant.info, );
+        writer.writeObjectValue<ParticipantInfo>("info", participant.info, serializeParticipantInfo);
         writer.writeBooleanValue("isInLobby", participant.isInLobby);
         writer.writeBooleanValue("isMuted", participant.isMuted);
-        writer.writeCollectionOfObjectValues<MediaStream>("mediaStreams", participant.mediaStreams, );
+        writer.writeCollectionOfObjectValues<MediaStream>("mediaStreams", participant.mediaStreams, serializeMediaStream);
         writer.writeStringValue("metadata", participant.metadata);
-        writer.writeObjectValue<RecordingInfo>("recordingInfo", participant.recordingInfo, );
-        writer.writeObjectValue<OnlineMeetingRestricted>("restrictedExperience", participant.restrictedExperience, );
+        writer.writeObjectValue<RecordingInfo>("recordingInfo", participant.recordingInfo, serializeRecordingInfo);
+        writer.writeObjectValue<OnlineMeetingRestricted>("restrictedExperience", participant.restrictedExperience, serializeOnlineMeetingRestricted);
 }
 // tslint:enable
 // eslint-enable

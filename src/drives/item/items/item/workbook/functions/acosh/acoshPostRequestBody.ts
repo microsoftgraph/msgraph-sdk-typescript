@@ -24,7 +24,7 @@ export function deserializeIntoAcoshPostRequestBody(acoshPostRequestBody: AcoshP
     }
 }
 export function serializeAcoshPostRequestBody(writer: SerializationWriter, acoshPostRequestBody: AcoshPostRequestBody | undefined = {} as AcoshPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", acoshPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", acoshPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(acoshPostRequestBody.additionalData);
 }
 // tslint:enable

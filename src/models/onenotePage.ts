@@ -80,10 +80,10 @@ export function serializeOnenotePage(writer: SerializationWriter, onenotePage: O
         writer.writeStringValue("createdByAppId", onenotePage.createdByAppId);
         writer.writeDateValue("lastModifiedDateTime", onenotePage.lastModifiedDateTime);
         writer.writeNumberValue("level", onenotePage.level);
-        writer.writeObjectValue<PageLinks>("links", onenotePage.links, );
+        writer.writeObjectValue<PageLinks>("links", onenotePage.links, serializePageLinks);
         writer.writeNumberValue("order", onenotePage.order);
-        writer.writeObjectValue<Notebook>("parentNotebook", onenotePage.parentNotebook, );
-        writer.writeObjectValue<OnenoteSection>("parentSection", onenotePage.parentSection, );
+        writer.writeObjectValue<Notebook>("parentNotebook", onenotePage.parentNotebook, serializeNotebook);
+        writer.writeObjectValue<OnenoteSection>("parentSection", onenotePage.parentSection, serializeOnenoteSection);
         writer.writeStringValue("title", onenotePage.title);
         writer.writeCollectionOfPrimitiveValues<string>("userTags", onenotePage.userTags);
 }

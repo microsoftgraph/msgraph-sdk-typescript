@@ -65,7 +65,7 @@ export function serializeAccessPackageResourceEnvironment(writer: SerializationW
         writer.writeDateValue("modifiedDateTime", accessPackageResourceEnvironment.modifiedDateTime);
         writer.writeStringValue("originId", accessPackageResourceEnvironment.originId);
         writer.writeStringValue("originSystem", accessPackageResourceEnvironment.originSystem);
-        writer.writeCollectionOfObjectValues<AccessPackageResource>("resources", accessPackageResourceEnvironment.resources, );
+        writer.writeCollectionOfObjectValues<AccessPackageResource>("resources", accessPackageResourceEnvironment.resources, serializeAccessPackageResource);
 }
 // tslint:enable
 // eslint-enable

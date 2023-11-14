@@ -23,7 +23,7 @@ export interface SamlOrWsFedExternalDomainFederation extends Parsable, SamlOrWsF
 }
 export function serializeSamlOrWsFedExternalDomainFederation(writer: SerializationWriter, samlOrWsFedExternalDomainFederation: SamlOrWsFedExternalDomainFederation | undefined = {} as SamlOrWsFedExternalDomainFederation) : void {
         serializeSamlOrWsFedProvider(writer, samlOrWsFedExternalDomainFederation)
-        writer.writeCollectionOfObjectValues<ExternalDomainName>("domains", samlOrWsFedExternalDomainFederation.domains, );
+        writer.writeCollectionOfObjectValues<ExternalDomainName>("domains", samlOrWsFedExternalDomainFederation.domains, serializeExternalDomainName);
 }
 // tslint:enable
 // eslint-enable

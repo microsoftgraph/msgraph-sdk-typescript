@@ -49,12 +49,12 @@ export interface PriceMatPostRequestBody extends AdditionalDataHolder, Parsable 
     yld?: Json;
 }
 export function serializePriceMatPostRequestBody(writer: SerializationWriter, priceMatPostRequestBody: PriceMatPostRequestBody | undefined = {} as PriceMatPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", priceMatPostRequestBody.basis, );
-        writer.writeObjectValue<Json>("issue", priceMatPostRequestBody.issue, );
-        writer.writeObjectValue<Json>("maturity", priceMatPostRequestBody.maturity, );
-        writer.writeObjectValue<Json>("rate", priceMatPostRequestBody.rate, );
-        writer.writeObjectValue<Json>("settlement", priceMatPostRequestBody.settlement, );
-        writer.writeObjectValue<Json>("yld", priceMatPostRequestBody.yld, );
+        writer.writeObjectValue<Json>("basis", priceMatPostRequestBody.basis, serializeJson);
+        writer.writeObjectValue<Json>("issue", priceMatPostRequestBody.issue, serializeJson);
+        writer.writeObjectValue<Json>("maturity", priceMatPostRequestBody.maturity, serializeJson);
+        writer.writeObjectValue<Json>("rate", priceMatPostRequestBody.rate, serializeJson);
+        writer.writeObjectValue<Json>("settlement", priceMatPostRequestBody.settlement, serializeJson);
+        writer.writeObjectValue<Json>("yld", priceMatPostRequestBody.yld, serializeJson);
         writer.writeAdditionalData(priceMatPostRequestBody.additionalData);
 }
 // tslint:enable

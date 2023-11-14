@@ -66,7 +66,7 @@ export interface DeviceManagementPartner extends Entity, Parsable {
 export function serializeDeviceManagementPartner(writer: SerializationWriter, deviceManagementPartner: DeviceManagementPartner | undefined = {} as DeviceManagementPartner) : void {
         serializeEntity(writer, deviceManagementPartner)
         writer.writeStringValue("displayName", deviceManagementPartner.displayName);
-        writer.writeCollectionOfObjectValues<DeviceManagementPartnerAssignment>("groupsRequiringPartnerEnrollment", deviceManagementPartner.groupsRequiringPartnerEnrollment, );
+        writer.writeCollectionOfObjectValues<DeviceManagementPartnerAssignment>("groupsRequiringPartnerEnrollment", deviceManagementPartner.groupsRequiringPartnerEnrollment, serializeDeviceManagementPartnerAssignment);
         writer.writeBooleanValue("isConfigured", deviceManagementPartner.isConfigured);
         writer.writeDateValue("lastHeartbeatDateTime", deviceManagementPartner.lastHeartbeatDateTime);
         writer.writeEnumValue<DeviceManagementPartnerAppType>("partnerAppType", deviceManagementPartner.partnerAppType);

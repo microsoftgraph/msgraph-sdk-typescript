@@ -39,8 +39,8 @@ export function deserializeIntoCalendarSharingMessage(calendarSharingMessage: Ca
 export function serializeCalendarSharingMessage(writer: SerializationWriter, calendarSharingMessage: CalendarSharingMessage | undefined = {} as CalendarSharingMessage) : void {
         serializeMessage(writer, calendarSharingMessage)
         writer.writeBooleanValue("canAccept", calendarSharingMessage.canAccept);
-        writer.writeObjectValue<CalendarSharingMessageAction>("sharingMessageAction", calendarSharingMessage.sharingMessageAction, );
-        writer.writeCollectionOfObjectValues<CalendarSharingMessageAction>("sharingMessageActions", calendarSharingMessage.sharingMessageActions, );
+        writer.writeObjectValue<CalendarSharingMessageAction>("sharingMessageAction", calendarSharingMessage.sharingMessageAction, serializeCalendarSharingMessageAction);
+        writer.writeCollectionOfObjectValues<CalendarSharingMessageAction>("sharingMessageActions", calendarSharingMessage.sharingMessageActions, serializeCalendarSharingMessageAction);
         writer.writeStringValue("suggestedCalendarName", calendarSharingMessage.suggestedCalendarName);
 }
 // tslint:enable

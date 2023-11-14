@@ -23,7 +23,7 @@ export interface RemovePostResponse extends BaseCollectionPaginationCountRespons
 }
 export function serializeRemovePostResponse(writer: SerializationWriter, removePostResponse: RemovePostResponse | undefined = {} as RemovePostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, removePostResponse)
-        writer.writeCollectionOfObjectValues<Site>("value", removePostResponse.value, );
+        writer.writeCollectionOfObjectValues<Site>("value", removePostResponse.value, serializeSite);
 }
 // tslint:enable
 // eslint-enable

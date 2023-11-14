@@ -24,7 +24,7 @@ export interface OrPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeOrPostRequestBody(writer: SerializationWriter, orPostRequestBody: OrPostRequestBody | undefined = {} as OrPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", orPostRequestBody.values, );
+        writer.writeObjectValue<Json>("values", orPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(orPostRequestBody.additionalData);
 }
 // tslint:enable

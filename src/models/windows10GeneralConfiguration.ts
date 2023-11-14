@@ -253,7 +253,7 @@ export function serializeWindows10GeneralConfiguration(writer: SerializationWrit
         writer.writeBooleanValue("defenderBlockEndUserAccess", windows10GeneralConfiguration.defenderBlockEndUserAccess);
         writer.writeEnumValue<DefenderCloudBlockLevelType>("defenderCloudBlockLevel", windows10GeneralConfiguration.defenderCloudBlockLevel);
         writer.writeNumberValue("defenderDaysBeforeDeletingQuarantinedMalware", windows10GeneralConfiguration.defenderDaysBeforeDeletingQuarantinedMalware);
-        writer.writeObjectValue<DefenderDetectedMalwareActions>("defenderDetectedMalwareActions", windows10GeneralConfiguration.defenderDetectedMalwareActions, );
+        writer.writeObjectValue<DefenderDetectedMalwareActions>("defenderDetectedMalwareActions", windows10GeneralConfiguration.defenderDetectedMalwareActions, serializeDefenderDetectedMalwareActions);
         writer.writeCollectionOfPrimitiveValues<string>("defenderFileExtensionsToExclude", windows10GeneralConfiguration.defenderFileExtensionsToExclude);
         writer.writeCollectionOfPrimitiveValues<string>("defenderFilesAndFoldersToExclude", windows10GeneralConfiguration.defenderFilesAndFoldersToExclude);
         writer.writeEnumValue<DefenderMonitorFileActivity>("defenderMonitorFileActivity", windows10GeneralConfiguration.defenderMonitorFileActivity);
@@ -303,7 +303,7 @@ export function serializeWindows10GeneralConfiguration(writer: SerializationWrit
         writer.writeStringValue("edgeFirstRunUrl", windows10GeneralConfiguration.edgeFirstRunUrl);
         writer.writeCollectionOfPrimitiveValues<string>("edgeHomepageUrls", windows10GeneralConfiguration.edgeHomepageUrls);
         writer.writeBooleanValue("edgeRequireSmartScreen", windows10GeneralConfiguration.edgeRequireSmartScreen);
-        writer.writeObjectValue<EdgeSearchEngineBase>("edgeSearchEngine", windows10GeneralConfiguration.edgeSearchEngine, );
+        writer.writeObjectValue<EdgeSearchEngineBase>("edgeSearchEngine", windows10GeneralConfiguration.edgeSearchEngine, serializeEdgeSearchEngineBase);
         writer.writeBooleanValue("edgeSendIntranetTrafficToInternetExplorer", windows10GeneralConfiguration.edgeSendIntranetTrafficToInternetExplorer);
         writer.writeBooleanValue("edgeSyncFavoritesWithInternetExplorer", windows10GeneralConfiguration.edgeSyncFavoritesWithInternetExplorer);
         writer.writeStringValue("enterpriseCloudPrintDiscoveryEndPoint", windows10GeneralConfiguration.enterpriseCloudPrintDiscoveryEndPoint);
@@ -329,7 +329,7 @@ export function serializeWindows10GeneralConfiguration(writer: SerializationWrit
         writer.writeBooleanValue("networkProxyApplySettingsDeviceWide", windows10GeneralConfiguration.networkProxyApplySettingsDeviceWide);
         writer.writeStringValue("networkProxyAutomaticConfigurationUrl", windows10GeneralConfiguration.networkProxyAutomaticConfigurationUrl);
         writer.writeBooleanValue("networkProxyDisableAutoDetect", windows10GeneralConfiguration.networkProxyDisableAutoDetect);
-        writer.writeObjectValue<Windows10NetworkProxyServer>("networkProxyServer", windows10GeneralConfiguration.networkProxyServer, );
+        writer.writeObjectValue<Windows10NetworkProxyServer>("networkProxyServer", windows10GeneralConfiguration.networkProxyServer, serializeWindows10NetworkProxyServer);
         writer.writeBooleanValue("nfcBlocked", windows10GeneralConfiguration.nfcBlocked);
         writer.writeBooleanValue("oneDriveDisableFileSync", windows10GeneralConfiguration.oneDriveDisableFileSync);
         writer.writeBooleanValue("passwordBlockSimple", windows10GeneralConfiguration.passwordBlockSimple);

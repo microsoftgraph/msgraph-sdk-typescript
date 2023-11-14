@@ -17,7 +17,7 @@ export function deserializeIntoThreatAssessmentRequestCollectionResponse(threatA
 }
 export function serializeThreatAssessmentRequestCollectionResponse(writer: SerializationWriter, threatAssessmentRequestCollectionResponse: ThreatAssessmentRequestCollectionResponse | undefined = {} as ThreatAssessmentRequestCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, threatAssessmentRequestCollectionResponse)
-        writer.writeCollectionOfObjectValues<ThreatAssessmentRequest>("value", threatAssessmentRequestCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ThreatAssessmentRequest>("value", threatAssessmentRequestCollectionResponse.value, serializeThreatAssessmentRequest);
 }
 export interface ThreatAssessmentRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -6,6 +6,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createSolutionsRootFromDiscriminatorValue, deserializeIntoSolutionsRoot, serializeSolutionsRoot, type SolutionsRoot } from '../models/solutionsRoot';
 import { BookingBusinessesRequestBuilder } from './bookingBusinesses/bookingBusinessesRequestBuilder';
 import { BookingCurrenciesRequestBuilder } from './bookingCurrencies/bookingCurrenciesRequestBuilder';
+import { VirtualEventsRequestBuilder } from './virtualEvents/virtualEventsRequestBuilder';
 import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SolutionsRequestBuilderGetQueryParameters {
@@ -57,6 +58,12 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
      */
     public get bookingCurrencies(): BookingCurrenciesRequestBuilder {
         return new BookingCurrenciesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the virtualEvents property of the microsoft.graph.solutionsRoot entity.
+     */
+    public get virtualEvents(): VirtualEventsRequestBuilder {
+        return new VirtualEventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new SolutionsRequestBuilder and sets the default values.
@@ -112,7 +119,7 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -131,7 +138,7 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSolutionsRoot);
         return requestInfo;
     };

@@ -63,8 +63,8 @@ export function serializePrivilegedAccessScheduleRequest(writer: SerializationWr
         writer.writeEnumValue<ScheduleRequestActions>("action", privilegedAccessScheduleRequest.action);
         writer.writeBooleanValue("isValidationOnly", privilegedAccessScheduleRequest.isValidationOnly);
         writer.writeStringValue("justification", privilegedAccessScheduleRequest.justification);
-        writer.writeObjectValue<RequestSchedule>("scheduleInfo", privilegedAccessScheduleRequest.scheduleInfo, );
-        writer.writeObjectValue<TicketInfo>("ticketInfo", privilegedAccessScheduleRequest.ticketInfo, );
+        writer.writeObjectValue<RequestSchedule>("scheduleInfo", privilegedAccessScheduleRequest.scheduleInfo, serializeRequestSchedule);
+        writer.writeObjectValue<TicketInfo>("ticketInfo", privilegedAccessScheduleRequest.ticketInfo, serializeTicketInfo);
 }
 // tslint:enable
 // eslint-enable

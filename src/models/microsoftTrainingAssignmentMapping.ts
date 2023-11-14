@@ -19,7 +19,7 @@ export function deserializeIntoMicrosoftTrainingAssignmentMapping(microsoftTrain
 }
 export interface MicrosoftTrainingAssignmentMapping extends Parsable, TrainingSetting {
     /**
-     * The assignedTo property
+     * A user collection that specifies to whom the training should be assigned. Possible values are: none, allUsers, clickedPayload, compromised, reportedPhish, readButNotClicked, didNothing, unknownFutureValue.
      */
     assignedTo?: TrainingAssignedTo[];
     /**
@@ -31,7 +31,7 @@ export function serializeMicrosoftTrainingAssignmentMapping(writer: Serializatio
         serializeTrainingSetting(writer, microsoftTrainingAssignmentMapping)
         if(microsoftTrainingAssignmentMapping.assignedTo)
         writer.writeEnumValue<TrainingAssignedTo>("assignedTo", ...microsoftTrainingAssignmentMapping.assignedTo);
-        writer.writeObjectValue<Training>("training", microsoftTrainingAssignmentMapping.training, );
+        writer.writeObjectValue<Training>("training", microsoftTrainingAssignmentMapping.training, serializeTraining);
 }
 // tslint:enable
 // eslint-enable

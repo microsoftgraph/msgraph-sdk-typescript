@@ -23,7 +23,7 @@ export function deserializeIntoBrowserSiteListCollectionResponse(browserSiteList
 }
 export function serializeBrowserSiteListCollectionResponse(writer: SerializationWriter, browserSiteListCollectionResponse: BrowserSiteListCollectionResponse | undefined = {} as BrowserSiteListCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, browserSiteListCollectionResponse)
-        writer.writeCollectionOfObjectValues<BrowserSiteList>("value", browserSiteListCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<BrowserSiteList>("value", browserSiteListCollectionResponse.value, serializeBrowserSiteList);
 }
 // tslint:enable
 // eslint-enable

@@ -29,8 +29,8 @@ export interface RoundPostRequestBody extends AdditionalDataHolder, Parsable {
     numDigits?: Json;
 }
 export function serializeRoundPostRequestBody(writer: SerializationWriter, roundPostRequestBody: RoundPostRequestBody | undefined = {} as RoundPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", roundPostRequestBody.number, );
-        writer.writeObjectValue<Json>("numDigits", roundPostRequestBody.numDigits, );
+        writer.writeObjectValue<Json>("number", roundPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("numDigits", roundPostRequestBody.numDigits, serializeJson);
         writer.writeAdditionalData(roundPostRequestBody.additionalData);
 }
 // tslint:enable

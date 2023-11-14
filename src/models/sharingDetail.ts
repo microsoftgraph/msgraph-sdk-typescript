@@ -21,7 +21,7 @@ export function deserializeIntoSharingDetail(sharingDetail: SharingDetail | unde
 }
 export function serializeSharingDetail(writer: SerializationWriter, sharingDetail: SharingDetail | undefined = {} as SharingDetail) : void {
         writer.writeStringValue("@odata.type", sharingDetail.odataType);
-        writer.writeObjectValue<InsightIdentity>("sharedBy", sharingDetail.sharedBy, );
+        writer.writeObjectValue<InsightIdentity>("sharedBy", sharingDetail.sharedBy, serializeInsightIdentity);
         writer.writeDateValue("sharedDateTime", sharingDetail.sharedDateTime);
         writer.writeStringValue("sharingSubject", sharingDetail.sharingSubject);
         writer.writeStringValue("sharingType", sharingDetail.sharingType);

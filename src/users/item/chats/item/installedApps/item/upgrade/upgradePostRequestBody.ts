@@ -14,7 +14,7 @@ export function deserializeIntoUpgradePostRequestBody(upgradePostRequestBody: Up
     }
 }
 export function serializeUpgradePostRequestBody(writer: SerializationWriter, upgradePostRequestBody: UpgradePostRequestBody | undefined = {} as UpgradePostRequestBody) : void {
-        writer.writeObjectValue<TeamsAppPermissionSet>("consentedPermissionSet", upgradePostRequestBody.consentedPermissionSet, );
+        writer.writeObjectValue<TeamsAppPermissionSet>("consentedPermissionSet", upgradePostRequestBody.consentedPermissionSet, serializeTeamsAppPermissionSet);
         writer.writeAdditionalData(upgradePostRequestBody.additionalData);
 }
 export interface UpgradePostRequestBody extends AdditionalDataHolder, Parsable {

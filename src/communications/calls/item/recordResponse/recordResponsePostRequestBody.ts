@@ -65,7 +65,7 @@ export function serializeRecordResponsePostRequestBody(writer: SerializationWrit
         writer.writeNumberValue("maxRecordDurationInSeconds", recordResponsePostRequestBody.maxRecordDurationInSeconds);
         writer.writeNumberValue("maxSilenceTimeoutInSeconds", recordResponsePostRequestBody.maxSilenceTimeoutInSeconds);
         writer.writeBooleanValue("playBeep", recordResponsePostRequestBody.playBeep);
-        writer.writeCollectionOfObjectValues<Prompt>("prompts", recordResponsePostRequestBody.prompts, );
+        writer.writeCollectionOfObjectValues<Prompt>("prompts", recordResponsePostRequestBody.prompts, serializePrompt);
         writer.writeCollectionOfPrimitiveValues<string>("stopTones", recordResponsePostRequestBody.stopTones);
         writer.writeAdditionalData(recordResponsePostRequestBody.additionalData);
 }

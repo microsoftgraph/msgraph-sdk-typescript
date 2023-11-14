@@ -51,7 +51,7 @@ export interface Alert extends Entity, Parsable {
      */
     description?: string;
     /**
-     * Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: microsoftDefenderForCloud.
+     * Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement. You must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement.
      */
     detectionSource?: DetectionSource;
     /**
@@ -182,13 +182,13 @@ export function serializeAlert(writer: SerializationWriter, alert: Alert | undef
         writer.writeStringValue("assignedTo", alert.assignedTo);
         writer.writeStringValue("category", alert.category);
         writer.writeEnumValue<AlertClassification>("classification", alert.classification);
-        writer.writeCollectionOfObjectValues<AlertComment>("comments", alert.comments, );
+        writer.writeCollectionOfObjectValues<AlertComment>("comments", alert.comments, serializeAlertComment);
         writer.writeDateValue("createdDateTime", alert.createdDateTime);
         writer.writeStringValue("description", alert.description);
         writer.writeEnumValue<DetectionSource>("detectionSource", alert.detectionSource);
         writer.writeStringValue("detectorId", alert.detectorId);
         writer.writeEnumValue<AlertDetermination>("determination", alert.determination);
-        writer.writeCollectionOfObjectValues<AlertEvidence>("evidence", alert.evidence, );
+        writer.writeCollectionOfObjectValues<AlertEvidence>("evidence", alert.evidence, serializeAlertEvidence);
         writer.writeDateValue("firstActivityDateTime", alert.firstActivityDateTime);
         writer.writeStringValue("incidentId", alert.incidentId);
         writer.writeStringValue("incidentWebUrl", alert.incidentWebUrl);

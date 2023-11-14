@@ -34,9 +34,9 @@ export interface Expon_DistPostRequestBody extends AdditionalDataHolder, Parsabl
     x?: Json;
 }
 export function serializeExpon_DistPostRequestBody(writer: SerializationWriter, expon_DistPostRequestBody: Expon_DistPostRequestBody | undefined = {} as Expon_DistPostRequestBody) : void {
-        writer.writeObjectValue<Json>("cumulative", expon_DistPostRequestBody.cumulative, );
-        writer.writeObjectValue<Json>("lambda", expon_DistPostRequestBody.lambda, );
-        writer.writeObjectValue<Json>("x", expon_DistPostRequestBody.x, );
+        writer.writeObjectValue<Json>("cumulative", expon_DistPostRequestBody.cumulative, serializeJson);
+        writer.writeObjectValue<Json>("lambda", expon_DistPostRequestBody.lambda, serializeJson);
+        writer.writeObjectValue<Json>("x", expon_DistPostRequestBody.x, serializeJson);
         writer.writeAdditionalData(expon_DistPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -78,17 +78,17 @@ export interface Drive extends BaseItem, Parsable {
 }
 export function serializeDrive(writer: SerializationWriter, drive: Drive | undefined = {} as Drive) : void {
         serializeBaseItem(writer, drive)
-        writer.writeCollectionOfObjectValues<DriveItem>("bundles", drive.bundles, );
+        writer.writeCollectionOfObjectValues<DriveItem>("bundles", drive.bundles, serializeDriveItem);
         writer.writeStringValue("driveType", drive.driveType);
-        writer.writeCollectionOfObjectValues<DriveItem>("following", drive.following, );
-        writer.writeCollectionOfObjectValues<DriveItem>("items", drive.items, );
-        writer.writeObjectValue<List>("list", drive.list, );
-        writer.writeObjectValue<IdentitySet>("owner", drive.owner, );
-        writer.writeObjectValue<Quota>("quota", drive.quota, );
-        writer.writeObjectValue<DriveItem>("root", drive.root, );
-        writer.writeObjectValue<SharepointIds>("sharePointIds", drive.sharePointIds, );
-        writer.writeCollectionOfObjectValues<DriveItem>("special", drive.special, );
-        writer.writeObjectValue<SystemFacet>("system", drive.system, );
+        writer.writeCollectionOfObjectValues<DriveItem>("following", drive.following, serializeDriveItem);
+        writer.writeCollectionOfObjectValues<DriveItem>("items", drive.items, serializeDriveItem);
+        writer.writeObjectValue<List>("list", drive.list, serializeList);
+        writer.writeObjectValue<IdentitySet>("owner", drive.owner, serializeIdentitySet);
+        writer.writeObjectValue<Quota>("quota", drive.quota, serializeQuota);
+        writer.writeObjectValue<DriveItem>("root", drive.root, serializeDriveItem);
+        writer.writeObjectValue<SharepointIds>("sharePointIds", drive.sharePointIds, serializeSharepointIds);
+        writer.writeCollectionOfObjectValues<DriveItem>("special", drive.special, serializeDriveItem);
+        writer.writeObjectValue<SystemFacet>("system", drive.system, serializeSystemFacet);
 }
 // tslint:enable
 // eslint-enable

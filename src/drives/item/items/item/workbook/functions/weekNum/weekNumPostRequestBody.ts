@@ -15,8 +15,8 @@ export function deserializeIntoWeekNumPostRequestBody(weekNumPostRequestBody: We
     }
 }
 export function serializeWeekNumPostRequestBody(writer: SerializationWriter, weekNumPostRequestBody: WeekNumPostRequestBody | undefined = {} as WeekNumPostRequestBody) : void {
-        writer.writeObjectValue<Json>("returnType", weekNumPostRequestBody.returnType, );
-        writer.writeObjectValue<Json>("serialNumber", weekNumPostRequestBody.serialNumber, );
+        writer.writeObjectValue<Json>("returnType", weekNumPostRequestBody.returnType, serializeJson);
+        writer.writeObjectValue<Json>("serialNumber", weekNumPostRequestBody.serialNumber, serializeJson);
         writer.writeAdditionalData(weekNumPostRequestBody.additionalData);
 }
 export interface WeekNumPostRequestBody extends AdditionalDataHolder, Parsable {

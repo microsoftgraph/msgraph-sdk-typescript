@@ -17,7 +17,7 @@ export function deserializeIntoTaskProcessingResultCollectionResponse(taskProces
 }
 export function serializeTaskProcessingResultCollectionResponse(writer: SerializationWriter, taskProcessingResultCollectionResponse: TaskProcessingResultCollectionResponse | undefined = {} as TaskProcessingResultCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, taskProcessingResultCollectionResponse)
-        writer.writeCollectionOfObjectValues<TaskProcessingResult>("value", taskProcessingResultCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<TaskProcessingResult>("value", taskProcessingResultCollectionResponse.value, serializeTaskProcessingResult);
 }
 export interface TaskProcessingResultCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

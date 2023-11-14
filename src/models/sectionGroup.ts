@@ -49,11 +49,11 @@ export interface SectionGroup extends OnenoteEntityHierarchyModel, Parsable {
 }
 export function serializeSectionGroup(writer: SerializationWriter, sectionGroup: SectionGroup | undefined = {} as SectionGroup) : void {
         serializeOnenoteEntityHierarchyModel(writer, sectionGroup)
-        writer.writeObjectValue<Notebook>("parentNotebook", sectionGroup.parentNotebook, );
-        writer.writeObjectValue<SectionGroup>("parentSectionGroup", sectionGroup.parentSectionGroup, );
-        writer.writeCollectionOfObjectValues<SectionGroup>("sectionGroups", sectionGroup.sectionGroups, );
+        writer.writeObjectValue<Notebook>("parentNotebook", sectionGroup.parentNotebook, serializeNotebook);
+        writer.writeObjectValue<SectionGroup>("parentSectionGroup", sectionGroup.parentSectionGroup, serializeSectionGroup);
+        writer.writeCollectionOfObjectValues<SectionGroup>("sectionGroups", sectionGroup.sectionGroups, serializeSectionGroup);
         writer.writeStringValue("sectionGroupsUrl", sectionGroup.sectionGroupsUrl);
-        writer.writeCollectionOfObjectValues<OnenoteSection>("sections", sectionGroup.sections, );
+        writer.writeCollectionOfObjectValues<OnenoteSection>("sections", sectionGroup.sections, serializeOnenoteSection);
         writer.writeStringValue("sectionsUrl", sectionGroup.sectionsUrl);
 }
 // tslint:enable

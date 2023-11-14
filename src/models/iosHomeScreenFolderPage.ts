@@ -34,7 +34,7 @@ export interface IosHomeScreenFolderPage extends AdditionalDataHolder, Parsable 
     odataType?: string;
 }
 export function serializeIosHomeScreenFolderPage(writer: SerializationWriter, iosHomeScreenFolderPage: IosHomeScreenFolderPage | undefined = {} as IosHomeScreenFolderPage) : void {
-        writer.writeCollectionOfObjectValues<IosHomeScreenApp>("apps", iosHomeScreenFolderPage.apps, );
+        writer.writeCollectionOfObjectValues<IosHomeScreenApp>("apps", iosHomeScreenFolderPage.apps, serializeIosHomeScreenApp);
         writer.writeStringValue("displayName", iosHomeScreenFolderPage.displayName);
         writer.writeStringValue("@odata.type", iosHomeScreenFolderPage.odataType);
         writer.writeAdditionalData(iosHomeScreenFolderPage.additionalData);

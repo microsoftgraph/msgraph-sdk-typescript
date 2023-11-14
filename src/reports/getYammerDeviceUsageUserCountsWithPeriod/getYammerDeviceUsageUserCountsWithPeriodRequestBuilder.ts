@@ -58,7 +58,7 @@ export class GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder extends Base
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/octet-stream, application/json, application/json");
+        requestInfo.tryAddRequestHeaders("Accept", "application/octet-stream, application/json");
         return requestInfo;
     };
     /**

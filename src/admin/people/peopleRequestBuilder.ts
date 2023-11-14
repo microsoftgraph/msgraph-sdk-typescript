@@ -60,9 +60,10 @@ export class PeopleRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/people{?%24select,%24expand}");
     };
     /**
-     * Get people from admin
+     * Retrieve the properties and relationships of a peopleAdminSettings object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PeopleAdminSettings
+     * @see {@link https://learn.microsoft.com/graph/api/peopleadminsettings-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PeopleRequestBuilderGetRequestConfiguration | undefined) : Promise<PeopleAdminSettings | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -91,7 +92,7 @@ export class PeopleRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PeopleAdminSettings>(requestInfo, createPeopleAdminSettingsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get people from admin
+     * Retrieve the properties and relationships of a peopleAdminSettings object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +106,7 @@ export class PeopleRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -124,7 +125,7 @@ export class PeopleRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePeopleAdminSettings);
         return requestInfo;
     };

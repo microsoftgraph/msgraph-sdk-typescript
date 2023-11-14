@@ -19,9 +19,9 @@ export function deserializeIntoWorkbookChartAxes(workbookChartAxes: WorkbookChar
 }
 export function serializeWorkbookChartAxes(writer: SerializationWriter, workbookChartAxes: WorkbookChartAxes | undefined = {} as WorkbookChartAxes) : void {
         serializeEntity(writer, workbookChartAxes)
-        writer.writeObjectValue<WorkbookChartAxis>("categoryAxis", workbookChartAxes.categoryAxis, );
-        writer.writeObjectValue<WorkbookChartAxis>("seriesAxis", workbookChartAxes.seriesAxis, );
-        writer.writeObjectValue<WorkbookChartAxis>("valueAxis", workbookChartAxes.valueAxis, );
+        writer.writeObjectValue<WorkbookChartAxis>("categoryAxis", workbookChartAxes.categoryAxis, serializeWorkbookChartAxis);
+        writer.writeObjectValue<WorkbookChartAxis>("seriesAxis", workbookChartAxes.seriesAxis, serializeWorkbookChartAxis);
+        writer.writeObjectValue<WorkbookChartAxis>("valueAxis", workbookChartAxes.valueAxis, serializeWorkbookChartAxis);
 }
 export interface WorkbookChartAxes extends Entity, Parsable {
     /**

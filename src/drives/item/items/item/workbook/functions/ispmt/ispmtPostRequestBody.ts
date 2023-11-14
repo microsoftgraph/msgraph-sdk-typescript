@@ -39,10 +39,10 @@ export interface IspmtPostRequestBody extends AdditionalDataHolder, Parsable {
     rate?: Json;
 }
 export function serializeIspmtPostRequestBody(writer: SerializationWriter, ispmtPostRequestBody: IspmtPostRequestBody | undefined = {} as IspmtPostRequestBody) : void {
-        writer.writeObjectValue<Json>("nper", ispmtPostRequestBody.nper, );
-        writer.writeObjectValue<Json>("per", ispmtPostRequestBody.per, );
-        writer.writeObjectValue<Json>("pv", ispmtPostRequestBody.pv, );
-        writer.writeObjectValue<Json>("rate", ispmtPostRequestBody.rate, );
+        writer.writeObjectValue<Json>("nper", ispmtPostRequestBody.nper, serializeJson);
+        writer.writeObjectValue<Json>("per", ispmtPostRequestBody.per, serializeJson);
+        writer.writeObjectValue<Json>("pv", ispmtPostRequestBody.pv, serializeJson);
+        writer.writeObjectValue<Json>("rate", ispmtPostRequestBody.rate, serializeJson);
         writer.writeAdditionalData(ispmtPostRequestBody.additionalData);
 }
 // tslint:enable

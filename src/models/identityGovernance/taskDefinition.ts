@@ -27,7 +27,7 @@ export function serializeTaskDefinition(writer: SerializationWriter, taskDefinit
         writer.writeBooleanValue("continueOnError", taskDefinition.continueOnError);
         writer.writeStringValue("description", taskDefinition.description);
         writer.writeStringValue("displayName", taskDefinition.displayName);
-        writer.writeCollectionOfObjectValues<Parameter>("parameters", taskDefinition.parameters, );
+        writer.writeCollectionOfObjectValues<Parameter>("parameters", taskDefinition.parameters, serializeParameter);
         writer.writeNumberValue("version", taskDefinition.version);
 }
 export interface TaskDefinition extends Entity, Parsable {

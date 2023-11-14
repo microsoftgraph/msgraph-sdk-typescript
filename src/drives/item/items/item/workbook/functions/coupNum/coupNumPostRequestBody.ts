@@ -39,10 +39,10 @@ export function deserializeIntoCoupNumPostRequestBody(coupNumPostRequestBody: Co
     }
 }
 export function serializeCoupNumPostRequestBody(writer: SerializationWriter, coupNumPostRequestBody: CoupNumPostRequestBody | undefined = {} as CoupNumPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", coupNumPostRequestBody.basis, );
-        writer.writeObjectValue<Json>("frequency", coupNumPostRequestBody.frequency, );
-        writer.writeObjectValue<Json>("maturity", coupNumPostRequestBody.maturity, );
-        writer.writeObjectValue<Json>("settlement", coupNumPostRequestBody.settlement, );
+        writer.writeObjectValue<Json>("basis", coupNumPostRequestBody.basis, serializeJson);
+        writer.writeObjectValue<Json>("frequency", coupNumPostRequestBody.frequency, serializeJson);
+        writer.writeObjectValue<Json>("maturity", coupNumPostRequestBody.maturity, serializeJson);
+        writer.writeObjectValue<Json>("settlement", coupNumPostRequestBody.settlement, serializeJson);
         writer.writeAdditionalData(coupNumPostRequestBody.additionalData);
 }
 // tslint:enable

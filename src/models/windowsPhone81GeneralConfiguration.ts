@@ -52,7 +52,7 @@ export function serializeWindowsPhone81GeneralConfiguration(writer: Serializatio
         writer.writeBooleanValue("cameraBlocked", windowsPhone81GeneralConfiguration.cameraBlocked);
         writer.writeBooleanValue("cellularBlockWifiTethering", windowsPhone81GeneralConfiguration.cellularBlockWifiTethering);
         writer.writeEnumValue<AppListType>("compliantAppListType", windowsPhone81GeneralConfiguration.compliantAppListType);
-        writer.writeCollectionOfObjectValues<AppListItem>("compliantAppsList", windowsPhone81GeneralConfiguration.compliantAppsList, );
+        writer.writeCollectionOfObjectValues<AppListItem>("compliantAppsList", windowsPhone81GeneralConfiguration.compliantAppsList, serializeAppListItem);
         writer.writeBooleanValue("diagnosticDataBlockSubmission", windowsPhone81GeneralConfiguration.diagnosticDataBlockSubmission);
         writer.writeBooleanValue("emailBlockAddingAccounts", windowsPhone81GeneralConfiguration.emailBlockAddingAccounts);
         writer.writeBooleanValue("locationServicesBlocked", windowsPhone81GeneralConfiguration.locationServicesBlocked);

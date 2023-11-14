@@ -59,13 +59,13 @@ export interface IdentityGovernance extends AdditionalDataHolder, Parsable {
     termsOfUse?: TermsOfUseContainer;
 }
 export function serializeIdentityGovernance(writer: SerializationWriter, identityGovernance: IdentityGovernance | undefined = {} as IdentityGovernance) : void {
-        writer.writeObjectValue<AccessReviewSet>("accessReviews", identityGovernance.accessReviews, );
-        writer.writeObjectValue<AppConsentApprovalRoute>("appConsent", identityGovernance.appConsent, );
-        writer.writeObjectValue<EntitlementManagement>("entitlementManagement", identityGovernance.entitlementManagement, );
-        writer.writeObjectValue<LifecycleWorkflowsContainer>("lifecycleWorkflows", identityGovernance.lifecycleWorkflows, );
+        writer.writeObjectValue<AccessReviewSet>("accessReviews", identityGovernance.accessReviews, serializeAccessReviewSet);
+        writer.writeObjectValue<AppConsentApprovalRoute>("appConsent", identityGovernance.appConsent, serializeAppConsentApprovalRoute);
+        writer.writeObjectValue<EntitlementManagement>("entitlementManagement", identityGovernance.entitlementManagement, serializeEntitlementManagement);
+        writer.writeObjectValue<LifecycleWorkflowsContainer>("lifecycleWorkflows", identityGovernance.lifecycleWorkflows, serializeLifecycleWorkflowsContainer);
         writer.writeStringValue("@odata.type", identityGovernance.odataType);
-        writer.writeObjectValue<PrivilegedAccessRoot>("privilegedAccess", identityGovernance.privilegedAccess, );
-        writer.writeObjectValue<TermsOfUseContainer>("termsOfUse", identityGovernance.termsOfUse, );
+        writer.writeObjectValue<PrivilegedAccessRoot>("privilegedAccess", identityGovernance.privilegedAccess, serializePrivilegedAccessRoot);
+        writer.writeObjectValue<TermsOfUseContainer>("termsOfUse", identityGovernance.termsOfUse, serializeTermsOfUseContainer);
         writer.writeAdditionalData(identityGovernance.additionalData);
 }
 // tslint:enable

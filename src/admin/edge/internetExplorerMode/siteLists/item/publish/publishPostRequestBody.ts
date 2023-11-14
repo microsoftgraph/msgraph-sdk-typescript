@@ -36,8 +36,8 @@ export interface PublishPostRequestBody extends AdditionalDataHolder, Parsable {
 }
 export function serializePublishPostRequestBody(writer: SerializationWriter, publishPostRequestBody: PublishPostRequestBody | undefined = {} as PublishPostRequestBody) : void {
         writer.writeStringValue("revision", publishPostRequestBody.revision);
-        writer.writeCollectionOfObjectValues<BrowserSharedCookie>("sharedCookies", publishPostRequestBody.sharedCookies, );
-        writer.writeCollectionOfObjectValues<BrowserSite>("sites", publishPostRequestBody.sites, );
+        writer.writeCollectionOfObjectValues<BrowserSharedCookie>("sharedCookies", publishPostRequestBody.sharedCookies, serializeBrowserSharedCookie);
+        writer.writeCollectionOfObjectValues<BrowserSite>("sites", publishPostRequestBody.sites, serializeBrowserSite);
         writer.writeAdditionalData(publishPostRequestBody.additionalData);
 }
 // tslint:enable

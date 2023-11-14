@@ -34,9 +34,9 @@ export function deserializeIntoComplexPostRequestBody(complexPostRequestBody: Co
     }
 }
 export function serializeComplexPostRequestBody(writer: SerializationWriter, complexPostRequestBody: ComplexPostRequestBody | undefined = {} as ComplexPostRequestBody) : void {
-        writer.writeObjectValue<Json>("iNum", complexPostRequestBody.iNum, );
-        writer.writeObjectValue<Json>("realNum", complexPostRequestBody.realNum, );
-        writer.writeObjectValue<Json>("suffix", complexPostRequestBody.suffix, );
+        writer.writeObjectValue<Json>("iNum", complexPostRequestBody.iNum, serializeJson);
+        writer.writeObjectValue<Json>("realNum", complexPostRequestBody.realNum, serializeJson);
+        writer.writeObjectValue<Json>("suffix", complexPostRequestBody.suffix, serializeJson);
         writer.writeAdditionalData(complexPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -34,7 +34,7 @@ export interface LicenseDetails extends Entity, Parsable {
 }
 export function serializeLicenseDetails(writer: SerializationWriter, licenseDetails: LicenseDetails | undefined = {} as LicenseDetails) : void {
         serializeEntity(writer, licenseDetails)
-        writer.writeCollectionOfObjectValues<ServicePlanInfo>("servicePlans", licenseDetails.servicePlans, );
+        writer.writeCollectionOfObjectValues<ServicePlanInfo>("servicePlans", licenseDetails.servicePlans, serializeServicePlanInfo);
         writer.writeGuidValue("skuId", licenseDetails.skuId);
         writer.writeStringValue("skuPartNumber", licenseDetails.skuPartNumber);
 }

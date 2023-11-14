@@ -42,7 +42,7 @@ export function deserializeIntoAlterationResponse(alterationResponse: Alteration
 export function serializeAlterationResponse(writer: SerializationWriter, alterationResponse: AlterationResponse | undefined = {} as AlterationResponse) : void {
         writer.writeStringValue("@odata.type", alterationResponse.odataType);
         writer.writeStringValue("originalQueryString", alterationResponse.originalQueryString);
-        writer.writeObjectValue<SearchAlteration>("queryAlteration", alterationResponse.queryAlteration, );
+        writer.writeObjectValue<SearchAlteration>("queryAlteration", alterationResponse.queryAlteration, serializeSearchAlteration);
         writer.writeEnumValue<SearchAlterationType>("queryAlterationType", alterationResponse.queryAlterationType);
         writer.writeAdditionalData(alterationResponse.additionalData);
 }

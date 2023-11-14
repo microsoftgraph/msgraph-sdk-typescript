@@ -70,8 +70,9 @@ export class RemoteDesktopSecurityConfigurationRequestBuilder extends BaseReques
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/remoteDesktopSecurityConfiguration{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property remoteDesktopSecurityConfiguration for servicePrincipals
+     * Delete a remoteDesktopSecurityConfiguration object on a servicePrincipal. Removing remoteDesktopSecurityConfiguration object on the servicePrincipal disables the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to authenticate a user to Microsoft Entra joined or Microsoft Entra hybrid joined devices, and removes any target device groups that you configured for SSO.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-delete-remotedesktopsecurityconfiguration?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RemoteDesktopSecurityConfigurationRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -84,9 +85,10 @@ export class RemoteDesktopSecurityConfigurationRequestBuilder extends BaseReques
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get remoteDesktopSecurityConfiguration from servicePrincipals
+     * Read the properties and relationships of a remoteDesktopSecurityConfiguration object on a servicePrincipal. Use this configuration to view the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to authenticate a user to Microsoft Entra joined or Microsoft Entra hybrid joined devices. Additionally you can view any targetDeviceGroups that have been configured for SSO.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RemoteDesktopSecurityConfiguration
+     * @see {@link https://learn.microsoft.com/graph/api/remotedesktopsecurityconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RemoteDesktopSecurityConfigurationRequestBuilderGetRequestConfiguration | undefined) : Promise<RemoteDesktopSecurityConfiguration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -99,10 +101,11 @@ export class RemoteDesktopSecurityConfigurationRequestBuilder extends BaseReques
         return this.requestAdapter.sendAsync<RemoteDesktopSecurityConfiguration>(requestInfo, createRemoteDesktopSecurityConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property remoteDesktopSecurityConfiguration in servicePrincipals
+     * Update the properties of a remoteDesktopSecurityConfiguration object on the servicePrincipal. Use this configuration to enable or disable the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to authenticate a user to Microsoft Entra joined or Microsoft Entra hybrid joined devices.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RemoteDesktopSecurityConfiguration
+     * @see {@link https://learn.microsoft.com/graph/api/remotedesktopsecurityconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: RemoteDesktopSecurityConfiguration, requestConfiguration?: RemoteDesktopSecurityConfigurationRequestBuilderPatchRequestConfiguration | undefined) : Promise<RemoteDesktopSecurityConfiguration | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -115,7 +118,7 @@ export class RemoteDesktopSecurityConfigurationRequestBuilder extends BaseReques
         return this.requestAdapter.sendAsync<RemoteDesktopSecurityConfiguration>(requestInfo, createRemoteDesktopSecurityConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property remoteDesktopSecurityConfiguration for servicePrincipals
+     * Delete a remoteDesktopSecurityConfiguration object on a servicePrincipal. Removing remoteDesktopSecurityConfiguration object on the servicePrincipal disables the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to authenticate a user to Microsoft Entra joined or Microsoft Entra hybrid joined devices, and removes any target device groups that you configured for SSO.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -128,11 +131,11 @@ export class RemoteDesktopSecurityConfigurationRequestBuilder extends BaseReques
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Get remoteDesktopSecurityConfiguration from servicePrincipals
+     * Read the properties and relationships of a remoteDesktopSecurityConfiguration object on a servicePrincipal. Use this configuration to view the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to authenticate a user to Microsoft Entra joined or Microsoft Entra hybrid joined devices. Additionally you can view any targetDeviceGroups that have been configured for SSO.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -146,11 +149,11 @@ export class RemoteDesktopSecurityConfigurationRequestBuilder extends BaseReques
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the navigation property remoteDesktopSecurityConfiguration in servicePrincipals
+     * Update the properties of a remoteDesktopSecurityConfiguration object on the servicePrincipal. Use this configuration to enable or disable the Microsoft Entra ID Remote Desktop Services (RDS) authentication protocol to authenticate a user to Microsoft Entra joined or Microsoft Entra hybrid joined devices.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -165,7 +168,7 @@ export class RemoteDesktopSecurityConfigurationRequestBuilder extends BaseReques
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRemoteDesktopSecurityConfiguration);
         return requestInfo;
     };

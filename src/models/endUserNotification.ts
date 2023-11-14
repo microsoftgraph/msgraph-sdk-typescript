@@ -31,15 +31,15 @@ export function deserializeIntoEndUserNotification(endUserNotification: EndUserN
 }
 export interface EndUserNotification extends Entity, Parsable {
     /**
-     * The createdBy property
+     * Identity of the user who created the notification.
      */
     createdBy?: EmailIdentity;
     /**
-     * The createdDateTime property
+     * Date and time when the notification was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     createdDateTime?: Date;
     /**
-     * The description property
+     * Description of the notification as defined by the user.
      */
     description?: string;
     /**
@@ -47,42 +47,42 @@ export interface EndUserNotification extends Entity, Parsable {
      */
     details?: EndUserNotificationDetail[];
     /**
-     * The displayName property
+     * Name of the notification as defined by the user.
      */
     displayName?: string;
     /**
-     * The lastModifiedBy property
+     * Identity of the user who last modified the notification.
      */
     lastModifiedBy?: EmailIdentity;
     /**
-     * The lastModifiedDateTime property
+     * Date and time when the notification was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     lastModifiedDateTime?: Date;
     /**
-     * The notificationType property
+     * Type of notification. Possible values are: unknown, positiveReinforcement, noTraining, trainingAssignment, trainingReminder, unknownFutureValue.
      */
     notificationType?: EndUserNotificationType;
     /**
-     * The source property
+     * The source of the content. Possible values are: unknown, global, tenant, unknownFutureValue.
      */
     source?: SimulationContentSource;
     /**
-     * The status property
+     * The status of the notification. Possible values are: unknown, draft, ready, archive, delete, unknownFutureValue.
      */
     status?: SimulationContentStatus;
     /**
-     * The supportedLocales property
+     * Supported locales for endUserNotification content.
      */
     supportedLocales?: string[];
 }
 export function serializeEndUserNotification(writer: SerializationWriter, endUserNotification: EndUserNotification | undefined = {} as EndUserNotification) : void {
         serializeEntity(writer, endUserNotification)
-        writer.writeObjectValue<EmailIdentity>("createdBy", endUserNotification.createdBy, );
+        writer.writeObjectValue<EmailIdentity>("createdBy", endUserNotification.createdBy, serializeEmailIdentity);
         writer.writeDateValue("createdDateTime", endUserNotification.createdDateTime);
         writer.writeStringValue("description", endUserNotification.description);
-        writer.writeCollectionOfObjectValues<EndUserNotificationDetail>("details", endUserNotification.details, );
+        writer.writeCollectionOfObjectValues<EndUserNotificationDetail>("details", endUserNotification.details, serializeEndUserNotificationDetail);
         writer.writeStringValue("displayName", endUserNotification.displayName);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", endUserNotification.lastModifiedBy, );
+        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", endUserNotification.lastModifiedBy, serializeEmailIdentity);
         writer.writeDateValue("lastModifiedDateTime", endUserNotification.lastModifiedDateTime);
         writer.writeEnumValue<EndUserNotificationType>("notificationType", endUserNotification.notificationType);
         writer.writeEnumValue<SimulationContentSource>("source", endUserNotification.source);

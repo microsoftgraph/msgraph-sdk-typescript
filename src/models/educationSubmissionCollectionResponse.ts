@@ -23,7 +23,7 @@ export interface EducationSubmissionCollectionResponse extends BaseCollectionPag
 }
 export function serializeEducationSubmissionCollectionResponse(writer: SerializationWriter, educationSubmissionCollectionResponse: EducationSubmissionCollectionResponse | undefined = {} as EducationSubmissionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, educationSubmissionCollectionResponse)
-        writer.writeCollectionOfObjectValues<EducationSubmission>("value", educationSubmissionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<EducationSubmission>("value", educationSubmissionCollectionResponse.value, serializeEducationSubmission);
 }
 // tslint:enable
 // eslint-enable

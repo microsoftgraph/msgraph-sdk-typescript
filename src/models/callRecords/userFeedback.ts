@@ -21,7 +21,7 @@ export function serializeUserFeedback(writer: SerializationWriter, userFeedback:
         writer.writeStringValue("@odata.type", userFeedback.odataType);
         writer.writeEnumValue<UserFeedbackRating>("rating", userFeedback.rating);
         writer.writeStringValue("text", userFeedback.text);
-        writer.writeObjectValue<FeedbackTokenSet>("tokens", userFeedback.tokens, );
+        writer.writeObjectValue<FeedbackTokenSet>("tokens", userFeedback.tokens, serializeFeedbackTokenSet);
         writer.writeAdditionalData(userFeedback.additionalData);
 }
 export interface UserFeedback extends AdditionalDataHolder, Parsable {

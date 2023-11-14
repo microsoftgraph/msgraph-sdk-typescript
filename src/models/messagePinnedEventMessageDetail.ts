@@ -29,7 +29,7 @@ export interface MessagePinnedEventMessageDetail extends EventMessageDetail, Par
 export function serializeMessagePinnedEventMessageDetail(writer: SerializationWriter, messagePinnedEventMessageDetail: MessagePinnedEventMessageDetail | undefined = {} as MessagePinnedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, messagePinnedEventMessageDetail)
         writer.writeDateValue("eventDateTime", messagePinnedEventMessageDetail.eventDateTime);
-        writer.writeObjectValue<IdentitySet>("initiator", messagePinnedEventMessageDetail.initiator, );
+        writer.writeObjectValue<IdentitySet>("initiator", messagePinnedEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

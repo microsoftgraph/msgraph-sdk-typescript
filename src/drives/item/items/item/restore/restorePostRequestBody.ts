@@ -30,7 +30,7 @@ export interface RestorePostRequestBody extends AdditionalDataHolder, Parsable {
 }
 export function serializeRestorePostRequestBody(writer: SerializationWriter, restorePostRequestBody: RestorePostRequestBody | undefined = {} as RestorePostRequestBody) : void {
         writer.writeStringValue("name", restorePostRequestBody.name);
-        writer.writeObjectValue<ItemReference>("parentReference", restorePostRequestBody.parentReference, );
+        writer.writeObjectValue<ItemReference>("parentReference", restorePostRequestBody.parentReference, serializeItemReference);
         writer.writeAdditionalData(restorePostRequestBody.additionalData);
 }
 // tslint:enable

@@ -23,7 +23,7 @@ export function deserializeIntoActivityBasedTimeoutPolicyCollectionResponse(acti
 }
 export function serializeActivityBasedTimeoutPolicyCollectionResponse(writer: SerializationWriter, activityBasedTimeoutPolicyCollectionResponse: ActivityBasedTimeoutPolicyCollectionResponse | undefined = {} as ActivityBasedTimeoutPolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, activityBasedTimeoutPolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicy>("value", activityBasedTimeoutPolicyCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicy>("value", activityBasedTimeoutPolicyCollectionResponse.value, serializeActivityBasedTimeoutPolicy);
 }
 // tslint:enable
 // eslint-enable

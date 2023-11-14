@@ -17,7 +17,7 @@ export function deserializeIntoTranslateExchangeIdsPostResponse(translateExchang
 }
 export function serializeTranslateExchangeIdsPostResponse(writer: SerializationWriter, translateExchangeIdsPostResponse: TranslateExchangeIdsPostResponse | undefined = {} as TranslateExchangeIdsPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, translateExchangeIdsPostResponse)
-        writer.writeCollectionOfObjectValues<ConvertIdResult>("value", translateExchangeIdsPostResponse.value, );
+        writer.writeCollectionOfObjectValues<ConvertIdResult>("value", translateExchangeIdsPostResponse.value, serializeConvertIdResult);
 }
 export interface TranslateExchangeIdsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

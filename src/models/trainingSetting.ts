@@ -53,7 +53,7 @@ export interface TrainingSetting extends AdditionalDataHolder, Parsable {
      */
     odataType?: string;
     /**
-     * The settingType property
+     * Type of setting. Possible values are: microsoftCustom, microsoftManaged, noTraining, custom, unknownFutureValue.
      */
     settingType?: TrainingSettingType;
 }

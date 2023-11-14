@@ -11,23 +11,23 @@ export function createCustomTrainingSettingFromDiscriminatorValue(parseNode: Par
 }
 export interface CustomTrainingSetting extends Parsable, TrainingSetting {
     /**
-     * The assignedTo property
+     * A user collection that specifies to whom the training should be assigned. Possible values are: none, allUsers, clickedPayload, compromised, reportedPhish, readButNotClicked, didNothing, unknownFutureValue.
      */
     assignedTo?: TrainingAssignedTo[];
     /**
-     * The description property
+     * The description of the custom training setting.
      */
     description?: string;
     /**
-     * The displayName property
+     * The display name of the custom training setting.
      */
     displayName?: string;
     /**
-     * The durationInMinutes property
+     * Training duration.
      */
     durationInMinutes?: number;
     /**
-     * The url property
+     * The training URL.
      */
     url?: string;
 }

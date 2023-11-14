@@ -29,7 +29,7 @@ export interface KubernetesServiceAccountEvidence extends AlertEvidence, Parsabl
 export function serializeKubernetesServiceAccountEvidence(writer: SerializationWriter, kubernetesServiceAccountEvidence: KubernetesServiceAccountEvidence | undefined = {} as KubernetesServiceAccountEvidence) : void {
         serializeAlertEvidence(writer, kubernetesServiceAccountEvidence)
         writer.writeStringValue("name", kubernetesServiceAccountEvidence.name);
-        writer.writeObjectValue<KubernetesNamespaceEvidence>("namespace", kubernetesServiceAccountEvidence.namespace, );
+        writer.writeObjectValue<KubernetesNamespaceEvidence>("namespace", kubernetesServiceAccountEvidence.namespace, serializeKubernetesNamespaceEvidence);
 }
 // tslint:enable
 // eslint-enable

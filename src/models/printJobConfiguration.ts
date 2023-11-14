@@ -138,14 +138,14 @@ export function serializePrintJobConfiguration(writer: SerializationWriter, prin
         writer.writeEnumValue<PrintFinishing>("finishings", ...printJobConfiguration.finishings);
         writer.writeBooleanValue("fitPdfToPage", printJobConfiguration.fitPdfToPage);
         writer.writeStringValue("inputBin", printJobConfiguration.inputBin);
-        writer.writeObjectValue<PrintMargin>("margin", printJobConfiguration.margin, );
+        writer.writeObjectValue<PrintMargin>("margin", printJobConfiguration.margin, serializePrintMargin);
         writer.writeStringValue("mediaSize", printJobConfiguration.mediaSize);
         writer.writeStringValue("mediaType", printJobConfiguration.mediaType);
         writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", printJobConfiguration.multipageLayout);
         writer.writeStringValue("@odata.type", printJobConfiguration.odataType);
         writer.writeEnumValue<PrintOrientation>("orientation", printJobConfiguration.orientation);
         writer.writeStringValue("outputBin", printJobConfiguration.outputBin);
-        writer.writeCollectionOfObjectValues<IntegerRange>("pageRanges", printJobConfiguration.pageRanges, );
+        writer.writeCollectionOfObjectValues<IntegerRange>("pageRanges", printJobConfiguration.pageRanges, serializeIntegerRange);
         writer.writeNumberValue("pagesPerSheet", printJobConfiguration.pagesPerSheet);
         writer.writeEnumValue<PrintQuality>("quality", printJobConfiguration.quality);
         writer.writeEnumValue<PrintScaling>("scaling", printJobConfiguration.scaling);

@@ -29,7 +29,7 @@ export interface EducationSubmissionResource extends Entity, Parsable {
 export function serializeEducationSubmissionResource(writer: SerializationWriter, educationSubmissionResource: EducationSubmissionResource | undefined = {} as EducationSubmissionResource) : void {
         serializeEntity(writer, educationSubmissionResource)
         writer.writeStringValue("assignmentResourceUrl", educationSubmissionResource.assignmentResourceUrl);
-        writer.writeObjectValue<EducationResource>("resource", educationSubmissionResource.resource, );
+        writer.writeObjectValue<EducationResource>("resource", educationSubmissionResource.resource, serializeEducationResource);
 }
 // tslint:enable
 // eslint-enable

@@ -14,7 +14,7 @@ export function deserializeIntoSumSqPostRequestBody(sumSqPostRequestBody: SumSqP
     }
 }
 export function serializeSumSqPostRequestBody(writer: SerializationWriter, sumSqPostRequestBody: SumSqPostRequestBody | undefined = {} as SumSqPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", sumSqPostRequestBody.values, );
+        writer.writeObjectValue<Json>("values", sumSqPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(sumSqPostRequestBody.additionalData);
 }
 export interface SumSqPostRequestBody extends AdditionalDataHolder, Parsable {

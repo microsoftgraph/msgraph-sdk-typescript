@@ -17,7 +17,7 @@ export function deserializeIntoSignInCollectionResponse(signInCollectionResponse
 }
 export function serializeSignInCollectionResponse(writer: SerializationWriter, signInCollectionResponse: SignInCollectionResponse | undefined = {} as SignInCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, signInCollectionResponse)
-        writer.writeCollectionOfObjectValues<SignIn>("value", signInCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<SignIn>("value", signInCollectionResponse.value, serializeSignIn);
 }
 export interface SignInCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

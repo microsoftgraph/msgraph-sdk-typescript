@@ -62,7 +62,7 @@ export function serializeInvitePostRequestBody(writer: SerializationWriter, invi
         writer.writeStringValue("expirationDateTime", invitePostRequestBody.expirationDateTime);
         writer.writeStringValue("message", invitePostRequestBody.message);
         writer.writeStringValue("password", invitePostRequestBody.password);
-        writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", invitePostRequestBody.recipients, );
+        writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", invitePostRequestBody.recipients, serializeDriveRecipient);
         writer.writeBooleanValue("requireSignIn", invitePostRequestBody.requireSignIn);
         writer.writeBooleanValue("retainInheritedPermissions", invitePostRequestBody.retainInheritedPermissions);
         writer.writeCollectionOfPrimitiveValues<string>("roles", invitePostRequestBody.roles);

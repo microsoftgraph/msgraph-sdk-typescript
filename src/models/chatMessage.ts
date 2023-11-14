@@ -149,26 +149,26 @@ export function deserializeIntoChatMessage(chatMessage: ChatMessage | undefined 
 }
 export function serializeChatMessage(writer: SerializationWriter, chatMessage: ChatMessage | undefined = {} as ChatMessage) : void {
         serializeEntity(writer, chatMessage)
-        writer.writeCollectionOfObjectValues<ChatMessageAttachment>("attachments", chatMessage.attachments, );
-        writer.writeObjectValue<ItemBody>("body", chatMessage.body, );
-        writer.writeObjectValue<ChannelIdentity>("channelIdentity", chatMessage.channelIdentity, );
+        writer.writeCollectionOfObjectValues<ChatMessageAttachment>("attachments", chatMessage.attachments, serializeChatMessageAttachment);
+        writer.writeObjectValue<ItemBody>("body", chatMessage.body, serializeItemBody);
+        writer.writeObjectValue<ChannelIdentity>("channelIdentity", chatMessage.channelIdentity, serializeChannelIdentity);
         writer.writeStringValue("chatId", chatMessage.chatId);
         writer.writeDateValue("createdDateTime", chatMessage.createdDateTime);
         writer.writeDateValue("deletedDateTime", chatMessage.deletedDateTime);
         writer.writeStringValue("etag", chatMessage.etag);
-        writer.writeObjectValue<EventMessageDetail>("eventDetail", chatMessage.eventDetail, );
-        writer.writeObjectValue<ChatMessageFromIdentitySet>("from", chatMessage.from, );
-        writer.writeCollectionOfObjectValues<ChatMessageHostedContent>("hostedContents", chatMessage.hostedContents, );
+        writer.writeObjectValue<EventMessageDetail>("eventDetail", chatMessage.eventDetail, serializeEventMessageDetail);
+        writer.writeObjectValue<ChatMessageFromIdentitySet>("from", chatMessage.from, serializeChatMessageFromIdentitySet);
+        writer.writeCollectionOfObjectValues<ChatMessageHostedContent>("hostedContents", chatMessage.hostedContents, serializeChatMessageHostedContent);
         writer.writeEnumValue<ChatMessageImportance>("importance", chatMessage.importance);
         writer.writeDateValue("lastEditedDateTime", chatMessage.lastEditedDateTime);
         writer.writeDateValue("lastModifiedDateTime", chatMessage.lastModifiedDateTime);
         writer.writeStringValue("locale", chatMessage.locale);
-        writer.writeCollectionOfObjectValues<ChatMessageMention>("mentions", chatMessage.mentions, );
-        writer.writeCollectionOfObjectValues<ChatMessageHistoryItem>("messageHistory", chatMessage.messageHistory, );
+        writer.writeCollectionOfObjectValues<ChatMessageMention>("mentions", chatMessage.mentions, serializeChatMessageMention);
+        writer.writeCollectionOfObjectValues<ChatMessageHistoryItem>("messageHistory", chatMessage.messageHistory, serializeChatMessageHistoryItem);
         writer.writeEnumValue<ChatMessageType>("messageType", chatMessage.messageType);
-        writer.writeObjectValue<ChatMessagePolicyViolation>("policyViolation", chatMessage.policyViolation, );
-        writer.writeCollectionOfObjectValues<ChatMessageReaction>("reactions", chatMessage.reactions, );
-        writer.writeCollectionOfObjectValues<ChatMessage>("replies", chatMessage.replies, );
+        writer.writeObjectValue<ChatMessagePolicyViolation>("policyViolation", chatMessage.policyViolation, serializeChatMessagePolicyViolation);
+        writer.writeCollectionOfObjectValues<ChatMessageReaction>("reactions", chatMessage.reactions, serializeChatMessageReaction);
+        writer.writeCollectionOfObjectValues<ChatMessage>("replies", chatMessage.replies, serializeChatMessage);
         writer.writeStringValue("replyToId", chatMessage.replyToId);
         writer.writeStringValue("subject", chatMessage.subject);
         writer.writeStringValue("summary", chatMessage.summary);

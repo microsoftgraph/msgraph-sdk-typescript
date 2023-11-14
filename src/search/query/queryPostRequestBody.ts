@@ -24,7 +24,7 @@ export interface QueryPostRequestBody extends AdditionalDataHolder, Parsable {
     requests?: SearchRequest[];
 }
 export function serializeQueryPostRequestBody(writer: SerializationWriter, queryPostRequestBody: QueryPostRequestBody | undefined = {} as QueryPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<SearchRequest>("requests", queryPostRequestBody.requests, );
+        writer.writeCollectionOfObjectValues<SearchRequest>("requests", queryPostRequestBody.requests, serializeSearchRequest);
         writer.writeAdditionalData(queryPostRequestBody.additionalData);
 }
 // tslint:enable

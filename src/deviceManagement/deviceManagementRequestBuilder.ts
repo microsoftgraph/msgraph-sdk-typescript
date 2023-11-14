@@ -464,7 +464,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceManagement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-devicemanagement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mstunnel-devicemanagement-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceManagementRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -490,7 +490,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-auditing-devicemanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-wip-devicemanagement-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceManagement, requestConfiguration?: DeviceManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagement | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -517,7 +517,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -536,7 +536,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceManagement);
         return requestInfo;
     };

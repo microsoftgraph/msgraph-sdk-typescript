@@ -83,7 +83,7 @@ export class AttendeeReportRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/octet-stream, application/json, application/json");
+        requestInfo.tryAddRequestHeaders("Accept", "application/octet-stream, application/json");
         return requestInfo;
     };
     /**
@@ -102,7 +102,7 @@ export class AttendeeReportRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PUT;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setStreamContent(body, "application/octet-stream");
         return requestInfo;
     };

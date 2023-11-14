@@ -24,7 +24,7 @@ export function deserializeIntoDatevaluePostRequestBody(datevaluePostRequestBody
     }
 }
 export function serializeDatevaluePostRequestBody(writer: SerializationWriter, datevaluePostRequestBody: DatevaluePostRequestBody | undefined = {} as DatevaluePostRequestBody) : void {
-        writer.writeObjectValue<Json>("dateText", datevaluePostRequestBody.dateText, );
+        writer.writeObjectValue<Json>("dateText", datevaluePostRequestBody.dateText, serializeJson);
         writer.writeAdditionalData(datevaluePostRequestBody.additionalData);
 }
 // tslint:enable

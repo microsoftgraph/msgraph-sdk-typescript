@@ -24,7 +24,7 @@ export interface MinPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeMinPostRequestBody(writer: SerializationWriter, minPostRequestBody: MinPostRequestBody | undefined = {} as MinPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", minPostRequestBody.values, );
+        writer.writeObjectValue<Json>("values", minPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(minPostRequestBody.additionalData);
 }
 // tslint:enable

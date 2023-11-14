@@ -24,7 +24,7 @@ export interface GcdPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeGcdPostRequestBody(writer: SerializationWriter, gcdPostRequestBody: GcdPostRequestBody | undefined = {} as GcdPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", gcdPostRequestBody.values, );
+        writer.writeObjectValue<Json>("values", gcdPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(gcdPostRequestBody.additionalData);
 }
 // tslint:enable

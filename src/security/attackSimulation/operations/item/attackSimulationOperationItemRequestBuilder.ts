@@ -77,9 +77,10 @@ export class AttackSimulationOperationItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get operations from security
+     * Get an attack simulation operation to track a long-running operation request for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttackSimulationOperation
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttackSimulationOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AttackSimulationOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -121,11 +122,11 @@ export class AttackSimulationOperationItemRequestBuilder extends BaseRequestBuil
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Get operations from security
+     * Get an attack simulation operation to track a long-running operation request for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -139,7 +140,7 @@ export class AttackSimulationOperationItemRequestBuilder extends BaseRequestBuil
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -158,7 +159,7 @@ export class AttackSimulationOperationItemRequestBuilder extends BaseRequestBuil
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAttackSimulationOperation);
         return requestInfo;
     };

@@ -23,7 +23,7 @@ export interface MacOSDmgAppCollectionResponse extends BaseCollectionPaginationC
 }
 export function serializeMacOSDmgAppCollectionResponse(writer: SerializationWriter, macOSDmgAppCollectionResponse: MacOSDmgAppCollectionResponse | undefined = {} as MacOSDmgAppCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, macOSDmgAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<MacOSDmgApp>("value", macOSDmgAppCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<MacOSDmgApp>("value", macOSDmgAppCollectionResponse.value, serializeMacOSDmgApp);
 }
 // tslint:enable
 // eslint-enable

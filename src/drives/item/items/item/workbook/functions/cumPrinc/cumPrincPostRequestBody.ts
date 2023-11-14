@@ -49,12 +49,12 @@ export function deserializeIntoCumPrincPostRequestBody(cumPrincPostRequestBody: 
     }
 }
 export function serializeCumPrincPostRequestBody(writer: SerializationWriter, cumPrincPostRequestBody: CumPrincPostRequestBody | undefined = {} as CumPrincPostRequestBody) : void {
-        writer.writeObjectValue<Json>("endPeriod", cumPrincPostRequestBody.endPeriod, );
-        writer.writeObjectValue<Json>("nper", cumPrincPostRequestBody.nper, );
-        writer.writeObjectValue<Json>("pv", cumPrincPostRequestBody.pv, );
-        writer.writeObjectValue<Json>("rate", cumPrincPostRequestBody.rate, );
-        writer.writeObjectValue<Json>("startPeriod", cumPrincPostRequestBody.startPeriod, );
-        writer.writeObjectValue<Json>("type", cumPrincPostRequestBody.type, );
+        writer.writeObjectValue<Json>("endPeriod", cumPrincPostRequestBody.endPeriod, serializeJson);
+        writer.writeObjectValue<Json>("nper", cumPrincPostRequestBody.nper, serializeJson);
+        writer.writeObjectValue<Json>("pv", cumPrincPostRequestBody.pv, serializeJson);
+        writer.writeObjectValue<Json>("rate", cumPrincPostRequestBody.rate, serializeJson);
+        writer.writeObjectValue<Json>("startPeriod", cumPrincPostRequestBody.startPeriod, serializeJson);
+        writer.writeObjectValue<Json>("type", cumPrincPostRequestBody.type, serializeJson);
         writer.writeAdditionalData(cumPrincPostRequestBody.additionalData);
 }
 // tslint:enable

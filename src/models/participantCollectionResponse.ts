@@ -23,7 +23,7 @@ export interface ParticipantCollectionResponse extends BaseCollectionPaginationC
 }
 export function serializeParticipantCollectionResponse(writer: SerializationWriter, participantCollectionResponse: ParticipantCollectionResponse | undefined = {} as ParticipantCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, participantCollectionResponse)
-        writer.writeCollectionOfObjectValues<Participant>("value", participantCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Participant>("value", participantCollectionResponse.value, serializeParticipant);
 }
 // tslint:enable
 // eslint-enable

@@ -59,11 +59,11 @@ export interface SendActivityNotificationToRecipientsPostRequestBody extends Add
 export function serializeSendActivityNotificationToRecipientsPostRequestBody(writer: SerializationWriter, sendActivityNotificationToRecipientsPostRequestBody: SendActivityNotificationToRecipientsPostRequestBody | undefined = {} as SendActivityNotificationToRecipientsPostRequestBody) : void {
         writer.writeStringValue("activityType", sendActivityNotificationToRecipientsPostRequestBody.activityType);
         writer.writeNumberValue("chainId", sendActivityNotificationToRecipientsPostRequestBody.chainId);
-        writer.writeObjectValue<ItemBody>("previewText", sendActivityNotificationToRecipientsPostRequestBody.previewText, );
-        writer.writeCollectionOfObjectValues<TeamworkNotificationRecipient>("recipients", sendActivityNotificationToRecipientsPostRequestBody.recipients, );
+        writer.writeObjectValue<ItemBody>("previewText", sendActivityNotificationToRecipientsPostRequestBody.previewText, serializeItemBody);
+        writer.writeCollectionOfObjectValues<TeamworkNotificationRecipient>("recipients", sendActivityNotificationToRecipientsPostRequestBody.recipients, serializeTeamworkNotificationRecipient);
         writer.writeStringValue("teamsAppId", sendActivityNotificationToRecipientsPostRequestBody.teamsAppId);
-        writer.writeCollectionOfObjectValues<KeyValuePair>("templateParameters", sendActivityNotificationToRecipientsPostRequestBody.templateParameters, );
-        writer.writeObjectValue<TeamworkActivityTopic>("topic", sendActivityNotificationToRecipientsPostRequestBody.topic, );
+        writer.writeCollectionOfObjectValues<KeyValuePair>("templateParameters", sendActivityNotificationToRecipientsPostRequestBody.templateParameters, serializeKeyValuePair);
+        writer.writeObjectValue<TeamworkActivityTopic>("topic", sendActivityNotificationToRecipientsPostRequestBody.topic, serializeTeamworkActivityTopic);
         writer.writeAdditionalData(sendActivityNotificationToRecipientsPostRequestBody.additionalData);
 }
 // tslint:enable

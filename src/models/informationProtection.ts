@@ -35,9 +35,9 @@ export interface InformationProtection extends AdditionalDataHolder, Parsable {
     threatAssessmentRequests?: ThreatAssessmentRequest[];
 }
 export function serializeInformationProtection(writer: SerializationWriter, informationProtection: InformationProtection | undefined = {} as InformationProtection) : void {
-        writer.writeObjectValue<Bitlocker>("bitlocker", informationProtection.bitlocker, );
+        writer.writeObjectValue<Bitlocker>("bitlocker", informationProtection.bitlocker, serializeBitlocker);
         writer.writeStringValue("@odata.type", informationProtection.odataType);
-        writer.writeCollectionOfObjectValues<ThreatAssessmentRequest>("threatAssessmentRequests", informationProtection.threatAssessmentRequests, );
+        writer.writeCollectionOfObjectValues<ThreatAssessmentRequest>("threatAssessmentRequests", informationProtection.threatAssessmentRequests, serializeThreatAssessmentRequest);
         writer.writeAdditionalData(informationProtection.additionalData);
 }
 // tslint:enable

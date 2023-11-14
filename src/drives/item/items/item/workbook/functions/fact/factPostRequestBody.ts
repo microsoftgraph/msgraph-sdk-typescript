@@ -24,7 +24,7 @@ export interface FactPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeFactPostRequestBody(writer: SerializationWriter, factPostRequestBody: FactPostRequestBody | undefined = {} as FactPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", factPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", factPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(factPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -15,8 +15,8 @@ export function deserializeIntoSetPositionPostRequestBody(setPositionPostRequest
     }
 }
 export function serializeSetPositionPostRequestBody(writer: SerializationWriter, setPositionPostRequestBody: SetPositionPostRequestBody | undefined = {} as SetPositionPostRequestBody) : void {
-        writer.writeObjectValue<Json>("endCell", setPositionPostRequestBody.endCell, );
-        writer.writeObjectValue<Json>("startCell", setPositionPostRequestBody.startCell, );
+        writer.writeObjectValue<Json>("endCell", setPositionPostRequestBody.endCell, serializeJson);
+        writer.writeObjectValue<Json>("startCell", setPositionPostRequestBody.startCell, serializeJson);
         writer.writeAdditionalData(setPositionPostRequestBody.additionalData);
 }
 export interface SetPositionPostRequestBody extends AdditionalDataHolder, Parsable {

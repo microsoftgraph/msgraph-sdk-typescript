@@ -60,7 +60,7 @@ export class CopyToDefaultContentLocationRequestBuilder extends BaseRequestBuild
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCopyToDefaultContentLocationPostRequestBody);
         return requestInfo;
     };

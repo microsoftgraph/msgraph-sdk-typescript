@@ -54,7 +54,7 @@ export function deserializeIntoAccessPackageSubject(accessPackageSubject: Access
 }
 export function serializeAccessPackageSubject(writer: SerializationWriter, accessPackageSubject: AccessPackageSubject | undefined = {} as AccessPackageSubject) : void {
         serializeEntity(writer, accessPackageSubject)
-        writer.writeObjectValue<ConnectedOrganization>("connectedOrganization", accessPackageSubject.connectedOrganization, );
+        writer.writeObjectValue<ConnectedOrganization>("connectedOrganization", accessPackageSubject.connectedOrganization, serializeConnectedOrganization);
         writer.writeStringValue("displayName", accessPackageSubject.displayName);
         writer.writeStringValue("email", accessPackageSubject.email);
         writer.writeStringValue("objectId", accessPackageSubject.objectId);

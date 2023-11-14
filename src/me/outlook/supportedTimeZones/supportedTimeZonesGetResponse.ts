@@ -17,7 +17,7 @@ export function deserializeIntoSupportedTimeZonesGetResponse(supportedTimeZonesG
 }
 export function serializeSupportedTimeZonesGetResponse(writer: SerializationWriter, supportedTimeZonesGetResponse: SupportedTimeZonesGetResponse | undefined = {} as SupportedTimeZonesGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesGetResponse)
-        writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesGetResponse.value, );
+        writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesGetResponse.value, serializeTimeZoneInformation);
 }
 export interface SupportedTimeZonesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

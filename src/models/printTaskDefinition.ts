@@ -34,9 +34,9 @@ export interface PrintTaskDefinition extends Entity, Parsable {
 }
 export function serializePrintTaskDefinition(writer: SerializationWriter, printTaskDefinition: PrintTaskDefinition | undefined = {} as PrintTaskDefinition) : void {
         serializeEntity(writer, printTaskDefinition)
-        writer.writeObjectValue<AppIdentity>("createdBy", printTaskDefinition.createdBy, );
+        writer.writeObjectValue<AppIdentity>("createdBy", printTaskDefinition.createdBy, serializeAppIdentity);
         writer.writeStringValue("displayName", printTaskDefinition.displayName);
-        writer.writeCollectionOfObjectValues<PrintTask>("tasks", printTaskDefinition.tasks, );
+        writer.writeCollectionOfObjectValues<PrintTask>("tasks", printTaskDefinition.tasks, serializePrintTask);
 }
 // tslint:enable
 // eslint-enable

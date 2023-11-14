@@ -16,9 +16,9 @@ export function deserializeIntoYearFracPostRequestBody(yearFracPostRequestBody: 
     }
 }
 export function serializeYearFracPostRequestBody(writer: SerializationWriter, yearFracPostRequestBody: YearFracPostRequestBody | undefined = {} as YearFracPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", yearFracPostRequestBody.basis, );
-        writer.writeObjectValue<Json>("endDate", yearFracPostRequestBody.endDate, );
-        writer.writeObjectValue<Json>("startDate", yearFracPostRequestBody.startDate, );
+        writer.writeObjectValue<Json>("basis", yearFracPostRequestBody.basis, serializeJson);
+        writer.writeObjectValue<Json>("endDate", yearFracPostRequestBody.endDate, serializeJson);
+        writer.writeObjectValue<Json>("startDate", yearFracPostRequestBody.startDate, serializeJson);
         writer.writeAdditionalData(yearFracPostRequestBody.additionalData);
 }
 export interface YearFracPostRequestBody extends AdditionalDataHolder, Parsable {

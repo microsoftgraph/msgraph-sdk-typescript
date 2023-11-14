@@ -73,7 +73,7 @@ export function serializeAgreementFileProperties(writer: SerializationWriter, ag
         serializeEntity(writer, agreementFileProperties)
         writer.writeDateValue("createdDateTime", agreementFileProperties.createdDateTime);
         writer.writeStringValue("displayName", agreementFileProperties.displayName);
-        writer.writeObjectValue<AgreementFileData>("fileData", agreementFileProperties.fileData, );
+        writer.writeObjectValue<AgreementFileData>("fileData", agreementFileProperties.fileData, serializeAgreementFileData);
         writer.writeStringValue("fileName", agreementFileProperties.fileName);
         writer.writeBooleanValue("isDefault", agreementFileProperties.isDefault);
         writer.writeBooleanValue("isMajorVersion", agreementFileProperties.isMajorVersion);

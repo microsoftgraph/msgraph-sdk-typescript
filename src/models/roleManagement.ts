@@ -34,8 +34,8 @@ export interface RoleManagement extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeRoleManagement(writer: SerializationWriter, roleManagement: RoleManagement | undefined = {} as RoleManagement) : void {
-        writer.writeObjectValue<RbacApplication>("directory", roleManagement.directory, );
-        writer.writeObjectValue<RbacApplication>("entitlementManagement", roleManagement.entitlementManagement, );
+        writer.writeObjectValue<RbacApplication>("directory", roleManagement.directory, serializeRbacApplication);
+        writer.writeObjectValue<RbacApplication>("entitlementManagement", roleManagement.entitlementManagement, serializeRbacApplication);
         writer.writeStringValue("@odata.type", roleManagement.odataType);
         writer.writeAdditionalData(roleManagement.additionalData);
 }

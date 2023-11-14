@@ -29,7 +29,7 @@ export interface SendMailPostRequestBody extends AdditionalDataHolder, Parsable 
     saveToSentItems?: boolean;
 }
 export function serializeSendMailPostRequestBody(writer: SerializationWriter, sendMailPostRequestBody: SendMailPostRequestBody | undefined = {} as SendMailPostRequestBody) : void {
-        writer.writeObjectValue<Message>("Message", sendMailPostRequestBody.message, );
+        writer.writeObjectValue<Message>("Message", sendMailPostRequestBody.message, serializeMessage);
         writer.writeBooleanValue("SaveToSentItems", sendMailPostRequestBody.saveToSentItems);
         writer.writeAdditionalData(sendMailPostRequestBody.additionalData);
 }

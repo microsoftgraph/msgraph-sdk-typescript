@@ -54,9 +54,9 @@ export interface Place extends Entity, Parsable {
 }
 export function serializePlace(writer: SerializationWriter, place: Place | undefined = {} as Place) : void {
         serializeEntity(writer, place)
-        writer.writeObjectValue<PhysicalAddress>("address", place.address, );
+        writer.writeObjectValue<PhysicalAddress>("address", place.address, serializePhysicalAddress);
         writer.writeStringValue("displayName", place.displayName);
-        writer.writeObjectValue<OutlookGeoCoordinates>("geoCoordinates", place.geoCoordinates, );
+        writer.writeObjectValue<OutlookGeoCoordinates>("geoCoordinates", place.geoCoordinates, serializeOutlookGeoCoordinates);
         writer.writeStringValue("phone", place.phone);
 }
 // tslint:enable

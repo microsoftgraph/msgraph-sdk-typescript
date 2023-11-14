@@ -17,13 +17,13 @@ export function deserializeIntoPeopleAdminSettings(peopleAdminSettings: PeopleAd
 }
 export interface PeopleAdminSettings extends Entity, Parsable {
     /**
-     * The profileCardProperties property
+     * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card.
      */
     profileCardProperties?: ProfileCardProperty[];
 }
 export function serializePeopleAdminSettings(writer: SerializationWriter, peopleAdminSettings: PeopleAdminSettings | undefined = {} as PeopleAdminSettings) : void {
         serializeEntity(writer, peopleAdminSettings)
-        writer.writeCollectionOfObjectValues<ProfileCardProperty>("profileCardProperties", peopleAdminSettings.profileCardProperties, );
+        writer.writeCollectionOfObjectValues<ProfileCardProperty>("profileCardProperties", peopleAdminSettings.profileCardProperties, serializeProfileCardProperty);
 }
 // tslint:enable
 // eslint-enable

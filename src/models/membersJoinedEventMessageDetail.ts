@@ -29,8 +29,8 @@ export interface MembersJoinedEventMessageDetail extends EventMessageDetail, Par
 }
 export function serializeMembersJoinedEventMessageDetail(writer: SerializationWriter, membersJoinedEventMessageDetail: MembersJoinedEventMessageDetail | undefined = {} as MembersJoinedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, membersJoinedEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", membersJoinedEventMessageDetail.initiator, );
-        writer.writeCollectionOfObjectValues<TeamworkUserIdentity>("members", membersJoinedEventMessageDetail.members, );
+        writer.writeObjectValue<IdentitySet>("initiator", membersJoinedEventMessageDetail.initiator, serializeIdentitySet);
+        writer.writeCollectionOfObjectValues<TeamworkUserIdentity>("members", membersJoinedEventMessageDetail.members, serializeTeamworkUserIdentity);
 }
 // tslint:enable
 // eslint-enable

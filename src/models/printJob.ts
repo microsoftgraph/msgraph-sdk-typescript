@@ -67,15 +67,15 @@ export interface PrintJob extends Entity, Parsable {
 }
 export function serializePrintJob(writer: SerializationWriter, printJob: PrintJob | undefined = {} as PrintJob) : void {
         serializeEntity(writer, printJob)
-        writer.writeObjectValue<PrintJobConfiguration>("configuration", printJob.configuration, );
-        writer.writeObjectValue<UserIdentity>("createdBy", printJob.createdBy, );
+        writer.writeObjectValue<PrintJobConfiguration>("configuration", printJob.configuration, serializePrintJobConfiguration);
+        writer.writeObjectValue<UserIdentity>("createdBy", printJob.createdBy, serializeUserIdentity);
         writer.writeDateValue("createdDateTime", printJob.createdDateTime);
-        writer.writeCollectionOfObjectValues<PrintDocument>("documents", printJob.documents, );
+        writer.writeCollectionOfObjectValues<PrintDocument>("documents", printJob.documents, serializePrintDocument);
         writer.writeBooleanValue("isFetchable", printJob.isFetchable);
         writer.writeStringValue("redirectedFrom", printJob.redirectedFrom);
         writer.writeStringValue("redirectedTo", printJob.redirectedTo);
-        writer.writeObjectValue<PrintJobStatus>("status", printJob.status, );
-        writer.writeCollectionOfObjectValues<PrintTask>("tasks", printJob.tasks, );
+        writer.writeObjectValue<PrintJobStatus>("status", printJob.status, serializePrintJobStatus);
+        writer.writeCollectionOfObjectValues<PrintTask>("tasks", printJob.tasks, serializePrintTask);
 }
 // tslint:enable
 // eslint-enable

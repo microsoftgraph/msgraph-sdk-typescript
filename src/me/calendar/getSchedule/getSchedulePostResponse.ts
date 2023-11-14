@@ -23,7 +23,7 @@ export interface GetSchedulePostResponse extends BaseCollectionPaginationCountRe
 }
 export function serializeGetSchedulePostResponse(writer: SerializationWriter, getSchedulePostResponse: GetSchedulePostResponse | undefined = {} as GetSchedulePostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getSchedulePostResponse)
-        writer.writeCollectionOfObjectValues<ScheduleInformation>("value", getSchedulePostResponse.value, );
+        writer.writeCollectionOfObjectValues<ScheduleInformation>("value", getSchedulePostResponse.value, serializeScheduleInformation);
 }
 // tslint:enable
 // eslint-enable

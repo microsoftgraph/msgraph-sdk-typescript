@@ -28,7 +28,7 @@ export function serializeTeamsAsyncOperation(writer: SerializationWriter, teamsA
         serializeEntity(writer, teamsAsyncOperation)
         writer.writeNumberValue("attemptsCount", teamsAsyncOperation.attemptsCount);
         writer.writeDateValue("createdDateTime", teamsAsyncOperation.createdDateTime);
-        writer.writeObjectValue<OperationError>("error", teamsAsyncOperation.errorEscaped, );
+        writer.writeObjectValue<OperationError>("error", teamsAsyncOperation.errorEscaped, serializeOperationError);
         writer.writeDateValue("lastActionDateTime", teamsAsyncOperation.lastActionDateTime);
         writer.writeEnumValue<TeamsAsyncOperationType>("operationType", teamsAsyncOperation.operationType);
         writer.writeEnumValue<TeamsAsyncOperationStatus>("status", teamsAsyncOperation.status);

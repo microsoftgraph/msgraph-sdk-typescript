@@ -23,7 +23,7 @@ export function deserializeIntoDataSourceCollectionResponse(dataSourceCollection
 }
 export function serializeDataSourceCollectionResponse(writer: SerializationWriter, dataSourceCollectionResponse: DataSourceCollectionResponse | undefined = {} as DataSourceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, dataSourceCollectionResponse)
-        writer.writeCollectionOfObjectValues<DataSource>("value", dataSourceCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DataSource>("value", dataSourceCollectionResponse.value, serializeDataSource);
 }
 // tslint:enable
 // eslint-enable

@@ -23,7 +23,7 @@ export interface SecureScoreCollectionResponse extends BaseCollectionPaginationC
 }
 export function serializeSecureScoreCollectionResponse(writer: SerializationWriter, secureScoreCollectionResponse: SecureScoreCollectionResponse | undefined = {} as SecureScoreCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, secureScoreCollectionResponse)
-        writer.writeCollectionOfObjectValues<SecureScore>("value", secureScoreCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<SecureScore>("value", secureScoreCollectionResponse.value, serializeSecureScore);
 }
 // tslint:enable
 // eslint-enable

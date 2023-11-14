@@ -34,9 +34,9 @@ export interface MirrPostRequestBody extends AdditionalDataHolder, Parsable {
     values?: Json;
 }
 export function serializeMirrPostRequestBody(writer: SerializationWriter, mirrPostRequestBody: MirrPostRequestBody | undefined = {} as MirrPostRequestBody) : void {
-        writer.writeObjectValue<Json>("financeRate", mirrPostRequestBody.financeRate, );
-        writer.writeObjectValue<Json>("reinvestRate", mirrPostRequestBody.reinvestRate, );
-        writer.writeObjectValue<Json>("values", mirrPostRequestBody.values, );
+        writer.writeObjectValue<Json>("financeRate", mirrPostRequestBody.financeRate, serializeJson);
+        writer.writeObjectValue<Json>("reinvestRate", mirrPostRequestBody.reinvestRate, serializeJson);
+        writer.writeObjectValue<Json>("values", mirrPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(mirrPostRequestBody.additionalData);
 }
 // tslint:enable

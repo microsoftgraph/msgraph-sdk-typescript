@@ -17,10 +17,10 @@ export function deserializeIntoVlookupPostRequestBody(vlookupPostRequestBody: Vl
     }
 }
 export function serializeVlookupPostRequestBody(writer: SerializationWriter, vlookupPostRequestBody: VlookupPostRequestBody | undefined = {} as VlookupPostRequestBody) : void {
-        writer.writeObjectValue<Json>("colIndexNum", vlookupPostRequestBody.colIndexNum, );
-        writer.writeObjectValue<Json>("lookupValue", vlookupPostRequestBody.lookupValue, );
-        writer.writeObjectValue<Json>("rangeLookup", vlookupPostRequestBody.rangeLookup, );
-        writer.writeObjectValue<Json>("tableArray", vlookupPostRequestBody.tableArray, );
+        writer.writeObjectValue<Json>("colIndexNum", vlookupPostRequestBody.colIndexNum, serializeJson);
+        writer.writeObjectValue<Json>("lookupValue", vlookupPostRequestBody.lookupValue, serializeJson);
+        writer.writeObjectValue<Json>("rangeLookup", vlookupPostRequestBody.rangeLookup, serializeJson);
+        writer.writeObjectValue<Json>("tableArray", vlookupPostRequestBody.tableArray, serializeJson);
         writer.writeAdditionalData(vlookupPostRequestBody.additionalData);
 }
 export interface VlookupPostRequestBody extends AdditionalDataHolder, Parsable {

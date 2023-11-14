@@ -24,7 +24,7 @@ export function serializeTargetResource(writer: SerializationWriter, targetResou
         writer.writeStringValue("displayName", targetResource.displayName);
         writer.writeEnumValue<GroupType>("groupType", targetResource.groupType);
         writer.writeStringValue("id", targetResource.id);
-        writer.writeCollectionOfObjectValues<ModifiedProperty>("modifiedProperties", targetResource.modifiedProperties, );
+        writer.writeCollectionOfObjectValues<ModifiedProperty>("modifiedProperties", targetResource.modifiedProperties, serializeModifiedProperty);
         writer.writeStringValue("@odata.type", targetResource.odataType);
         writer.writeStringValue("type", targetResource.type);
         writer.writeStringValue("userPrincipalName", targetResource.userPrincipalName);

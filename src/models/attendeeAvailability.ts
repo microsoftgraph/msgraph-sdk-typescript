@@ -35,7 +35,7 @@ export function deserializeIntoAttendeeAvailability(attendeeAvailability: Attend
     }
 }
 export function serializeAttendeeAvailability(writer: SerializationWriter, attendeeAvailability: AttendeeAvailability | undefined = {} as AttendeeAvailability) : void {
-        writer.writeObjectValue<AttendeeBase>("attendee", attendeeAvailability.attendee, );
+        writer.writeObjectValue<AttendeeBase>("attendee", attendeeAvailability.attendee, serializeAttendeeBase);
         writer.writeEnumValue<FreeBusyStatus>("availability", attendeeAvailability.availability);
         writer.writeStringValue("@odata.type", attendeeAvailability.odataType);
         writer.writeAdditionalData(attendeeAvailability.additionalData);

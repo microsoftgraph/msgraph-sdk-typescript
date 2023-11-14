@@ -17,7 +17,7 @@ export function deserializeIntoSubjectRightsRequestCollectionResponse(subjectRig
 }
 export function serializeSubjectRightsRequestCollectionResponse(writer: SerializationWriter, subjectRightsRequestCollectionResponse: SubjectRightsRequestCollectionResponse | undefined = {} as SubjectRightsRequestCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, subjectRightsRequestCollectionResponse)
-        writer.writeCollectionOfObjectValues<SubjectRightsRequest>("value", subjectRightsRequestCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<SubjectRightsRequest>("value", subjectRightsRequestCollectionResponse.value, serializeSubjectRightsRequest);
 }
 export interface SubjectRightsRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

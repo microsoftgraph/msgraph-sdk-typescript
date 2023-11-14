@@ -101,7 +101,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
      * Retrieve the list of sessions associated with a callRecord object. If the sessions list is truncated, a sessions@odata.nextLink value will be provided to retrieve the next page of sessions. The maximum page size for sessions is 60 entries. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SessionCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/callrecords-session-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/callrecords-callrecord-list-sessions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SessionsRequestBuilderGetRequestConfiguration | undefined) : Promise<SessionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -144,7 +144,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -163,7 +163,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSession);
         return requestInfo;
     };

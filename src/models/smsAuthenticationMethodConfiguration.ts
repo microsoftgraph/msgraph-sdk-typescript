@@ -17,7 +17,7 @@ export function deserializeIntoSmsAuthenticationMethodConfiguration(smsAuthentic
 }
 export function serializeSmsAuthenticationMethodConfiguration(writer: SerializationWriter, smsAuthenticationMethodConfiguration: SmsAuthenticationMethodConfiguration | undefined = {} as SmsAuthenticationMethodConfiguration) : void {
         serializeAuthenticationMethodConfiguration(writer, smsAuthenticationMethodConfiguration)
-        writer.writeCollectionOfObjectValues<SmsAuthenticationMethodTarget>("includeTargets", smsAuthenticationMethodConfiguration.includeTargets, );
+        writer.writeCollectionOfObjectValues<SmsAuthenticationMethodTarget>("includeTargets", smsAuthenticationMethodConfiguration.includeTargets, serializeSmsAuthenticationMethodTarget);
 }
 export interface SmsAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {
     /**

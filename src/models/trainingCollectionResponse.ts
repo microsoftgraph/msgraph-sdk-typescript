@@ -17,7 +17,7 @@ export function deserializeIntoTrainingCollectionResponse(trainingCollectionResp
 }
 export function serializeTrainingCollectionResponse(writer: SerializationWriter, trainingCollectionResponse: TrainingCollectionResponse | undefined = {} as TrainingCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, trainingCollectionResponse)
-        writer.writeCollectionOfObjectValues<Training>("value", trainingCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Training>("value", trainingCollectionResponse.value, serializeTraining);
 }
 export interface TrainingCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

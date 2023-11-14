@@ -23,7 +23,7 @@ export interface ManagedDeviceCollectionResponse extends BaseCollectionPaginatio
 }
 export function serializeManagedDeviceCollectionResponse(writer: SerializationWriter, managedDeviceCollectionResponse: ManagedDeviceCollectionResponse | undefined = {} as ManagedDeviceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, managedDeviceCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedDevice>("value", managedDeviceCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ManagedDevice>("value", managedDeviceCollectionResponse.value, serializeManagedDevice);
 }
 // tslint:enable
 // eslint-enable

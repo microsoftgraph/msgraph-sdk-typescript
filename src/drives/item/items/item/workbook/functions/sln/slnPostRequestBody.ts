@@ -16,9 +16,9 @@ export function deserializeIntoSlnPostRequestBody(slnPostRequestBody: SlnPostReq
     }
 }
 export function serializeSlnPostRequestBody(writer: SerializationWriter, slnPostRequestBody: SlnPostRequestBody | undefined = {} as SlnPostRequestBody) : void {
-        writer.writeObjectValue<Json>("cost", slnPostRequestBody.cost, );
-        writer.writeObjectValue<Json>("life", slnPostRequestBody.life, );
-        writer.writeObjectValue<Json>("salvage", slnPostRequestBody.salvage, );
+        writer.writeObjectValue<Json>("cost", slnPostRequestBody.cost, serializeJson);
+        writer.writeObjectValue<Json>("life", slnPostRequestBody.life, serializeJson);
+        writer.writeObjectValue<Json>("salvage", slnPostRequestBody.salvage, serializeJson);
         writer.writeAdditionalData(slnPostRequestBody.additionalData);
 }
 export interface SlnPostRequestBody extends AdditionalDataHolder, Parsable {

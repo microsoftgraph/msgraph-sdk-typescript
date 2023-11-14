@@ -23,7 +23,7 @@ export interface RemoteAssistancePartnerCollectionResponse extends BaseCollectio
 }
 export function serializeRemoteAssistancePartnerCollectionResponse(writer: SerializationWriter, remoteAssistancePartnerCollectionResponse: RemoteAssistancePartnerCollectionResponse | undefined = {} as RemoteAssistancePartnerCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, remoteAssistancePartnerCollectionResponse)
-        writer.writeCollectionOfObjectValues<RemoteAssistancePartner>("value", remoteAssistancePartnerCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<RemoteAssistancePartner>("value", remoteAssistancePartnerCollectionResponse.value, serializeRemoteAssistancePartner);
 }
 // tslint:enable
 // eslint-enable

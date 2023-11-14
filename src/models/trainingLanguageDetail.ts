@@ -26,50 +26,50 @@ export function deserializeIntoTrainingLanguageDetail(trainingLanguageDetail: Tr
 export function serializeTrainingLanguageDetail(writer: SerializationWriter, trainingLanguageDetail: TrainingLanguageDetail | undefined = {} as TrainingLanguageDetail) : void {
         serializeEntity(writer, trainingLanguageDetail)
         writer.writeStringValue("content", trainingLanguageDetail.content);
-        writer.writeObjectValue<EmailIdentity>("createdBy", trainingLanguageDetail.createdBy, );
+        writer.writeObjectValue<EmailIdentity>("createdBy", trainingLanguageDetail.createdBy, serializeEmailIdentity);
         writer.writeDateValue("createdDateTime", trainingLanguageDetail.createdDateTime);
         writer.writeStringValue("description", trainingLanguageDetail.description);
         writer.writeStringValue("displayName", trainingLanguageDetail.displayName);
         writer.writeBooleanValue("isDefaultLangauge", trainingLanguageDetail.isDefaultLangauge);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", trainingLanguageDetail.lastModifiedBy, );
+        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", trainingLanguageDetail.lastModifiedBy, serializeEmailIdentity);
         writer.writeDateValue("lastModifiedDateTime", trainingLanguageDetail.lastModifiedDateTime);
         writer.writeStringValue("locale", trainingLanguageDetail.locale);
 }
 export interface TrainingLanguageDetail extends Entity, Parsable {
     /**
-     * The content property
+     * Language specific content for the training.
      */
     content?: string;
     /**
-     * The createdBy property
+     * Identity of the user who created the language details.
      */
     createdBy?: EmailIdentity;
     /**
-     * The createdDateTime property
+     * Date and time when the language details were created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     createdDateTime?: Date;
     /**
-     * The description property
+     * Description as defined by the user.
      */
     description?: string;
     /**
-     * The displayName property
+     * Display name as defined by the user.
      */
     displayName?: string;
     /**
-     * The isDefaultLangauge property
+     * Indicates whether the training has a default language.
      */
     isDefaultLangauge?: boolean;
     /**
-     * The lastModifiedBy property
+     * Identity of the user who last modified the details.
      */
     lastModifiedBy?: EmailIdentity;
     /**
-     * The lastModifiedDateTime property
+     * Date and time when the trainingLanguageDetail was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     lastModifiedDateTime?: Date;
     /**
-     * The locale property
+     * Content locale for the training detail.
      */
     locale?: string;
 }

@@ -6,11 +6,11 @@ import { type Parsable, type ParseNode, type SerializationWriter } from '@micros
 
 export interface CommunicationsApplicationIdentity extends Identity, Parsable {
     /**
-     * The applicationType property
+     * First-party Microsoft application that presents this identity.
      */
     applicationType?: string;
     /**
-     * The hidden property
+     * True if the participant shouldn't be shown in other participants' rosters.
      */
     hidden?: boolean;
 }

@@ -39,7 +39,7 @@ export function deserializeIntoConvertIdResult(convertIdResult: ConvertIdResult 
     }
 }
 export function serializeConvertIdResult(writer: SerializationWriter, convertIdResult: ConvertIdResult | undefined = {} as ConvertIdResult) : void {
-        writer.writeObjectValue<GenericError>("errorDetails", convertIdResult.errorDetails, );
+        writer.writeObjectValue<GenericError>("errorDetails", convertIdResult.errorDetails, serializeGenericError);
         writer.writeStringValue("@odata.type", convertIdResult.odataType);
         writer.writeStringValue("sourceId", convertIdResult.sourceId);
         writer.writeStringValue("targetId", convertIdResult.targetId);

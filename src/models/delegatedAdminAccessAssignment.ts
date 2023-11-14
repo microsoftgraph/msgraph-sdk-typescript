@@ -45,8 +45,8 @@ export function deserializeIntoDelegatedAdminAccessAssignment(delegatedAdminAcce
 }
 export function serializeDelegatedAdminAccessAssignment(writer: SerializationWriter, delegatedAdminAccessAssignment: DelegatedAdminAccessAssignment | undefined = {} as DelegatedAdminAccessAssignment) : void {
         serializeEntity(writer, delegatedAdminAccessAssignment)
-        writer.writeObjectValue<DelegatedAdminAccessContainer>("accessContainer", delegatedAdminAccessAssignment.accessContainer, );
-        writer.writeObjectValue<DelegatedAdminAccessDetails>("accessDetails", delegatedAdminAccessAssignment.accessDetails, );
+        writer.writeObjectValue<DelegatedAdminAccessContainer>("accessContainer", delegatedAdminAccessAssignment.accessContainer, serializeDelegatedAdminAccessContainer);
+        writer.writeObjectValue<DelegatedAdminAccessDetails>("accessDetails", delegatedAdminAccessAssignment.accessDetails, serializeDelegatedAdminAccessDetails);
         writer.writeDateValue("createdDateTime", delegatedAdminAccessAssignment.createdDateTime);
         writer.writeDateValue("lastModifiedDateTime", delegatedAdminAccessAssignment.lastModifiedDateTime);
         writer.writeEnumValue<DelegatedAdminAccessAssignmentStatus>("status", delegatedAdminAccessAssignment.status);

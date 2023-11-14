@@ -23,7 +23,7 @@ export interface RiskDetectionCollectionResponse extends BaseCollectionPaginatio
 }
 export function serializeRiskDetectionCollectionResponse(writer: SerializationWriter, riskDetectionCollectionResponse: RiskDetectionCollectionResponse | undefined = {} as RiskDetectionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, riskDetectionCollectionResponse)
-        writer.writeCollectionOfObjectValues<RiskDetection>("value", riskDetectionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<RiskDetection>("value", riskDetectionCollectionResponse.value, serializeRiskDetection);
 }
 // tslint:enable
 // eslint-enable

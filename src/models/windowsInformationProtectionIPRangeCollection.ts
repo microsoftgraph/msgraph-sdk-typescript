@@ -18,7 +18,7 @@ export function deserializeIntoWindowsInformationProtectionIPRangeCollection(win
 export function serializeWindowsInformationProtectionIPRangeCollection(writer: SerializationWriter, windowsInformationProtectionIPRangeCollection: WindowsInformationProtectionIPRangeCollection | undefined = {} as WindowsInformationProtectionIPRangeCollection) : void {
         writer.writeStringValue("displayName", windowsInformationProtectionIPRangeCollection.displayName);
         writer.writeStringValue("@odata.type", windowsInformationProtectionIPRangeCollection.odataType);
-        writer.writeCollectionOfObjectValues<IpRange>("ranges", windowsInformationProtectionIPRangeCollection.ranges, );
+        writer.writeCollectionOfObjectValues<IpRange>("ranges", windowsInformationProtectionIPRangeCollection.ranges, serializeIpRange);
         writer.writeAdditionalData(windowsInformationProtectionIPRangeCollection.additionalData);
 }
 export interface WindowsInformationProtectionIPRangeCollection extends AdditionalDataHolder, Parsable {

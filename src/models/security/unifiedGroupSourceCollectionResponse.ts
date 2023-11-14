@@ -17,7 +17,7 @@ export function deserializeIntoUnifiedGroupSourceCollectionResponse(unifiedGroup
 }
 export function serializeUnifiedGroupSourceCollectionResponse(writer: SerializationWriter, unifiedGroupSourceCollectionResponse: UnifiedGroupSourceCollectionResponse | undefined = {} as UnifiedGroupSourceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, unifiedGroupSourceCollectionResponse)
-        writer.writeCollectionOfObjectValues<UnifiedGroupSource>("value", unifiedGroupSourceCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<UnifiedGroupSource>("value", unifiedGroupSourceCollectionResponse.value, serializeUnifiedGroupSource);
 }
 export interface UnifiedGroupSourceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

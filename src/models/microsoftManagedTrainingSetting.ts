@@ -18,11 +18,11 @@ export function deserializeIntoMicrosoftManagedTrainingSetting(microsoftManagedT
 }
 export interface MicrosoftManagedTrainingSetting extends Parsable, TrainingSetting {
     /**
-     * The completionDateTime property
+     * The completion date for the training. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     completionDateTime?: Date;
     /**
-     * The trainingCompletionDuration property
+     * The training completion duration that needs to be provided before scheduling the training. The possible values are: week, fortnite, month, unknownFutureValue.
      */
     trainingCompletionDuration?: TrainingCompletionDuration;
 }

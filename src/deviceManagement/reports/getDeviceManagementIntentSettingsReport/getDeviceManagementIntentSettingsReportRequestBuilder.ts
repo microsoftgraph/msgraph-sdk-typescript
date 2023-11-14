@@ -61,7 +61,7 @@ export class GetDeviceManagementIntentSettingsReportRequestBuilder extends BaseR
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/octet-stream, application/json, application/json");
+        requestInfo.tryAddRequestHeaders("Accept", "application/octet-stream, application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetDeviceManagementIntentSettingsReportPostRequestBody);
         return requestInfo;
     };

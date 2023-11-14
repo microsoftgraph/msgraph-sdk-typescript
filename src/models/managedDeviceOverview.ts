@@ -44,8 +44,8 @@ export interface ManagedDeviceOverview extends Entity, Parsable {
 }
 export function serializeManagedDeviceOverview(writer: SerializationWriter, managedDeviceOverview: ManagedDeviceOverview | undefined = {} as ManagedDeviceOverview) : void {
         serializeEntity(writer, managedDeviceOverview)
-        writer.writeObjectValue<DeviceExchangeAccessStateSummary>("deviceExchangeAccessStateSummary", managedDeviceOverview.deviceExchangeAccessStateSummary, );
-        writer.writeObjectValue<DeviceOperatingSystemSummary>("deviceOperatingSystemSummary", managedDeviceOverview.deviceOperatingSystemSummary, );
+        writer.writeObjectValue<DeviceExchangeAccessStateSummary>("deviceExchangeAccessStateSummary", managedDeviceOverview.deviceExchangeAccessStateSummary, serializeDeviceExchangeAccessStateSummary);
+        writer.writeObjectValue<DeviceOperatingSystemSummary>("deviceOperatingSystemSummary", managedDeviceOverview.deviceOperatingSystemSummary, serializeDeviceOperatingSystemSummary);
         writer.writeNumberValue("dualEnrolledDeviceCount", managedDeviceOverview.dualEnrolledDeviceCount);
         writer.writeNumberValue("enrolledDeviceCount", managedDeviceOverview.enrolledDeviceCount);
         writer.writeNumberValue("mdmEnrolledCount", managedDeviceOverview.mdmEnrolledCount);

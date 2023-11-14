@@ -23,7 +23,7 @@ export interface ScopedRoleMembershipCollectionResponse extends BaseCollectionPa
 }
 export function serializeScopedRoleMembershipCollectionResponse(writer: SerializationWriter, scopedRoleMembershipCollectionResponse: ScopedRoleMembershipCollectionResponse | undefined = {} as ScopedRoleMembershipCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, scopedRoleMembershipCollectionResponse)
-        writer.writeCollectionOfObjectValues<ScopedRoleMembership>("value", scopedRoleMembershipCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ScopedRoleMembership>("value", scopedRoleMembershipCollectionResponse.value, serializeScopedRoleMembership);
 }
 // tslint:enable
 // eslint-enable

@@ -23,7 +23,7 @@ export function deserializeIntoAddPostResponse(addPostResponse: AddPostResponse 
 }
 export function serializeAddPostResponse(writer: SerializationWriter, addPostResponse: AddPostResponse | undefined = {} as AddPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, addPostResponse)
-        writer.writeCollectionOfObjectValues<ActionResultPart>("value", addPostResponse.value, );
+        writer.writeCollectionOfObjectValues<ActionResultPart>("value", addPostResponse.value, serializeActionResultPart);
 }
 // tslint:enable
 // eslint-enable

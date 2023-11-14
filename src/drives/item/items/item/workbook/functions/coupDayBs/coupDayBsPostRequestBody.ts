@@ -39,10 +39,10 @@ export function deserializeIntoCoupDayBsPostRequestBody(coupDayBsPostRequestBody
     }
 }
 export function serializeCoupDayBsPostRequestBody(writer: SerializationWriter, coupDayBsPostRequestBody: CoupDayBsPostRequestBody | undefined = {} as CoupDayBsPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", coupDayBsPostRequestBody.basis, );
-        writer.writeObjectValue<Json>("frequency", coupDayBsPostRequestBody.frequency, );
-        writer.writeObjectValue<Json>("maturity", coupDayBsPostRequestBody.maturity, );
-        writer.writeObjectValue<Json>("settlement", coupDayBsPostRequestBody.settlement, );
+        writer.writeObjectValue<Json>("basis", coupDayBsPostRequestBody.basis, serializeJson);
+        writer.writeObjectValue<Json>("frequency", coupDayBsPostRequestBody.frequency, serializeJson);
+        writer.writeObjectValue<Json>("maturity", coupDayBsPostRequestBody.maturity, serializeJson);
+        writer.writeObjectValue<Json>("settlement", coupDayBsPostRequestBody.settlement, serializeJson);
         writer.writeAdditionalData(coupDayBsPostRequestBody.additionalData);
 }
 // tslint:enable

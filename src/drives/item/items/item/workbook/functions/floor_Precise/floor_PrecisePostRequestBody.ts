@@ -29,8 +29,8 @@ export interface Floor_PrecisePostRequestBody extends AdditionalDataHolder, Pars
     significance?: Json;
 }
 export function serializeFloor_PrecisePostRequestBody(writer: SerializationWriter, floor_PrecisePostRequestBody: Floor_PrecisePostRequestBody | undefined = {} as Floor_PrecisePostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", floor_PrecisePostRequestBody.number, );
-        writer.writeObjectValue<Json>("significance", floor_PrecisePostRequestBody.significance, );
+        writer.writeObjectValue<Json>("number", floor_PrecisePostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("significance", floor_PrecisePostRequestBody.significance, serializeJson);
         writer.writeAdditionalData(floor_PrecisePostRequestBody.additionalData);
 }
 // tslint:enable

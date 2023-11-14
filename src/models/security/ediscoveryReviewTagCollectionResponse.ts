@@ -23,7 +23,7 @@ export interface EdiscoveryReviewTagCollectionResponse extends BaseCollectionPag
 }
 export function serializeEdiscoveryReviewTagCollectionResponse(writer: SerializationWriter, ediscoveryReviewTagCollectionResponse: EdiscoveryReviewTagCollectionResponse | undefined = {} as EdiscoveryReviewTagCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, ediscoveryReviewTagCollectionResponse)
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", ediscoveryReviewTagCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", ediscoveryReviewTagCollectionResponse.value, serializeEdiscoveryReviewTag);
 }
 // tslint:enable
 // eslint-enable

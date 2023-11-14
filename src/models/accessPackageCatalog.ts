@@ -84,17 +84,17 @@ export function deserializeIntoAccessPackageCatalog(accessPackageCatalog: Access
 }
 export function serializeAccessPackageCatalog(writer: SerializationWriter, accessPackageCatalog: AccessPackageCatalog | undefined = {} as AccessPackageCatalog) : void {
         serializeEntity(writer, accessPackageCatalog)
-        writer.writeCollectionOfObjectValues<AccessPackage>("accessPackages", accessPackageCatalog.accessPackages, );
+        writer.writeCollectionOfObjectValues<AccessPackage>("accessPackages", accessPackageCatalog.accessPackages, serializeAccessPackage);
         writer.writeEnumValue<AccessPackageCatalogType>("catalogType", accessPackageCatalog.catalogType);
         writer.writeDateValue("createdDateTime", accessPackageCatalog.createdDateTime);
-        writer.writeCollectionOfObjectValues<CustomCalloutExtension>("customWorkflowExtensions", accessPackageCatalog.customWorkflowExtensions, );
+        writer.writeCollectionOfObjectValues<CustomCalloutExtension>("customWorkflowExtensions", accessPackageCatalog.customWorkflowExtensions, serializeCustomCalloutExtension);
         writer.writeStringValue("description", accessPackageCatalog.description);
         writer.writeStringValue("displayName", accessPackageCatalog.displayName);
         writer.writeBooleanValue("isExternallyVisible", accessPackageCatalog.isExternallyVisible);
         writer.writeDateValue("modifiedDateTime", accessPackageCatalog.modifiedDateTime);
-        writer.writeCollectionOfObjectValues<AccessPackageResourceRole>("resourceRoles", accessPackageCatalog.resourceRoles, );
-        writer.writeCollectionOfObjectValues<AccessPackageResource>("resources", accessPackageCatalog.resources, );
-        writer.writeCollectionOfObjectValues<AccessPackageResourceScope>("resourceScopes", accessPackageCatalog.resourceScopes, );
+        writer.writeCollectionOfObjectValues<AccessPackageResourceRole>("resourceRoles", accessPackageCatalog.resourceRoles, serializeAccessPackageResourceRole);
+        writer.writeCollectionOfObjectValues<AccessPackageResource>("resources", accessPackageCatalog.resources, serializeAccessPackageResource);
+        writer.writeCollectionOfObjectValues<AccessPackageResourceScope>("resourceScopes", accessPackageCatalog.resourceScopes, serializeAccessPackageResourceScope);
         writer.writeEnumValue<AccessPackageCatalogState>("state", accessPackageCatalog.state);
 }
 // tslint:enable

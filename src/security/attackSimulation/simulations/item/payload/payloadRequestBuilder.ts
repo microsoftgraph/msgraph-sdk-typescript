@@ -44,7 +44,7 @@ export class PayloadRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/payload{?%24select,%24expand}");
     };
     /**
-     * Get payload from security
+     * The payload associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Payload
      */
@@ -59,7 +59,7 @@ export class PayloadRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Payload>(requestInfo, createPayloadFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get payload from security
+     * The payload associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -73,7 +73,7 @@ export class PayloadRequestBuilder extends BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        requestInfo.tryAddRequestHeaders("Accept", "application/json");
         return requestInfo;
     };
     /**

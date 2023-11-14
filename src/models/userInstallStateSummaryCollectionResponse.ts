@@ -17,7 +17,7 @@ export function deserializeIntoUserInstallStateSummaryCollectionResponse(userIns
 }
 export function serializeUserInstallStateSummaryCollectionResponse(writer: SerializationWriter, userInstallStateSummaryCollectionResponse: UserInstallStateSummaryCollectionResponse | undefined = {} as UserInstallStateSummaryCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, userInstallStateSummaryCollectionResponse)
-        writer.writeCollectionOfObjectValues<UserInstallStateSummary>("value", userInstallStateSummaryCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<UserInstallStateSummary>("value", userInstallStateSummaryCollectionResponse.value, serializeUserInstallStateSummary);
 }
 export interface UserInstallStateSummaryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
