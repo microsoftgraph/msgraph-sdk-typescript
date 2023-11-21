@@ -9,7 +9,7 @@ import { createTeamCollectionResponseFromDiscriminatorValue } from '../models/te
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { GetAllMessagesRequestBuilder } from './getAllMessages/getAllMessagesRequestBuilder';
 import { TeamItemRequestBuilder } from './item/teamItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TeamsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface TeamsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface TeamsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TeamsRequestBuilderGetQueryParameters;
-}
-export interface TeamsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the collection of team entities.
@@ -110,7 +86,7 @@ export class TeamsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TeamCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/teams-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TeamsRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TeamsRequestBuilderGetQueryParameters> | undefined) : Promise<TeamCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -127,7 +103,7 @@ export class TeamsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Team
      * @see {@link https://learn.microsoft.com/graph/api/team-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Team, requestConfiguration?: TeamsRequestBuilderPostRequestConfiguration | undefined) : Promise<Team | undefined> {
+    public post(body: Team, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Team | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -142,17 +118,10 @@ export class TeamsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TeamsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, teamsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -161,17 +130,11 @@ export class TeamsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Team, requestConfiguration?: TeamsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Team, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeam);
         return requestInfo;
     };
@@ -185,5 +148,15 @@ export class TeamsRequestBuilder extends BaseRequestBuilder {
         return new TeamsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const teamsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

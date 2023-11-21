@@ -17,7 +17,7 @@ export function deserializeIntoWindowsUniversalAppXCollectionResponse(windowsUni
 }
 export function serializeWindowsUniversalAppXCollectionResponse(writer: SerializationWriter, windowsUniversalAppXCollectionResponse: WindowsUniversalAppXCollectionResponse | undefined = {} as WindowsUniversalAppXCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, windowsUniversalAppXCollectionResponse)
-        writer.writeCollectionOfObjectValues<WindowsUniversalAppX>("value", windowsUniversalAppXCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<WindowsUniversalAppX>("value", windowsUniversalAppXCollectionResponse.value, serializeWindowsUniversalAppX);
 }
 export interface WindowsUniversalAppXCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

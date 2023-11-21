@@ -8,7 +8,7 @@ import { type ODataError } from '../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { InvitationItemRequestBuilder } from './item/invitationItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface InvitationsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface InvitationsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface InvitationsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: InvitationsRequestBuilderGetQueryParameters;
-}
-export interface InvitationsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the collection of invitation entities.
  */
@@ -102,7 +78,7 @@ export class InvitationsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of InvitationCollectionResponse
      */
-    public get(requestConfiguration?: InvitationsRequestBuilderGetRequestConfiguration | undefined) : Promise<InvitationCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<InvitationsRequestBuilderGetQueryParameters> | undefined) : Promise<InvitationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class InvitationsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Invitation
      * @see {@link https://learn.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Invitation, requestConfiguration?: InvitationsRequestBuilderPostRequestConfiguration | undefined) : Promise<Invitation | undefined> {
+    public post(body: Invitation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Invitation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class InvitationsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: InvitationsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<InvitationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, invitationsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class InvitationsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Invitation, requestConfiguration?: InvitationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Invitation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeInvitation);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class InvitationsRequestBuilder extends BaseRequestBuilder {
         return new InvitationsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const invitationsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

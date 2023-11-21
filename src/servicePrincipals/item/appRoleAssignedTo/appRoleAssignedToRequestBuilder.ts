@@ -8,7 +8,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AppRoleAssignmentItemRequestBuilder } from './item/appRoleAssignmentItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AppRoleAssignedToRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface AppRoleAssignedToRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface AppRoleAssignedToRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AppRoleAssignedToRequestBuilderGetQueryParameters;
-}
-export interface AppRoleAssignedToRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
@@ -103,7 +79,7 @@ export class AppRoleAssignedToRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AppRoleAssignmentCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list-approleassignedto?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AppRoleAssignedToRequestBuilderGetRequestConfiguration | undefined) : Promise<AppRoleAssignmentCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AppRoleAssignedToRequestBuilderGetQueryParameters> | undefined) : Promise<AppRoleAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class AppRoleAssignedToRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AppRoleAssignment
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-post-approleassignedto?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AppRoleAssignment, requestConfiguration?: AppRoleAssignedToRequestBuilderPostRequestConfiguration | undefined) : Promise<AppRoleAssignment | undefined> {
+    public post(body: AppRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppRoleAssignment | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class AppRoleAssignedToRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AppRoleAssignedToRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppRoleAssignedToRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, appRoleAssignedToRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class AppRoleAssignedToRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AppRoleAssignment, requestConfiguration?: AppRoleAssignedToRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AppRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAppRoleAssignment);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class AppRoleAssignedToRequestBuilder extends BaseRequestBuilder {
         return new AppRoleAssignedToRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const appRoleAssignedToRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

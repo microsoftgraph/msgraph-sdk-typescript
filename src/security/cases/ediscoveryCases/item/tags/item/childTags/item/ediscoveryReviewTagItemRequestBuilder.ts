@@ -5,7 +5,7 @@ import { type ODataError } from '../../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryReviewTag } from '../../../../../../../../models/security/';
 import { createEdiscoveryReviewTagFromDiscriminatorValue } from '../../../../../../../../models/security/ediscoveryReviewTag';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryReviewTagItemRequestBuilderGetQueryParameters {
     /**
@@ -16,20 +16,6 @@ export interface EdiscoveryReviewTagItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: EdiscoveryReviewTagItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.
@@ -48,7 +34,7 @@ export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewTag
      */
-    public get(requestConfiguration?: EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryReviewTag | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<EdiscoveryReviewTagItemRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryReviewTag | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,17 +49,10 @@ export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<EdiscoveryReviewTagItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, ediscoveryReviewTagItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -86,5 +65,9 @@ export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
         return new EdiscoveryReviewTagItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const ediscoveryReviewTagItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

@@ -6,7 +6,7 @@ import { createDriveItemFromDiscriminatorValue } from '../../../../../../models/
 import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { ContentRequestBuilder } from './content/contentRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface FilesFolderRequestBuilderGetQueryParameters {
     /**
@@ -17,20 +17,6 @@ export interface FilesFolderRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface FilesFolderRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: FilesFolderRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the filesFolder property of the microsoft.graph.channel entity.
@@ -56,7 +42,7 @@ export class FilesFolderRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DriveItem
      * @see {@link https://learn.microsoft.com/graph/api/channel-get-filesfolder?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: FilesFolderRequestBuilderGetRequestConfiguration | undefined) : Promise<DriveItem | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<FilesFolderRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -71,17 +57,10 @@ export class FilesFolderRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: FilesFolderRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<FilesFolderRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, filesFolderRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -94,5 +73,9 @@ export class FilesFolderRequestBuilder extends BaseRequestBuilder {
         return new FilesFolderRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const filesFolderRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

@@ -5,18 +5,8 @@ import { createBookingAppointmentFromDiscriminatorValue, deserializeIntoBookingA
 import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CancelRequestBuilder } from './cancel/cancelRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface BookingAppointmentItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface BookingAppointmentItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -26,30 +16,6 @@ export interface BookingAppointmentItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface BookingAppointmentItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: BookingAppointmentItemRequestBuilderGetQueryParameters;
-}
-export interface BookingAppointmentItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
@@ -74,7 +40,7 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/bookingappointment-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: BookingAppointmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -90,7 +56,7 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of BookingAppointment
      * @see {@link https://learn.microsoft.com/graph/api/bookingappointment-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: BookingAppointmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingAppointment | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<BookingAppointmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<BookingAppointment | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -107,7 +73,7 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of BookingAppointment
      * @see {@link https://learn.microsoft.com/graph/api/bookingappointment-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: BookingAppointment, requestConfiguration?: BookingAppointmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingAppointment | undefined> {
+    public patch(body: BookingAppointment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingAppointment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -122,16 +88,10 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: BookingAppointmentItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -139,17 +99,10 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: BookingAppointmentItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<BookingAppointmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, bookingAppointmentItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -158,17 +111,11 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: BookingAppointment, requestConfiguration?: BookingAppointmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: BookingAppointment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBookingAppointment);
         return requestInfo;
     };
@@ -182,5 +129,9 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
         return new BookingAppointmentItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const bookingAppointmentItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

@@ -102,16 +102,16 @@ export function deserializeIntoBaseItem(baseItem: BaseItem | undefined = {} as B
 }
 export function serializeBaseItem(writer: SerializationWriter, baseItem: BaseItem | undefined = {} as BaseItem) : void {
         serializeEntity(writer, baseItem)
-        writer.writeObjectValue<IdentitySet>("createdBy", baseItem.createdBy, );
-        writer.writeObjectValue<User>("createdByUser", baseItem.createdByUser, );
+        writer.writeObjectValue<IdentitySet>("createdBy", baseItem.createdBy, serializeIdentitySet);
+        writer.writeObjectValue<User>("createdByUser", baseItem.createdByUser, serializeUser);
         writer.writeDateValue("createdDateTime", baseItem.createdDateTime);
         writer.writeStringValue("description", baseItem.description);
         writer.writeStringValue("eTag", baseItem.eTag);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", baseItem.lastModifiedBy, );
-        writer.writeObjectValue<User>("lastModifiedByUser", baseItem.lastModifiedByUser, );
+        writer.writeObjectValue<IdentitySet>("lastModifiedBy", baseItem.lastModifiedBy, serializeIdentitySet);
+        writer.writeObjectValue<User>("lastModifiedByUser", baseItem.lastModifiedByUser, serializeUser);
         writer.writeDateValue("lastModifiedDateTime", baseItem.lastModifiedDateTime);
         writer.writeStringValue("name", baseItem.name);
-        writer.writeObjectValue<ItemReference>("parentReference", baseItem.parentReference, );
+        writer.writeObjectValue<ItemReference>("parentReference", baseItem.parentReference, serializeItemReference);
         writer.writeStringValue("webUrl", baseItem.webUrl);
 }
 // tslint:enable

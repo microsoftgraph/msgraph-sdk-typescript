@@ -7,7 +7,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkflowTemplateItemRequestBuilder } from './item/workflowTemplateItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WorkflowTemplatesRequestBuilderGetQueryParameters {
     /**
@@ -42,20 +42,6 @@ export interface WorkflowTemplatesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface WorkflowTemplatesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: WorkflowTemplatesRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
@@ -92,7 +78,7 @@ export class WorkflowTemplatesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkflowTemplateCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-workflowtemplates?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkflowTemplatesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkflowTemplateCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<WorkflowTemplatesRequestBuilderGetQueryParameters> | undefined) : Promise<WorkflowTemplateCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -107,17 +93,10 @@ export class WorkflowTemplatesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: WorkflowTemplatesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkflowTemplatesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, workflowTemplatesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class WorkflowTemplatesRequestBuilder extends BaseRequestBuilder {
         return new WorkflowTemplatesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const workflowTemplatesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

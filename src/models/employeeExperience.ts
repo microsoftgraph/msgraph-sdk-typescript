@@ -35,8 +35,8 @@ export interface EmployeeExperience extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeEmployeeExperience(writer: SerializationWriter, employeeExperience: EmployeeExperience | undefined = {} as EmployeeExperience) : void {
-        writer.writeCollectionOfObjectValues<LearningCourseActivity>("learningCourseActivities", employeeExperience.learningCourseActivities, );
-        writer.writeCollectionOfObjectValues<LearningProvider>("learningProviders", employeeExperience.learningProviders, );
+        writer.writeCollectionOfObjectValues<LearningCourseActivity>("learningCourseActivities", employeeExperience.learningCourseActivities, serializeLearningCourseActivity);
+        writer.writeCollectionOfObjectValues<LearningProvider>("learningProviders", employeeExperience.learningProviders, serializeLearningProvider);
         writer.writeStringValue("@odata.type", employeeExperience.odataType);
         writer.writeAdditionalData(employeeExperience.additionalData);
 }

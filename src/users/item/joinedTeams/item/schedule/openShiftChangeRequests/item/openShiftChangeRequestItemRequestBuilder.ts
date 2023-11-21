@@ -4,18 +4,8 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { createOpenShiftChangeRequestFromDiscriminatorValue, deserializeIntoOpenShiftChangeRequest, serializeOpenShiftChangeRequest, type OpenShiftChangeRequest } from '../../../../../../../models/openShiftChangeRequest';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface OpenShiftChangeRequestItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface OpenShiftChangeRequestItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface OpenShiftChangeRequestItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface OpenShiftChangeRequestItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: OpenShiftChangeRequestItemRequestBuilderGetQueryParameters;
-}
-export interface OpenShiftChangeRequestItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
@@ -66,7 +32,7 @@ export class OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBuilder
      * Delete navigation property openShiftChangeRequests for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: OpenShiftChangeRequestItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -82,7 +48,7 @@ export class OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBuilder
      * @returns a Promise of OpenShiftChangeRequest
      * @see {@link https://learn.microsoft.com/graph/api/openshiftchangerequest-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: OpenShiftChangeRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OpenShiftChangeRequest | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<OpenShiftChangeRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<OpenShiftChangeRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -98,7 +64,7 @@ export class OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShiftChangeRequest
      */
-    public patch(body: OpenShiftChangeRequest, requestConfiguration?: OpenShiftChangeRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OpenShiftChangeRequest | undefined> {
+    public patch(body: OpenShiftChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OpenShiftChangeRequest | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -113,16 +79,10 @@ export class OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: OpenShiftChangeRequestItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,17 +90,10 @@ export class OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: OpenShiftChangeRequestItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<OpenShiftChangeRequestItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, openShiftChangeRequestItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -149,17 +102,11 @@ export class OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: OpenShiftChangeRequest, requestConfiguration?: OpenShiftChangeRequestItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: OpenShiftChangeRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOpenShiftChangeRequest);
         return requestInfo;
     };
@@ -173,5 +120,9 @@ export class OpenShiftChangeRequestItemRequestBuilder extends BaseRequestBuilder
         return new OpenShiftChangeRequestItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const openShiftChangeRequestItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

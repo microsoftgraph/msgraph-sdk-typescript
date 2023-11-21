@@ -39,7 +39,7 @@ export function deserializeIntoCalendarGroup(calendarGroup: CalendarGroup | unde
 }
 export function serializeCalendarGroup(writer: SerializationWriter, calendarGroup: CalendarGroup | undefined = {} as CalendarGroup) : void {
         serializeEntity(writer, calendarGroup)
-        writer.writeCollectionOfObjectValues<Calendar>("calendars", calendarGroup.calendars, );
+        writer.writeCollectionOfObjectValues<Calendar>("calendars", calendarGroup.calendars, serializeCalendar);
         writer.writeStringValue("changeKey", calendarGroup.changeKey);
         writer.writeGuidValue("classId", calendarGroup.classId);
         writer.writeStringValue("name", calendarGroup.name);

@@ -55,7 +55,7 @@ export function serializeChatMessagePolicyViolation(writer: SerializationWriter,
         writer.writeEnumValue<ChatMessagePolicyViolationDlpActionTypes[]>("dlpAction", chatMessagePolicyViolation.dlpAction);
         writer.writeStringValue("justificationText", chatMessagePolicyViolation.justificationText);
         writer.writeStringValue("@odata.type", chatMessagePolicyViolation.odataType);
-        writer.writeObjectValue<ChatMessagePolicyViolationPolicyTip>("policyTip", chatMessagePolicyViolation.policyTip, );
+        writer.writeObjectValue<ChatMessagePolicyViolationPolicyTip>("policyTip", chatMessagePolicyViolation.policyTip, serializeChatMessagePolicyViolationPolicyTip);
         writer.writeEnumValue<ChatMessagePolicyViolationUserActionTypes[]>("userAction", chatMessagePolicyViolation.userAction);
         writer.writeEnumValue<ChatMessagePolicyViolationVerdictDetailsTypes[]>("verdictDetails", chatMessagePolicyViolation.verdictDetails);
         writer.writeAdditionalData(chatMessagePolicyViolation.additionalData);

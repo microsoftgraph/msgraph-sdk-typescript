@@ -7,7 +7,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ManagedDeviceItemRequestBuilder } from './item/managedDeviceItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ManagedDevicesRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface ManagedDevicesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface ManagedDevicesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ManagedDevicesRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
  */
@@ -91,7 +77,7 @@ export class ManagedDevicesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceCollectionResponse
      */
-    public get(requestConfiguration?: ManagedDevicesRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ManagedDevicesRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -106,17 +92,10 @@ export class ManagedDevicesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ManagedDevicesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedDevicesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, managedDevicesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -129,5 +108,15 @@ export class ManagedDevicesRequestBuilder extends BaseRequestBuilder {
         return new ManagedDevicesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const managedDevicesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

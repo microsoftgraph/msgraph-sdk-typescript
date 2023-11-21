@@ -8,7 +8,7 @@ import { createPrintUsageByPrinterFromDiscriminatorValue, deserializeIntoPrintUs
 import { createPrintUsageByPrinterCollectionResponseFromDiscriminatorValue } from '../../models/printUsageByPrinterCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PrintUsageByPrinterItemRequestBuilder } from './item/printUsageByPrinterItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface MonthlyPrintUsageByPrinterRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters;
-}
-export interface MonthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
@@ -103,7 +79,7 @@ export class MonthlyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder
      * @returns a Promise of PrintUsageByPrinterCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/reportroot-list-monthlyprintusagebyprinter?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintUsageByPrinterCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters> | undefined) : Promise<PrintUsageByPrinterCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class MonthlyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintUsageByPrinter
      */
-    public post(body: PrintUsageByPrinter, requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintUsageByPrinter | undefined> {
+    public post(body: PrintUsageByPrinter, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintUsageByPrinter | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class MonthlyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, monthlyPrintUsageByPrinterRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class MonthlyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PrintUsageByPrinter, requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PrintUsageByPrinter, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintUsageByPrinter);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class MonthlyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder
         return new MonthlyPrintUsageByPrinterRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const monthlyPrintUsageByPrinterRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

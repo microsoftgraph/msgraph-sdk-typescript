@@ -8,7 +8,7 @@ import { createPrintUsageByUserFromDiscriminatorValue, deserializeIntoPrintUsage
 import { createPrintUsageByUserCollectionResponseFromDiscriminatorValue } from '../../models/printUsageByUserCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PrintUsageByUserItemRequestBuilder } from './item/printUsageByUserItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MonthlyPrintUsageByUserRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface MonthlyPrintUsageByUserRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: MonthlyPrintUsageByUserRequestBuilderGetQueryParameters;
-}
-export interface MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
@@ -103,7 +79,7 @@ export class MonthlyPrintUsageByUserRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PrintUsageByUserCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/reportroot-list-monthlyprintusagebyuser?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintUsageByUserCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<MonthlyPrintUsageByUserRequestBuilderGetQueryParameters> | undefined) : Promise<PrintUsageByUserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class MonthlyPrintUsageByUserRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintUsageByUser
      */
-    public post(body: PrintUsageByUser, requestConfiguration?: MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintUsageByUser | undefined> {
+    public post(body: PrintUsageByUser, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintUsageByUser | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class MonthlyPrintUsageByUserRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<MonthlyPrintUsageByUserRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, monthlyPrintUsageByUserRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class MonthlyPrintUsageByUserRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PrintUsageByUser, requestConfiguration?: MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PrintUsageByUser, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintUsageByUser);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class MonthlyPrintUsageByUserRequestBuilder extends BaseRequestBuilder {
         return new MonthlyPrintUsageByUserRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const monthlyPrintUsageByUserRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

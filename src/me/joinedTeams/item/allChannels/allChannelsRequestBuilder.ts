@@ -7,7 +7,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ChannelItemRequestBuilder } from './item/channelItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AllChannelsRequestBuilderGetQueryParameters {
     /**
@@ -42,20 +42,6 @@ export interface AllChannelsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface AllChannelsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AllChannelsRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the allChannels property of the microsoft.graph.team entity.
@@ -92,7 +78,7 @@ export class AllChannelsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ChannelCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/team-list-allchannels?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AllChannelsRequestBuilderGetRequestConfiguration | undefined) : Promise<ChannelCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AllChannelsRequestBuilderGetQueryParameters> | undefined) : Promise<ChannelCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -107,17 +93,10 @@ export class AllChannelsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AllChannelsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AllChannelsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, allChannelsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class AllChannelsRequestBuilder extends BaseRequestBuilder {
         return new AllChannelsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const allChannelsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

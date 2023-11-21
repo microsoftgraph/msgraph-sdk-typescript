@@ -77,7 +77,7 @@ export function serializeRequest(writer: SerializationWriter, request: Request |
         serializeEntity(writer, request)
         writer.writeStringValue("approvalId", request.approvalId);
         writer.writeDateValue("completedDateTime", request.completedDateTime);
-        writer.writeObjectValue<IdentitySet>("createdBy", request.createdBy, );
+        writer.writeObjectValue<IdentitySet>("createdBy", request.createdBy, serializeIdentitySet);
         writer.writeDateValue("createdDateTime", request.createdDateTime);
         writer.writeStringValue("customData", request.customData);
         writer.writeStringValue("status", request.status);

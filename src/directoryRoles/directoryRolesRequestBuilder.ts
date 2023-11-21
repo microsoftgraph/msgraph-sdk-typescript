@@ -12,7 +12,7 @@ import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExt
 import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
 import { DirectoryRoleItemRequestBuilder } from './item/directoryRoleItemRequestBuilder';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DirectoryRolesRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface DirectoryRolesRequestBuilderGetQueryParameters {
      * Skip the first n items
      */
     skip?: number;
-}
-export interface DirectoryRolesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DirectoryRolesRequestBuilderGetQueryParameters;
-}
-export interface DirectoryRolesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the collection of directoryRole entities.
@@ -127,7 +103,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DirectoryRoleCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DirectoryRolesRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryRoleCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DirectoryRolesRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryRoleCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -144,7 +120,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DirectoryRole
      * @see {@link https://learn.microsoft.com/graph/api/directoryrole-post-directoryroles?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DirectoryRole, requestConfiguration?: DirectoryRolesRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryRole | undefined> {
+    public post(body: DirectoryRole, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DirectoryRole | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -159,17 +135,10 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DirectoryRolesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DirectoryRolesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, directoryRolesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -178,17 +147,11 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DirectoryRole, requestConfiguration?: DirectoryRolesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DirectoryRole, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectoryRole);
         return requestInfo;
     };
@@ -202,5 +165,14 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
         return new DirectoryRolesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const directoryRolesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+};
 // tslint:enable
 // eslint-enable

@@ -17,7 +17,7 @@ export function deserializeIntoServiceProvisioningErrorCollectionResponse(servic
 }
 export function serializeServiceProvisioningErrorCollectionResponse(writer: SerializationWriter, serviceProvisioningErrorCollectionResponse: ServiceProvisioningErrorCollectionResponse | undefined = {} as ServiceProvisioningErrorCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, serviceProvisioningErrorCollectionResponse)
-        writer.writeCollectionOfObjectValues<ServiceProvisioningError>("value", serviceProvisioningErrorCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ServiceProvisioningError>("value", serviceProvisioningErrorCollectionResponse.value, serializeServiceProvisioningError);
 }
 export interface ServiceProvisioningErrorCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

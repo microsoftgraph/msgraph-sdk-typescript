@@ -8,7 +8,7 @@ import { createAlertFromDiscriminatorValue, deserializeIntoAlert, serializeAlert
 import { createAlertCollectionResponseFromDiscriminatorValue } from '../../models/security/alertCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AlertItemRequestBuilder } from './item/alertItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface Alerts_v2RequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface Alerts_v2RequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface Alerts_v2RequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: Alerts_v2RequestBuilderGetQueryParameters;
-}
-export interface Alerts_v2RequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
@@ -103,7 +79,7 @@ export class Alerts_v2RequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AlertCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-list-alerts_v2?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: Alerts_v2RequestBuilderGetRequestConfiguration | undefined) : Promise<AlertCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<Alerts_v2RequestBuilderGetQueryParameters> | undefined) : Promise<AlertCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class Alerts_v2RequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Alert
      */
-    public post(body: Alert, requestConfiguration?: Alerts_v2RequestBuilderPostRequestConfiguration | undefined) : Promise<Alert | undefined> {
+    public post(body: Alert, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Alert | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class Alerts_v2RequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: Alerts_v2RequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<Alerts_v2RequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, alerts_v2RequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class Alerts_v2RequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Alert, requestConfiguration?: Alerts_v2RequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Alert, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAlert);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class Alerts_v2RequestBuilder extends BaseRequestBuilder {
         return new Alerts_v2RequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const alerts_v2RequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

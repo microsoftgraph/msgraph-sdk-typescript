@@ -19,7 +19,7 @@ export function deserializeIntoWorkbookFunctionResult(workbookFunctionResult: Wo
 export function serializeWorkbookFunctionResult(writer: SerializationWriter, workbookFunctionResult: WorkbookFunctionResult | undefined = {} as WorkbookFunctionResult) : void {
         serializeEntity(writer, workbookFunctionResult)
         writer.writeStringValue("error", workbookFunctionResult.errorEscaped);
-        writer.writeObjectValue<Json>("value", workbookFunctionResult.value, );
+        writer.writeObjectValue<Json>("value", workbookFunctionResult.value, serializeJson);
 }
 export interface WorkbookFunctionResult extends Entity, Parsable {
     /**

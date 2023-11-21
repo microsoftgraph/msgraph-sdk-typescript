@@ -4,18 +4,8 @@
 import { createManagedAppStatusFromDiscriminatorValue, deserializeIntoManagedAppStatus, serializeManagedAppStatus, type ManagedAppStatus } from '../../../models/managedAppStatus';
 import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface ManagedAppStatusItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface ManagedAppStatusItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface ManagedAppStatusItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ManagedAppStatusItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ManagedAppStatusItemRequestBuilderGetQueryParameters;
-}
-export interface ManagedAppStatusItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
@@ -66,7 +32,7 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property managedAppStatuses for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: ManagedAppStatusItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -82,7 +48,7 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ManagedAppStatus
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappstatusraw-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ManagedAppStatusItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppStatus | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ManagedAppStatusItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppStatus | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -98,7 +64,7 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppStatus
      */
-    public patch(body: ManagedAppStatus, requestConfiguration?: ManagedAppStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedAppStatus | undefined> {
+    public patch(body: ManagedAppStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedAppStatus | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -113,16 +79,10 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: ManagedAppStatusItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,17 +90,10 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ManagedAppStatusItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedAppStatusItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, managedAppStatusItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -149,17 +102,11 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ManagedAppStatus, requestConfiguration?: ManagedAppStatusItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ManagedAppStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedAppStatus);
         return requestInfo;
     };
@@ -173,5 +120,9 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
         return new ManagedAppStatusItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const managedAppStatusItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

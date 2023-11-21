@@ -54,7 +54,7 @@ export function serializeGroup(writer: SerializationWriter, group: Group | undef
         writer.writeStringValue("displayName", group.displayName);
         writer.writeStringValue("parentSiteId", group.parentSiteId);
         writer.writeEnumValue<TermGroupScope>("scope", group.scope);
-        writer.writeCollectionOfObjectValues<Set>("sets", group.sets, );
+        writer.writeCollectionOfObjectValues<Set>("sets", group.sets, serializeSet);
 }
 // tslint:enable
 // eslint-enable

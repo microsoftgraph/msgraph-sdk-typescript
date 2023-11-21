@@ -5,7 +5,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type SupportedLanguagesGetResponse } from './index';
 import { createSupportedLanguagesGetResponseFromDiscriminatorValue } from './supportedLanguagesGetResponse';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SupportedLanguagesRequestBuilderGetQueryParameters {
     /**
@@ -29,20 +29,6 @@ export interface SupportedLanguagesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface SupportedLanguagesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SupportedLanguagesRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the supportedLanguages method.
  */
@@ -61,7 +47,7 @@ export class SupportedLanguagesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SupportedLanguagesGetResponse
      * @see {@link https://learn.microsoft.com/graph/api/outlookuser-supportedlanguages?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SupportedLanguagesRequestBuilderGetRequestConfiguration | undefined) : Promise<SupportedLanguagesGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SupportedLanguagesRequestBuilderGetQueryParameters> | undefined) : Promise<SupportedLanguagesGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -76,17 +62,10 @@ export class SupportedLanguagesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SupportedLanguagesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SupportedLanguagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, supportedLanguagesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -99,5 +78,12 @@ export class SupportedLanguagesRequestBuilder extends BaseRequestBuilder {
         return new SupportedLanguagesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const supportedLanguagesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "search": "%24search",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -35,7 +35,7 @@ export function serializeGroupSetting(writer: SerializationWriter, groupSetting:
         serializeEntity(writer, groupSetting)
         writer.writeStringValue("displayName", groupSetting.displayName);
         writer.writeStringValue("templateId", groupSetting.templateId);
-        writer.writeCollectionOfObjectValues<SettingValue>("values", groupSetting.values, );
+        writer.writeCollectionOfObjectValues<SettingValue>("values", groupSetting.values, serializeSettingValue);
 }
 // tslint:enable
 // eslint-enable

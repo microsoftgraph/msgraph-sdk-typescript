@@ -8,7 +8,7 @@ import { type ODataError } from '../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DomainDnsRecordItemRequestBuilder } from './item/domainDnsRecordItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DomainDnsRecordsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface DomainDnsRecordsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface DomainDnsRecordsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DomainDnsRecordsRequestBuilderGetQueryParameters;
-}
-export interface DomainDnsRecordsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the collection of domainDnsRecord entities.
  */
@@ -102,7 +78,7 @@ export class DomainDnsRecordsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DomainDnsRecordCollectionResponse
      */
-    public get(requestConfiguration?: DomainDnsRecordsRequestBuilderGetRequestConfiguration | undefined) : Promise<DomainDnsRecordCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DomainDnsRecordsRequestBuilderGetQueryParameters> | undefined) : Promise<DomainDnsRecordCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class DomainDnsRecordsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DomainDnsRecord
      */
-    public post(body: DomainDnsRecord, requestConfiguration?: DomainDnsRecordsRequestBuilderPostRequestConfiguration | undefined) : Promise<DomainDnsRecord | undefined> {
+    public post(body: DomainDnsRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DomainDnsRecord | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -133,17 +109,10 @@ export class DomainDnsRecordsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DomainDnsRecordsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DomainDnsRecordsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, domainDnsRecordsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class DomainDnsRecordsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DomainDnsRecord, requestConfiguration?: DomainDnsRecordsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DomainDnsRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDomainDnsRecord);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class DomainDnsRecordsRequestBuilder extends BaseRequestBuilder {
         return new DomainDnsRecordsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const domainDnsRecordsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

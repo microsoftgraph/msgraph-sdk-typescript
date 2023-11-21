@@ -23,7 +23,7 @@ export interface GetAllSitesGetResponse extends BaseCollectionPaginationCountRes
 }
 export function serializeGetAllSitesGetResponse(writer: SerializationWriter, getAllSitesGetResponse: GetAllSitesGetResponse | undefined = {} as GetAllSitesGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getAllSitesGetResponse)
-        writer.writeCollectionOfObjectValues<Site>("value", getAllSitesGetResponse.value, );
+        writer.writeCollectionOfObjectValues<Site>("value", getAllSitesGetResponse.value, serializeSite);
 }
 // tslint:enable
 // eslint-enable

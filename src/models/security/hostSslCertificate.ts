@@ -46,10 +46,10 @@ export interface HostSslCertificate extends Artifact, Parsable {
 export function serializeHostSslCertificate(writer: SerializationWriter, hostSslCertificate: HostSslCertificate | undefined = {} as HostSslCertificate) : void {
         serializeArtifact(writer, hostSslCertificate)
         writer.writeDateValue("firstSeenDateTime", hostSslCertificate.firstSeenDateTime);
-        writer.writeObjectValue<Host>("host", hostSslCertificate.host, );
+        writer.writeObjectValue<Host>("host", hostSslCertificate.host, serializeHost);
         writer.writeDateValue("lastSeenDateTime", hostSslCertificate.lastSeenDateTime);
-        writer.writeCollectionOfObjectValues<HostSslCertificatePort>("ports", hostSslCertificate.ports, );
-        writer.writeObjectValue<SslCertificate>("sslCertificate", hostSslCertificate.sslCertificate, );
+        writer.writeCollectionOfObjectValues<HostSslCertificatePort>("ports", hostSslCertificate.ports, serializeHostSslCertificatePort);
+        writer.writeObjectValue<SslCertificate>("sslCertificate", hostSslCertificate.sslCertificate, serializeSslCertificate);
 }
 // tslint:enable
 // eslint-enable

@@ -23,7 +23,7 @@ export interface PrintTaskTriggerCollectionResponse extends BaseCollectionPagina
 }
 export function serializePrintTaskTriggerCollectionResponse(writer: SerializationWriter, printTaskTriggerCollectionResponse: PrintTaskTriggerCollectionResponse | undefined = {} as PrintTaskTriggerCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, printTaskTriggerCollectionResponse)
-        writer.writeCollectionOfObjectValues<PrintTaskTrigger>("value", printTaskTriggerCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<PrintTaskTrigger>("value", printTaskTriggerCollectionResponse.value, serializePrintTaskTrigger);
 }
 // tslint:enable
 // eslint-enable

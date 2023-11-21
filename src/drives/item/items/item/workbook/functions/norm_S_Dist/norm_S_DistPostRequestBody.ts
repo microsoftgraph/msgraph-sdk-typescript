@@ -29,8 +29,8 @@ export interface Norm_S_DistPostRequestBody extends AdditionalDataHolder, Parsab
     z?: Json;
 }
 export function serializeNorm_S_DistPostRequestBody(writer: SerializationWriter, norm_S_DistPostRequestBody: Norm_S_DistPostRequestBody | undefined = {} as Norm_S_DistPostRequestBody) : void {
-        writer.writeObjectValue<Json>("cumulative", norm_S_DistPostRequestBody.cumulative, );
-        writer.writeObjectValue<Json>("z", norm_S_DistPostRequestBody.z, );
+        writer.writeObjectValue<Json>("cumulative", norm_S_DistPostRequestBody.cumulative, serializeJson);
+        writer.writeObjectValue<Json>("z", norm_S_DistPostRequestBody.z, serializeJson);
         writer.writeAdditionalData(norm_S_DistPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -23,7 +23,7 @@ export interface PrintTaskCollectionResponse extends BaseCollectionPaginationCou
 }
 export function serializePrintTaskCollectionResponse(writer: SerializationWriter, printTaskCollectionResponse: PrintTaskCollectionResponse | undefined = {} as PrintTaskCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, printTaskCollectionResponse)
-        writer.writeCollectionOfObjectValues<PrintTask>("value", printTaskCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<PrintTask>("value", printTaskCollectionResponse.value, serializePrintTask);
 }
 // tslint:enable
 // eslint-enable

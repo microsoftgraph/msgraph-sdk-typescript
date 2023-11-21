@@ -4,7 +4,7 @@
 import { createAdministrativeUnitFromDiscriminatorValue, deserializeIntoAdministrativeUnit, serializeAdministrativeUnit, type AdministrativeUnit } from '../../../../models/administrativeUnit';
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AdministrativeUnitRequestBuilderGetQueryParameters {
     /**
@@ -15,30 +15,6 @@ export interface AdministrativeUnitRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface AdministrativeUnitRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AdministrativeUnitRequestBuilderGetQueryParameters;
-}
-export interface AdministrativeUnitRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the administrativeUnit property of the microsoft.graph.educationSchool entity.
@@ -58,7 +34,7 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AdministrativeUnit
      * @see {@link https://learn.microsoft.com/graph/api/educationschool-list-administrativeunit?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AdministrativeUnitRequestBuilderGetRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AdministrativeUnitRequestBuilderGetQueryParameters> | undefined) : Promise<AdministrativeUnit | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -74,7 +50,7 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnit
      */
-    public patch(body: AdministrativeUnit, requestConfiguration?: AdministrativeUnitRequestBuilderPatchRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
+    public patch(body: AdministrativeUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AdministrativeUnit | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -89,17 +65,10 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AdministrativeUnitRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AdministrativeUnitRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, administrativeUnitRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -108,17 +77,11 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AdministrativeUnit, requestConfiguration?: AdministrativeUnitRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AdministrativeUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAdministrativeUnit);
         return requestInfo;
     };
@@ -132,5 +95,9 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
         return new AdministrativeUnitRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const administrativeUnitRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

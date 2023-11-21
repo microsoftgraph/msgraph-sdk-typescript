@@ -7,7 +7,7 @@ import { type PassiveDnsRecordCollectionResponse } from '../../../../../models/s
 import { createPassiveDnsRecordCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/passiveDnsRecordCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PassiveDnsRecordItemRequestBuilder } from './item/passiveDnsRecordItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PassiveDnsReverseRequestBuilderGetQueryParameters {
     /**
@@ -42,20 +42,6 @@ export interface PassiveDnsReverseRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface PassiveDnsReverseRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PassiveDnsReverseRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the passiveDnsReverse property of the microsoft.graph.security.host entity.
@@ -92,7 +78,7 @@ export class PassiveDnsReverseRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PassiveDnsRecordCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-host-list-passivednsreverse?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PassiveDnsReverseRequestBuilderGetRequestConfiguration | undefined) : Promise<PassiveDnsRecordCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PassiveDnsReverseRequestBuilderGetQueryParameters> | undefined) : Promise<PassiveDnsRecordCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -107,17 +93,10 @@ export class PassiveDnsReverseRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PassiveDnsReverseRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PassiveDnsReverseRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, passiveDnsReverseRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class PassiveDnsReverseRequestBuilder extends BaseRequestBuilder {
         return new PassiveDnsReverseRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const passiveDnsReverseRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -19,7 +19,7 @@ export function deserializeIntoSharingInvitation(sharingInvitation: SharingInvit
 }
 export function serializeSharingInvitation(writer: SerializationWriter, sharingInvitation: SharingInvitation | undefined = {} as SharingInvitation) : void {
         writer.writeStringValue("email", sharingInvitation.email);
-        writer.writeObjectValue<IdentitySet>("invitedBy", sharingInvitation.invitedBy, );
+        writer.writeObjectValue<IdentitySet>("invitedBy", sharingInvitation.invitedBy, serializeIdentitySet);
         writer.writeStringValue("@odata.type", sharingInvitation.odataType);
         writer.writeStringValue("redeemedBy", sharingInvitation.redeemedBy);
         writer.writeBooleanValue("signInRequired", sharingInvitation.signInRequired);

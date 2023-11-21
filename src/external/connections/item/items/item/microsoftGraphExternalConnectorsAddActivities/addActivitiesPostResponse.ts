@@ -23,7 +23,7 @@ export function deserializeIntoAddActivitiesPostResponse(addActivitiesPostRespon
 }
 export function serializeAddActivitiesPostResponse(writer: SerializationWriter, addActivitiesPostResponse: AddActivitiesPostResponse | undefined = {} as AddActivitiesPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, addActivitiesPostResponse)
-        writer.writeCollectionOfObjectValues<ExternalActivityResult>("value", addActivitiesPostResponse.value, );
+        writer.writeCollectionOfObjectValues<ExternalActivityResult>("value", addActivitiesPostResponse.value, serializeExternalActivityResult);
 }
 // tslint:enable
 // eslint-enable

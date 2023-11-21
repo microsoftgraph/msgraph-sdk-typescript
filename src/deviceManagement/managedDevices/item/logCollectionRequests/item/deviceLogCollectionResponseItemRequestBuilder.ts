@@ -5,18 +5,8 @@ import { createDeviceLogCollectionResponseFromDiscriminatorValue, deserializeInt
 import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { CreateDownloadUrlRequestBuilder } from './createDownloadUrl/createDownloadUrlRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface DeviceLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface DeviceLogCollectionResponseItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -26,30 +16,6 @@ export interface DeviceLogCollectionResponseItemRequestBuilderGetQueryParameters
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface DeviceLogCollectionResponseItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DeviceLogCollectionResponseItemRequestBuilderGetQueryParameters;
-}
-export interface DeviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
@@ -73,7 +39,7 @@ export class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBu
      * Delete navigation property logCollectionRequests for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: DeviceLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -88,7 +54,7 @@ export class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceLogCollectionResponse
      */
-    public get(requestConfiguration?: DeviceLogCollectionResponseItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceLogCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DeviceLogCollectionResponseItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceLogCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -104,7 +70,7 @@ export class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceLogCollectionResponse
      */
-    public patch(body: DeviceLogCollectionResponse, requestConfiguration?: DeviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceLogCollectionResponse | undefined> {
+    public patch(body: DeviceLogCollectionResponse, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceLogCollectionResponse | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,16 +85,10 @@ export class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: DeviceLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -136,17 +96,10 @@ export class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DeviceLogCollectionResponseItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceLogCollectionResponseItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, deviceLogCollectionResponseItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -155,17 +108,11 @@ export class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceLogCollectionResponse, requestConfiguration?: DeviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceLogCollectionResponse, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceLogCollectionResponse);
         return requestInfo;
     };
@@ -179,5 +126,9 @@ export class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBu
         return new DeviceLogCollectionResponseItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const deviceLogCollectionResponseItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

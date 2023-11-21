@@ -5,7 +5,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { createGetManagedAppPoliciesGetResponseFromDiscriminatorValue } from './getManagedAppPoliciesGetResponse';
 import { type GetManagedAppPoliciesGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetManagedAppPoliciesRequestBuilderGetQueryParameters {
     /**
@@ -37,20 +37,6 @@ export interface GetManagedAppPoliciesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface GetManagedAppPoliciesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GetManagedAppPoliciesRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the getManagedAppPolicies method.
  */
@@ -68,7 +54,7 @@ export class GetManagedAppPoliciesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetManagedAppPoliciesGetResponse
      */
-    public get(requestConfiguration?: GetManagedAppPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<GetManagedAppPoliciesGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GetManagedAppPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<GetManagedAppPoliciesGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -83,17 +69,10 @@ export class GetManagedAppPoliciesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GetManagedAppPoliciesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetManagedAppPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, getManagedAppPoliciesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -106,5 +85,14 @@ export class GetManagedAppPoliciesRequestBuilder extends BaseRequestBuilder {
         return new GetManagedAppPoliciesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const getManagedAppPoliciesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

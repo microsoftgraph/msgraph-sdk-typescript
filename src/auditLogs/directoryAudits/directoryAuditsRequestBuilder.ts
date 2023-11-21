@@ -8,7 +8,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DirectoryAuditItemRequestBuilder } from './item/directoryAuditItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DirectoryAuditsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface DirectoryAuditsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface DirectoryAuditsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DirectoryAuditsRequestBuilderGetQueryParameters;
-}
-export interface DirectoryAuditsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
@@ -103,7 +79,7 @@ export class DirectoryAuditsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DirectoryAuditCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryaudit-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DirectoryAuditsRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryAuditCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DirectoryAuditsRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryAuditCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class DirectoryAuditsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryAudit
      */
-    public post(body: DirectoryAudit, requestConfiguration?: DirectoryAuditsRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryAudit | undefined> {
+    public post(body: DirectoryAudit, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DirectoryAudit | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class DirectoryAuditsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DirectoryAuditsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DirectoryAuditsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, directoryAuditsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class DirectoryAuditsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DirectoryAudit, requestConfiguration?: DirectoryAuditsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DirectoryAudit, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectoryAudit);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class DirectoryAuditsRequestBuilder extends BaseRequestBuilder {
         return new DirectoryAuditsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const directoryAuditsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

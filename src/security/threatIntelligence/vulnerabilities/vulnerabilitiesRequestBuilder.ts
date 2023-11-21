@@ -8,7 +8,7 @@ import { createVulnerabilityFromDiscriminatorValue, deserializeIntoVulnerability
 import { createVulnerabilityCollectionResponseFromDiscriminatorValue } from '../../../models/security/vulnerabilityCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { VulnerabilityItemRequestBuilder } from './item/vulnerabilityItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface VulnerabilitiesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface VulnerabilitiesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface VulnerabilitiesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: VulnerabilitiesRequestBuilderGetQueryParameters;
-}
-export interface VulnerabilitiesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -102,7 +78,7 @@ export class VulnerabilitiesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of VulnerabilityCollectionResponse
      */
-    public get(requestConfiguration?: VulnerabilitiesRequestBuilderGetRequestConfiguration | undefined) : Promise<VulnerabilityCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<VulnerabilitiesRequestBuilderGetQueryParameters> | undefined) : Promise<VulnerabilityCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class VulnerabilitiesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Vulnerability
      */
-    public post(body: Vulnerability, requestConfiguration?: VulnerabilitiesRequestBuilderPostRequestConfiguration | undefined) : Promise<Vulnerability | undefined> {
+    public post(body: Vulnerability, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Vulnerability | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -133,17 +109,10 @@ export class VulnerabilitiesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: VulnerabilitiesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<VulnerabilitiesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, vulnerabilitiesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class VulnerabilitiesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Vulnerability, requestConfiguration?: VulnerabilitiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Vulnerability, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeVulnerability);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class VulnerabilitiesRequestBuilder extends BaseRequestBuilder {
         return new VulnerabilitiesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const vulnerabilitiesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

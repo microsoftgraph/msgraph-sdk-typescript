@@ -8,7 +8,7 @@ import { createEdiscoveryReviewSetFromDiscriminatorValue, deserializeIntoEdiscov
 import { createEdiscoveryReviewSetCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/ediscoveryReviewSetCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { EdiscoveryReviewSetItemRequestBuilder } from './item/ediscoveryReviewSetItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ReviewSetsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface ReviewSetsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface ReviewSetsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ReviewSetsRequestBuilderGetQueryParameters;
-}
-export interface ReviewSetsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
@@ -103,7 +79,7 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EdiscoveryReviewSetCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-reviewsets?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ReviewSetsRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryReviewSetCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ReviewSetsRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryReviewSetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EdiscoveryReviewSet
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-reviewsets?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: EdiscoveryReviewSet, requestConfiguration?: ReviewSetsRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoveryReviewSet | undefined> {
+    public post(body: EdiscoveryReviewSet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryReviewSet | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ReviewSetsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ReviewSetsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, reviewSetsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: EdiscoveryReviewSet, requestConfiguration?: ReviewSetsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: EdiscoveryReviewSet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEdiscoveryReviewSet);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
         return new ReviewSetsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const reviewSetsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -5,18 +5,8 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { createOnlineMeetingFromDiscriminatorValue, deserializeIntoOnlineMeeting, serializeOnlineMeeting, type OnlineMeeting } from '../../../models/onlineMeeting';
 import { deserializeIntoCreateOrGetPostRequestBody, serializeCreateOrGetPostRequestBody, type CreateOrGetPostRequestBody } from './createOrGetPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface CreateOrGetRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the createOrGet method.
  */
@@ -36,7 +26,7 @@ export class CreateOrGetRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OnlineMeeting
      * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CreateOrGetPostRequestBody, requestConfiguration?: CreateOrGetRequestBuilderPostRequestConfiguration | undefined) : Promise<OnlineMeeting | undefined> {
+    public post(body: CreateOrGetPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnlineMeeting | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -52,17 +42,11 @@ export class CreateOrGetRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CreateOrGetPostRequestBody, requestConfiguration?: CreateOrGetRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CreateOrGetPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCreateOrGetPostRequestBody);
         return requestInfo;
     };

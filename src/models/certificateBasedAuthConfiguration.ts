@@ -23,7 +23,7 @@ export function deserializeIntoCertificateBasedAuthConfiguration(certificateBase
 }
 export function serializeCertificateBasedAuthConfiguration(writer: SerializationWriter, certificateBasedAuthConfiguration: CertificateBasedAuthConfiguration | undefined = {} as CertificateBasedAuthConfiguration) : void {
         serializeEntity(writer, certificateBasedAuthConfiguration)
-        writer.writeCollectionOfObjectValues<CertificateAuthority>("certificateAuthorities", certificateBasedAuthConfiguration.certificateAuthorities, );
+        writer.writeCollectionOfObjectValues<CertificateAuthority>("certificateAuthorities", certificateBasedAuthConfiguration.certificateAuthorities, serializeCertificateAuthority);
 }
 // tslint:enable
 // eslint-enable

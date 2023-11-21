@@ -8,7 +8,7 @@ import { createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue, deserializ
 import { createUnifiedRoleManagementPolicyRuleCollectionResponseFromDiscriminatorValue } from '../../../../models/unifiedRoleManagementPolicyRuleCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UnifiedRoleManagementPolicyRuleItemRequestBuilder } from './item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EffectiveRulesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface EffectiveRulesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface EffectiveRulesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: EffectiveRulesRequestBuilderGetQueryParameters;
-}
-export interface EffectiveRulesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the effectiveRules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
  */
@@ -102,7 +78,7 @@ export class EffectiveRulesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleManagementPolicyRuleCollectionResponse
      */
-    public get(requestConfiguration?: EffectiveRulesRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleManagementPolicyRuleCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<EffectiveRulesRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleManagementPolicyRuleCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class EffectiveRulesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleManagementPolicyRule
      */
-    public post(body: UnifiedRoleManagementPolicyRule, requestConfiguration?: EffectiveRulesRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedRoleManagementPolicyRule | undefined> {
+    public post(body: UnifiedRoleManagementPolicyRule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleManagementPolicyRule | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -133,17 +109,10 @@ export class EffectiveRulesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: EffectiveRulesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<EffectiveRulesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, effectiveRulesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class EffectiveRulesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UnifiedRoleManagementPolicyRule, requestConfiguration?: EffectiveRulesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UnifiedRoleManagementPolicyRule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRoleManagementPolicyRule);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class EffectiveRulesRequestBuilder extends BaseRequestBuilder {
         return new EffectiveRulesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const effectiveRulesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

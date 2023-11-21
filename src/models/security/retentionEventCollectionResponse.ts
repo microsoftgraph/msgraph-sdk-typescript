@@ -23,7 +23,7 @@ export interface RetentionEventCollectionResponse extends BaseCollectionPaginati
 }
 export function serializeRetentionEventCollectionResponse(writer: SerializationWriter, retentionEventCollectionResponse: RetentionEventCollectionResponse | undefined = {} as RetentionEventCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, retentionEventCollectionResponse)
-        writer.writeCollectionOfObjectValues<RetentionEvent>("value", retentionEventCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<RetentionEvent>("value", retentionEventCollectionResponse.value, serializeRetentionEvent);
 }
 // tslint:enable
 // eslint-enable

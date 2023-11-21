@@ -17,7 +17,7 @@ export function deserializeIntoUserExperienceAnalyticsDeviceStartupHistoryCollec
 }
 export function serializeUserExperienceAnalyticsDeviceStartupHistoryCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsDeviceStartupHistoryCollectionResponse: UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse | undefined = {} as UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsDeviceStartupHistoryCollectionResponse)
-        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsDeviceStartupHistory>("value", userExperienceAnalyticsDeviceStartupHistoryCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsDeviceStartupHistory>("value", userExperienceAnalyticsDeviceStartupHistoryCollectionResponse.value, serializeUserExperienceAnalyticsDeviceStartupHistory);
 }
 export interface UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

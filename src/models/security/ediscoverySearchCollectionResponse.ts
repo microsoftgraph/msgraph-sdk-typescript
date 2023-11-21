@@ -23,7 +23,7 @@ export interface EdiscoverySearchCollectionResponse extends BaseCollectionPagina
 }
 export function serializeEdiscoverySearchCollectionResponse(writer: SerializationWriter, ediscoverySearchCollectionResponse: EdiscoverySearchCollectionResponse | undefined = {} as EdiscoverySearchCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, ediscoverySearchCollectionResponse)
-        writer.writeCollectionOfObjectValues<EdiscoverySearch>("value", ediscoverySearchCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<EdiscoverySearch>("value", ediscoverySearchCollectionResponse.value, serializeEdiscoverySearch);
 }
 // tslint:enable
 // eslint-enable

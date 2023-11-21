@@ -5,9 +5,13 @@ import { type ODataError } from '../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { createDeltaGetResponseFromDiscriminatorValue } from './deltaGetResponse';
 import { type DeltaGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeltaRequestBuilderGetQueryParameters {
+    /**
+     * A custom query option to filter the delta response based on the type of change. Supported values are created, updated or deleted.
+     */
+    changeType?: string;
     /**
      * Include count of items
      */
@@ -37,20 +41,6 @@ export interface DeltaRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface DeltaRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DeltaRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the delta method.
  */
@@ -61,7 +51,7 @@ export class DeltaRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/me/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages/delta(){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}");
+        super(pathParameters, requestAdapter, "{+baseurl}/me/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages/delta(){?changeType*,%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}");
     };
     /**
      * Get a set of messages that have been added, deleted, or updated in a specified folder. A delta function call for messages in a folder is similar to a GET request, except that by appropriatelyapplying state tokens in one or more of these calls, you can [query for incremental changes in the messages inthat folder](/graph/delta-query-messages). This allows you to maintain and synchronize a local store of a user's messages withouthaving to fetch the entire set of messages from the server every time. This API is available in the following national cloud deployments.
@@ -69,7 +59,7 @@ export class DeltaRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DeltaGetResponse
      * @see {@link https://learn.microsoft.com/graph/api/message-delta?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeltaRequestBuilderGetRequestConfiguration | undefined) : Promise<DeltaGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltaGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -84,17 +74,10 @@ export class DeltaRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DeltaRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, deltaRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -107,5 +90,14 @@ export class DeltaRequestBuilder extends BaseRequestBuilder {
         return new DeltaRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const deltaRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

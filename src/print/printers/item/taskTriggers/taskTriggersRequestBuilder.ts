@@ -8,7 +8,7 @@ import { createPrintTaskTriggerFromDiscriminatorValue, deserializeIntoPrintTaskT
 import { createPrintTaskTriggerCollectionResponseFromDiscriminatorValue } from '../../../../models/printTaskTriggerCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PrintTaskTriggerItemRequestBuilder } from './item/printTaskTriggerItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TaskTriggersRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface TaskTriggersRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface TaskTriggersRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TaskTriggersRequestBuilderGetQueryParameters;
-}
-export interface TaskTriggersRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
@@ -103,7 +79,7 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PrintTaskTriggerCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/printer-list-tasktriggers?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TaskTriggersRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintTaskTriggerCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TaskTriggersRequestBuilderGetQueryParameters> | undefined) : Promise<PrintTaskTriggerCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PrintTaskTrigger
      * @see {@link https://learn.microsoft.com/graph/api/printer-post-tasktriggers?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: PrintTaskTrigger, requestConfiguration?: TaskTriggersRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintTaskTrigger | undefined> {
+    public post(body: PrintTaskTrigger, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintTaskTrigger | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TaskTriggersRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskTriggersRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, taskTriggersRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PrintTaskTrigger, requestConfiguration?: TaskTriggersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PrintTaskTrigger, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintTaskTrigger);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
         return new TaskTriggersRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const taskTriggersRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

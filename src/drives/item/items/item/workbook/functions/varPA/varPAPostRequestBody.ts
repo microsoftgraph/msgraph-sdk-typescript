@@ -14,7 +14,7 @@ export function deserializeIntoVarPAPostRequestBody(varPAPostRequestBody: VarPAP
     }
 }
 export function serializeVarPAPostRequestBody(writer: SerializationWriter, varPAPostRequestBody: VarPAPostRequestBody | undefined = {} as VarPAPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", varPAPostRequestBody.values, );
+        writer.writeObjectValue<Json>("values", varPAPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(varPAPostRequestBody.additionalData);
 }
 export interface VarPAPostRequestBody extends AdditionalDataHolder, Parsable {

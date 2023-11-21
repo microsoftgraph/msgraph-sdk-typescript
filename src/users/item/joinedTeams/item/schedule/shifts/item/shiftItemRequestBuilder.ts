@@ -4,47 +4,13 @@
 import { type ODataError } from '../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { createShiftFromDiscriminatorValue, deserializeIntoShift, serializeShift, type Shift } from '../../../../../../../models/shift';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface ShiftItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface ShiftItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ShiftItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ShiftItemRequestBuilderGetQueryParameters;
-}
-export interface ShiftItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
@@ -63,7 +29,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/shift-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ShiftItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -79,7 +45,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Shift
      * @see {@link https://learn.microsoft.com/graph/api/shift-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ShiftItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Shift | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ShiftItemRequestBuilderGetQueryParameters> | undefined) : Promise<Shift | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -96,7 +62,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Shift
      * @see {@link https://learn.microsoft.com/graph/api/shift-put?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Shift, requestConfiguration?: ShiftItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Shift | undefined> {
+    public patch(body: Shift, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Shift | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,16 +77,10 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: ShiftItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -128,17 +88,10 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ShiftItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ShiftItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, shiftItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -147,17 +100,11 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Shift, requestConfiguration?: ShiftItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Shift, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeShift);
         return requestInfo;
     };
@@ -171,5 +118,8 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
         return new ShiftItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const shiftItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

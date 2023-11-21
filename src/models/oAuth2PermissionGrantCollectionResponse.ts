@@ -23,7 +23,7 @@ export interface OAuth2PermissionGrantCollectionResponse extends BaseCollectionP
 }
 export function serializeOAuth2PermissionGrantCollectionResponse(writer: SerializationWriter, oAuth2PermissionGrantCollectionResponse: OAuth2PermissionGrantCollectionResponse | undefined = {} as OAuth2PermissionGrantCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, oAuth2PermissionGrantCollectionResponse)
-        writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("value", oAuth2PermissionGrantCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("value", oAuth2PermissionGrantCollectionResponse.value, serializeOAuth2PermissionGrant);
 }
 // tslint:enable
 // eslint-enable

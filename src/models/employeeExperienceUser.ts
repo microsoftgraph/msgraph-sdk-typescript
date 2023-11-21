@@ -23,7 +23,7 @@ export interface EmployeeExperienceUser extends Entity, Parsable {
 }
 export function serializeEmployeeExperienceUser(writer: SerializationWriter, employeeExperienceUser: EmployeeExperienceUser | undefined = {} as EmployeeExperienceUser) : void {
         serializeEntity(writer, employeeExperienceUser)
-        writer.writeCollectionOfObjectValues<LearningCourseActivity>("learningCourseActivities", employeeExperienceUser.learningCourseActivities, );
+        writer.writeCollectionOfObjectValues<LearningCourseActivity>("learningCourseActivities", employeeExperienceUser.learningCourseActivities, serializeLearningCourseActivity);
 }
 // tslint:enable
 // eslint-enable

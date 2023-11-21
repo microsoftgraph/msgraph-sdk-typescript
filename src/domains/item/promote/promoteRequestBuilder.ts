@@ -5,18 +5,8 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type PromotePostResponse } from './index';
 import { createPromotePostResponseFromDiscriminatorValue } from './promotePostResponse';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface PromoteRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the promote method.
  */
@@ -35,7 +25,7 @@ export class PromoteRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PromotePostResponse
      * @see {@link https://learn.microsoft.com/graph/api/domain-promote?view=graph-rest-1.0|Find more info here}
      */
-    public post(requestConfiguration?: PromoteRequestBuilderPostRequestConfiguration | undefined) : Promise<PromotePostResponse | undefined> {
+    public post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PromotePostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             requestConfiguration
         );
@@ -50,16 +40,10 @@ export class PromoteRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(requestConfiguration?: PromoteRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**

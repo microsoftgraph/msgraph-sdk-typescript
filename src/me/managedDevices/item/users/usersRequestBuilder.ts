@@ -5,7 +5,7 @@ import { type UserCollectionResponse } from '../../../../models/';
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { createUserCollectionResponseFromDiscriminatorValue } from '../../../../models/userCollectionResponse';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UsersRequestBuilderGetQueryParameters {
     /**
@@ -41,20 +41,6 @@ export interface UsersRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface UsersRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UsersRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the users property of the microsoft.graph.managedDevice entity.
  */
@@ -73,7 +59,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of UserCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-user-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: UsersRequestBuilderGetRequestConfiguration | undefined) : Promise<UserCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UsersRequestBuilderGetQueryParameters> | undefined) : Promise<UserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -88,17 +74,10 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UsersRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UsersRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, usersRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -111,5 +90,15 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
         return new UsersRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const usersRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

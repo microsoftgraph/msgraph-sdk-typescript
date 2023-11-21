@@ -5,7 +5,7 @@ import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { type Host } from '../../../../../models/security/';
 import { createHostFromDiscriminatorValue } from '../../../../../models/security/host';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ChildHostRequestBuilderGetQueryParameters {
     /**
@@ -16,20 +16,6 @@ export interface ChildHostRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ChildHostRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ChildHostRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the childHost property of the microsoft.graph.security.hostPair entity.
@@ -48,7 +34,7 @@ export class ChildHostRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Host
      */
-    public get(requestConfiguration?: ChildHostRequestBuilderGetRequestConfiguration | undefined) : Promise<Host | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ChildHostRequestBuilderGetQueryParameters> | undefined) : Promise<Host | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,17 +49,10 @@ export class ChildHostRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ChildHostRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ChildHostRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, childHostRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -86,5 +65,9 @@ export class ChildHostRequestBuilder extends BaseRequestBuilder {
         return new ChildHostRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const childHostRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

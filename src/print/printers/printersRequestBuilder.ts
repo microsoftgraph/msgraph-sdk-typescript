@@ -9,7 +9,7 @@ import { createPrinterCollectionResponseFromDiscriminatorValue } from '../../mod
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { CreateRequestBuilder } from './create/createRequestBuilder';
 import { PrinterItemRequestBuilder } from './item/printerItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PrintersRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface PrintersRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface PrintersRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PrintersRequestBuilderGetQueryParameters;
-}
-export interface PrintersRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the printers property of the microsoft.graph.print entity.
@@ -110,7 +86,7 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PrinterCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/print-list-printers?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PrintersRequestBuilderGetRequestConfiguration | undefined) : Promise<PrinterCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PrintersRequestBuilderGetQueryParameters> | undefined) : Promise<PrinterCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -126,7 +102,7 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Printer
      */
-    public post(body: Printer, requestConfiguration?: PrintersRequestBuilderPostRequestConfiguration | undefined) : Promise<Printer | undefined> {
+    public post(body: Printer, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Printer | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -141,17 +117,10 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PrintersRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PrintersRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, printersRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -160,17 +129,11 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Printer, requestConfiguration?: PrintersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Printer, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrinter);
         return requestInfo;
     };
@@ -184,5 +147,15 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
         return new PrintersRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const printersRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

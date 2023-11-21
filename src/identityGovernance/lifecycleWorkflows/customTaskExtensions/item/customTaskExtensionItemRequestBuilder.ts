@@ -6,18 +6,8 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CreatedByRequestBuilder } from './createdBy/createdByRequestBuilder';
 import { LastModifiedByRequestBuilder } from './lastModifiedBy/lastModifiedByRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface CustomTaskExtensionItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface CustomTaskExtensionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -27,30 +17,6 @@ export interface CustomTaskExtensionItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface CustomTaskExtensionItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: CustomTaskExtensionItemRequestBuilderGetQueryParameters;
-}
-export interface CustomTaskExtensionItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
@@ -81,7 +47,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-customtaskextension-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: CustomTaskExtensionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -97,7 +63,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of CustomTaskExtension
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-customtaskextension-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CustomTaskExtensionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CustomTaskExtension | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<CustomTaskExtensionItemRequestBuilderGetQueryParameters> | undefined) : Promise<CustomTaskExtension | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,7 +80,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of CustomTaskExtension
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-customtaskextension-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: CustomTaskExtension, requestConfiguration?: CustomTaskExtensionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CustomTaskExtension | undefined> {
+    public patch(body: CustomTaskExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CustomTaskExtension | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -129,16 +95,10 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: CustomTaskExtensionItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -146,17 +106,10 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: CustomTaskExtensionItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomTaskExtensionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, customTaskExtensionItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -165,17 +118,11 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: CustomTaskExtension, requestConfiguration?: CustomTaskExtensionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: CustomTaskExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCustomTaskExtension);
         return requestInfo;
     };
@@ -189,5 +136,9 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
         return new CustomTaskExtensionItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const customTaskExtensionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

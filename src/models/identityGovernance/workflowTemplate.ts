@@ -26,8 +26,8 @@ export function serializeWorkflowTemplate(writer: SerializationWriter, workflowT
         writer.writeEnumValue<LifecycleWorkflowCategory>("category", workflowTemplate.category);
         writer.writeStringValue("description", workflowTemplate.description);
         writer.writeStringValue("displayName", workflowTemplate.displayName);
-        writer.writeObjectValue<WorkflowExecutionConditions>("executionConditions", workflowTemplate.executionConditions, );
-        writer.writeCollectionOfObjectValues<Task>("tasks", workflowTemplate.tasks, );
+        writer.writeObjectValue<WorkflowExecutionConditions>("executionConditions", workflowTemplate.executionConditions, serializeWorkflowExecutionConditions);
+        writer.writeCollectionOfObjectValues<Task>("tasks", workflowTemplate.tasks, serializeTask);
 }
 export interface WorkflowTemplate extends Entity, Parsable {
     /**

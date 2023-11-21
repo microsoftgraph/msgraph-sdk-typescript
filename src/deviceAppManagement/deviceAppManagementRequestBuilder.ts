@@ -19,7 +19,7 @@ import { SyncMicrosoftStoreForBusinessAppsRequestBuilder } from './syncMicrosoft
 import { TargetedManagedAppConfigurationsRequestBuilder } from './targetedManagedAppConfigurations/targetedManagedAppConfigurationsRequestBuilder';
 import { VppTokensRequestBuilder } from './vppTokens/vppTokensRequestBuilder';
 import { WindowsInformationProtectionPoliciesRequestBuilder } from './windowsInformationProtectionPolicies/windowsInformationProtectionPoliciesRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceAppManagementRequestBuilderGetQueryParameters {
     /**
@@ -30,30 +30,6 @@ export interface DeviceAppManagementRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface DeviceAppManagementRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DeviceAppManagementRequestBuilderGetQueryParameters;
-}
-export interface DeviceAppManagementRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the deviceAppManagement singleton.
@@ -163,7 +139,7 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DeviceAppManagement
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceappmanagement-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeviceAppManagementRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceAppManagement | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DeviceAppManagementRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceAppManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -178,9 +154,9 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAppManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceAppManagement, requestConfiguration?: DeviceAppManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceAppManagement | undefined> {
+    public patch(body: DeviceAppManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceAppManagement | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -195,17 +171,10 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DeviceAppManagementRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceAppManagementRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, deviceAppManagementRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -214,17 +183,11 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceAppManagement, requestConfiguration?: DeviceAppManagementRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceAppManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceAppManagement);
         return requestInfo;
     };
@@ -238,5 +201,9 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
         return new DeviceAppManagementRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const deviceAppManagementRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

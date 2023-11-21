@@ -24,7 +24,7 @@ export function deserializeIntoCoshPostRequestBody(coshPostRequestBody: CoshPost
     }
 }
 export function serializeCoshPostRequestBody(writer: SerializationWriter, coshPostRequestBody: CoshPostRequestBody | undefined = {} as CoshPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", coshPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", coshPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(coshPostRequestBody.additionalData);
 }
 // tslint:enable

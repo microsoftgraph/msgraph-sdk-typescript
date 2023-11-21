@@ -5,18 +5,8 @@ import { createDetectedAppFromDiscriminatorValue, deserializeIntoDetectedApp, se
 import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { ManagedDevicesRequestBuilder } from './managedDevices/managedDevicesRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface DetectedAppItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface DetectedAppItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -26,30 +16,6 @@ export interface DetectedAppItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface DetectedAppItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DetectedAppItemRequestBuilderGetQueryParameters;
-}
-export interface DetectedAppItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
@@ -74,7 +40,7 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DetectedAppItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -90,7 +56,7 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DetectedApp
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DetectedAppItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DetectedApp | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DetectedAppItemRequestBuilderGetQueryParameters> | undefined) : Promise<DetectedApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -107,7 +73,7 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DetectedApp
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DetectedApp, requestConfiguration?: DetectedAppItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DetectedApp | undefined> {
+    public patch(body: DetectedApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DetectedApp | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -122,16 +88,10 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: DetectedAppItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -139,17 +99,10 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DetectedAppItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DetectedAppItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, detectedAppItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -158,17 +111,11 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DetectedApp, requestConfiguration?: DetectedAppItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DetectedApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDetectedApp);
         return requestInfo;
     };
@@ -182,5 +129,9 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
         return new DetectedAppItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const detectedAppItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

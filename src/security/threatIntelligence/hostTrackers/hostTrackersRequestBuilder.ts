@@ -8,7 +8,7 @@ import { createHostTrackerFromDiscriminatorValue, deserializeIntoHostTracker, se
 import { createHostTrackerCollectionResponseFromDiscriminatorValue } from '../../../models/security/hostTrackerCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { HostTrackerItemRequestBuilder } from './item/hostTrackerItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface HostTrackersRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface HostTrackersRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface HostTrackersRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: HostTrackersRequestBuilderGetQueryParameters;
-}
-export interface HostTrackersRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -102,7 +78,7 @@ export class HostTrackersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostTrackerCollectionResponse
      */
-    public get(requestConfiguration?: HostTrackersRequestBuilderGetRequestConfiguration | undefined) : Promise<HostTrackerCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<HostTrackersRequestBuilderGetQueryParameters> | undefined) : Promise<HostTrackerCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class HostTrackersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostTracker
      */
-    public post(body: HostTracker, requestConfiguration?: HostTrackersRequestBuilderPostRequestConfiguration | undefined) : Promise<HostTracker | undefined> {
+    public post(body: HostTracker, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HostTracker | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -133,17 +109,10 @@ export class HostTrackersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: HostTrackersRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<HostTrackersRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, hostTrackersRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class HostTrackersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: HostTracker, requestConfiguration?: HostTrackersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: HostTracker, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHostTracker);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class HostTrackersRequestBuilder extends BaseRequestBuilder {
         return new HostTrackersRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const hostTrackersRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

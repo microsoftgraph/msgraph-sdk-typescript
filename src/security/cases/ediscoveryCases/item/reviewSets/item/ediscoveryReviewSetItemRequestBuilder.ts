@@ -7,18 +7,8 @@ import { createEdiscoveryReviewSetFromDiscriminatorValue, deserializeIntoEdiscov
 import { MicrosoftGraphSecurityAddToReviewSetRequestBuilder } from './microsoftGraphSecurityAddToReviewSet/microsoftGraphSecurityAddToReviewSetRequestBuilder';
 import { MicrosoftGraphSecurityExportRequestBuilder } from './microsoftGraphSecurityExport/microsoftGraphSecurityExportRequestBuilder';
 import { QueriesRequestBuilder } from './queries/queriesRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface EdiscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface EdiscoveryReviewSetItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -28,30 +18,6 @@ export interface EdiscoveryReviewSetItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: EdiscoveryReviewSetItemRequestBuilderGetQueryParameters;
-}
-export interface EdiscoveryReviewSetItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
@@ -87,7 +53,7 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property reviewSets for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: EdiscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -103,7 +69,7 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EdiscoveryReviewSet
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryReviewSet | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<EdiscoveryReviewSetItemRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryReviewSet | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +85,7 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewSet
      */
-    public patch(body: EdiscoveryReviewSet, requestConfiguration?: EdiscoveryReviewSetItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EdiscoveryReviewSet | undefined> {
+    public patch(body: EdiscoveryReviewSet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryReviewSet | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -134,16 +100,10 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: EdiscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -151,17 +111,10 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<EdiscoveryReviewSetItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, ediscoveryReviewSetItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -170,17 +123,11 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EdiscoveryReviewSet, requestConfiguration?: EdiscoveryReviewSetItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EdiscoveryReviewSet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEdiscoveryReviewSet);
         return requestInfo;
     };
@@ -194,5 +141,9 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
         return new EdiscoveryReviewSetItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const ediscoveryReviewSetItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

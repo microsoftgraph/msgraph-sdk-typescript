@@ -4,18 +4,8 @@
 import { createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue, deserializeIntoCrossTenantIdentitySyncPolicyPartner, serializeCrossTenantIdentitySyncPolicyPartner, type CrossTenantIdentitySyncPolicyPartner } from '../../../../../models/crossTenantIdentitySyncPolicyPartner';
 import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface IdentitySynchronizationRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface IdentitySynchronizationRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface IdentitySynchronizationRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface IdentitySynchronizationRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: IdentitySynchronizationRequestBuilderGetQueryParameters;
-}
-export interface IdentitySynchronizationRequestBuilderPutRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the identitySynchronization property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.
@@ -67,7 +33,7 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: IdentitySynchronizationRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -83,7 +49,7 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of CrossTenantIdentitySyncPolicyPartner
      * @see {@link https://learn.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: IdentitySynchronizationRequestBuilderGetRequestConfiguration | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<IdentitySynchronizationRequestBuilderGetQueryParameters> | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -99,7 +65,7 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CrossTenantIdentitySyncPolicyPartner
      */
-    public put(body: CrossTenantIdentitySyncPolicyPartner, requestConfiguration?: IdentitySynchronizationRequestBuilderPutRequestConfiguration | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined> {
+    public put(body: CrossTenantIdentitySyncPolicyPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined> {
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
@@ -114,16 +80,10 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: IdentitySynchronizationRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -131,17 +91,10 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: IdentitySynchronizationRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentitySynchronizationRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, identitySynchronizationRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -150,17 +103,11 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPutRequestInformation(body: CrossTenantIdentitySyncPolicyPartner, requestConfiguration?: IdentitySynchronizationRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: CrossTenantIdentitySyncPolicyPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PUT;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PUT, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCrossTenantIdentitySyncPolicyPartner);
         return requestInfo;
     };
@@ -174,5 +121,9 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
         return new IdentitySynchronizationRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const identitySynchronizationRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

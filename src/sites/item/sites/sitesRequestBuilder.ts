@@ -7,7 +7,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createSiteCollectionResponseFromDiscriminatorValue } from '../../../models/siteCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SiteItemRequestBuilder } from './item/siteItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SitesRequestBuilderGetQueryParameters {
     /**
@@ -42,20 +42,6 @@ export interface SitesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface SitesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SitesRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the sites property of the microsoft.graph.site entity.
@@ -92,7 +78,7 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SiteCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/site-list-subsites?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SitesRequestBuilderGetRequestConfiguration | undefined) : Promise<SiteCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : Promise<SiteCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -107,17 +93,10 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SitesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SitesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, sitesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
         return new SitesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const sitesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

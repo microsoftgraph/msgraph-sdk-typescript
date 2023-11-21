@@ -5,18 +5,8 @@ import { type CertificateBasedAuthConfiguration } from '../../../../models/';
 import { createCertificateBasedAuthConfigurationFromDiscriminatorValue } from '../../../../models/certificateBasedAuthConfiguration';
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -26,20 +16,6 @@ export interface CertificateBasedAuthConfigurationItemRequestBuilderGetQueryPara
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface CertificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the certificateBasedAuthConfiguration property of the microsoft.graph.organization entity.
@@ -58,7 +34,7 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder extends BaseReq
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -74,7 +50,7 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder extends BaseReq
      * @returns a Promise of CertificateBasedAuthConfiguration
      * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CertificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CertificateBasedAuthConfiguration | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<CertificateBasedAuthConfiguration | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -89,16 +65,10 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder extends BaseReq
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -106,17 +76,10 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder extends BaseReq
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: CertificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, certificateBasedAuthConfigurationItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -129,5 +92,9 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder extends BaseReq
         return new CertificateBasedAuthConfigurationItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const certificateBasedAuthConfigurationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

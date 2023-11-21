@@ -23,7 +23,7 @@ export interface GetApplicablePolicyRequirementsPostResponse extends BaseCollect
 }
 export function serializeGetApplicablePolicyRequirementsPostResponse(writer: SerializationWriter, getApplicablePolicyRequirementsPostResponse: GetApplicablePolicyRequirementsPostResponse | undefined = {} as GetApplicablePolicyRequirementsPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getApplicablePolicyRequirementsPostResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>("value", getApplicablePolicyRequirementsPostResponse.value, );
+        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>("value", getApplicablePolicyRequirementsPostResponse.value, serializeAccessPackageAssignmentRequestRequirements);
 }
 // tslint:enable
 // eslint-enable

@@ -5,18 +5,8 @@ import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { createPinnedChatMessageInfoFromDiscriminatorValue, deserializeIntoPinnedChatMessageInfo, serializePinnedChatMessageInfo, type PinnedChatMessageInfo } from '../../../../../../models/pinnedChatMessageInfo';
 import { MessageRequestBuilder } from './message/messageRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface PinnedChatMessageInfoItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface PinnedChatMessageInfoItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -26,30 +16,6 @@ export interface PinnedChatMessageInfoItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface PinnedChatMessageInfoItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PinnedChatMessageInfoItemRequestBuilderGetQueryParameters;
-}
-export interface PinnedChatMessageInfoItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
@@ -74,7 +40,7 @@ export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chat-delete-pinnedmessages?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: PinnedChatMessageInfoItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -89,7 +55,7 @@ export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PinnedChatMessageInfo
      */
-    public get(requestConfiguration?: PinnedChatMessageInfoItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PinnedChatMessageInfo | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PinnedChatMessageInfoItemRequestBuilderGetQueryParameters> | undefined) : Promise<PinnedChatMessageInfo | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -105,7 +71,7 @@ export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PinnedChatMessageInfo
      */
-    public patch(body: PinnedChatMessageInfo, requestConfiguration?: PinnedChatMessageInfoItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PinnedChatMessageInfo | undefined> {
+    public patch(body: PinnedChatMessageInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PinnedChatMessageInfo | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -120,16 +86,10 @@ export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: PinnedChatMessageInfoItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -137,17 +97,10 @@ export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PinnedChatMessageInfoItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PinnedChatMessageInfoItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, pinnedChatMessageInfoItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -156,17 +109,11 @@ export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PinnedChatMessageInfo, requestConfiguration?: PinnedChatMessageInfoItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PinnedChatMessageInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePinnedChatMessageInfo);
         return requestInfo;
     };
@@ -180,5 +127,9 @@ export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder 
         return new PinnedChatMessageInfoItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const pinnedChatMessageInfoItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

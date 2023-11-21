@@ -23,7 +23,7 @@ export interface OnlineMeetingCollectionResponse extends BaseCollectionPaginatio
 }
 export function serializeOnlineMeetingCollectionResponse(writer: SerializationWriter, onlineMeetingCollectionResponse: OnlineMeetingCollectionResponse | undefined = {} as OnlineMeetingCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, onlineMeetingCollectionResponse)
-        writer.writeCollectionOfObjectValues<OnlineMeeting>("value", onlineMeetingCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<OnlineMeeting>("value", onlineMeetingCollectionResponse.value, serializeOnlineMeeting);
 }
 // tslint:enable
 // eslint-enable

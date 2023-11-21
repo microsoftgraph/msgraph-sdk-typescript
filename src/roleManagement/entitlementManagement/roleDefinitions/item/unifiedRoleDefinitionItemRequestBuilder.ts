@@ -5,18 +5,8 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { createUnifiedRoleDefinitionFromDiscriminatorValue, deserializeIntoUnifiedRoleDefinition, serializeUnifiedRoleDefinition, type UnifiedRoleDefinition } from '../../../../models/unifiedRoleDefinition';
 import { InheritsPermissionsFromRequestBuilder } from './inheritsPermissionsFrom/inheritsPermissionsFromRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -26,30 +16,6 @@ export interface UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters;
-}
-export interface UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
@@ -74,7 +40,7 @@ export class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/unifiedroledefinition-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -90,7 +56,7 @@ export class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder 
      * @returns a Promise of UnifiedRoleDefinition
      * @see {@link https://learn.microsoft.com/graph/api/unifiedroledefinition-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleDefinition | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -107,7 +73,7 @@ export class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder 
      * @returns a Promise of UnifiedRoleDefinition
      * @see {@link https://learn.microsoft.com/graph/api/unifiedroledefinition-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: UnifiedRoleDefinition, requestConfiguration?: UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRoleDefinition | undefined> {
+    public patch(body: UnifiedRoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleDefinition | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -122,16 +88,10 @@ export class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -139,17 +99,10 @@ export class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, unifiedRoleDefinitionItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -158,17 +111,11 @@ export class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UnifiedRoleDefinition, requestConfiguration?: UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UnifiedRoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRoleDefinition);
         return requestInfo;
     };
@@ -182,5 +129,9 @@ export class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder 
         return new UnifiedRoleDefinitionItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const unifiedRoleDefinitionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

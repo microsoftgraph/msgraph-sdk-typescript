@@ -4,18 +4,8 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue, deserializeIntoTargetedManagedAppPolicyAssignment, serializeTargetedManagedAppPolicyAssignment, type TargetedManagedAppPolicyAssignment } from '../../../../../models/targetedManagedAppPolicyAssignment';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryPar
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters;
-}
-export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.windowsInformationProtection entity.
@@ -66,7 +32,7 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
      * Delete navigation property assignments for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -81,7 +47,7 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TargetedManagedAppPolicyAssignment
      */
-    public get(requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TargetedManagedAppPolicyAssignment | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<TargetedManagedAppPolicyAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -97,7 +63,7 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TargetedManagedAppPolicyAssignment
      */
-    public patch(body: TargetedManagedAppPolicyAssignment, requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TargetedManagedAppPolicyAssignment | undefined> {
+    public patch(body: TargetedManagedAppPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TargetedManagedAppPolicyAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,16 +78,10 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -129,17 +89,10 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, targetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -148,17 +101,11 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TargetedManagedAppPolicyAssignment, requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TargetedManagedAppPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTargetedManagedAppPolicyAssignment);
         return requestInfo;
     };
@@ -172,5 +119,9 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
         return new TargetedManagedAppPolicyAssignmentItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const targetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

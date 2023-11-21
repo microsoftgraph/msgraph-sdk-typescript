@@ -24,7 +24,7 @@ export function deserializeIntoCountAPostRequestBody(countAPostRequestBody: Coun
     }
 }
 export function serializeCountAPostRequestBody(writer: SerializationWriter, countAPostRequestBody: CountAPostRequestBody | undefined = {} as CountAPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", countAPostRequestBody.values, );
+        writer.writeObjectValue<Json>("values", countAPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(countAPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -9,7 +9,7 @@ import { createSynchronizationJobCollectionResponseFromDiscriminatorValue } from
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SynchronizationJobItemRequestBuilder } from './item/synchronizationJobItemRequestBuilder';
 import { ValidateCredentialsRequestBuilder } from './validateCredentials/validateCredentialsRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface JobsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface JobsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface JobsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: JobsRequestBuilderGetQueryParameters;
-}
-export interface JobsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
@@ -110,7 +86,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SynchronizationJobCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronization-list-jobs?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: JobsRequestBuilderGetRequestConfiguration | undefined) : Promise<SynchronizationJobCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<JobsRequestBuilderGetQueryParameters> | undefined) : Promise<SynchronizationJobCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -127,7 +103,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SynchronizationJob
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronization-post-jobs?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SynchronizationJob, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : Promise<SynchronizationJob | undefined> {
+    public post(body: SynchronizationJob, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SynchronizationJob | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -142,17 +118,10 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: JobsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<JobsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, jobsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -161,17 +130,11 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SynchronizationJob, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SynchronizationJob, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSynchronizationJob);
         return requestInfo;
     };
@@ -185,5 +148,15 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
         return new JobsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const jobsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

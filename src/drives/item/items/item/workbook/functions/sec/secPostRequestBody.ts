@@ -24,7 +24,7 @@ export interface SecPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeSecPostRequestBody(writer: SerializationWriter, secPostRequestBody: SecPostRequestBody | undefined = {} as SecPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", secPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", secPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(secPostRequestBody.additionalData);
 }
 // tslint:enable

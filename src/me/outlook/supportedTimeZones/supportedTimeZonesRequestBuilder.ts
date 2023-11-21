@@ -5,7 +5,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type SupportedTimeZonesGetResponse } from './index';
 import { createSupportedTimeZonesGetResponseFromDiscriminatorValue } from './supportedTimeZonesGetResponse';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SupportedTimeZonesRequestBuilderGetQueryParameters {
     /**
@@ -29,20 +29,6 @@ export interface SupportedTimeZonesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface SupportedTimeZonesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SupportedTimeZonesRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the supportedTimeZones method.
  */
@@ -60,7 +46,7 @@ export class SupportedTimeZonesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SupportedTimeZonesGetResponse
      */
-    public get(requestConfiguration?: SupportedTimeZonesRequestBuilderGetRequestConfiguration | undefined) : Promise<SupportedTimeZonesGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SupportedTimeZonesRequestBuilderGetQueryParameters> | undefined) : Promise<SupportedTimeZonesGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -75,17 +61,10 @@ export class SupportedTimeZonesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SupportedTimeZonesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SupportedTimeZonesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, supportedTimeZonesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -98,5 +77,12 @@ export class SupportedTimeZonesRequestBuilder extends BaseRequestBuilder {
         return new SupportedTimeZonesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const supportedTimeZonesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "search": "%24search",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

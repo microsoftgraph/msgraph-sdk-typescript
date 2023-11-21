@@ -8,7 +8,7 @@ import { createUserExperienceAnalyticsDeviceStartupProcessPerformanceFromDiscrim
 import { createUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponseFromDiscriminatorValue } from '../../models/userExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder } from './item/userExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBu
      */
     top?: number;
 }
-export interface UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters;
-}
-export interface UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcessPerformance property of the microsoft.graph.deviceManagement entity.
  */
@@ -102,7 +78,7 @@ export class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponse
      */
-    public get(requestConfiguration?: UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters> | undefined) : Promise<UserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsDeviceStartupProcessPerformance
      */
-    public post(body: UserExperienceAnalyticsDeviceStartupProcessPerformance, requestConfiguration?: UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsDeviceStartupProcessPerformance | undefined> {
+    public post(body: UserExperienceAnalyticsDeviceStartupProcessPerformance, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserExperienceAnalyticsDeviceStartupProcessPerformance | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -133,17 +109,10 @@ export class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, userExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserExperienceAnalyticsDeviceStartupProcessPerformance, requestConfiguration?: UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserExperienceAnalyticsDeviceStartupProcessPerformance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsDeviceStartupProcessPerformance);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilde
         return new UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const userExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

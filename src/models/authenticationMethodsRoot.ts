@@ -23,7 +23,7 @@ export function deserializeIntoAuthenticationMethodsRoot(authenticationMethodsRo
 }
 export function serializeAuthenticationMethodsRoot(writer: SerializationWriter, authenticationMethodsRoot: AuthenticationMethodsRoot | undefined = {} as AuthenticationMethodsRoot) : void {
         serializeEntity(writer, authenticationMethodsRoot)
-        writer.writeCollectionOfObjectValues<UserRegistrationDetails>("userRegistrationDetails", authenticationMethodsRoot.userRegistrationDetails, );
+        writer.writeCollectionOfObjectValues<UserRegistrationDetails>("userRegistrationDetails", authenticationMethodsRoot.userRegistrationDetails, serializeUserRegistrationDetails);
 }
 // tslint:enable
 // eslint-enable

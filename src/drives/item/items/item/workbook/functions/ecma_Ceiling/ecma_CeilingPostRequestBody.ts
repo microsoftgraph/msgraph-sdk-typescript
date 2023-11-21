@@ -29,8 +29,8 @@ export interface Ecma_CeilingPostRequestBody extends AdditionalDataHolder, Parsa
     significance?: Json;
 }
 export function serializeEcma_CeilingPostRequestBody(writer: SerializationWriter, ecma_CeilingPostRequestBody: Ecma_CeilingPostRequestBody | undefined = {} as Ecma_CeilingPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", ecma_CeilingPostRequestBody.number, );
-        writer.writeObjectValue<Json>("significance", ecma_CeilingPostRequestBody.significance, );
+        writer.writeObjectValue<Json>("number", ecma_CeilingPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("significance", ecma_CeilingPostRequestBody.significance, serializeJson);
         writer.writeAdditionalData(ecma_CeilingPostRequestBody.additionalData);
 }
 // tslint:enable

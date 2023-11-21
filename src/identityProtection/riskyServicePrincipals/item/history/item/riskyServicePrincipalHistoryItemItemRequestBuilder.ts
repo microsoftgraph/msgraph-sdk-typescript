@@ -4,18 +4,8 @@
 import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
 import { createRiskyServicePrincipalHistoryItemFromDiscriminatorValue, deserializeIntoRiskyServicePrincipalHistoryItem, serializeRiskyServicePrincipalHistoryItem, type RiskyServicePrincipalHistoryItem } from '../../../../../models/riskyServicePrincipalHistoryItem';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface RiskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface RiskyServicePrincipalHistoryItemItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface RiskyServicePrincipalHistoryItemItemRequestBuilderGetQueryParam
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface RiskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RiskyServicePrincipalHistoryItemItemRequestBuilderGetQueryParameters;
-}
-export interface RiskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
@@ -66,7 +32,7 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
      * Delete navigation property history for identityProtection
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: RiskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -81,7 +47,7 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyServicePrincipalHistoryItem
      */
-    public get(requestConfiguration?: RiskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskyServicePrincipalHistoryItem | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RiskyServicePrincipalHistoryItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<RiskyServicePrincipalHistoryItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -97,7 +63,7 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyServicePrincipalHistoryItem
      */
-    public patch(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: RiskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<RiskyServicePrincipalHistoryItem | undefined> {
+    public patch(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RiskyServicePrincipalHistoryItem | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,16 +78,10 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: RiskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -129,17 +89,10 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RiskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RiskyServicePrincipalHistoryItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, riskyServicePrincipalHistoryItemItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -148,17 +101,11 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: RiskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRiskyServicePrincipalHistoryItem);
         return requestInfo;
     };
@@ -172,5 +119,9 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
         return new RiskyServicePrincipalHistoryItemItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const riskyServicePrincipalHistoryItemItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

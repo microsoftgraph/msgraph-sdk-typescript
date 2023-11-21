@@ -23,7 +23,7 @@ export function deserializeIntoAssociatedTeamInfoCollectionResponse(associatedTe
 }
 export function serializeAssociatedTeamInfoCollectionResponse(writer: SerializationWriter, associatedTeamInfoCollectionResponse: AssociatedTeamInfoCollectionResponse | undefined = {} as AssociatedTeamInfoCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, associatedTeamInfoCollectionResponse)
-        writer.writeCollectionOfObjectValues<AssociatedTeamInfo>("value", associatedTeamInfoCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AssociatedTeamInfo>("value", associatedTeamInfoCollectionResponse.value, serializeAssociatedTeamInfo);
 }
 // tslint:enable
 // eslint-enable

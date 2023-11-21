@@ -8,7 +8,7 @@ import { createTrendingFromDiscriminatorValue, deserializeIntoTrending, serializ
 import { createTrendingCollectionResponseFromDiscriminatorValue } from '../../../models/trendingCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TrendingItemRequestBuilder } from './item/trendingItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TrendingRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface TrendingRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface TrendingRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TrendingRequestBuilderGetQueryParameters;
-}
-export interface TrendingRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
@@ -103,7 +79,7 @@ export class TrendingRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TrendingCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/insights-list-trending?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TrendingRequestBuilderGetRequestConfiguration | undefined) : Promise<TrendingCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TrendingRequestBuilderGetQueryParameters> | undefined) : Promise<TrendingCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class TrendingRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Trending
      */
-    public post(body: Trending, requestConfiguration?: TrendingRequestBuilderPostRequestConfiguration | undefined) : Promise<Trending | undefined> {
+    public post(body: Trending, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Trending | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class TrendingRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TrendingRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TrendingRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, trendingRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class TrendingRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Trending, requestConfiguration?: TrendingRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Trending, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTrending);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class TrendingRequestBuilder extends BaseRequestBuilder {
         return new TrendingRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const trendingRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

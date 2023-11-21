@@ -30,7 +30,7 @@ export interface MarkChatUnreadForUserPostRequestBody extends AdditionalDataHold
 }
 export function serializeMarkChatUnreadForUserPostRequestBody(writer: SerializationWriter, markChatUnreadForUserPostRequestBody: MarkChatUnreadForUserPostRequestBody | undefined = {} as MarkChatUnreadForUserPostRequestBody) : void {
         writer.writeDateValue("lastMessageReadDateTime", markChatUnreadForUserPostRequestBody.lastMessageReadDateTime);
-        writer.writeObjectValue<TeamworkUserIdentity>("user", markChatUnreadForUserPostRequestBody.user, );
+        writer.writeObjectValue<TeamworkUserIdentity>("user", markChatUnreadForUserPostRequestBody.user, serializeTeamworkUserIdentity);
         writer.writeAdditionalData(markChatUnreadForUserPostRequestBody.additionalData);
 }
 // tslint:enable

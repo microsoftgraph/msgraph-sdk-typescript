@@ -74,15 +74,15 @@ export interface MailboxSettings extends AdditionalDataHolder, Parsable {
 }
 export function serializeMailboxSettings(writer: SerializationWriter, mailboxSettings: MailboxSettings | undefined = {} as MailboxSettings) : void {
         writer.writeStringValue("archiveFolder", mailboxSettings.archiveFolder);
-        writer.writeObjectValue<AutomaticRepliesSetting>("automaticRepliesSetting", mailboxSettings.automaticRepliesSetting, );
+        writer.writeObjectValue<AutomaticRepliesSetting>("automaticRepliesSetting", mailboxSettings.automaticRepliesSetting, serializeAutomaticRepliesSetting);
         writer.writeStringValue("dateFormat", mailboxSettings.dateFormat);
         writer.writeEnumValue<DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", mailboxSettings.delegateMeetingMessageDeliveryOptions);
-        writer.writeObjectValue<LocaleInfo>("language", mailboxSettings.language, );
+        writer.writeObjectValue<LocaleInfo>("language", mailboxSettings.language, serializeLocaleInfo);
         writer.writeStringValue("@odata.type", mailboxSettings.odataType);
         writer.writeStringValue("timeFormat", mailboxSettings.timeFormat);
         writer.writeStringValue("timeZone", mailboxSettings.timeZone);
         writer.writeEnumValue<UserPurpose>("userPurpose", mailboxSettings.userPurpose);
-        writer.writeObjectValue<WorkingHours>("workingHours", mailboxSettings.workingHours, );
+        writer.writeObjectValue<WorkingHours>("workingHours", mailboxSettings.workingHours, serializeWorkingHours);
         writer.writeAdditionalData(mailboxSettings.additionalData);
 }
 // tslint:enable

@@ -9,37 +9,13 @@ import { CalendarPermissionsRequestBuilder } from './calendarPermissions/calenda
 import { CalendarViewRequestBuilder } from './calendarView/calendarViewRequestBuilder';
 import { EventsRequestBuilder } from './events/eventsRequestBuilder';
 import { GetScheduleRequestBuilder } from './getSchedule/getScheduleRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CalendarRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface CalendarRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: CalendarRequestBuilderGetQueryParameters;
-}
-export interface CalendarRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the calendar property of the microsoft.graph.user entity.
@@ -92,7 +68,7 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Calendar
      * @see {@link https://learn.microsoft.com/graph/api/calendar-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CalendarRequestBuilderGetRequestConfiguration | undefined) : Promise<Calendar | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<CalendarRequestBuilderGetQueryParameters> | undefined) : Promise<Calendar | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -109,7 +85,7 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Calendar
      * @see {@link https://learn.microsoft.com/graph/api/calendar-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Calendar, requestConfiguration?: CalendarRequestBuilderPatchRequestConfiguration | undefined) : Promise<Calendar | undefined> {
+    public patch(body: Calendar, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Calendar | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -124,17 +100,10 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: CalendarRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<CalendarRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, calendarRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -143,17 +112,11 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Calendar, requestConfiguration?: CalendarRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Calendar, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCalendar);
         return requestInfo;
     };
@@ -167,5 +130,8 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
         return new CalendarRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const calendarRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

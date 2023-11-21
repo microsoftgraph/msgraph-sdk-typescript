@@ -44,11 +44,11 @@ export interface DiscPostRequestBody extends AdditionalDataHolder, Parsable {
     settlement?: Json;
 }
 export function serializeDiscPostRequestBody(writer: SerializationWriter, discPostRequestBody: DiscPostRequestBody | undefined = {} as DiscPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", discPostRequestBody.basis, );
-        writer.writeObjectValue<Json>("maturity", discPostRequestBody.maturity, );
-        writer.writeObjectValue<Json>("pr", discPostRequestBody.pr, );
-        writer.writeObjectValue<Json>("redemption", discPostRequestBody.redemption, );
-        writer.writeObjectValue<Json>("settlement", discPostRequestBody.settlement, );
+        writer.writeObjectValue<Json>("basis", discPostRequestBody.basis, serializeJson);
+        writer.writeObjectValue<Json>("maturity", discPostRequestBody.maturity, serializeJson);
+        writer.writeObjectValue<Json>("pr", discPostRequestBody.pr, serializeJson);
+        writer.writeObjectValue<Json>("redemption", discPostRequestBody.redemption, serializeJson);
+        writer.writeObjectValue<Json>("settlement", discPostRequestBody.settlement, serializeJson);
         writer.writeAdditionalData(discPostRequestBody.additionalData);
 }
 // tslint:enable

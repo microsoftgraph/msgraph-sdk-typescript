@@ -13,7 +13,7 @@ export interface AuthorizationPolicy extends Parsable, PolicyBase {
      */
     allowedToSignUpEmailBasedSubscriptions?: boolean;
     /**
-     * Indicates whether users can use the Self-Serve Password Reset feature on the tenant.
+     * Indicates whether users can use the Self-Service Password Reset feature on the tenant.
      */
     allowedToUseSSPR?: boolean;
     /**
@@ -66,7 +66,7 @@ export function serializeAuthorizationPolicy(writer: SerializationWriter, author
         writer.writeEnumValue<AllowInvitesFrom>("allowInvitesFrom", authorizationPolicy.allowInvitesFrom);
         writer.writeBooleanValue("allowUserConsentForRiskyApps", authorizationPolicy.allowUserConsentForRiskyApps);
         writer.writeBooleanValue("blockMsolPowerShell", authorizationPolicy.blockMsolPowerShell);
-        writer.writeObjectValue<DefaultUserRolePermissions>("defaultUserRolePermissions", authorizationPolicy.defaultUserRolePermissions, );
+        writer.writeObjectValue<DefaultUserRolePermissions>("defaultUserRolePermissions", authorizationPolicy.defaultUserRolePermissions, serializeDefaultUserRolePermissions);
         writer.writeGuidValue("guestUserRoleId", authorizationPolicy.guestUserRoleId);
 }
 // tslint:enable

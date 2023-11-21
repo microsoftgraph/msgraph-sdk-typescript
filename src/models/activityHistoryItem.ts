@@ -65,7 +65,7 @@ export function deserializeIntoActivityHistoryItem(activityHistoryItem: Activity
 export function serializeActivityHistoryItem(writer: SerializationWriter, activityHistoryItem: ActivityHistoryItem | undefined = {} as ActivityHistoryItem) : void {
         serializeEntity(writer, activityHistoryItem)
         writer.writeNumberValue("activeDurationSeconds", activityHistoryItem.activeDurationSeconds);
-        writer.writeObjectValue<UserActivity>("activity", activityHistoryItem.activity, );
+        writer.writeObjectValue<UserActivity>("activity", activityHistoryItem.activity, serializeUserActivity);
         writer.writeDateValue("createdDateTime", activityHistoryItem.createdDateTime);
         writer.writeDateValue("expirationDateTime", activityHistoryItem.expirationDateTime);
         writer.writeDateValue("lastActiveDateTime", activityHistoryItem.lastActiveDateTime);

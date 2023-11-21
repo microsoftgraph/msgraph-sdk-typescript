@@ -8,7 +8,7 @@ import { createProvisioningObjectSummaryFromDiscriminatorValue, deserializeIntoP
 import { createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue } from '../../models/provisioningObjectSummaryCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ProvisioningObjectSummaryItemRequestBuilder } from './item/provisioningObjectSummaryItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ProvisioningRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface ProvisioningRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface ProvisioningRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ProvisioningRequestBuilderGetQueryParameters;
-}
-export interface ProvisioningRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
@@ -103,7 +79,7 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ProvisioningObjectSummaryCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ProvisioningRequestBuilderGetRequestConfiguration | undefined) : Promise<ProvisioningObjectSummaryCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ProvisioningRequestBuilderGetQueryParameters> | undefined) : Promise<ProvisioningObjectSummaryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProvisioningObjectSummary
      */
-    public post(body: ProvisioningObjectSummary, requestConfiguration?: ProvisioningRequestBuilderPostRequestConfiguration | undefined) : Promise<ProvisioningObjectSummary | undefined> {
+    public post(body: ProvisioningObjectSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ProvisioningObjectSummary | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ProvisioningRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ProvisioningRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, provisioningRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ProvisioningObjectSummary, requestConfiguration?: ProvisioningRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ProvisioningObjectSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeProvisioningObjectSummary);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
         return new ProvisioningRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const provisioningRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

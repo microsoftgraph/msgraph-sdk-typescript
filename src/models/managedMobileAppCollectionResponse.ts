@@ -23,7 +23,7 @@ export interface ManagedMobileAppCollectionResponse extends BaseCollectionPagina
 }
 export function serializeManagedMobileAppCollectionResponse(writer: SerializationWriter, managedMobileAppCollectionResponse: ManagedMobileAppCollectionResponse | undefined = {} as ManagedMobileAppCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, managedMobileAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedMobileApp>("value", managedMobileAppCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ManagedMobileApp>("value", managedMobileAppCollectionResponse.value, serializeManagedMobileApp);
 }
 // tslint:enable
 // eslint-enable

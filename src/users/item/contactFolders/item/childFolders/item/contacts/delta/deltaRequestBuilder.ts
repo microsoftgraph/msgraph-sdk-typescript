@@ -5,7 +5,7 @@ import { type ODataError } from '../../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { createDeltaGetResponseFromDiscriminatorValue } from './deltaGetResponse';
 import { type DeltaGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeltaRequestBuilderGetQueryParameters {
     /**
@@ -37,20 +37,6 @@ export interface DeltaRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface DeltaRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DeltaRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the delta method.
  */
@@ -69,7 +55,7 @@ export class DeltaRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DeltaGetResponse
      * @see {@link https://learn.microsoft.com/graph/api/contact-delta?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeltaRequestBuilderGetRequestConfiguration | undefined) : Promise<DeltaGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltaGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -84,17 +70,10 @@ export class DeltaRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DeltaRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, deltaRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -107,5 +86,14 @@ export class DeltaRequestBuilder extends BaseRequestBuilder {
         return new DeltaRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const deltaRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

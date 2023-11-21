@@ -6,37 +6,13 @@ import { createAttachmentBaseFromDiscriminatorValue } from '../../../../../../..
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { ContentRequestBuilder } from './value/contentRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface AttachmentBaseItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface AttachmentBaseItemRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface AttachmentBaseItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AttachmentBaseItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
@@ -61,7 +37,7 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/taskfileattachment-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AttachmentBaseItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -77,7 +53,7 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AttachmentBase
      * @see {@link https://learn.microsoft.com/graph/api/taskfileattachment-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AttachmentBaseItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AttachmentBase | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AttachmentBaseItemRequestBuilderGetQueryParameters> | undefined) : Promise<AttachmentBase | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -92,16 +68,10 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: AttachmentBaseItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -109,17 +79,10 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AttachmentBaseItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AttachmentBaseItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, attachmentBaseItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -132,5 +95,8 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
         return new AttachmentBaseItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const attachmentBaseItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

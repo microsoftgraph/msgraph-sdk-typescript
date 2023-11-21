@@ -12,7 +12,7 @@ import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExt
 import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
 import { GroupSettingTemplateItemRequestBuilder } from './item/groupSettingTemplateItemRequestBuilder';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GroupSettingTemplatesRequestBuilderGetQueryParameters {
     /**
@@ -47,30 +47,6 @@ export interface GroupSettingTemplatesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface GroupSettingTemplatesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GroupSettingTemplatesRequestBuilderGetQueryParameters;
-}
-export interface GroupSettingTemplatesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the collection of groupSettingTemplate entities.
@@ -131,7 +107,7 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of GroupSettingTemplateCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/groupsettingtemplate-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: GroupSettingTemplatesRequestBuilderGetRequestConfiguration | undefined) : Promise<GroupSettingTemplateCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GroupSettingTemplatesRequestBuilderGetQueryParameters> | undefined) : Promise<GroupSettingTemplateCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -147,7 +123,7 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupSettingTemplate
      */
-    public post(body: GroupSettingTemplate, requestConfiguration?: GroupSettingTemplatesRequestBuilderPostRequestConfiguration | undefined) : Promise<GroupSettingTemplate | undefined> {
+    public post(body: GroupSettingTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GroupSettingTemplate | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -162,17 +138,10 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GroupSettingTemplatesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GroupSettingTemplatesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, groupSettingTemplatesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -181,17 +150,11 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GroupSettingTemplate, requestConfiguration?: GroupSettingTemplatesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GroupSettingTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGroupSettingTemplate);
         return requestInfo;
     };
@@ -205,5 +168,15 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
         return new GroupSettingTemplatesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const groupSettingTemplatesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

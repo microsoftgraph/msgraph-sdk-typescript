@@ -23,7 +23,7 @@ export function deserializeIntoAttributeMappingFunctionSchema(attributeMappingFu
 }
 export function serializeAttributeMappingFunctionSchema(writer: SerializationWriter, attributeMappingFunctionSchema: AttributeMappingFunctionSchema | undefined = {} as AttributeMappingFunctionSchema) : void {
         serializeEntity(writer, attributeMappingFunctionSchema)
-        writer.writeCollectionOfObjectValues<AttributeMappingParameterSchema>("parameters", attributeMappingFunctionSchema.parameters, );
+        writer.writeCollectionOfObjectValues<AttributeMappingParameterSchema>("parameters", attributeMappingFunctionSchema.parameters, serializeAttributeMappingParameterSchema);
 }
 // tslint:enable
 // eslint-enable

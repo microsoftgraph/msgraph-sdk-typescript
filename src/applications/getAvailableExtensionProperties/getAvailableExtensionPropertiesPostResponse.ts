@@ -23,7 +23,7 @@ export interface GetAvailableExtensionPropertiesPostResponse extends BaseCollect
 }
 export function serializeGetAvailableExtensionPropertiesPostResponse(writer: SerializationWriter, getAvailableExtensionPropertiesPostResponse: GetAvailableExtensionPropertiesPostResponse | undefined = {} as GetAvailableExtensionPropertiesPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getAvailableExtensionPropertiesPostResponse)
-        writer.writeCollectionOfObjectValues<ExtensionProperty>("value", getAvailableExtensionPropertiesPostResponse.value, );
+        writer.writeCollectionOfObjectValues<ExtensionProperty>("value", getAvailableExtensionPropertiesPostResponse.value, serializeExtensionProperty);
 }
 // tslint:enable
 // eslint-enable

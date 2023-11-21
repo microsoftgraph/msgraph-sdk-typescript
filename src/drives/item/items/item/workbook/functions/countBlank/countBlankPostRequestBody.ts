@@ -24,7 +24,7 @@ export function deserializeIntoCountBlankPostRequestBody(countBlankPostRequestBo
     }
 }
 export function serializeCountBlankPostRequestBody(writer: SerializationWriter, countBlankPostRequestBody: CountBlankPostRequestBody | undefined = {} as CountBlankPostRequestBody) : void {
-        writer.writeObjectValue<Json>("range", countBlankPostRequestBody.range, );
+        writer.writeObjectValue<Json>("range", countBlankPostRequestBody.range, serializeJson);
         writer.writeAdditionalData(countBlankPostRequestBody.additionalData);
 }
 // tslint:enable

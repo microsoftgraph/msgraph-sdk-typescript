@@ -14,7 +14,7 @@ export function deserializeIntoSkewPostRequestBody(skewPostRequestBody: SkewPost
     }
 }
 export function serializeSkewPostRequestBody(writer: SerializationWriter, skewPostRequestBody: SkewPostRequestBody | undefined = {} as SkewPostRequestBody) : void {
-        writer.writeObjectValue<Json>("values", skewPostRequestBody.values, );
+        writer.writeObjectValue<Json>("values", skewPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(skewPostRequestBody.additionalData);
 }
 export interface SkewPostRequestBody extends AdditionalDataHolder, Parsable {

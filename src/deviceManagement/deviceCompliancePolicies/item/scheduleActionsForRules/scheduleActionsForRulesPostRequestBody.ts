@@ -24,7 +24,7 @@ export interface ScheduleActionsForRulesPostRequestBody extends AdditionalDataHo
     deviceComplianceScheduledActionForRules?: DeviceComplianceScheduledActionForRule[];
 }
 export function serializeScheduleActionsForRulesPostRequestBody(writer: SerializationWriter, scheduleActionsForRulesPostRequestBody: ScheduleActionsForRulesPostRequestBody | undefined = {} as ScheduleActionsForRulesPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("deviceComplianceScheduledActionForRules", scheduleActionsForRulesPostRequestBody.deviceComplianceScheduledActionForRules, );
+        writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("deviceComplianceScheduledActionForRules", scheduleActionsForRulesPostRequestBody.deviceComplianceScheduledActionForRules, serializeDeviceComplianceScheduledActionForRule);
         writer.writeAdditionalData(scheduleActionsForRulesPostRequestBody.additionalData);
 }
 // tslint:enable

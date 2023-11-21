@@ -10,7 +10,7 @@ import { AddRequestBuilder } from './add/addRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookTableRowItemRequestBuilder } from './item/workbookTableRowItemRequestBuilder';
 import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RowsRequestBuilderGetQueryParameters {
     /**
@@ -45,30 +45,6 @@ export interface RowsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface RowsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RowsRequestBuilderGetQueryParameters;
-}
-export interface RowsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
@@ -111,7 +87,7 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookTableRowCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/table-list-rows?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RowsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableRowCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RowsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookTableRowCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -137,7 +113,7 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookTableRow
      * @see {@link https://learn.microsoft.com/graph/api/table-post-rows?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: WorkbookTableRow, requestConfiguration?: RowsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookTableRow | undefined> {
+    public post(body: WorkbookTableRow, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTableRow | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -152,17 +128,10 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RowsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RowsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, rowsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -171,17 +140,11 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkbookTableRow, requestConfiguration?: RowsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkbookTableRow, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookTableRow);
         return requestInfo;
     };
@@ -195,5 +158,15 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
         return new RowsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const rowsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

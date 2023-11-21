@@ -24,7 +24,7 @@ export interface ImConjugatePostRequestBody extends AdditionalDataHolder, Parsab
     inumber?: Json;
 }
 export function serializeImConjugatePostRequestBody(writer: SerializationWriter, imConjugatePostRequestBody: ImConjugatePostRequestBody | undefined = {} as ImConjugatePostRequestBody) : void {
-        writer.writeObjectValue<Json>("inumber", imConjugatePostRequestBody.inumber, );
+        writer.writeObjectValue<Json>("inumber", imConjugatePostRequestBody.inumber, serializeJson);
         writer.writeAdditionalData(imConjugatePostRequestBody.additionalData);
 }
 // tslint:enable

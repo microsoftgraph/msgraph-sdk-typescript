@@ -51,7 +51,7 @@ export function serializePrintConnector(writer: SerializationWriter, printConnec
         writer.writeStringValue("appVersion", printConnector.appVersion);
         writer.writeStringValue("displayName", printConnector.displayName);
         writer.writeStringValue("fullyQualifiedDomainName", printConnector.fullyQualifiedDomainName);
-        writer.writeObjectValue<PrinterLocation>("location", printConnector.location, );
+        writer.writeObjectValue<PrinterLocation>("location", printConnector.location, serializePrinterLocation);
         writer.writeStringValue("operatingSystem", printConnector.operatingSystem);
         writer.writeDateValue("registeredDateTime", printConnector.registeredDateTime);
 }

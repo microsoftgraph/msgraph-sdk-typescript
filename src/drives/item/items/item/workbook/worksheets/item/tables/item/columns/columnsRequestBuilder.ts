@@ -10,7 +10,7 @@ import { AddRequestBuilder } from './add/addRequestBuilder';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookTableColumnItemRequestBuilder } from './item/workbookTableColumnItemRequestBuilder';
 import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ColumnsRequestBuilderGetQueryParameters {
     /**
@@ -45,30 +45,6 @@ export interface ColumnsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface ColumnsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ColumnsRequestBuilderGetQueryParameters;
-}
-export interface ColumnsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
@@ -109,9 +85,9 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of tablecolumn objects. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableColumnCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/tablecolumn-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ColumnsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableColumnCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ColumnsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookTableColumnCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -137,7 +113,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookTableColumn
      * @see {@link https://learn.microsoft.com/graph/api/table-post-columns?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: WorkbookTableColumn, requestConfiguration?: ColumnsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookTableColumn | undefined> {
+    public post(body: WorkbookTableColumn, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTableColumn | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -152,17 +128,10 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ColumnsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ColumnsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, columnsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -171,17 +140,11 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkbookTableColumn, requestConfiguration?: ColumnsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkbookTableColumn, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookTableColumn);
         return requestInfo;
     };
@@ -195,5 +158,15 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
         return new ColumnsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const columnsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

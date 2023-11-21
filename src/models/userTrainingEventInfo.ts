@@ -23,9 +23,9 @@ export function serializeUserTrainingEventInfo(writer: SerializationWriter, user
         writer.writeStringValue("displayName", userTrainingEventInfo.displayName);
         writer.writeEnumValue<TrainingStatus>("latestTrainingStatus", userTrainingEventInfo.latestTrainingStatus);
         writer.writeStringValue("@odata.type", userTrainingEventInfo.odataType);
-        writer.writeObjectValue<UserTrainingContentEventInfo>("trainingAssignedProperties", userTrainingEventInfo.trainingAssignedProperties, );
-        writer.writeObjectValue<UserTrainingContentEventInfo>("trainingCompletedProperties", userTrainingEventInfo.trainingCompletedProperties, );
-        writer.writeObjectValue<UserTrainingContentEventInfo>("trainingUpdatedProperties", userTrainingEventInfo.trainingUpdatedProperties, );
+        writer.writeObjectValue<UserTrainingContentEventInfo>("trainingAssignedProperties", userTrainingEventInfo.trainingAssignedProperties, serializeUserTrainingContentEventInfo);
+        writer.writeObjectValue<UserTrainingContentEventInfo>("trainingCompletedProperties", userTrainingEventInfo.trainingCompletedProperties, serializeUserTrainingContentEventInfo);
+        writer.writeObjectValue<UserTrainingContentEventInfo>("trainingUpdatedProperties", userTrainingEventInfo.trainingUpdatedProperties, serializeUserTrainingContentEventInfo);
         writer.writeAdditionalData(userTrainingEventInfo.additionalData);
 }
 export interface UserTrainingEventInfo extends AdditionalDataHolder, Parsable {

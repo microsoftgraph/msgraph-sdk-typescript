@@ -44,11 +44,11 @@ export function deserializeIntoDdbPostRequestBody(ddbPostRequestBody: DdbPostReq
     }
 }
 export function serializeDdbPostRequestBody(writer: SerializationWriter, ddbPostRequestBody: DdbPostRequestBody | undefined = {} as DdbPostRequestBody) : void {
-        writer.writeObjectValue<Json>("cost", ddbPostRequestBody.cost, );
-        writer.writeObjectValue<Json>("factor", ddbPostRequestBody.factor, );
-        writer.writeObjectValue<Json>("life", ddbPostRequestBody.life, );
-        writer.writeObjectValue<Json>("period", ddbPostRequestBody.period, );
-        writer.writeObjectValue<Json>("salvage", ddbPostRequestBody.salvage, );
+        writer.writeObjectValue<Json>("cost", ddbPostRequestBody.cost, serializeJson);
+        writer.writeObjectValue<Json>("factor", ddbPostRequestBody.factor, serializeJson);
+        writer.writeObjectValue<Json>("life", ddbPostRequestBody.life, serializeJson);
+        writer.writeObjectValue<Json>("period", ddbPostRequestBody.period, serializeJson);
+        writer.writeObjectValue<Json>("salvage", ddbPostRequestBody.salvage, serializeJson);
         writer.writeAdditionalData(ddbPostRequestBody.additionalData);
 }
 // tslint:enable

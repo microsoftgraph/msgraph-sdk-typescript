@@ -39,10 +39,10 @@ export interface NetworkDays_IntlPostRequestBody extends AdditionalDataHolder, P
     weekend?: Json;
 }
 export function serializeNetworkDays_IntlPostRequestBody(writer: SerializationWriter, networkDays_IntlPostRequestBody: NetworkDays_IntlPostRequestBody | undefined = {} as NetworkDays_IntlPostRequestBody) : void {
-        writer.writeObjectValue<Json>("endDate", networkDays_IntlPostRequestBody.endDate, );
-        writer.writeObjectValue<Json>("holidays", networkDays_IntlPostRequestBody.holidays, );
-        writer.writeObjectValue<Json>("startDate", networkDays_IntlPostRequestBody.startDate, );
-        writer.writeObjectValue<Json>("weekend", networkDays_IntlPostRequestBody.weekend, );
+        writer.writeObjectValue<Json>("endDate", networkDays_IntlPostRequestBody.endDate, serializeJson);
+        writer.writeObjectValue<Json>("holidays", networkDays_IntlPostRequestBody.holidays, serializeJson);
+        writer.writeObjectValue<Json>("startDate", networkDays_IntlPostRequestBody.startDate, serializeJson);
+        writer.writeObjectValue<Json>("weekend", networkDays_IntlPostRequestBody.weekend, serializeJson);
         writer.writeAdditionalData(networkDays_IntlPostRequestBody.additionalData);
 }
 // tslint:enable

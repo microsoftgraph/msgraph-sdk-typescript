@@ -24,7 +24,7 @@ export interface Oct2DecPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeOct2DecPostRequestBody(writer: SerializationWriter, oct2DecPostRequestBody: Oct2DecPostRequestBody | undefined = {} as Oct2DecPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", oct2DecPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", oct2DecPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(oct2DecPostRequestBody.additionalData);
 }
 // tslint:enable

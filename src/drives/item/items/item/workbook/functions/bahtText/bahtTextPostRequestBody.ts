@@ -24,7 +24,7 @@ export function deserializeIntoBahtTextPostRequestBody(bahtTextPostRequestBody: 
     }
 }
 export function serializeBahtTextPostRequestBody(writer: SerializationWriter, bahtTextPostRequestBody: BahtTextPostRequestBody | undefined = {} as BahtTextPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", bahtTextPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", bahtTextPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(bahtTextPostRequestBody.additionalData);
 }
 // tslint:enable

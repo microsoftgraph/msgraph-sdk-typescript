@@ -5,7 +5,7 @@ import { type LoginPage } from '../../../../../models/';
 import { createLoginPageFromDiscriminatorValue } from '../../../../../models/loginPage';
 import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LoginPageRequestBuilderGetQueryParameters {
     /**
@@ -16,20 +16,6 @@ export interface LoginPageRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface LoginPageRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: LoginPageRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the loginPage property of the microsoft.graph.simulation entity.
@@ -44,11 +30,11 @@ export class LoginPageRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/loginPage{?%24select,%24expand}");
     };
     /**
-     * Get loginPage from security
+     * The login page associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LoginPage
      */
-    public get(requestConfiguration?: LoginPageRequestBuilderGetRequestConfiguration | undefined) : Promise<LoginPage | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<LoginPageRequestBuilderGetQueryParameters> | undefined) : Promise<LoginPage | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -59,21 +45,14 @@ export class LoginPageRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<LoginPage>(requestInfo, createLoginPageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get loginPage from security
+     * The login page associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: LoginPageRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<LoginPageRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, loginPageRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -86,5 +65,9 @@ export class LoginPageRequestBuilder extends BaseRequestBuilder {
         return new LoginPageRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const loginPageRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

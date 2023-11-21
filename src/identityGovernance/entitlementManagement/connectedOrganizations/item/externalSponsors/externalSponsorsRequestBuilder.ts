@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DirectoryObjectItemRequestBuilder } from './item/directoryObjectItemRequestBuilder';
 import { RefRequestBuilder } from './ref/refRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ExternalSponsorsRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface ExternalSponsorsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface ExternalSponsorsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ExternalSponsorsRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the externalSponsors property of the microsoft.graph.connectedOrganization entity.
@@ -99,7 +85,7 @@ export class ExternalSponsorsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DirectoryObjectCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/connectedorganization-list-externalsponsors?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ExternalSponsorsRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ExternalSponsorsRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,17 +100,10 @@ export class ExternalSponsorsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ExternalSponsorsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExternalSponsorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, externalSponsorsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -137,5 +116,15 @@ export class ExternalSponsorsRequestBuilder extends BaseRequestBuilder {
         return new ExternalSponsorsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const externalSponsorsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

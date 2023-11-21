@@ -9,7 +9,7 @@ import { createPrivilegedAccessGroupEligibilityScheduleRequestCollectionResponse
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilder } from './item/privilegedAccessGroupEligibilityScheduleRequestItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EligibilityScheduleRequestsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface EligibilityScheduleRequestsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface EligibilityScheduleRequestsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: EligibilityScheduleRequestsRequestBuilderGetQueryParameters;
-}
-export interface EligibilityScheduleRequestsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the eligibilityScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
@@ -113,7 +89,7 @@ export class EligibilityScheduleRequestsRequestBuilder extends BaseRequestBuilde
      * @returns a Promise of PrivilegedAccessGroupEligibilityScheduleRequestCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-eligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: EligibilityScheduleRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<PrivilegedAccessGroupEligibilityScheduleRequestCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<EligibilityScheduleRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<PrivilegedAccessGroupEligibilityScheduleRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -130,7 +106,7 @@ export class EligibilityScheduleRequestsRequestBuilder extends BaseRequestBuilde
      * @returns a Promise of PrivilegedAccessGroupEligibilityScheduleRequest
      * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroup-post-eligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: PrivilegedAccessGroupEligibilityScheduleRequest, requestConfiguration?: EligibilityScheduleRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<PrivilegedAccessGroupEligibilityScheduleRequest | undefined> {
+    public post(body: PrivilegedAccessGroupEligibilityScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrivilegedAccessGroupEligibilityScheduleRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -145,17 +121,10 @@ export class EligibilityScheduleRequestsRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: EligibilityScheduleRequestsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<EligibilityScheduleRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, eligibilityScheduleRequestsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -164,17 +133,11 @@ export class EligibilityScheduleRequestsRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PrivilegedAccessGroupEligibilityScheduleRequest, requestConfiguration?: EligibilityScheduleRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PrivilegedAccessGroupEligibilityScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrivilegedAccessGroupEligibilityScheduleRequest);
         return requestInfo;
     };
@@ -188,5 +151,15 @@ export class EligibilityScheduleRequestsRequestBuilder extends BaseRequestBuilde
         return new EligibilityScheduleRequestsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const eligibilityScheduleRequestsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

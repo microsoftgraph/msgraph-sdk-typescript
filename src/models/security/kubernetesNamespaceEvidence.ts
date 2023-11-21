@@ -34,8 +34,8 @@ export interface KubernetesNamespaceEvidence extends AlertEvidence, Parsable {
 }
 export function serializeKubernetesNamespaceEvidence(writer: SerializationWriter, kubernetesNamespaceEvidence: KubernetesNamespaceEvidence | undefined = {} as KubernetesNamespaceEvidence) : void {
         serializeAlertEvidence(writer, kubernetesNamespaceEvidence)
-        writer.writeObjectValue<KubernetesClusterEvidence>("cluster", kubernetesNamespaceEvidence.cluster, );
-        writer.writeObjectValue<Dictionary>("labels", kubernetesNamespaceEvidence.labels, );
+        writer.writeObjectValue<KubernetesClusterEvidence>("cluster", kubernetesNamespaceEvidence.cluster, serializeKubernetesClusterEvidence);
+        writer.writeObjectValue<Dictionary>("labels", kubernetesNamespaceEvidence.labels, serializeDictionary);
         writer.writeStringValue("name", kubernetesNamespaceEvidence.name);
 }
 // tslint:enable

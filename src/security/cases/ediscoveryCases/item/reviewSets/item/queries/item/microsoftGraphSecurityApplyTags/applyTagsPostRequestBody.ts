@@ -29,8 +29,8 @@ export function deserializeIntoApplyTagsPostRequestBody(applyTagsPostRequestBody
     }
 }
 export function serializeApplyTagsPostRequestBody(writer: SerializationWriter, applyTagsPostRequestBody: ApplyTagsPostRequestBody | undefined = {} as ApplyTagsPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToAdd", applyTagsPostRequestBody.tagsToAdd, );
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToRemove", applyTagsPostRequestBody.tagsToRemove, );
+        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToAdd", applyTagsPostRequestBody.tagsToAdd, serializeEdiscoveryReviewTag);
+        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToRemove", applyTagsPostRequestBody.tagsToRemove, serializeEdiscoveryReviewTag);
         writer.writeAdditionalData(applyTagsPostRequestBody.additionalData);
 }
 // tslint:enable

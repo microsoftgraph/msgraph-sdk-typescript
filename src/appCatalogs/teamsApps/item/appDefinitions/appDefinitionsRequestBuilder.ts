@@ -8,7 +8,7 @@ import { createTeamsAppDefinitionFromDiscriminatorValue, deserializeIntoTeamsApp
 import { createTeamsAppDefinitionCollectionResponseFromDiscriminatorValue } from '../../../../models/teamsAppDefinitionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TeamsAppDefinitionItemRequestBuilder } from './item/teamsAppDefinitionItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AppDefinitionsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface AppDefinitionsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface AppDefinitionsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AppDefinitionsRequestBuilderGetQueryParameters;
-}
-export interface AppDefinitionsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
  */
@@ -102,7 +78,7 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsAppDefinitionCollectionResponse
      */
-    public get(requestConfiguration?: AppDefinitionsRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamsAppDefinitionCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AppDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsAppDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TeamsAppDefinition
      * @see {@link https://learn.microsoft.com/graph/api/teamsapp-update?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TeamsAppDefinition, requestConfiguration?: AppDefinitionsRequestBuilderPostRequestConfiguration | undefined) : Promise<TeamsAppDefinition | undefined> {
+    public post(body: TeamsAppDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsAppDefinition | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AppDefinitionsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, appDefinitionsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TeamsAppDefinition, requestConfiguration?: AppDefinitionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TeamsAppDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeamsAppDefinition);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
         return new AppDefinitionsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const appDefinitionsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

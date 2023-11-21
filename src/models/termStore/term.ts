@@ -28,14 +28,14 @@ export function deserializeIntoTerm(term: Term | undefined = {} as Term) : Recor
 }
 export function serializeTerm(writer: SerializationWriter, term: Term | undefined = {} as Term) : void {
         serializeEntity(writer, term)
-        writer.writeCollectionOfObjectValues<Term>("children", term.children, );
+        writer.writeCollectionOfObjectValues<Term>("children", term.children, serializeTerm);
         writer.writeDateValue("createdDateTime", term.createdDateTime);
-        writer.writeCollectionOfObjectValues<LocalizedDescription>("descriptions", term.descriptions, );
-        writer.writeCollectionOfObjectValues<LocalizedLabel>("labels", term.labels, );
+        writer.writeCollectionOfObjectValues<LocalizedDescription>("descriptions", term.descriptions, serializeLocalizedDescription);
+        writer.writeCollectionOfObjectValues<LocalizedLabel>("labels", term.labels, serializeLocalizedLabel);
         writer.writeDateValue("lastModifiedDateTime", term.lastModifiedDateTime);
-        writer.writeCollectionOfObjectValues<KeyValue>("properties", term.properties, );
-        writer.writeCollectionOfObjectValues<Relation>("relations", term.relations, );
-        writer.writeObjectValue<Set>("set", term.set, );
+        writer.writeCollectionOfObjectValues<KeyValue>("properties", term.properties, serializeKeyValue);
+        writer.writeCollectionOfObjectValues<Relation>("relations", term.relations, serializeRelation);
+        writer.writeObjectValue<Set>("set", term.set, serializeSet);
 }
 export interface Term extends Entity, Parsable {
     /**

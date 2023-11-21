@@ -30,7 +30,7 @@ export interface ReplyPostRequestBody extends AdditionalDataHolder, Parsable {
 }
 export function serializeReplyPostRequestBody(writer: SerializationWriter, replyPostRequestBody: ReplyPostRequestBody | undefined = {} as ReplyPostRequestBody) : void {
         writer.writeStringValue("Comment", replyPostRequestBody.comment);
-        writer.writeObjectValue<Message>("Message", replyPostRequestBody.message, );
+        writer.writeObjectValue<Message>("Message", replyPostRequestBody.message, serializeMessage);
         writer.writeAdditionalData(replyPostRequestBody.additionalData);
 }
 // tslint:enable

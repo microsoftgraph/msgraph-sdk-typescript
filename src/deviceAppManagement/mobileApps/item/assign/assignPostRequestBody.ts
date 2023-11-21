@@ -24,7 +24,7 @@ export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: Assi
     }
 }
 export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<MobileAppAssignment>("mobileAppAssignments", assignPostRequestBody.mobileAppAssignments, );
+        writer.writeCollectionOfObjectValues<MobileAppAssignment>("mobileAppAssignments", assignPostRequestBody.mobileAppAssignments, serializeMobileAppAssignment);
         writer.writeAdditionalData(assignPostRequestBody.additionalData);
 }
 // tslint:enable

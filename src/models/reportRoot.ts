@@ -57,13 +57,13 @@ export interface ReportRoot extends AdditionalDataHolder, Parsable {
     security?: SecurityReportsRoot;
 }
 export function serializeReportRoot(writer: SerializationWriter, reportRoot: ReportRoot | undefined = {} as ReportRoot) : void {
-        writer.writeObjectValue<AuthenticationMethodsRoot>("authenticationMethods", reportRoot.authenticationMethods, );
-        writer.writeCollectionOfObjectValues<PrintUsageByPrinter>("dailyPrintUsageByPrinter", reportRoot.dailyPrintUsageByPrinter, );
-        writer.writeCollectionOfObjectValues<PrintUsageByUser>("dailyPrintUsageByUser", reportRoot.dailyPrintUsageByUser, );
-        writer.writeCollectionOfObjectValues<PrintUsageByPrinter>("monthlyPrintUsageByPrinter", reportRoot.monthlyPrintUsageByPrinter, );
-        writer.writeCollectionOfObjectValues<PrintUsageByUser>("monthlyPrintUsageByUser", reportRoot.monthlyPrintUsageByUser, );
+        writer.writeObjectValue<AuthenticationMethodsRoot>("authenticationMethods", reportRoot.authenticationMethods, serializeAuthenticationMethodsRoot);
+        writer.writeCollectionOfObjectValues<PrintUsageByPrinter>("dailyPrintUsageByPrinter", reportRoot.dailyPrintUsageByPrinter, serializePrintUsageByPrinter);
+        writer.writeCollectionOfObjectValues<PrintUsageByUser>("dailyPrintUsageByUser", reportRoot.dailyPrintUsageByUser, serializePrintUsageByUser);
+        writer.writeCollectionOfObjectValues<PrintUsageByPrinter>("monthlyPrintUsageByPrinter", reportRoot.monthlyPrintUsageByPrinter, serializePrintUsageByPrinter);
+        writer.writeCollectionOfObjectValues<PrintUsageByUser>("monthlyPrintUsageByUser", reportRoot.monthlyPrintUsageByUser, serializePrintUsageByUser);
         writer.writeStringValue("@odata.type", reportRoot.odataType);
-        writer.writeObjectValue<SecurityReportsRoot>("security", reportRoot.security, );
+        writer.writeObjectValue<SecurityReportsRoot>("security", reportRoot.security, serializeSecurityReportsRoot);
         writer.writeAdditionalData(reportRoot.additionalData);
 }
 // tslint:enable

@@ -9,7 +9,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { AccessReviewScheduleDefinitionItemRequestBuilder } from './item/accessReviewScheduleDefinitionItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DefinitionsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface DefinitionsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface DefinitionsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DefinitionsRequestBuilderGetQueryParameters;
-}
-export interface DefinitionsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
@@ -113,7 +89,7 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AccessReviewScheduleDefinitionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/accessreviewset-list-definitions?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DefinitionsRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessReviewScheduleDefinitionCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<AccessReviewScheduleDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -130,7 +106,7 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AccessReviewScheduleDefinition
      * @see {@link https://learn.microsoft.com/graph/api/accessreviewset-post-definitions?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AccessReviewScheduleDefinition, requestConfiguration?: DefinitionsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
+    public post(body: AccessReviewScheduleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -145,17 +121,10 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DefinitionsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, definitionsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -164,17 +133,11 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AccessReviewScheduleDefinition, requestConfiguration?: DefinitionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AccessReviewScheduleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessReviewScheduleDefinition);
         return requestInfo;
     };
@@ -188,5 +151,15 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
         return new DefinitionsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const definitionsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

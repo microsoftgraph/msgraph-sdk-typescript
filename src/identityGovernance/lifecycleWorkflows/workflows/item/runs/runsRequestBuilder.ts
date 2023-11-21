@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { RunItemRequestBuilder } from './item/runItemRequestBuilder';
 import { MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder } from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RunsRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface RunsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface RunsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RunsRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
@@ -93,7 +79,7 @@ export class RunsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of RunCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-list-runs?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RunsRequestBuilderGetRequestConfiguration | undefined) : Promise<RunCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RunsRequestBuilderGetQueryParameters> | undefined) : Promise<RunCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,17 +105,10 @@ export class RunsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RunsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RunsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, runsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -142,5 +121,15 @@ export class RunsRequestBuilder extends BaseRequestBuilder {
         return new RunsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const runsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -34,9 +34,9 @@ export interface DstDevPPostRequestBody extends AdditionalDataHolder, Parsable {
     field?: Json;
 }
 export function serializeDstDevPPostRequestBody(writer: SerializationWriter, dstDevPPostRequestBody: DstDevPPostRequestBody | undefined = {} as DstDevPPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dstDevPPostRequestBody.criteria, );
-        writer.writeObjectValue<Json>("database", dstDevPPostRequestBody.database, );
-        writer.writeObjectValue<Json>("field", dstDevPPostRequestBody.field, );
+        writer.writeObjectValue<Json>("criteria", dstDevPPostRequestBody.criteria, serializeJson);
+        writer.writeObjectValue<Json>("database", dstDevPPostRequestBody.database, serializeJson);
+        writer.writeObjectValue<Json>("field", dstDevPPostRequestBody.field, serializeJson);
         writer.writeAdditionalData(dstDevPPostRequestBody.additionalData);
 }
 // tslint:enable

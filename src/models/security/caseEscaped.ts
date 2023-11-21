@@ -64,7 +64,7 @@ export function serializeCaseEscaped(writer: SerializationWriter, caseEscaped: C
         writer.writeDateValue("createdDateTime", caseEscaped.createdDateTime);
         writer.writeStringValue("description", caseEscaped.description);
         writer.writeStringValue("displayName", caseEscaped.displayName);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", caseEscaped.lastModifiedBy, );
+        writer.writeObjectValue<IdentitySet>("lastModifiedBy", caseEscaped.lastModifiedBy, serializeIdentitySet);
         writer.writeDateValue("lastModifiedDateTime", caseEscaped.lastModifiedDateTime);
         writer.writeEnumValue<CaseStatus>("status", caseEscaped.status);
 }

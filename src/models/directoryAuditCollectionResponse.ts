@@ -23,7 +23,7 @@ export interface DirectoryAuditCollectionResponse extends BaseCollectionPaginati
 }
 export function serializeDirectoryAuditCollectionResponse(writer: SerializationWriter, directoryAuditCollectionResponse: DirectoryAuditCollectionResponse | undefined = {} as DirectoryAuditCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, directoryAuditCollectionResponse)
-        writer.writeCollectionOfObjectValues<DirectoryAudit>("value", directoryAuditCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DirectoryAudit>("value", directoryAuditCollectionResponse.value, serializeDirectoryAudit);
 }
 // tslint:enable
 // eslint-enable

@@ -34,9 +34,9 @@ export interface Poisson_DistPostRequestBody extends AdditionalDataHolder, Parsa
     x?: Json;
 }
 export function serializePoisson_DistPostRequestBody(writer: SerializationWriter, poisson_DistPostRequestBody: Poisson_DistPostRequestBody | undefined = {} as Poisson_DistPostRequestBody) : void {
-        writer.writeObjectValue<Json>("cumulative", poisson_DistPostRequestBody.cumulative, );
-        writer.writeObjectValue<Json>("mean", poisson_DistPostRequestBody.mean, );
-        writer.writeObjectValue<Json>("x", poisson_DistPostRequestBody.x, );
+        writer.writeObjectValue<Json>("cumulative", poisson_DistPostRequestBody.cumulative, serializeJson);
+        writer.writeObjectValue<Json>("mean", poisson_DistPostRequestBody.mean, serializeJson);
+        writer.writeObjectValue<Json>("x", poisson_DistPostRequestBody.x, serializeJson);
         writer.writeAdditionalData(poisson_DistPostRequestBody.additionalData);
 }
 // tslint:enable

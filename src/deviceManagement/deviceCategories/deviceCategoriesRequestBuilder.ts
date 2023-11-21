@@ -8,7 +8,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeviceCategoryItemRequestBuilder } from './item/deviceCategoryItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceCategoriesRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface DeviceCategoriesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface DeviceCategoriesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DeviceCategoriesRequestBuilderGetQueryParameters;
-}
-export interface DeviceCategoriesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
@@ -103,7 +79,7 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DeviceCategoryCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicecategory-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeviceCategoriesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCategoryCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DeviceCategoriesRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCategoryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DeviceCategory
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicecategory-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DeviceCategory, requestConfiguration?: DeviceCategoriesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceCategory | undefined> {
+    public post(body: DeviceCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCategory | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DeviceCategoriesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCategoriesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, deviceCategoriesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DeviceCategory, requestConfiguration?: DeviceCategoriesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DeviceCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceCategory);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
         return new DeviceCategoriesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const deviceCategoriesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

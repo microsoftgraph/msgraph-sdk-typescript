@@ -29,7 +29,7 @@ export interface IosMobileAppConfiguration extends ManagedDeviceMobileAppConfigu
 export function serializeIosMobileAppConfiguration(writer: SerializationWriter, iosMobileAppConfiguration: IosMobileAppConfiguration | undefined = {} as IosMobileAppConfiguration) : void {
         serializeManagedDeviceMobileAppConfiguration(writer, iosMobileAppConfiguration)
         writer.writeStringValue("encodedSettingXml", iosMobileAppConfiguration.encodedSettingXml);
-        writer.writeCollectionOfObjectValues<AppConfigurationSettingItem>("settings", iosMobileAppConfiguration.settings, );
+        writer.writeCollectionOfObjectValues<AppConfigurationSettingItem>("settings", iosMobileAppConfiguration.settings, serializeAppConfigurationSettingItem);
 }
 // tslint:enable
 // eslint-enable

@@ -34,9 +34,9 @@ export interface MatchPostRequestBody extends AdditionalDataHolder, Parsable {
     matchType?: Json;
 }
 export function serializeMatchPostRequestBody(writer: SerializationWriter, matchPostRequestBody: MatchPostRequestBody | undefined = {} as MatchPostRequestBody) : void {
-        writer.writeObjectValue<Json>("lookupArray", matchPostRequestBody.lookupArray, );
-        writer.writeObjectValue<Json>("lookupValue", matchPostRequestBody.lookupValue, );
-        writer.writeObjectValue<Json>("matchType", matchPostRequestBody.matchType, );
+        writer.writeObjectValue<Json>("lookupArray", matchPostRequestBody.lookupArray, serializeJson);
+        writer.writeObjectValue<Json>("lookupValue", matchPostRequestBody.lookupValue, serializeJson);
+        writer.writeObjectValue<Json>("matchType", matchPostRequestBody.matchType, serializeJson);
         writer.writeAdditionalData(matchPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -8,7 +8,7 @@ import { createDataSourceFromDiscriminatorValue, deserializeIntoDataSource, seri
 import { createDataSourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/security/dataSourceCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DataSourceItemRequestBuilder } from './item/dataSourceItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AdditionalSourcesRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface AdditionalSourcesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface AdditionalSourcesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AdditionalSourcesRequestBuilderGetQueryParameters;
-}
-export interface AdditionalSourcesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
@@ -103,7 +79,7 @@ export class AdditionalSourcesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DataSourceCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-list-additionalsources?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AdditionalSourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<DataSourceCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AdditionalSourcesRequestBuilderGetQueryParameters> | undefined) : Promise<DataSourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class AdditionalSourcesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DataSource
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-post-additionalsources?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DataSource, requestConfiguration?: AdditionalSourcesRequestBuilderPostRequestConfiguration | undefined) : Promise<DataSource | undefined> {
+    public post(body: DataSource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DataSource | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class AdditionalSourcesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AdditionalSourcesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AdditionalSourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, additionalSourcesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class AdditionalSourcesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DataSource, requestConfiguration?: AdditionalSourcesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DataSource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDataSource);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class AdditionalSourcesRequestBuilder extends BaseRequestBuilder {
         return new AdditionalSourcesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const additionalSourcesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -23,7 +23,7 @@ export function deserializeIntoAccessPackageCatalogCollectionResponse(accessPack
 }
 export function serializeAccessPackageCatalogCollectionResponse(writer: SerializationWriter, accessPackageCatalogCollectionResponse: AccessPackageCatalogCollectionResponse | undefined = {} as AccessPackageCatalogCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessPackageCatalogCollectionResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageCatalog>("value", accessPackageCatalogCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AccessPackageCatalog>("value", accessPackageCatalogCollectionResponse.value, serializeAccessPackageCatalog);
 }
 // tslint:enable
 // eslint-enable

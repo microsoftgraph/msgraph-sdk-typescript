@@ -17,7 +17,7 @@ export function deserializeIntoUnifiedRoleManagementPolicyAssignmentCollectionRe
 }
 export function serializeUnifiedRoleManagementPolicyAssignmentCollectionResponse(writer: SerializationWriter, unifiedRoleManagementPolicyAssignmentCollectionResponse: UnifiedRoleManagementPolicyAssignmentCollectionResponse | undefined = {} as UnifiedRoleManagementPolicyAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, unifiedRoleManagementPolicyAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignment>("value", unifiedRoleManagementPolicyAssignmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignment>("value", unifiedRoleManagementPolicyAssignmentCollectionResponse.value, serializeUnifiedRoleManagementPolicyAssignment);
 }
 export interface UnifiedRoleManagementPolicyAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

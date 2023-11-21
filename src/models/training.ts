@@ -35,14 +35,14 @@ export function deserializeIntoTraining(training: Training | undefined = {} as T
 export function serializeTraining(writer: SerializationWriter, training: Training | undefined = {} as Training) : void {
         serializeEntity(writer, training)
         writer.writeEnumValue<TrainingAvailabilityStatus>("availabilityStatus", training.availabilityStatus);
-        writer.writeObjectValue<EmailIdentity>("createdBy", training.createdBy, );
+        writer.writeObjectValue<EmailIdentity>("createdBy", training.createdBy, serializeEmailIdentity);
         writer.writeDateValue("createdDateTime", training.createdDateTime);
         writer.writeStringValue("description", training.description);
         writer.writeStringValue("displayName", training.displayName);
         writer.writeNumberValue("durationInMinutes", training.durationInMinutes);
         writer.writeBooleanValue("hasEvaluation", training.hasEvaluation);
-        writer.writeCollectionOfObjectValues<TrainingLanguageDetail>("languageDetails", training.languageDetails, );
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", training.lastModifiedBy, );
+        writer.writeCollectionOfObjectValues<TrainingLanguageDetail>("languageDetails", training.languageDetails, serializeTrainingLanguageDetail);
+        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", training.lastModifiedBy, serializeEmailIdentity);
         writer.writeDateValue("lastModifiedDateTime", training.lastModifiedDateTime);
         writer.writeEnumValue<SimulationContentSource>("source", training.source);
         writer.writeCollectionOfPrimitiveValues<string>("supportedLocales", training.supportedLocales);
@@ -51,59 +51,59 @@ export function serializeTraining(writer: SerializationWriter, training: Trainin
 }
 export interface Training extends Entity, Parsable {
     /**
-     * The availabilityStatus property
+     * Training availability status. Possible values are: unknown, notAvailable, available, archive, delete, unknownFutureValue.
      */
     availabilityStatus?: TrainingAvailabilityStatus;
     /**
-     * The createdBy property
+     * Identity of the user who created the training.
      */
     createdBy?: EmailIdentity;
     /**
-     * The createdDateTime property
+     * Date and time when the training was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     createdDateTime?: Date;
     /**
-     * The description property
+     * The description for the training.
      */
     description?: string;
     /**
-     * The displayName property
+     * The display name for the training.
      */
     displayName?: string;
     /**
-     * The durationInMinutes property
+     * Training duration.
      */
     durationInMinutes?: number;
     /**
-     * The hasEvaluation property
+     * Indicates whether the training has any evaluation.
      */
     hasEvaluation?: boolean;
     /**
-     * The languageDetails property
+     * Language specific details on a training.
      */
     languageDetails?: TrainingLanguageDetail[];
     /**
-     * The lastModifiedBy property
+     * Identity of the user who last modified the training.
      */
     lastModifiedBy?: EmailIdentity;
     /**
-     * The lastModifiedDateTime property
+     * Date and time when the training was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     lastModifiedDateTime?: Date;
     /**
-     * The source property
+     * Training content source. Possible values are: unknown, global, tenant, unknownFutureValue.
      */
     source?: SimulationContentSource;
     /**
-     * The supportedLocales property
+     * Supported locales for content for the associated training.
      */
     supportedLocales?: string[];
     /**
-     * The tags property
+     * Training tags.
      */
     tags?: string[];
     /**
-     * The type property
+     * The type of training. Possible values are: unknown, phishing, unknownFutureValue.
      */
     type?: TrainingType;
 }

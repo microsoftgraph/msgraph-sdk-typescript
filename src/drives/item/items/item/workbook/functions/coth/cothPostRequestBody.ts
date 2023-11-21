@@ -24,7 +24,7 @@ export function deserializeIntoCothPostRequestBody(cothPostRequestBody: CothPost
     }
 }
 export function serializeCothPostRequestBody(writer: SerializationWriter, cothPostRequestBody: CothPostRequestBody | undefined = {} as CothPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", cothPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", cothPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(cothPostRequestBody.additionalData);
 }
 // tslint:enable

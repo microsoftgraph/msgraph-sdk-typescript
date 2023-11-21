@@ -35,9 +35,9 @@ export function deserializeIntoAuditLogRoot(auditLogRoot: AuditLogRoot | undefin
 }
 export function serializeAuditLogRoot(writer: SerializationWriter, auditLogRoot: AuditLogRoot | undefined = {} as AuditLogRoot) : void {
         serializeEntity(writer, auditLogRoot)
-        writer.writeCollectionOfObjectValues<DirectoryAudit>("directoryAudits", auditLogRoot.directoryAudits, );
-        writer.writeCollectionOfObjectValues<ProvisioningObjectSummary>("provisioning", auditLogRoot.provisioning, );
-        writer.writeCollectionOfObjectValues<SignIn>("signIns", auditLogRoot.signIns, );
+        writer.writeCollectionOfObjectValues<DirectoryAudit>("directoryAudits", auditLogRoot.directoryAudits, serializeDirectoryAudit);
+        writer.writeCollectionOfObjectValues<ProvisioningObjectSummary>("provisioning", auditLogRoot.provisioning, serializeProvisioningObjectSummary);
+        writer.writeCollectionOfObjectValues<SignIn>("signIns", auditLogRoot.signIns, serializeSignIn);
 }
 // tslint:enable
 // eslint-enable

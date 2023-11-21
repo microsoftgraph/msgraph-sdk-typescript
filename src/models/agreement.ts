@@ -61,13 +61,13 @@ export function deserializeIntoAgreement(agreement: Agreement | undefined = {} a
 }
 export function serializeAgreement(writer: SerializationWriter, agreement: Agreement | undefined = {} as Agreement) : void {
         serializeEntity(writer, agreement)
-        writer.writeCollectionOfObjectValues<AgreementAcceptance>("acceptances", agreement.acceptances, );
+        writer.writeCollectionOfObjectValues<AgreementAcceptance>("acceptances", agreement.acceptances, serializeAgreementAcceptance);
         writer.writeStringValue("displayName", agreement.displayName);
-        writer.writeObjectValue<AgreementFile>("file", agreement.file, );
-        writer.writeCollectionOfObjectValues<AgreementFileLocalization>("files", agreement.files, );
+        writer.writeObjectValue<AgreementFile>("file", agreement.file, serializeAgreementFile);
+        writer.writeCollectionOfObjectValues<AgreementFileLocalization>("files", agreement.files, serializeAgreementFileLocalization);
         writer.writeBooleanValue("isPerDeviceAcceptanceRequired", agreement.isPerDeviceAcceptanceRequired);
         writer.writeBooleanValue("isViewingBeforeAcceptanceRequired", agreement.isViewingBeforeAcceptanceRequired);
-        writer.writeObjectValue<TermsExpiration>("termsExpiration", agreement.termsExpiration, );
+        writer.writeObjectValue<TermsExpiration>("termsExpiration", agreement.termsExpiration, serializeTermsExpiration);
         writer.writeDurationValue("userReacceptRequiredFrequency", agreement.userReacceptRequiredFrequency);
 }
 // tslint:enable

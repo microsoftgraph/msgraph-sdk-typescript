@@ -8,7 +8,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { CustomSecurityAttributeDefinitionItemRequestBuilder } from './item/customSecurityAttributeDefinitionItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParamet
      * Show only the first n items
      */
     top?: number;
-}
-export interface CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParameters;
-}
-export interface CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
@@ -103,7 +79,7 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
      * @returns a Promise of CustomSecurityAttributeDefinitionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/directory-list-customsecurityattributedefinitions?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinitionCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<CustomSecurityAttributeDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
      * @returns a Promise of CustomSecurityAttributeDefinition
      * @see {@link https://learn.microsoft.com/graph/api/directory-post-customsecurityattributedefinitions?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CustomSecurityAttributeDefinition, requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
+    public post(body: CustomSecurityAttributeDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, customSecurityAttributeDefinitionsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CustomSecurityAttributeDefinition, requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CustomSecurityAttributeDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCustomSecurityAttributeDefinition);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
         return new CustomSecurityAttributeDefinitionsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const customSecurityAttributeDefinitionsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

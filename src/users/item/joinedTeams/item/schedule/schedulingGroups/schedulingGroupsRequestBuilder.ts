@@ -8,7 +8,7 @@ import { createSchedulingGroupFromDiscriminatorValue, deserializeIntoSchedulingG
 import { createSchedulingGroupCollectionResponseFromDiscriminatorValue } from '../../../../../../models/schedulingGroupCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SchedulingGroupItemRequestBuilder } from './item/schedulingGroupItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SchedulingGroupsRequestBuilderGetQueryParameters {
     /**
@@ -39,30 +39,6 @@ export interface SchedulingGroupsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface SchedulingGroupsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SchedulingGroupsRequestBuilderGetQueryParameters;
-}
-export interface SchedulingGroupsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
@@ -99,7 +75,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SchedulingGroupCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/schedule-list-schedulinggroups?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SchedulingGroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<SchedulingGroupCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SchedulingGroupsRequestBuilderGetQueryParameters> | undefined) : Promise<SchedulingGroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -116,7 +92,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SchedulingGroup
      * @see {@link https://learn.microsoft.com/graph/api/schedule-post-schedulinggroups?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SchedulingGroup, requestConfiguration?: SchedulingGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<SchedulingGroup | undefined> {
+    public post(body: SchedulingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SchedulingGroup | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,17 +107,10 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SchedulingGroupsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SchedulingGroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, schedulingGroupsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -150,17 +119,11 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SchedulingGroup, requestConfiguration?: SchedulingGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SchedulingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSchedulingGroup);
         return requestInfo;
     };
@@ -174,5 +137,14 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
         return new SchedulingGroupsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const schedulingGroupsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

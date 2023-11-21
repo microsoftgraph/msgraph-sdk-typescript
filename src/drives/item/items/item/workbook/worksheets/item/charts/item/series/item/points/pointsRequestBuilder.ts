@@ -9,7 +9,7 @@ import { createWorkbookChartPointCollectionResponseFromDiscriminatorValue } from
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { WorkbookChartPointItemRequestBuilder } from './item/workbookChartPointItemRequestBuilder';
 import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PointsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface PointsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface PointsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PointsRequestBuilderGetQueryParameters;
-}
-export interface PointsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
@@ -104,7 +80,7 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookChartPointCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/chartpoint-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PointsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartPointCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PointsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChartPointCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -130,7 +106,7 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookChartPoint
      * @see {@link https://learn.microsoft.com/graph/api/chartseries-post-points?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: WorkbookChartPoint, requestConfiguration?: PointsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookChartPoint | undefined> {
+    public post(body: WorkbookChartPoint, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartPoint | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -145,17 +121,10 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PointsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PointsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, pointsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -164,17 +133,11 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkbookChartPoint, requestConfiguration?: PointsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkbookChartPoint, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChartPoint);
         return requestInfo;
     };
@@ -188,5 +151,15 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
         return new PointsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const pointsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

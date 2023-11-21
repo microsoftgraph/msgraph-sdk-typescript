@@ -5,7 +5,7 @@ import { type TeamsAppDefinition } from '../../../../../../models/';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { createTeamsAppDefinitionFromDiscriminatorValue } from '../../../../../../models/teamsAppDefinition';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TeamsAppDefinitionRequestBuilderGetQueryParameters {
     /**
@@ -16,20 +16,6 @@ export interface TeamsAppDefinitionRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface TeamsAppDefinitionRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TeamsAppDefinitionRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the teamsAppDefinition property of the microsoft.graph.teamsAppInstallation entity.
@@ -48,7 +34,7 @@ export class TeamsAppDefinitionRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsAppDefinition
      */
-    public get(requestConfiguration?: TeamsAppDefinitionRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamsAppDefinition | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TeamsAppDefinitionRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsAppDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,17 +49,10 @@ export class TeamsAppDefinitionRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TeamsAppDefinitionRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamsAppDefinitionRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, teamsAppDefinitionRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -86,5 +65,9 @@ export class TeamsAppDefinitionRequestBuilder extends BaseRequestBuilder {
         return new TeamsAppDefinitionRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const teamsAppDefinitionRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

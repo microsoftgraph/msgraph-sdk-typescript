@@ -23,7 +23,7 @@ export interface OpenShiftCollectionResponse extends BaseCollectionPaginationCou
 }
 export function serializeOpenShiftCollectionResponse(writer: SerializationWriter, openShiftCollectionResponse: OpenShiftCollectionResponse | undefined = {} as OpenShiftCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, openShiftCollectionResponse)
-        writer.writeCollectionOfObjectValues<OpenShift>("value", openShiftCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<OpenShift>("value", openShiftCollectionResponse.value, serializeOpenShift);
 }
 // tslint:enable
 // eslint-enable

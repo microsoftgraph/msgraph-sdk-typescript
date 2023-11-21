@@ -4,18 +4,8 @@
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { deserializeIntoApplyTagsPostRequestBody, serializeApplyTagsPostRequestBody, type ApplyTagsPostRequestBody } from './applyTagsPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface MicrosoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the applyTags method.
  */
@@ -34,7 +24,7 @@ export class MicrosoftGraphSecurityApplyTagsRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewsetquery-applytags?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ApplyTagsPostRequestBody, requestConfiguration?: MicrosoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
+    public post(body: ApplyTagsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -50,17 +40,11 @@ export class MicrosoftGraphSecurityApplyTagsRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ApplyTagsPostRequestBody, requestConfiguration?: MicrosoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ApplyTagsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApplyTagsPostRequestBody);
         return requestInfo;
     };

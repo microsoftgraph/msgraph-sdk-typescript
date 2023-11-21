@@ -8,7 +8,7 @@ import { createServicePrincipalRiskDetectionFromDiscriminatorValue, deserializeI
 import { createServicePrincipalRiskDetectionCollectionResponseFromDiscriminatorValue } from '../../models/servicePrincipalRiskDetectionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ServicePrincipalRiskDetectionItemRequestBuilder } from './item/servicePrincipalRiskDetectionItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters 
      * Show only the first n items
      */
     top?: number;
-}
-export interface ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters;
-}
-export interface ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
@@ -103,7 +79,7 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
      * @returns a Promise of ServicePrincipalRiskDetectionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/identityprotectionroot-list-serviceprincipalriskdetections?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration | undefined) : Promise<ServicePrincipalRiskDetectionCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters> | undefined) : Promise<ServicePrincipalRiskDetectionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipalRiskDetection
      */
-    public post(body: ServicePrincipalRiskDetection, requestConfiguration?: ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration | undefined) : Promise<ServicePrincipalRiskDetection | undefined> {
+    public post(body: ServicePrincipalRiskDetection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServicePrincipalRiskDetection | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, servicePrincipalRiskDetectionsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ServicePrincipalRiskDetection, requestConfiguration?: ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ServicePrincipalRiskDetection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeServicePrincipalRiskDetection);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
         return new ServicePrincipalRiskDetectionsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const servicePrincipalRiskDetectionsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

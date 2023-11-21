@@ -5,7 +5,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { createAvailableProviderTypesGetResponseFromDiscriminatorValue } from './availableProviderTypesGetResponse';
 import { type AvailableProviderTypesGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AvailableProviderTypesRequestBuilderGetQueryParameters {
     /**
@@ -29,20 +29,6 @@ export interface AvailableProviderTypesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface AvailableProviderTypesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AvailableProviderTypesRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the availableProviderTypes method.
  */
@@ -61,7 +47,7 @@ export class AvailableProviderTypesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AvailableProviderTypesGetResponse
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      */
-    public get(requestConfiguration?: AvailableProviderTypesRequestBuilderGetRequestConfiguration | undefined) : Promise<AvailableProviderTypesGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : Promise<AvailableProviderTypesGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -77,17 +63,10 @@ export class AvailableProviderTypesRequestBuilder extends BaseRequestBuilder {
      * @returns a RequestInformation
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      */
-    public toGetRequestInformation(requestConfiguration?: AvailableProviderTypesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, availableProviderTypesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -101,5 +80,12 @@ export class AvailableProviderTypesRequestBuilder extends BaseRequestBuilder {
         return new AvailableProviderTypesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const availableProviderTypesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "search": "%24search",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

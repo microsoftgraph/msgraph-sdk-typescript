@@ -23,7 +23,7 @@ export interface HostCookieCollectionResponse extends BaseCollectionPaginationCo
 }
 export function serializeHostCookieCollectionResponse(writer: SerializationWriter, hostCookieCollectionResponse: HostCookieCollectionResponse | undefined = {} as HostCookieCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, hostCookieCollectionResponse)
-        writer.writeCollectionOfObjectValues<HostCookie>("value", hostCookieCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<HostCookie>("value", hostCookieCollectionResponse.value, serializeHostCookie);
 }
 // tslint:enable
 // eslint-enable

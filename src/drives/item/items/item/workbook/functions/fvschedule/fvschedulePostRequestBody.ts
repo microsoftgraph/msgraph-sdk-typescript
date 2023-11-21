@@ -29,8 +29,8 @@ export interface FvschedulePostRequestBody extends AdditionalDataHolder, Parsabl
     schedule?: Json;
 }
 export function serializeFvschedulePostRequestBody(writer: SerializationWriter, fvschedulePostRequestBody: FvschedulePostRequestBody | undefined = {} as FvschedulePostRequestBody) : void {
-        writer.writeObjectValue<Json>("principal", fvschedulePostRequestBody.principal, );
-        writer.writeObjectValue<Json>("schedule", fvschedulePostRequestBody.schedule, );
+        writer.writeObjectValue<Json>("principal", fvschedulePostRequestBody.principal, serializeJson);
+        writer.writeObjectValue<Json>("schedule", fvschedulePostRequestBody.schedule, serializeJson);
         writer.writeAdditionalData(fvschedulePostRequestBody.additionalData);
 }
 // tslint:enable

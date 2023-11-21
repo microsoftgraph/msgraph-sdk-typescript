@@ -29,8 +29,8 @@ export interface ExactPostRequestBody extends AdditionalDataHolder, Parsable {
     text2?: Json;
 }
 export function serializeExactPostRequestBody(writer: SerializationWriter, exactPostRequestBody: ExactPostRequestBody | undefined = {} as ExactPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text1", exactPostRequestBody.text1, );
-        writer.writeObjectValue<Json>("text2", exactPostRequestBody.text2, );
+        writer.writeObjectValue<Json>("text1", exactPostRequestBody.text1, serializeJson);
+        writer.writeObjectValue<Json>("text2", exactPostRequestBody.text2, serializeJson);
         writer.writeAdditionalData(exactPostRequestBody.additionalData);
 }
 // tslint:enable

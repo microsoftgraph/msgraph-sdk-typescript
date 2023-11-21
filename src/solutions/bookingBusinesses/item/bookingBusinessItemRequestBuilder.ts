@@ -13,18 +13,8 @@ import { PublishRequestBuilder } from './publish/publishRequestBuilder';
 import { ServicesRequestBuilder } from './services/servicesRequestBuilder';
 import { StaffMembersRequestBuilder } from './staffMembers/staffMembersRequestBuilder';
 import { UnpublishRequestBuilder } from './unpublish/unpublishRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface BookingBusinessItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface BookingBusinessItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -34,30 +24,6 @@ export interface BookingBusinessItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface BookingBusinessItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: BookingBusinessItemRequestBuilderGetQueryParameters;
-}
-export interface BookingBusinessItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
@@ -130,7 +96,7 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: BookingBusinessItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -146,7 +112,7 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of BookingBusiness
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: BookingBusinessItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingBusiness | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<BookingBusinessItemRequestBuilderGetQueryParameters> | undefined) : Promise<BookingBusiness | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -163,7 +129,7 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of BookingBusiness
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: BookingBusiness, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingBusiness | undefined> {
+    public patch(body: BookingBusiness, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingBusiness | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -178,16 +144,10 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: BookingBusinessItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -195,17 +155,10 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: BookingBusinessItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<BookingBusinessItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, bookingBusinessItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -214,17 +167,11 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: BookingBusiness, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: BookingBusiness, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBookingBusiness);
         return requestInfo;
     };
@@ -238,5 +185,9 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
         return new BookingBusinessItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const bookingBusinessItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

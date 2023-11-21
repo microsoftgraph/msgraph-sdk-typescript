@@ -16,8 +16,8 @@ export function deserializeIntoTransferPostRequestBody(transferPostRequestBody: 
     }
 }
 export function serializeTransferPostRequestBody(writer: SerializationWriter, transferPostRequestBody: TransferPostRequestBody | undefined = {} as TransferPostRequestBody) : void {
-        writer.writeObjectValue<ParticipantInfo>("transferee", transferPostRequestBody.transferee, );
-        writer.writeObjectValue<InvitationParticipantInfo>("transferTarget", transferPostRequestBody.transferTarget, );
+        writer.writeObjectValue<ParticipantInfo>("transferee", transferPostRequestBody.transferee, serializeParticipantInfo);
+        writer.writeObjectValue<InvitationParticipantInfo>("transferTarget", transferPostRequestBody.transferTarget, serializeInvitationParticipantInfo);
         writer.writeAdditionalData(transferPostRequestBody.additionalData);
 }
 export interface TransferPostRequestBody extends AdditionalDataHolder, Parsable {

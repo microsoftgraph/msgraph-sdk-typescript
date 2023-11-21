@@ -5,7 +5,7 @@ import { type ODataError } from '../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { createAllowedCalendarSharingRolesWithUserGetResponseFromDiscriminatorValue } from './allowedCalendarSharingRolesWithUserGetResponse';
 import { type AllowedCalendarSharingRolesWithUserGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters {
     /**
@@ -29,20 +29,6 @@ export interface AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParame
      */
     top?: number;
 }
-export interface AllowedCalendarSharingRolesWithUserRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the allowedCalendarSharingRoles method.
  */
@@ -62,7 +48,7 @@ export class AllowedCalendarSharingRolesWithUserRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AllowedCalendarSharingRolesWithUserGetResponse
      */
-    public get(requestConfiguration?: AllowedCalendarSharingRolesWithUserRequestBuilderGetRequestConfiguration | undefined) : Promise<AllowedCalendarSharingRolesWithUserGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters> | undefined) : Promise<AllowedCalendarSharingRolesWithUserGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -77,17 +63,10 @@ export class AllowedCalendarSharingRolesWithUserRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AllowedCalendarSharingRolesWithUserRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, allowedCalendarSharingRolesWithUserRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -100,5 +79,12 @@ export class AllowedCalendarSharingRolesWithUserRequestBuilder extends BaseReque
         return new AllowedCalendarSharingRolesWithUserRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const allowedCalendarSharingRolesWithUserRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "search": "%24search",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

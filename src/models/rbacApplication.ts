@@ -71,15 +71,15 @@ export interface RbacApplication extends Entity, Parsable {
 }
 export function serializeRbacApplication(writer: SerializationWriter, rbacApplication: RbacApplication | undefined = {} as RbacApplication) : void {
         serializeEntity(writer, rbacApplication)
-        writer.writeCollectionOfObjectValues<UnifiedRbacResourceNamespace>("resourceNamespaces", rbacApplication.resourceNamespaces, );
-        writer.writeCollectionOfObjectValues<UnifiedRoleAssignment>("roleAssignments", rbacApplication.roleAssignments, );
-        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstance>("roleAssignmentScheduleInstances", rbacApplication.roleAssignmentScheduleInstances, );
-        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleRequest>("roleAssignmentScheduleRequests", rbacApplication.roleAssignmentScheduleRequests, );
-        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentSchedule>("roleAssignmentSchedules", rbacApplication.roleAssignmentSchedules, );
-        writer.writeCollectionOfObjectValues<UnifiedRoleDefinition>("roleDefinitions", rbacApplication.roleDefinitions, );
-        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstance>("roleEligibilityScheduleInstances", rbacApplication.roleEligibilityScheduleInstances, );
-        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleRequest>("roleEligibilityScheduleRequests", rbacApplication.roleEligibilityScheduleRequests, );
-        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilitySchedule>("roleEligibilitySchedules", rbacApplication.roleEligibilitySchedules, );
+        writer.writeCollectionOfObjectValues<UnifiedRbacResourceNamespace>("resourceNamespaces", rbacApplication.resourceNamespaces, serializeUnifiedRbacResourceNamespace);
+        writer.writeCollectionOfObjectValues<UnifiedRoleAssignment>("roleAssignments", rbacApplication.roleAssignments, serializeUnifiedRoleAssignment);
+        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstance>("roleAssignmentScheduleInstances", rbacApplication.roleAssignmentScheduleInstances, serializeUnifiedRoleAssignmentScheduleInstance);
+        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleRequest>("roleAssignmentScheduleRequests", rbacApplication.roleAssignmentScheduleRequests, serializeUnifiedRoleAssignmentScheduleRequest);
+        writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentSchedule>("roleAssignmentSchedules", rbacApplication.roleAssignmentSchedules, serializeUnifiedRoleAssignmentSchedule);
+        writer.writeCollectionOfObjectValues<UnifiedRoleDefinition>("roleDefinitions", rbacApplication.roleDefinitions, serializeUnifiedRoleDefinition);
+        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleInstance>("roleEligibilityScheduleInstances", rbacApplication.roleEligibilityScheduleInstances, serializeUnifiedRoleEligibilityScheduleInstance);
+        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilityScheduleRequest>("roleEligibilityScheduleRequests", rbacApplication.roleEligibilityScheduleRequests, serializeUnifiedRoleEligibilityScheduleRequest);
+        writer.writeCollectionOfObjectValues<UnifiedRoleEligibilitySchedule>("roleEligibilitySchedules", rbacApplication.roleEligibilitySchedules, serializeUnifiedRoleEligibilitySchedule);
 }
 // tslint:enable
 // eslint-enable

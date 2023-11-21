@@ -7,7 +7,7 @@ import { type ArticleIndicatorCollectionResponse } from '../../../../../models/s
 import { createArticleIndicatorCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/articleIndicatorCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ArticleIndicatorItemRequestBuilder } from './item/articleIndicatorItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IndicatorsRequestBuilderGetQueryParameters {
     /**
@@ -42,20 +42,6 @@ export interface IndicatorsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface IndicatorsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: IndicatorsRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.article entity.
@@ -92,7 +78,7 @@ export class IndicatorsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ArticleIndicatorCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-article-list-indicators?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: IndicatorsRequestBuilderGetRequestConfiguration | undefined) : Promise<ArticleIndicatorCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<IndicatorsRequestBuilderGetQueryParameters> | undefined) : Promise<ArticleIndicatorCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -107,17 +93,10 @@ export class IndicatorsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: IndicatorsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<IndicatorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, indicatorsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class IndicatorsRequestBuilder extends BaseRequestBuilder {
         return new IndicatorsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const indicatorsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

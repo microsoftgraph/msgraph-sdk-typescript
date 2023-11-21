@@ -23,7 +23,7 @@ export interface ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse
 }
 export function serializeManagedDeviceMobileAppConfigurationAssignmentCollectionResponse(writer: SerializationWriter, managedDeviceMobileAppConfigurationAssignmentCollectionResponse: ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse | undefined = {} as ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, managedDeviceMobileAppConfigurationAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignment>("value", managedDeviceMobileAppConfigurationAssignmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignment>("value", managedDeviceMobileAppConfigurationAssignmentCollectionResponse.value, serializeManagedDeviceMobileAppConfigurationAssignment);
 }
 // tslint:enable
 // eslint-enable

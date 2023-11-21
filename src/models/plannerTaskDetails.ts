@@ -40,10 +40,10 @@ export interface PlannerTaskDetails extends Entity, Parsable {
 }
 export function serializePlannerTaskDetails(writer: SerializationWriter, plannerTaskDetails: PlannerTaskDetails | undefined = {} as PlannerTaskDetails) : void {
         serializeEntity(writer, plannerTaskDetails)
-        writer.writeObjectValue<PlannerChecklistItems>("checklist", plannerTaskDetails.checklist, );
+        writer.writeObjectValue<PlannerChecklistItems>("checklist", plannerTaskDetails.checklist, serializePlannerChecklistItems);
         writer.writeStringValue("description", plannerTaskDetails.description);
         writer.writeEnumValue<PlannerPreviewType>("previewType", plannerTaskDetails.previewType);
-        writer.writeObjectValue<PlannerExternalReferences>("references", plannerTaskDetails.references, );
+        writer.writeObjectValue<PlannerExternalReferences>("references", plannerTaskDetails.references, serializePlannerExternalReferences);
 }
 // tslint:enable
 // eslint-enable

@@ -12,7 +12,7 @@ import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExt
 import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
 import { DeviceItemRequestBuilder } from './item/deviceItemRequestBuilder';
 import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DevicesRequestBuilderGetQueryParameters {
     /**
@@ -47,30 +47,6 @@ export interface DevicesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface DevicesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DevicesRequestBuilderGetQueryParameters;
-}
-export interface DevicesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the collection of device entities.
@@ -131,7 +107,7 @@ export class DevicesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DeviceCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/device-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DevicesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DevicesRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -148,7 +124,7 @@ export class DevicesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Device
      * @see {@link https://learn.microsoft.com/graph/api/device-post-devices?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Device, requestConfiguration?: DevicesRequestBuilderPostRequestConfiguration | undefined) : Promise<Device | undefined> {
+    public post(body: Device, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Device | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -163,17 +139,10 @@ export class DevicesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DevicesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DevicesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, devicesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -182,17 +151,11 @@ export class DevicesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Device, requestConfiguration?: DevicesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Device, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDevice);
         return requestInfo;
     };
@@ -206,5 +169,15 @@ export class DevicesRequestBuilder extends BaseRequestBuilder {
         return new DevicesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const devicesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

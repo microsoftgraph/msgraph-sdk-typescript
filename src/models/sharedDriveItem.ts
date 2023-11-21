@@ -29,14 +29,14 @@ export function deserializeIntoSharedDriveItem(sharedDriveItem: SharedDriveItem 
 }
 export function serializeSharedDriveItem(writer: SerializationWriter, sharedDriveItem: SharedDriveItem | undefined = {} as SharedDriveItem) : void {
         serializeBaseItem(writer, sharedDriveItem)
-        writer.writeObjectValue<DriveItem>("driveItem", sharedDriveItem.driveItem, );
-        writer.writeCollectionOfObjectValues<DriveItem>("items", sharedDriveItem.items, );
-        writer.writeObjectValue<List>("list", sharedDriveItem.list, );
-        writer.writeObjectValue<ListItem>("listItem", sharedDriveItem.listItem, );
-        writer.writeObjectValue<IdentitySet>("owner", sharedDriveItem.owner, );
-        writer.writeObjectValue<Permission>("permission", sharedDriveItem.permission, );
-        writer.writeObjectValue<DriveItem>("root", sharedDriveItem.root, );
-        writer.writeObjectValue<Site>("site", sharedDriveItem.site, );
+        writer.writeObjectValue<DriveItem>("driveItem", sharedDriveItem.driveItem, serializeDriveItem);
+        writer.writeCollectionOfObjectValues<DriveItem>("items", sharedDriveItem.items, serializeDriveItem);
+        writer.writeObjectValue<List>("list", sharedDriveItem.list, serializeList);
+        writer.writeObjectValue<ListItem>("listItem", sharedDriveItem.listItem, serializeListItem);
+        writer.writeObjectValue<IdentitySet>("owner", sharedDriveItem.owner, serializeIdentitySet);
+        writer.writeObjectValue<Permission>("permission", sharedDriveItem.permission, serializePermission);
+        writer.writeObjectValue<DriveItem>("root", sharedDriveItem.root, serializeDriveItem);
+        writer.writeObjectValue<Site>("site", sharedDriveItem.site, serializeSite);
 }
 export interface SharedDriveItem extends BaseItem, Parsable {
     /**

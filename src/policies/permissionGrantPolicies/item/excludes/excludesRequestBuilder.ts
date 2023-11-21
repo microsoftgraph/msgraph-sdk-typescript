@@ -8,7 +8,7 @@ import { createPermissionGrantConditionSetFromDiscriminatorValue, deserializeInt
 import { createPermissionGrantConditionSetCollectionResponseFromDiscriminatorValue } from '../../../../models/permissionGrantConditionSetCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PermissionGrantConditionSetItemRequestBuilder } from './item/permissionGrantConditionSetItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ExcludesRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface ExcludesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface ExcludesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ExcludesRequestBuilderGetQueryParameters;
-}
-export interface ExcludesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
@@ -103,7 +79,7 @@ export class ExcludesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PermissionGrantConditionSetCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-list-excludes?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ExcludesRequestBuilderGetRequestConfiguration | undefined) : Promise<PermissionGrantConditionSetCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ExcludesRequestBuilderGetQueryParameters> | undefined) : Promise<PermissionGrantConditionSetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class ExcludesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PermissionGrantConditionSet
      * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-post-excludes?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: PermissionGrantConditionSet, requestConfiguration?: ExcludesRequestBuilderPostRequestConfiguration | undefined) : Promise<PermissionGrantConditionSet | undefined> {
+    public post(body: PermissionGrantConditionSet, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PermissionGrantConditionSet | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class ExcludesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ExcludesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExcludesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, excludesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class ExcludesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PermissionGrantConditionSet, requestConfiguration?: ExcludesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PermissionGrantConditionSet, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePermissionGrantConditionSet);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class ExcludesRequestBuilder extends BaseRequestBuilder {
         return new ExcludesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const excludesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

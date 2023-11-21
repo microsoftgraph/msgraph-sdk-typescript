@@ -25,10 +25,10 @@ export function deserializeIntoTodoTaskList(todoTaskList: TodoTaskList | undefin
 export function serializeTodoTaskList(writer: SerializationWriter, todoTaskList: TodoTaskList | undefined = {} as TodoTaskList) : void {
         serializeEntity(writer, todoTaskList)
         writer.writeStringValue("displayName", todoTaskList.displayName);
-        writer.writeCollectionOfObjectValues<Extension>("extensions", todoTaskList.extensions, );
+        writer.writeCollectionOfObjectValues<Extension>("extensions", todoTaskList.extensions, serializeExtension);
         writer.writeBooleanValue("isOwner", todoTaskList.isOwner);
         writer.writeBooleanValue("isShared", todoTaskList.isShared);
-        writer.writeCollectionOfObjectValues<TodoTask>("tasks", todoTaskList.tasks, );
+        writer.writeCollectionOfObjectValues<TodoTask>("tasks", todoTaskList.tasks, serializeTodoTask);
         writer.writeEnumValue<WellknownListName>("wellknownListName", todoTaskList.wellknownListName);
 }
 export interface TodoTaskList extends Entity, Parsable {

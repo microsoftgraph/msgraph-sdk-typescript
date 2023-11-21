@@ -17,7 +17,7 @@ export function deserializeIntoTelecomExpenseManagementPartnerCollectionResponse
 }
 export function serializeTelecomExpenseManagementPartnerCollectionResponse(writer: SerializationWriter, telecomExpenseManagementPartnerCollectionResponse: TelecomExpenseManagementPartnerCollectionResponse | undefined = {} as TelecomExpenseManagementPartnerCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, telecomExpenseManagementPartnerCollectionResponse)
-        writer.writeCollectionOfObjectValues<TelecomExpenseManagementPartner>("value", telecomExpenseManagementPartnerCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<TelecomExpenseManagementPartner>("value", telecomExpenseManagementPartnerCollectionResponse.value, serializeTelecomExpenseManagementPartner);
 }
 export interface TelecomExpenseManagementPartnerCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -23,7 +23,7 @@ export interface MessageCollectionResponse extends BaseCollectionPaginationCount
 }
 export function serializeMessageCollectionResponse(writer: SerializationWriter, messageCollectionResponse: MessageCollectionResponse | undefined = {} as MessageCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, messageCollectionResponse)
-        writer.writeCollectionOfObjectValues<Message>("value", messageCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Message>("value", messageCollectionResponse.value, serializeMessage);
 }
 // tslint:enable
 // eslint-enable

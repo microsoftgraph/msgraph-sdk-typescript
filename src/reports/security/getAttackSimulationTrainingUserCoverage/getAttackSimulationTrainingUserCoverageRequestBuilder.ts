@@ -5,7 +5,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { createGetAttackSimulationTrainingUserCoverageGetResponseFromDiscriminatorValue } from './getAttackSimulationTrainingUserCoverageGetResponse';
 import { type GetAttackSimulationTrainingUserCoverageGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters {
     /**
@@ -29,20 +29,6 @@ export interface GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryPa
      */
     top?: number;
 }
-export interface GetAttackSimulationTrainingUserCoverageRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the getAttackSimulationTrainingUserCoverage method.
  */
@@ -60,7 +46,7 @@ export class GetAttackSimulationTrainingUserCoverageRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetAttackSimulationTrainingUserCoverageGetResponse
      */
-    public get(requestConfiguration?: GetAttackSimulationTrainingUserCoverageRequestBuilderGetRequestConfiguration | undefined) : Promise<GetAttackSimulationTrainingUserCoverageGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters> | undefined) : Promise<GetAttackSimulationTrainingUserCoverageGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -75,17 +61,10 @@ export class GetAttackSimulationTrainingUserCoverageRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GetAttackSimulationTrainingUserCoverageRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, getAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -98,5 +77,12 @@ export class GetAttackSimulationTrainingUserCoverageRequestBuilder extends BaseR
         return new GetAttackSimulationTrainingUserCoverageRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const getAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "search": "%24search",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

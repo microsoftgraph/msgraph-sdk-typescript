@@ -19,19 +19,19 @@ export function deserializeIntoEmailPayloadDetail(emailPayloadDetail: EmailPaylo
 }
 export interface EmailPayloadDetail extends Parsable, PayloadDetail {
     /**
-     * The fromEmail property
+     * Email address of the user.
      */
     fromEmail?: string;
     /**
-     * The fromName property
+     * Display name of the user.
      */
     fromName?: string;
     /**
-     * The isExternalSender property
+     * Indicates whether the sender isn't from the user's organization.
      */
     isExternalSender?: boolean;
     /**
-     * The subject property
+     * The subject of the email address sent to the user.
      */
     subject?: string;
 }

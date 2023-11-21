@@ -24,7 +24,7 @@ export interface HourPostRequestBody extends AdditionalDataHolder, Parsable {
     serialNumber?: Json;
 }
 export function serializeHourPostRequestBody(writer: SerializationWriter, hourPostRequestBody: HourPostRequestBody | undefined = {} as HourPostRequestBody) : void {
-        writer.writeObjectValue<Json>("serialNumber", hourPostRequestBody.serialNumber, );
+        writer.writeObjectValue<Json>("serialNumber", hourPostRequestBody.serialNumber, serializeJson);
         writer.writeAdditionalData(hourPostRequestBody.additionalData);
 }
 // tslint:enable

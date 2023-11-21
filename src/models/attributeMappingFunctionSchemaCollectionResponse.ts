@@ -23,7 +23,7 @@ export function deserializeIntoAttributeMappingFunctionSchemaCollectionResponse(
 }
 export function serializeAttributeMappingFunctionSchemaCollectionResponse(writer: SerializationWriter, attributeMappingFunctionSchemaCollectionResponse: AttributeMappingFunctionSchemaCollectionResponse | undefined = {} as AttributeMappingFunctionSchemaCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, attributeMappingFunctionSchemaCollectionResponse)
-        writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", attributeMappingFunctionSchemaCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", attributeMappingFunctionSchemaCollectionResponse.value, serializeAttributeMappingFunctionSchema);
 }
 // tslint:enable
 // eslint-enable

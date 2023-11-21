@@ -23,7 +23,7 @@ export interface ExternalActivityResult extends ExternalActivity, Parsable {
 }
 export function serializeExternalActivityResult(writer: SerializationWriter, externalActivityResult: ExternalActivityResult | undefined = {} as ExternalActivityResult) : void {
         serializeExternalActivity(writer, externalActivityResult)
-        writer.writeObjectValue<PublicError>("error", externalActivityResult.errorEscaped, );
+        writer.writeObjectValue<PublicError>("error", externalActivityResult.errorEscaped, serializePublicError);
 }
 // tslint:enable
 // eslint-enable

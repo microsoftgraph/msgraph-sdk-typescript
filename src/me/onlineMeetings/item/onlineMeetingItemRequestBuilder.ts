@@ -7,19 +7,10 @@ import { createOnlineMeetingFromDiscriminatorValue, deserializeIntoOnlineMeeting
 import { AttendanceReportsRequestBuilder } from './attendanceReports/attendanceReportsRequestBuilder';
 import { AttendeeReportRequestBuilder } from './attendeeReport/attendeeReportRequestBuilder';
 import { GetVirtualAppointmentJoinWebUrlRequestBuilder } from './getVirtualAppointmentJoinWebUrl/getVirtualAppointmentJoinWebUrlRequestBuilder';
+import { RecordingsRequestBuilder } from './recordings/recordingsRequestBuilder';
 import { TranscriptsRequestBuilder } from './transcripts/transcriptsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface OnlineMeetingItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface OnlineMeetingItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -30,36 +21,12 @@ export interface OnlineMeetingItemRequestBuilderGetQueryParameters {
      */
     select?: string[];
 }
-export interface OnlineMeetingItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: OnlineMeetingItemRequestBuilderGetQueryParameters;
-}
-export interface OnlineMeetingItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
  */
 export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
     /**
-     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
+     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.
      */
     public get attendanceReports(): AttendanceReportsRequestBuilder {
         return new AttendanceReportsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -75,6 +42,12 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
      */
     public get getVirtualAppointmentJoinWebUrl(): GetVirtualAppointmentJoinWebUrlRequestBuilder {
         return new GetVirtualAppointmentJoinWebUrlRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
+     */
+    public get recordings(): RecordingsRequestBuilder {
+        return new RecordingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
@@ -95,7 +68,7 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: OnlineMeetingItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -111,7 +84,7 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OnlineMeeting
      * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: OnlineMeetingItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OnlineMeeting | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<OnlineMeetingItemRequestBuilderGetQueryParameters> | undefined) : Promise<OnlineMeeting | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -128,7 +101,7 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OnlineMeeting
      * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: OnlineMeeting, requestConfiguration?: OnlineMeetingItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OnlineMeeting | undefined> {
+    public patch(body: OnlineMeeting, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnlineMeeting | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -143,16 +116,10 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: OnlineMeetingItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -160,17 +127,10 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: OnlineMeetingItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<OnlineMeetingItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, onlineMeetingItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -179,17 +139,11 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: OnlineMeeting, requestConfiguration?: OnlineMeetingItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: OnlineMeeting, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOnlineMeeting);
         return requestInfo;
     };
@@ -203,5 +157,9 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
         return new OnlineMeetingItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const onlineMeetingItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

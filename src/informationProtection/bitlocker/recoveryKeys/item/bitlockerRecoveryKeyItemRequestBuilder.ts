@@ -5,7 +5,7 @@ import { type BitlockerRecoveryKey } from '../../../../models/';
 import { createBitlockerRecoveryKeyFromDiscriminatorValue } from '../../../../models/bitlockerRecoveryKey';
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BitlockerRecoveryKeyItemRequestBuilderGetQueryParameters {
     /**
@@ -16,20 +16,6 @@ export interface BitlockerRecoveryKeyItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface BitlockerRecoveryKeyItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: BitlockerRecoveryKeyItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
@@ -49,7 +35,7 @@ export class BitlockerRecoveryKeyItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of BitlockerRecoveryKey
      * @see {@link https://learn.microsoft.com/graph/api/bitlockerrecoverykey-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: BitlockerRecoveryKeyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BitlockerRecoveryKey | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<BitlockerRecoveryKeyItemRequestBuilderGetQueryParameters> | undefined) : Promise<BitlockerRecoveryKey | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -64,17 +50,10 @@ export class BitlockerRecoveryKeyItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: BitlockerRecoveryKeyItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<BitlockerRecoveryKeyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, bitlockerRecoveryKeyItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -87,5 +66,9 @@ export class BitlockerRecoveryKeyItemRequestBuilder extends BaseRequestBuilder {
         return new BitlockerRecoveryKeyItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const bitlockerRecoveryKeyItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

@@ -29,7 +29,7 @@ export interface EducationFeedbackResourceOutcome extends EducationOutcome, Pars
 }
 export function serializeEducationFeedbackResourceOutcome(writer: SerializationWriter, educationFeedbackResourceOutcome: EducationFeedbackResourceOutcome | undefined = {} as EducationFeedbackResourceOutcome) : void {
         serializeEducationOutcome(writer, educationFeedbackResourceOutcome)
-        writer.writeObjectValue<EducationResource>("feedbackResource", educationFeedbackResourceOutcome.feedbackResource, );
+        writer.writeObjectValue<EducationResource>("feedbackResource", educationFeedbackResourceOutcome.feedbackResource, serializeEducationResource);
         writer.writeEnumValue<EducationFeedbackResourceOutcomeStatus>("resourceStatus", educationFeedbackResourceOutcome.resourceStatus);
 }
 // tslint:enable

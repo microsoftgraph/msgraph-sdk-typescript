@@ -7,7 +7,7 @@ import { type ODataError } from '../../../../../../../../../models/oDataErrors/'
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { SubjectRequestBuilder } from './subject/subjectRequestBuilder';
 import { TaskProcessingResultsRequestBuilder } from './taskProcessingResults/taskProcessingResultsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserProcessingResultItemRequestBuilderGetQueryParameters {
     /**
@@ -18,20 +18,6 @@ export interface UserProcessingResultItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface UserProcessingResultItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UserProcessingResultItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.run entity.
@@ -63,7 +49,7 @@ export class UserProcessingResultItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of UserProcessingResult
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-userprocessingresult-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: UserProcessingResultItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UserProcessingResult | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UserProcessingResultItemRequestBuilderGetQueryParameters> | undefined) : Promise<UserProcessingResult | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -78,17 +64,10 @@ export class UserProcessingResultItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UserProcessingResultItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserProcessingResultItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, userProcessingResultItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -101,5 +80,9 @@ export class UserProcessingResultItemRequestBuilder extends BaseRequestBuilder {
         return new UserProcessingResultItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const userProcessingResultItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

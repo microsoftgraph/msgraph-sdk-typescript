@@ -5,37 +5,13 @@ import { type ODataError } from '../../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../models/oDataErrors/oDataError';
 import { createProfilePhotoFromDiscriminatorValue, deserializeIntoProfilePhoto, serializeProfilePhoto, type ProfilePhoto } from '../../../../../../../../models/profilePhoto';
 import { ContentRequestBuilder } from './value/contentRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PhotoRequestBuilderGetQueryParameters {
     /**
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface PhotoRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PhotoRequestBuilderGetQueryParameters;
-}
-export interface PhotoRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the photo property of the microsoft.graph.contact entity.
@@ -60,7 +36,7 @@ export class PhotoRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProfilePhoto
      */
-    public get(requestConfiguration?: PhotoRequestBuilderGetRequestConfiguration | undefined) : Promise<ProfilePhoto | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PhotoRequestBuilderGetQueryParameters> | undefined) : Promise<ProfilePhoto | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -76,7 +52,7 @@ export class PhotoRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProfilePhoto
      */
-    public patch(body: ProfilePhoto, requestConfiguration?: PhotoRequestBuilderPatchRequestConfiguration | undefined) : Promise<ProfilePhoto | undefined> {
+    public patch(body: ProfilePhoto, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ProfilePhoto | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -91,17 +67,10 @@ export class PhotoRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PhotoRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PhotoRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, photoRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -110,17 +79,11 @@ export class PhotoRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ProfilePhoto, requestConfiguration?: PhotoRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ProfilePhoto, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeProfilePhoto);
         return requestInfo;
     };
@@ -134,5 +97,8 @@ export class PhotoRequestBuilder extends BaseRequestBuilder {
         return new PhotoRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const photoRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

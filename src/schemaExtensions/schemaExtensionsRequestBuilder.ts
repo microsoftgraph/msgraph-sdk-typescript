@@ -8,7 +8,7 @@ import { createSchemaExtensionFromDiscriminatorValue, deserializeIntoSchemaExten
 import { createSchemaExtensionCollectionResponseFromDiscriminatorValue } from '../models/schemaExtensionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SchemaExtensionItemRequestBuilder } from './item/schemaExtensionItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SchemaExtensionsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface SchemaExtensionsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface SchemaExtensionsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SchemaExtensionsRequestBuilderGetQueryParameters;
-}
-export interface SchemaExtensionsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the collection of schemaExtension entities.
@@ -103,7 +79,7 @@ export class SchemaExtensionsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SchemaExtensionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/schemaextension-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SchemaExtensionsRequestBuilderGetRequestConfiguration | undefined) : Promise<SchemaExtensionCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SchemaExtensionsRequestBuilderGetQueryParameters> | undefined) : Promise<SchemaExtensionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class SchemaExtensionsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SchemaExtension
      * @see {@link https://learn.microsoft.com/graph/api/schemaextension-post-schemaextensions?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SchemaExtension, requestConfiguration?: SchemaExtensionsRequestBuilderPostRequestConfiguration | undefined) : Promise<SchemaExtension | undefined> {
+    public post(body: SchemaExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SchemaExtension | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class SchemaExtensionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SchemaExtensionsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SchemaExtensionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, schemaExtensionsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class SchemaExtensionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SchemaExtension, requestConfiguration?: SchemaExtensionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SchemaExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSchemaExtension);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class SchemaExtensionsRequestBuilder extends BaseRequestBuilder {
         return new SchemaExtensionsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const schemaExtensionsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

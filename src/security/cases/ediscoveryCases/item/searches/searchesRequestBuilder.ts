@@ -8,7 +8,7 @@ import { createEdiscoverySearchFromDiscriminatorValue, deserializeIntoEdiscovery
 import { createEdiscoverySearchCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/ediscoverySearchCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { EdiscoverySearchItemRequestBuilder } from './item/ediscoverySearchItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SearchesRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface SearchesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface SearchesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SearchesRequestBuilderGetQueryParameters;
-}
-export interface SearchesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
@@ -103,7 +79,7 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EdiscoverySearchCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-searches?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SearchesRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoverySearchCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SearchesRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoverySearchCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EdiscoverySearch
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-searches?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: EdiscoverySearch, requestConfiguration?: SearchesRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoverySearch | undefined> {
+    public post(body: EdiscoverySearch, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoverySearch | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SearchesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SearchesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, searchesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: EdiscoverySearch, requestConfiguration?: SearchesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: EdiscoverySearch, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEdiscoverySearch);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
         return new SearchesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const searchesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

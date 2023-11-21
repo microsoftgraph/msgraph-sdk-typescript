@@ -4,18 +4,8 @@
 import { createInternalDomainFederationFromDiscriminatorValue, deserializeIntoInternalDomainFederation, serializeInternalDomainFederation, type InternalDomainFederation } from '../../../../models/internalDomainFederation';
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface InternalDomainFederationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface InternalDomainFederationItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface InternalDomainFederationItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: InternalDomainFederationItemRequestBuilderGetQueryParameters;
-}
-export interface InternalDomainFederationItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
@@ -67,7 +33,7 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/internaldomainfederation-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -83,7 +49,7 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
      * @returns a Promise of InternalDomainFederation
      * @see {@link https://learn.microsoft.com/graph/api/internaldomainfederation-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: InternalDomainFederationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<InternalDomainFederation | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<InternalDomainFederationItemRequestBuilderGetQueryParameters> | undefined) : Promise<InternalDomainFederation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -100,7 +66,7 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
      * @returns a Promise of InternalDomainFederation
      * @see {@link https://learn.microsoft.com/graph/api/internaldomainfederation-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: InternalDomainFederation, requestConfiguration?: InternalDomainFederationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<InternalDomainFederation | undefined> {
+    public patch(body: InternalDomainFederation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<InternalDomainFederation | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -115,16 +81,10 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -132,17 +92,10 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: InternalDomainFederationItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<InternalDomainFederationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, internalDomainFederationItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -151,17 +104,11 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: InternalDomainFederation, requestConfiguration?: InternalDomainFederationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: InternalDomainFederation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeInternalDomainFederation);
         return requestInfo;
     };
@@ -175,5 +122,9 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
         return new InternalDomainFederationItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const internalDomainFederationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

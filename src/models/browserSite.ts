@@ -88,8 +88,8 @@ export function serializeBrowserSite(writer: SerializationWriter, browserSite: B
         writer.writeEnumValue<BrowserSiteCompatibilityMode>("compatibilityMode", browserSite.compatibilityMode);
         writer.writeDateValue("createdDateTime", browserSite.createdDateTime);
         writer.writeDateValue("deletedDateTime", browserSite.deletedDateTime);
-        writer.writeCollectionOfObjectValues<BrowserSiteHistory>("history", browserSite.history, );
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSite.lastModifiedBy, );
+        writer.writeCollectionOfObjectValues<BrowserSiteHistory>("history", browserSite.history, serializeBrowserSiteHistory);
+        writer.writeObjectValue<IdentitySet>("lastModifiedBy", browserSite.lastModifiedBy, serializeIdentitySet);
         writer.writeDateValue("lastModifiedDateTime", browserSite.lastModifiedDateTime);
         writer.writeEnumValue<BrowserSiteMergeType>("mergeType", browserSite.mergeType);
         writer.writeEnumValue<BrowserSiteStatus>("status", browserSite.status);

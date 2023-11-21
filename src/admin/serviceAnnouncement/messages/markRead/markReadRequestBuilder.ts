@@ -5,18 +5,8 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { deserializeIntoMarkReadPostRequestBody, serializeMarkReadPostRequestBody, type MarkReadPostRequestBody } from './markReadPostRequestBody';
 import { createMarkReadPostResponseFromDiscriminatorValue, deserializeIntoMarkReadPostResponse, serializeMarkReadPostResponse, type MarkReadPostResponse } from './markReadPostResponse';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface MarkReadRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the markRead method.
  */
@@ -36,7 +26,7 @@ export class MarkReadRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of MarkReadPostResponse
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: MarkReadPostRequestBody, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined) : Promise<MarkReadPostResponse | undefined> {
+    public post(body: MarkReadPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MarkReadPostResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -52,17 +42,11 @@ export class MarkReadRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: MarkReadPostRequestBody, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: MarkReadPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMarkReadPostRequestBody);
         return requestInfo;
     };

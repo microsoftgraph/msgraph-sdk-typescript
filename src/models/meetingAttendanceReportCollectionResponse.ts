@@ -23,7 +23,7 @@ export interface MeetingAttendanceReportCollectionResponse extends BaseCollectio
 }
 export function serializeMeetingAttendanceReportCollectionResponse(writer: SerializationWriter, meetingAttendanceReportCollectionResponse: MeetingAttendanceReportCollectionResponse | undefined = {} as MeetingAttendanceReportCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, meetingAttendanceReportCollectionResponse)
-        writer.writeCollectionOfObjectValues<MeetingAttendanceReport>("value", meetingAttendanceReportCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<MeetingAttendanceReport>("value", meetingAttendanceReportCollectionResponse.value, serializeMeetingAttendanceReport);
 }
 // tslint:enable
 // eslint-enable

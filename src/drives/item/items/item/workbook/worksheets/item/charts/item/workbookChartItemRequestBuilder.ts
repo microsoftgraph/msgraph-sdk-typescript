@@ -17,18 +17,8 @@ import { SetDataRequestBuilder } from './setData/setDataRequestBuilder';
 import { SetPositionRequestBuilder } from './setPosition/setPositionRequestBuilder';
 import { TitleRequestBuilder } from './title/titleRequestBuilder';
 import { WorksheetRequestBuilder } from './worksheet/worksheetRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface WorkbookChartItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface WorkbookChartItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -38,30 +28,6 @@ export interface WorkbookChartItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface WorkbookChartItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: WorkbookChartItemRequestBuilderGetQueryParameters;
-}
-export interface WorkbookChartItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
@@ -140,7 +106,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chart-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: WorkbookChartItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -156,7 +122,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookChart
      * @see {@link https://learn.microsoft.com/graph/api/chart-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkbookChartItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<WorkbookChartItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookChart | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -206,7 +172,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookChart
      * @see {@link https://learn.microsoft.com/graph/api/chart-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookChart, requestConfiguration?: WorkbookChartItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
+    public patch(body: WorkbookChart, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChart | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -221,16 +187,10 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: WorkbookChartItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -238,17 +198,10 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: WorkbookChartItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkbookChartItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, workbookChartItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -257,17 +210,11 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookChart, requestConfiguration?: WorkbookChartItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookChart, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChart);
         return requestInfo;
     };
@@ -281,5 +228,9 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
         return new WorkbookChartItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const workbookChartItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

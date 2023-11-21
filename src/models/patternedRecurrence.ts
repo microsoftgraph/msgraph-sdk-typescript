@@ -36,8 +36,8 @@ export interface PatternedRecurrence extends AdditionalDataHolder, Parsable {
 }
 export function serializePatternedRecurrence(writer: SerializationWriter, patternedRecurrence: PatternedRecurrence | undefined = {} as PatternedRecurrence) : void {
         writer.writeStringValue("@odata.type", patternedRecurrence.odataType);
-        writer.writeObjectValue<RecurrencePattern>("pattern", patternedRecurrence.pattern, );
-        writer.writeObjectValue<RecurrenceRange>("range", patternedRecurrence.range, );
+        writer.writeObjectValue<RecurrencePattern>("pattern", patternedRecurrence.pattern, serializeRecurrencePattern);
+        writer.writeObjectValue<RecurrenceRange>("range", patternedRecurrence.range, serializeRecurrenceRange);
         writer.writeAdditionalData(patternedRecurrence.additionalData);
 }
 // tslint:enable

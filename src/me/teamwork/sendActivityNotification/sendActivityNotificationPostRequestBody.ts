@@ -48,9 +48,9 @@ export interface SendActivityNotificationPostRequestBody extends AdditionalDataH
 export function serializeSendActivityNotificationPostRequestBody(writer: SerializationWriter, sendActivityNotificationPostRequestBody: SendActivityNotificationPostRequestBody | undefined = {} as SendActivityNotificationPostRequestBody) : void {
         writer.writeStringValue("activityType", sendActivityNotificationPostRequestBody.activityType);
         writer.writeNumberValue("chainId", sendActivityNotificationPostRequestBody.chainId);
-        writer.writeObjectValue<ItemBody>("previewText", sendActivityNotificationPostRequestBody.previewText, );
-        writer.writeCollectionOfObjectValues<KeyValuePair>("templateParameters", sendActivityNotificationPostRequestBody.templateParameters, );
-        writer.writeObjectValue<TeamworkActivityTopic>("topic", sendActivityNotificationPostRequestBody.topic, );
+        writer.writeObjectValue<ItemBody>("previewText", sendActivityNotificationPostRequestBody.previewText, serializeItemBody);
+        writer.writeCollectionOfObjectValues<KeyValuePair>("templateParameters", sendActivityNotificationPostRequestBody.templateParameters, serializeKeyValuePair);
+        writer.writeObjectValue<TeamworkActivityTopic>("topic", sendActivityNotificationPostRequestBody.topic, serializeTeamworkActivityTopic);
         writer.writeAdditionalData(sendActivityNotificationPostRequestBody.additionalData);
 }
 // tslint:enable

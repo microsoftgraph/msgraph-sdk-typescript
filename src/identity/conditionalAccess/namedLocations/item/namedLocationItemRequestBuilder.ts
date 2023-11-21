@@ -4,18 +4,8 @@
 import { createNamedLocationFromDiscriminatorValue, deserializeIntoNamedLocation, serializeNamedLocation, type NamedLocation } from '../../../../models/namedLocation';
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface NamedLocationItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface NamedLocationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface NamedLocationItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface NamedLocationItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: NamedLocationItemRequestBuilderGetQueryParameters;
-}
-export interface NamedLocationItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
@@ -63,11 +29,11 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess/namedLocations/{namedLocation%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an ipNamedLocation object. This API is available in the following national cloud deployments.
+     * Delete a namedLocation object. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/namedlocation-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: NamedLocationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -78,12 +44,12 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a namedLocation object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an ipNamedLocation object. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocation
-     * @see {@link https://learn.microsoft.com/graph/api/namedlocation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: NamedLocationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<NamedLocation | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<NamedLocationItemRequestBuilderGetQueryParameters> | undefined) : Promise<NamedLocation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -94,13 +60,13 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<NamedLocation>(requestInfo, createNamedLocationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a countryNamedLocation object. This API is available in the following national cloud deployments.
+     * Update the properties of an ipNamedLocation object. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocation
-     * @see {@link https://learn.microsoft.com/graph/api/countrynamedlocation-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: NamedLocation, requestConfiguration?: NamedLocationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<NamedLocation | undefined> {
+    public patch(body: NamedLocation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<NamedLocation | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,57 +77,38 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<NamedLocation>(requestInfo, createNamedLocationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an ipNamedLocation object. This API is available in the following national cloud deployments.
+     * Delete a namedLocation object. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: NamedLocationItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a namedLocation object. This API is available in the following national cloud deployments.
+     * Retrieve the properties and relationships of an ipNamedLocation object. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: NamedLocationItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<NamedLocationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, namedLocationItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of a countryNamedLocation object. This API is available in the following national cloud deployments.
+     * Update the properties of an ipNamedLocation object. This API is available in the following national cloud deployments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: NamedLocation, requestConfiguration?: NamedLocationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: NamedLocation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeNamedLocation);
         return requestInfo;
     };
@@ -175,5 +122,9 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return new NamedLocationItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const namedLocationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

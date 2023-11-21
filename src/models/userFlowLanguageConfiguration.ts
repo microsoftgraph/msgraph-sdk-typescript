@@ -20,10 +20,10 @@ export function deserializeIntoUserFlowLanguageConfiguration(userFlowLanguageCon
 }
 export function serializeUserFlowLanguageConfiguration(writer: SerializationWriter, userFlowLanguageConfiguration: UserFlowLanguageConfiguration | undefined = {} as UserFlowLanguageConfiguration) : void {
         serializeEntity(writer, userFlowLanguageConfiguration)
-        writer.writeCollectionOfObjectValues<UserFlowLanguagePage>("defaultPages", userFlowLanguageConfiguration.defaultPages, );
+        writer.writeCollectionOfObjectValues<UserFlowLanguagePage>("defaultPages", userFlowLanguageConfiguration.defaultPages, serializeUserFlowLanguagePage);
         writer.writeStringValue("displayName", userFlowLanguageConfiguration.displayName);
         writer.writeBooleanValue("isEnabled", userFlowLanguageConfiguration.isEnabled);
-        writer.writeCollectionOfObjectValues<UserFlowLanguagePage>("overridesPages", userFlowLanguageConfiguration.overridesPages, );
+        writer.writeCollectionOfObjectValues<UserFlowLanguagePage>("overridesPages", userFlowLanguageConfiguration.overridesPages, serializeUserFlowLanguagePage);
 }
 export interface UserFlowLanguageConfiguration extends Entity, Parsable {
     /**

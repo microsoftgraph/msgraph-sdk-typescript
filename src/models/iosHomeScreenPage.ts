@@ -35,7 +35,7 @@ export interface IosHomeScreenPage extends AdditionalDataHolder, Parsable {
 }
 export function serializeIosHomeScreenPage(writer: SerializationWriter, iosHomeScreenPage: IosHomeScreenPage | undefined = {} as IosHomeScreenPage) : void {
         writer.writeStringValue("displayName", iosHomeScreenPage.displayName);
-        writer.writeCollectionOfObjectValues<IosHomeScreenItem>("icons", iosHomeScreenPage.icons, );
+        writer.writeCollectionOfObjectValues<IosHomeScreenItem>("icons", iosHomeScreenPage.icons, serializeIosHomeScreenItem);
         writer.writeStringValue("@odata.type", iosHomeScreenPage.odataType);
         writer.writeAdditionalData(iosHomeScreenPage.additionalData);
 }

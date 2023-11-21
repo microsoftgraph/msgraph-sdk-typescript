@@ -19,7 +19,7 @@ export function deserializeIntoTeamDescriptionUpdatedEventMessageDetail(teamDesc
 }
 export function serializeTeamDescriptionUpdatedEventMessageDetail(writer: SerializationWriter, teamDescriptionUpdatedEventMessageDetail: TeamDescriptionUpdatedEventMessageDetail | undefined = {} as TeamDescriptionUpdatedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, teamDescriptionUpdatedEventMessageDetail)
-        writer.writeObjectValue<IdentitySet>("initiator", teamDescriptionUpdatedEventMessageDetail.initiator, );
+        writer.writeObjectValue<IdentitySet>("initiator", teamDescriptionUpdatedEventMessageDetail.initiator, serializeIdentitySet);
         writer.writeStringValue("teamDescription", teamDescriptionUpdatedEventMessageDetail.teamDescription);
         writer.writeStringValue("teamId", teamDescriptionUpdatedEventMessageDetail.teamId);
 }

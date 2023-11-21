@@ -71,7 +71,7 @@ export function serializeItemReference(writer: SerializationWriter, itemReferenc
         writer.writeStringValue("@odata.type", itemReference.odataType);
         writer.writeStringValue("path", itemReference.path);
         writer.writeStringValue("shareId", itemReference.shareId);
-        writer.writeObjectValue<SharepointIds>("sharepointIds", itemReference.sharepointIds, );
+        writer.writeObjectValue<SharepointIds>("sharepointIds", itemReference.sharepointIds, serializeSharepointIds);
         writer.writeStringValue("siteId", itemReference.siteId);
         writer.writeAdditionalData(itemReference.additionalData);
 }

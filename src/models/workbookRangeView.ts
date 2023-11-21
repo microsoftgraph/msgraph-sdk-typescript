@@ -28,18 +28,18 @@ export function deserializeIntoWorkbookRangeView(workbookRangeView: WorkbookRang
 }
 export function serializeWorkbookRangeView(writer: SerializationWriter, workbookRangeView: WorkbookRangeView | undefined = {} as WorkbookRangeView) : void {
         serializeEntity(writer, workbookRangeView)
-        writer.writeObjectValue<Json>("cellAddresses", workbookRangeView.cellAddresses, );
+        writer.writeObjectValue<Json>("cellAddresses", workbookRangeView.cellAddresses, serializeJson);
         writer.writeNumberValue("columnCount", workbookRangeView.columnCount);
-        writer.writeObjectValue<Json>("formulas", workbookRangeView.formulas, );
-        writer.writeObjectValue<Json>("formulasLocal", workbookRangeView.formulasLocal, );
-        writer.writeObjectValue<Json>("formulasR1C1", workbookRangeView.formulasR1C1, );
+        writer.writeObjectValue<Json>("formulas", workbookRangeView.formulas, serializeJson);
+        writer.writeObjectValue<Json>("formulasLocal", workbookRangeView.formulasLocal, serializeJson);
+        writer.writeObjectValue<Json>("formulasR1C1", workbookRangeView.formulasR1C1, serializeJson);
         writer.writeNumberValue("index", workbookRangeView.index);
-        writer.writeObjectValue<Json>("numberFormat", workbookRangeView.numberFormat, );
+        writer.writeObjectValue<Json>("numberFormat", workbookRangeView.numberFormat, serializeJson);
         writer.writeNumberValue("rowCount", workbookRangeView.rowCount);
-        writer.writeCollectionOfObjectValues<WorkbookRangeView>("rows", workbookRangeView.rows, );
-        writer.writeObjectValue<Json>("text", workbookRangeView.text, );
-        writer.writeObjectValue<Json>("values", workbookRangeView.values, );
-        writer.writeObjectValue<Json>("valueTypes", workbookRangeView.valueTypes, );
+        writer.writeCollectionOfObjectValues<WorkbookRangeView>("rows", workbookRangeView.rows, serializeWorkbookRangeView);
+        writer.writeObjectValue<Json>("text", workbookRangeView.text, serializeJson);
+        writer.writeObjectValue<Json>("values", workbookRangeView.values, serializeJson);
+        writer.writeObjectValue<Json>("valueTypes", workbookRangeView.valueTypes, serializeJson);
 }
 export interface WorkbookRangeView extends Entity, Parsable {
     /**

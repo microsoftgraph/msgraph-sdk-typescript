@@ -9,18 +9,8 @@ import { UsersRegisteredByFeatureRequestBuilder } from './usersRegisteredByFeatu
 import { UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder } from './usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles/usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder';
 import { UsersRegisteredByMethodRequestBuilder } from './usersRegisteredByMethod/usersRegisteredByMethodRequestBuilder';
 import { UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder } from './usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles/usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface AuthenticationMethodsRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface AuthenticationMethodsRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -30,30 +20,6 @@ export interface AuthenticationMethodsRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface AuthenticationMethodsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AuthenticationMethodsRequestBuilderGetQueryParameters;
-}
-export interface AuthenticationMethodsRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the authenticationMethods property of the microsoft.graph.reportRoot entity.
@@ -89,7 +55,7 @@ export class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property authenticationMethods for reports
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: AuthenticationMethodsRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -104,7 +70,7 @@ export class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationMethodsRoot
      */
-    public get(requestConfiguration?: AuthenticationMethodsRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationMethodsRoot | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AuthenticationMethodsRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationMethodsRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +86,7 @@ export class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationMethodsRoot
      */
-    public patch(body: AuthenticationMethodsRoot, requestConfiguration?: AuthenticationMethodsRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationMethodsRoot | undefined> {
+    public patch(body: AuthenticationMethodsRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationMethodsRoot | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -135,16 +101,10 @@ export class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: AuthenticationMethodsRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +112,10 @@ export class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AuthenticationMethodsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthenticationMethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, authenticationMethodsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -171,17 +124,11 @@ export class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AuthenticationMethodsRoot, requestConfiguration?: AuthenticationMethodsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AuthenticationMethodsRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAuthenticationMethodsRoot);
         return requestInfo;
     };
@@ -217,5 +164,9 @@ export class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder {
         return new AuthenticationMethodsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const authenticationMethodsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

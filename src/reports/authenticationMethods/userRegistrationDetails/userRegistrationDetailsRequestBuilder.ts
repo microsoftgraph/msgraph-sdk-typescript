@@ -8,7 +8,7 @@ import { createUserRegistrationDetailsFromDiscriminatorValue, deserializeIntoUse
 import { createUserRegistrationDetailsCollectionResponseFromDiscriminatorValue } from '../../../models/userRegistrationDetailsCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UserRegistrationDetailsItemRequestBuilder } from './item/userRegistrationDetailsItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UserRegistrationDetailsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface UserRegistrationDetailsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface UserRegistrationDetailsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UserRegistrationDetailsRequestBuilderGetQueryParameters;
-}
-export interface UserRegistrationDetailsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
@@ -103,7 +79,7 @@ export class UserRegistrationDetailsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of UserRegistrationDetailsCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/authenticationmethodsroot-list-userregistrationdetails?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: UserRegistrationDetailsRequestBuilderGetRequestConfiguration | undefined) : Promise<UserRegistrationDetailsCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UserRegistrationDetailsRequestBuilderGetQueryParameters> | undefined) : Promise<UserRegistrationDetailsCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class UserRegistrationDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserRegistrationDetails
      */
-    public post(body: UserRegistrationDetails, requestConfiguration?: UserRegistrationDetailsRequestBuilderPostRequestConfiguration | undefined) : Promise<UserRegistrationDetails | undefined> {
+    public post(body: UserRegistrationDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserRegistrationDetails | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class UserRegistrationDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UserRegistrationDetailsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserRegistrationDetailsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, userRegistrationDetailsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class UserRegistrationDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserRegistrationDetails, requestConfiguration?: UserRegistrationDetailsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserRegistrationDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserRegistrationDetails);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class UserRegistrationDetailsRequestBuilder extends BaseRequestBuilder {
         return new UserRegistrationDetailsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const userRegistrationDetailsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

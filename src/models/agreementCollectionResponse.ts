@@ -23,7 +23,7 @@ export function deserializeIntoAgreementCollectionResponse(agreementCollectionRe
 }
 export function serializeAgreementCollectionResponse(writer: SerializationWriter, agreementCollectionResponse: AgreementCollectionResponse | undefined = {} as AgreementCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, agreementCollectionResponse)
-        writer.writeCollectionOfObjectValues<Agreement>("value", agreementCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Agreement>("value", agreementCollectionResponse.value, serializeAgreement);
 }
 // tslint:enable
 // eslint-enable

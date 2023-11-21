@@ -5,18 +5,8 @@ import { type SoftwareOathAuthenticationMethod } from '../../../../models/';
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { createSoftwareOathAuthenticationMethodFromDiscriminatorValue } from '../../../../models/softwareOathAuthenticationMethod';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -26,20 +16,6 @@ export interface SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParam
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
@@ -58,7 +34,7 @@ export class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/softwareoathauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -74,7 +50,7 @@ export class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequ
      * @returns a Promise of SoftwareOathAuthenticationMethod
      * @see {@link https://learn.microsoft.com/graph/api/softwareoathauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SoftwareOathAuthenticationMethod | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<SoftwareOathAuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -89,16 +65,10 @@ export class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -106,17 +76,10 @@ export class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, softwareOathAuthenticationMethodItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -129,5 +92,9 @@ export class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequ
         return new SoftwareOathAuthenticationMethodItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const softwareOathAuthenticationMethodItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

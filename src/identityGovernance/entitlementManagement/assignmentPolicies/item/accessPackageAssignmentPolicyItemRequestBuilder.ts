@@ -8,18 +8,8 @@ import { AccessPackageRequestBuilder } from './accessPackage/accessPackageReques
 import { CatalogRequestBuilder } from './catalog/catalogRequestBuilder';
 import { CustomExtensionStageSettingsRequestBuilder } from './customExtensionStageSettings/customExtensionStageSettingsRequestBuilder';
 import { QuestionsRequestBuilder } from './questions/questionsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -29,30 +19,6 @@ export interface AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParamete
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters;
-}
-export interface AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.
@@ -95,7 +61,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -111,7 +77,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
      * @returns a Promise of AccessPackageAssignmentPolicy
      * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageAssignmentPolicy | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageAssignmentPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -127,7 +93,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageAssignmentPolicy
      */
-    public put(body: AccessPackageAssignmentPolicy, requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration | undefined) : Promise<AccessPackageAssignmentPolicy | undefined> {
+    public put(body: AccessPackageAssignmentPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageAssignmentPolicy | undefined> {
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
@@ -142,16 +108,10 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -159,17 +119,10 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, accessPackageAssignmentPolicyItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -178,17 +131,11 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPutRequestInformation(body: AccessPackageAssignmentPolicy, requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: AccessPackageAssignmentPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PUT;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PUT, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageAssignmentPolicy);
         return requestInfo;
     };
@@ -202,5 +149,9 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
         return new AccessPackageAssignmentPolicyItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const accessPackageAssignmentPolicyItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

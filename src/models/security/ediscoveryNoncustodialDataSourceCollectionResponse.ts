@@ -23,7 +23,7 @@ export interface EdiscoveryNoncustodialDataSourceCollectionResponse extends Base
 }
 export function serializeEdiscoveryNoncustodialDataSourceCollectionResponse(writer: SerializationWriter, ediscoveryNoncustodialDataSourceCollectionResponse: EdiscoveryNoncustodialDataSourceCollectionResponse | undefined = {} as EdiscoveryNoncustodialDataSourceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, ediscoveryNoncustodialDataSourceCollectionResponse)
-        writer.writeCollectionOfObjectValues<EdiscoveryNoncustodialDataSource>("value", ediscoveryNoncustodialDataSourceCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<EdiscoveryNoncustodialDataSource>("value", ediscoveryNoncustodialDataSourceCollectionResponse.value, serializeEdiscoveryNoncustodialDataSource);
 }
 // tslint:enable
 // eslint-enable

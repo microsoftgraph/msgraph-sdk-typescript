@@ -5,7 +5,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { type SupportedTimeZonesWithTimeZoneStandardGetResponse } from './index';
 import { createSupportedTimeZonesWithTimeZoneStandardGetResponseFromDiscriminatorValue } from './supportedTimeZonesWithTimeZoneStandardGetResponse';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters {
     /**
@@ -29,20 +29,6 @@ export interface SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryPar
      */
     top?: number;
 }
-export interface SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the supportedTimeZones method.
  */
@@ -62,7 +48,7 @@ export class SupportedTimeZonesWithTimeZoneStandardRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SupportedTimeZonesWithTimeZoneStandardGetResponse
      */
-    public get(requestConfiguration?: SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration | undefined) : Promise<SupportedTimeZonesWithTimeZoneStandardGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters> | undefined) : Promise<SupportedTimeZonesWithTimeZoneStandardGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -77,17 +63,10 @@ export class SupportedTimeZonesWithTimeZoneStandardRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, supportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -100,5 +79,12 @@ export class SupportedTimeZonesWithTimeZoneStandardRequestBuilder extends BaseRe
         return new SupportedTimeZonesWithTimeZoneStandardRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const supportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "search": "%24search",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

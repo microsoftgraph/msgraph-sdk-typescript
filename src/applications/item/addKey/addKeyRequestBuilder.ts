@@ -5,18 +5,8 @@ import { createKeyCredentialFromDiscriminatorValue, deserializeIntoKeyCredential
 import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { deserializeIntoAddKeyPostRequestBody, serializeAddKeyPostRequestBody, type AddKeyPostRequestBody } from './addKeyPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface AddKeyRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the addKey method.
  */
@@ -36,7 +26,7 @@ export class AddKeyRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of KeyCredential
      * @see {@link https://learn.microsoft.com/graph/api/application-addkey?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddKeyPostRequestBody, requestConfiguration?: AddKeyRequestBuilderPostRequestConfiguration | undefined) : Promise<KeyCredential | undefined> {
+    public post(body: AddKeyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<KeyCredential | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -52,17 +42,11 @@ export class AddKeyRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddKeyPostRequestBody, requestConfiguration?: AddKeyRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddKeyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddKeyPostRequestBody);
         return requestInfo;
     };

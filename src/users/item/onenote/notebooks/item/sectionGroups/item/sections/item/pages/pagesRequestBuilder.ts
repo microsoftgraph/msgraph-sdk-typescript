@@ -8,7 +8,7 @@ import { createOnenotePageFromDiscriminatorValue, deserializeIntoOnenotePage, se
 import { createOnenotePageCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../models/onenotePageCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OnenotePageItemRequestBuilder } from './item/onenotePageItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PagesRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface PagesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface PagesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PagesRequestBuilderGetQueryParameters;
-}
-export interface PagesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
@@ -103,7 +79,7 @@ export class PagesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OnenotePageCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/section-list-pages?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PagesRequestBuilderGetRequestConfiguration | undefined) : Promise<OnenotePageCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PagesRequestBuilderGetQueryParameters> | undefined) : Promise<OnenotePageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class PagesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OnenotePage
      * @see {@link https://learn.microsoft.com/graph/api/section-post-pages?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: OnenotePage, requestConfiguration?: PagesRequestBuilderPostRequestConfiguration | undefined) : Promise<OnenotePage | undefined> {
+    public post(body: OnenotePage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnenotePage | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class PagesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PagesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, pagesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class PagesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: OnenotePage, requestConfiguration?: PagesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: OnenotePage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOnenotePage);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class PagesRequestBuilder extends BaseRequestBuilder {
         return new PagesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const pagesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

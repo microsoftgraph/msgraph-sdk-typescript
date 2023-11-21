@@ -57,7 +57,7 @@ export function deserializeIntoDataSource(dataSource: DataSource | undefined = {
 }
 export function serializeDataSource(writer: SerializationWriter, dataSource: DataSource | undefined = {} as DataSource) : void {
         serializeEntity(writer, dataSource)
-        writer.writeObjectValue<IdentitySet>("createdBy", dataSource.createdBy, );
+        writer.writeObjectValue<IdentitySet>("createdBy", dataSource.createdBy, serializeIdentitySet);
         writer.writeDateValue("createdDateTime", dataSource.createdDateTime);
         writer.writeStringValue("displayName", dataSource.displayName);
         writer.writeEnumValue<DataSourceHoldStatus>("holdStatus", dataSource.holdStatus);

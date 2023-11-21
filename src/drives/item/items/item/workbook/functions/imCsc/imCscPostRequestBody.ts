@@ -24,7 +24,7 @@ export interface ImCscPostRequestBody extends AdditionalDataHolder, Parsable {
     inumber?: Json;
 }
 export function serializeImCscPostRequestBody(writer: SerializationWriter, imCscPostRequestBody: ImCscPostRequestBody | undefined = {} as ImCscPostRequestBody) : void {
-        writer.writeObjectValue<Json>("inumber", imCscPostRequestBody.inumber, );
+        writer.writeObjectValue<Json>("inumber", imCscPostRequestBody.inumber, serializeJson);
         writer.writeAdditionalData(imCscPostRequestBody.additionalData);
 }
 // tslint:enable

@@ -23,7 +23,7 @@ export interface GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEn
 }
 export function serializeGetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeGetResponse: GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeGetResponse | undefined = {} as GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeGetResponse.value, );
+        writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeGetResponse.value, serializeArchivedPrintJob);
 }
 // tslint:enable
 // eslint-enable

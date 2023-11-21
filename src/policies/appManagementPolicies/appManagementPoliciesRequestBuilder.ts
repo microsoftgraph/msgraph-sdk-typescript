@@ -8,7 +8,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { AppManagementPolicyItemRequestBuilder } from './item/appManagementPolicyItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AppManagementPoliciesRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface AppManagementPoliciesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface AppManagementPoliciesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AppManagementPoliciesRequestBuilderGetQueryParameters;
-}
-export interface AppManagementPoliciesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
@@ -103,7 +79,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AppManagementPolicyCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AppManagementPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<AppManagementPolicyCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AppManagementPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<AppManagementPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AppManagementPolicy
      * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AppManagementPolicy, requestConfiguration?: AppManagementPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<AppManagementPolicy | undefined> {
+    public post(body: AppManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppManagementPolicy | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AppManagementPoliciesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppManagementPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, appManagementPoliciesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AppManagementPolicy, requestConfiguration?: AppManagementPoliciesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AppManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAppManagementPolicy);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
         return new AppManagementPoliciesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const appManagementPoliciesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

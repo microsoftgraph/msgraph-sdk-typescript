@@ -24,7 +24,7 @@ export interface FisherInvPostRequestBody extends AdditionalDataHolder, Parsable
     y?: Json;
 }
 export function serializeFisherInvPostRequestBody(writer: SerializationWriter, fisherInvPostRequestBody: FisherInvPostRequestBody | undefined = {} as FisherInvPostRequestBody) : void {
-        writer.writeObjectValue<Json>("y", fisherInvPostRequestBody.y, );
+        writer.writeObjectValue<Json>("y", fisherInvPostRequestBody.y, serializeJson);
         writer.writeAdditionalData(fisherInvPostRequestBody.additionalData);
 }
 // tslint:enable

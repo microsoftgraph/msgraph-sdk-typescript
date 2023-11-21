@@ -24,7 +24,7 @@ export function deserializeIntoCreateNewVersionPostRequestBody(createNewVersionP
     }
 }
 export function serializeCreateNewVersionPostRequestBody(writer: SerializationWriter, createNewVersionPostRequestBody: CreateNewVersionPostRequestBody | undefined = {} as CreateNewVersionPostRequestBody) : void {
-        writer.writeObjectValue<Workflow>("workflow", createNewVersionPostRequestBody.workflow, );
+        writer.writeObjectValue<Workflow>("workflow", createNewVersionPostRequestBody.workflow, serializeWorkflow);
         writer.writeAdditionalData(createNewVersionPostRequestBody.additionalData);
 }
 // tslint:enable

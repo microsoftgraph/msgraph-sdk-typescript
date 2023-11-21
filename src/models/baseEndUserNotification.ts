@@ -14,7 +14,7 @@ export interface BaseEndUserNotification extends AdditionalDataHolder, Parsable 
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The defaultLanguage property
+     * The default language for the end user notification.
      */
     defaultLanguage?: string;
     /**
@@ -53,7 +53,7 @@ export function deserializeIntoBaseEndUserNotification(baseEndUserNotification: 
 }
 export function serializeBaseEndUserNotification(writer: SerializationWriter, baseEndUserNotification: BaseEndUserNotification | undefined = {} as BaseEndUserNotification) : void {
         writer.writeStringValue("defaultLanguage", baseEndUserNotification.defaultLanguage);
-        writer.writeObjectValue<EndUserNotification>("endUserNotification", baseEndUserNotification.endUserNotification, );
+        writer.writeObjectValue<EndUserNotification>("endUserNotification", baseEndUserNotification.endUserNotification, serializeEndUserNotification);
         writer.writeStringValue("@odata.type", baseEndUserNotification.odataType);
         writer.writeAdditionalData(baseEndUserNotification.additionalData);
 }

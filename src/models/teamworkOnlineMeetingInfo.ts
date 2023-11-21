@@ -20,7 +20,7 @@ export function serializeTeamworkOnlineMeetingInfo(writer: SerializationWriter, 
         writer.writeStringValue("calendarEventId", teamworkOnlineMeetingInfo.calendarEventId);
         writer.writeStringValue("joinWebUrl", teamworkOnlineMeetingInfo.joinWebUrl);
         writer.writeStringValue("@odata.type", teamworkOnlineMeetingInfo.odataType);
-        writer.writeObjectValue<TeamworkUserIdentity>("organizer", teamworkOnlineMeetingInfo.organizer, );
+        writer.writeObjectValue<TeamworkUserIdentity>("organizer", teamworkOnlineMeetingInfo.organizer, serializeTeamworkUserIdentity);
         writer.writeAdditionalData(teamworkOnlineMeetingInfo.additionalData);
 }
 export interface TeamworkOnlineMeetingInfo extends AdditionalDataHolder, Parsable {

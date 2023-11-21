@@ -23,7 +23,7 @@ export interface OnenoteSectionCollectionResponse extends BaseCollectionPaginati
 }
 export function serializeOnenoteSectionCollectionResponse(writer: SerializationWriter, onenoteSectionCollectionResponse: OnenoteSectionCollectionResponse | undefined = {} as OnenoteSectionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, onenoteSectionCollectionResponse)
-        writer.writeCollectionOfObjectValues<OnenoteSection>("value", onenoteSectionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<OnenoteSection>("value", onenoteSectionCollectionResponse.value, serializeOnenoteSection);
 }
 // tslint:enable
 // eslint-enable

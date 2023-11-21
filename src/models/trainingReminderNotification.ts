@@ -21,7 +21,7 @@ export function serializeTrainingReminderNotification(writer: SerializationWrite
 }
 export interface TrainingReminderNotification extends BaseEndUserNotification, Parsable {
     /**
-     * The deliveryFrequency property
+     * Configurable frequency for the reminder email introduced during simulation creation. Possible values are: unknown, weekly, biWeekly, unknownFutureValue.
      */
     deliveryFrequency?: NotificationDeliveryFrequency;
 }

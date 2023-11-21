@@ -35,7 +35,7 @@ export interface RedirectPostRequestBody extends AdditionalDataHolder, Parsable 
 }
 export function serializeRedirectPostRequestBody(writer: SerializationWriter, redirectPostRequestBody: RedirectPostRequestBody | undefined = {} as RedirectPostRequestBody) : void {
         writer.writeStringValue("callbackUri", redirectPostRequestBody.callbackUri);
-        writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("targets", redirectPostRequestBody.targets, );
+        writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("targets", redirectPostRequestBody.targets, serializeInvitationParticipantInfo);
         writer.writeNumberValue("timeout", redirectPostRequestBody.timeout);
         writer.writeAdditionalData(redirectPostRequestBody.additionalData);
 }

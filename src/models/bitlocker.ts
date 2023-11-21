@@ -23,7 +23,7 @@ export function deserializeIntoBitlocker(bitlocker: Bitlocker | undefined = {} a
 }
 export function serializeBitlocker(writer: SerializationWriter, bitlocker: Bitlocker | undefined = {} as Bitlocker) : void {
         serializeEntity(writer, bitlocker)
-        writer.writeCollectionOfObjectValues<BitlockerRecoveryKey>("recoveryKeys", bitlocker.recoveryKeys, );
+        writer.writeCollectionOfObjectValues<BitlockerRecoveryKey>("recoveryKeys", bitlocker.recoveryKeys, serializeBitlockerRecoveryKey);
 }
 // tslint:enable
 // eslint-enable

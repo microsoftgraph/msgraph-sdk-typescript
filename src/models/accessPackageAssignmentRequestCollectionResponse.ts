@@ -23,7 +23,7 @@ export function deserializeIntoAccessPackageAssignmentRequestCollectionResponse(
 }
 export function serializeAccessPackageAssignmentRequestCollectionResponse(writer: SerializationWriter, accessPackageAssignmentRequestCollectionResponse: AccessPackageAssignmentRequestCollectionResponse | undefined = {} as AccessPackageAssignmentRequestCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessPackageAssignmentRequestCollectionResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequest>("value", accessPackageAssignmentRequestCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequest>("value", accessPackageAssignmentRequestCollectionResponse.value, serializeAccessPackageAssignmentRequest);
 }
 // tslint:enable
 // eslint-enable

@@ -5,18 +5,8 @@ import { type ODataError } from '../../../../../../../../../models/oDataErrors/'
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
 import { createWorkbookNamedItemFromDiscriminatorValue, deserializeIntoWorkbookNamedItem, serializeWorkbookNamedItem, type WorkbookNamedItem } from '../../../../../../../../../models/workbookNamedItem';
 import { deserializeIntoAddFormulaLocalPostRequestBody, serializeAddFormulaLocalPostRequestBody, type AddFormulaLocalPostRequestBody } from './addFormulaLocalPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface AddFormulaLocalRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the addFormulaLocal method.
  */
@@ -36,7 +26,7 @@ export class AddFormulaLocalRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookNamedItem
      * @see {@link https://learn.microsoft.com/graph/api/nameditem-addformulalocal?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddFormulaLocalPostRequestBody, requestConfiguration?: AddFormulaLocalRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookNamedItem | undefined> {
+    public post(body: AddFormulaLocalPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookNamedItem | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -52,17 +42,11 @@ export class AddFormulaLocalRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddFormulaLocalPostRequestBody, requestConfiguration?: AddFormulaLocalRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddFormulaLocalPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddFormulaLocalPostRequestBody);
         return requestInfo;
     };

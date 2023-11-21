@@ -6,7 +6,7 @@ import { createWorkflowTemplateFromDiscriminatorValue } from '../../../../models
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WorkflowTemplateItemRequestBuilderGetQueryParameters {
     /**
@@ -17,20 +17,6 @@ export interface WorkflowTemplateItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface WorkflowTemplateItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: WorkflowTemplateItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
@@ -56,7 +42,7 @@ export class WorkflowTemplateItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkflowTemplate
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflowtemplate-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkflowTemplateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkflowTemplate | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<WorkflowTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkflowTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -71,17 +57,10 @@ export class WorkflowTemplateItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: WorkflowTemplateItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkflowTemplateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, workflowTemplateItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -94,5 +73,9 @@ export class WorkflowTemplateItemRequestBuilder extends BaseRequestBuilder {
         return new WorkflowTemplateItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const workflowTemplateItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

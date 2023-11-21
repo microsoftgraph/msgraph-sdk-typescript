@@ -40,7 +40,7 @@ export function deserializeIntoWindowsProtectionState(windowsProtectionState: Wi
 export function serializeWindowsProtectionState(writer: SerializationWriter, windowsProtectionState: WindowsProtectionState | undefined = {} as WindowsProtectionState) : void {
         serializeEntity(writer, windowsProtectionState)
         writer.writeStringValue("antiMalwareVersion", windowsProtectionState.antiMalwareVersion);
-        writer.writeCollectionOfObjectValues<WindowsDeviceMalwareState>("detectedMalwareState", windowsProtectionState.detectedMalwareState, );
+        writer.writeCollectionOfObjectValues<WindowsDeviceMalwareState>("detectedMalwareState", windowsProtectionState.detectedMalwareState, serializeWindowsDeviceMalwareState);
         writer.writeEnumValue<WindowsDeviceHealthState[]>("deviceState", windowsProtectionState.deviceState);
         writer.writeStringValue("engineVersion", windowsProtectionState.engineVersion);
         writer.writeBooleanValue("fullScanOverdue", windowsProtectionState.fullScanOverdue);

@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DirectoryObjectItemRequestBuilder } from './item/directoryObjectItemRequestBuilder';
 import { RefRequestBuilder } from './ref/refRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RejectedSendersRequestBuilderGetQueryParameters {
     /**
@@ -35,20 +35,6 @@ export interface RejectedSendersRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface RejectedSendersRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RejectedSendersRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the rejectedSenders property of the microsoft.graph.group entity.
@@ -91,7 +77,7 @@ export class RejectedSendersRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DirectoryObjectCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/group-list-rejectedsenders?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RejectedSendersRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RejectedSendersRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -106,17 +92,10 @@ export class RejectedSendersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RejectedSendersRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RejectedSendersRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, rejectedSendersRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -129,5 +108,13 @@ export class RejectedSendersRequestBuilder extends BaseRequestBuilder {
         return new RejectedSendersRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const rejectedSendersRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

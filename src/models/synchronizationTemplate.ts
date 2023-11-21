@@ -30,8 +30,8 @@ export function serializeSynchronizationTemplate(writer: SerializationWriter, sy
         writer.writeStringValue("description", synchronizationTemplate.description);
         writer.writeBooleanValue("discoverable", synchronizationTemplate.discoverable);
         writer.writeStringValue("factoryTag", synchronizationTemplate.factoryTag);
-        writer.writeCollectionOfObjectValues<SynchronizationMetadataEntry>("metadata", synchronizationTemplate.metadata, );
-        writer.writeObjectValue<SynchronizationSchema>("schema", synchronizationTemplate.schema, );
+        writer.writeCollectionOfObjectValues<SynchronizationMetadataEntry>("metadata", synchronizationTemplate.metadata, serializeSynchronizationMetadataEntry);
+        writer.writeObjectValue<SynchronizationSchema>("schema", synchronizationTemplate.schema, serializeSynchronizationSchema);
 }
 export interface SynchronizationTemplate extends Entity, Parsable {
     /**

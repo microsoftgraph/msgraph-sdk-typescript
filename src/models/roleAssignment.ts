@@ -53,7 +53,7 @@ export function serializeRoleAssignment(writer: SerializationWriter, roleAssignm
         writer.writeStringValue("description", roleAssignment.description);
         writer.writeStringValue("displayName", roleAssignment.displayName);
         writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", roleAssignment.resourceScopes);
-        writer.writeObjectValue<RoleDefinition>("roleDefinition", roleAssignment.roleDefinition, );
+        writer.writeObjectValue<RoleDefinition>("roleDefinition", roleAssignment.roleDefinition, serializeRoleDefinition);
 }
 // tslint:enable
 // eslint-enable

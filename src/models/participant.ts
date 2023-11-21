@@ -6,6 +6,7 @@ import { createMediaStreamFromDiscriminatorValue, serializeMediaStream, type Med
 import { createOnlineMeetingRestrictedFromDiscriminatorValue, serializeOnlineMeetingRestricted, type OnlineMeetingRestricted } from './onlineMeetingRestricted';
 import { createParticipantInfoFromDiscriminatorValue, serializeParticipantInfo, type ParticipantInfo } from './participantInfo';
 import { createRecordingInfoFromDiscriminatorValue, serializeRecordingInfo, type RecordingInfo } from './recordingInfo';
+import { createRemovedStateFromDiscriminatorValue, serializeRemovedState, type RemovedState } from './removedState';
 import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function createParticipantFromDiscriminatorValue(parseNode: ParseNode | undefined) {
@@ -21,7 +22,9 @@ export function deserializeIntoParticipant(participant: Participant | undefined 
         "mediaStreams": n => { participant.mediaStreams = n.getCollectionOfObjectValues<MediaStream>(createMediaStreamFromDiscriminatorValue); },
         "metadata": n => { participant.metadata = n.getStringValue(); },
         "recordingInfo": n => { participant.recordingInfo = n.getObjectValue<RecordingInfo>(createRecordingInfoFromDiscriminatorValue); },
+        "removedState": n => { participant.removedState = n.getObjectValue<RemovedState>(createRemovedStateFromDiscriminatorValue); },
         "restrictedExperience": n => { participant.restrictedExperience = n.getObjectValue<OnlineMeetingRestricted>(createOnlineMeetingRestrictedFromDiscriminatorValue); },
+        "rosterSequenceNumber": n => { participant.rosterSequenceNumber = n.getNumberValue(); },
     }
 }
 export interface Participant extends Entity, Parsable {
@@ -50,19 +53,29 @@ export interface Participant extends Entity, Parsable {
      */
     recordingInfo?: RecordingInfo;
     /**
+     * The removedState property
+     */
+    removedState?: RemovedState;
+    /**
      * Indicates the reason or reasons media content from this participant is restricted.
      */
     restrictedExperience?: OnlineMeetingRestricted;
+    /**
+     * The rosterSequenceNumber property
+     */
+    rosterSequenceNumber?: number;
 }
 export function serializeParticipant(writer: SerializationWriter, participant: Participant | undefined = {} as Participant) : void {
         serializeEntity(writer, participant)
-        writer.writeObjectValue<ParticipantInfo>("info", participant.info, );
+        writer.writeObjectValue<ParticipantInfo>("info", participant.info, serializeParticipantInfo);
         writer.writeBooleanValue("isInLobby", participant.isInLobby);
         writer.writeBooleanValue("isMuted", participant.isMuted);
-        writer.writeCollectionOfObjectValues<MediaStream>("mediaStreams", participant.mediaStreams, );
+        writer.writeCollectionOfObjectValues<MediaStream>("mediaStreams", participant.mediaStreams, serializeMediaStream);
         writer.writeStringValue("metadata", participant.metadata);
-        writer.writeObjectValue<RecordingInfo>("recordingInfo", participant.recordingInfo, );
-        writer.writeObjectValue<OnlineMeetingRestricted>("restrictedExperience", participant.restrictedExperience, );
+        writer.writeObjectValue<RecordingInfo>("recordingInfo", participant.recordingInfo, serializeRecordingInfo);
+        writer.writeObjectValue<RemovedState>("removedState", participant.removedState, serializeRemovedState);
+        writer.writeObjectValue<OnlineMeetingRestricted>("restrictedExperience", participant.restrictedExperience, serializeOnlineMeetingRestricted);
+        writer.writeNumberValue("rosterSequenceNumber", participant.rosterSequenceNumber);
 }
 // tslint:enable
 // eslint-enable

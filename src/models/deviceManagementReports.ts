@@ -23,7 +23,7 @@ export interface DeviceManagementReports extends Entity, Parsable {
 }
 export function serializeDeviceManagementReports(writer: SerializationWriter, deviceManagementReports: DeviceManagementReports | undefined = {} as DeviceManagementReports) : void {
         serializeEntity(writer, deviceManagementReports)
-        writer.writeCollectionOfObjectValues<DeviceManagementExportJob>("exportJobs", deviceManagementReports.exportJobs, );
+        writer.writeCollectionOfObjectValues<DeviceManagementExportJob>("exportJobs", deviceManagementReports.exportJobs, serializeDeviceManagementExportJob);
 }
 // tslint:enable
 // eslint-enable

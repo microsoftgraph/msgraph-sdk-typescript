@@ -50,11 +50,11 @@ export interface ParseExpressionResponse extends AdditionalDataHolder, Parsable 
     parsingSucceeded?: boolean;
 }
 export function serializeParseExpressionResponse(writer: SerializationWriter, parseExpressionResponse: ParseExpressionResponse | undefined = {} as ParseExpressionResponse) : void {
-        writer.writeObjectValue<PublicError>("error", parseExpressionResponse.errorEscaped, );
+        writer.writeObjectValue<PublicError>("error", parseExpressionResponse.errorEscaped, serializePublicError);
         writer.writeCollectionOfPrimitiveValues<string>("evaluationResult", parseExpressionResponse.evaluationResult);
         writer.writeBooleanValue("evaluationSucceeded", parseExpressionResponse.evaluationSucceeded);
         writer.writeStringValue("@odata.type", parseExpressionResponse.odataType);
-        writer.writeObjectValue<AttributeMappingSource>("parsedExpression", parseExpressionResponse.parsedExpression, );
+        writer.writeObjectValue<AttributeMappingSource>("parsedExpression", parseExpressionResponse.parsedExpression, serializeAttributeMappingSource);
         writer.writeBooleanValue("parsingSucceeded", parseExpressionResponse.parsingSucceeded);
         writer.writeAdditionalData(parseExpressionResponse.additionalData);
 }

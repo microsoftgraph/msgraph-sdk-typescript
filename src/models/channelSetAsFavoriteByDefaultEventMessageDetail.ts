@@ -29,7 +29,7 @@ export function deserializeIntoChannelSetAsFavoriteByDefaultEventMessageDetail(c
 export function serializeChannelSetAsFavoriteByDefaultEventMessageDetail(writer: SerializationWriter, channelSetAsFavoriteByDefaultEventMessageDetail: ChannelSetAsFavoriteByDefaultEventMessageDetail | undefined = {} as ChannelSetAsFavoriteByDefaultEventMessageDetail) : void {
         serializeEventMessageDetail(writer, channelSetAsFavoriteByDefaultEventMessageDetail)
         writer.writeStringValue("channelId", channelSetAsFavoriteByDefaultEventMessageDetail.channelId);
-        writer.writeObjectValue<IdentitySet>("initiator", channelSetAsFavoriteByDefaultEventMessageDetail.initiator, );
+        writer.writeObjectValue<IdentitySet>("initiator", channelSetAsFavoriteByDefaultEventMessageDetail.initiator, serializeIdentitySet);
 }
 // tslint:enable
 // eslint-enable

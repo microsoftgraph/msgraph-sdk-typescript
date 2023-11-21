@@ -29,8 +29,8 @@ export function deserializeIntoBitorPostRequestBody(bitorPostRequestBody: BitorP
     }
 }
 export function serializeBitorPostRequestBody(writer: SerializationWriter, bitorPostRequestBody: BitorPostRequestBody | undefined = {} as BitorPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number1", bitorPostRequestBody.number1, );
-        writer.writeObjectValue<Json>("number2", bitorPostRequestBody.number2, );
+        writer.writeObjectValue<Json>("number1", bitorPostRequestBody.number1, serializeJson);
+        writer.writeObjectValue<Json>("number2", bitorPostRequestBody.number2, serializeJson);
         writer.writeAdditionalData(bitorPostRequestBody.additionalData);
 }
 // tslint:enable

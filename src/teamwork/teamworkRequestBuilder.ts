@@ -8,7 +8,7 @@ import { DeletedTeamsRequestBuilder } from './deletedTeams/deletedTeamsRequestBu
 import { SendActivityNotificationToRecipientsRequestBuilder } from './sendActivityNotificationToRecipients/sendActivityNotificationToRecipientsRequestBuilder';
 import { TeamsAppSettingsRequestBuilder } from './teamsAppSettings/teamsAppSettingsRequestBuilder';
 import { WorkforceIntegrationsRequestBuilder } from './workforceIntegrations/workforceIntegrationsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TeamworkRequestBuilderGetQueryParameters {
     /**
@@ -19,30 +19,6 @@ export interface TeamworkRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface TeamworkRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TeamworkRequestBuilderGetQueryParameters;
-}
-export interface TeamworkRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the teamwork singleton.
@@ -85,7 +61,7 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Teamwork
      */
-    public get(requestConfiguration?: TeamworkRequestBuilderGetRequestConfiguration | undefined) : Promise<Teamwork | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TeamworkRequestBuilderGetQueryParameters> | undefined) : Promise<Teamwork | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -101,7 +77,7 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Teamwork
      */
-    public patch(body: Teamwork, requestConfiguration?: TeamworkRequestBuilderPatchRequestConfiguration | undefined) : Promise<Teamwork | undefined> {
+    public patch(body: Teamwork, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Teamwork | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,17 +92,10 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TeamworkRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TeamworkRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, teamworkRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -135,17 +104,11 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Teamwork, requestConfiguration?: TeamworkRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Teamwork, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeamwork);
         return requestInfo;
     };
@@ -159,5 +122,9 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
         return new TeamworkRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const teamworkRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

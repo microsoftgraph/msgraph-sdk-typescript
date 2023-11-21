@@ -35,7 +35,7 @@ export function serializeAuthenticationFlowsPolicy(writer: SerializationWriter, 
         serializeEntity(writer, authenticationFlowsPolicy)
         writer.writeStringValue("description", authenticationFlowsPolicy.description);
         writer.writeStringValue("displayName", authenticationFlowsPolicy.displayName);
-        writer.writeObjectValue<SelfServiceSignUpAuthenticationFlowConfiguration>("selfServiceSignUp", authenticationFlowsPolicy.selfServiceSignUp, );
+        writer.writeObjectValue<SelfServiceSignUpAuthenticationFlowConfiguration>("selfServiceSignUp", authenticationFlowsPolicy.selfServiceSignUp, serializeSelfServiceSignUpAuthenticationFlowConfiguration);
 }
 // tslint:enable
 // eslint-enable

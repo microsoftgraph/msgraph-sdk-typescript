@@ -162,18 +162,18 @@ export function serializeEducationAssignment(writer: SerializationWriter, educat
         writer.writeEnumValue<EducationAddToCalendarOptions>("addToCalendarAction", educationAssignment.addToCalendarAction);
         writer.writeBooleanValue("allowLateSubmissions", educationAssignment.allowLateSubmissions);
         writer.writeBooleanValue("allowStudentsToAddResourcesToSubmission", educationAssignment.allowStudentsToAddResourcesToSubmission);
-        writer.writeObjectValue<EducationAssignmentRecipient>("assignTo", educationAssignment.assignTo, );
-        writer.writeCollectionOfObjectValues<EducationCategory>("categories", educationAssignment.categories, );
+        writer.writeObjectValue<EducationAssignmentRecipient>("assignTo", educationAssignment.assignTo, serializeEducationAssignmentRecipient);
+        writer.writeCollectionOfObjectValues<EducationCategory>("categories", educationAssignment.categories, serializeEducationCategory);
         writer.writeStringValue("classId", educationAssignment.classId);
         writer.writeDateValue("closeDateTime", educationAssignment.closeDateTime);
         writer.writeStringValue("displayName", educationAssignment.displayName);
         writer.writeDateValue("dueDateTime", educationAssignment.dueDateTime);
-        writer.writeObjectValue<EducationAssignmentGradeType>("grading", educationAssignment.grading, );
-        writer.writeObjectValue<EducationItemBody>("instructions", educationAssignment.instructions, );
+        writer.writeObjectValue<EducationAssignmentGradeType>("grading", educationAssignment.grading, serializeEducationAssignmentGradeType);
+        writer.writeObjectValue<EducationItemBody>("instructions", educationAssignment.instructions, serializeEducationItemBody);
         writer.writeStringValue("notificationChannelUrl", educationAssignment.notificationChannelUrl);
-        writer.writeCollectionOfObjectValues<EducationAssignmentResource>("resources", educationAssignment.resources, );
-        writer.writeObjectValue<EducationRubric>("rubric", educationAssignment.rubric, );
-        writer.writeCollectionOfObjectValues<EducationSubmission>("submissions", educationAssignment.submissions, );
+        writer.writeCollectionOfObjectValues<EducationAssignmentResource>("resources", educationAssignment.resources, serializeEducationAssignmentResource);
+        writer.writeObjectValue<EducationRubric>("rubric", educationAssignment.rubric, serializeEducationRubric);
+        writer.writeCollectionOfObjectValues<EducationSubmission>("submissions", educationAssignment.submissions, serializeEducationSubmission);
 }
 // tslint:enable
 // eslint-enable

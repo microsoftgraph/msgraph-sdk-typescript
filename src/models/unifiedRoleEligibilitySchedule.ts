@@ -19,7 +19,7 @@ export function deserializeIntoUnifiedRoleEligibilitySchedule(unifiedRoleEligibi
 export function serializeUnifiedRoleEligibilitySchedule(writer: SerializationWriter, unifiedRoleEligibilitySchedule: UnifiedRoleEligibilitySchedule | undefined = {} as UnifiedRoleEligibilitySchedule) : void {
         serializeUnifiedRoleScheduleBase(writer, unifiedRoleEligibilitySchedule)
         writer.writeStringValue("memberType", unifiedRoleEligibilitySchedule.memberType);
-        writer.writeObjectValue<RequestSchedule>("scheduleInfo", unifiedRoleEligibilitySchedule.scheduleInfo, );
+        writer.writeObjectValue<RequestSchedule>("scheduleInfo", unifiedRoleEligibilitySchedule.scheduleInfo, serializeRequestSchedule);
 }
 export interface UnifiedRoleEligibilitySchedule extends Parsable, UnifiedRoleScheduleBase {
     /**

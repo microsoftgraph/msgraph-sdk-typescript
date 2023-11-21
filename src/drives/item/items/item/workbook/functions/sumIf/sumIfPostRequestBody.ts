@@ -16,9 +16,9 @@ export function deserializeIntoSumIfPostRequestBody(sumIfPostRequestBody: SumIfP
     }
 }
 export function serializeSumIfPostRequestBody(writer: SerializationWriter, sumIfPostRequestBody: SumIfPostRequestBody | undefined = {} as SumIfPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", sumIfPostRequestBody.criteria, );
-        writer.writeObjectValue<Json>("range", sumIfPostRequestBody.range, );
-        writer.writeObjectValue<Json>("sumRange", sumIfPostRequestBody.sumRange, );
+        writer.writeObjectValue<Json>("criteria", sumIfPostRequestBody.criteria, serializeJson);
+        writer.writeObjectValue<Json>("range", sumIfPostRequestBody.range, serializeJson);
+        writer.writeObjectValue<Json>("sumRange", sumIfPostRequestBody.sumRange, serializeJson);
         writer.writeAdditionalData(sumIfPostRequestBody.additionalData);
 }
 export interface SumIfPostRequestBody extends AdditionalDataHolder, Parsable {

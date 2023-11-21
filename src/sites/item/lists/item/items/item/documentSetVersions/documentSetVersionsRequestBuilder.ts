@@ -8,7 +8,7 @@ import { type ODataError } from '../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DocumentSetVersionItemRequestBuilder } from './item/documentSetVersionItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DocumentSetVersionsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface DocumentSetVersionsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface DocumentSetVersionsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DocumentSetVersionsRequestBuilderGetQueryParameters;
-}
-export interface DocumentSetVersionsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
@@ -103,7 +79,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DocumentSetVersionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/listitem-list-documentsetversions?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DocumentSetVersionsRequestBuilderGetRequestConfiguration | undefined) : Promise<DocumentSetVersionCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DocumentSetVersionsRequestBuilderGetQueryParameters> | undefined) : Promise<DocumentSetVersionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DocumentSetVersion
      * @see {@link https://learn.microsoft.com/graph/api/listitem-post-documentsetversions?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DocumentSetVersion, requestConfiguration?: DocumentSetVersionsRequestBuilderPostRequestConfiguration | undefined) : Promise<DocumentSetVersion | undefined> {
+    public post(body: DocumentSetVersion, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DocumentSetVersion | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DocumentSetVersionsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DocumentSetVersionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, documentSetVersionsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DocumentSetVersion, requestConfiguration?: DocumentSetVersionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DocumentSetVersion, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDocumentSetVersion);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
         return new DocumentSetVersionsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const documentSetVersionsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

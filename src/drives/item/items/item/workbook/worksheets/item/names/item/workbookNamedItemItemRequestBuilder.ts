@@ -6,18 +6,8 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createWorkbookNamedItemFromDiscriminatorValue, deserializeIntoWorkbookNamedItem, serializeWorkbookNamedItem, type WorkbookNamedItem } from '../../../../../../../../../models/workbookNamedItem';
 import { RangeRequestBuilder } from './range/rangeRequestBuilder';
 import { WorksheetRequestBuilder } from './worksheet/worksheetRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface WorkbookNamedItemItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface WorkbookNamedItemItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -27,30 +17,6 @@ export interface WorkbookNamedItemItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface WorkbookNamedItemItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: WorkbookNamedItemItemRequestBuilderGetQueryParameters;
-}
-export interface WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.
@@ -80,7 +46,7 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property names for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: WorkbookNamedItemItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -95,7 +61,7 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookNamedItem
      */
-    public get(requestConfiguration?: WorkbookNamedItemItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookNamedItem | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<WorkbookNamedItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookNamedItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -111,7 +77,7 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookNamedItem
      */
-    public patch(body: WorkbookNamedItem, requestConfiguration?: WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookNamedItem | undefined> {
+    public patch(body: WorkbookNamedItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookNamedItem | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -126,16 +92,10 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: WorkbookNamedItemItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -143,17 +103,10 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: WorkbookNamedItemItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkbookNamedItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, workbookNamedItemItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -162,17 +115,11 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookNamedItem, requestConfiguration?: WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookNamedItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookNamedItem);
         return requestInfo;
     };
@@ -186,5 +133,9 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
         return new WorkbookNamedItemItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const workbookNamedItemItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

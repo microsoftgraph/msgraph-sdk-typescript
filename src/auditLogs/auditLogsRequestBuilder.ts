@@ -7,7 +7,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { DirectoryAuditsRequestBuilder } from './directoryAudits/directoryAuditsRequestBuilder';
 import { ProvisioningRequestBuilder } from './provisioning/provisioningRequestBuilder';
 import { SignInsRequestBuilder } from './signIns/signInsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AuditLogsRequestBuilderGetQueryParameters {
     /**
@@ -18,30 +18,6 @@ export interface AuditLogsRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface AuditLogsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AuditLogsRequestBuilderGetQueryParameters;
-}
-export interface AuditLogsRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the auditLogRoot singleton.
@@ -78,7 +54,7 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuditLogRoot
      */
-    public get(requestConfiguration?: AuditLogsRequestBuilderGetRequestConfiguration | undefined) : Promise<AuditLogRoot | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AuditLogsRequestBuilderGetQueryParameters> | undefined) : Promise<AuditLogRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -94,7 +70,7 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuditLogRoot
      */
-    public patch(body: AuditLogRoot, requestConfiguration?: AuditLogsRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuditLogRoot | undefined> {
+    public patch(body: AuditLogRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuditLogRoot | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,17 +85,10 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AuditLogsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuditLogsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, auditLogsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -128,17 +97,11 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AuditLogRoot, requestConfiguration?: AuditLogsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AuditLogRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAuditLogRoot);
         return requestInfo;
     };
@@ -152,5 +115,9 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
         return new AuditLogsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const auditLogsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

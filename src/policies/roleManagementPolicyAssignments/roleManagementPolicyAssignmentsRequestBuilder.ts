@@ -8,7 +8,7 @@ import { createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue, dese
 import { createUnifiedRoleManagementPolicyAssignmentCollectionResponseFromDiscriminatorValue } from '../../models/unifiedRoleManagementPolicyAssignmentCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { UnifiedRoleManagementPolicyAssignmentItemRequestBuilder } from './item/unifiedRoleManagementPolicyAssignmentItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters
      * Show only the first n items
      */
     top?: number;
-}
-export interface RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters;
-}
-export interface RoleManagementPolicyAssignmentsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
@@ -103,7 +79,7 @@ export class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBu
      * @returns a Promise of UnifiedRoleManagementPolicyAssignmentCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/policyroot-list-rolemanagementpolicyassignments?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleManagementPolicyAssignmentCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleManagementPolicyAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleManagementPolicyAssignment
      */
-    public post(body: UnifiedRoleManagementPolicyAssignment, requestConfiguration?: RoleManagementPolicyAssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedRoleManagementPolicyAssignment | undefined> {
+    public post(body: UnifiedRoleManagementPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleManagementPolicyAssignment | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, roleManagementPolicyAssignmentsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UnifiedRoleManagementPolicyAssignment, requestConfiguration?: RoleManagementPolicyAssignmentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UnifiedRoleManagementPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRoleManagementPolicyAssignment);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBu
         return new RoleManagementPolicyAssignmentsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const roleManagementPolicyAssignmentsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

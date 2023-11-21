@@ -63,9 +63,9 @@ export function serializeConnectedOrganization(writer: SerializationWriter, conn
         writer.writeDateValue("createdDateTime", connectedOrganization.createdDateTime);
         writer.writeStringValue("description", connectedOrganization.description);
         writer.writeStringValue("displayName", connectedOrganization.displayName);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("externalSponsors", connectedOrganization.externalSponsors, );
-        writer.writeCollectionOfObjectValues<IdentitySource>("identitySources", connectedOrganization.identitySources, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("internalSponsors", connectedOrganization.internalSponsors, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("externalSponsors", connectedOrganization.externalSponsors, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<IdentitySource>("identitySources", connectedOrganization.identitySources, serializeIdentitySource);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("internalSponsors", connectedOrganization.internalSponsors, serializeDirectoryObject);
         writer.writeDateValue("modifiedDateTime", connectedOrganization.modifiedDateTime);
         writer.writeEnumValue<ConnectedOrganizationState>("state", connectedOrganization.state);
 }

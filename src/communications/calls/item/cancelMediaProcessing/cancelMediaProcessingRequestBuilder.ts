@@ -5,18 +5,8 @@ import { createCancelMediaProcessingOperationFromDiscriminatorValue, deserialize
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { deserializeIntoCancelMediaProcessingPostRequestBody, serializeCancelMediaProcessingPostRequestBody, type CancelMediaProcessingPostRequestBody } from './cancelMediaProcessingPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface CancelMediaProcessingRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the cancelMediaProcessing method.
  */
@@ -36,7 +26,7 @@ export class CancelMediaProcessingRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of CancelMediaProcessingOperation
      * @see {@link https://learn.microsoft.com/graph/api/call-cancelmediaprocessing?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CancelMediaProcessingPostRequestBody, requestConfiguration?: CancelMediaProcessingRequestBuilderPostRequestConfiguration | undefined) : Promise<CancelMediaProcessingOperation | undefined> {
+    public post(body: CancelMediaProcessingPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CancelMediaProcessingOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -52,17 +42,11 @@ export class CancelMediaProcessingRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CancelMediaProcessingPostRequestBody, requestConfiguration?: CancelMediaProcessingRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CancelMediaProcessingPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCancelMediaProcessingPostRequestBody);
         return requestInfo;
     };

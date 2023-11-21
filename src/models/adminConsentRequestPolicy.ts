@@ -52,7 +52,7 @@ export function serializeAdminConsentRequestPolicy(writer: SerializationWriter, 
         writer.writeBooleanValue("notifyReviewers", adminConsentRequestPolicy.notifyReviewers);
         writer.writeBooleanValue("remindersEnabled", adminConsentRequestPolicy.remindersEnabled);
         writer.writeNumberValue("requestDurationInDays", adminConsentRequestPolicy.requestDurationInDays);
-        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", adminConsentRequestPolicy.reviewers, );
+        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", adminConsentRequestPolicy.reviewers, serializeAccessReviewReviewerScope);
         writer.writeNumberValue("version", adminConsentRequestPolicy.version);
 }
 // tslint:enable

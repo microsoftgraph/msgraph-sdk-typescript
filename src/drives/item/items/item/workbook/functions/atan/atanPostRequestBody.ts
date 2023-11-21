@@ -24,7 +24,7 @@ export function deserializeIntoAtanPostRequestBody(atanPostRequestBody: AtanPost
     }
 }
 export function serializeAtanPostRequestBody(writer: SerializationWriter, atanPostRequestBody: AtanPostRequestBody | undefined = {} as AtanPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", atanPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", atanPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(atanPostRequestBody.additionalData);
 }
 // tslint:enable

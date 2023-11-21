@@ -17,7 +17,7 @@ export function deserializeIntoSessionCollectionResponse(sessionCollectionRespon
 }
 export function serializeSessionCollectionResponse(writer: SerializationWriter, sessionCollectionResponse: SessionCollectionResponse | undefined = {} as SessionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, sessionCollectionResponse)
-        writer.writeCollectionOfObjectValues<Session>("value", sessionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Session>("value", sessionCollectionResponse.value, serializeSession);
 }
 export interface SessionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

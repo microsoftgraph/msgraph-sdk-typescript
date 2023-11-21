@@ -4,18 +4,8 @@
 import { createDeviceComplianceUserStatusFromDiscriminatorValue, deserializeIntoDeviceComplianceUserStatus, serializeDeviceComplianceUserStatus, type DeviceComplianceUserStatus } from '../../../../../models/deviceComplianceUserStatus';
 import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface DeviceComplianceUserStatusItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface DeviceComplianceUserStatusItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface DeviceComplianceUserStatusItemRequestBuilderGetQueryParameters 
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface DeviceComplianceUserStatusItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DeviceComplianceUserStatusItemRequestBuilderGetQueryParameters;
-}
-export interface DeviceComplianceUserStatusItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -67,7 +33,7 @@ export class DeviceComplianceUserStatusItemRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuserstatus-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DeviceComplianceUserStatusItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -83,7 +49,7 @@ export class DeviceComplianceUserStatusItemRequestBuilder extends BaseRequestBui
      * @returns a Promise of DeviceComplianceUserStatus
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuserstatus-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeviceComplianceUserStatusItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceComplianceUserStatus | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DeviceComplianceUserStatusItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceComplianceUserStatus | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -100,7 +66,7 @@ export class DeviceComplianceUserStatusItemRequestBuilder extends BaseRequestBui
      * @returns a Promise of DeviceComplianceUserStatus
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuserstatus-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceComplianceUserStatus, requestConfiguration?: DeviceComplianceUserStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceComplianceUserStatus | undefined> {
+    public patch(body: DeviceComplianceUserStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceComplianceUserStatus | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -115,16 +81,10 @@ export class DeviceComplianceUserStatusItemRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: DeviceComplianceUserStatusItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -132,17 +92,10 @@ export class DeviceComplianceUserStatusItemRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DeviceComplianceUserStatusItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceComplianceUserStatusItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, deviceComplianceUserStatusItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -151,17 +104,11 @@ export class DeviceComplianceUserStatusItemRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceComplianceUserStatus, requestConfiguration?: DeviceComplianceUserStatusItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceComplianceUserStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceComplianceUserStatus);
         return requestInfo;
     };
@@ -175,5 +122,9 @@ export class DeviceComplianceUserStatusItemRequestBuilder extends BaseRequestBui
         return new DeviceComplianceUserStatusItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const deviceComplianceUserStatusItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

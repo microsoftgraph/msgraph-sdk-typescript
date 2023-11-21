@@ -34,7 +34,7 @@ export function deserializeIntoAttackSimulationRepeatOffender(attackSimulationRe
     }
 }
 export function serializeAttackSimulationRepeatOffender(writer: SerializationWriter, attackSimulationRepeatOffender: AttackSimulationRepeatOffender | undefined = {} as AttackSimulationRepeatOffender) : void {
-        writer.writeObjectValue<AttackSimulationUser>("attackSimulationUser", attackSimulationRepeatOffender.attackSimulationUser, );
+        writer.writeObjectValue<AttackSimulationUser>("attackSimulationUser", attackSimulationRepeatOffender.attackSimulationUser, serializeAttackSimulationUser);
         writer.writeStringValue("@odata.type", attackSimulationRepeatOffender.odataType);
         writer.writeNumberValue("repeatOffenceCount", attackSimulationRepeatOffender.repeatOffenceCount);
         writer.writeAdditionalData(attackSimulationRepeatOffender.additionalData);

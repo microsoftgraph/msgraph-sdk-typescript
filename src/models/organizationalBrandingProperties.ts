@@ -206,8 +206,8 @@ export function serializeOrganizationalBrandingProperties(writer: SerializationW
         writer.writeStringValue("headerBackgroundColor", organizationalBrandingProperties.headerBackgroundColor);
         writer.writeStringValue("headerLogo", organizationalBrandingProperties.headerLogo);
         writer.writeStringValue("headerLogoRelativeUrl", organizationalBrandingProperties.headerLogoRelativeUrl);
-        writer.writeObjectValue<LoginPageLayoutConfiguration>("loginPageLayoutConfiguration", organizationalBrandingProperties.loginPageLayoutConfiguration, );
-        writer.writeObjectValue<LoginPageTextVisibilitySettings>("loginPageTextVisibilitySettings", organizationalBrandingProperties.loginPageTextVisibilitySettings, );
+        writer.writeObjectValue<LoginPageLayoutConfiguration>("loginPageLayoutConfiguration", organizationalBrandingProperties.loginPageLayoutConfiguration, serializeLoginPageLayoutConfiguration);
+        writer.writeObjectValue<LoginPageTextVisibilitySettings>("loginPageTextVisibilitySettings", organizationalBrandingProperties.loginPageTextVisibilitySettings, serializeLoginPageTextVisibilitySettings);
         writer.writeStringValue("signInPageText", organizationalBrandingProperties.signInPageText);
         writer.writeStringValue("squareLogo", organizationalBrandingProperties.squareLogo);
         writer.writeStringValue("squareLogoDark", organizationalBrandingProperties.squareLogoDark);

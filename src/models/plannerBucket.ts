@@ -41,7 +41,7 @@ export function serializePlannerBucket(writer: SerializationWriter, plannerBucke
         writer.writeStringValue("name", plannerBucket.name);
         writer.writeStringValue("orderHint", plannerBucket.orderHint);
         writer.writeStringValue("planId", plannerBucket.planId);
-        writer.writeCollectionOfObjectValues<PlannerTask>("tasks", plannerBucket.tasks, );
+        writer.writeCollectionOfObjectValues<PlannerTask>("tasks", plannerBucket.tasks, serializePlannerTask);
 }
 // tslint:enable
 // eslint-enable

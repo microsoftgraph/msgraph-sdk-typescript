@@ -17,7 +17,7 @@ export function deserializeIntoSslCertificateCollectionResponse(sslCertificateCo
 }
 export function serializeSslCertificateCollectionResponse(writer: SerializationWriter, sslCertificateCollectionResponse: SslCertificateCollectionResponse | undefined = {} as SslCertificateCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, sslCertificateCollectionResponse)
-        writer.writeCollectionOfObjectValues<SslCertificate>("value", sslCertificateCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<SslCertificate>("value", sslCertificateCollectionResponse.value, serializeSslCertificate);
 }
 export interface SslCertificateCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

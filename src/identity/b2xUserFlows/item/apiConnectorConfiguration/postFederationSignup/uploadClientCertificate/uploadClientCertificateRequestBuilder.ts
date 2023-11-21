@@ -5,18 +5,8 @@ import { createIdentityApiConnectorFromDiscriminatorValue, deserializeIntoIdenti
 import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { deserializeIntoUploadClientCertificatePostRequestBody, serializeUploadClientCertificatePostRequestBody, type UploadClientCertificatePostRequestBody } from './uploadClientCertificatePostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface UploadClientCertificateRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the uploadClientCertificate method.
  */
@@ -36,7 +26,7 @@ export class UploadClientCertificateRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of IdentityApiConnector
      * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-uploadclientcertificate?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: UploadClientCertificatePostRequestBody, requestConfiguration?: UploadClientCertificateRequestBuilderPostRequestConfiguration | undefined) : Promise<IdentityApiConnector | undefined> {
+    public post(body: UploadClientCertificatePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityApiConnector | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -52,17 +42,11 @@ export class UploadClientCertificateRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UploadClientCertificatePostRequestBody, requestConfiguration?: UploadClientCertificateRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UploadClientCertificatePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUploadClientCertificatePostRequestBody);
         return requestInfo;
     };

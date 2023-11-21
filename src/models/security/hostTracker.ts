@@ -44,7 +44,7 @@ export interface HostTracker extends Artifact, Parsable {
 export function serializeHostTracker(writer: SerializationWriter, hostTracker: HostTracker | undefined = {} as HostTracker) : void {
         serializeArtifact(writer, hostTracker)
         writer.writeDateValue("firstSeenDateTime", hostTracker.firstSeenDateTime);
-        writer.writeObjectValue<Host>("host", hostTracker.host, );
+        writer.writeObjectValue<Host>("host", hostTracker.host, serializeHost);
         writer.writeStringValue("kind", hostTracker.kind);
         writer.writeDateValue("lastSeenDateTime", hostTracker.lastSeenDateTime);
         writer.writeStringValue("value", hostTracker.value);

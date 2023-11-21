@@ -29,8 +29,8 @@ export interface Percentile_IncPostRequestBody extends AdditionalDataHolder, Par
     k?: Json;
 }
 export function serializePercentile_IncPostRequestBody(writer: SerializationWriter, percentile_IncPostRequestBody: Percentile_IncPostRequestBody | undefined = {} as Percentile_IncPostRequestBody) : void {
-        writer.writeObjectValue<Json>("array", percentile_IncPostRequestBody.array, );
-        writer.writeObjectValue<Json>("k", percentile_IncPostRequestBody.k, );
+        writer.writeObjectValue<Json>("array", percentile_IncPostRequestBody.array, serializeJson);
+        writer.writeObjectValue<Json>("k", percentile_IncPostRequestBody.k, serializeJson);
         writer.writeAdditionalData(percentile_IncPostRequestBody.additionalData);
 }
 // tslint:enable

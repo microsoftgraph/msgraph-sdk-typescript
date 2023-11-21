@@ -42,7 +42,7 @@ export function serializeCrossTenantIdentitySyncPolicyPartner(writer: Serializat
         writer.writeStringValue("displayName", crossTenantIdentitySyncPolicyPartner.displayName);
         writer.writeStringValue("@odata.type", crossTenantIdentitySyncPolicyPartner.odataType);
         writer.writeStringValue("tenantId", crossTenantIdentitySyncPolicyPartner.tenantId);
-        writer.writeObjectValue<CrossTenantUserSyncInbound>("userSyncInbound", crossTenantIdentitySyncPolicyPartner.userSyncInbound, );
+        writer.writeObjectValue<CrossTenantUserSyncInbound>("userSyncInbound", crossTenantIdentitySyncPolicyPartner.userSyncInbound, serializeCrossTenantUserSyncInbound);
         writer.writeAdditionalData(crossTenantIdentitySyncPolicyPartner.additionalData);
 }
 // tslint:enable

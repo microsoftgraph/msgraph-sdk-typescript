@@ -6,7 +6,7 @@ import { createBitlockerFromDiscriminatorValue } from '../../models/bitlocker';
 import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { RecoveryKeysRequestBuilder } from './recoveryKeys/recoveryKeysRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BitlockerRequestBuilderGetQueryParameters {
     /**
@@ -17,20 +17,6 @@ export interface BitlockerRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface BitlockerRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: BitlockerRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.
@@ -55,7 +41,7 @@ export class BitlockerRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Bitlocker
      */
-    public get(requestConfiguration?: BitlockerRequestBuilderGetRequestConfiguration | undefined) : Promise<Bitlocker | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<BitlockerRequestBuilderGetQueryParameters> | undefined) : Promise<Bitlocker | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -70,17 +56,10 @@ export class BitlockerRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: BitlockerRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<BitlockerRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, bitlockerRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -93,5 +72,9 @@ export class BitlockerRequestBuilder extends BaseRequestBuilder {
         return new BitlockerRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const bitlockerRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

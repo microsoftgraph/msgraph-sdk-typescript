@@ -28,7 +28,7 @@ export function serializeUnifiedRoleManagementPolicyRuleTarget(writer: Serializa
         writer.writeStringValue("@odata.type", unifiedRoleManagementPolicyRuleTarget.odataType);
         if(unifiedRoleManagementPolicyRuleTarget.operations)
         writer.writeEnumValue<UnifiedRoleManagementPolicyRuleTargetOperations>("operations", ...unifiedRoleManagementPolicyRuleTarget.operations);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("targetObjects", unifiedRoleManagementPolicyRuleTarget.targetObjects, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("targetObjects", unifiedRoleManagementPolicyRuleTarget.targetObjects, serializeDirectoryObject);
         writer.writeAdditionalData(unifiedRoleManagementPolicyRuleTarget.additionalData);
 }
 export interface UnifiedRoleManagementPolicyRuleTarget extends AdditionalDataHolder, Parsable {

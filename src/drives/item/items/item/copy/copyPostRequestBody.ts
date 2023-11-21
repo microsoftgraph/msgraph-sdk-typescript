@@ -30,7 +30,7 @@ export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: CopyPost
 }
 export function serializeCopyPostRequestBody(writer: SerializationWriter, copyPostRequestBody: CopyPostRequestBody | undefined = {} as CopyPostRequestBody) : void {
         writer.writeStringValue("name", copyPostRequestBody.name);
-        writer.writeObjectValue<ItemReference>("parentReference", copyPostRequestBody.parentReference, );
+        writer.writeObjectValue<ItemReference>("parentReference", copyPostRequestBody.parentReference, serializeItemReference);
         writer.writeAdditionalData(copyPostRequestBody.additionalData);
 }
 // tslint:enable

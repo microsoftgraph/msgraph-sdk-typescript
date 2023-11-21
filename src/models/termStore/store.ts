@@ -22,9 +22,9 @@ export function deserializeIntoStore(store: Store | undefined = {} as Store) : R
 export function serializeStore(writer: SerializationWriter, store: Store | undefined = {} as Store) : void {
         serializeEntity(writer, store)
         writer.writeStringValue("defaultLanguageTag", store.defaultLanguageTag);
-        writer.writeCollectionOfObjectValues<Group>("groups", store.groups, );
+        writer.writeCollectionOfObjectValues<Group>("groups", store.groups, serializeGroup);
         writer.writeCollectionOfPrimitiveValues<string>("languageTags", store.languageTags);
-        writer.writeCollectionOfObjectValues<Set>("sets", store.sets, );
+        writer.writeCollectionOfObjectValues<Set>("sets", store.sets, serializeSet);
 }
 export interface Store extends Entity, Parsable {
     /**

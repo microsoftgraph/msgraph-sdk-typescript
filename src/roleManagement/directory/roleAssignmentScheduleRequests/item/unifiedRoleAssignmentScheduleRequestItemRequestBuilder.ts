@@ -11,18 +11,8 @@ import { DirectoryScopeRequestBuilder } from './directoryScope/directoryScopeReq
 import { PrincipalRequestBuilder } from './principal/principalRequestBuilder';
 import { RoleDefinitionRequestBuilder } from './roleDefinition/roleDefinitionRequestBuilder';
 import { TargetScheduleRequestBuilder } from './targetSchedule/targetScheduleRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface UnifiedRoleAssignmentScheduleRequestItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -32,30 +22,6 @@ export interface UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryP
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryParameters;
-}
-export interface UnifiedRoleAssignmentScheduleRequestItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
@@ -115,7 +81,7 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder extends Base
      * Delete navigation property roleAssignmentScheduleRequests for roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -131,7 +97,7 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder extends Base
      * @returns a Promise of UnifiedRoleAssignmentScheduleRequest
      * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignmentschedulerequest-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleAssignmentScheduleRequest | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleAssignmentScheduleRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -147,7 +113,7 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleAssignmentScheduleRequest
      */
-    public patch(body: UnifiedRoleAssignmentScheduleRequest, requestConfiguration?: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRoleAssignmentScheduleRequest | undefined> {
+    public patch(body: UnifiedRoleAssignmentScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleAssignmentScheduleRequest | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -162,16 +128,10 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -179,17 +139,10 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, unifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -198,17 +151,11 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UnifiedRoleAssignmentScheduleRequest, requestConfiguration?: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UnifiedRoleAssignmentScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRoleAssignmentScheduleRequest);
         return requestInfo;
     };
@@ -222,5 +169,9 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder extends Base
         return new UnifiedRoleAssignmentScheduleRequestItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const unifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

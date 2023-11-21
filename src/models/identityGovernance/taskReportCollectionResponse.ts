@@ -17,7 +17,7 @@ export function deserializeIntoTaskReportCollectionResponse(taskReportCollection
 }
 export function serializeTaskReportCollectionResponse(writer: SerializationWriter, taskReportCollectionResponse: TaskReportCollectionResponse | undefined = {} as TaskReportCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, taskReportCollectionResponse)
-        writer.writeCollectionOfObjectValues<TaskReport>("value", taskReportCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<TaskReport>("value", taskReportCollectionResponse.value, serializeTaskReport);
 }
 export interface TaskReportCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

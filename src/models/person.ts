@@ -127,14 +127,14 @@ export function serializePerson(writer: SerializationWriter, person: Person | un
         writer.writeStringValue("jobTitle", person.jobTitle);
         writer.writeStringValue("officeLocation", person.officeLocation);
         writer.writeStringValue("personNotes", person.personNotes);
-        writer.writeObjectValue<PersonType>("personType", person.personType, );
-        writer.writeCollectionOfObjectValues<Phone>("phones", person.phones, );
-        writer.writeCollectionOfObjectValues<Location>("postalAddresses", person.postalAddresses, );
+        writer.writeObjectValue<PersonType>("personType", person.personType, serializePersonType);
+        writer.writeCollectionOfObjectValues<Phone>("phones", person.phones, serializePhone);
+        writer.writeCollectionOfObjectValues<Location>("postalAddresses", person.postalAddresses, serializeLocation);
         writer.writeStringValue("profession", person.profession);
-        writer.writeCollectionOfObjectValues<ScoredEmailAddress>("scoredEmailAddresses", person.scoredEmailAddresses, );
+        writer.writeCollectionOfObjectValues<ScoredEmailAddress>("scoredEmailAddresses", person.scoredEmailAddresses, serializeScoredEmailAddress);
         writer.writeStringValue("surname", person.surname);
         writer.writeStringValue("userPrincipalName", person.userPrincipalName);
-        writer.writeCollectionOfObjectValues<Website>("websites", person.websites, );
+        writer.writeCollectionOfObjectValues<Website>("websites", person.websites, serializeWebsite);
         writer.writeStringValue("yomiCompany", person.yomiCompany);
 }
 // tslint:enable

@@ -24,7 +24,7 @@ export interface RestartPostRequestBody extends AdditionalDataHolder, Parsable {
     criteria?: SynchronizationJobRestartCriteria;
 }
 export function serializeRestartPostRequestBody(writer: SerializationWriter, restartPostRequestBody: RestartPostRequestBody | undefined = {} as RestartPostRequestBody) : void {
-        writer.writeObjectValue<SynchronizationJobRestartCriteria>("criteria", restartPostRequestBody.criteria, );
+        writer.writeObjectValue<SynchronizationJobRestartCriteria>("criteria", restartPostRequestBody.criteria, serializeSynchronizationJobRestartCriteria);
         writer.writeAdditionalData(restartPostRequestBody.additionalData);
 }
 // tslint:enable

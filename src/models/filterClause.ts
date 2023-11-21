@@ -42,7 +42,7 @@ export function serializeFilterClause(writer: SerializationWriter, filterClause:
         writer.writeStringValue("@odata.type", filterClause.odataType);
         writer.writeStringValue("operatorName", filterClause.operatorName);
         writer.writeStringValue("sourceOperandName", filterClause.sourceOperandName);
-        writer.writeObjectValue<FilterOperand>("targetOperand", filterClause.targetOperand, );
+        writer.writeObjectValue<FilterOperand>("targetOperand", filterClause.targetOperand, serializeFilterOperand);
         writer.writeAdditionalData(filterClause.additionalData);
 }
 // tslint:enable

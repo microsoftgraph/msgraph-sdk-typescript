@@ -23,7 +23,7 @@ export interface GetManagedAppPoliciesGetResponse extends BaseCollectionPaginati
 }
 export function serializeGetManagedAppPoliciesGetResponse(writer: SerializationWriter, getManagedAppPoliciesGetResponse: GetManagedAppPoliciesGetResponse | undefined = {} as GetManagedAppPoliciesGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getManagedAppPoliciesGetResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", getManagedAppPoliciesGetResponse.value, );
+        writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", getManagedAppPoliciesGetResponse.value, serializeManagedAppPolicy);
 }
 // tslint:enable
 // eslint-enable

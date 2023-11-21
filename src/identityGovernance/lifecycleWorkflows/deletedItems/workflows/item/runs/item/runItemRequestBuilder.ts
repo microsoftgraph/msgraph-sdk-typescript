@@ -7,7 +7,7 @@ import { type ODataError } from '../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { TaskProcessingResultsRequestBuilder } from './taskProcessingResults/taskProcessingResultsRequestBuilder';
 import { UserProcessingResultsRequestBuilder } from './userProcessingResults/userProcessingResultsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RunItemRequestBuilderGetQueryParameters {
     /**
@@ -18,20 +18,6 @@ export interface RunItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface RunItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RunItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
@@ -63,7 +49,7 @@ export class RunItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Run
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-run-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RunItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Run | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RunItemRequestBuilderGetQueryParameters> | undefined) : Promise<Run | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -78,17 +64,10 @@ export class RunItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RunItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RunItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, runItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -101,5 +80,9 @@ export class RunItemRequestBuilder extends BaseRequestBuilder {
         return new RunItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const runItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

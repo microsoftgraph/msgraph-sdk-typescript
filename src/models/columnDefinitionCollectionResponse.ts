@@ -23,7 +23,7 @@ export function deserializeIntoColumnDefinitionCollectionResponse(columnDefiniti
 }
 export function serializeColumnDefinitionCollectionResponse(writer: SerializationWriter, columnDefinitionCollectionResponse: ColumnDefinitionCollectionResponse | undefined = {} as ColumnDefinitionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, columnDefinitionCollectionResponse)
-        writer.writeCollectionOfObjectValues<ColumnDefinition>("value", columnDefinitionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ColumnDefinition>("value", columnDefinitionCollectionResponse.value, serializeColumnDefinition);
 }
 // tslint:enable
 // eslint-enable

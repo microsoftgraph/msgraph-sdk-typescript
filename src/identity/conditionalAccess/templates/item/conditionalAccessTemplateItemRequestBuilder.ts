@@ -5,7 +5,7 @@ import { type ConditionalAccessTemplate } from '../../../../models/';
 import { createConditionalAccessTemplateFromDiscriminatorValue } from '../../../../models/conditionalAccessTemplate';
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessTemplateItemRequestBuilderGetQueryParameters {
     /**
@@ -16,20 +16,6 @@ export interface ConditionalAccessTemplateItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ConditionalAccessTemplateItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ConditionalAccessTemplateItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
@@ -49,7 +35,7 @@ export class ConditionalAccessTemplateItemRequestBuilder extends BaseRequestBuil
      * @returns a Promise of ConditionalAccessTemplate
      * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesstemplate-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ConditionalAccessTemplateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConditionalAccessTemplate | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ConditionalAccessTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<ConditionalAccessTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -64,17 +50,10 @@ export class ConditionalAccessTemplateItemRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ConditionalAccessTemplateItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConditionalAccessTemplateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, conditionalAccessTemplateItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -87,5 +66,9 @@ export class ConditionalAccessTemplateItemRequestBuilder extends BaseRequestBuil
         return new ConditionalAccessTemplateItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const conditionalAccessTemplateItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

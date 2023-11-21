@@ -34,9 +34,9 @@ export function deserializeIntoAverageIfPostRequestBody(averageIfPostRequestBody
     }
 }
 export function serializeAverageIfPostRequestBody(writer: SerializationWriter, averageIfPostRequestBody: AverageIfPostRequestBody | undefined = {} as AverageIfPostRequestBody) : void {
-        writer.writeObjectValue<Json>("averageRange", averageIfPostRequestBody.averageRange, );
-        writer.writeObjectValue<Json>("criteria", averageIfPostRequestBody.criteria, );
-        writer.writeObjectValue<Json>("range", averageIfPostRequestBody.range, );
+        writer.writeObjectValue<Json>("averageRange", averageIfPostRequestBody.averageRange, serializeJson);
+        writer.writeObjectValue<Json>("criteria", averageIfPostRequestBody.criteria, serializeJson);
+        writer.writeObjectValue<Json>("range", averageIfPostRequestBody.range, serializeJson);
         writer.writeAdditionalData(averageIfPostRequestBody.additionalData);
 }
 // tslint:enable

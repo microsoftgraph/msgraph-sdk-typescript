@@ -6,18 +6,8 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { DefaultRequestBuilder } from './defaultEscaped/defaultRequestBuilder';
 import { PartnersRequestBuilder } from './partners/partnersRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface CrossTenantAccessPolicyRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface CrossTenantAccessPolicyRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -27,30 +17,6 @@ export interface CrossTenantAccessPolicyRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: CrossTenantAccessPolicyRequestBuilderGetQueryParameters;
-}
-export interface CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity.
@@ -80,7 +46,7 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property crossTenantAccessPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: CrossTenantAccessPolicyRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -96,7 +62,7 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of CrossTenantAccessPolicy
      * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration | undefined) : Promise<CrossTenantAccessPolicy | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<CrossTenantAccessPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<CrossTenantAccessPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -113,7 +79,7 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of CrossTenantAccessPolicy
      * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: CrossTenantAccessPolicy, requestConfiguration?: CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration | undefined) : Promise<CrossTenantAccessPolicy | undefined> {
+    public patch(body: CrossTenantAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CrossTenantAccessPolicy | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -128,16 +94,10 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: CrossTenantAccessPolicyRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -145,17 +105,10 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<CrossTenantAccessPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, crossTenantAccessPolicyRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -164,17 +117,11 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: CrossTenantAccessPolicy, requestConfiguration?: CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: CrossTenantAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCrossTenantAccessPolicy);
         return requestInfo;
     };
@@ -188,5 +135,9 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
         return new CrossTenantAccessPolicyRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const crossTenantAccessPolicyRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

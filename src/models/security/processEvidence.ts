@@ -71,15 +71,15 @@ export interface ProcessEvidence extends AlertEvidence, Parsable {
 export function serializeProcessEvidence(writer: SerializationWriter, processEvidence: ProcessEvidence | undefined = {} as ProcessEvidence) : void {
         serializeAlertEvidence(writer, processEvidence)
         writer.writeEnumValue<DetectionStatus>("detectionStatus", processEvidence.detectionStatus);
-        writer.writeObjectValue<FileDetails>("imageFile", processEvidence.imageFile, );
+        writer.writeObjectValue<FileDetails>("imageFile", processEvidence.imageFile, serializeFileDetails);
         writer.writeStringValue("mdeDeviceId", processEvidence.mdeDeviceId);
         writer.writeDateValue("parentProcessCreationDateTime", processEvidence.parentProcessCreationDateTime);
         writer.writeNumberValue("parentProcessId", processEvidence.parentProcessId);
-        writer.writeObjectValue<FileDetails>("parentProcessImageFile", processEvidence.parentProcessImageFile, );
+        writer.writeObjectValue<FileDetails>("parentProcessImageFile", processEvidence.parentProcessImageFile, serializeFileDetails);
         writer.writeStringValue("processCommandLine", processEvidence.processCommandLine);
         writer.writeDateValue("processCreationDateTime", processEvidence.processCreationDateTime);
         writer.writeNumberValue("processId", processEvidence.processId);
-        writer.writeObjectValue<UserAccount>("userAccount", processEvidence.userAccount, );
+        writer.writeObjectValue<UserAccount>("userAccount", processEvidence.userAccount, serializeUserAccount);
 }
 // tslint:enable
 // eslint-enable

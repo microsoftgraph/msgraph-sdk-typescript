@@ -5,7 +5,7 @@ import { type ODataError } from '../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { type EdiscoveryIndexOperation } from '../../../../../../../models/security/';
 import { createEdiscoveryIndexOperationFromDiscriminatorValue } from '../../../../../../../models/security/ediscoveryIndexOperation';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LastIndexOperationRequestBuilderGetQueryParameters {
     /**
@@ -16,20 +16,6 @@ export interface LastIndexOperationRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface LastIndexOperationRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: LastIndexOperationRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryCustodian entity.
@@ -49,7 +35,7 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EdiscoveryIndexOperation
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-lastindexoperation?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: LastIndexOperationRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryIndexOperation | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<LastIndexOperationRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryIndexOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -64,17 +50,10 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: LastIndexOperationRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<LastIndexOperationRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, lastIndexOperationRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -87,5 +66,9 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
         return new LastIndexOperationRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const lastIndexOperationRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

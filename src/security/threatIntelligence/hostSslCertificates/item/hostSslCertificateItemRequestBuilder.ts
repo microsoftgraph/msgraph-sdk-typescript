@@ -6,18 +6,8 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createHostSslCertificateFromDiscriminatorValue, deserializeIntoHostSslCertificate, serializeHostSslCertificate, type HostSslCertificate } from '../../../../models/security/hostSslCertificate';
 import { HostRequestBuilder } from './host/hostRequestBuilder';
 import { SslCertificateRequestBuilder } from './sslCertificate/sslCertificateRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface HostSslCertificateItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface HostSslCertificateItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -27,30 +17,6 @@ export interface HostSslCertificateItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface HostSslCertificateItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: HostSslCertificateItemRequestBuilderGetQueryParameters;
-}
-export interface HostSslCertificateItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the hostSslCertificates property of the microsoft.graph.security.threatIntelligence entity.
@@ -80,7 +46,7 @@ export class HostSslCertificateItemRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property hostSslCertificates for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: HostSslCertificateItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -96,7 +62,7 @@ export class HostSslCertificateItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of HostSslCertificate
      * @see {@link https://learn.microsoft.com/graph/api/security-hostsslcertificate-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: HostSslCertificateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<HostSslCertificate | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<HostSslCertificateItemRequestBuilderGetQueryParameters> | undefined) : Promise<HostSslCertificate | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -112,7 +78,7 @@ export class HostSslCertificateItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostSslCertificate
      */
-    public patch(body: HostSslCertificate, requestConfiguration?: HostSslCertificateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<HostSslCertificate | undefined> {
+    public patch(body: HostSslCertificate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HostSslCertificate | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -127,16 +93,10 @@ export class HostSslCertificateItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: HostSslCertificateItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -144,17 +104,10 @@ export class HostSslCertificateItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: HostSslCertificateItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<HostSslCertificateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, hostSslCertificateItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -163,17 +116,11 @@ export class HostSslCertificateItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: HostSslCertificate, requestConfiguration?: HostSslCertificateItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: HostSslCertificate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHostSslCertificate);
         return requestInfo;
     };
@@ -187,5 +134,9 @@ export class HostSslCertificateItemRequestBuilder extends BaseRequestBuilder {
         return new HostSslCertificateItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const hostSslCertificateItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

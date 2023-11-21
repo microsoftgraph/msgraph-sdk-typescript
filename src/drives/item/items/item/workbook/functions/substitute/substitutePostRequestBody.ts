@@ -17,10 +17,10 @@ export function deserializeIntoSubstitutePostRequestBody(substitutePostRequestBo
     }
 }
 export function serializeSubstitutePostRequestBody(writer: SerializationWriter, substitutePostRequestBody: SubstitutePostRequestBody | undefined = {} as SubstitutePostRequestBody) : void {
-        writer.writeObjectValue<Json>("instanceNum", substitutePostRequestBody.instanceNum, );
-        writer.writeObjectValue<Json>("newText", substitutePostRequestBody.newText, );
-        writer.writeObjectValue<Json>("oldText", substitutePostRequestBody.oldText, );
-        writer.writeObjectValue<Json>("text", substitutePostRequestBody.text, );
+        writer.writeObjectValue<Json>("instanceNum", substitutePostRequestBody.instanceNum, serializeJson);
+        writer.writeObjectValue<Json>("newText", substitutePostRequestBody.newText, serializeJson);
+        writer.writeObjectValue<Json>("oldText", substitutePostRequestBody.oldText, serializeJson);
+        writer.writeObjectValue<Json>("text", substitutePostRequestBody.text, serializeJson);
         writer.writeAdditionalData(substitutePostRequestBody.additionalData);
 }
 export interface SubstitutePostRequestBody extends AdditionalDataHolder, Parsable {

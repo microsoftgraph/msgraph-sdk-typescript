@@ -7,18 +7,8 @@ import { createSimulationFromDiscriminatorValue, deserializeIntoSimulation, seri
 import { LandingPageRequestBuilder } from './landingPage/landingPageRequestBuilder';
 import { LoginPageRequestBuilder } from './loginPage/loginPageRequestBuilder';
 import { PayloadRequestBuilder } from './payload/payloadRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface SimulationItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface SimulationItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -28,30 +18,6 @@ export interface SimulationItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface SimulationItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SimulationItemRequestBuilderGetQueryParameters;
-}
-export interface SimulationItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
@@ -84,10 +50,11 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property simulations for security
+     * Delete an attack simulation campaign for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://learn.microsoft.com/graph/api/simulation-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: SimulationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -103,7 +70,7 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Simulation
      * @see {@link https://learn.microsoft.com/graph/api/simulation-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SimulationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Simulation | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SimulationItemRequestBuilderGetQueryParameters> | undefined) : Promise<Simulation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,12 +81,13 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Simulation>(requestInfo, createSimulationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property simulations in security
+     * Update an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Simulation
+     * @see {@link https://learn.microsoft.com/graph/api/simulation-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Simulation, requestConfiguration?: SimulationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Simulation | undefined> {
+    public patch(body: Simulation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Simulation | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -130,20 +98,14 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Simulation>(requestInfo, createSimulationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property simulations for security
+     * Delete an attack simulation campaign for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: SimulationItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -151,36 +113,23 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SimulationItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SimulationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, simulationItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the navigation property simulations in security
+     * Update an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Simulation, requestConfiguration?: SimulationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Simulation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSimulation);
         return requestInfo;
     };
@@ -194,5 +143,9 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         return new SimulationItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const simulationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

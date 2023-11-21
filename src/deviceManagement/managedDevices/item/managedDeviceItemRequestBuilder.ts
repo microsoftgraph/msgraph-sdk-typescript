@@ -28,18 +28,8 @@ import { WindowsDefenderScanRequestBuilder } from './windowsDefenderScan/windows
 import { WindowsDefenderUpdateSignaturesRequestBuilder } from './windowsDefenderUpdateSignatures/windowsDefenderUpdateSignaturesRequestBuilder';
 import { WindowsProtectionStateRequestBuilder } from './windowsProtectionState/windowsProtectionStateRequestBuilder';
 import { WipeRequestBuilder } from './wipe/wipeRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface ManagedDeviceItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface ManagedDeviceItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -49,30 +39,6 @@ export interface ManagedDeviceItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface ManagedDeviceItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ManagedDeviceItemRequestBuilderGetQueryParameters;
-}
-export interface ManagedDeviceItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.deviceManagement entity.
@@ -235,7 +201,7 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ManagedDeviceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -251,7 +217,7 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ManagedDevice
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ManagedDeviceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDevice | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ManagedDeviceItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDevice | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -268,7 +234,7 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ManagedDevice
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ManagedDevice, requestConfiguration?: ManagedDeviceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDevice | undefined> {
+    public patch(body: ManagedDevice, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDevice | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -283,16 +249,10 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: ManagedDeviceItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -300,17 +260,10 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ManagedDeviceItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedDeviceItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, managedDeviceItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -319,17 +272,11 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ManagedDevice, requestConfiguration?: ManagedDeviceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ManagedDevice, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedDevice);
         return requestInfo;
     };
@@ -343,5 +290,9 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
         return new ManagedDeviceItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const managedDeviceItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

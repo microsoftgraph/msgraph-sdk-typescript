@@ -23,7 +23,7 @@ export interface LearningCourseActivityCollectionResponse extends BaseCollection
 }
 export function serializeLearningCourseActivityCollectionResponse(writer: SerializationWriter, learningCourseActivityCollectionResponse: LearningCourseActivityCollectionResponse | undefined = {} as LearningCourseActivityCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, learningCourseActivityCollectionResponse)
-        writer.writeCollectionOfObjectValues<LearningCourseActivity>("value", learningCourseActivityCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<LearningCourseActivity>("value", learningCourseActivityCollectionResponse.value, serializeLearningCourseActivity);
 }
 // tslint:enable
 // eslint-enable

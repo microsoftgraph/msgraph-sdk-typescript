@@ -6,18 +6,8 @@ import { createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue 
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { DeviceRequestBuilder } from './device/deviceRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -27,20 +17,6 @@ export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGet
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
@@ -65,7 +41,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -81,7 +57,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
      * @returns a Promise of MicrosoftAuthenticatorAuthenticationMethod
      * @see {@link https://learn.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethod | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -96,16 +72,10 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -113,17 +83,10 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, microsoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -136,5 +99,9 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
         return new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const microsoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

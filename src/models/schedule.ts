@@ -123,20 +123,20 @@ export interface Schedule extends Entity, Parsable {
 export function serializeSchedule(writer: SerializationWriter, schedule: Schedule | undefined = {} as Schedule) : void {
         serializeEntity(writer, schedule)
         writer.writeBooleanValue("enabled", schedule.enabled);
-        writer.writeCollectionOfObjectValues<OfferShiftRequest>("offerShiftRequests", schedule.offerShiftRequests, );
+        writer.writeCollectionOfObjectValues<OfferShiftRequest>("offerShiftRequests", schedule.offerShiftRequests, serializeOfferShiftRequest);
         writer.writeBooleanValue("offerShiftRequestsEnabled", schedule.offerShiftRequestsEnabled);
-        writer.writeCollectionOfObjectValues<OpenShiftChangeRequest>("openShiftChangeRequests", schedule.openShiftChangeRequests, );
-        writer.writeCollectionOfObjectValues<OpenShift>("openShifts", schedule.openShifts, );
+        writer.writeCollectionOfObjectValues<OpenShiftChangeRequest>("openShiftChangeRequests", schedule.openShiftChangeRequests, serializeOpenShiftChangeRequest);
+        writer.writeCollectionOfObjectValues<OpenShift>("openShifts", schedule.openShifts, serializeOpenShift);
         writer.writeBooleanValue("openShiftsEnabled", schedule.openShiftsEnabled);
-        writer.writeCollectionOfObjectValues<SchedulingGroup>("schedulingGroups", schedule.schedulingGroups, );
-        writer.writeCollectionOfObjectValues<Shift>("shifts", schedule.shifts, );
-        writer.writeCollectionOfObjectValues<SwapShiftsChangeRequest>("swapShiftsChangeRequests", schedule.swapShiftsChangeRequests, );
+        writer.writeCollectionOfObjectValues<SchedulingGroup>("schedulingGroups", schedule.schedulingGroups, serializeSchedulingGroup);
+        writer.writeCollectionOfObjectValues<Shift>("shifts", schedule.shifts, serializeShift);
+        writer.writeCollectionOfObjectValues<SwapShiftsChangeRequest>("swapShiftsChangeRequests", schedule.swapShiftsChangeRequests, serializeSwapShiftsChangeRequest);
         writer.writeBooleanValue("swapShiftsRequestsEnabled", schedule.swapShiftsRequestsEnabled);
         writer.writeBooleanValue("timeClockEnabled", schedule.timeClockEnabled);
-        writer.writeCollectionOfObjectValues<TimeOffReason>("timeOffReasons", schedule.timeOffReasons, );
-        writer.writeCollectionOfObjectValues<TimeOffRequest>("timeOffRequests", schedule.timeOffRequests, );
+        writer.writeCollectionOfObjectValues<TimeOffReason>("timeOffReasons", schedule.timeOffReasons, serializeTimeOffReason);
+        writer.writeCollectionOfObjectValues<TimeOffRequest>("timeOffRequests", schedule.timeOffRequests, serializeTimeOffRequest);
         writer.writeBooleanValue("timeOffRequestsEnabled", schedule.timeOffRequestsEnabled);
-        writer.writeCollectionOfObjectValues<TimeOff>("timesOff", schedule.timesOff, );
+        writer.writeCollectionOfObjectValues<TimeOff>("timesOff", schedule.timesOff, serializeTimeOff);
         writer.writeStringValue("timeZone", schedule.timeZone);
         writer.writeCollectionOfPrimitiveValues<string>("workforceIntegrationIds", schedule.workforceIntegrationIds);
 }

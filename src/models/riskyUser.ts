@@ -76,7 +76,7 @@ export interface RiskyUser extends Entity, Parsable {
 }
 export function serializeRiskyUser(writer: SerializationWriter, riskyUser: RiskyUser | undefined = {} as RiskyUser) : void {
         serializeEntity(writer, riskyUser)
-        writer.writeCollectionOfObjectValues<RiskyUserHistoryItem>("history", riskyUser.history, );
+        writer.writeCollectionOfObjectValues<RiskyUserHistoryItem>("history", riskyUser.history, serializeRiskyUserHistoryItem);
         writer.writeBooleanValue("isDeleted", riskyUser.isDeleted);
         writer.writeBooleanValue("isProcessing", riskyUser.isProcessing);
         writer.writeEnumValue<RiskDetail>("riskDetail", riskyUser.riskDetail);

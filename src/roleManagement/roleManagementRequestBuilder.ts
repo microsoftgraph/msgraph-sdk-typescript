@@ -6,7 +6,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createRoleManagementFromDiscriminatorValue, deserializeIntoRoleManagement, serializeRoleManagement, type RoleManagement } from '../models/roleManagement';
 import { DirectoryRequestBuilder } from './directory/directoryRequestBuilder';
 import { EntitlementManagementRequestBuilder } from './entitlementManagement/entitlementManagementRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RoleManagementRequestBuilderGetQueryParameters {
     /**
@@ -17,30 +17,6 @@ export interface RoleManagementRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface RoleManagementRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RoleManagementRequestBuilderGetQueryParameters;
-}
-export interface RoleManagementRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the roleManagement singleton.
@@ -71,7 +47,7 @@ export class RoleManagementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleManagement
      */
-    public get(requestConfiguration?: RoleManagementRequestBuilderGetRequestConfiguration | undefined) : Promise<RoleManagement | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RoleManagementRequestBuilderGetQueryParameters> | undefined) : Promise<RoleManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -87,7 +63,7 @@ export class RoleManagementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleManagement
      */
-    public patch(body: RoleManagement, requestConfiguration?: RoleManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<RoleManagement | undefined> {
+    public patch(body: RoleManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleManagement | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -102,17 +78,10 @@ export class RoleManagementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RoleManagementRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleManagementRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, roleManagementRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -121,17 +90,11 @@ export class RoleManagementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: RoleManagement, requestConfiguration?: RoleManagementRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: RoleManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRoleManagement);
         return requestInfo;
     };
@@ -145,5 +108,9 @@ export class RoleManagementRequestBuilder extends BaseRequestBuilder {
         return new RoleManagementRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const roleManagementRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

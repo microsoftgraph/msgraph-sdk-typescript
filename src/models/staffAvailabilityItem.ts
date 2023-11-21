@@ -16,7 +16,7 @@ export function deserializeIntoStaffAvailabilityItem(staffAvailabilityItem: Staf
     }
 }
 export function serializeStaffAvailabilityItem(writer: SerializationWriter, staffAvailabilityItem: StaffAvailabilityItem | undefined = {} as StaffAvailabilityItem) : void {
-        writer.writeCollectionOfObjectValues<AvailabilityItem>("availabilityItems", staffAvailabilityItem.availabilityItems, );
+        writer.writeCollectionOfObjectValues<AvailabilityItem>("availabilityItems", staffAvailabilityItem.availabilityItems, serializeAvailabilityItem);
         writer.writeStringValue("@odata.type", staffAvailabilityItem.odataType);
         writer.writeStringValue("staffId", staffAvailabilityItem.staffId);
         writer.writeAdditionalData(staffAvailabilityItem.additionalData);

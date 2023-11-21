@@ -79,7 +79,7 @@ export function serializeArchivedPrintJob(writer: SerializationWriter, archivedP
         writer.writeDateValue("acquiredDateTime", archivedPrintJob.acquiredDateTime);
         writer.writeDateValue("completionDateTime", archivedPrintJob.completionDateTime);
         writer.writeNumberValue("copiesPrinted", archivedPrintJob.copiesPrinted);
-        writer.writeObjectValue<UserIdentity>("createdBy", archivedPrintJob.createdBy, );
+        writer.writeObjectValue<UserIdentity>("createdBy", archivedPrintJob.createdBy, serializeUserIdentity);
         writer.writeDateValue("createdDateTime", archivedPrintJob.createdDateTime);
         writer.writeStringValue("id", archivedPrintJob.id);
         writer.writeStringValue("@odata.type", archivedPrintJob.odataType);

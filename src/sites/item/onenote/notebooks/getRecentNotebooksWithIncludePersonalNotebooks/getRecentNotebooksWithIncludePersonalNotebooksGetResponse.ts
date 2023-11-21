@@ -23,7 +23,7 @@ export interface GetRecentNotebooksWithIncludePersonalNotebooksGetResponse exten
 }
 export function serializeGetRecentNotebooksWithIncludePersonalNotebooksGetResponse(writer: SerializationWriter, getRecentNotebooksWithIncludePersonalNotebooksGetResponse: GetRecentNotebooksWithIncludePersonalNotebooksGetResponse | undefined = {} as GetRecentNotebooksWithIncludePersonalNotebooksGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getRecentNotebooksWithIncludePersonalNotebooksGetResponse)
-        writer.writeCollectionOfObjectValues<RecentNotebook>("value", getRecentNotebooksWithIncludePersonalNotebooksGetResponse.value, );
+        writer.writeCollectionOfObjectValues<RecentNotebook>("value", getRecentNotebooksWithIncludePersonalNotebooksGetResponse.value, serializeRecentNotebook);
 }
 // tslint:enable
 // eslint-enable

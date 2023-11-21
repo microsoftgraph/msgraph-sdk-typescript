@@ -9,18 +9,8 @@ import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemb
 import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
 import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
 import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface DirectoryRoleTemplateItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface DirectoryRoleTemplateItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -30,30 +20,6 @@ export interface DirectoryRoleTemplateItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface DirectoryRoleTemplateItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DirectoryRoleTemplateItemRequestBuilderGetQueryParameters;
-}
-export interface DirectoryRoleTemplateItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the collection of directoryRoleTemplate entities.
@@ -101,7 +67,7 @@ export class DirectoryRoleTemplateItemRequestBuilder extends BaseRequestBuilder 
      * Delete entity from directoryRoleTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: DirectoryRoleTemplateItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -117,7 +83,7 @@ export class DirectoryRoleTemplateItemRequestBuilder extends BaseRequestBuilder 
      * @returns a Promise of DirectoryRoleTemplate
      * @see {@link https://learn.microsoft.com/graph/api/directoryroletemplate-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DirectoryRoleTemplateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryRoleTemplate | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DirectoryRoleTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryRoleTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -133,7 +99,7 @@ export class DirectoryRoleTemplateItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryRoleTemplate
      */
-    public patch(body: DirectoryRoleTemplate, requestConfiguration?: DirectoryRoleTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DirectoryRoleTemplate | undefined> {
+    public patch(body: DirectoryRoleTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DirectoryRoleTemplate | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -148,16 +114,10 @@ export class DirectoryRoleTemplateItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: DirectoryRoleTemplateItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -165,17 +125,10 @@ export class DirectoryRoleTemplateItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DirectoryRoleTemplateItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DirectoryRoleTemplateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, directoryRoleTemplateItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -184,17 +137,11 @@ export class DirectoryRoleTemplateItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DirectoryRoleTemplate, requestConfiguration?: DirectoryRoleTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DirectoryRoleTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectoryRoleTemplate);
         return requestInfo;
     };
@@ -208,5 +155,9 @@ export class DirectoryRoleTemplateItemRequestBuilder extends BaseRequestBuilder 
         return new DirectoryRoleTemplateItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const directoryRoleTemplateItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

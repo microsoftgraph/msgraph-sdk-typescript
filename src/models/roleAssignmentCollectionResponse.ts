@@ -23,7 +23,7 @@ export interface RoleAssignmentCollectionResponse extends BaseCollectionPaginati
 }
 export function serializeRoleAssignmentCollectionResponse(writer: SerializationWriter, roleAssignmentCollectionResponse: RoleAssignmentCollectionResponse | undefined = {} as RoleAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, roleAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<RoleAssignment>("value", roleAssignmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<RoleAssignment>("value", roleAssignmentCollectionResponse.value, serializeRoleAssignment);
 }
 // tslint:enable
 // eslint-enable

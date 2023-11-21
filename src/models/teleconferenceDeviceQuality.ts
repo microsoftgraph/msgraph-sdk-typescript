@@ -33,7 +33,7 @@ export function serializeTeleconferenceDeviceQuality(writer: SerializationWriter
         writer.writeStringValue("deviceDescription", teleconferenceDeviceQuality.deviceDescription);
         writer.writeStringValue("deviceName", teleconferenceDeviceQuality.deviceName);
         writer.writeGuidValue("mediaLegId", teleconferenceDeviceQuality.mediaLegId);
-        writer.writeCollectionOfObjectValues<TeleconferenceDeviceMediaQuality>("mediaQualityList", teleconferenceDeviceQuality.mediaQualityList, );
+        writer.writeCollectionOfObjectValues<TeleconferenceDeviceMediaQuality>("mediaQualityList", teleconferenceDeviceQuality.mediaQualityList, serializeTeleconferenceDeviceMediaQuality);
         writer.writeStringValue("@odata.type", teleconferenceDeviceQuality.odataType);
         writer.writeGuidValue("participantId", teleconferenceDeviceQuality.participantId);
         writer.writeAdditionalData(teleconferenceDeviceQuality.additionalData);

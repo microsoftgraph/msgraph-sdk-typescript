@@ -8,7 +8,7 @@ import { createSimulationFromDiscriminatorValue, deserializeIntoSimulation, seri
 import { createSimulationCollectionResponseFromDiscriminatorValue } from '../../../models/simulationCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { SimulationItemRequestBuilder } from './item/simulationItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SimulationsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface SimulationsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface SimulationsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SimulationsRequestBuilderGetQueryParameters;
-}
-export interface SimulationsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
@@ -103,7 +79,7 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SimulationCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-simulations?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SimulationsRequestBuilderGetRequestConfiguration | undefined) : Promise<SimulationCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SimulationsRequestBuilderGetQueryParameters> | undefined) : Promise<SimulationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -114,12 +90,13 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<SimulationCollectionResponse>(requestInfo, createSimulationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to simulations for security
+     * Create an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Simulation
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-post-simulation?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Simulation, requestConfiguration?: SimulationsRequestBuilderPostRequestConfiguration | undefined) : Promise<Simulation | undefined> {
+    public post(body: Simulation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Simulation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,36 +111,23 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SimulationsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SimulationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, simulationsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create new navigation property to simulations for security
+     * Create an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Simulation, requestConfiguration?: SimulationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Simulation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSimulation);
         return requestInfo;
     };
@@ -177,5 +141,15 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
         return new SimulationsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const simulationsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

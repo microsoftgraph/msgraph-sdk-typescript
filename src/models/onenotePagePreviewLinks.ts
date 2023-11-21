@@ -30,7 +30,7 @@ export interface OnenotePagePreviewLinks extends AdditionalDataHolder, Parsable 
 }
 export function serializeOnenotePagePreviewLinks(writer: SerializationWriter, onenotePagePreviewLinks: OnenotePagePreviewLinks | undefined = {} as OnenotePagePreviewLinks) : void {
         writer.writeStringValue("@odata.type", onenotePagePreviewLinks.odataType);
-        writer.writeObjectValue<ExternalLink>("previewImageUrl", onenotePagePreviewLinks.previewImageUrl, );
+        writer.writeObjectValue<ExternalLink>("previewImageUrl", onenotePagePreviewLinks.previewImageUrl, serializeExternalLink);
         writer.writeAdditionalData(onenotePagePreviewLinks.additionalData);
 }
 // tslint:enable

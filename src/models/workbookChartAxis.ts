@@ -27,14 +27,14 @@ export function deserializeIntoWorkbookChartAxis(workbookChartAxis: WorkbookChar
 }
 export function serializeWorkbookChartAxis(writer: SerializationWriter, workbookChartAxis: WorkbookChartAxis | undefined = {} as WorkbookChartAxis) : void {
         serializeEntity(writer, workbookChartAxis)
-        writer.writeObjectValue<WorkbookChartAxisFormat>("format", workbookChartAxis.format, );
-        writer.writeObjectValue<WorkbookChartGridlines>("majorGridlines", workbookChartAxis.majorGridlines, );
-        writer.writeObjectValue<Json>("majorUnit", workbookChartAxis.majorUnit, );
-        writer.writeObjectValue<Json>("maximum", workbookChartAxis.maximum, );
-        writer.writeObjectValue<Json>("minimum", workbookChartAxis.minimum, );
-        writer.writeObjectValue<WorkbookChartGridlines>("minorGridlines", workbookChartAxis.minorGridlines, );
-        writer.writeObjectValue<Json>("minorUnit", workbookChartAxis.minorUnit, );
-        writer.writeObjectValue<WorkbookChartAxisTitle>("title", workbookChartAxis.title, );
+        writer.writeObjectValue<WorkbookChartAxisFormat>("format", workbookChartAxis.format, serializeWorkbookChartAxisFormat);
+        writer.writeObjectValue<WorkbookChartGridlines>("majorGridlines", workbookChartAxis.majorGridlines, serializeWorkbookChartGridlines);
+        writer.writeObjectValue<Json>("majorUnit", workbookChartAxis.majorUnit, serializeJson);
+        writer.writeObjectValue<Json>("maximum", workbookChartAxis.maximum, serializeJson);
+        writer.writeObjectValue<Json>("minimum", workbookChartAxis.minimum, serializeJson);
+        writer.writeObjectValue<WorkbookChartGridlines>("minorGridlines", workbookChartAxis.minorGridlines, serializeWorkbookChartGridlines);
+        writer.writeObjectValue<Json>("minorUnit", workbookChartAxis.minorUnit, serializeJson);
+        writer.writeObjectValue<WorkbookChartAxisTitle>("title", workbookChartAxis.title, serializeWorkbookChartAxisTitle);
 }
 export interface WorkbookChartAxis extends Entity, Parsable {
     /**

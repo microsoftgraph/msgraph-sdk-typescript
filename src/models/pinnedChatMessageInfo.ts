@@ -23,7 +23,7 @@ export interface PinnedChatMessageInfo extends Entity, Parsable {
 }
 export function serializePinnedChatMessageInfo(writer: SerializationWriter, pinnedChatMessageInfo: PinnedChatMessageInfo | undefined = {} as PinnedChatMessageInfo) : void {
         serializeEntity(writer, pinnedChatMessageInfo)
-        writer.writeObjectValue<ChatMessage>("message", pinnedChatMessageInfo.message, );
+        writer.writeObjectValue<ChatMessage>("message", pinnedChatMessageInfo.message, serializeChatMessage);
 }
 // tslint:enable
 // eslint-enable

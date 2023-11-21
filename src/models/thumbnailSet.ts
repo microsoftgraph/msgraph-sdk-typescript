@@ -20,10 +20,10 @@ export function deserializeIntoThumbnailSet(thumbnailSet: ThumbnailSet | undefin
 }
 export function serializeThumbnailSet(writer: SerializationWriter, thumbnailSet: ThumbnailSet | undefined = {} as ThumbnailSet) : void {
         serializeEntity(writer, thumbnailSet)
-        writer.writeObjectValue<Thumbnail>("large", thumbnailSet.large, );
-        writer.writeObjectValue<Thumbnail>("medium", thumbnailSet.medium, );
-        writer.writeObjectValue<Thumbnail>("small", thumbnailSet.small, );
-        writer.writeObjectValue<Thumbnail>("source", thumbnailSet.source, );
+        writer.writeObjectValue<Thumbnail>("large", thumbnailSet.large, serializeThumbnail);
+        writer.writeObjectValue<Thumbnail>("medium", thumbnailSet.medium, serializeThumbnail);
+        writer.writeObjectValue<Thumbnail>("small", thumbnailSet.small, serializeThumbnail);
+        writer.writeObjectValue<Thumbnail>("source", thumbnailSet.source, serializeThumbnail);
 }
 export interface ThumbnailSet extends Entity, Parsable {
     /**

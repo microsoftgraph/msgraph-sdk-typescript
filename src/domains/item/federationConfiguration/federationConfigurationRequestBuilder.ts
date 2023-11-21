@@ -8,7 +8,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { InternalDomainFederationItemRequestBuilder } from './item/internalDomainFederationItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface FederationConfigurationRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface FederationConfigurationRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface FederationConfigurationRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: FederationConfigurationRequestBuilderGetQueryParameters;
-}
-export interface FederationConfigurationRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
  */
@@ -98,11 +74,12 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/domains/{domain%2Did}/federationConfiguration{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read the properties and relationships of an internalDomainFederation object. This API is available in the following national cloud deployments.
+     * Read the properties of the internalDomainFederation objects for the domain. This API returns only one object in the collection. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of InternalDomainFederationCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/domain-list-federationconfiguration?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: FederationConfigurationRequestBuilderGetRequestConfiguration | undefined) : Promise<InternalDomainFederationCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<FederationConfigurationRequestBuilderGetQueryParameters> | undefined) : Promise<InternalDomainFederationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +96,7 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of InternalDomainFederation
      * @see {@link https://learn.microsoft.com/graph/api/domain-post-federationconfiguration?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: InternalDomainFederation, requestConfiguration?: FederationConfigurationRequestBuilderPostRequestConfiguration | undefined) : Promise<InternalDomainFederation | undefined> {
+    public post(body: InternalDomainFederation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<InternalDomainFederation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -130,21 +107,14 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<InternalDomainFederation>(requestInfo, createInternalDomainFederationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the properties and relationships of an internalDomainFederation object. This API is available in the following national cloud deployments.
+     * Read the properties of the internalDomainFederation objects for the domain. This API returns only one object in the collection. This API is available in the following national cloud deployments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: FederationConfigurationRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<FederationConfigurationRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, federationConfigurationRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +123,11 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: InternalDomainFederation, requestConfiguration?: FederationConfigurationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: InternalDomainFederation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeInternalDomainFederation);
         return requestInfo;
     };
@@ -177,5 +141,15 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
         return new FederationConfigurationRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const federationConfigurationRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

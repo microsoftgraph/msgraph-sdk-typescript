@@ -17,7 +17,7 @@ export function deserializeIntoSynchronizationJobCollectionResponse(synchronizat
 }
 export function serializeSynchronizationJobCollectionResponse(writer: SerializationWriter, synchronizationJobCollectionResponse: SynchronizationJobCollectionResponse | undefined = {} as SynchronizationJobCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, synchronizationJobCollectionResponse)
-        writer.writeCollectionOfObjectValues<SynchronizationJob>("value", synchronizationJobCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<SynchronizationJob>("value", synchronizationJobCollectionResponse.value, serializeSynchronizationJob);
 }
 export interface SynchronizationJobCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

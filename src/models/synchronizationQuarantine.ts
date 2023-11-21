@@ -22,7 +22,7 @@ export function deserializeIntoSynchronizationQuarantine(synchronizationQuaranti
 }
 export function serializeSynchronizationQuarantine(writer: SerializationWriter, synchronizationQuarantine: SynchronizationQuarantine | undefined = {} as SynchronizationQuarantine) : void {
         writer.writeDateValue("currentBegan", synchronizationQuarantine.currentBegan);
-        writer.writeObjectValue<SynchronizationError>("error", synchronizationQuarantine.errorEscaped, );
+        writer.writeObjectValue<SynchronizationError>("error", synchronizationQuarantine.errorEscaped, serializeSynchronizationError);
         writer.writeDateValue("nextAttempt", synchronizationQuarantine.nextAttempt);
         writer.writeStringValue("@odata.type", synchronizationQuarantine.odataType);
         writer.writeEnumValue<QuarantineReason>("reason", synchronizationQuarantine.reason);

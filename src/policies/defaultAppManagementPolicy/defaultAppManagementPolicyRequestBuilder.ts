@@ -4,18 +4,8 @@
 import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { createTenantAppManagementPolicyFromDiscriminatorValue, deserializeIntoTenantAppManagementPolicy, serializeTenantAppManagementPolicy, type TenantAppManagementPolicy } from '../../models/tenantAppManagementPolicy';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface DefaultAppManagementPolicyRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface DefaultAppManagementPolicyRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface DefaultAppManagementPolicyRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface DefaultAppManagementPolicyRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DefaultAppManagementPolicyRequestBuilderGetQueryParameters;
-}
-export interface DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the defaultAppManagementPolicy property of the microsoft.graph.policyRoot entity.
@@ -66,7 +32,7 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
      * Delete navigation property defaultAppManagementPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: DefaultAppManagementPolicyRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -82,7 +48,7 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
      * @returns a Promise of TenantAppManagementPolicy
      * @see {@link https://learn.microsoft.com/graph/api/tenantappmanagementpolicy-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DefaultAppManagementPolicyRequestBuilderGetRequestConfiguration | undefined) : Promise<TenantAppManagementPolicy | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DefaultAppManagementPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<TenantAppManagementPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -99,7 +65,7 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
      * @returns a Promise of TenantAppManagementPolicy
      * @see {@link https://learn.microsoft.com/graph/api/tenantappmanagementpolicy-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TenantAppManagementPolicy, requestConfiguration?: DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration | undefined) : Promise<TenantAppManagementPolicy | undefined> {
+    public patch(body: TenantAppManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TenantAppManagementPolicy | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -114,16 +80,10 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: DefaultAppManagementPolicyRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -131,17 +91,10 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DefaultAppManagementPolicyRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DefaultAppManagementPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, defaultAppManagementPolicyRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -150,17 +103,11 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TenantAppManagementPolicy, requestConfiguration?: DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TenantAppManagementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTenantAppManagementPolicy);
         return requestInfo;
     };
@@ -174,5 +121,9 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
         return new DefaultAppManagementPolicyRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const defaultAppManagementPolicyRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

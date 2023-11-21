@@ -6,7 +6,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { type Alert } from '../../../../../models/security/';
 import { createAlertFromDiscriminatorValue } from '../../../../../models/security/alert';
 import { CommentsRequestBuilder } from './comments/commentsRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AlertItemRequestBuilderGetQueryParameters {
     /**
@@ -17,20 +17,6 @@ export interface AlertItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface AlertItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AlertItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the alerts property of the microsoft.graph.security.incident entity.
@@ -55,7 +41,7 @@ export class AlertItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Alert
      */
-    public get(requestConfiguration?: AlertItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Alert | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AlertItemRequestBuilderGetQueryParameters> | undefined) : Promise<Alert | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -70,17 +56,10 @@ export class AlertItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AlertItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AlertItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, alertItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -93,5 +72,9 @@ export class AlertItemRequestBuilder extends BaseRequestBuilder {
         return new AlertItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const alertItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

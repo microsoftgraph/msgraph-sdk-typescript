@@ -50,7 +50,7 @@ export interface InvitationParticipantInfo extends AdditionalDataHolder, Parsabl
 }
 export function serializeInvitationParticipantInfo(writer: SerializationWriter, invitationParticipantInfo: InvitationParticipantInfo | undefined = {} as InvitationParticipantInfo) : void {
         writer.writeBooleanValue("hidden", invitationParticipantInfo.hidden);
-        writer.writeObjectValue<IdentitySet>("identity", invitationParticipantInfo.identity, );
+        writer.writeObjectValue<IdentitySet>("identity", invitationParticipantInfo.identity, serializeIdentitySet);
         writer.writeStringValue("@odata.type", invitationParticipantInfo.odataType);
         writer.writeStringValue("participantId", invitationParticipantInfo.participantId);
         writer.writeBooleanValue("removeFromDefaultAudioRoutingGroup", invitationParticipantInfo.removeFromDefaultAudioRoutingGroup);

@@ -13,18 +13,8 @@ import { ScheduleActionsForRulesRequestBuilder } from './scheduleActionsForRules
 import { ScheduledActionsForRuleRequestBuilder } from './scheduledActionsForRule/scheduledActionsForRuleRequestBuilder';
 import { UserStatusesRequestBuilder } from './userStatuses/userStatusesRequestBuilder';
 import { UserStatusOverviewRequestBuilder } from './userStatusOverview/userStatusOverviewRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface DeviceCompliancePolicyItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -34,30 +24,6 @@ export interface DeviceCompliancePolicyItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DeviceCompliancePolicyItemRequestBuilderGetQueryParameters;
-}
-export interface DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
@@ -126,11 +92,11 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a androidWorkProfileCompliancePolicy.
+     * Deletes a macOSCompliancePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macoscompliancepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -141,12 +107,12 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the androidWorkProfileCompliancePolicy object.
+     * Read properties and relationships of the androidCompliancePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicy
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcompliancepolicy-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCompliancePolicy | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -157,13 +123,13 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<DeviceCompliancePolicy>(requestInfo, createDeviceCompliancePolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a androidWorkProfileCompliancePolicy object.
+     * Update the properties of a windows10MobileCompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicy
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10mobilecompliancepolicy-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceCompliancePolicy, requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceCompliancePolicy | undefined> {
+    public patch(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicy | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -174,57 +140,38 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<DeviceCompliancePolicy>(requestInfo, createDeviceCompliancePolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a androidWorkProfileCompliancePolicy.
+     * Deletes a macOSCompliancePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the androidWorkProfileCompliancePolicy object.
+     * Read properties and relationships of the androidCompliancePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, deviceCompliancePolicyItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of a androidWorkProfileCompliancePolicy object.
+     * Update the properties of a windows10MobileCompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceCompliancePolicy, requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceCompliancePolicy);
         return requestInfo;
     };
@@ -238,5 +185,9 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
         return new DeviceCompliancePolicyItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const deviceCompliancePolicyItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

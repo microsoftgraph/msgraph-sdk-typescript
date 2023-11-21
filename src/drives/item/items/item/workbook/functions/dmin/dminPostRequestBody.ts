@@ -34,9 +34,9 @@ export interface DminPostRequestBody extends AdditionalDataHolder, Parsable {
     field?: Json;
 }
 export function serializeDminPostRequestBody(writer: SerializationWriter, dminPostRequestBody: DminPostRequestBody | undefined = {} as DminPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dminPostRequestBody.criteria, );
-        writer.writeObjectValue<Json>("database", dminPostRequestBody.database, );
-        writer.writeObjectValue<Json>("field", dminPostRequestBody.field, );
+        writer.writeObjectValue<Json>("criteria", dminPostRequestBody.criteria, serializeJson);
+        writer.writeObjectValue<Json>("database", dminPostRequestBody.database, serializeJson);
+        writer.writeObjectValue<Json>("field", dminPostRequestBody.field, serializeJson);
         writer.writeAdditionalData(dminPostRequestBody.additionalData);
 }
 // tslint:enable

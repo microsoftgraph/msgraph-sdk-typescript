@@ -34,9 +34,9 @@ export interface DproductPostRequestBody extends AdditionalDataHolder, Parsable 
     field?: Json;
 }
 export function serializeDproductPostRequestBody(writer: SerializationWriter, dproductPostRequestBody: DproductPostRequestBody | undefined = {} as DproductPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dproductPostRequestBody.criteria, );
-        writer.writeObjectValue<Json>("database", dproductPostRequestBody.database, );
-        writer.writeObjectValue<Json>("field", dproductPostRequestBody.field, );
+        writer.writeObjectValue<Json>("criteria", dproductPostRequestBody.criteria, serializeJson);
+        writer.writeObjectValue<Json>("database", dproductPostRequestBody.database, serializeJson);
+        writer.writeObjectValue<Json>("field", dproductPostRequestBody.field, serializeJson);
         writer.writeAdditionalData(dproductPostRequestBody.additionalData);
 }
 // tslint:enable

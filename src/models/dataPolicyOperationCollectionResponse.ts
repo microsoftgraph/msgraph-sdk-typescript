@@ -23,7 +23,7 @@ export function deserializeIntoDataPolicyOperationCollectionResponse(dataPolicyO
 }
 export function serializeDataPolicyOperationCollectionResponse(writer: SerializationWriter, dataPolicyOperationCollectionResponse: DataPolicyOperationCollectionResponse | undefined = {} as DataPolicyOperationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, dataPolicyOperationCollectionResponse)
-        writer.writeCollectionOfObjectValues<DataPolicyOperation>("value", dataPolicyOperationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DataPolicyOperation>("value", dataPolicyOperationCollectionResponse.value, serializeDataPolicyOperation);
 }
 // tslint:enable
 // eslint-enable

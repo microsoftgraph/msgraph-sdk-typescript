@@ -24,7 +24,7 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: AddPostReq
     }
 }
 export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: AddPostRequestBody | undefined = {} as AddPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<ConversationMember>("values", addPostRequestBody.values, );
+        writer.writeCollectionOfObjectValues<ConversationMember>("values", addPostRequestBody.values, serializeConversationMember);
         writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
 // tslint:enable

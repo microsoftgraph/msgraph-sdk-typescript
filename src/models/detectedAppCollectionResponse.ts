@@ -23,7 +23,7 @@ export interface DetectedAppCollectionResponse extends BaseCollectionPaginationC
 }
 export function serializeDetectedAppCollectionResponse(writer: SerializationWriter, detectedAppCollectionResponse: DetectedAppCollectionResponse | undefined = {} as DetectedAppCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, detectedAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<DetectedApp>("value", detectedAppCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DetectedApp>("value", detectedAppCollectionResponse.value, serializeDetectedApp);
 }
 // tslint:enable
 // eslint-enable

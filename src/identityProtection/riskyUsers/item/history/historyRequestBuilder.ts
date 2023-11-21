@@ -8,7 +8,7 @@ import { createRiskyUserHistoryItemFromDiscriminatorValue, deserializeIntoRiskyU
 import { createRiskyUserHistoryItemCollectionResponseFromDiscriminatorValue } from '../../../../models/riskyUserHistoryItemCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { RiskyUserHistoryItemItemRequestBuilder } from './item/riskyUserHistoryItemItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface HistoryRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface HistoryRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface HistoryRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: HistoryRequestBuilderGetQueryParameters;
-}
-export interface HistoryRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyUser entity.
@@ -103,7 +79,7 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of RiskyUserHistoryItemCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/riskyuser-get-riskyuserhistoryitem?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: HistoryRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskyUserHistoryItemCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<HistoryRequestBuilderGetQueryParameters> | undefined) : Promise<RiskyUserHistoryItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -119,7 +95,7 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyUserHistoryItem
      */
-    public post(body: RiskyUserHistoryItem, requestConfiguration?: HistoryRequestBuilderPostRequestConfiguration | undefined) : Promise<RiskyUserHistoryItem | undefined> {
+    public post(body: RiskyUserHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RiskyUserHistoryItem | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -134,17 +110,10 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: HistoryRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<HistoryRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, historyRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -153,17 +122,11 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RiskyUserHistoryItem, requestConfiguration?: HistoryRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RiskyUserHistoryItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRiskyUserHistoryItem);
         return requestInfo;
     };
@@ -177,5 +140,15 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
         return new HistoryRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const historyRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -29,8 +29,8 @@ export function deserializeIntoBitrshiftPostRequestBody(bitrshiftPostRequestBody
     }
 }
 export function serializeBitrshiftPostRequestBody(writer: SerializationWriter, bitrshiftPostRequestBody: BitrshiftPostRequestBody | undefined = {} as BitrshiftPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", bitrshiftPostRequestBody.number, );
-        writer.writeObjectValue<Json>("shiftAmount", bitrshiftPostRequestBody.shiftAmount, );
+        writer.writeObjectValue<Json>("number", bitrshiftPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("shiftAmount", bitrshiftPostRequestBody.shiftAmount, serializeJson);
         writer.writeAdditionalData(bitrshiftPostRequestBody.additionalData);
 }
 // tslint:enable

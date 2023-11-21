@@ -35,7 +35,7 @@ export interface ManagedAppPolicyDeploymentSummaryPerApp extends AdditionalDataH
 }
 export function serializeManagedAppPolicyDeploymentSummaryPerApp(writer: SerializationWriter, managedAppPolicyDeploymentSummaryPerApp: ManagedAppPolicyDeploymentSummaryPerApp | undefined = {} as ManagedAppPolicyDeploymentSummaryPerApp) : void {
         writer.writeNumberValue("configurationAppliedUserCount", managedAppPolicyDeploymentSummaryPerApp.configurationAppliedUserCount);
-        writer.writeObjectValue<MobileAppIdentifier>("mobileAppIdentifier", managedAppPolicyDeploymentSummaryPerApp.mobileAppIdentifier, );
+        writer.writeObjectValue<MobileAppIdentifier>("mobileAppIdentifier", managedAppPolicyDeploymentSummaryPerApp.mobileAppIdentifier, serializeMobileAppIdentifier);
         writer.writeStringValue("@odata.type", managedAppPolicyDeploymentSummaryPerApp.odataType);
         writer.writeAdditionalData(managedAppPolicyDeploymentSummaryPerApp.additionalData);
 }

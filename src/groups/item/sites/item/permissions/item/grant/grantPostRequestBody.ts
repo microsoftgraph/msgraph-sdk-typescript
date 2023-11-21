@@ -29,7 +29,7 @@ export interface GrantPostRequestBody extends AdditionalDataHolder, Parsable {
     roles?: string[];
 }
 export function serializeGrantPostRequestBody(writer: SerializationWriter, grantPostRequestBody: GrantPostRequestBody | undefined = {} as GrantPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", grantPostRequestBody.recipients, );
+        writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", grantPostRequestBody.recipients, serializeDriveRecipient);
         writer.writeCollectionOfPrimitiveValues<string>("roles", grantPostRequestBody.roles);
         writer.writeAdditionalData(grantPostRequestBody.additionalData);
 }

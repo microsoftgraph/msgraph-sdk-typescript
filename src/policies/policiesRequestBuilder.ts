@@ -23,7 +23,7 @@ import { RoleManagementPoliciesRequestBuilder } from './roleManagementPolicies/r
 import { RoleManagementPolicyAssignmentsRequestBuilder } from './roleManagementPolicyAssignments/roleManagementPolicyAssignmentsRequestBuilder';
 import { TokenIssuancePoliciesRequestBuilder } from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import { TokenLifetimePoliciesRequestBuilder } from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PoliciesRequestBuilderGetQueryParameters {
     /**
@@ -34,30 +34,6 @@ export interface PoliciesRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface PoliciesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PoliciesRequestBuilderGetQueryParameters;
-}
-export interface PoliciesRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the policyRoot singleton.
@@ -190,7 +166,7 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PolicyRoot
      */
-    public get(requestConfiguration?: PoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<PolicyRoot | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<PolicyRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -206,7 +182,7 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PolicyRoot
      */
-    public patch(body: PolicyRoot, requestConfiguration?: PoliciesRequestBuilderPatchRequestConfiguration | undefined) : Promise<PolicyRoot | undefined> {
+    public patch(body: PolicyRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PolicyRoot | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -221,17 +197,10 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PoliciesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, policiesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -240,17 +209,11 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PolicyRoot, requestConfiguration?: PoliciesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PolicyRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePolicyRoot);
         return requestInfo;
     };
@@ -264,5 +227,9 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
         return new PoliciesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const policiesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

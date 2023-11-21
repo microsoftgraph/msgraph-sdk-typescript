@@ -92,10 +92,10 @@ export interface EducationSubmission extends Entity, Parsable {
 }
 export function serializeEducationSubmission(writer: SerializationWriter, educationSubmission: EducationSubmission | undefined = {} as EducationSubmission) : void {
         serializeEntity(writer, educationSubmission)
-        writer.writeCollectionOfObjectValues<EducationOutcome>("outcomes", educationSubmission.outcomes, );
-        writer.writeObjectValue<EducationSubmissionRecipient>("recipient", educationSubmission.recipient, );
-        writer.writeCollectionOfObjectValues<EducationSubmissionResource>("resources", educationSubmission.resources, );
-        writer.writeCollectionOfObjectValues<EducationSubmissionResource>("submittedResources", educationSubmission.submittedResources, );
+        writer.writeCollectionOfObjectValues<EducationOutcome>("outcomes", educationSubmission.outcomes, serializeEducationOutcome);
+        writer.writeObjectValue<EducationSubmissionRecipient>("recipient", educationSubmission.recipient, serializeEducationSubmissionRecipient);
+        writer.writeCollectionOfObjectValues<EducationSubmissionResource>("resources", educationSubmission.resources, serializeEducationSubmissionResource);
+        writer.writeCollectionOfObjectValues<EducationSubmissionResource>("submittedResources", educationSubmission.submittedResources, serializeEducationSubmissionResource);
 }
 // tslint:enable
 // eslint-enable

@@ -8,7 +8,7 @@ import { createTeamsTabFromDiscriminatorValue, deserializeIntoTeamsTab, serializ
 import { createTeamsTabCollectionResponseFromDiscriminatorValue } from '../../../../../models/teamsTabCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TeamsTabItemRequestBuilder } from './item/teamsTabItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TabsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface TabsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface TabsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TabsRequestBuilderGetQueryParameters;
-}
-export interface TabsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
@@ -103,7 +79,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TeamsTabCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/channel-list-tabs?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TabsRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamsTabCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TabsRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsTabCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TeamsTab
      * @see {@link https://learn.microsoft.com/graph/api/channel-post-tabs?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TeamsTab, requestConfiguration?: TabsRequestBuilderPostRequestConfiguration | undefined) : Promise<TeamsTab | undefined> {
+    public post(body: TeamsTab, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsTab | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TabsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TabsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, tabsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TeamsTab, requestConfiguration?: TabsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TeamsTab, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeamsTab);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         return new TabsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const tabsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

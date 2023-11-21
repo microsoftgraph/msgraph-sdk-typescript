@@ -17,8 +17,8 @@ export function deserializeIntoUserFlowApiConnectorConfiguration(userFlowApiConn
 }
 export function serializeUserFlowApiConnectorConfiguration(writer: SerializationWriter, userFlowApiConnectorConfiguration: UserFlowApiConnectorConfiguration | undefined = {} as UserFlowApiConnectorConfiguration) : void {
         writer.writeStringValue("@odata.type", userFlowApiConnectorConfiguration.odataType);
-        writer.writeObjectValue<IdentityApiConnector>("postAttributeCollection", userFlowApiConnectorConfiguration.postAttributeCollection, );
-        writer.writeObjectValue<IdentityApiConnector>("postFederationSignup", userFlowApiConnectorConfiguration.postFederationSignup, );
+        writer.writeObjectValue<IdentityApiConnector>("postAttributeCollection", userFlowApiConnectorConfiguration.postAttributeCollection, serializeIdentityApiConnector);
+        writer.writeObjectValue<IdentityApiConnector>("postFederationSignup", userFlowApiConnectorConfiguration.postFederationSignup, serializeIdentityApiConnector);
         writer.writeAdditionalData(userFlowApiConnectorConfiguration.additionalData);
 }
 export interface UserFlowApiConnectorConfiguration extends AdditionalDataHolder, Parsable {

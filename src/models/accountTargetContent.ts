@@ -17,7 +17,7 @@ export interface AccountTargetContent extends AdditionalDataHolder, Parsable {
      */
     odataType?: string;
     /**
-     * The type property
+     * The type of account target content. Possible values are: unknown, includeAll, addressBook, unknownFutureValue.
      */
     type?: AccountTargetContentType;
 }

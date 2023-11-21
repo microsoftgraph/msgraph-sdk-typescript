@@ -17,7 +17,7 @@ export function deserializeIntoTriggersRoot(triggersRoot: TriggersRoot | undefin
 }
 export function serializeTriggersRoot(writer: SerializationWriter, triggersRoot: TriggersRoot | undefined = {} as TriggersRoot) : void {
         serializeEntity(writer, triggersRoot)
-        writer.writeCollectionOfObjectValues<RetentionEvent>("retentionEvents", triggersRoot.retentionEvents, );
+        writer.writeCollectionOfObjectValues<RetentionEvent>("retentionEvents", triggersRoot.retentionEvents, serializeRetentionEvent);
 }
 export interface TriggersRoot extends Entity, Parsable {
     /**

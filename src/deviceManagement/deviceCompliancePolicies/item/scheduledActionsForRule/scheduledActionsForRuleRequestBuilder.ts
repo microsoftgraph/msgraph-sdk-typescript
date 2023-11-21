@@ -8,7 +8,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { DeviceComplianceScheduledActionForRuleItemRequestBuilder } from './item/deviceComplianceScheduledActionForRuleItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ScheduledActionsForRuleRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface ScheduledActionsForRuleRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface ScheduledActionsForRuleRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ScheduledActionsForRuleRequestBuilderGetQueryParameters;
-}
-export interface ScheduledActionsForRuleRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -103,7 +79,7 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DeviceComplianceScheduledActionForRuleCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancescheduledactionforrule-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ScheduledActionsForRuleRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceComplianceScheduledActionForRuleCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ScheduledActionsForRuleRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceComplianceScheduledActionForRuleCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DeviceComplianceScheduledActionForRule
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancescheduledactionforrule-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DeviceComplianceScheduledActionForRule, requestConfiguration?: ScheduledActionsForRuleRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceComplianceScheduledActionForRule | undefined> {
+    public post(body: DeviceComplianceScheduledActionForRule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceComplianceScheduledActionForRule | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ScheduledActionsForRuleRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ScheduledActionsForRuleRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, scheduledActionsForRuleRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DeviceComplianceScheduledActionForRule, requestConfiguration?: ScheduledActionsForRuleRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DeviceComplianceScheduledActionForRule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceComplianceScheduledActionForRule);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
         return new ScheduledActionsForRuleRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const scheduledActionsForRuleRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

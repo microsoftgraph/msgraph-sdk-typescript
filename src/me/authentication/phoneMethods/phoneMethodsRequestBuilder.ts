@@ -8,7 +8,7 @@ import { createPhoneAuthenticationMethodFromDiscriminatorValue, deserializeIntoP
 import { createPhoneAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../models/phoneAuthenticationMethodCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { PhoneAuthenticationMethodItemRequestBuilder } from './item/phoneAuthenticationMethodItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PhoneMethodsRequestBuilderGetQueryParameters {
     /**
@@ -43,30 +43,6 @@ export interface PhoneMethodsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface PhoneMethodsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PhoneMethodsRequestBuilderGetQueryParameters;
-}
-export interface PhoneMethodsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
@@ -103,7 +79,7 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PhoneAuthenticationMethodCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/authentication-list-phonemethods?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PhoneMethodsRequestBuilderGetRequestConfiguration | undefined) : Promise<PhoneAuthenticationMethodCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PhoneMethodsRequestBuilderGetQueryParameters> | undefined) : Promise<PhoneAuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PhoneAuthenticationMethod
      * @see {@link https://learn.microsoft.com/graph/api/authentication-post-phonemethods?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: PhoneAuthenticationMethod, requestConfiguration?: PhoneMethodsRequestBuilderPostRequestConfiguration | undefined) : Promise<PhoneAuthenticationMethod | undefined> {
+    public post(body: PhoneAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PhoneAuthenticationMethod | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,17 +111,10 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PhoneMethodsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PhoneMethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, phoneMethodsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PhoneAuthenticationMethod, requestConfiguration?: PhoneMethodsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PhoneAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePhoneAuthenticationMethod);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
         return new PhoneMethodsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const phoneMethodsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

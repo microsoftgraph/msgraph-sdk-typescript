@@ -29,8 +29,8 @@ export function deserializeIntoBin2HexPostRequestBody(bin2HexPostRequestBody: Bi
     }
 }
 export function serializeBin2HexPostRequestBody(writer: SerializationWriter, bin2HexPostRequestBody: Bin2HexPostRequestBody | undefined = {} as Bin2HexPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", bin2HexPostRequestBody.number, );
-        writer.writeObjectValue<Json>("places", bin2HexPostRequestBody.places, );
+        writer.writeObjectValue<Json>("number", bin2HexPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("places", bin2HexPostRequestBody.places, serializeJson);
         writer.writeAdditionalData(bin2HexPostRequestBody.additionalData);
 }
 // tslint:enable

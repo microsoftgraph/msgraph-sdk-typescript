@@ -23,7 +23,7 @@ export interface ManagedAndroidLobAppCollectionResponse extends BaseCollectionPa
 }
 export function serializeManagedAndroidLobAppCollectionResponse(writer: SerializationWriter, managedAndroidLobAppCollectionResponse: ManagedAndroidLobAppCollectionResponse | undefined = {} as ManagedAndroidLobAppCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, managedAndroidLobAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<ManagedAndroidLobApp>("value", managedAndroidLobAppCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ManagedAndroidLobApp>("value", managedAndroidLobAppCollectionResponse.value, serializeManagedAndroidLobApp);
 }
 // tslint:enable
 // eslint-enable

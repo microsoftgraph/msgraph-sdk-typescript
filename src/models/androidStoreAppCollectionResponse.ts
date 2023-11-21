@@ -23,7 +23,7 @@ export function deserializeIntoAndroidStoreAppCollectionResponse(androidStoreApp
 }
 export function serializeAndroidStoreAppCollectionResponse(writer: SerializationWriter, androidStoreAppCollectionResponse: AndroidStoreAppCollectionResponse | undefined = {} as AndroidStoreAppCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, androidStoreAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<AndroidStoreApp>("value", androidStoreAppCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AndroidStoreApp>("value", androidStoreAppCollectionResponse.value, serializeAndroidStoreApp);
 }
 // tslint:enable
 // eslint-enable

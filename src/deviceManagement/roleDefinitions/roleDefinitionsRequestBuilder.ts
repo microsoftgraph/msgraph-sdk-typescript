@@ -8,7 +8,7 @@ import { createRoleDefinitionFromDiscriminatorValue, deserializeIntoRoleDefiniti
 import { createRoleDefinitionCollectionResponseFromDiscriminatorValue } from '../../models/roleDefinitionCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { RoleDefinitionItemRequestBuilder } from './item/roleDefinitionItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RoleDefinitionsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface RoleDefinitionsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface RoleDefinitionsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: RoleDefinitionsRequestBuilderGetQueryParameters;
-}
-export interface RoleDefinitionsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
  */
@@ -98,12 +74,12 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/roleDefinitions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the deviceAndAppManagementRoleDefinition objects.
+     * List properties and relationships of the roleDefinition objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleDefinitionCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RoleDefinitionsRequestBuilderGetRequestConfiguration | undefined) : Promise<RoleDefinitionCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<RoleDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<RoleDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -120,7 +96,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of RoleDefinition
      * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: RoleDefinition, requestConfiguration?: RoleDefinitionsRequestBuilderPostRequestConfiguration | undefined) : Promise<RoleDefinition | undefined> {
+    public post(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleDefinition | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -131,21 +107,14 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RoleDefinition>(requestInfo, createRoleDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the deviceAndAppManagementRoleDefinition objects.
+     * List properties and relationships of the roleDefinition objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: RoleDefinitionsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, roleDefinitionsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -154,17 +123,11 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RoleDefinition, requestConfiguration?: RoleDefinitionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRoleDefinition);
         return requestInfo;
     };
@@ -178,5 +141,15 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         return new RoleDefinitionsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const roleDefinitionsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

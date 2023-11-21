@@ -28,55 +28,55 @@ export function deserializeIntoLoginPage(loginPage: LoginPage | undefined = {} a
 }
 export interface LoginPage extends Entity, Parsable {
     /**
-     * The content property
+     * The HTML content of the login page.
      */
     content?: string;
     /**
-     * The createdBy property
+     * Identity of the user who created the login page.
      */
     createdBy?: EmailIdentity;
     /**
-     * The createdDateTime property
+     * Date and time when the login page was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     createdDateTime?: Date;
     /**
-     * The description property
+     * Description about the login page.
      */
     description?: string;
     /**
-     * The displayName property
+     * Display name of the login page.
      */
     displayName?: string;
     /**
-     * The language property
+     * The content language of the login page.
      */
     language?: string;
     /**
-     * The lastModifiedBy property
+     * Identity of the user who last modified the login page.
      */
     lastModifiedBy?: EmailIdentity;
     /**
-     * The lastModifiedDateTime property
+     * Date and time when the login page was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     lastModifiedDateTime?: Date;
     /**
-     * The source property
+     * The source of the content. Possible values are: unknown, global, tenant, unknownFutureValue.
      */
     source?: SimulationContentSource;
     /**
-     * The status property
+     * The login page status. Possible values are: unknown, draft, ready, archive, delete, unknownFutureValue.
      */
     status?: SimulationContentStatus;
 }
 export function serializeLoginPage(writer: SerializationWriter, loginPage: LoginPage | undefined = {} as LoginPage) : void {
         serializeEntity(writer, loginPage)
         writer.writeStringValue("content", loginPage.content);
-        writer.writeObjectValue<EmailIdentity>("createdBy", loginPage.createdBy, );
+        writer.writeObjectValue<EmailIdentity>("createdBy", loginPage.createdBy, serializeEmailIdentity);
         writer.writeDateValue("createdDateTime", loginPage.createdDateTime);
         writer.writeStringValue("description", loginPage.description);
         writer.writeStringValue("displayName", loginPage.displayName);
         writer.writeStringValue("language", loginPage.language);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", loginPage.lastModifiedBy, );
+        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", loginPage.lastModifiedBy, serializeEmailIdentity);
         writer.writeDateValue("lastModifiedDateTime", loginPage.lastModifiedDateTime);
         writer.writeEnumValue<SimulationContentSource>("source", loginPage.source);
         writer.writeEnumValue<SimulationContentStatus>("status", loginPage.status);
