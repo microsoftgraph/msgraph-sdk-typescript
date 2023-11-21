@@ -5,6 +5,13 @@ updates:
   schedule:
     interval: weekly
   open-pull-requests-limit: 10
+  groups:
+    kiota-dependencies:
+      patterns:
+        - "*kiota*"
+    eslint:
+      patterns:
+        - "*eslint*"
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
