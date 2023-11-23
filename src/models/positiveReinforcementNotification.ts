@@ -17,7 +17,7 @@ export function deserializeIntoPositiveReinforcementNotification(positiveReinfor
 }
 export interface PositiveReinforcementNotification extends BaseEndUserNotification, Parsable {
     /**
-     * The deliveryPreference property
+     * Delivery preference. Possible values are: unknown, deliverImmedietly, deliverAfterCampaignEnd, unknownFutureValue.
      */
     deliveryPreference?: NotificationDeliveryPreference;
 }

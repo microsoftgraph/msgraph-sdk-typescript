@@ -5,7 +5,7 @@ import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { createGetAuditActivityTypesWithCategoryGetResponseFromDiscriminatorValue } from './getAuditActivityTypesWithCategoryGetResponse';
 import { type GetAuditActivityTypesWithCategoryGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParameters {
     /**
@@ -29,20 +29,6 @@ export interface GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParamete
      */
     top?: number;
 }
-export interface GetAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the getAuditActivityTypes method.
  */
@@ -62,7 +48,7 @@ export class GetAuditActivityTypesWithCategoryRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetAuditActivityTypesWithCategoryGetResponse
      */
-    public get(requestConfiguration?: GetAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration | undefined) : Promise<GetAuditActivityTypesWithCategoryGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParameters> | undefined) : Promise<GetAuditActivityTypesWithCategoryGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -77,17 +63,10 @@ export class GetAuditActivityTypesWithCategoryRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GetAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, getAuditActivityTypesWithCategoryRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -100,5 +79,12 @@ export class GetAuditActivityTypesWithCategoryRequestBuilder extends BaseRequest
         return new GetAuditActivityTypesWithCategoryRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const getAuditActivityTypesWithCategoryRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "search": "%24search",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

@@ -35,8 +35,8 @@ export function serializeUserProcessingResult(writer: SerializationWriter, userP
         writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", userProcessingResult.processingStatus);
         writer.writeDateValue("scheduledDateTime", userProcessingResult.scheduledDateTime);
         writer.writeDateValue("startedDateTime", userProcessingResult.startedDateTime);
-        writer.writeObjectValue<User>("subject", userProcessingResult.subject, );
-        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", userProcessingResult.taskProcessingResults, );
+        writer.writeObjectValue<User>("subject", userProcessingResult.subject, serializeUser);
+        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", userProcessingResult.taskProcessingResults, serializeTaskProcessingResult);
         writer.writeNumberValue("totalTasksCount", userProcessingResult.totalTasksCount);
         writer.writeNumberValue("totalUnprocessedTasksCount", userProcessingResult.totalUnprocessedTasksCount);
         writer.writeEnumValue<WorkflowExecutionType>("workflowExecutionType", userProcessingResult.workflowExecutionType);

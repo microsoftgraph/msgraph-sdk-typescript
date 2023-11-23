@@ -17,7 +17,7 @@ export function deserializeIntoTeamCollectionResponse(teamCollectionResponse: Te
 }
 export function serializeTeamCollectionResponse(writer: SerializationWriter, teamCollectionResponse: TeamCollectionResponse | undefined = {} as TeamCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, teamCollectionResponse)
-        writer.writeCollectionOfObjectValues<Team>("value", teamCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Team>("value", teamCollectionResponse.value, serializeTeam);
 }
 export interface TeamCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

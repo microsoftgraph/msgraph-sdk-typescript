@@ -23,7 +23,7 @@ export interface DeviceEnrollmentConfigurationCollectionResponse extends BaseCol
 }
 export function serializeDeviceEnrollmentConfigurationCollectionResponse(writer: SerializationWriter, deviceEnrollmentConfigurationCollectionResponse: DeviceEnrollmentConfigurationCollectionResponse | undefined = {} as DeviceEnrollmentConfigurationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceEnrollmentConfigurationCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceEnrollmentConfiguration>("value", deviceEnrollmentConfigurationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DeviceEnrollmentConfiguration>("value", deviceEnrollmentConfigurationCollectionResponse.value, serializeDeviceEnrollmentConfiguration);
 }
 // tslint:enable
 // eslint-enable

@@ -23,7 +23,7 @@ export interface ImportPostResponse extends BaseCollectionPaginationCountRespons
 }
 export function serializeImportPostResponse(writer: SerializationWriter, importPostResponse: ImportPostResponse | undefined = {} as ImportPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, importPostResponse)
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importPostResponse.value, );
+        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importPostResponse.value, serializeImportedWindowsAutopilotDeviceIdentity);
 }
 // tslint:enable
 // eslint-enable

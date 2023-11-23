@@ -63,10 +63,10 @@ export function serializeNotebook(writer: SerializationWriter, notebook: Noteboo
         serializeOnenoteEntityHierarchyModel(writer, notebook)
         writer.writeBooleanValue("isDefault", notebook.isDefault);
         writer.writeBooleanValue("isShared", notebook.isShared);
-        writer.writeObjectValue<NotebookLinks>("links", notebook.links, );
-        writer.writeCollectionOfObjectValues<SectionGroup>("sectionGroups", notebook.sectionGroups, );
+        writer.writeObjectValue<NotebookLinks>("links", notebook.links, serializeNotebookLinks);
+        writer.writeCollectionOfObjectValues<SectionGroup>("sectionGroups", notebook.sectionGroups, serializeSectionGroup);
         writer.writeStringValue("sectionGroupsUrl", notebook.sectionGroupsUrl);
-        writer.writeCollectionOfObjectValues<OnenoteSection>("sections", notebook.sections, );
+        writer.writeCollectionOfObjectValues<OnenoteSection>("sections", notebook.sections, serializeOnenoteSection);
         writer.writeStringValue("sectionsUrl", notebook.sectionsUrl);
         writer.writeEnumValue<OnenoteUserRole>("userRole", notebook.userRole);
 }

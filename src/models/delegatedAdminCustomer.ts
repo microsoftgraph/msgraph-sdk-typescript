@@ -34,7 +34,7 @@ export function deserializeIntoDelegatedAdminCustomer(delegatedAdminCustomer: De
 export function serializeDelegatedAdminCustomer(writer: SerializationWriter, delegatedAdminCustomer: DelegatedAdminCustomer | undefined = {} as DelegatedAdminCustomer) : void {
         serializeEntity(writer, delegatedAdminCustomer)
         writer.writeStringValue("displayName", delegatedAdminCustomer.displayName);
-        writer.writeCollectionOfObjectValues<DelegatedAdminServiceManagementDetail>("serviceManagementDetails", delegatedAdminCustomer.serviceManagementDetails, );
+        writer.writeCollectionOfObjectValues<DelegatedAdminServiceManagementDetail>("serviceManagementDetails", delegatedAdminCustomer.serviceManagementDetails, serializeDelegatedAdminServiceManagementDetail);
         writer.writeStringValue("tenantId", delegatedAdminCustomer.tenantId);
 }
 // tslint:enable

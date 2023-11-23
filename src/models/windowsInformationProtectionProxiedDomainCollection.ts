@@ -18,7 +18,7 @@ export function deserializeIntoWindowsInformationProtectionProxiedDomainCollecti
 export function serializeWindowsInformationProtectionProxiedDomainCollection(writer: SerializationWriter, windowsInformationProtectionProxiedDomainCollection: WindowsInformationProtectionProxiedDomainCollection | undefined = {} as WindowsInformationProtectionProxiedDomainCollection) : void {
         writer.writeStringValue("displayName", windowsInformationProtectionProxiedDomainCollection.displayName);
         writer.writeStringValue("@odata.type", windowsInformationProtectionProxiedDomainCollection.odataType);
-        writer.writeCollectionOfObjectValues<ProxiedDomain>("proxiedDomains", windowsInformationProtectionProxiedDomainCollection.proxiedDomains, );
+        writer.writeCollectionOfObjectValues<ProxiedDomain>("proxiedDomains", windowsInformationProtectionProxiedDomainCollection.proxiedDomains, serializeProxiedDomain);
         writer.writeAdditionalData(windowsInformationProtectionProxiedDomainCollection.additionalData);
 }
 export interface WindowsInformationProtectionProxiedDomainCollection extends AdditionalDataHolder, Parsable {

@@ -23,7 +23,7 @@ export interface SegmentCollectionResponse extends BaseCollectionPaginationCount
 }
 export function serializeSegmentCollectionResponse(writer: SerializationWriter, segmentCollectionResponse: SegmentCollectionResponse | undefined = {} as SegmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, segmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<Segment>("value", segmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Segment>("value", segmentCollectionResponse.value, serializeSegment);
 }
 // tslint:enable
 // eslint-enable

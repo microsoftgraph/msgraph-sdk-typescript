@@ -23,7 +23,7 @@ export interface LocateDeviceActionResult extends DeviceActionResult, Parsable {
 }
 export function serializeLocateDeviceActionResult(writer: SerializationWriter, locateDeviceActionResult: LocateDeviceActionResult | undefined = {} as LocateDeviceActionResult) : void {
         serializeDeviceActionResult(writer, locateDeviceActionResult)
-        writer.writeObjectValue<DeviceGeoLocation>("deviceLocation", locateDeviceActionResult.deviceLocation, );
+        writer.writeObjectValue<DeviceGeoLocation>("deviceLocation", locateDeviceActionResult.deviceLocation, serializeDeviceGeoLocation);
 }
 // tslint:enable
 // eslint-enable

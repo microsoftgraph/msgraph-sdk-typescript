@@ -23,7 +23,7 @@ export interface IntelligenceProfileCollectionResponse extends BaseCollectionPag
 }
 export function serializeIntelligenceProfileCollectionResponse(writer: SerializationWriter, intelligenceProfileCollectionResponse: IntelligenceProfileCollectionResponse | undefined = {} as IntelligenceProfileCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, intelligenceProfileCollectionResponse)
-        writer.writeCollectionOfObjectValues<IntelligenceProfile>("value", intelligenceProfileCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<IntelligenceProfile>("value", intelligenceProfileCollectionResponse.value, serializeIntelligenceProfile);
 }
 // tslint:enable
 // eslint-enable

@@ -73,16 +73,16 @@ export function deserializeIntoAccessReviewHistoryDefinition(accessReviewHistory
 }
 export function serializeAccessReviewHistoryDefinition(writer: SerializationWriter, accessReviewHistoryDefinition: AccessReviewHistoryDefinition | undefined = {} as AccessReviewHistoryDefinition) : void {
         serializeEntity(writer, accessReviewHistoryDefinition)
-        writer.writeObjectValue<UserIdentity>("createdBy", accessReviewHistoryDefinition.createdBy, );
+        writer.writeObjectValue<UserIdentity>("createdBy", accessReviewHistoryDefinition.createdBy, serializeUserIdentity);
         writer.writeDateValue("createdDateTime", accessReviewHistoryDefinition.createdDateTime);
         if(accessReviewHistoryDefinition.decisions)
         writer.writeEnumValue<AccessReviewHistoryDecisionFilter>("decisions", ...accessReviewHistoryDefinition.decisions);
         writer.writeStringValue("displayName", accessReviewHistoryDefinition.displayName);
-        writer.writeCollectionOfObjectValues<AccessReviewHistoryInstance>("instances", accessReviewHistoryDefinition.instances, );
+        writer.writeCollectionOfObjectValues<AccessReviewHistoryInstance>("instances", accessReviewHistoryDefinition.instances, serializeAccessReviewHistoryInstance);
         writer.writeDateValue("reviewHistoryPeriodEndDateTime", accessReviewHistoryDefinition.reviewHistoryPeriodEndDateTime);
         writer.writeDateValue("reviewHistoryPeriodStartDateTime", accessReviewHistoryDefinition.reviewHistoryPeriodStartDateTime);
-        writer.writeObjectValue<AccessReviewHistoryScheduleSettings>("scheduleSettings", accessReviewHistoryDefinition.scheduleSettings, );
-        writer.writeCollectionOfObjectValues<AccessReviewScope>("scopes", accessReviewHistoryDefinition.scopes, );
+        writer.writeObjectValue<AccessReviewHistoryScheduleSettings>("scheduleSettings", accessReviewHistoryDefinition.scheduleSettings, serializeAccessReviewHistoryScheduleSettings);
+        writer.writeCollectionOfObjectValues<AccessReviewScope>("scopes", accessReviewHistoryDefinition.scopes, serializeAccessReviewScope);
         writer.writeEnumValue<AccessReviewHistoryStatus>("status", accessReviewHistoryDefinition.status);
 }
 // tslint:enable

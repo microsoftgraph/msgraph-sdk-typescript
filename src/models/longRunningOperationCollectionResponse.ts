@@ -23,7 +23,7 @@ export interface LongRunningOperationCollectionResponse extends BaseCollectionPa
 }
 export function serializeLongRunningOperationCollectionResponse(writer: SerializationWriter, longRunningOperationCollectionResponse: LongRunningOperationCollectionResponse | undefined = {} as LongRunningOperationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, longRunningOperationCollectionResponse)
-        writer.writeCollectionOfObjectValues<LongRunningOperation>("value", longRunningOperationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<LongRunningOperation>("value", longRunningOperationCollectionResponse.value, serializeLongRunningOperation);
 }
 // tslint:enable
 // eslint-enable

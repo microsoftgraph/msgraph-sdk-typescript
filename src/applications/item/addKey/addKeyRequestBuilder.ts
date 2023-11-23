@@ -4,18 +4,43 @@
 import { createKeyCredentialFromDiscriminatorValue, deserializeIntoKeyCredential, serializeKeyCredential, type KeyCredential } from '../../../models/keyCredential';
 import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
-import { deserializeIntoAddKeyPostRequestBody, serializeAddKeyPostRequestBody, type AddKeyPostRequestBody } from './addKeyPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { createPasswordCredentialFromDiscriminatorValue, serializePasswordCredential, type PasswordCredential } from '../../../models/passwordCredential';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type AdditionalDataHolder, type Parsable, type ParsableFactory, type ParseNode, type RequestAdapter, type RequestConfiguration, type RequestOption, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface AddKeyRequestBuilderPostRequestConfiguration {
+export interface AddKeyPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
-     * Request headers
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
-    headers?: Record<string, string[]>;
+    additionalData?: Record<string, unknown>;
     /**
-     * Request options
+     * The keyCredential property
      */
-    options?: RequestOption[];
+    keyCredential?: KeyCredential;
+    /**
+     * The passwordCredential property
+     */
+    passwordCredential?: PasswordCredential;
+    /**
+     * The proof property
+     */
+    proof?: string;
+}
+export function createAddKeyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoAddKeyPostRequestBody;
+}
+export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: AddKeyPostRequestBody | undefined = {} as AddKeyPostRequestBody) : Record<string, (node: ParseNode) => void> {
+    return {
+        "keyCredential": n => { addKeyPostRequestBody.keyCredential = n.getObjectValue<KeyCredential>(createKeyCredentialFromDiscriminatorValue); },
+        "passwordCredential": n => { addKeyPostRequestBody.passwordCredential = n.getObjectValue<PasswordCredential>(createPasswordCredentialFromDiscriminatorValue); },
+        "proof": n => { addKeyPostRequestBody.proof = n.getStringValue(); },
+    }
+}
+export function serializeAddKeyPostRequestBody(writer: SerializationWriter, addKeyPostRequestBody: AddKeyPostRequestBody | undefined = {} as AddKeyPostRequestBody) : void {
+        writer.writeObjectValue<KeyCredential>("keyCredential", addKeyPostRequestBody.keyCredential, serializeKeyCredential);
+        writer.writeObjectValue<PasswordCredential>("passwordCredential", addKeyPostRequestBody.passwordCredential, serializePasswordCredential);
+        writer.writeStringValue("proof", addKeyPostRequestBody.proof);
+        writer.writeAdditionalData(addKeyPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the addKey method.
@@ -30,13 +55,13 @@ export class AddKeyRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/addKey");
     };
     /**
-     * Add a key credential to an application. This method, along with removeKey can be used by an application to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.  Applications that don’t have any existing valid certificates (no certificates have been added yet, or all certificates have expired), won’t be able to use this service action. You can use the Update application operation to perform an update instead. This API is available in the following national cloud deployments.
+     * Add a key credential to an application. This method, along with removeKey can be used by an application to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.  Applications that don’t have any existing valid certificates (no certificates have been added yet, or all certificates have expired), won’t be able to use this service action. You can use the Update application operation to perform an update instead.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of KeyCredential
      * @see {@link https://learn.microsoft.com/graph/api/application-addkey?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddKeyPostRequestBody, requestConfiguration?: AddKeyRequestBuilderPostRequestConfiguration | undefined) : Promise<KeyCredential | undefined> {
+    public post(body: AddKeyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<KeyCredential | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,22 +72,16 @@ export class AddKeyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<KeyCredential>(requestInfo, createKeyCredentialFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add a key credential to an application. This method, along with removeKey can be used by an application to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.  Applications that don’t have any existing valid certificates (no certificates have been added yet, or all certificates have expired), won’t be able to use this service action. You can use the Update application operation to perform an update instead. This API is available in the following national cloud deployments.
+     * Add a key credential to an application. This method, along with removeKey can be used by an application to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.  Applications that don’t have any existing valid certificates (no certificates have been added yet, or all certificates have expired), won’t be able to use this service action. You can use the Update application operation to perform an update instead.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddKeyPostRequestBody, requestConfiguration?: AddKeyRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddKeyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddKeyPostRequestBody);
         return requestInfo;
     };

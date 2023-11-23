@@ -16,9 +16,9 @@ export function deserializeIntoWorkDayPostRequestBody(workDayPostRequestBody: Wo
     }
 }
 export function serializeWorkDayPostRequestBody(writer: SerializationWriter, workDayPostRequestBody: WorkDayPostRequestBody | undefined = {} as WorkDayPostRequestBody) : void {
-        writer.writeObjectValue<Json>("days", workDayPostRequestBody.days, );
-        writer.writeObjectValue<Json>("holidays", workDayPostRequestBody.holidays, );
-        writer.writeObjectValue<Json>("startDate", workDayPostRequestBody.startDate, );
+        writer.writeObjectValue<Json>("days", workDayPostRequestBody.days, serializeJson);
+        writer.writeObjectValue<Json>("holidays", workDayPostRequestBody.holidays, serializeJson);
+        writer.writeObjectValue<Json>("startDate", workDayPostRequestBody.startDate, serializeJson);
         writer.writeAdditionalData(workDayPostRequestBody.additionalData);
 }
 export interface WorkDayPostRequestBody extends AdditionalDataHolder, Parsable {

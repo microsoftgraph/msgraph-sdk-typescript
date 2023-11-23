@@ -17,7 +17,7 @@ export function deserializeIntoSubscriptionCollectionResponse(subscriptionCollec
 }
 export function serializeSubscriptionCollectionResponse(writer: SerializationWriter, subscriptionCollectionResponse: SubscriptionCollectionResponse | undefined = {} as SubscriptionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, subscriptionCollectionResponse)
-        writer.writeCollectionOfObjectValues<Subscription>("value", subscriptionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Subscription>("value", subscriptionCollectionResponse.value, serializeSubscription);
 }
 export interface SubscriptionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -6,18 +6,8 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createTodoTaskListFromDiscriminatorValue, deserializeIntoTodoTaskList, serializeTodoTaskList, type TodoTaskList } from '../../../../../models/todoTaskList';
 import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
 import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface TodoTaskListItemRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface TodoTaskListItemRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -27,30 +17,6 @@ export interface TodoTaskListItemRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface TodoTaskListItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TodoTaskListItemRequestBuilderGetQueryParameters;
-}
-export interface TodoTaskListItemRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the lists property of the microsoft.graph.todo entity.
@@ -77,11 +43,11 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a todoTaskList object. This API is available in the following national cloud deployments.
+     * Deletes a todoTaskList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/todotasklist-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: TodoTaskListItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -92,12 +58,12 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a todoTaskList object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a todoTaskList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TodoTaskList
      * @see {@link https://learn.microsoft.com/graph/api/todotasklist-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TodoTaskListItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TodoTaskList | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TodoTaskListItemRequestBuilderGetQueryParameters> | undefined) : Promise<TodoTaskList | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -108,13 +74,13 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TodoTaskList>(requestInfo, createTodoTaskListFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a todoTaskList object. This API is available in the following national cloud deployments.
+     * Update the properties of a todoTaskList object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TodoTaskList
      * @see {@link https://learn.microsoft.com/graph/api/todotasklist-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TodoTaskList, requestConfiguration?: TodoTaskListItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TodoTaskList | undefined> {
+    public patch(body: TodoTaskList, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TodoTaskList | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -125,57 +91,38 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TodoTaskList>(requestInfo, createTodoTaskListFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a todoTaskList object. This API is available in the following national cloud deployments.
+     * Deletes a todoTaskList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: TodoTaskListItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a todoTaskList object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a todoTaskList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TodoTaskListItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TodoTaskListItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, todoTaskListItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Update the properties of a todoTaskList object. This API is available in the following national cloud deployments.
+     * Update the properties of a todoTaskList object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TodoTaskList, requestConfiguration?: TodoTaskListItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TodoTaskList, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTodoTaskList);
         return requestInfo;
     };
@@ -189,5 +136,9 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         return new TodoTaskListItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const todoTaskListItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

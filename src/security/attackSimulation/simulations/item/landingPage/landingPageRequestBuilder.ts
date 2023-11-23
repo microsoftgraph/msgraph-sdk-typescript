@@ -5,7 +5,7 @@ import { type LandingPage } from '../../../../../models/';
 import { createLandingPageFromDiscriminatorValue } from '../../../../../models/landingPage';
 import { type ODataError } from '../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LandingPageRequestBuilderGetQueryParameters {
     /**
@@ -16,20 +16,6 @@ export interface LandingPageRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface LandingPageRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: LandingPageRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the landingPage property of the microsoft.graph.simulation entity.
@@ -44,11 +30,11 @@ export class LandingPageRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/simulations/{simulation%2Did}/landingPage{?%24select,%24expand}");
     };
     /**
-     * Get landingPage from security
+     * The landing page associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LandingPage
      */
-    public get(requestConfiguration?: LandingPageRequestBuilderGetRequestConfiguration | undefined) : Promise<LandingPage | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<LandingPageRequestBuilderGetQueryParameters> | undefined) : Promise<LandingPage | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -59,21 +45,14 @@ export class LandingPageRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<LandingPage>(requestInfo, createLandingPageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get landingPage from security
+     * The landing page associated with a simulation during its creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: LandingPageRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<LandingPageRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, landingPageRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -86,5 +65,9 @@ export class LandingPageRequestBuilder extends BaseRequestBuilder {
         return new LandingPageRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const landingPageRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

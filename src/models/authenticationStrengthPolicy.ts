@@ -63,7 +63,7 @@ export function serializeAuthenticationStrengthPolicy(writer: SerializationWrite
         serializeEntity(writer, authenticationStrengthPolicy)
         if(authenticationStrengthPolicy.allowedCombinations)
         writer.writeEnumValue<AuthenticationMethodModes>("allowedCombinations", ...authenticationStrengthPolicy.allowedCombinations);
-        writer.writeCollectionOfObjectValues<AuthenticationCombinationConfiguration>("combinationConfigurations", authenticationStrengthPolicy.combinationConfigurations, );
+        writer.writeCollectionOfObjectValues<AuthenticationCombinationConfiguration>("combinationConfigurations", authenticationStrengthPolicy.combinationConfigurations, serializeAuthenticationCombinationConfiguration);
         writer.writeDateValue("createdDateTime", authenticationStrengthPolicy.createdDateTime);
         writer.writeStringValue("description", authenticationStrengthPolicy.description);
         writer.writeStringValue("displayName", authenticationStrengthPolicy.displayName);

@@ -30,7 +30,7 @@ export interface RolePermission extends AdditionalDataHolder, Parsable {
 }
 export function serializeRolePermission(writer: SerializationWriter, rolePermission: RolePermission | undefined = {} as RolePermission) : void {
         writer.writeStringValue("@odata.type", rolePermission.odataType);
-        writer.writeCollectionOfObjectValues<ResourceAction>("resourceActions", rolePermission.resourceActions, );
+        writer.writeCollectionOfObjectValues<ResourceAction>("resourceActions", rolePermission.resourceActions, serializeResourceAction);
         writer.writeAdditionalData(rolePermission.additionalData);
 }
 // tslint:enable

@@ -5,7 +5,7 @@ import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { createGetRecentNotebooksWithIncludePersonalNotebooksGetResponseFromDiscriminatorValue } from './getRecentNotebooksWithIncludePersonalNotebooksGetResponse';
 import { type GetRecentNotebooksWithIncludePersonalNotebooksGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters {
     /**
@@ -29,20 +29,6 @@ export interface GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGet
      */
     top?: number;
 }
-export interface GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the getRecentNotebooks method.
  */
@@ -62,7 +48,7 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder extend
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetRecentNotebooksWithIncludePersonalNotebooksGetResponse
      */
-    public get(requestConfiguration?: GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetRequestConfiguration | undefined) : Promise<GetRecentNotebooksWithIncludePersonalNotebooksGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters> | undefined) : Promise<GetRecentNotebooksWithIncludePersonalNotebooksGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -77,17 +63,10 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder extend
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, getRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -100,5 +79,12 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder extend
         return new GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const getRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "search": "%24search",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

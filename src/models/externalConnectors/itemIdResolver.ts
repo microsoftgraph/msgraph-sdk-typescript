@@ -29,7 +29,7 @@ export interface ItemIdResolver extends Parsable, UrlToItemResolverBase {
 export function serializeItemIdResolver(writer: SerializationWriter, itemIdResolver: ItemIdResolver | undefined = {} as ItemIdResolver) : void {
         serializeUrlToItemResolverBase(writer, itemIdResolver)
         writer.writeStringValue("itemId", itemIdResolver.itemId);
-        writer.writeObjectValue<UrlMatchInfo>("urlMatchInfo", itemIdResolver.urlMatchInfo, );
+        writer.writeObjectValue<UrlMatchInfo>("urlMatchInfo", itemIdResolver.urlMatchInfo, serializeUrlMatchInfo);
 }
 // tslint:enable
 // eslint-enable

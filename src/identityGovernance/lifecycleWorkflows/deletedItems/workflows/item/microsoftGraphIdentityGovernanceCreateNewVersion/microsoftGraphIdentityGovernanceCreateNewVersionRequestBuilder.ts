@@ -4,18 +4,30 @@
 import { createWorkflowFromDiscriminatorValue, deserializeIntoWorkflow, serializeWorkflow, type Workflow } from '../../../../../../models/identityGovernance/workflow';
 import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
-import { deserializeIntoCreateNewVersionPostRequestBody, serializeCreateNewVersionPostRequestBody, type CreateNewVersionPostRequestBody } from './createNewVersionPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type AdditionalDataHolder, type Parsable, type ParsableFactory, type ParseNode, type RequestAdapter, type RequestConfiguration, type RequestOption, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration {
+export function createCreateNewVersionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoCreateNewVersionPostRequestBody;
+}
+export interface CreateNewVersionPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
-     * Request headers
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
-    headers?: Record<string, string[]>;
+    additionalData?: Record<string, unknown>;
     /**
-     * Request options
+     * The workflow property
      */
-    options?: RequestOption[];
+    workflow?: Workflow;
+}
+export function deserializeIntoCreateNewVersionPostRequestBody(createNewVersionPostRequestBody: CreateNewVersionPostRequestBody | undefined = {} as CreateNewVersionPostRequestBody) : Record<string, (node: ParseNode) => void> {
+    return {
+        "workflow": n => { createNewVersionPostRequestBody.workflow = n.getObjectValue<Workflow>(createWorkflowFromDiscriminatorValue); },
+    }
+}
+export function serializeCreateNewVersionPostRequestBody(writer: SerializationWriter, createNewVersionPostRequestBody: CreateNewVersionPostRequestBody | undefined = {} as CreateNewVersionPostRequestBody) : void {
+        writer.writeObjectValue<Workflow>("workflow", createNewVersionPostRequestBody.workflow, serializeWorkflow);
+        writer.writeAdditionalData(createNewVersionPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the createNewVersion method.
@@ -30,13 +42,13 @@ export class MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder exte
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/microsoft.graph.identityGovernance.createNewVersion");
     };
     /**
-     * Create a new version of the workflow object. This API is available in the following national cloud deployments.
+     * Create a new version of the workflow object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Workflow
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-createnewversion?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CreateNewVersionPostRequestBody, requestConfiguration?: MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration | undefined) : Promise<Workflow | undefined> {
+    public post(body: CreateNewVersionPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Workflow | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,22 +59,16 @@ export class MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder exte
         return this.requestAdapter.sendAsync<Workflow>(requestInfo, createWorkflowFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new version of the workflow object. This API is available in the following national cloud deployments.
+     * Create a new version of the workflow object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CreateNewVersionPostRequestBody, requestConfiguration?: MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CreateNewVersionPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCreateNewVersionPostRequestBody);
         return requestInfo;
     };

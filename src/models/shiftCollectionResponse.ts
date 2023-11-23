@@ -17,7 +17,7 @@ export function deserializeIntoShiftCollectionResponse(shiftCollectionResponse: 
 }
 export function serializeShiftCollectionResponse(writer: SerializationWriter, shiftCollectionResponse: ShiftCollectionResponse | undefined = {} as ShiftCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, shiftCollectionResponse)
-        writer.writeCollectionOfObjectValues<Shift>("value", shiftCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Shift>("value", shiftCollectionResponse.value, serializeShift);
 }
 export interface ShiftCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

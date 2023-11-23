@@ -4,18 +4,8 @@
 import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { deserializeIntoGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody, serializeGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody, type GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody } from './getConfigurationPolicyNonComplianceSummaryReportPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface GetConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to call the getConfigurationPolicyNonComplianceSummaryReport method.
  */
@@ -35,7 +25,7 @@ export class GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder exte
      * @returns a Promise of ArrayBuffer
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getconfigurationpolicynoncompliancesummaryreport?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody, requestConfiguration?: GetConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
+    public post(body: GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -51,17 +41,11 @@ export class GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder exte
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody, requestConfiguration?: GetConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/octet-stream, application/json, application/json");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/octet-stream, application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody);
         return requestInfo;
     };

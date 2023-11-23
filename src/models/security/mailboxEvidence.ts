@@ -35,7 +35,7 @@ export function serializeMailboxEvidence(writer: SerializationWriter, mailboxEvi
         serializeAlertEvidence(writer, mailboxEvidence)
         writer.writeStringValue("displayName", mailboxEvidence.displayName);
         writer.writeStringValue("primaryAddress", mailboxEvidence.primaryAddress);
-        writer.writeObjectValue<UserAccount>("userAccount", mailboxEvidence.userAccount, );
+        writer.writeObjectValue<UserAccount>("userAccount", mailboxEvidence.userAccount, serializeUserAccount);
 }
 // tslint:enable
 // eslint-enable

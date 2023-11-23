@@ -56,7 +56,7 @@ export function serializeApprovalStage(writer: SerializationWriter, approvalStag
         writer.writeBooleanValue("assignedToMe", approvalStage.assignedToMe);
         writer.writeStringValue("displayName", approvalStage.displayName);
         writer.writeStringValue("justification", approvalStage.justification);
-        writer.writeObjectValue<Identity>("reviewedBy", approvalStage.reviewedBy, );
+        writer.writeObjectValue<Identity>("reviewedBy", approvalStage.reviewedBy, serializeIdentity);
         writer.writeDateValue("reviewedDateTime", approvalStage.reviewedDateTime);
         writer.writeStringValue("reviewResult", approvalStage.reviewResult);
         writer.writeStringValue("status", approvalStage.status);

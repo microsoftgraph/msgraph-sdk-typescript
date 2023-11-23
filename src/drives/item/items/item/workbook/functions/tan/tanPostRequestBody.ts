@@ -14,7 +14,7 @@ export function deserializeIntoTanPostRequestBody(tanPostRequestBody: TanPostReq
     }
 }
 export function serializeTanPostRequestBody(writer: SerializationWriter, tanPostRequestBody: TanPostRequestBody | undefined = {} as TanPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", tanPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", tanPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(tanPostRequestBody.additionalData);
 }
 export interface TanPostRequestBody extends AdditionalDataHolder, Parsable {

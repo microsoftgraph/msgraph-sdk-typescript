@@ -4,18 +4,8 @@
 import { createDeviceCompliancePolicyDeviceStateSummaryFromDiscriminatorValue, deserializeIntoDeviceCompliancePolicyDeviceStateSummary, serializeDeviceCompliancePolicyDeviceStateSummary, type DeviceCompliancePolicyDeviceStateSummary } from '../../models/deviceCompliancePolicyDeviceStateSummary';
 import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface DeviceCompliancePolicyDeviceStateSummaryRequestBuilderDeleteRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 export interface DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
@@ -25,30 +15,6 @@ export interface DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryP
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryParameters;
-}
-export interface DeviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the deviceCompliancePolicyDeviceStateSummary property of the microsoft.graph.deviceManagement entity.
@@ -66,7 +32,7 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
      * Delete navigation property deviceCompliancePolicyDeviceStateSummary for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public delete(requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -82,7 +48,7 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
      * @returns a Promise of DeviceCompliancePolicyDeviceStateSummary
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicydevicestatesummary-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCompliancePolicyDeviceStateSummary | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicyDeviceStateSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -99,7 +65,7 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
      * @returns a Promise of DeviceCompliancePolicyDeviceStateSummary
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicydevicestatesummary-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceCompliancePolicyDeviceStateSummary, requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceCompliancePolicyDeviceStateSummary | undefined> {
+    public patch(body: DeviceCompliancePolicyDeviceStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicyDeviceStateSummary | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -114,16 +80,10 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toDeleteRequestInformation(requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json, application/json");
+    public toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.DELETE, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -131,17 +91,10 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, deviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -150,17 +103,11 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceCompliancePolicyDeviceStateSummary, requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceCompliancePolicyDeviceStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceCompliancePolicyDeviceStateSummary);
         return requestInfo;
     };
@@ -174,5 +121,9 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
         return new DeviceCompliancePolicyDeviceStateSummaryRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const deviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

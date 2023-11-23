@@ -6,7 +6,7 @@ import { createAdministrativeUnitCollectionResponseFromDiscriminatorValue } from
 import { type ODataError } from '../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GraphAdministrativeUnitRequestBuilderGetQueryParameters {
     /**
@@ -42,20 +42,6 @@ export interface GraphAdministrativeUnitRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface GraphAdministrativeUnitRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GraphAdministrativeUnitRequestBuilderGetQueryParameters;
-}
 /**
  * Casts the previous resource to administrativeUnit.
  */
@@ -79,7 +65,7 @@ export class GraphAdministrativeUnitRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnitCollectionResponse
      */
-    public get(requestConfiguration?: GraphAdministrativeUnitRequestBuilderGetRequestConfiguration | undefined) : Promise<AdministrativeUnitCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GraphAdministrativeUnitRequestBuilderGetQueryParameters> | undefined) : Promise<AdministrativeUnitCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -94,17 +80,10 @@ export class GraphAdministrativeUnitRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GraphAdministrativeUnitRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphAdministrativeUnitRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, graphAdministrativeUnitRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -117,5 +96,15 @@ export class GraphAdministrativeUnitRequestBuilder extends BaseRequestBuilder {
         return new GraphAdministrativeUnitRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const graphAdministrativeUnitRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

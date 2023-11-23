@@ -35,9 +35,9 @@ export interface Planner extends Entity, Parsable {
 }
 export function serializePlanner(writer: SerializationWriter, planner: Planner | undefined = {} as Planner) : void {
         serializeEntity(writer, planner)
-        writer.writeCollectionOfObjectValues<PlannerBucket>("buckets", planner.buckets, );
-        writer.writeCollectionOfObjectValues<PlannerPlan>("plans", planner.plans, );
-        writer.writeCollectionOfObjectValues<PlannerTask>("tasks", planner.tasks, );
+        writer.writeCollectionOfObjectValues<PlannerBucket>("buckets", planner.buckets, serializePlannerBucket);
+        writer.writeCollectionOfObjectValues<PlannerPlan>("plans", planner.plans, serializePlannerPlan);
+        writer.writeCollectionOfObjectValues<PlannerTask>("tasks", planner.tasks, serializePlannerTask);
 }
 // tslint:enable
 // eslint-enable

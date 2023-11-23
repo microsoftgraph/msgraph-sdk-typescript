@@ -23,7 +23,7 @@ export function deserializeIntoCustomExtensionStageSettingCollectionResponse(cus
 }
 export function serializeCustomExtensionStageSettingCollectionResponse(writer: SerializationWriter, customExtensionStageSettingCollectionResponse: CustomExtensionStageSettingCollectionResponse | undefined = {} as CustomExtensionStageSettingCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, customExtensionStageSettingCollectionResponse)
-        writer.writeCollectionOfObjectValues<CustomExtensionStageSetting>("value", customExtensionStageSettingCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<CustomExtensionStageSetting>("value", customExtensionStageSettingCollectionResponse.value, serializeCustomExtensionStageSetting);
 }
 // tslint:enable
 // eslint-enable

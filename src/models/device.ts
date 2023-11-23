@@ -160,7 +160,7 @@ export interface Device extends DirectoryObject, Parsable {
 export function serializeDevice(writer: SerializationWriter, device: Device | undefined = {} as Device) : void {
         serializeDirectoryObject(writer, device)
         writer.writeBooleanValue("accountEnabled", device.accountEnabled);
-        writer.writeCollectionOfObjectValues<AlternativeSecurityId>("alternativeSecurityIds", device.alternativeSecurityIds, );
+        writer.writeCollectionOfObjectValues<AlternativeSecurityId>("alternativeSecurityIds", device.alternativeSecurityIds, serializeAlternativeSecurityId);
         writer.writeDateValue("approximateLastSignInDateTime", device.approximateLastSignInDateTime);
         writer.writeDateValue("complianceExpirationDateTime", device.complianceExpirationDateTime);
         writer.writeStringValue("deviceCategory", device.deviceCategory);
@@ -170,22 +170,22 @@ export function serializeDevice(writer: SerializationWriter, device: Device | un
         writer.writeNumberValue("deviceVersion", device.deviceVersion);
         writer.writeStringValue("displayName", device.displayName);
         writer.writeStringValue("enrollmentProfileName", device.enrollmentProfileName);
-        writer.writeCollectionOfObjectValues<Extension>("extensions", device.extensions, );
+        writer.writeCollectionOfObjectValues<Extension>("extensions", device.extensions, serializeExtension);
         writer.writeBooleanValue("isCompliant", device.isCompliant);
         writer.writeBooleanValue("isManaged", device.isManaged);
         writer.writeStringValue("mdmAppId", device.mdmAppId);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("memberOf", device.memberOf, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("memberOf", device.memberOf, serializeDirectoryObject);
         writer.writeDateValue("onPremisesLastSyncDateTime", device.onPremisesLastSyncDateTime);
         writer.writeBooleanValue("onPremisesSyncEnabled", device.onPremisesSyncEnabled);
         writer.writeStringValue("operatingSystem", device.operatingSystem);
         writer.writeStringValue("operatingSystemVersion", device.operatingSystemVersion);
         writer.writeCollectionOfPrimitiveValues<string>("physicalIds", device.physicalIds);
         writer.writeStringValue("profileType", device.profileType);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("registeredOwners", device.registeredOwners, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("registeredUsers", device.registeredUsers, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("registeredOwners", device.registeredOwners, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("registeredUsers", device.registeredUsers, serializeDirectoryObject);
         writer.writeDateValue("registrationDateTime", device.registrationDateTime);
         writer.writeCollectionOfPrimitiveValues<string>("systemLabels", device.systemLabels);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", device.transitiveMemberOf, );
+        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", device.transitiveMemberOf, serializeDirectoryObject);
         writer.writeStringValue("trustType", device.trustType);
 }
 // tslint:enable

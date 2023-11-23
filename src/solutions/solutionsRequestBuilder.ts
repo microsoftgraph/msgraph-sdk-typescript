@@ -6,7 +6,8 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { createSolutionsRootFromDiscriminatorValue, deserializeIntoSolutionsRoot, serializeSolutionsRoot, type SolutionsRoot } from '../models/solutionsRoot';
 import { BookingBusinessesRequestBuilder } from './bookingBusinesses/bookingBusinessesRequestBuilder';
 import { BookingCurrenciesRequestBuilder } from './bookingCurrencies/bookingCurrenciesRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { VirtualEventsRequestBuilder } from './virtualEvents/virtualEventsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SolutionsRequestBuilderGetQueryParameters {
     /**
@@ -17,30 +18,6 @@ export interface SolutionsRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface SolutionsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: SolutionsRequestBuilderGetQueryParameters;
-}
-export interface SolutionsRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the solutionsRoot singleton.
@@ -59,6 +36,12 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
         return new BookingCurrenciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the virtualEvents property of the microsoft.graph.solutionsRoot entity.
+     */
+    public get virtualEvents(): VirtualEventsRequestBuilder {
+        return new VirtualEventsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Instantiates a new SolutionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -71,7 +54,7 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SolutionsRoot
      */
-    public get(requestConfiguration?: SolutionsRequestBuilderGetRequestConfiguration | undefined) : Promise<SolutionsRoot | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<SolutionsRequestBuilderGetQueryParameters> | undefined) : Promise<SolutionsRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -87,7 +70,7 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SolutionsRoot
      */
-    public patch(body: SolutionsRoot, requestConfiguration?: SolutionsRequestBuilderPatchRequestConfiguration | undefined) : Promise<SolutionsRoot | undefined> {
+    public patch(body: SolutionsRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SolutionsRoot | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -102,17 +85,10 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: SolutionsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<SolutionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, solutionsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -121,17 +97,11 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: SolutionsRoot, requestConfiguration?: SolutionsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: SolutionsRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSolutionsRoot);
         return requestInfo;
     };
@@ -145,5 +115,9 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
         return new SolutionsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const solutionsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

@@ -20,13 +20,13 @@ export function deserializeIntoYieldPostRequestBody(yieldPostRequestBody: YieldP
     }
 }
 export function serializeYieldPostRequestBody(writer: SerializationWriter, yieldPostRequestBody: YieldPostRequestBody | undefined = {} as YieldPostRequestBody) : void {
-        writer.writeObjectValue<Json>("basis", yieldPostRequestBody.basis, );
-        writer.writeObjectValue<Json>("frequency", yieldPostRequestBody.frequency, );
-        writer.writeObjectValue<Json>("maturity", yieldPostRequestBody.maturity, );
-        writer.writeObjectValue<Json>("pr", yieldPostRequestBody.pr, );
-        writer.writeObjectValue<Json>("rate", yieldPostRequestBody.rate, );
-        writer.writeObjectValue<Json>("redemption", yieldPostRequestBody.redemption, );
-        writer.writeObjectValue<Json>("settlement", yieldPostRequestBody.settlement, );
+        writer.writeObjectValue<Json>("basis", yieldPostRequestBody.basis, serializeJson);
+        writer.writeObjectValue<Json>("frequency", yieldPostRequestBody.frequency, serializeJson);
+        writer.writeObjectValue<Json>("maturity", yieldPostRequestBody.maturity, serializeJson);
+        writer.writeObjectValue<Json>("pr", yieldPostRequestBody.pr, serializeJson);
+        writer.writeObjectValue<Json>("rate", yieldPostRequestBody.rate, serializeJson);
+        writer.writeObjectValue<Json>("redemption", yieldPostRequestBody.redemption, serializeJson);
+        writer.writeObjectValue<Json>("settlement", yieldPostRequestBody.settlement, serializeJson);
         writer.writeAdditionalData(yieldPostRequestBody.additionalData);
 }
 export interface YieldPostRequestBody extends AdditionalDataHolder, Parsable {

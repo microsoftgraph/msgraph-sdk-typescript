@@ -35,7 +35,7 @@ export interface ProvisioningStatusInfo extends AdditionalDataHolder, Parsable {
     status?: ProvisioningResult;
 }
 export function serializeProvisioningStatusInfo(writer: SerializationWriter, provisioningStatusInfo: ProvisioningStatusInfo | undefined = {} as ProvisioningStatusInfo) : void {
-        writer.writeObjectValue<ProvisioningErrorInfo>("errorInformation", provisioningStatusInfo.errorInformation, );
+        writer.writeObjectValue<ProvisioningErrorInfo>("errorInformation", provisioningStatusInfo.errorInformation, serializeProvisioningErrorInfo);
         writer.writeStringValue("@odata.type", provisioningStatusInfo.odataType);
         writer.writeEnumValue<ProvisioningResult>("status", provisioningStatusInfo.status);
         writer.writeAdditionalData(provisioningStatusInfo.additionalData);

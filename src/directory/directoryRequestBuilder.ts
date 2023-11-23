@@ -8,9 +8,10 @@ import { AdministrativeUnitsRequestBuilder } from './administrativeUnits/adminis
 import { AttributeSetsRequestBuilder } from './attributeSets/attributeSetsRequestBuilder';
 import { CustomSecurityAttributeDefinitionsRequestBuilder } from './customSecurityAttributeDefinitions/customSecurityAttributeDefinitionsRequestBuilder';
 import { DeletedItemsRequestBuilder } from './deletedItems/deletedItemsRequestBuilder';
+import { DeviceLocalCredentialsRequestBuilder } from './deviceLocalCredentials/deviceLocalCredentialsRequestBuilder';
 import { FederationConfigurationsRequestBuilder } from './federationConfigurations/federationConfigurationsRequestBuilder';
 import { OnPremisesSynchronizationRequestBuilder } from './onPremisesSynchronization/onPremisesSynchronizationRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DirectoryRequestBuilderGetQueryParameters {
     /**
@@ -21,30 +22,6 @@ export interface DirectoryRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface DirectoryRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: DirectoryRequestBuilderGetQueryParameters;
-}
-export interface DirectoryRequestBuilderPatchRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the directory singleton.
@@ -75,6 +52,12 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
         return new DeletedItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the deviceLocalCredentials property of the microsoft.graph.directory entity.
+     */
+    public get deviceLocalCredentials(): DeviceLocalCredentialsRequestBuilder {
+        return new DeviceLocalCredentialsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
      */
     public get federationConfigurations(): FederationConfigurationsRequestBuilder {
@@ -99,7 +82,7 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Directory
      */
-    public get(requestConfiguration?: DirectoryRequestBuilderGetRequestConfiguration | undefined) : Promise<Directory | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<DirectoryRequestBuilderGetQueryParameters> | undefined) : Promise<Directory | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -115,7 +98,7 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Directory
      */
-    public patch(body: Directory, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined) : Promise<Directory | undefined> {
+    public patch(body: Directory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Directory | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -130,17 +113,10 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: DirectoryRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<DirectoryRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, directoryRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -149,17 +125,11 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Directory, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Directory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.PATCH, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectory);
         return requestInfo;
     };
@@ -173,5 +143,9 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
         return new DirectoryRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const directoryRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

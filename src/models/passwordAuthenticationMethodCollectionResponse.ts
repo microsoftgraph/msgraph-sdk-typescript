@@ -23,7 +23,7 @@ export interface PasswordAuthenticationMethodCollectionResponse extends BaseColl
 }
 export function serializePasswordAuthenticationMethodCollectionResponse(writer: SerializationWriter, passwordAuthenticationMethodCollectionResponse: PasswordAuthenticationMethodCollectionResponse | undefined = {} as PasswordAuthenticationMethodCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, passwordAuthenticationMethodCollectionResponse)
-        writer.writeCollectionOfObjectValues<PasswordAuthenticationMethod>("value", passwordAuthenticationMethodCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<PasswordAuthenticationMethod>("value", passwordAuthenticationMethodCollectionResponse.value, serializePasswordAuthenticationMethod);
 }
 // tslint:enable
 // eslint-enable

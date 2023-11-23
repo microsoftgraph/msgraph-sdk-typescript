@@ -30,7 +30,7 @@ export interface PendingOperations extends AdditionalDataHolder, Parsable {
 }
 export function serializePendingOperations(writer: SerializationWriter, pendingOperations: PendingOperations | undefined = {} as PendingOperations) : void {
         writer.writeStringValue("@odata.type", pendingOperations.odataType);
-        writer.writeObjectValue<PendingContentUpdate>("pendingContentUpdate", pendingOperations.pendingContentUpdate, );
+        writer.writeObjectValue<PendingContentUpdate>("pendingContentUpdate", pendingOperations.pendingContentUpdate, serializePendingContentUpdate);
         writer.writeAdditionalData(pendingOperations.additionalData);
 }
 // tslint:enable

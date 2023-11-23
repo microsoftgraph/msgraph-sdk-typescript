@@ -23,7 +23,7 @@ export function deserializeIntoConnectionOperationCollectionResponse(connectionO
 }
 export function serializeConnectionOperationCollectionResponse(writer: SerializationWriter, connectionOperationCollectionResponse: ConnectionOperationCollectionResponse | undefined = {} as ConnectionOperationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, connectionOperationCollectionResponse)
-        writer.writeCollectionOfObjectValues<ConnectionOperation>("value", connectionOperationCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ConnectionOperation>("value", connectionOperationCollectionResponse.value, serializeConnectionOperation);
 }
 // tslint:enable
 // eslint-enable

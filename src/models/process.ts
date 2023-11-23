@@ -88,7 +88,7 @@ export function serializeProcess(writer: SerializationWriter, process: Process |
         writer.writeStringValue("accountName", process.accountName);
         writer.writeStringValue("commandLine", process.commandLine);
         writer.writeDateValue("createdDateTime", process.createdDateTime);
-        writer.writeObjectValue<FileHash>("fileHash", process.fileHash, );
+        writer.writeObjectValue<FileHash>("fileHash", process.fileHash, serializeFileHash);
         writer.writeEnumValue<ProcessIntegrityLevel>("integrityLevel", process.integrityLevel);
         writer.writeBooleanValue("isElevated", process.isElevated);
         writer.writeStringValue("name", process.name);

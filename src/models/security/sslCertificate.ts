@@ -31,12 +31,12 @@ export function serializeSslCertificate(writer: SerializationWriter, sslCertific
         writer.writeStringValue("fingerprint", sslCertificate.fingerprint);
         writer.writeDateValue("firstSeenDateTime", sslCertificate.firstSeenDateTime);
         writer.writeDateValue("issueDateTime", sslCertificate.issueDateTime);
-        writer.writeObjectValue<SslCertificateEntity>("issuer", sslCertificate.issuer, );
+        writer.writeObjectValue<SslCertificateEntity>("issuer", sslCertificate.issuer, serializeSslCertificateEntity);
         writer.writeDateValue("lastSeenDateTime", sslCertificate.lastSeenDateTime);
-        writer.writeCollectionOfObjectValues<Host>("relatedHosts", sslCertificate.relatedHosts, );
+        writer.writeCollectionOfObjectValues<Host>("relatedHosts", sslCertificate.relatedHosts, serializeHost);
         writer.writeStringValue("serialNumber", sslCertificate.serialNumber);
         writer.writeStringValue("sha1", sslCertificate.sha1);
-        writer.writeObjectValue<SslCertificateEntity>("subject", sslCertificate.subject, );
+        writer.writeObjectValue<SslCertificateEntity>("subject", sslCertificate.subject, serializeSslCertificateEntity);
 }
 export interface SslCertificate extends Artifact, Parsable {
     /**

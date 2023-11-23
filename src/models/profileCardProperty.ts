@@ -18,17 +18,17 @@ export function deserializeIntoProfileCardProperty(profileCardProperty: ProfileC
 }
 export interface ProfileCardProperty extends Entity, Parsable {
     /**
-     * The annotations property
+     * Allows an administrator to set a custom display label for the directory property and localize it for the users in their tenant.
      */
     annotations?: ProfileCardAnnotation[];
     /**
-     * The directoryPropertyName property
+     * Identifies a profileCardProperty resource in Get, Update, or Delete operations. Allows an administrator to surface hidden Microsoft Entra ID properties on the Microsoft 365 profile card within their tenant. When present, the Microsoft Entra ID field referenced in this property is visible to all users in your tenant on the contact pane of the profile card. Allowed values for this field are: UserPrincipalName, Fax, StreetAddress, PostalCode, StateOrProvince, Alias, CustomAttribute1,  CustomAttribute2, CustomAttribute3, CustomAttribute4, CustomAttribute5, CustomAttribute6, CustomAttribute7, CustomAttribute8, CustomAttribute9, CustomAttribute10, CustomAttribute11, CustomAttribute12, CustomAttribute13, CustomAttribute14, CustomAttribute15.
      */
     directoryPropertyName?: string;
 }
 export function serializeProfileCardProperty(writer: SerializationWriter, profileCardProperty: ProfileCardProperty | undefined = {} as ProfileCardProperty) : void {
         serializeEntity(writer, profileCardProperty)
-        writer.writeCollectionOfObjectValues<ProfileCardAnnotation>("annotations", profileCardProperty.annotations, );
+        writer.writeCollectionOfObjectValues<ProfileCardAnnotation>("annotations", profileCardProperty.annotations, serializeProfileCardAnnotation);
         writer.writeStringValue("directoryPropertyName", profileCardProperty.directoryPropertyName);
 }
 // tslint:enable

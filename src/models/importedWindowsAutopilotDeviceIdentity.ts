@@ -59,7 +59,7 @@ export function serializeImportedWindowsAutopilotDeviceIdentity(writer: Serializ
         writer.writeStringValue("importId", importedWindowsAutopilotDeviceIdentity.importId);
         writer.writeStringValue("productKey", importedWindowsAutopilotDeviceIdentity.productKey);
         writer.writeStringValue("serialNumber", importedWindowsAutopilotDeviceIdentity.serialNumber);
-        writer.writeObjectValue<ImportedWindowsAutopilotDeviceIdentityState>("state", importedWindowsAutopilotDeviceIdentity.state, );
+        writer.writeObjectValue<ImportedWindowsAutopilotDeviceIdentityState>("state", importedWindowsAutopilotDeviceIdentity.state, serializeImportedWindowsAutopilotDeviceIdentityState);
 }
 // tslint:enable
 // eslint-enable

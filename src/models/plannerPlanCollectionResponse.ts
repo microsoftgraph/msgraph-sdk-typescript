@@ -23,7 +23,7 @@ export interface PlannerPlanCollectionResponse extends BaseCollectionPaginationC
 }
 export function serializePlannerPlanCollectionResponse(writer: SerializationWriter, plannerPlanCollectionResponse: PlannerPlanCollectionResponse | undefined = {} as PlannerPlanCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, plannerPlanCollectionResponse)
-        writer.writeCollectionOfObjectValues<PlannerPlan>("value", plannerPlanCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<PlannerPlan>("value", plannerPlanCollectionResponse.value, serializePlannerPlan);
 }
 // tslint:enable
 // eslint-enable

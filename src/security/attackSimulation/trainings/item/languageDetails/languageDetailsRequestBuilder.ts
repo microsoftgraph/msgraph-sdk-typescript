@@ -8,7 +8,7 @@ import { createTrainingLanguageDetailFromDiscriminatorValue, deserializeIntoTrai
 import { createTrainingLanguageDetailCollectionResponseFromDiscriminatorValue } from '../../../../../models/trainingLanguageDetailCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TrainingLanguageDetailItemRequestBuilder } from './item/trainingLanguageDetailItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LanguageDetailsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface LanguageDetailsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface LanguageDetailsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: LanguageDetailsRequestBuilderGetQueryParameters;
-}
-export interface LanguageDetailsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the languageDetails property of the microsoft.graph.training entity.
  */
@@ -98,11 +74,11 @@ export class LanguageDetailsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/trainings/{training%2Did}/languageDetails{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get languageDetails from security
+     * Language specific details on a training.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TrainingLanguageDetailCollectionResponse
      */
-    public get(requestConfiguration?: LanguageDetailsRequestBuilderGetRequestConfiguration | undefined) : Promise<TrainingLanguageDetailCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<LanguageDetailsRequestBuilderGetQueryParameters> | undefined) : Promise<TrainingLanguageDetailCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class LanguageDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TrainingLanguageDetail
      */
-    public post(body: TrainingLanguageDetail, requestConfiguration?: LanguageDetailsRequestBuilderPostRequestConfiguration | undefined) : Promise<TrainingLanguageDetail | undefined> {
+    public post(body: TrainingLanguageDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TrainingLanguageDetail | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -129,21 +105,14 @@ export class LanguageDetailsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TrainingLanguageDetail>(requestInfo, createTrainingLanguageDetailFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get languageDetails from security
+     * Language specific details on a training.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: LanguageDetailsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<LanguageDetailsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, languageDetailsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class LanguageDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TrainingLanguageDetail, requestConfiguration?: LanguageDetailsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TrainingLanguageDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTrainingLanguageDetail);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class LanguageDetailsRequestBuilder extends BaseRequestBuilder {
         return new LanguageDetailsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const languageDetailsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

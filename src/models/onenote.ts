@@ -53,12 +53,12 @@ export interface Onenote extends Entity, Parsable {
 }
 export function serializeOnenote(writer: SerializationWriter, onenote: Onenote | undefined = {} as Onenote) : void {
         serializeEntity(writer, onenote)
-        writer.writeCollectionOfObjectValues<Notebook>("notebooks", onenote.notebooks, );
-        writer.writeCollectionOfObjectValues<OnenoteOperation>("operations", onenote.operations, );
-        writer.writeCollectionOfObjectValues<OnenotePage>("pages", onenote.pages, );
-        writer.writeCollectionOfObjectValues<OnenoteResource>("resources", onenote.resources, );
-        writer.writeCollectionOfObjectValues<SectionGroup>("sectionGroups", onenote.sectionGroups, );
-        writer.writeCollectionOfObjectValues<OnenoteSection>("sections", onenote.sections, );
+        writer.writeCollectionOfObjectValues<Notebook>("notebooks", onenote.notebooks, serializeNotebook);
+        writer.writeCollectionOfObjectValues<OnenoteOperation>("operations", onenote.operations, serializeOnenoteOperation);
+        writer.writeCollectionOfObjectValues<OnenotePage>("pages", onenote.pages, serializeOnenotePage);
+        writer.writeCollectionOfObjectValues<OnenoteResource>("resources", onenote.resources, serializeOnenoteResource);
+        writer.writeCollectionOfObjectValues<SectionGroup>("sectionGroups", onenote.sectionGroups, serializeSectionGroup);
+        writer.writeCollectionOfObjectValues<OnenoteSection>("sections", onenote.sections, serializeOnenoteSection);
 }
 // tslint:enable
 // eslint-enable

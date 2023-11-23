@@ -36,7 +36,7 @@ export function deserializeIntoServiceAnnouncementBase(serviceAnnouncementBase: 
 }
 export function serializeServiceAnnouncementBase(writer: SerializationWriter, serviceAnnouncementBase: ServiceAnnouncementBase | undefined = {} as ServiceAnnouncementBase) : void {
         serializeEntity(writer, serviceAnnouncementBase)
-        writer.writeCollectionOfObjectValues<KeyValuePair>("details", serviceAnnouncementBase.details, );
+        writer.writeCollectionOfObjectValues<KeyValuePair>("details", serviceAnnouncementBase.details, serializeKeyValuePair);
         writer.writeDateValue("endDateTime", serviceAnnouncementBase.endDateTime);
         writer.writeDateValue("lastModifiedDateTime", serviceAnnouncementBase.lastModifiedDateTime);
         writer.writeDateValue("startDateTime", serviceAnnouncementBase.startDateTime);

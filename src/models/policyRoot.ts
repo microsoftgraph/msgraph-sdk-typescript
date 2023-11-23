@@ -131,25 +131,25 @@ export interface PolicyRoot extends Entity, Parsable {
 }
 export function serializePolicyRoot(writer: SerializationWriter, policyRoot: PolicyRoot | undefined = {} as PolicyRoot) : void {
         serializeEntity(writer, policyRoot)
-        writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicy>("activityBasedTimeoutPolicies", policyRoot.activityBasedTimeoutPolicies, );
-        writer.writeObjectValue<AdminConsentRequestPolicy>("adminConsentRequestPolicy", policyRoot.adminConsentRequestPolicy, );
-        writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", policyRoot.appManagementPolicies, );
-        writer.writeObjectValue<AuthenticationFlowsPolicy>("authenticationFlowsPolicy", policyRoot.authenticationFlowsPolicy, );
-        writer.writeObjectValue<AuthenticationMethodsPolicy>("authenticationMethodsPolicy", policyRoot.authenticationMethodsPolicy, );
-        writer.writeCollectionOfObjectValues<AuthenticationStrengthPolicy>("authenticationStrengthPolicies", policyRoot.authenticationStrengthPolicies, );
-        writer.writeObjectValue<AuthorizationPolicy>("authorizationPolicy", policyRoot.authorizationPolicy, );
-        writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", policyRoot.claimsMappingPolicies, );
-        writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", policyRoot.conditionalAccessPolicies, );
-        writer.writeObjectValue<CrossTenantAccessPolicy>("crossTenantAccessPolicy", policyRoot.crossTenantAccessPolicy, );
-        writer.writeObjectValue<TenantAppManagementPolicy>("defaultAppManagementPolicy", policyRoot.defaultAppManagementPolicy, );
-        writer.writeCollectionOfObjectValues<FeatureRolloutPolicy>("featureRolloutPolicies", policyRoot.featureRolloutPolicies, );
-        writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", policyRoot.homeRealmDiscoveryPolicies, );
-        writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicy>("identitySecurityDefaultsEnforcementPolicy", policyRoot.identitySecurityDefaultsEnforcementPolicy, );
-        writer.writeCollectionOfObjectValues<PermissionGrantPolicy>("permissionGrantPolicies", policyRoot.permissionGrantPolicies, );
-        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicy>("roleManagementPolicies", policyRoot.roleManagementPolicies, );
-        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignment>("roleManagementPolicyAssignments", policyRoot.roleManagementPolicyAssignments, );
-        writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", policyRoot.tokenIssuancePolicies, );
-        writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", policyRoot.tokenLifetimePolicies, );
+        writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicy>("activityBasedTimeoutPolicies", policyRoot.activityBasedTimeoutPolicies, serializeActivityBasedTimeoutPolicy);
+        writer.writeObjectValue<AdminConsentRequestPolicy>("adminConsentRequestPolicy", policyRoot.adminConsentRequestPolicy, serializeAdminConsentRequestPolicy);
+        writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", policyRoot.appManagementPolicies, serializeAppManagementPolicy);
+        writer.writeObjectValue<AuthenticationFlowsPolicy>("authenticationFlowsPolicy", policyRoot.authenticationFlowsPolicy, serializeAuthenticationFlowsPolicy);
+        writer.writeObjectValue<AuthenticationMethodsPolicy>("authenticationMethodsPolicy", policyRoot.authenticationMethodsPolicy, serializeAuthenticationMethodsPolicy);
+        writer.writeCollectionOfObjectValues<AuthenticationStrengthPolicy>("authenticationStrengthPolicies", policyRoot.authenticationStrengthPolicies, serializeAuthenticationStrengthPolicy);
+        writer.writeObjectValue<AuthorizationPolicy>("authorizationPolicy", policyRoot.authorizationPolicy, serializeAuthorizationPolicy);
+        writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", policyRoot.claimsMappingPolicies, serializeClaimsMappingPolicy);
+        writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", policyRoot.conditionalAccessPolicies, serializeConditionalAccessPolicy);
+        writer.writeObjectValue<CrossTenantAccessPolicy>("crossTenantAccessPolicy", policyRoot.crossTenantAccessPolicy, serializeCrossTenantAccessPolicy);
+        writer.writeObjectValue<TenantAppManagementPolicy>("defaultAppManagementPolicy", policyRoot.defaultAppManagementPolicy, serializeTenantAppManagementPolicy);
+        writer.writeCollectionOfObjectValues<FeatureRolloutPolicy>("featureRolloutPolicies", policyRoot.featureRolloutPolicies, serializeFeatureRolloutPolicy);
+        writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", policyRoot.homeRealmDiscoveryPolicies, serializeHomeRealmDiscoveryPolicy);
+        writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicy>("identitySecurityDefaultsEnforcementPolicy", policyRoot.identitySecurityDefaultsEnforcementPolicy, serializeIdentitySecurityDefaultsEnforcementPolicy);
+        writer.writeCollectionOfObjectValues<PermissionGrantPolicy>("permissionGrantPolicies", policyRoot.permissionGrantPolicies, serializePermissionGrantPolicy);
+        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicy>("roleManagementPolicies", policyRoot.roleManagementPolicies, serializeUnifiedRoleManagementPolicy);
+        writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignment>("roleManagementPolicyAssignments", policyRoot.roleManagementPolicyAssignments, serializeUnifiedRoleManagementPolicyAssignment);
+        writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", policyRoot.tokenIssuancePolicies, serializeTokenIssuancePolicy);
+        writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", policyRoot.tokenLifetimePolicies, serializeTokenLifetimePolicy);
 }
 // tslint:enable
 // eslint-enable

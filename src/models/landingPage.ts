@@ -30,58 +30,58 @@ export function deserializeIntoLandingPage(landingPage: LandingPage | undefined 
 }
 export interface LandingPage extends Entity, Parsable {
     /**
-     * The createdBy property
+     * Identity of the user who created the landing page.
      */
     createdBy?: EmailIdentity;
     /**
-     * The createdDateTime property
+     * Date and time when the landing page was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     createdDateTime?: Date;
     /**
-     * The description property
+     * Description of the landing page as defined by the user.
      */
     description?: string;
     /**
-     * The details property
+     * The detail information for a landing page associated with a simulation during its creation.
      */
     details?: LandingPageDetail[];
     /**
-     * The displayName property
+     * The display name of the landing page.
      */
     displayName?: string;
     /**
-     * The lastModifiedBy property
+     * Email identity of the user who last modified the landing page.
      */
     lastModifiedBy?: EmailIdentity;
     /**
-     * The lastModifiedDateTime property
+     * Date and time when the landing page was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     lastModifiedDateTime?: Date;
     /**
-     * The locale property
+     * Content locale.
      */
     locale?: string;
     /**
-     * The source property
+     * The source of the content. Possible values are: unknown, global, tenant, unknownFutureValue.
      */
     source?: SimulationContentSource;
     /**
-     * The status property
+     * The status of the simulation. Possible values are: unknown, draft, ready, archive, delete, unknownFutureValue.
      */
     status?: SimulationContentStatus;
     /**
-     * The supportedLocales property
+     * Supported locales.
      */
     supportedLocales?: string[];
 }
 export function serializeLandingPage(writer: SerializationWriter, landingPage: LandingPage | undefined = {} as LandingPage) : void {
         serializeEntity(writer, landingPage)
-        writer.writeObjectValue<EmailIdentity>("createdBy", landingPage.createdBy, );
+        writer.writeObjectValue<EmailIdentity>("createdBy", landingPage.createdBy, serializeEmailIdentity);
         writer.writeDateValue("createdDateTime", landingPage.createdDateTime);
         writer.writeStringValue("description", landingPage.description);
-        writer.writeCollectionOfObjectValues<LandingPageDetail>("details", landingPage.details, );
+        writer.writeCollectionOfObjectValues<LandingPageDetail>("details", landingPage.details, serializeLandingPageDetail);
         writer.writeStringValue("displayName", landingPage.displayName);
-        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", landingPage.lastModifiedBy, );
+        writer.writeObjectValue<EmailIdentity>("lastModifiedBy", landingPage.lastModifiedBy, serializeEmailIdentity);
         writer.writeDateValue("lastModifiedDateTime", landingPage.lastModifiedDateTime);
         writer.writeStringValue("locale", landingPage.locale);
         writer.writeEnumValue<SimulationContentSource>("source", landingPage.source);

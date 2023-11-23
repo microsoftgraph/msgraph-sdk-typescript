@@ -55,12 +55,12 @@ export function deserializeIntoCrossTenantAccessPolicyConfigurationDefault(cross
 }
 export function serializeCrossTenantAccessPolicyConfigurationDefault(writer: SerializationWriter, crossTenantAccessPolicyConfigurationDefault: CrossTenantAccessPolicyConfigurationDefault | undefined = {} as CrossTenantAccessPolicyConfigurationDefault) : void {
         serializeEntity(writer, crossTenantAccessPolicyConfigurationDefault)
-        writer.writeObjectValue<InboundOutboundPolicyConfiguration>("automaticUserConsentSettings", crossTenantAccessPolicyConfigurationDefault.automaticUserConsentSettings, );
-        writer.writeObjectValue<CrossTenantAccessPolicyB2BSetting>("b2bCollaborationInbound", crossTenantAccessPolicyConfigurationDefault.b2bCollaborationInbound, );
-        writer.writeObjectValue<CrossTenantAccessPolicyB2BSetting>("b2bCollaborationOutbound", crossTenantAccessPolicyConfigurationDefault.b2bCollaborationOutbound, );
-        writer.writeObjectValue<CrossTenantAccessPolicyB2BSetting>("b2bDirectConnectInbound", crossTenantAccessPolicyConfigurationDefault.b2bDirectConnectInbound, );
-        writer.writeObjectValue<CrossTenantAccessPolicyB2BSetting>("b2bDirectConnectOutbound", crossTenantAccessPolicyConfigurationDefault.b2bDirectConnectOutbound, );
-        writer.writeObjectValue<CrossTenantAccessPolicyInboundTrust>("inboundTrust", crossTenantAccessPolicyConfigurationDefault.inboundTrust, );
+        writer.writeObjectValue<InboundOutboundPolicyConfiguration>("automaticUserConsentSettings", crossTenantAccessPolicyConfigurationDefault.automaticUserConsentSettings, serializeInboundOutboundPolicyConfiguration);
+        writer.writeObjectValue<CrossTenantAccessPolicyB2BSetting>("b2bCollaborationInbound", crossTenantAccessPolicyConfigurationDefault.b2bCollaborationInbound, serializeCrossTenantAccessPolicyB2BSetting);
+        writer.writeObjectValue<CrossTenantAccessPolicyB2BSetting>("b2bCollaborationOutbound", crossTenantAccessPolicyConfigurationDefault.b2bCollaborationOutbound, serializeCrossTenantAccessPolicyB2BSetting);
+        writer.writeObjectValue<CrossTenantAccessPolicyB2BSetting>("b2bDirectConnectInbound", crossTenantAccessPolicyConfigurationDefault.b2bDirectConnectInbound, serializeCrossTenantAccessPolicyB2BSetting);
+        writer.writeObjectValue<CrossTenantAccessPolicyB2BSetting>("b2bDirectConnectOutbound", crossTenantAccessPolicyConfigurationDefault.b2bDirectConnectOutbound, serializeCrossTenantAccessPolicyB2BSetting);
+        writer.writeObjectValue<CrossTenantAccessPolicyInboundTrust>("inboundTrust", crossTenantAccessPolicyConfigurationDefault.inboundTrust, serializeCrossTenantAccessPolicyInboundTrust);
         writer.writeBooleanValue("isServiceDefault", crossTenantAccessPolicyConfigurationDefault.isServiceDefault);
 }
 // tslint:enable

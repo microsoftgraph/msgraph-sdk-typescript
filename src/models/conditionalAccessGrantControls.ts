@@ -50,7 +50,7 @@ export function deserializeIntoConditionalAccessGrantControls(conditionalAccessG
     }
 }
 export function serializeConditionalAccessGrantControls(writer: SerializationWriter, conditionalAccessGrantControls: ConditionalAccessGrantControls | undefined = {} as ConditionalAccessGrantControls) : void {
-        writer.writeObjectValue<AuthenticationStrengthPolicy>("authenticationStrength", conditionalAccessGrantControls.authenticationStrength, );
+        writer.writeObjectValue<AuthenticationStrengthPolicy>("authenticationStrength", conditionalAccessGrantControls.authenticationStrength, serializeAuthenticationStrengthPolicy);
         if(conditionalAccessGrantControls.builtInControls)
         writer.writeEnumValue<ConditionalAccessGrantControl>("builtInControls", ...conditionalAccessGrantControls.builtInControls);
         writer.writeCollectionOfPrimitiveValues<string>("customAuthenticationFactors", conditionalAccessGrantControls.customAuthenticationFactors);

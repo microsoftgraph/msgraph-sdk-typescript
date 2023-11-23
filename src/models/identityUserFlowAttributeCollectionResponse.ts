@@ -23,7 +23,7 @@ export interface IdentityUserFlowAttributeCollectionResponse extends BaseCollect
 }
 export function serializeIdentityUserFlowAttributeCollectionResponse(writer: SerializationWriter, identityUserFlowAttributeCollectionResponse: IdentityUserFlowAttributeCollectionResponse | undefined = {} as IdentityUserFlowAttributeCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, identityUserFlowAttributeCollectionResponse)
-        writer.writeCollectionOfObjectValues<IdentityUserFlowAttribute>("value", identityUserFlowAttributeCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<IdentityUserFlowAttribute>("value", identityUserFlowAttributeCollectionResponse.value, serializeIdentityUserFlowAttribute);
 }
 // tslint:enable
 // eslint-enable

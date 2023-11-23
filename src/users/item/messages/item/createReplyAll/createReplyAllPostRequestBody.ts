@@ -30,7 +30,7 @@ export function deserializeIntoCreateReplyAllPostRequestBody(createReplyAllPostR
 }
 export function serializeCreateReplyAllPostRequestBody(writer: SerializationWriter, createReplyAllPostRequestBody: CreateReplyAllPostRequestBody | undefined = {} as CreateReplyAllPostRequestBody) : void {
         writer.writeStringValue("Comment", createReplyAllPostRequestBody.comment);
-        writer.writeObjectValue<Message>("Message", createReplyAllPostRequestBody.message, );
+        writer.writeObjectValue<Message>("Message", createReplyAllPostRequestBody.message, serializeMessage);
         writer.writeAdditionalData(createReplyAllPostRequestBody.additionalData);
 }
 // tslint:enable

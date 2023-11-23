@@ -29,8 +29,8 @@ export function deserializeIntoAttendee(attendee: Attendee | undefined = {} as A
 }
 export function serializeAttendee(writer: SerializationWriter, attendee: Attendee | undefined = {} as Attendee) : void {
         serializeAttendeeBase(writer, attendee)
-        writer.writeObjectValue<TimeSlot>("proposedNewTime", attendee.proposedNewTime, );
-        writer.writeObjectValue<ResponseStatus>("status", attendee.status, );
+        writer.writeObjectValue<TimeSlot>("proposedNewTime", attendee.proposedNewTime, serializeTimeSlot);
+        writer.writeObjectValue<ResponseStatus>("status", attendee.status, serializeResponseStatus);
 }
 // tslint:enable
 // eslint-enable

@@ -5,9 +5,9 @@ import { type ContentType } from '../../../../../../../../../models/';
 import { createContentTypeFromDiscriminatorValue } from '../../../../../../../../../models/contentType';
 import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../../../models/oDataErrors/oDataError';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
-export interface BaseRequestBuilderEscapedbaseRequestBuilderGetQueryParameters {
+export interface BaseRequestBuilderGetQueryParameters {
     /**
      * Expand related entities
      */
@@ -16,20 +16,6 @@ export interface BaseRequestBuilderEscapedbaseRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface BaseRequestBuilderEscapedbaseRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: BaseRequestBuilderEscapedbaseRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the base property of the microsoft.graph.contentType entity.
@@ -48,7 +34,7 @@ export class BaseRequestBuilderEscaped extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentType
      */
-    public get(requestConfiguration?: BaseRequestBuilderEscapedbaseRequestBuilderGetRequestConfiguration | undefined) : Promise<ContentType | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<BaseRequestBuilderGetQueryParameters> | undefined) : Promise<ContentType | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,17 +49,10 @@ export class BaseRequestBuilderEscaped extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: BaseRequestBuilderEscapedbaseRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<BaseRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -86,5 +65,9 @@ export class BaseRequestBuilderEscaped extends BaseRequestBuilder {
         return new BaseRequestBuilderEscaped(rawUrl, this.requestAdapter);
     };
 }
+const baseRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

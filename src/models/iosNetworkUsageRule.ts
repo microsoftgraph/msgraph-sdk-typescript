@@ -41,7 +41,7 @@ export interface IosNetworkUsageRule extends AdditionalDataHolder, Parsable {
 export function serializeIosNetworkUsageRule(writer: SerializationWriter, iosNetworkUsageRule: IosNetworkUsageRule | undefined = {} as IosNetworkUsageRule) : void {
         writer.writeBooleanValue("cellularDataBlocked", iosNetworkUsageRule.cellularDataBlocked);
         writer.writeBooleanValue("cellularDataBlockWhenRoaming", iosNetworkUsageRule.cellularDataBlockWhenRoaming);
-        writer.writeCollectionOfObjectValues<AppListItem>("managedApps", iosNetworkUsageRule.managedApps, );
+        writer.writeCollectionOfObjectValues<AppListItem>("managedApps", iosNetworkUsageRule.managedApps, serializeAppListItem);
         writer.writeStringValue("@odata.type", iosNetworkUsageRule.odataType);
         writer.writeAdditionalData(iosNetworkUsageRule.additionalData);
 }

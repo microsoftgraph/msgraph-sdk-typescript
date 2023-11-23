@@ -23,7 +23,7 @@ export interface ManagedDeviceMobileAppConfigurationAssignment extends Entity, P
 }
 export function serializeManagedDeviceMobileAppConfigurationAssignment(writer: SerializationWriter, managedDeviceMobileAppConfigurationAssignment: ManagedDeviceMobileAppConfigurationAssignment | undefined = {} as ManagedDeviceMobileAppConfigurationAssignment) : void {
         serializeEntity(writer, managedDeviceMobileAppConfigurationAssignment)
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", managedDeviceMobileAppConfigurationAssignment.target, );
+        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", managedDeviceMobileAppConfigurationAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
 }
 // tslint:enable
 // eslint-enable

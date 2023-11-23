@@ -34,7 +34,7 @@ export function deserializeIntoAndroidStoreApp(androidStoreApp: AndroidStoreApp 
 export function serializeAndroidStoreApp(writer: SerializationWriter, androidStoreApp: AndroidStoreApp | undefined = {} as AndroidStoreApp) : void {
         serializeMobileApp(writer, androidStoreApp)
         writer.writeStringValue("appStoreUrl", androidStoreApp.appStoreUrl);
-        writer.writeObjectValue<AndroidMinimumOperatingSystem>("minimumSupportedOperatingSystem", androidStoreApp.minimumSupportedOperatingSystem, );
+        writer.writeObjectValue<AndroidMinimumOperatingSystem>("minimumSupportedOperatingSystem", androidStoreApp.minimumSupportedOperatingSystem, serializeAndroidMinimumOperatingSystem);
         writer.writeStringValue("packageId", androidStoreApp.packageId);
 }
 // tslint:enable

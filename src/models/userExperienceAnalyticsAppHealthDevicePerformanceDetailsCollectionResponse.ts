@@ -17,7 +17,7 @@ export function deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformance
 }
 export function serializeUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse: UserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse | undefined = {} as UserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse)
-        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsAppHealthDevicePerformanceDetails>("value", userExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsAppHealthDevicePerformanceDetails>("value", userExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse.value, serializeUserExperienceAnalyticsAppHealthDevicePerformanceDetails);
 }
 export interface UserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

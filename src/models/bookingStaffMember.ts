@@ -66,7 +66,7 @@ export function serializeBookingStaffMember(writer: SerializationWriter, booking
         writer.writeEnumValue<BookingStaffRole>("role", bookingStaffMember.role);
         writer.writeStringValue("timeZone", bookingStaffMember.timeZone);
         writer.writeBooleanValue("useBusinessHours", bookingStaffMember.useBusinessHours);
-        writer.writeCollectionOfObjectValues<BookingWorkHours>("workingHours", bookingStaffMember.workingHours, );
+        writer.writeCollectionOfObjectValues<BookingWorkHours>("workingHours", bookingStaffMember.workingHours, serializeBookingWorkHours);
 }
 // tslint:enable
 // eslint-enable

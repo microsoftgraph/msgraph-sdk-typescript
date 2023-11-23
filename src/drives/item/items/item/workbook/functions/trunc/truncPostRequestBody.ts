@@ -15,8 +15,8 @@ export function deserializeIntoTruncPostRequestBody(truncPostRequestBody: TruncP
     }
 }
 export function serializeTruncPostRequestBody(writer: SerializationWriter, truncPostRequestBody: TruncPostRequestBody | undefined = {} as TruncPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", truncPostRequestBody.number, );
-        writer.writeObjectValue<Json>("numDigits", truncPostRequestBody.numDigits, );
+        writer.writeObjectValue<Json>("number", truncPostRequestBody.number, serializeJson);
+        writer.writeObjectValue<Json>("numDigits", truncPostRequestBody.numDigits, serializeJson);
         writer.writeAdditionalData(truncPostRequestBody.additionalData);
 }
 export interface TruncPostRequestBody extends AdditionalDataHolder, Parsable {

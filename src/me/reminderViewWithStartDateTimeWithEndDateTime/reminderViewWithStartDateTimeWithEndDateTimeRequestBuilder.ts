@@ -5,7 +5,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { type ReminderViewWithStartDateTimeWithEndDateTimeGetResponse } from './index';
 import { createReminderViewWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue } from './reminderViewWithStartDateTimeWithEndDateTimeGetResponse';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters {
     /**
@@ -29,20 +29,6 @@ export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQu
      */
     top?: number;
 }
-export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the reminderView method.
  */
@@ -64,7 +50,7 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder extends 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ReminderViewWithStartDateTimeWithEndDateTimeGetResponse
      */
-    public get(requestConfiguration?: ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration | undefined) : Promise<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -79,17 +65,10 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder extends 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, reminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -102,5 +81,12 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder extends 
         return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const reminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "search": "%24search",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

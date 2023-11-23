@@ -77,16 +77,16 @@ export function deserializeIntoAuthentication(authentication: Authentication | u
 }
 export function serializeAuthentication(writer: SerializationWriter, authentication: Authentication | undefined = {} as Authentication) : void {
         serializeEntity(writer, authentication)
-        writer.writeCollectionOfObjectValues<EmailAuthenticationMethod>("emailMethods", authentication.emailMethods, );
-        writer.writeCollectionOfObjectValues<Fido2AuthenticationMethod>("fido2Methods", authentication.fido2Methods, );
-        writer.writeCollectionOfObjectValues<AuthenticationMethod>("methods", authentication.methods, );
-        writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethod>("microsoftAuthenticatorMethods", authentication.microsoftAuthenticatorMethods, );
-        writer.writeCollectionOfObjectValues<LongRunningOperation>("operations", authentication.operations, );
-        writer.writeCollectionOfObjectValues<PasswordAuthenticationMethod>("passwordMethods", authentication.passwordMethods, );
-        writer.writeCollectionOfObjectValues<PhoneAuthenticationMethod>("phoneMethods", authentication.phoneMethods, );
-        writer.writeCollectionOfObjectValues<SoftwareOathAuthenticationMethod>("softwareOathMethods", authentication.softwareOathMethods, );
-        writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethod>("temporaryAccessPassMethods", authentication.temporaryAccessPassMethods, );
-        writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>("windowsHelloForBusinessMethods", authentication.windowsHelloForBusinessMethods, );
+        writer.writeCollectionOfObjectValues<EmailAuthenticationMethod>("emailMethods", authentication.emailMethods, serializeEmailAuthenticationMethod);
+        writer.writeCollectionOfObjectValues<Fido2AuthenticationMethod>("fido2Methods", authentication.fido2Methods, serializeFido2AuthenticationMethod);
+        writer.writeCollectionOfObjectValues<AuthenticationMethod>("methods", authentication.methods, serializeAuthenticationMethod);
+        writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethod>("microsoftAuthenticatorMethods", authentication.microsoftAuthenticatorMethods, serializeMicrosoftAuthenticatorAuthenticationMethod);
+        writer.writeCollectionOfObjectValues<LongRunningOperation>("operations", authentication.operations, serializeLongRunningOperation);
+        writer.writeCollectionOfObjectValues<PasswordAuthenticationMethod>("passwordMethods", authentication.passwordMethods, serializePasswordAuthenticationMethod);
+        writer.writeCollectionOfObjectValues<PhoneAuthenticationMethod>("phoneMethods", authentication.phoneMethods, serializePhoneAuthenticationMethod);
+        writer.writeCollectionOfObjectValues<SoftwareOathAuthenticationMethod>("softwareOathMethods", authentication.softwareOathMethods, serializeSoftwareOathAuthenticationMethod);
+        writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethod>("temporaryAccessPassMethods", authentication.temporaryAccessPassMethods, serializeTemporaryAccessPassAuthenticationMethod);
+        writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>("windowsHelloForBusinessMethods", authentication.windowsHelloForBusinessMethods, serializeWindowsHelloForBusinessAuthenticationMethod);
 }
 // tslint:enable
 // eslint-enable

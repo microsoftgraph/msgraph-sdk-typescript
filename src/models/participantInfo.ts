@@ -57,7 +57,7 @@ export interface ParticipantInfo extends AdditionalDataHolder, Parsable {
 export function serializeParticipantInfo(writer: SerializationWriter, participantInfo: ParticipantInfo | undefined = {} as ParticipantInfo) : void {
         writer.writeStringValue("countryCode", participantInfo.countryCode);
         writer.writeEnumValue<EndpointType>("endpointType", participantInfo.endpointType);
-        writer.writeObjectValue<IdentitySet>("identity", participantInfo.identity, );
+        writer.writeObjectValue<IdentitySet>("identity", participantInfo.identity, serializeIdentitySet);
         writer.writeStringValue("languageId", participantInfo.languageId);
         writer.writeStringValue("@odata.type", participantInfo.odataType);
         writer.writeStringValue("participantId", participantInfo.participantId);

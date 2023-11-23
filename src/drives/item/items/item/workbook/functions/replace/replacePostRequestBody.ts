@@ -39,10 +39,10 @@ export interface ReplacePostRequestBody extends AdditionalDataHolder, Parsable {
     startNum?: Json;
 }
 export function serializeReplacePostRequestBody(writer: SerializationWriter, replacePostRequestBody: ReplacePostRequestBody | undefined = {} as ReplacePostRequestBody) : void {
-        writer.writeObjectValue<Json>("newText", replacePostRequestBody.newText, );
-        writer.writeObjectValue<Json>("numChars", replacePostRequestBody.numChars, );
-        writer.writeObjectValue<Json>("oldText", replacePostRequestBody.oldText, );
-        writer.writeObjectValue<Json>("startNum", replacePostRequestBody.startNum, );
+        writer.writeObjectValue<Json>("newText", replacePostRequestBody.newText, serializeJson);
+        writer.writeObjectValue<Json>("numChars", replacePostRequestBody.numChars, serializeJson);
+        writer.writeObjectValue<Json>("oldText", replacePostRequestBody.oldText, serializeJson);
+        writer.writeObjectValue<Json>("startNum", replacePostRequestBody.startNum, serializeJson);
         writer.writeAdditionalData(replacePostRequestBody.additionalData);
 }
 // tslint:enable

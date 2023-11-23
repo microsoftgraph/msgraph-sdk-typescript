@@ -8,7 +8,7 @@ import { createOutlookCategoryFromDiscriminatorValue, deserializeIntoOutlookCate
 import { createOutlookCategoryCollectionResponseFromDiscriminatorValue } from '../../../../models/outlookCategoryCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { OutlookCategoryItemRequestBuilder } from './item/outlookCategoryItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MasterCategoriesRequestBuilderGetQueryParameters {
     /**
@@ -35,30 +35,6 @@ export interface MasterCategoriesRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface MasterCategoriesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: MasterCategoriesRequestBuilderGetQueryParameters;
-}
-export interface MasterCategoriesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
@@ -90,12 +66,12 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/outlook/masterCategories{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Get all the categories that have been defined for the user. This API is available in the following national cloud deployments.
+     * Get all the categories that have been defined for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OutlookCategoryCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/outlookuser-list-mastercategories?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: MasterCategoriesRequestBuilderGetRequestConfiguration | undefined) : Promise<OutlookCategoryCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<MasterCategoriesRequestBuilderGetQueryParameters> | undefined) : Promise<OutlookCategoryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -106,13 +82,13 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OutlookCategoryCollectionResponse>(requestInfo, createOutlookCategoryCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an outlookCategory object in the user's master list of categories. This API is available in the following national cloud deployments.
+     * Create an outlookCategory object in the user's master list of categories.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OutlookCategory
      * @see {@link https://learn.microsoft.com/graph/api/outlookuser-post-mastercategories?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: OutlookCategory, requestConfiguration?: MasterCategoriesRequestBuilderPostRequestConfiguration | undefined) : Promise<OutlookCategory | undefined> {
+    public post(body: OutlookCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OutlookCategory | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -123,40 +99,27 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OutlookCategory>(requestInfo, createOutlookCategoryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get all the categories that have been defined for the user. This API is available in the following national cloud deployments.
+     * Get all the categories that have been defined for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: MasterCategoriesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<MasterCategoriesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, masterCategoriesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create an outlookCategory object in the user's master list of categories. This API is available in the following national cloud deployments.
+     * Create an outlookCategory object in the user's master list of categories.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: OutlookCategory, requestConfiguration?: MasterCategoriesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: OutlookCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOutlookCategory);
         return requestInfo;
     };
@@ -170,5 +133,13 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
         return new MasterCategoriesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const masterCategoriesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

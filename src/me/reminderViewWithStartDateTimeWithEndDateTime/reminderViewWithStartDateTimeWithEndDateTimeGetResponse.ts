@@ -23,7 +23,7 @@ export interface ReminderViewWithStartDateTimeWithEndDateTimeGetResponse extends
 }
 export function serializeReminderViewWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, reminderViewWithStartDateTimeWithEndDateTimeGetResponse: ReminderViewWithStartDateTimeWithEndDateTimeGetResponse | undefined = {} as ReminderViewWithStartDateTimeWithEndDateTimeGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, reminderViewWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<Reminder>("value", reminderViewWithStartDateTimeWithEndDateTimeGetResponse.value, );
+        writer.writeCollectionOfObjectValues<Reminder>("value", reminderViewWithStartDateTimeWithEndDateTimeGetResponse.value, serializeReminder);
 }
 // tslint:enable
 // eslint-enable

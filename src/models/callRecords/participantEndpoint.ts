@@ -52,8 +52,8 @@ export function serializeParticipantEndpoint(writer: SerializationWriter, partic
         writer.writeNumberValue("cpuCoresCount", participantEndpoint.cpuCoresCount);
         writer.writeStringValue("cpuName", participantEndpoint.cpuName);
         writer.writeNumberValue("cpuProcessorSpeedInMhz", participantEndpoint.cpuProcessorSpeedInMhz);
-        writer.writeObjectValue<UserFeedback>("feedback", participantEndpoint.feedback, );
-        writer.writeObjectValue<IdentitySet>("identity", participantEndpoint.identity, );
+        writer.writeObjectValue<UserFeedback>("feedback", participantEndpoint.feedback, serializeUserFeedback);
+        writer.writeObjectValue<IdentitySet>("identity", participantEndpoint.identity, serializeIdentitySet);
         writer.writeStringValue("name", participantEndpoint.name);
 }
 // tslint:enable

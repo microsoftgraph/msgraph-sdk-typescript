@@ -23,7 +23,7 @@ export interface HostTrackerCollectionResponse extends BaseCollectionPaginationC
 }
 export function serializeHostTrackerCollectionResponse(writer: SerializationWriter, hostTrackerCollectionResponse: HostTrackerCollectionResponse | undefined = {} as HostTrackerCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, hostTrackerCollectionResponse)
-        writer.writeCollectionOfObjectValues<HostTracker>("value", hostTrackerCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<HostTracker>("value", hostTrackerCollectionResponse.value, serializeHostTracker);
 }
 // tslint:enable
 // eslint-enable

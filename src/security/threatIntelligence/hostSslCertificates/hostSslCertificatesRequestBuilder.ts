@@ -8,7 +8,7 @@ import { createHostSslCertificateFromDiscriminatorValue, deserializeIntoHostSslC
 import { createHostSslCertificateCollectionResponseFromDiscriminatorValue } from '../../../models/security/hostSslCertificateCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { HostSslCertificateItemRequestBuilder } from './item/hostSslCertificateItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface HostSslCertificatesRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface HostSslCertificatesRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface HostSslCertificatesRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: HostSslCertificatesRequestBuilderGetQueryParameters;
-}
-export interface HostSslCertificatesRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the hostSslCertificates property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -98,11 +74,11 @@ export class HostSslCertificatesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/hostSslCertificates{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the properties and relationships of a hostSslCertificate object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a hostSslCertificate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostSslCertificateCollectionResponse
      */
-    public get(requestConfiguration?: HostSslCertificatesRequestBuilderGetRequestConfiguration | undefined) : Promise<HostSslCertificateCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<HostSslCertificatesRequestBuilderGetQueryParameters> | undefined) : Promise<HostSslCertificateCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class HostSslCertificatesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostSslCertificate
      */
-    public post(body: HostSslCertificate, requestConfiguration?: HostSslCertificatesRequestBuilderPostRequestConfiguration | undefined) : Promise<HostSslCertificate | undefined> {
+    public post(body: HostSslCertificate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HostSslCertificate | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -129,21 +105,14 @@ export class HostSslCertificatesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<HostSslCertificate>(requestInfo, createHostSslCertificateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the properties and relationships of a hostSslCertificate object. This API is available in the following national cloud deployments.
+     * Get the properties and relationships of a hostSslCertificate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: HostSslCertificatesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<HostSslCertificatesRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, hostSslCertificatesRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class HostSslCertificatesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: HostSslCertificate, requestConfiguration?: HostSslCertificatesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: HostSslCertificate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHostSslCertificate);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class HostSslCertificatesRequestBuilder extends BaseRequestBuilder {
         return new HostSslCertificatesRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const hostSslCertificatesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

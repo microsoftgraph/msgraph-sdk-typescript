@@ -23,7 +23,7 @@ export interface DeviceManagementExchangeConnectorCollectionResponse extends Bas
 }
 export function serializeDeviceManagementExchangeConnectorCollectionResponse(writer: SerializationWriter, deviceManagementExchangeConnectorCollectionResponse: DeviceManagementExchangeConnectorCollectionResponse | undefined = {} as DeviceManagementExchangeConnectorCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceManagementExchangeConnectorCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnector>("value", deviceManagementExchangeConnectorCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnector>("value", deviceManagementExchangeConnectorCollectionResponse.value, serializeDeviceManagementExchangeConnector);
 }
 // tslint:enable
 // eslint-enable

@@ -23,7 +23,7 @@ export interface PrintJobCollectionResponse extends BaseCollectionPaginationCoun
 }
 export function serializePrintJobCollectionResponse(writer: SerializationWriter, printJobCollectionResponse: PrintJobCollectionResponse | undefined = {} as PrintJobCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, printJobCollectionResponse)
-        writer.writeCollectionOfObjectValues<PrintJob>("value", printJobCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<PrintJob>("value", printJobCollectionResponse.value, serializePrintJob);
 }
 // tslint:enable
 // eslint-enable

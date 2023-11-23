@@ -17,7 +17,7 @@ export function deserializeIntoWhoisRecordCollectionResponse(whoisRecordCollecti
 }
 export function serializeWhoisRecordCollectionResponse(writer: SerializationWriter, whoisRecordCollectionResponse: WhoisRecordCollectionResponse | undefined = {} as WhoisRecordCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, whoisRecordCollectionResponse)
-        writer.writeCollectionOfObjectValues<WhoisRecord>("value", whoisRecordCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<WhoisRecord>("value", whoisRecordCollectionResponse.value, serializeWhoisRecord);
 }
 export interface WhoisRecordCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

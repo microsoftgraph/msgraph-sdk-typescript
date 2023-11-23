@@ -25,7 +25,7 @@ export function serializeWorkforceIntegration(writer: SerializationWriter, workf
         serializeChangeTrackedEntity(writer, workforceIntegration)
         writer.writeNumberValue("apiVersion", workforceIntegration.apiVersion);
         writer.writeStringValue("displayName", workforceIntegration.displayName);
-        writer.writeObjectValue<WorkforceIntegrationEncryption>("encryption", workforceIntegration.encryption, );
+        writer.writeObjectValue<WorkforceIntegrationEncryption>("encryption", workforceIntegration.encryption, serializeWorkforceIntegrationEncryption);
         writer.writeBooleanValue("isActive", workforceIntegration.isActive);
         writer.writeEnumValue<WorkforceIntegrationSupportedEntities[]>("supportedEntities", workforceIntegration.supportedEntities);
         writer.writeStringValue("url", workforceIntegration.url);

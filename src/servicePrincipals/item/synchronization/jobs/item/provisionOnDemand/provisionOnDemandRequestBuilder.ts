@@ -4,18 +4,31 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { createStringKeyStringValuePairFromDiscriminatorValue, deserializeIntoStringKeyStringValuePair, serializeStringKeyStringValuePair, type StringKeyStringValuePair } from '../../../../../../models/stringKeyStringValuePair';
-import { deserializeIntoProvisionOnDemandPostRequestBody, serializeProvisionOnDemandPostRequestBody, type ProvisionOnDemandPostRequestBody } from './provisionOnDemandPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { createSynchronizationJobApplicationParametersFromDiscriminatorValue, serializeSynchronizationJobApplicationParameters, type SynchronizationJobApplicationParameters } from '../../../../../../models/synchronizationJobApplicationParameters';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type AdditionalDataHolder, type Parsable, type ParsableFactory, type ParseNode, type RequestAdapter, type RequestConfiguration, type RequestOption, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface ProvisionOnDemandRequestBuilderPostRequestConfiguration {
+export function createProvisionOnDemandPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoProvisionOnDemandPostRequestBody;
+}
+export function deserializeIntoProvisionOnDemandPostRequestBody(provisionOnDemandPostRequestBody: ProvisionOnDemandPostRequestBody | undefined = {} as ProvisionOnDemandPostRequestBody) : Record<string, (node: ParseNode) => void> {
+    return {
+        "parameters": n => { provisionOnDemandPostRequestBody.parameters = n.getCollectionOfObjectValues<SynchronizationJobApplicationParameters>(createSynchronizationJobApplicationParametersFromDiscriminatorValue); },
+    }
+}
+export interface ProvisionOnDemandPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
-     * Request headers
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
-    headers?: Record<string, string[]>;
+    additionalData?: Record<string, unknown>;
     /**
-     * Request options
+     * The parameters property
      */
-    options?: RequestOption[];
+    parameters?: SynchronizationJobApplicationParameters[];
+}
+export function serializeProvisionOnDemandPostRequestBody(writer: SerializationWriter, provisionOnDemandPostRequestBody: ProvisionOnDemandPostRequestBody | undefined = {} as ProvisionOnDemandPostRequestBody) : void {
+        writer.writeCollectionOfObjectValues<SynchronizationJobApplicationParameters>("parameters", provisionOnDemandPostRequestBody.parameters, serializeSynchronizationJobApplicationParameters);
+        writer.writeAdditionalData(provisionOnDemandPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the provisionOnDemand method.
@@ -30,13 +43,13 @@ export class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/provisionOnDemand");
     };
     /**
-     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds.  This API is available in the following national cloud deployments.
+     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of StringKeyStringValuePair
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-provisionondemand?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ProvisionOnDemandPostRequestBody, requestConfiguration?: ProvisionOnDemandRequestBuilderPostRequestConfiguration | undefined) : Promise<StringKeyStringValuePair | undefined> {
+    public post(body: ProvisionOnDemandPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<StringKeyStringValuePair | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,22 +60,16 @@ export class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<StringKeyStringValuePair>(requestInfo, createStringKeyStringValuePairFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds.  This API is available in the following national cloud deployments.
+     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ProvisionOnDemandPostRequestBody, requestConfiguration?: ProvisionOnDemandRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ProvisionOnDemandPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeProvisionOnDemandPostRequestBody);
         return requestInfo;
     };

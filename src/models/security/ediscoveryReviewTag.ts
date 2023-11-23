@@ -34,8 +34,8 @@ export interface EdiscoveryReviewTag extends Parsable, Tag {
 export function serializeEdiscoveryReviewTag(writer: SerializationWriter, ediscoveryReviewTag: EdiscoveryReviewTag | undefined = {} as EdiscoveryReviewTag) : void {
         serializeTag(writer, ediscoveryReviewTag)
         writer.writeEnumValue<ChildSelectability>("childSelectability", ediscoveryReviewTag.childSelectability);
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("childTags", ediscoveryReviewTag.childTags, );
-        writer.writeObjectValue<EdiscoveryReviewTag>("parent", ediscoveryReviewTag.parent, );
+        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("childTags", ediscoveryReviewTag.childTags, serializeEdiscoveryReviewTag);
+        writer.writeObjectValue<EdiscoveryReviewTag>("parent", ediscoveryReviewTag.parent, serializeEdiscoveryReviewTag);
 }
 // tslint:enable
 // eslint-enable

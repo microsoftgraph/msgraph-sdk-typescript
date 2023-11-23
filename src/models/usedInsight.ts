@@ -22,8 +22,8 @@ export function deserializeIntoUsedInsight(usedInsight: UsedInsight | undefined 
 }
 export function serializeUsedInsight(writer: SerializationWriter, usedInsight: UsedInsight | undefined = {} as UsedInsight) : void {
         serializeEntity(writer, usedInsight)
-        writer.writeObjectValue<UsageDetails>("lastUsed", usedInsight.lastUsed, );
-        writer.writeObjectValue<Entity>("resource", usedInsight.resource, );
+        writer.writeObjectValue<UsageDetails>("lastUsed", usedInsight.lastUsed, serializeUsageDetails);
+        writer.writeObjectValue<Entity>("resource", usedInsight.resource, serializeEntity);
 }
 export interface UsedInsight extends Entity, Parsable {
     /**

@@ -28,7 +28,7 @@ export interface IpNamedLocation extends NamedLocation, Parsable {
 }
 export function serializeIpNamedLocation(writer: SerializationWriter, ipNamedLocation: IpNamedLocation | undefined = {} as IpNamedLocation) : void {
         serializeNamedLocation(writer, ipNamedLocation)
-        writer.writeCollectionOfObjectValues<IpRange>("ipRanges", ipNamedLocation.ipRanges, );
+        writer.writeCollectionOfObjectValues<IpRange>("ipRanges", ipNamedLocation.ipRanges, serializeIpRange);
         writer.writeBooleanValue("isTrusted", ipNamedLocation.isTrusted);
 }
 // tslint:enable

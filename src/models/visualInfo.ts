@@ -20,9 +20,9 @@ export function deserializeIntoVisualInfo(visualInfo: VisualInfo | undefined = {
     }
 }
 export function serializeVisualInfo(writer: SerializationWriter, visualInfo: VisualInfo | undefined = {} as VisualInfo) : void {
-        writer.writeObjectValue<ImageInfo>("attribution", visualInfo.attribution, );
+        writer.writeObjectValue<ImageInfo>("attribution", visualInfo.attribution, serializeImageInfo);
         writer.writeStringValue("backgroundColor", visualInfo.backgroundColor);
-        writer.writeObjectValue<Json>("content", visualInfo.content, );
+        writer.writeObjectValue<Json>("content", visualInfo.content, serializeJson);
         writer.writeStringValue("description", visualInfo.description);
         writer.writeStringValue("displayText", visualInfo.displayText);
         writer.writeStringValue("@odata.type", visualInfo.odataType);

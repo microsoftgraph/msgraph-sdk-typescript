@@ -34,7 +34,7 @@ export interface FilterGroup extends AdditionalDataHolder, Parsable {
     odataType?: string;
 }
 export function serializeFilterGroup(writer: SerializationWriter, filterGroup: FilterGroup | undefined = {} as FilterGroup) : void {
-        writer.writeCollectionOfObjectValues<FilterClause>("clauses", filterGroup.clauses, );
+        writer.writeCollectionOfObjectValues<FilterClause>("clauses", filterGroup.clauses, serializeFilterClause);
         writer.writeStringValue("name", filterGroup.name);
         writer.writeStringValue("@odata.type", filterGroup.odataType);
         writer.writeAdditionalData(filterGroup.additionalData);

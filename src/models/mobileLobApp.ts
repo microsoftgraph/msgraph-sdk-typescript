@@ -72,7 +72,7 @@ export interface MobileLobApp extends MobileApp, Parsable {
 export function serializeMobileLobApp(writer: SerializationWriter, mobileLobApp: MobileLobApp | undefined = {} as MobileLobApp) : void {
         serializeMobileApp(writer, mobileLobApp)
         writer.writeStringValue("committedContentVersion", mobileLobApp.committedContentVersion);
-        writer.writeCollectionOfObjectValues<MobileAppContent>("contentVersions", mobileLobApp.contentVersions, );
+        writer.writeCollectionOfObjectValues<MobileAppContent>("contentVersions", mobileLobApp.contentVersions, serializeMobileAppContent);
         writer.writeStringValue("fileName", mobileLobApp.fileName);
         writer.writeNumberValue("size", mobileLobApp.size);
 }

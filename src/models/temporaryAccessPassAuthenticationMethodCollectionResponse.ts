@@ -17,7 +17,7 @@ export function deserializeIntoTemporaryAccessPassAuthenticationMethodCollection
 }
 export function serializeTemporaryAccessPassAuthenticationMethodCollectionResponse(writer: SerializationWriter, temporaryAccessPassAuthenticationMethodCollectionResponse: TemporaryAccessPassAuthenticationMethodCollectionResponse | undefined = {} as TemporaryAccessPassAuthenticationMethodCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, temporaryAccessPassAuthenticationMethodCollectionResponse)
-        writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethod>("value", temporaryAccessPassAuthenticationMethodCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethod>("value", temporaryAccessPassAuthenticationMethodCollectionResponse.value, serializeTemporaryAccessPassAuthenticationMethod);
 }
 export interface TemporaryAccessPassAuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

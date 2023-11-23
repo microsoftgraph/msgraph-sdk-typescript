@@ -23,7 +23,7 @@ export interface IosStoreAppCollectionResponse extends BaseCollectionPaginationC
 }
 export function serializeIosStoreAppCollectionResponse(writer: SerializationWriter, iosStoreAppCollectionResponse: IosStoreAppCollectionResponse | undefined = {} as IosStoreAppCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, iosStoreAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<IosStoreApp>("value", iosStoreAppCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<IosStoreApp>("value", iosStoreAppCollectionResponse.value, serializeIosStoreApp);
 }
 // tslint:enable
 // eslint-enable

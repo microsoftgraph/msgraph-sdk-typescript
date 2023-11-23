@@ -19,8 +19,8 @@ export function deserializeIntoTimeOff(timeOff: TimeOff | undefined = {} as Time
 }
 export function serializeTimeOff(writer: SerializationWriter, timeOff: TimeOff | undefined = {} as TimeOff) : void {
         serializeChangeTrackedEntity(writer, timeOff)
-        writer.writeObjectValue<TimeOffItem>("draftTimeOff", timeOff.draftTimeOff, );
-        writer.writeObjectValue<TimeOffItem>("sharedTimeOff", timeOff.sharedTimeOff, );
+        writer.writeObjectValue<TimeOffItem>("draftTimeOff", timeOff.draftTimeOff, serializeTimeOffItem);
+        writer.writeObjectValue<TimeOffItem>("sharedTimeOff", timeOff.sharedTimeOff, serializeTimeOffItem);
         writer.writeStringValue("userId", timeOff.userId);
 }
 export interface TimeOff extends ChangeTrackedEntity, Parsable {

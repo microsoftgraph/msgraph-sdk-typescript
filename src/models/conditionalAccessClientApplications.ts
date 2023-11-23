@@ -42,7 +42,7 @@ export function serializeConditionalAccessClientApplications(writer: Serializati
         writer.writeCollectionOfPrimitiveValues<string>("excludeServicePrincipals", conditionalAccessClientApplications.excludeServicePrincipals);
         writer.writeCollectionOfPrimitiveValues<string>("includeServicePrincipals", conditionalAccessClientApplications.includeServicePrincipals);
         writer.writeStringValue("@odata.type", conditionalAccessClientApplications.odataType);
-        writer.writeObjectValue<ConditionalAccessFilter>("servicePrincipalFilter", conditionalAccessClientApplications.servicePrincipalFilter, );
+        writer.writeObjectValue<ConditionalAccessFilter>("servicePrincipalFilter", conditionalAccessClientApplications.servicePrincipalFilter, serializeConditionalAccessFilter);
         writer.writeAdditionalData(conditionalAccessClientApplications.additionalData);
 }
 // tslint:enable

@@ -4,18 +4,54 @@
 import { type ODataError } from '../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../models/oDataErrors/oDataError';
 import { createOnenoteOperationFromDiscriminatorValue, deserializeIntoOnenoteOperation, serializeOnenoteOperation, type OnenoteOperation } from '../../../../../../models/onenoteOperation';
-import { deserializeIntoCopyNotebookPostRequestBody, serializeCopyNotebookPostRequestBody, type CopyNotebookPostRequestBody } from './copyNotebookPostRequestBody';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type AdditionalDataHolder, type Parsable, type ParsableFactory, type ParseNode, type RequestAdapter, type RequestConfiguration, type RequestOption, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface CopyNotebookRequestBuilderPostRequestConfiguration {
+export interface CopyNotebookPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
-     * Request headers
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
-    headers?: Record<string, string[]>;
+    additionalData?: Record<string, unknown>;
     /**
-     * Request options
+     * The groupId property
      */
-    options?: RequestOption[];
+    groupId?: string;
+    /**
+     * The notebookFolder property
+     */
+    notebookFolder?: string;
+    /**
+     * The renameAs property
+     */
+    renameAs?: string;
+    /**
+     * The siteCollectionId property
+     */
+    siteCollectionId?: string;
+    /**
+     * The siteId property
+     */
+    siteId?: string;
+}
+export function createCopyNotebookPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return deserializeIntoCopyNotebookPostRequestBody;
+}
+export function deserializeIntoCopyNotebookPostRequestBody(copyNotebookPostRequestBody: CopyNotebookPostRequestBody | undefined = {} as CopyNotebookPostRequestBody) : Record<string, (node: ParseNode) => void> {
+    return {
+        "groupId": n => { copyNotebookPostRequestBody.groupId = n.getStringValue(); },
+        "notebookFolder": n => { copyNotebookPostRequestBody.notebookFolder = n.getStringValue(); },
+        "renameAs": n => { copyNotebookPostRequestBody.renameAs = n.getStringValue(); },
+        "siteCollectionId": n => { copyNotebookPostRequestBody.siteCollectionId = n.getStringValue(); },
+        "siteId": n => { copyNotebookPostRequestBody.siteId = n.getStringValue(); },
+    }
+}
+export function serializeCopyNotebookPostRequestBody(writer: SerializationWriter, copyNotebookPostRequestBody: CopyNotebookPostRequestBody | undefined = {} as CopyNotebookPostRequestBody) : void {
+        writer.writeStringValue("groupId", copyNotebookPostRequestBody.groupId);
+        writer.writeStringValue("notebookFolder", copyNotebookPostRequestBody.notebookFolder);
+        writer.writeStringValue("renameAs", copyNotebookPostRequestBody.renameAs);
+        writer.writeStringValue("siteCollectionId", copyNotebookPostRequestBody.siteCollectionId);
+        writer.writeStringValue("siteId", copyNotebookPostRequestBody.siteId);
+        writer.writeAdditionalData(copyNotebookPostRequestBody.additionalData);
 }
 /**
  * Provides operations to call the copyNotebook method.
@@ -30,13 +66,13 @@ export class CopyNotebookRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/onenote/notebooks/{notebook%2Did}/copyNotebook");
     };
     /**
-     * For Copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result. This API is available in the following national cloud deployments.
+     * For Copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenoteOperation
      * @see {@link https://learn.microsoft.com/graph/api/notebook-copynotebook?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CopyNotebookPostRequestBody, requestConfiguration?: CopyNotebookRequestBuilderPostRequestConfiguration | undefined) : Promise<OnenoteOperation | undefined> {
+    public post(body: CopyNotebookPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnenoteOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,22 +83,16 @@ export class CopyNotebookRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OnenoteOperation>(requestInfo, createOnenoteOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * For Copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result. This API is available in the following national cloud deployments.
+     * For Copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CopyNotebookPostRequestBody, requestConfiguration?: CopyNotebookRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CopyNotebookPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCopyNotebookPostRequestBody);
         return requestInfo;
     };

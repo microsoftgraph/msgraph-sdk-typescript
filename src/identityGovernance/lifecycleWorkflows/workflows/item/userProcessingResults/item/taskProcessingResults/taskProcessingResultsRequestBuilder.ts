@@ -7,7 +7,7 @@ import { type ODataError } from '../../../../../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../../../../../models/oDataErrors/oDataError';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { TaskProcessingResultItemRequestBuilder } from './item/taskProcessingResultItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TaskProcessingResultsRequestBuilderGetQueryParameters {
     /**
@@ -43,20 +43,6 @@ export interface TaskProcessingResultsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface TaskProcessingResultsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: TaskProcessingResultsRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.userProcessingResult entity.
  */
@@ -87,12 +73,12 @@ export class TaskProcessingResultsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/userProcessingResults/{userProcessingResult%2Did}/taskProcessingResults{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the task processing result from a userProcessingResult either directly or through a run. This API is available in the following national cloud deployments.
+     * Get the task processing result from a userProcessingResult either directly or through a run.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TaskProcessingResultCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-userprocessingresult-list-taskprocessingresults?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TaskProcessingResultsRequestBuilderGetRequestConfiguration | undefined) : Promise<TaskProcessingResultCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<TaskProcessingResultsRequestBuilderGetQueryParameters> | undefined) : Promise<TaskProcessingResultCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,21 +89,14 @@ export class TaskProcessingResultsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TaskProcessingResultCollectionResponse>(requestInfo, createTaskProcessingResultCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the task processing result from a userProcessingResult either directly or through a run. This API is available in the following national cloud deployments.
+     * Get the task processing result from a userProcessingResult either directly or through a run.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: TaskProcessingResultsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskProcessingResultsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, taskProcessingResultsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -130,5 +109,15 @@ export class TaskProcessingResultsRequestBuilder extends BaseRequestBuilder {
         return new TaskProcessingResultsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const taskProcessingResultsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

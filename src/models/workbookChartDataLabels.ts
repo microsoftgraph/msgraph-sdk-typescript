@@ -25,7 +25,7 @@ export function deserializeIntoWorkbookChartDataLabels(workbookChartDataLabels: 
 }
 export function serializeWorkbookChartDataLabels(writer: SerializationWriter, workbookChartDataLabels: WorkbookChartDataLabels | undefined = {} as WorkbookChartDataLabels) : void {
         serializeEntity(writer, workbookChartDataLabels)
-        writer.writeObjectValue<WorkbookChartDataLabelFormat>("format", workbookChartDataLabels.format, );
+        writer.writeObjectValue<WorkbookChartDataLabelFormat>("format", workbookChartDataLabels.format, serializeWorkbookChartDataLabelFormat);
         writer.writeStringValue("position", workbookChartDataLabels.position);
         writer.writeStringValue("separator", workbookChartDataLabels.separator);
         writer.writeBooleanValue("showBubbleSize", workbookChartDataLabels.showBubbleSize);

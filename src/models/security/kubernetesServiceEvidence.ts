@@ -62,13 +62,13 @@ export interface KubernetesServiceEvidence extends AlertEvidence, Parsable {
 }
 export function serializeKubernetesServiceEvidence(writer: SerializationWriter, kubernetesServiceEvidence: KubernetesServiceEvidence | undefined = {} as KubernetesServiceEvidence) : void {
         serializeAlertEvidence(writer, kubernetesServiceEvidence)
-        writer.writeObjectValue<IpEvidence>("clusterIP", kubernetesServiceEvidence.clusterIP, );
-        writer.writeCollectionOfObjectValues<IpEvidence>("externalIPs", kubernetesServiceEvidence.externalIPs, );
-        writer.writeObjectValue<Dictionary>("labels", kubernetesServiceEvidence.labels, );
+        writer.writeObjectValue<IpEvidence>("clusterIP", kubernetesServiceEvidence.clusterIP, serializeIpEvidence);
+        writer.writeCollectionOfObjectValues<IpEvidence>("externalIPs", kubernetesServiceEvidence.externalIPs, serializeIpEvidence);
+        writer.writeObjectValue<Dictionary>("labels", kubernetesServiceEvidence.labels, serializeDictionary);
         writer.writeStringValue("name", kubernetesServiceEvidence.name);
-        writer.writeObjectValue<KubernetesNamespaceEvidence>("namespace", kubernetesServiceEvidence.namespace, );
-        writer.writeObjectValue<Dictionary>("selector", kubernetesServiceEvidence.selector, );
-        writer.writeCollectionOfObjectValues<KubernetesServicePort>("servicePorts", kubernetesServiceEvidence.servicePorts, );
+        writer.writeObjectValue<KubernetesNamespaceEvidence>("namespace", kubernetesServiceEvidence.namespace, serializeKubernetesNamespaceEvidence);
+        writer.writeObjectValue<Dictionary>("selector", kubernetesServiceEvidence.selector, serializeDictionary);
+        writer.writeCollectionOfObjectValues<KubernetesServicePort>("servicePorts", kubernetesServiceEvidence.servicePorts, serializeKubernetesServicePort);
         writer.writeEnumValue<KubernetesServiceType>("serviceType", kubernetesServiceEvidence.serviceType);
 }
 // tslint:enable

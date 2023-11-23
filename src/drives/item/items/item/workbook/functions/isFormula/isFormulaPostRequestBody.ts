@@ -24,7 +24,7 @@ export interface IsFormulaPostRequestBody extends AdditionalDataHolder, Parsable
     reference?: Json;
 }
 export function serializeIsFormulaPostRequestBody(writer: SerializationWriter, isFormulaPostRequestBody: IsFormulaPostRequestBody | undefined = {} as IsFormulaPostRequestBody) : void {
-        writer.writeObjectValue<Json>("reference", isFormulaPostRequestBody.reference, );
+        writer.writeObjectValue<Json>("reference", isFormulaPostRequestBody.reference, serializeJson);
         writer.writeAdditionalData(isFormulaPostRequestBody.additionalData);
 }
 // tslint:enable

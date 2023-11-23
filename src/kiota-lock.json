@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "7D71C80CC2146174F8D8AB291B6D44A99DD05C3385B4AA3978E6B156539092B308A9941D6AE5C4C9DB1789EC99902436AD99DFBC87654AEBEDD78CA1631072A3",
-  "descriptionLocation": "/mnt/vss/_work/1/s/msgraph-metadata/clean_v10_openapi/openapi.yaml",
+  "descriptionHash": "73235354FECCB4FC17F264B3638012EE6EFDB1744896DA5387DCD5A80B44B49168AC08E4D51397861CC616EE1065C24F5DD405050E69CA268756BBBA995B164C",
+  "descriptionLocation": "../../msgraph-metadata/clean_v10_openapi/openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.8.0",
+  "kiotaVersion": "1.9.0",
   "clientClassName": "GraphBaseServiceClient",
   "clientNamespaceName": "github.com/microsoftgraph/msgraph-sdk-typescript/",
   "language": "TypeScript",
@@ -21,7 +21,7 @@
     "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
   ],
   "structuredMimeTypes": [
-    "application/json;q=1",
+    "application/json",
     "text/plain;q=0.9",
     "application/x-www-form-urlencoded;q=0.2",
     "multipart/form-data;q=0.1"

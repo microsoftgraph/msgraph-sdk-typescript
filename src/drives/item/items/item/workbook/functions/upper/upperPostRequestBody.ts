@@ -14,7 +14,7 @@ export function deserializeIntoUpperPostRequestBody(upperPostRequestBody: UpperP
     }
 }
 export function serializeUpperPostRequestBody(writer: SerializationWriter, upperPostRequestBody: UpperPostRequestBody | undefined = {} as UpperPostRequestBody) : void {
-        writer.writeObjectValue<Json>("text", upperPostRequestBody.text, );
+        writer.writeObjectValue<Json>("text", upperPostRequestBody.text, serializeJson);
         writer.writeAdditionalData(upperPostRequestBody.additionalData);
 }
 export interface UpperPostRequestBody extends AdditionalDataHolder, Parsable {

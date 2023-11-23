@@ -23,7 +23,7 @@ export function deserializeIntoContentSharingSessionCollectionResponse(contentSh
 }
 export function serializeContentSharingSessionCollectionResponse(writer: SerializationWriter, contentSharingSessionCollectionResponse: ContentSharingSessionCollectionResponse | undefined = {} as ContentSharingSessionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, contentSharingSessionCollectionResponse)
-        writer.writeCollectionOfObjectValues<ContentSharingSession>("value", contentSharingSessionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ContentSharingSession>("value", contentSharingSessionCollectionResponse.value, serializeContentSharingSession);
 }
 // tslint:enable
 // eslint-enable

@@ -14,7 +14,7 @@ export function deserializeIntoUnhideForUserPostRequestBody(unhideForUserPostReq
     }
 }
 export function serializeUnhideForUserPostRequestBody(writer: SerializationWriter, unhideForUserPostRequestBody: UnhideForUserPostRequestBody | undefined = {} as UnhideForUserPostRequestBody) : void {
-        writer.writeObjectValue<TeamworkUserIdentity>("user", unhideForUserPostRequestBody.user, );
+        writer.writeObjectValue<TeamworkUserIdentity>("user", unhideForUserPostRequestBody.user, serializeTeamworkUserIdentity);
         writer.writeAdditionalData(unhideForUserPostRequestBody.additionalData);
 }
 export interface UnhideForUserPostRequestBody extends AdditionalDataHolder, Parsable {

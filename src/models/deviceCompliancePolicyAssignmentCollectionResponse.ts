@@ -23,7 +23,7 @@ export interface DeviceCompliancePolicyAssignmentCollectionResponse extends Base
 }
 export function serializeDeviceCompliancePolicyAssignmentCollectionResponse(writer: SerializationWriter, deviceCompliancePolicyAssignmentCollectionResponse: DeviceCompliancePolicyAssignmentCollectionResponse | undefined = {} as DeviceCompliancePolicyAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceCompliancePolicyAssignmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("value", deviceCompliancePolicyAssignmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("value", deviceCompliancePolicyAssignmentCollectionResponse.value, serializeDeviceCompliancePolicyAssignment);
 }
 // tslint:enable
 // eslint-enable

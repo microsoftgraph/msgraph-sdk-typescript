@@ -23,7 +23,7 @@ export function deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatib
 }
 export function serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(writer: SerializationWriter, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse | undefined = {} as AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse.value, );
+        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse.value, serializeAccessPackageAssignment);
 }
 // tslint:enable
 // eslint-enable

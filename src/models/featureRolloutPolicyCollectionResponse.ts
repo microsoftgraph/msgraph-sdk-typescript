@@ -23,7 +23,7 @@ export interface FeatureRolloutPolicyCollectionResponse extends BaseCollectionPa
 }
 export function serializeFeatureRolloutPolicyCollectionResponse(writer: SerializationWriter, featureRolloutPolicyCollectionResponse: FeatureRolloutPolicyCollectionResponse | undefined = {} as FeatureRolloutPolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, featureRolloutPolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<FeatureRolloutPolicy>("value", featureRolloutPolicyCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<FeatureRolloutPolicy>("value", featureRolloutPolicyCollectionResponse.value, serializeFeatureRolloutPolicy);
 }
 // tslint:enable
 // eslint-enable

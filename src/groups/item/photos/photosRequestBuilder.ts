@@ -5,15 +5,10 @@ import { type ProfilePhotoCollectionResponse } from '../../../models/';
 import { type ODataError } from '../../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../../models/oDataErrors/oDataError';
 import { createProfilePhotoCollectionResponseFromDiscriminatorValue } from '../../../models/profilePhotoCollectionResponse';
-import { CountRequestBuilder } from './count/countRequestBuilder';
 import { ProfilePhotoItemRequestBuilder } from './item/profilePhotoItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PhotosRequestBuilderGetQueryParameters {
-    /**
-     * Include count of items
-     */
-    count?: boolean;
     /**
      * Filter items by property values
      */
@@ -35,30 +30,10 @@ export interface PhotosRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface PhotosRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: PhotosRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to manage the photos property of the microsoft.graph.group entity.
  */
 export class PhotosRequestBuilder extends BaseRequestBuilder {
-    /**
-     * Provides operations to count the resources in the collection.
-     */
-    public get count(): CountRequestBuilder {
-        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Provides operations to manage the photos property of the microsoft.graph.group entity.
      * @param profilePhotoId The unique identifier of profilePhoto
@@ -76,15 +51,15 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/photos{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
+        super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/photos{?%24top,%24skip,%24filter,%24orderby,%24select}");
     };
     /**
-     * Retrieve a list of profilePhoto objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of profilePhoto objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProfilePhotoCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/group-list-photos?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PhotosRequestBuilderGetRequestConfiguration | undefined) : Promise<ProfilePhotoCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<PhotosRequestBuilderGetQueryParameters> | undefined) : Promise<ProfilePhotoCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -95,21 +70,14 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ProfilePhotoCollectionResponse>(requestInfo, createProfilePhotoCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of profilePhoto objects. This API is available in the following national cloud deployments.
+     * Retrieve a list of profilePhoto objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: PhotosRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<PhotosRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, photosRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -122,5 +90,12 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
         return new PhotosRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const photosRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

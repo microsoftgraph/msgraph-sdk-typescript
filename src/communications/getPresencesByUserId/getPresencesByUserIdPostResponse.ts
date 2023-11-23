@@ -23,7 +23,7 @@ export interface GetPresencesByUserIdPostResponse extends BaseCollectionPaginati
 }
 export function serializeGetPresencesByUserIdPostResponse(writer: SerializationWriter, getPresencesByUserIdPostResponse: GetPresencesByUserIdPostResponse | undefined = {} as GetPresencesByUserIdPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getPresencesByUserIdPostResponse)
-        writer.writeCollectionOfObjectValues<Presence>("value", getPresencesByUserIdPostResponse.value, );
+        writer.writeCollectionOfObjectValues<Presence>("value", getPresencesByUserIdPostResponse.value, serializePresence);
 }
 // tslint:enable
 // eslint-enable

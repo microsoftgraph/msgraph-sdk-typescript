@@ -9,7 +9,7 @@ import { createPrivilegedAccessGroupAssignmentScheduleRequestCollectionResponseF
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import { PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder } from './item/privilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AssignmentScheduleRequestsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface AssignmentScheduleRequestsRequestBuilderGetQueryParameters {
      * Show only the first n items
      */
     top?: number;
-}
-export interface AssignmentScheduleRequestsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: AssignmentScheduleRequestsRequestBuilderGetQueryParameters;
-}
-export interface AssignmentScheduleRequestsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
 }
 /**
  * Provides operations to manage the assignmentScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
@@ -108,12 +84,12 @@ export class AssignmentScheduleRequestsRequestBuilder extends BaseRequestBuilder
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Get a list of the privilegedAccessGroupAssignmentScheduleRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the privilegedAccessGroupAssignmentScheduleRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-assignmentschedulerequests?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AssignmentScheduleRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<AssignmentScheduleRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -124,13 +100,13 @@ export class AssignmentScheduleRequestsRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<PrivilegedAccessGroupAssignmentScheduleRequestCollectionResponse>(requestInfo, createPrivilegedAccessGroupAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new privilegedAccessGroupAssignmentScheduleRequest object. This API is available in the following national cloud deployments.
+     * Create a new privilegedAccessGroupAssignmentScheduleRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrivilegedAccessGroupAssignmentScheduleRequest
      * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroup-post-assignmentschedulerequests?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: PrivilegedAccessGroupAssignmentScheduleRequest, requestConfiguration?: AssignmentScheduleRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<PrivilegedAccessGroupAssignmentScheduleRequest | undefined> {
+    public post(body: PrivilegedAccessGroupAssignmentScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrivilegedAccessGroupAssignmentScheduleRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -141,40 +117,27 @@ export class AssignmentScheduleRequestsRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<PrivilegedAccessGroupAssignmentScheduleRequest>(requestInfo, createPrivilegedAccessGroupAssignmentScheduleRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the privilegedAccessGroupAssignmentScheduleRequest objects and their properties. This API is available in the following national cloud deployments.
+     * Get a list of the privilegedAccessGroupAssignmentScheduleRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: AssignmentScheduleRequestsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentScheduleRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, assignmentScheduleRequestsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
-     * Create a new privilegedAccessGroupAssignmentScheduleRequest object. This API is available in the following national cloud deployments.
+     * Create a new privilegedAccessGroupAssignmentScheduleRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PrivilegedAccessGroupAssignmentScheduleRequest, requestConfiguration?: AssignmentScheduleRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PrivilegedAccessGroupAssignmentScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrivilegedAccessGroupAssignmentScheduleRequest);
         return requestInfo;
     };
@@ -188,5 +151,15 @@ export class AssignmentScheduleRequestsRequestBuilder extends BaseRequestBuilder
         return new AssignmentScheduleRequestsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const assignmentScheduleRequestsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

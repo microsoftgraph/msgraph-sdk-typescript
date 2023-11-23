@@ -23,7 +23,7 @@ export function deserializeIntoCustomTaskExtensionCallbackConfiguration(customTa
 }
 export function serializeCustomTaskExtensionCallbackConfiguration(writer: SerializationWriter, customTaskExtensionCallbackConfiguration: CustomTaskExtensionCallbackConfiguration | undefined = {} as CustomTaskExtensionCallbackConfiguration) : void {
         serializeCustomExtensionCallbackConfiguration(writer, customTaskExtensionCallbackConfiguration)
-        writer.writeCollectionOfObjectValues<Application>("authorizedApps", customTaskExtensionCallbackConfiguration.authorizedApps, );
+        writer.writeCollectionOfObjectValues<Application>("authorizedApps", customTaskExtensionCallbackConfiguration.authorizedApps, serializeApplication);
 }
 // tslint:enable
 // eslint-enable

@@ -23,7 +23,7 @@ export function deserializeIntoAttachmentCollectionResponse(attachmentCollection
 }
 export function serializeAttachmentCollectionResponse(writer: SerializationWriter, attachmentCollectionResponse: AttachmentCollectionResponse | undefined = {} as AttachmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, attachmentCollectionResponse)
-        writer.writeCollectionOfObjectValues<Attachment>("value", attachmentCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Attachment>("value", attachmentCollectionResponse.value, serializeAttachment);
 }
 // tslint:enable
 // eslint-enable

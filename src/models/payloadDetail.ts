@@ -34,11 +34,11 @@ export interface PayloadDetail extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The coachmarks property
+     * Payload coachmark details.
      */
     coachmarks?: PayloadCoachmark[];
     /**
-     * The content property
+     * Payload content details.
      */
     content?: string;
     /**
@@ -46,12 +46,12 @@ export interface PayloadDetail extends AdditionalDataHolder, Parsable {
      */
     odataType?: string;
     /**
-     * The phishingUrl property
+     * The phishing URL used to target a user.
      */
     phishingUrl?: string;
 }
 export function serializePayloadDetail(writer: SerializationWriter, payloadDetail: PayloadDetail | undefined = {} as PayloadDetail) : void {
-        writer.writeCollectionOfObjectValues<PayloadCoachmark>("coachmarks", payloadDetail.coachmarks, );
+        writer.writeCollectionOfObjectValues<PayloadCoachmark>("coachmarks", payloadDetail.coachmarks, serializePayloadCoachmark);
         writer.writeStringValue("content", payloadDetail.content);
         writer.writeStringValue("@odata.type", payloadDetail.odataType);
         writer.writeStringValue("phishingUrl", payloadDetail.phishingUrl);

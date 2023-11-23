@@ -67,7 +67,7 @@ export function serializeAttributeMapping(writer: SerializationWriter, attribute
         writer.writeEnumValue<AttributeFlowType>("flowType", attributeMapping.flowType);
         writer.writeNumberValue("matchingPriority", attributeMapping.matchingPriority);
         writer.writeStringValue("@odata.type", attributeMapping.odataType);
-        writer.writeObjectValue<AttributeMappingSource>("source", attributeMapping.source, );
+        writer.writeObjectValue<AttributeMappingSource>("source", attributeMapping.source, serializeAttributeMappingSource);
         writer.writeStringValue("targetAttributeName", attributeMapping.targetAttributeName);
         writer.writeAdditionalData(attributeMapping.additionalData);
 }

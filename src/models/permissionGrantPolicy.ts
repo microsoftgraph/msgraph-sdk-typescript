@@ -28,8 +28,8 @@ export interface PermissionGrantPolicy extends Parsable, PolicyBase {
 }
 export function serializePermissionGrantPolicy(writer: SerializationWriter, permissionGrantPolicy: PermissionGrantPolicy | undefined = {} as PermissionGrantPolicy) : void {
         serializePolicyBase(writer, permissionGrantPolicy)
-        writer.writeCollectionOfObjectValues<PermissionGrantConditionSet>("excludes", permissionGrantPolicy.excludes, );
-        writer.writeCollectionOfObjectValues<PermissionGrantConditionSet>("includes", permissionGrantPolicy.includes, );
+        writer.writeCollectionOfObjectValues<PermissionGrantConditionSet>("excludes", permissionGrantPolicy.excludes, serializePermissionGrantConditionSet);
+        writer.writeCollectionOfObjectValues<PermissionGrantConditionSet>("includes", permissionGrantPolicy.includes, serializePermissionGrantConditionSet);
 }
 // tslint:enable
 // eslint-enable

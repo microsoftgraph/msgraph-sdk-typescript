@@ -19,7 +19,7 @@ export function deserializeIntoWorkbookTableRow(workbookTableRow: WorkbookTableR
 export function serializeWorkbookTableRow(writer: SerializationWriter, workbookTableRow: WorkbookTableRow | undefined = {} as WorkbookTableRow) : void {
         serializeEntity(writer, workbookTableRow)
         writer.writeNumberValue("index", workbookTableRow.index);
-        writer.writeObjectValue<Json>("values", workbookTableRow.values, );
+        writer.writeObjectValue<Json>("values", workbookTableRow.values, serializeJson);
 }
 export interface WorkbookTableRow extends Entity, Parsable {
     /**

@@ -59,13 +59,13 @@ export interface ListItem extends BaseItem, Parsable {
 }
 export function serializeListItem(writer: SerializationWriter, listItem: ListItem | undefined = {} as ListItem) : void {
         serializeBaseItem(writer, listItem)
-        writer.writeObjectValue<ItemAnalytics>("analytics", listItem.analytics, );
-        writer.writeObjectValue<ContentTypeInfo>("contentType", listItem.contentType, );
-        writer.writeCollectionOfObjectValues<DocumentSetVersion>("documentSetVersions", listItem.documentSetVersions, );
-        writer.writeObjectValue<DriveItem>("driveItem", listItem.driveItem, );
-        writer.writeObjectValue<FieldValueSet>("fields", listItem.fields, );
-        writer.writeObjectValue<SharepointIds>("sharepointIds", listItem.sharepointIds, );
-        writer.writeCollectionOfObjectValues<ListItemVersion>("versions", listItem.versions, );
+        writer.writeObjectValue<ItemAnalytics>("analytics", listItem.analytics, serializeItemAnalytics);
+        writer.writeObjectValue<ContentTypeInfo>("contentType", listItem.contentType, serializeContentTypeInfo);
+        writer.writeCollectionOfObjectValues<DocumentSetVersion>("documentSetVersions", listItem.documentSetVersions, serializeDocumentSetVersion);
+        writer.writeObjectValue<DriveItem>("driveItem", listItem.driveItem, serializeDriveItem);
+        writer.writeObjectValue<FieldValueSet>("fields", listItem.fields, serializeFieldValueSet);
+        writer.writeObjectValue<SharepointIds>("sharepointIds", listItem.sharepointIds, serializeSharepointIds);
+        writer.writeCollectionOfObjectValues<ListItemVersion>("versions", listItem.versions, serializeListItemVersion);
 }
 // tslint:enable
 // eslint-enable

@@ -23,10 +23,10 @@ export function deserializeIntoTargetedManagedAppConfiguration(targetedManagedAp
 }
 export function serializeTargetedManagedAppConfiguration(writer: SerializationWriter, targetedManagedAppConfiguration: TargetedManagedAppConfiguration | undefined = {} as TargetedManagedAppConfiguration) : void {
         serializeManagedAppConfiguration(writer, targetedManagedAppConfiguration)
-        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetedManagedAppConfiguration.apps, );
-        writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("assignments", targetedManagedAppConfiguration.assignments, );
+        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetedManagedAppConfiguration.apps, serializeManagedMobileApp);
+        writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("assignments", targetedManagedAppConfiguration.assignments, serializeTargetedManagedAppPolicyAssignment);
         writer.writeNumberValue("deployedAppCount", targetedManagedAppConfiguration.deployedAppCount);
-        writer.writeObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", targetedManagedAppConfiguration.deploymentSummary, );
+        writer.writeObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", targetedManagedAppConfiguration.deploymentSummary, serializeManagedAppPolicyDeploymentSummary);
         writer.writeBooleanValue("isAssigned", targetedManagedAppConfiguration.isAssigned);
 }
 export interface TargetedManagedAppConfiguration extends ManagedAppConfiguration, Parsable {

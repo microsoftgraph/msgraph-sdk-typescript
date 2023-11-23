@@ -52,7 +52,7 @@ export interface ProvisioningStep extends AdditionalDataHolder, Parsable {
 }
 export function serializeProvisioningStep(writer: SerializationWriter, provisioningStep: ProvisioningStep | undefined = {} as ProvisioningStep) : void {
         writer.writeStringValue("description", provisioningStep.description);
-        writer.writeObjectValue<DetailsInfo>("details", provisioningStep.details, );
+        writer.writeObjectValue<DetailsInfo>("details", provisioningStep.details, serializeDetailsInfo);
         writer.writeStringValue("name", provisioningStep.name);
         writer.writeStringValue("@odata.type", provisioningStep.odataType);
         writer.writeEnumValue<ProvisioningStepType>("provisioningStepType", provisioningStep.provisioningStepType);

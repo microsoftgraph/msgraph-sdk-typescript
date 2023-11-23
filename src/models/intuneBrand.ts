@@ -99,9 +99,9 @@ export function serializeIntuneBrand(writer: SerializationWriter, intuneBrand: I
         writer.writeStringValue("contactITName", intuneBrand.contactITName);
         writer.writeStringValue("contactITNotes", intuneBrand.contactITNotes);
         writer.writeStringValue("contactITPhoneNumber", intuneBrand.contactITPhoneNumber);
-        writer.writeObjectValue<MimeContent>("darkBackgroundLogo", intuneBrand.darkBackgroundLogo, );
+        writer.writeObjectValue<MimeContent>("darkBackgroundLogo", intuneBrand.darkBackgroundLogo, serializeMimeContent);
         writer.writeStringValue("displayName", intuneBrand.displayName);
-        writer.writeObjectValue<MimeContent>("lightBackgroundLogo", intuneBrand.lightBackgroundLogo, );
+        writer.writeObjectValue<MimeContent>("lightBackgroundLogo", intuneBrand.lightBackgroundLogo, serializeMimeContent);
         writer.writeStringValue("@odata.type", intuneBrand.odataType);
         writer.writeStringValue("onlineSupportSiteName", intuneBrand.onlineSupportSiteName);
         writer.writeStringValue("onlineSupportSiteUrl", intuneBrand.onlineSupportSiteUrl);
@@ -109,7 +109,7 @@ export function serializeIntuneBrand(writer: SerializationWriter, intuneBrand: I
         writer.writeBooleanValue("showDisplayNameNextToLogo", intuneBrand.showDisplayNameNextToLogo);
         writer.writeBooleanValue("showLogo", intuneBrand.showLogo);
         writer.writeBooleanValue("showNameNextToLogo", intuneBrand.showNameNextToLogo);
-        writer.writeObjectValue<RgbColor>("themeColor", intuneBrand.themeColor, );
+        writer.writeObjectValue<RgbColor>("themeColor", intuneBrand.themeColor, serializeRgbColor);
         writer.writeAdditionalData(intuneBrand.additionalData);
 }
 // tslint:enable

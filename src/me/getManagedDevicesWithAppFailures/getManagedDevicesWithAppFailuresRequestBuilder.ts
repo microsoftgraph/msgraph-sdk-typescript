@@ -5,7 +5,7 @@ import { type ODataError } from '../../models/oDataErrors/';
 import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, serializeODataError } from '../../models/oDataErrors/oDataError';
 import { createGetManagedDevicesWithAppFailuresGetResponseFromDiscriminatorValue } from './getManagedDevicesWithAppFailuresGetResponse';
 import { type GetManagedDevicesWithAppFailuresGetResponse } from './index';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters {
     /**
@@ -29,20 +29,6 @@ export interface GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameter
      */
     top?: number;
 }
-export interface GetManagedDevicesWithAppFailuresRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters;
-}
 /**
  * Provides operations to call the getManagedDevicesWithAppFailures method.
  */
@@ -60,7 +46,7 @@ export class GetManagedDevicesWithAppFailuresRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetManagedDevicesWithAppFailuresGetResponse
      */
-    public get(requestConfiguration?: GetManagedDevicesWithAppFailuresRequestBuilderGetRequestConfiguration | undefined) : Promise<GetManagedDevicesWithAppFailuresGetResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters> | undefined) : Promise<GetManagedDevicesWithAppFailuresGetResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -75,17 +61,10 @@ export class GetManagedDevicesWithAppFailuresRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: GetManagedDevicesWithAppFailuresRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, getManagedDevicesWithAppFailuresRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -98,5 +77,12 @@ export class GetManagedDevicesWithAppFailuresRequestBuilder extends BaseRequestB
         return new GetManagedDevicesWithAppFailuresRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const getManagedDevicesWithAppFailuresRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
+    "search": "%24search",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

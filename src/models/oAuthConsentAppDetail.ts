@@ -22,15 +22,15 @@ export interface OAuthConsentAppDetail extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The appScope property
+     * App scope. Possible values are: unknown, readCalendar, readContact, readMail, readAllChat, readAllFile, readAndWriteMail, sendMail, unknownFutureValue.
      */
     appScope?: OAuthAppScope;
     /**
-     * The displayLogo property
+     * App display logo.
      */
     displayLogo?: string;
     /**
-     * The displayName property
+     * App name.
      */
     displayName?: string;
     /**

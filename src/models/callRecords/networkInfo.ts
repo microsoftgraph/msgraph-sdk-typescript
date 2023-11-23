@@ -175,7 +175,7 @@ export function serializeNetworkInfo(writer: SerializationWriter, networkInfo: N
         writer.writeNumberValue("relayPort", networkInfo.relayPort);
         writer.writeNumberValue("sentQualityEventRatio", networkInfo.sentQualityEventRatio);
         writer.writeStringValue("subnet", networkInfo.subnet);
-        writer.writeCollectionOfObjectValues<TraceRouteHop>("traceRouteHops", networkInfo.traceRouteHops, );
+        writer.writeCollectionOfObjectValues<TraceRouteHop>("traceRouteHops", networkInfo.traceRouteHops, serializeTraceRouteHop);
         writer.writeEnumValue<WifiBand>("wifiBand", networkInfo.wifiBand);
         writer.writeNumberValue("wifiBatteryCharge", networkInfo.wifiBatteryCharge);
         writer.writeNumberValue("wifiChannel", networkInfo.wifiChannel);

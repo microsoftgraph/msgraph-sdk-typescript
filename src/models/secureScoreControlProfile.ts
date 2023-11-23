@@ -118,9 +118,9 @@ export function serializeSecureScoreControlProfile(writer: SerializationWriter, 
         writer.writeStringValue("actionType", secureScoreControlProfile.actionType);
         writer.writeStringValue("actionUrl", secureScoreControlProfile.actionUrl);
         writer.writeStringValue("azureTenantId", secureScoreControlProfile.azureTenantId);
-        writer.writeCollectionOfObjectValues<ComplianceInformation>("complianceInformation", secureScoreControlProfile.complianceInformation, );
+        writer.writeCollectionOfObjectValues<ComplianceInformation>("complianceInformation", secureScoreControlProfile.complianceInformation, serializeComplianceInformation);
         writer.writeStringValue("controlCategory", secureScoreControlProfile.controlCategory);
-        writer.writeCollectionOfObjectValues<SecureScoreControlStateUpdate>("controlStateUpdates", secureScoreControlProfile.controlStateUpdates, );
+        writer.writeCollectionOfObjectValues<SecureScoreControlStateUpdate>("controlStateUpdates", secureScoreControlProfile.controlStateUpdates, serializeSecureScoreControlStateUpdate);
         writer.writeBooleanValue("deprecated", secureScoreControlProfile.deprecated);
         writer.writeStringValue("implementationCost", secureScoreControlProfile.implementationCost);
         writer.writeDateValue("lastModifiedDateTime", secureScoreControlProfile.lastModifiedDateTime);
@@ -133,7 +133,7 @@ export function serializeSecureScoreControlProfile(writer: SerializationWriter, 
         writer.writeStringValue("tier", secureScoreControlProfile.tier);
         writer.writeStringValue("title", secureScoreControlProfile.title);
         writer.writeStringValue("userImpact", secureScoreControlProfile.userImpact);
-        writer.writeObjectValue<SecurityVendorInformation>("vendorInformation", secureScoreControlProfile.vendorInformation, );
+        writer.writeObjectValue<SecurityVendorInformation>("vendorInformation", secureScoreControlProfile.vendorInformation, serializeSecurityVendorInformation);
 }
 // tslint:enable
 // eslint-enable

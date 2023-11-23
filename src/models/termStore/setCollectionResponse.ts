@@ -17,7 +17,7 @@ export function deserializeIntoSetCollectionResponse(setCollectionResponse: SetC
 }
 export function serializeSetCollectionResponse(writer: SerializationWriter, setCollectionResponse: SetCollectionResponse | undefined = {} as SetCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, setCollectionResponse)
-        writer.writeCollectionOfObjectValues<Set>("value", setCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<Set>("value", setCollectionResponse.value, serializeSet);
 }
 export interface SetCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

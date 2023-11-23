@@ -17,7 +17,7 @@ export function deserializeIntoWorkbookTableCollectionResponse(workbookTableColl
 }
 export function serializeWorkbookTableCollectionResponse(writer: SerializationWriter, workbookTableCollectionResponse: WorkbookTableCollectionResponse | undefined = {} as WorkbookTableCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, workbookTableCollectionResponse)
-        writer.writeCollectionOfObjectValues<WorkbookTable>("value", workbookTableCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<WorkbookTable>("value", workbookTableCollectionResponse.value, serializeWorkbookTable);
 }
 export interface WorkbookTableCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

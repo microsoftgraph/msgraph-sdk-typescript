@@ -86,7 +86,7 @@ export interface UserRegistrationDetails extends Entity, Parsable {
      */
     lastUpdatedDateTime?: Date;
     /**
-     * Collection of authentication methods registered, such as mobilePhone, email, fido2. Supports $filter (any with eq).
+     * Collection of authentication methods registered, such as mobilePhone, email, passKeyDeviceBound. Supports $filter (any with eq).
      */
     methodsRegistered?: string[];
     /**

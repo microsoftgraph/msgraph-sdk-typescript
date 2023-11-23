@@ -23,7 +23,7 @@ export function deserializeIntoAndroidManagedAppProtectionCollectionResponse(and
 }
 export function serializeAndroidManagedAppProtectionCollectionResponse(writer: SerializationWriter, androidManagedAppProtectionCollectionResponse: AndroidManagedAppProtectionCollectionResponse | undefined = {} as AndroidManagedAppProtectionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, androidManagedAppProtectionCollectionResponse)
-        writer.writeCollectionOfObjectValues<AndroidManagedAppProtection>("value", androidManagedAppProtectionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<AndroidManagedAppProtection>("value", androidManagedAppProtectionCollectionResponse.value, serializeAndroidManagedAppProtection);
 }
 // tslint:enable
 // eslint-enable

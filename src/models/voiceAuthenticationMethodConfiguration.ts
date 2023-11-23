@@ -18,7 +18,7 @@ export function deserializeIntoVoiceAuthenticationMethodConfiguration(voiceAuthe
 }
 export function serializeVoiceAuthenticationMethodConfiguration(writer: SerializationWriter, voiceAuthenticationMethodConfiguration: VoiceAuthenticationMethodConfiguration | undefined = {} as VoiceAuthenticationMethodConfiguration) : void {
         serializeAuthenticationMethodConfiguration(writer, voiceAuthenticationMethodConfiguration)
-        writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", voiceAuthenticationMethodConfiguration.includeTargets, );
+        writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", voiceAuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
         writer.writeBooleanValue("isOfficePhoneAllowed", voiceAuthenticationMethodConfiguration.isOfficePhoneAllowed);
 }
 export interface VoiceAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {

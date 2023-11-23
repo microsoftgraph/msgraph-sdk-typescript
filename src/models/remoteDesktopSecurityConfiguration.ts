@@ -18,18 +18,18 @@ export function deserializeIntoRemoteDesktopSecurityConfiguration(remoteDesktopS
 }
 export interface RemoteDesktopSecurityConfiguration extends Entity, Parsable {
     /**
-     * The isRemoteDesktopProtocolEnabled property
+     * Determines if Microsoft Entra ID RDS authentication protocol for RDP is enabled.
      */
     isRemoteDesktopProtocolEnabled?: boolean;
     /**
-     * The targetDeviceGroups property
+     * The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.
      */
     targetDeviceGroups?: TargetDeviceGroup[];
 }
 export function serializeRemoteDesktopSecurityConfiguration(writer: SerializationWriter, remoteDesktopSecurityConfiguration: RemoteDesktopSecurityConfiguration | undefined = {} as RemoteDesktopSecurityConfiguration) : void {
         serializeEntity(writer, remoteDesktopSecurityConfiguration)
         writer.writeBooleanValue("isRemoteDesktopProtocolEnabled", remoteDesktopSecurityConfiguration.isRemoteDesktopProtocolEnabled);
-        writer.writeCollectionOfObjectValues<TargetDeviceGroup>("targetDeviceGroups", remoteDesktopSecurityConfiguration.targetDeviceGroups, );
+        writer.writeCollectionOfObjectValues<TargetDeviceGroup>("targetDeviceGroups", remoteDesktopSecurityConfiguration.targetDeviceGroups, serializeTargetDeviceGroup);
 }
 // tslint:enable
 // eslint-enable

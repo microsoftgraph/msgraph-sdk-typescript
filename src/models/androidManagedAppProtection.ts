@@ -69,11 +69,11 @@ export function deserializeIntoAndroidManagedAppProtection(androidManagedAppProt
 }
 export function serializeAndroidManagedAppProtection(writer: SerializationWriter, androidManagedAppProtection: AndroidManagedAppProtection | undefined = {} as AndroidManagedAppProtection) : void {
         serializeTargetedManagedAppProtection(writer, androidManagedAppProtection)
-        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", androidManagedAppProtection.apps, );
+        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", androidManagedAppProtection.apps, serializeManagedMobileApp);
         writer.writeStringValue("customBrowserDisplayName", androidManagedAppProtection.customBrowserDisplayName);
         writer.writeStringValue("customBrowserPackageId", androidManagedAppProtection.customBrowserPackageId);
         writer.writeNumberValue("deployedAppCount", androidManagedAppProtection.deployedAppCount);
-        writer.writeObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", androidManagedAppProtection.deploymentSummary, );
+        writer.writeObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", androidManagedAppProtection.deploymentSummary, serializeManagedAppPolicyDeploymentSummary);
         writer.writeBooleanValue("disableAppEncryptionIfDeviceEncryptionIsEnabled", androidManagedAppProtection.disableAppEncryptionIfDeviceEncryptionIsEnabled);
         writer.writeBooleanValue("encryptAppData", androidManagedAppProtection.encryptAppData);
         writer.writeStringValue("minimumRequiredPatchVersion", androidManagedAppProtection.minimumRequiredPatchVersion);

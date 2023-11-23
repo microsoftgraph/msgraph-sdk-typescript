@@ -76,16 +76,16 @@ export interface List extends BaseItem, Parsable {
 }
 export function serializeList(writer: SerializationWriter, list: List | undefined = {} as List) : void {
         serializeBaseItem(writer, list)
-        writer.writeCollectionOfObjectValues<ColumnDefinition>("columns", list.columns, );
-        writer.writeCollectionOfObjectValues<ContentType>("contentTypes", list.contentTypes, );
+        writer.writeCollectionOfObjectValues<ColumnDefinition>("columns", list.columns, serializeColumnDefinition);
+        writer.writeCollectionOfObjectValues<ContentType>("contentTypes", list.contentTypes, serializeContentType);
         writer.writeStringValue("displayName", list.displayName);
-        writer.writeObjectValue<Drive>("drive", list.drive, );
-        writer.writeCollectionOfObjectValues<ListItem>("items", list.items, );
-        writer.writeObjectValue<ListInfo>("list", list.list, );
-        writer.writeCollectionOfObjectValues<RichLongRunningOperation>("operations", list.operations, );
-        writer.writeObjectValue<SharepointIds>("sharepointIds", list.sharepointIds, );
-        writer.writeCollectionOfObjectValues<Subscription>("subscriptions", list.subscriptions, );
-        writer.writeObjectValue<SystemFacet>("system", list.system, );
+        writer.writeObjectValue<Drive>("drive", list.drive, serializeDrive);
+        writer.writeCollectionOfObjectValues<ListItem>("items", list.items, serializeListItem);
+        writer.writeObjectValue<ListInfo>("list", list.list, serializeListInfo);
+        writer.writeCollectionOfObjectValues<RichLongRunningOperation>("operations", list.operations, serializeRichLongRunningOperation);
+        writer.writeObjectValue<SharepointIds>("sharepointIds", list.sharepointIds, serializeSharepointIds);
+        writer.writeCollectionOfObjectValues<Subscription>("subscriptions", list.subscriptions, serializeSubscription);
+        writer.writeObjectValue<SystemFacet>("system", list.system, serializeSystemFacet);
 }
 // tslint:enable
 // eslint-enable

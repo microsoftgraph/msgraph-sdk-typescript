@@ -29,8 +29,8 @@ export interface ModPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeModPostRequestBody(writer: SerializationWriter, modPostRequestBody: ModPostRequestBody | undefined = {} as ModPostRequestBody) : void {
-        writer.writeObjectValue<Json>("divisor", modPostRequestBody.divisor, );
-        writer.writeObjectValue<Json>("number", modPostRequestBody.number, );
+        writer.writeObjectValue<Json>("divisor", modPostRequestBody.divisor, serializeJson);
+        writer.writeObjectValue<Json>("number", modPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(modPostRequestBody.additionalData);
 }
 // tslint:enable

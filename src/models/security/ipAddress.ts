@@ -38,7 +38,7 @@ export interface IpAddress extends Host, Parsable {
 }
 export function serializeIpAddress(writer: SerializationWriter, ipAddress: IpAddress | undefined = {} as IpAddress) : void {
         serializeHost(writer, ipAddress)
-        writer.writeObjectValue<AutonomousSystem>("autonomousSystem", ipAddress.autonomousSystem, );
+        writer.writeObjectValue<AutonomousSystem>("autonomousSystem", ipAddress.autonomousSystem, serializeAutonomousSystem);
         writer.writeStringValue("countryOrRegion", ipAddress.countryOrRegion);
         writer.writeStringValue("hostingProvider", ipAddress.hostingProvider);
         writer.writeStringValue("netblock", ipAddress.netblock);

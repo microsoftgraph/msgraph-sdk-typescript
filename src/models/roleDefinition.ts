@@ -59,8 +59,8 @@ export function serializeRoleDefinition(writer: SerializationWriter, roleDefinit
         writer.writeStringValue("description", roleDefinition.description);
         writer.writeStringValue("displayName", roleDefinition.displayName);
         writer.writeBooleanValue("isBuiltIn", roleDefinition.isBuiltIn);
-        writer.writeCollectionOfObjectValues<RoleAssignment>("roleAssignments", roleDefinition.roleAssignments, );
-        writer.writeCollectionOfObjectValues<RolePermission>("rolePermissions", roleDefinition.rolePermissions, );
+        writer.writeCollectionOfObjectValues<RoleAssignment>("roleAssignments", roleDefinition.roleAssignments, serializeRoleAssignment);
+        writer.writeCollectionOfObjectValues<RolePermission>("rolePermissions", roleDefinition.rolePermissions, serializeRolePermission);
 }
 // tslint:enable
 // eslint-enable

@@ -21,12 +21,12 @@ export function deserializeIntoUnifiedApprovalStage(unifiedApprovalStage: Unifie
 }
 export function serializeUnifiedApprovalStage(writer: SerializationWriter, unifiedApprovalStage: UnifiedApprovalStage | undefined = {} as UnifiedApprovalStage) : void {
         writer.writeNumberValue("approvalStageTimeOutInDays", unifiedApprovalStage.approvalStageTimeOutInDays);
-        writer.writeCollectionOfObjectValues<SubjectSet>("escalationApprovers", unifiedApprovalStage.escalationApprovers, );
+        writer.writeCollectionOfObjectValues<SubjectSet>("escalationApprovers", unifiedApprovalStage.escalationApprovers, serializeSubjectSet);
         writer.writeNumberValue("escalationTimeInMinutes", unifiedApprovalStage.escalationTimeInMinutes);
         writer.writeBooleanValue("isApproverJustificationRequired", unifiedApprovalStage.isApproverJustificationRequired);
         writer.writeBooleanValue("isEscalationEnabled", unifiedApprovalStage.isEscalationEnabled);
         writer.writeStringValue("@odata.type", unifiedApprovalStage.odataType);
-        writer.writeCollectionOfObjectValues<SubjectSet>("primaryApprovers", unifiedApprovalStage.primaryApprovers, );
+        writer.writeCollectionOfObjectValues<SubjectSet>("primaryApprovers", unifiedApprovalStage.primaryApprovers, serializeSubjectSet);
         writer.writeAdditionalData(unifiedApprovalStage.additionalData);
 }
 export interface UnifiedApprovalStage extends AdditionalDataHolder, Parsable {

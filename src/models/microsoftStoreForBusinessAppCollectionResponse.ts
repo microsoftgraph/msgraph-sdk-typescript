@@ -23,7 +23,7 @@ export interface MicrosoftStoreForBusinessAppCollectionResponse extends BaseColl
 }
 export function serializeMicrosoftStoreForBusinessAppCollectionResponse(writer: SerializationWriter, microsoftStoreForBusinessAppCollectionResponse: MicrosoftStoreForBusinessAppCollectionResponse | undefined = {} as MicrosoftStoreForBusinessAppCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, microsoftStoreForBusinessAppCollectionResponse)
-        writer.writeCollectionOfObjectValues<MicrosoftStoreForBusinessApp>("value", microsoftStoreForBusinessAppCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<MicrosoftStoreForBusinessApp>("value", microsoftStoreForBusinessAppCollectionResponse.value, serializeMicrosoftStoreForBusinessApp);
 }
 // tslint:enable
 // eslint-enable

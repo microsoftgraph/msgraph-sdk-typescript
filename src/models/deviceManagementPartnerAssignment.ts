@@ -30,7 +30,7 @@ export interface DeviceManagementPartnerAssignment extends AdditionalDataHolder,
 }
 export function serializeDeviceManagementPartnerAssignment(writer: SerializationWriter, deviceManagementPartnerAssignment: DeviceManagementPartnerAssignment | undefined = {} as DeviceManagementPartnerAssignment) : void {
         writer.writeStringValue("@odata.type", deviceManagementPartnerAssignment.odataType);
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", deviceManagementPartnerAssignment.target, );
+        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", deviceManagementPartnerAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
         writer.writeAdditionalData(deviceManagementPartnerAssignment.additionalData);
 }
 // tslint:enable

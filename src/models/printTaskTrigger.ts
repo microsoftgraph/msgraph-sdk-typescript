@@ -29,7 +29,7 @@ export interface PrintTaskTrigger extends Entity, Parsable {
 }
 export function serializePrintTaskTrigger(writer: SerializationWriter, printTaskTrigger: PrintTaskTrigger | undefined = {} as PrintTaskTrigger) : void {
         serializeEntity(writer, printTaskTrigger)
-        writer.writeObjectValue<PrintTaskDefinition>("definition", printTaskTrigger.definition, );
+        writer.writeObjectValue<PrintTaskDefinition>("definition", printTaskTrigger.definition, serializePrintTaskDefinition);
         writer.writeEnumValue<PrintEvent>("event", printTaskTrigger.event);
 }
 // tslint:enable

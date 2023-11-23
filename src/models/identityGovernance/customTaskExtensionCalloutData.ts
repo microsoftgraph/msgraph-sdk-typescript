@@ -41,10 +41,10 @@ export function deserializeIntoCustomTaskExtensionCalloutData(customTaskExtensio
 }
 export function serializeCustomTaskExtensionCalloutData(writer: SerializationWriter, customTaskExtensionCalloutData: CustomTaskExtensionCalloutData | undefined = {} as CustomTaskExtensionCalloutData) : void {
         serializeCustomExtensionData(writer, customTaskExtensionCalloutData)
-        writer.writeObjectValue<User>("subject", customTaskExtensionCalloutData.subject, );
-        writer.writeObjectValue<Task>("task", customTaskExtensionCalloutData.task, );
-        writer.writeObjectValue<TaskProcessingResult>("taskProcessingresult", customTaskExtensionCalloutData.taskProcessingresult, );
-        writer.writeObjectValue<Workflow>("workflow", customTaskExtensionCalloutData.workflow, );
+        writer.writeObjectValue<User>("subject", customTaskExtensionCalloutData.subject, serializeUser);
+        writer.writeObjectValue<Task>("task", customTaskExtensionCalloutData.task, serializeTask);
+        writer.writeObjectValue<TaskProcessingResult>("taskProcessingresult", customTaskExtensionCalloutData.taskProcessingresult, serializeTaskProcessingResult);
+        writer.writeObjectValue<Workflow>("workflow", customTaskExtensionCalloutData.workflow, serializeWorkflow);
 }
 // tslint:enable
 // eslint-enable

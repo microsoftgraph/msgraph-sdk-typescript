@@ -64,7 +64,7 @@ export function serializeSearchHit(writer: SerializationWriter, searchHit: Searc
         writer.writeBooleanValue("isCollapsed", searchHit.isCollapsed);
         writer.writeStringValue("@odata.type", searchHit.odataType);
         writer.writeNumberValue("rank", searchHit.rank);
-        writer.writeObjectValue<Entity>("resource", searchHit.resource, );
+        writer.writeObjectValue<Entity>("resource", searchHit.resource, serializeEntity);
         writer.writeStringValue("resultTemplateId", searchHit.resultTemplateId);
         writer.writeStringValue("summary", searchHit.summary);
         writer.writeAdditionalData(searchHit.additionalData);

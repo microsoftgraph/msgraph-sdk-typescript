@@ -8,7 +8,7 @@ import { createIntelligenceProfileIndicatorFromDiscriminatorValue, deserializeIn
 import { createIntelligenceProfileIndicatorCollectionResponseFromDiscriminatorValue } from '../../../models/security/intelligenceProfileIndicatorCollectionResponse';
 import { CountRequestBuilder } from './count/countRequestBuilder';
 import { IntelligenceProfileIndicatorItemRequestBuilder } from './item/intelligenceProfileIndicatorItemRequestBuilder';
-import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IntelligenceProfileIndicatorsRequestBuilderGetQueryParameters {
     /**
@@ -44,30 +44,6 @@ export interface IntelligenceProfileIndicatorsRequestBuilderGetQueryParameters {
      */
     top?: number;
 }
-export interface IntelligenceProfileIndicatorsRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: IntelligenceProfileIndicatorsRequestBuilderGetQueryParameters;
-}
-export interface IntelligenceProfileIndicatorsRequestBuilderPostRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-}
 /**
  * Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.
  */
@@ -98,11 +74,11 @@ export class IntelligenceProfileIndicatorsRequestBuilder extends BaseRequestBuil
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/intelligenceProfileIndicators{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read the properties and relationships of a intelligenceProfileIndicator object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a intelligenceProfileIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IntelligenceProfileIndicatorCollectionResponse
      */
-    public get(requestConfiguration?: IntelligenceProfileIndicatorsRequestBuilderGetRequestConfiguration | undefined) : Promise<IntelligenceProfileIndicatorCollectionResponse | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<IntelligenceProfileIndicatorsRequestBuilderGetQueryParameters> | undefined) : Promise<IntelligenceProfileIndicatorCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -118,7 +94,7 @@ export class IntelligenceProfileIndicatorsRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IntelligenceProfileIndicator
      */
-    public post(body: IntelligenceProfileIndicator, requestConfiguration?: IntelligenceProfileIndicatorsRequestBuilderPostRequestConfiguration | undefined) : Promise<IntelligenceProfileIndicator | undefined> {
+    public post(body: IntelligenceProfileIndicator, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IntelligenceProfileIndicator | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -129,21 +105,14 @@ export class IntelligenceProfileIndicatorsRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<IntelligenceProfileIndicator>(requestInfo, createIntelligenceProfileIndicatorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the properties and relationships of a intelligenceProfileIndicator object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a intelligenceProfileIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: IntelligenceProfileIndicatorsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<IntelligenceProfileIndicatorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, intelligenceProfileIndicatorsRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -152,17 +121,11 @@ export class IntelligenceProfileIndicatorsRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: IntelligenceProfileIndicator, requestConfiguration?: IntelligenceProfileIndicatorsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: IntelligenceProfileIndicator, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+        const requestInfo = new RequestInformation(HttpMethod.POST, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIntelligenceProfileIndicator);
         return requestInfo;
     };
@@ -176,5 +139,15 @@ export class IntelligenceProfileIndicatorsRequestBuilder extends BaseRequestBuil
         return new IntelligenceProfileIndicatorsRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const intelligenceProfileIndicatorsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "expand": "%24expand",
+    "filter": "%24filter",
+    "orderby": "%24orderby",
+    "search": "%24search",
+    "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
+};
 // tslint:enable
 // eslint-enable

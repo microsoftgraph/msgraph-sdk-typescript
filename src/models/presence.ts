@@ -35,7 +35,7 @@ export function serializePresence(writer: SerializationWriter, presence: Presenc
         serializeEntity(writer, presence)
         writer.writeStringValue("activity", presence.activity);
         writer.writeStringValue("availability", presence.availability);
-        writer.writeObjectValue<PresenceStatusMessage>("statusMessage", presence.statusMessage, );
+        writer.writeObjectValue<PresenceStatusMessage>("statusMessage", presence.statusMessage, serializePresenceStatusMessage);
 }
 // tslint:enable
 // eslint-enable

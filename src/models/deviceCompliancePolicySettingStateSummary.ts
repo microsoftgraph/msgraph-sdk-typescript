@@ -76,7 +76,7 @@ export function serializeDeviceCompliancePolicySettingStateSummary(writer: Seria
         serializeEntity(writer, deviceCompliancePolicySettingStateSummary)
         writer.writeNumberValue("compliantDeviceCount", deviceCompliancePolicySettingStateSummary.compliantDeviceCount);
         writer.writeNumberValue("conflictDeviceCount", deviceCompliancePolicySettingStateSummary.conflictDeviceCount);
-        writer.writeCollectionOfObjectValues<DeviceComplianceSettingState>("deviceComplianceSettingStates", deviceCompliancePolicySettingStateSummary.deviceComplianceSettingStates, );
+        writer.writeCollectionOfObjectValues<DeviceComplianceSettingState>("deviceComplianceSettingStates", deviceCompliancePolicySettingStateSummary.deviceComplianceSettingStates, serializeDeviceComplianceSettingState);
         writer.writeNumberValue("errorDeviceCount", deviceCompliancePolicySettingStateSummary.errorDeviceCount);
         writer.writeNumberValue("nonCompliantDeviceCount", deviceCompliancePolicySettingStateSummary.nonCompliantDeviceCount);
         writer.writeNumberValue("notApplicableDeviceCount", deviceCompliancePolicySettingStateSummary.notApplicableDeviceCount);

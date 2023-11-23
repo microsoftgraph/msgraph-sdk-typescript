@@ -45,20 +45,20 @@ export function serializeWorkbookRange(writer: SerializationWriter, workbookRang
         writer.writeNumberValue("columnCount", workbookRange.columnCount);
         writer.writeBooleanValue("columnHidden", workbookRange.columnHidden);
         writer.writeNumberValue("columnIndex", workbookRange.columnIndex);
-        writer.writeObjectValue<WorkbookRangeFormat>("format", workbookRange.format, );
-        writer.writeObjectValue<Json>("formulas", workbookRange.formulas, );
-        writer.writeObjectValue<Json>("formulasLocal", workbookRange.formulasLocal, );
-        writer.writeObjectValue<Json>("formulasR1C1", workbookRange.formulasR1C1, );
+        writer.writeObjectValue<WorkbookRangeFormat>("format", workbookRange.format, serializeWorkbookRangeFormat);
+        writer.writeObjectValue<Json>("formulas", workbookRange.formulas, serializeJson);
+        writer.writeObjectValue<Json>("formulasLocal", workbookRange.formulasLocal, serializeJson);
+        writer.writeObjectValue<Json>("formulasR1C1", workbookRange.formulasR1C1, serializeJson);
         writer.writeBooleanValue("hidden", workbookRange.hidden);
-        writer.writeObjectValue<Json>("numberFormat", workbookRange.numberFormat, );
+        writer.writeObjectValue<Json>("numberFormat", workbookRange.numberFormat, serializeJson);
         writer.writeNumberValue("rowCount", workbookRange.rowCount);
         writer.writeBooleanValue("rowHidden", workbookRange.rowHidden);
         writer.writeNumberValue("rowIndex", workbookRange.rowIndex);
-        writer.writeObjectValue<WorkbookRangeSort>("sort", workbookRange.sort, );
-        writer.writeObjectValue<Json>("text", workbookRange.text, );
-        writer.writeObjectValue<Json>("values", workbookRange.values, );
-        writer.writeObjectValue<Json>("valueTypes", workbookRange.valueTypes, );
-        writer.writeObjectValue<WorkbookWorksheet>("worksheet", workbookRange.worksheet, );
+        writer.writeObjectValue<WorkbookRangeSort>("sort", workbookRange.sort, serializeWorkbookRangeSort);
+        writer.writeObjectValue<Json>("text", workbookRange.text, serializeJson);
+        writer.writeObjectValue<Json>("values", workbookRange.values, serializeJson);
+        writer.writeObjectValue<Json>("valueTypes", workbookRange.valueTypes, serializeJson);
+        writer.writeObjectValue<WorkbookWorksheet>("worksheet", workbookRange.worksheet, serializeWorkbookWorksheet);
 }
 export interface WorkbookRange extends Entity, Parsable {
     /**

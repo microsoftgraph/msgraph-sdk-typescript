@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, deserializeIntoODataError, seri
 import { CreatedByRequestBuilder } from './createdBy/createdByRequestBuilder';
 import { LastModifiedByRequestBuilder } from './lastModifiedBy/lastModifiedByRequestBuilder';
 import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
-import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestConfiguration, type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters {
     /**
@@ -19,20 +19,6 @@ export interface WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameter
      * Select properties to be returned
      */
     select?: string[];
-}
-export interface WorkflowVersionVersionNumberItemRequestBuilderGetRequestConfiguration {
-    /**
-     * Request headers
-     */
-    headers?: Record<string, string[]>;
-    /**
-     * Request options
-     */
-    options?: RequestOption[];
-    /**
-     * Request query parameters
-     */
-    queryParameters?: WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters;
 }
 /**
  * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
@@ -65,12 +51,12 @@ export class WorkflowVersionVersionNumberItemRequestBuilder extends BaseRequestB
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/versions/{workflowVersion%2DversionNumber}{?%24select,%24expand}");
     };
     /**
-     * Read the properties and relationships of a workflowVersion object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a workflowVersion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkflowVersion
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflowversion-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkflowVersionVersionNumberItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkflowVersion | undefined> {
+    public get(requestConfiguration?: RequestConfiguration<WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters> | undefined) : Promise<WorkflowVersion | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -81,21 +67,14 @@ export class WorkflowVersionVersionNumberItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendAsync<WorkflowVersion>(requestInfo, createWorkflowVersionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Read the properties and relationships of a workflowVersion object. This API is available in the following national cloud deployments.
+     * Read the properties and relationships of a workflowVersion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toGetRequestInformation(requestConfiguration?: WorkflowVersionVersionNumberItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.tryAddRequestHeaders("Accept", "application/json;q=1");
+    public toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkflowVersionVersionNumberItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation(HttpMethod.GET, this.urlTemplate, this.pathParameters);
+        requestInfo.configure(requestConfiguration, workflowVersionVersionNumberItemRequestBuilderGetQueryParametersMapper);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     };
     /**
@@ -108,5 +87,9 @@ export class WorkflowVersionVersionNumberItemRequestBuilder extends BaseRequestB
         return new WorkflowVersionVersionNumberItemRequestBuilder(rawUrl, this.requestAdapter);
     };
 }
+const workflowVersionVersionNumberItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
+    "select": "%24select",
+};
 // tslint:enable
 // eslint-enable

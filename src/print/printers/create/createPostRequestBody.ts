@@ -54,7 +54,7 @@ export function deserializeIntoCreatePostRequestBody(createPostRequestBody: Crea
     }
 }
 export function serializeCreatePostRequestBody(writer: SerializationWriter, createPostRequestBody: CreatePostRequestBody | undefined = {} as CreatePostRequestBody) : void {
-        writer.writeObjectValue<PrintCertificateSigningRequest>("certificateSigningRequest", createPostRequestBody.certificateSigningRequest, );
+        writer.writeObjectValue<PrintCertificateSigningRequest>("certificateSigningRequest", createPostRequestBody.certificateSigningRequest, serializePrintCertificateSigningRequest);
         writer.writeStringValue("connectorId", createPostRequestBody.connectorId);
         writer.writeStringValue("displayName", createPostRequestBody.displayName);
         writer.writeBooleanValue("hasPhysicalDevice", createPostRequestBody.hasPhysicalDevice);

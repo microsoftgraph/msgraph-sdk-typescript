@@ -17,7 +17,7 @@ export function deserializeIntoTargetedManagedAppPolicyAssignment(targetedManage
 }
 export function serializeTargetedManagedAppPolicyAssignment(writer: SerializationWriter, targetedManagedAppPolicyAssignment: TargetedManagedAppPolicyAssignment | undefined = {} as TargetedManagedAppPolicyAssignment) : void {
         serializeEntity(writer, targetedManagedAppPolicyAssignment)
-        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", targetedManagedAppPolicyAssignment.target, );
+        writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", targetedManagedAppPolicyAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
 }
 export interface TargetedManagedAppPolicyAssignment extends Entity, Parsable {
     /**

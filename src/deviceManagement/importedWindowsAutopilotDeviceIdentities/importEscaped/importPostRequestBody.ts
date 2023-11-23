@@ -24,7 +24,7 @@ export interface ImportPostRequestBody extends AdditionalDataHolder, Parsable {
     importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[];
 }
 export function serializeImportPostRequestBody(writer: SerializationWriter, importPostRequestBody: ImportPostRequestBody | undefined = {} as ImportPostRequestBody) : void {
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", importPostRequestBody.importedWindowsAutopilotDeviceIdentities, );
+        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", importPostRequestBody.importedWindowsAutopilotDeviceIdentities, serializeImportedWindowsAutopilotDeviceIdentity);
         writer.writeAdditionalData(importPostRequestBody.additionalData);
 }
 // tslint:enable

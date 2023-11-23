@@ -117,17 +117,17 @@ export interface DeviceCompliancePolicy extends Entity, Parsable {
 }
 export function serializeDeviceCompliancePolicy(writer: SerializationWriter, deviceCompliancePolicy: DeviceCompliancePolicy | undefined = {} as DeviceCompliancePolicy) : void {
         serializeEntity(writer, deviceCompliancePolicy)
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("assignments", deviceCompliancePolicy.assignments, );
+        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("assignments", deviceCompliancePolicy.assignments, serializeDeviceCompliancePolicyAssignment);
         writer.writeDateValue("createdDateTime", deviceCompliancePolicy.createdDateTime);
         writer.writeStringValue("description", deviceCompliancePolicy.description);
-        writer.writeCollectionOfObjectValues<SettingStateDeviceSummary>("deviceSettingStateSummaries", deviceCompliancePolicy.deviceSettingStateSummaries, );
-        writer.writeCollectionOfObjectValues<DeviceComplianceDeviceStatus>("deviceStatuses", deviceCompliancePolicy.deviceStatuses, );
-        writer.writeObjectValue<DeviceComplianceDeviceOverview>("deviceStatusOverview", deviceCompliancePolicy.deviceStatusOverview, );
+        writer.writeCollectionOfObjectValues<SettingStateDeviceSummary>("deviceSettingStateSummaries", deviceCompliancePolicy.deviceSettingStateSummaries, serializeSettingStateDeviceSummary);
+        writer.writeCollectionOfObjectValues<DeviceComplianceDeviceStatus>("deviceStatuses", deviceCompliancePolicy.deviceStatuses, serializeDeviceComplianceDeviceStatus);
+        writer.writeObjectValue<DeviceComplianceDeviceOverview>("deviceStatusOverview", deviceCompliancePolicy.deviceStatusOverview, serializeDeviceComplianceDeviceOverview);
         writer.writeStringValue("displayName", deviceCompliancePolicy.displayName);
         writer.writeDateValue("lastModifiedDateTime", deviceCompliancePolicy.lastModifiedDateTime);
-        writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("scheduledActionsForRule", deviceCompliancePolicy.scheduledActionsForRule, );
-        writer.writeCollectionOfObjectValues<DeviceComplianceUserStatus>("userStatuses", deviceCompliancePolicy.userStatuses, );
-        writer.writeObjectValue<DeviceComplianceUserOverview>("userStatusOverview", deviceCompliancePolicy.userStatusOverview, );
+        writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("scheduledActionsForRule", deviceCompliancePolicy.scheduledActionsForRule, serializeDeviceComplianceScheduledActionForRule);
+        writer.writeCollectionOfObjectValues<DeviceComplianceUserStatus>("userStatuses", deviceCompliancePolicy.userStatuses, serializeDeviceComplianceUserStatus);
+        writer.writeObjectValue<DeviceComplianceUserOverview>("userStatusOverview", deviceCompliancePolicy.userStatusOverview, serializeDeviceComplianceUserOverview);
         writer.writeNumberValue("version", deviceCompliancePolicy.version);
 }
 // tslint:enable

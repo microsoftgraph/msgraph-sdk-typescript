@@ -23,7 +23,7 @@ export function deserializeIntoSslCertificateEntity(sslCertificateEntity: SslCer
     }
 }
 export function serializeSslCertificateEntity(writer: SerializationWriter, sslCertificateEntity: SslCertificateEntity | undefined = {} as SslCertificateEntity) : void {
-        writer.writeObjectValue<PhysicalAddress>("address", sslCertificateEntity.address, );
+        writer.writeObjectValue<PhysicalAddress>("address", sslCertificateEntity.address, serializePhysicalAddress);
         writer.writeCollectionOfPrimitiveValues<string>("alternateNames", sslCertificateEntity.alternateNames);
         writer.writeStringValue("commonName", sslCertificateEntity.commonName);
         writer.writeStringValue("email", sslCertificateEntity.email);

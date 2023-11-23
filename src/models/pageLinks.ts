@@ -35,8 +35,8 @@ export interface PageLinks extends AdditionalDataHolder, Parsable {
 }
 export function serializePageLinks(writer: SerializationWriter, pageLinks: PageLinks | undefined = {} as PageLinks) : void {
         writer.writeStringValue("@odata.type", pageLinks.odataType);
-        writer.writeObjectValue<ExternalLink>("oneNoteClientUrl", pageLinks.oneNoteClientUrl, );
-        writer.writeObjectValue<ExternalLink>("oneNoteWebUrl", pageLinks.oneNoteWebUrl, );
+        writer.writeObjectValue<ExternalLink>("oneNoteClientUrl", pageLinks.oneNoteClientUrl, serializeExternalLink);
+        writer.writeObjectValue<ExternalLink>("oneNoteWebUrl", pageLinks.oneNoteWebUrl, serializeExternalLink);
         writer.writeAdditionalData(pageLinks.additionalData);
 }
 // tslint:enable

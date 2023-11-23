@@ -17,7 +17,7 @@ export function deserializeIntoUnifiedRbacResourceNamespaceCollectionResponse(un
 }
 export function serializeUnifiedRbacResourceNamespaceCollectionResponse(writer: SerializationWriter, unifiedRbacResourceNamespaceCollectionResponse: UnifiedRbacResourceNamespaceCollectionResponse | undefined = {} as UnifiedRbacResourceNamespaceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, unifiedRbacResourceNamespaceCollectionResponse)
-        writer.writeCollectionOfObjectValues<UnifiedRbacResourceNamespace>("value", unifiedRbacResourceNamespaceCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<UnifiedRbacResourceNamespace>("value", unifiedRbacResourceNamespaceCollectionResponse.value, serializeUnifiedRbacResourceNamespace);
 }
 export interface UnifiedRbacResourceNamespaceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

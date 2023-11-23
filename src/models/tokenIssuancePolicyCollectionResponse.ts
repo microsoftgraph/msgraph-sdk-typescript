@@ -17,7 +17,7 @@ export function deserializeIntoTokenIssuancePolicyCollectionResponse(tokenIssuan
 }
 export function serializeTokenIssuancePolicyCollectionResponse(writer: SerializationWriter, tokenIssuancePolicyCollectionResponse: TokenIssuancePolicyCollectionResponse | undefined = {} as TokenIssuancePolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, tokenIssuancePolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("value", tokenIssuancePolicyCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("value", tokenIssuancePolicyCollectionResponse.value, serializeTokenIssuancePolicy);
 }
 export interface TokenIssuancePolicyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

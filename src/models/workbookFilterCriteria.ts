@@ -28,10 +28,10 @@ export function serializeWorkbookFilterCriteria(writer: SerializationWriter, wor
         writer.writeStringValue("criterion2", workbookFilterCriteria.criterion2);
         writer.writeStringValue("dynamicCriteria", workbookFilterCriteria.dynamicCriteria);
         writer.writeStringValue("filterOn", workbookFilterCriteria.filterOn);
-        writer.writeObjectValue<WorkbookIcon>("icon", workbookFilterCriteria.icon, );
+        writer.writeObjectValue<WorkbookIcon>("icon", workbookFilterCriteria.icon, serializeWorkbookIcon);
         writer.writeStringValue("@odata.type", workbookFilterCriteria.odataType);
         writer.writeStringValue("operator", workbookFilterCriteria.operator);
-        writer.writeObjectValue<Json>("values", workbookFilterCriteria.values, );
+        writer.writeObjectValue<Json>("values", workbookFilterCriteria.values, serializeJson);
         writer.writeAdditionalData(workbookFilterCriteria.additionalData);
 }
 export interface WorkbookFilterCriteria extends AdditionalDataHolder, Parsable {

@@ -17,7 +17,7 @@ export function deserializeIntoUnifiedRoleDefinitionCollectionResponse(unifiedRo
 }
 export function serializeUnifiedRoleDefinitionCollectionResponse(writer: SerializationWriter, unifiedRoleDefinitionCollectionResponse: UnifiedRoleDefinitionCollectionResponse | undefined = {} as UnifiedRoleDefinitionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, unifiedRoleDefinitionCollectionResponse)
-        writer.writeCollectionOfObjectValues<UnifiedRoleDefinition>("value", unifiedRoleDefinitionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<UnifiedRoleDefinition>("value", unifiedRoleDefinitionCollectionResponse.value, serializeUnifiedRoleDefinition);
 }
 export interface UnifiedRoleDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -46,7 +46,7 @@ export interface EducationAssignmentGrade extends AdditionalDataHolder, Parsable
     odataType?: string;
 }
 export function serializeEducationAssignmentGrade(writer: SerializationWriter, educationAssignmentGrade: EducationAssignmentGrade | undefined = {} as EducationAssignmentGrade) : void {
-        writer.writeObjectValue<IdentitySet>("gradedBy", educationAssignmentGrade.gradedBy, );
+        writer.writeObjectValue<IdentitySet>("gradedBy", educationAssignmentGrade.gradedBy, serializeIdentitySet);
         writer.writeDateValue("gradedDateTime", educationAssignmentGrade.gradedDateTime);
         writer.writeStringValue("@odata.type", educationAssignmentGrade.odataType);
         writer.writeAdditionalData(educationAssignmentGrade.additionalData);

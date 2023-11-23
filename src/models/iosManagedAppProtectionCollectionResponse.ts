@@ -23,7 +23,7 @@ export interface IosManagedAppProtectionCollectionResponse extends BaseCollectio
 }
 export function serializeIosManagedAppProtectionCollectionResponse(writer: SerializationWriter, iosManagedAppProtectionCollectionResponse: IosManagedAppProtectionCollectionResponse | undefined = {} as IosManagedAppProtectionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, iosManagedAppProtectionCollectionResponse)
-        writer.writeCollectionOfObjectValues<IosManagedAppProtection>("value", iosManagedAppProtectionCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<IosManagedAppProtection>("value", iosManagedAppProtectionCollectionResponse.value, serializeIosManagedAppProtection);
 }
 // tslint:enable
 // eslint-enable

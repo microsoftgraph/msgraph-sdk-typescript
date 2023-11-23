@@ -23,7 +23,7 @@ export interface GetStaffAvailabilityPostResponse extends BaseCollectionPaginati
 }
 export function serializeGetStaffAvailabilityPostResponse(writer: SerializationWriter, getStaffAvailabilityPostResponse: GetStaffAvailabilityPostResponse | undefined = {} as GetStaffAvailabilityPostResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getStaffAvailabilityPostResponse)
-        writer.writeCollectionOfObjectValues<StaffAvailabilityItem>("value", getStaffAvailabilityPostResponse.value, );
+        writer.writeCollectionOfObjectValues<StaffAvailabilityItem>("value", getStaffAvailabilityPostResponse.value, serializeStaffAvailabilityItem);
 }
 // tslint:enable
 // eslint-enable

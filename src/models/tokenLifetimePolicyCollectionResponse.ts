@@ -17,7 +17,7 @@ export function deserializeIntoTokenLifetimePolicyCollectionResponse(tokenLifeti
 }
 export function serializeTokenLifetimePolicyCollectionResponse(writer: SerializationWriter, tokenLifetimePolicyCollectionResponse: TokenLifetimePolicyCollectionResponse | undefined = {} as TokenLifetimePolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, tokenLifetimePolicyCollectionResponse)
-        writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("value", tokenLifetimePolicyCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("value", tokenLifetimePolicyCollectionResponse.value, serializeTokenLifetimePolicy);
 }
 export interface TokenLifetimePolicyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

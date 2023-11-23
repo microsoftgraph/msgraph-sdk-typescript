@@ -34,9 +34,9 @@ export interface DvarPostRequestBody extends AdditionalDataHolder, Parsable {
     field?: Json;
 }
 export function serializeDvarPostRequestBody(writer: SerializationWriter, dvarPostRequestBody: DvarPostRequestBody | undefined = {} as DvarPostRequestBody) : void {
-        writer.writeObjectValue<Json>("criteria", dvarPostRequestBody.criteria, );
-        writer.writeObjectValue<Json>("database", dvarPostRequestBody.database, );
-        writer.writeObjectValue<Json>("field", dvarPostRequestBody.field, );
+        writer.writeObjectValue<Json>("criteria", dvarPostRequestBody.criteria, serializeJson);
+        writer.writeObjectValue<Json>("database", dvarPostRequestBody.database, serializeJson);
+        writer.writeObjectValue<Json>("field", dvarPostRequestBody.field, serializeJson);
         writer.writeAdditionalData(dvarPostRequestBody.additionalData);
 }
 // tslint:enable

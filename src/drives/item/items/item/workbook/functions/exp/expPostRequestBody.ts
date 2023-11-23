@@ -24,7 +24,7 @@ export interface ExpPostRequestBody extends AdditionalDataHolder, Parsable {
     number?: Json;
 }
 export function serializeExpPostRequestBody(writer: SerializationWriter, expPostRequestBody: ExpPostRequestBody | undefined = {} as ExpPostRequestBody) : void {
-        writer.writeObjectValue<Json>("number", expPostRequestBody.number, );
+        writer.writeObjectValue<Json>("number", expPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(expPostRequestBody.additionalData);
 }
 // tslint:enable

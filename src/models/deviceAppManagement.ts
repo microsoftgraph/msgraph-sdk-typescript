@@ -121,24 +121,24 @@ export interface DeviceAppManagement extends Entity, Parsable {
 }
 export function serializeDeviceAppManagement(writer: SerializationWriter, deviceAppManagement: DeviceAppManagement | undefined = {} as DeviceAppManagement) : void {
         serializeEntity(writer, deviceAppManagement)
-        writer.writeCollectionOfObjectValues<AndroidManagedAppProtection>("androidManagedAppProtections", deviceAppManagement.androidManagedAppProtections, );
-        writer.writeCollectionOfObjectValues<DefaultManagedAppProtection>("defaultManagedAppProtections", deviceAppManagement.defaultManagedAppProtections, );
-        writer.writeCollectionOfObjectValues<IosManagedAppProtection>("iosManagedAppProtections", deviceAppManagement.iosManagedAppProtections, );
+        writer.writeCollectionOfObjectValues<AndroidManagedAppProtection>("androidManagedAppProtections", deviceAppManagement.androidManagedAppProtections, serializeAndroidManagedAppProtection);
+        writer.writeCollectionOfObjectValues<DefaultManagedAppProtection>("defaultManagedAppProtections", deviceAppManagement.defaultManagedAppProtections, serializeDefaultManagedAppProtection);
+        writer.writeCollectionOfObjectValues<IosManagedAppProtection>("iosManagedAppProtections", deviceAppManagement.iosManagedAppProtections, serializeIosManagedAppProtection);
         writer.writeBooleanValue("isEnabledForMicrosoftStoreForBusiness", deviceAppManagement.isEnabledForMicrosoftStoreForBusiness);
-        writer.writeCollectionOfObjectValues<ManagedAppPolicy>("managedAppPolicies", deviceAppManagement.managedAppPolicies, );
-        writer.writeCollectionOfObjectValues<ManagedAppRegistration>("managedAppRegistrations", deviceAppManagement.managedAppRegistrations, );
-        writer.writeCollectionOfObjectValues<ManagedAppStatus>("managedAppStatuses", deviceAppManagement.managedAppStatuses, );
-        writer.writeCollectionOfObjectValues<ManagedEBook>("managedEBooks", deviceAppManagement.managedEBooks, );
-        writer.writeCollectionOfObjectValues<MdmWindowsInformationProtectionPolicy>("mdmWindowsInformationProtectionPolicies", deviceAppManagement.mdmWindowsInformationProtectionPolicies, );
+        writer.writeCollectionOfObjectValues<ManagedAppPolicy>("managedAppPolicies", deviceAppManagement.managedAppPolicies, serializeManagedAppPolicy);
+        writer.writeCollectionOfObjectValues<ManagedAppRegistration>("managedAppRegistrations", deviceAppManagement.managedAppRegistrations, serializeManagedAppRegistration);
+        writer.writeCollectionOfObjectValues<ManagedAppStatus>("managedAppStatuses", deviceAppManagement.managedAppStatuses, serializeManagedAppStatus);
+        writer.writeCollectionOfObjectValues<ManagedEBook>("managedEBooks", deviceAppManagement.managedEBooks, serializeManagedEBook);
+        writer.writeCollectionOfObjectValues<MdmWindowsInformationProtectionPolicy>("mdmWindowsInformationProtectionPolicies", deviceAppManagement.mdmWindowsInformationProtectionPolicies, serializeMdmWindowsInformationProtectionPolicy);
         writer.writeStringValue("microsoftStoreForBusinessLanguage", deviceAppManagement.microsoftStoreForBusinessLanguage);
         writer.writeDateValue("microsoftStoreForBusinessLastCompletedApplicationSyncTime", deviceAppManagement.microsoftStoreForBusinessLastCompletedApplicationSyncTime);
         writer.writeDateValue("microsoftStoreForBusinessLastSuccessfulSyncDateTime", deviceAppManagement.microsoftStoreForBusinessLastSuccessfulSyncDateTime);
-        writer.writeCollectionOfObjectValues<MobileAppCategory>("mobileAppCategories", deviceAppManagement.mobileAppCategories, );
-        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfiguration>("mobileAppConfigurations", deviceAppManagement.mobileAppConfigurations, );
-        writer.writeCollectionOfObjectValues<MobileApp>("mobileApps", deviceAppManagement.mobileApps, );
-        writer.writeCollectionOfObjectValues<TargetedManagedAppConfiguration>("targetedManagedAppConfigurations", deviceAppManagement.targetedManagedAppConfigurations, );
-        writer.writeCollectionOfObjectValues<VppToken>("vppTokens", deviceAppManagement.vppTokens, );
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicy>("windowsInformationProtectionPolicies", deviceAppManagement.windowsInformationProtectionPolicies, );
+        writer.writeCollectionOfObjectValues<MobileAppCategory>("mobileAppCategories", deviceAppManagement.mobileAppCategories, serializeMobileAppCategory);
+        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfiguration>("mobileAppConfigurations", deviceAppManagement.mobileAppConfigurations, serializeManagedDeviceMobileAppConfiguration);
+        writer.writeCollectionOfObjectValues<MobileApp>("mobileApps", deviceAppManagement.mobileApps, serializeMobileApp);
+        writer.writeCollectionOfObjectValues<TargetedManagedAppConfiguration>("targetedManagedAppConfigurations", deviceAppManagement.targetedManagedAppConfigurations, serializeTargetedManagedAppConfiguration);
+        writer.writeCollectionOfObjectValues<VppToken>("vppTokens", deviceAppManagement.vppTokens, serializeVppToken);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicy>("windowsInformationProtectionPolicies", deviceAppManagement.windowsInformationProtectionPolicies, serializeWindowsInformationProtectionPolicy);
 }
 // tslint:enable
 // eslint-enable

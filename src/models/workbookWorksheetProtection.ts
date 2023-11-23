@@ -18,7 +18,7 @@ export function deserializeIntoWorkbookWorksheetProtection(workbookWorksheetProt
 }
 export function serializeWorkbookWorksheetProtection(writer: SerializationWriter, workbookWorksheetProtection: WorkbookWorksheetProtection | undefined = {} as WorkbookWorksheetProtection) : void {
         serializeEntity(writer, workbookWorksheetProtection)
-        writer.writeObjectValue<WorkbookWorksheetProtectionOptions>("options", workbookWorksheetProtection.options, );
+        writer.writeObjectValue<WorkbookWorksheetProtectionOptions>("options", workbookWorksheetProtection.options, serializeWorkbookWorksheetProtectionOptions);
         writer.writeBooleanValue("protected", workbookWorksheetProtection.protected);
 }
 export interface WorkbookWorksheetProtection extends Entity, Parsable {

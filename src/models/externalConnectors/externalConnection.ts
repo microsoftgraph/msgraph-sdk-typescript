@@ -21,6 +21,7 @@ export function deserializeIntoExternalConnection(externalConnection: ExternalCo
         ...deserializeIntoEntity(externalConnection),
         "activitySettings": n => { externalConnection.activitySettings = n.getObjectValue<ActivitySettings>(createActivitySettingsFromDiscriminatorValue); },
         "configuration": n => { externalConnection.configuration = n.getObjectValue<Configuration>(createConfigurationFromDiscriminatorValue); },
+        "connectorId": n => { externalConnection.connectorId = n.getStringValue(); },
         "description": n => { externalConnection.description = n.getStringValue(); },
         "groups": n => { externalConnection.groups = n.getCollectionOfObjectValues<ExternalGroup>(createExternalGroupFromDiscriminatorValue); },
         "items": n => { externalConnection.items = n.getCollectionOfObjectValues<ExternalItem>(createExternalItemFromDiscriminatorValue); },
@@ -40,6 +41,10 @@ export interface ExternalConnection extends Entity, Parsable {
      * Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
      */
     configuration?: Configuration;
+    /**
+     * The Teams app ID. Optional.
+     */
+    connectorId?: string;
     /**
      * Description of the connection displayed in the Microsoft 365 admin center. Optional.
      */
@@ -75,15 +80,16 @@ export interface ExternalConnection extends Entity, Parsable {
 }
 export function serializeExternalConnection(writer: SerializationWriter, externalConnection: ExternalConnection | undefined = {} as ExternalConnection) : void {
         serializeEntity(writer, externalConnection)
-        writer.writeObjectValue<ActivitySettings>("activitySettings", externalConnection.activitySettings, );
-        writer.writeObjectValue<Configuration>("configuration", externalConnection.configuration, );
+        writer.writeObjectValue<ActivitySettings>("activitySettings", externalConnection.activitySettings, serializeActivitySettings);
+        writer.writeObjectValue<Configuration>("configuration", externalConnection.configuration, serializeConfiguration);
+        writer.writeStringValue("connectorId", externalConnection.connectorId);
         writer.writeStringValue("description", externalConnection.description);
-        writer.writeCollectionOfObjectValues<ExternalGroup>("groups", externalConnection.groups, );
-        writer.writeCollectionOfObjectValues<ExternalItem>("items", externalConnection.items, );
+        writer.writeCollectionOfObjectValues<ExternalGroup>("groups", externalConnection.groups, serializeExternalGroup);
+        writer.writeCollectionOfObjectValues<ExternalItem>("items", externalConnection.items, serializeExternalItem);
         writer.writeStringValue("name", externalConnection.name);
-        writer.writeCollectionOfObjectValues<ConnectionOperation>("operations", externalConnection.operations, );
-        writer.writeObjectValue<Schema>("schema", externalConnection.schema, );
-        writer.writeObjectValue<SearchSettings>("searchSettings", externalConnection.searchSettings, );
+        writer.writeCollectionOfObjectValues<ConnectionOperation>("operations", externalConnection.operations, serializeConnectionOperation);
+        writer.writeObjectValue<Schema>("schema", externalConnection.schema, serializeSchema);
+        writer.writeObjectValue<SearchSettings>("searchSettings", externalConnection.searchSettings, serializeSearchSettings);
 }
 // tslint:enable
 // eslint-enable

@@ -17,7 +17,7 @@ export function deserializeIntoServiceUpdateMessageCollectionResponse(serviceUpd
 }
 export function serializeServiceUpdateMessageCollectionResponse(writer: SerializationWriter, serviceUpdateMessageCollectionResponse: ServiceUpdateMessageCollectionResponse | undefined = {} as ServiceUpdateMessageCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, serviceUpdateMessageCollectionResponse)
-        writer.writeCollectionOfObjectValues<ServiceUpdateMessage>("value", serviceUpdateMessageCollectionResponse.value, );
+        writer.writeCollectionOfObjectValues<ServiceUpdateMessage>("value", serviceUpdateMessageCollectionResponse.value, serializeServiceUpdateMessage);
 }
 export interface ServiceUpdateMessageCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

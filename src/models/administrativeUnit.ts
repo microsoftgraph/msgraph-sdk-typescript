@@ -51,9 +51,9 @@ export function serializeAdministrativeUnit(writer: SerializationWriter, adminis
         serializeDirectoryObject(writer, administrativeUnit)
         writer.writeStringValue("description", administrativeUnit.description);
         writer.writeStringValue("displayName", administrativeUnit.displayName);
-        writer.writeCollectionOfObjectValues<Extension>("extensions", administrativeUnit.extensions, );
-        writer.writeCollectionOfObjectValues<DirectoryObject>("members", administrativeUnit.members, );
-        writer.writeCollectionOfObjectValues<ScopedRoleMembership>("scopedRoleMembers", administrativeUnit.scopedRoleMembers, );
+        writer.writeCollectionOfObjectValues<Extension>("extensions", administrativeUnit.extensions, serializeExtension);
+        writer.writeCollectionOfObjectValues<DirectoryObject>("members", administrativeUnit.members, serializeDirectoryObject);
+        writer.writeCollectionOfObjectValues<ScopedRoleMembership>("scopedRoleMembers", administrativeUnit.scopedRoleMembers, serializeScopedRoleMembership);
         writer.writeStringValue("visibility", administrativeUnit.visibility);
 }
 // tslint:enable

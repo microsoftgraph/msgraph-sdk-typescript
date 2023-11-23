@@ -24,7 +24,7 @@ export function deserializeIntoApplyPostRequestBody(applyPostRequestBody: ApplyP
     }
 }
 export function serializeApplyPostRequestBody(writer: SerializationWriter, applyPostRequestBody: ApplyPostRequestBody | undefined = {} as ApplyPostRequestBody) : void {
-        writer.writeObjectValue<WorkbookFilterCriteria>("criteria", applyPostRequestBody.criteria, );
+        writer.writeObjectValue<WorkbookFilterCriteria>("criteria", applyPostRequestBody.criteria, serializeWorkbookFilterCriteria);
         writer.writeAdditionalData(applyPostRequestBody.additionalData);
 }
 // tslint:enable
